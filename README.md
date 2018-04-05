@@ -12,7 +12,7 @@ Navigate to the folder you want to contain MOPs, and from BASH / Git BASH type:
 `git clone https://github.com/toadstorm/MOPS.git`
 
 Edit your houdini.env file and create a variable called MOPS that points to the new folder:
-`$MOPS = "/path/to/MOPS"`
+`MOPS = "/path/to/MOPS"`
 
 Finally, add `$MOPS/otls` to your HOUDINI_OTLSCAN_PATH:
 `HOUDINI_OTLSCAN_PATH = $MOPS/otls;@/otls`
