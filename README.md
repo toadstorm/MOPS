@@ -1,7 +1,7 @@
 MOPs
 ======
 
-![MOPs logo](https://https://github.com/toadstorm/MOPS/mops_logo_01.png)
+![MOPs logo](https://https://github.com/toadstorm/MOPS/blob/master/mops_logo_01.png)
 
 Motion OPerators for Houdini, a motion graphics toolkit.
 
