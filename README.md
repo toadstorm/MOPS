@@ -42,3 +42,6 @@ Reserved point attributes include:
 * v@euler: Created internally by the Transform Modifier. If detected, the Apply Attributes SOP will apply these rotations to the incoming points instead of using p@orient. This is to prevent flipping when animating rotations beyond 180 degrees on a given axis.
 
 MOPs is developed and maintained by Moritz Schwind and Henry Foster. Additional contributions by Adam Swaab, Jake Rice, Ian Farnsworth, and Kevin Weber. 
+
+### Notice:
+This software is provided AS-IS, with absolutely no warranty of any kind, express or otherwise. We disclaim any liability for damages resulting from using this software.
