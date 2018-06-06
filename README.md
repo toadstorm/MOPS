@@ -20,6 +20,8 @@ Edit your houdini.env file and create a variable called MOPS that points to the 
 Finally, add `$MOPS/otls` to your HOUDINI_OTLSCAN_PATH:
 `HOUDINI_OTLSCAN_PATH = $MOPS/otls;@/otls`
 
+On Linux and OSX, use : instead of ; to separate your paths. You can append the $MOPS/otls path to any existing HOUDINI_OTLSCAN_PATHS you have, just make sure the paths end with @/otls.
+
 ### Usage basics:
 
 The main types of nodes in MOPs are the Generators, Modifiers, and Falloff nodes. Generators like the MOPs Instancer create copies of objects. Modifiers transform or otherwise change the objects. Falloffs weight the effects of Modifiers.
