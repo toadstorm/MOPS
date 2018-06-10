@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shelfDocument>
+  <!-- This file contains definitions of shelves, toolbars, and tools.
+ It should not be hand-edited when it is being used by the application.
+ Note, that two definitions of the same element are not allowed in
+ a single file. -->
+
+  <toolshelf name="MOPs" label="MOPs">
+    <memberTool name="MOPS_convert_point_instances"/>
+  </toolshelf>
+
+  <tool name="MOPS_convert_point_instances" label="MOPs to Point Instances" icon="opdef:MOPS::Sop/Instancer::1.1?mops_instancing.svg">
+    <helpText><![CDATA[= MOPs to Point Instances = 
+
+"""Converts a MOPs network into Fast Point Instances, for use with other renderers such as Redshift. """
+
+This shelf tool converts one or more SOP networks with MOPs in them into individual object containers for each instance, along with an Instancer object that references them.
+The generated <network_name>_MOPS_INSTANCE_RENDER Instance object is the resulting renderable object. The generated object containers are placed inside the subnetwork "MOPS_INSTANCES."
+
+If you modify your instance object paths or indexes, you will likely need to delete the automatically generated MOPS_INSTANCE_RENDER Instance container before using this tool again.]]></helpText>
+    <toolMenuContext name="viewer">
+      <contextNetType>OBJ</contextNetType>
+      <contextNetType>SOP</contextNetType>
+    </toolMenuContext>
+    <toolMenuContext name="network">
+      <contextNetType>OBJ</contextNetType>
+      <contextNetType>SOP</contextNetType>
+    </toolMenuContext>
+    <script scriptType="python"><![CDATA["""
+1.) get all s@objpath paths
+2.) create object container subnet 'INSTANCES'
+3.) create object container for each path found 
+4.) object merge original (absolute) path of each path found into containers
+5.) create originalSOP_INSTANCER object container
+6.) append extract attributes and output null to original MOP network
+6.) object merge output of original MOP network into originalSOP_INSTANCER and delete prims
+7.) set s@instance attribute to point to generated containers
+"""
+import toolutils
+
+prompt = toolutils.selectionPrompt(hou.sopNodeTypeCategory())
+scene_viewer = toolutils.sceneViewer()
+sel = scene_viewer.selectObjects(prompt)
+INSTANCE_DICT = dict()
+
+# collect instance paths
+for i in sel:
+    INSTANCE_DICT[i.path()] = dict()
+    INSTANCE_DICT[i.path()]['paths'] = dict()
+
+    out = i.displayNode()
+    path_attr = out.geometry().findPointAttrib('objpath')
+    if not path_attr:
+        hou.ui.displayMessage('SOP node {} does not have "objpath" point attribute!'.format(out.name()), severity=hou.severityType.Error)
+        continue
+    index_attr = out.geometry().findPointAttrib('mops_index')
+    if not index_attr:
+        hou.ui.displayMessage('SOP node {} does not have "mops_index" point attribute!'.format(out.name()), severity=hou.severityType.Error)
+        continue
+    # since i'm shit at iterating over geometry, if there's a material override,
+    # let's just promote that to a point attrib so we can do it all at once.
+    mat_overrides = False
+    temp_promote = None
+    if out.geometry().findPrimAttrib('shop_materialpath'):
+        mat_overrides = True
+        temp_promote = i.createNode('attribpromote')
+        temp_promote.setFirstInput(out)
+        temp_promote.parm('inclass').set('primitive')
+        temp_promote.parm('inname').set('shop_materialpath')
+        out = temp_promote
+    
+    # now get paths information.
+    for pt in out.geometry().iterPoints():
+        path = pt.attribValue('objpath')
+        index = str(pt.attribValue('mops_index'))
+        if path not in INSTANCE_DICT[i.path()]['paths'].keys():
+            INSTANCE_DICT[i.path()]['paths'][path] = dict()
+            INSTANCE_DICT[i.path()]['paths'][path]['index'] = index
+            INSTANCE_DICT[i.path()]['paths'][path]['material'] = None
+            if mat_overrides:
+                mat = pt.attribValue('shop_materialpath')
+                INSTANCE_DICT[i.path()]['paths'][path]['material'] = mat
+                
+    if temp_promote:
+        temp_promote.destroy()
+                
+# print(INSTANCE_DICT)
+            
+# get or build instances container subnet
+instances_container = hou.node('/obj/MOPS_INSTANCES')
+if instances_container is None:
+    instances_container = hou.node('/obj').createNode('subnet', 'MOPS_INSTANCES')
+    instances_container.setDisplayFlag(False)
+
+# generate instance object containers
+for network in INSTANCE_DICT:
+    for i, v in INSTANCE_DICT[network]['paths'].iteritems():
+        name = i.replace('/', '_')
+        instanced_node = instances_container.node(name)
+        if instanced_node is None:
+            instanced_node = instances_container.createNode('geo', name)
+            instanced_node.node('file1').destroy()
+            merge = instanced_node.createNode('object_merge')
+            merge.parm('xformtype').set('local')
+            merge.parm('objpath1').set(i)
+            merge.setRenderFlag(True)
+            merge.setDisplayFlag(True)
+            # set material if one exists
+            if v['material'] is not None:
+                instanced_node.parm('shop_materialpath').set(v['material'])
+    
+for i in sel:
+    # append output null to MOPS network(s)
+    null = i.node('MOPS_OUT')
+    if null is None:
+        null = i.createNode('null', 'MOPS_OUT')
+        out = i.displayNode()
+        null.setFirstInput(out)
+               
+    # generate point instancer
+    name = '/obj/{}_MOPS_INSTANCE_RENDER'.format(i.name())
+    instancer = hou.node(name)
+    if instancer is None:
+        instancer = hou.node('/obj').createNode('instance', name.split('/')[-1])
+        instancer.parm('ptinstance').set('fast')
+        instancer.node('add').destroy()
+        hou.node('/obj').layoutChildren([instancer])
+    
+    # merge in mops output and convert to points
+    merge = instancer.node('merge_in_MOPS')
+    if merge is None:
+        merge = instancer.createNode('object_merge', 'merge_in_MOPS')
+        merge.parm('objpath1').set(null.path())
+    extract = instancer.node('extract_attributes')
+    if extract is None:
+        extract = instancer.createNode('MOPS::Extract_Attributes::1.0', 'extract_attributes')
+        extract.setFirstInput(merge)
+    add = instancer.node('remove_prims')
+    if add is None:
+        add = instancer.createNode('add', 'remove_prims')
+        add.parm('keep').set(True)
+        add.setFirstInput(extract)
+        
+    # point wrangle will map original instancer objpath attrs to new instance containers
+    setInstance = instancer.node('set_instance_path')
+    if setInstance is None:
+        setInstance = instancer.createNode('attribwrangle', 'set_instance_path')
+        setInstance.setFirstInput(add)
+        setInstance.setDisplayFlag(True)
+        setInstance.setRenderFlag(True)
+        
+    # generate instancing string. 
+    instance_snippet = ""
+    for k, v in INSTANCE_DICT[i.path()]['paths'].iteritems():
+        container = instances_container.node(k.replace('/', '_'))
+        instance_snippet += 'if(i@mops_index == {}) s@instance = "{}";\n'.format(v['index'], container.path())
+    setInstance.parm('snippet').set(instance_snippet)
+        
+    # cleanup
+    instancer.layoutChildren()    
+    i.setDisplayFlag(False)
+    instances_container.layoutChildren()
+    hou.node('/obj').layoutChildren()]]></script>
+  </tool>
+</shelfDocument>

@@ -19,8 +19,10 @@ Edit your houdini.env file and create a variable called MOPS that points to the 
 
 Finally, add `$MOPS/otls` to your HOUDINI_OTLSCAN_PATH:
 `HOUDINI_OTLSCAN_PATH = $MOPS/otls;@/otls`
+And add `$MOPS/toolbar` to your HOUDINI_TOOLBAR_PATH:
+`HOUDINI_TOOLBAR_PATH = $MOPS/toolbar;@/toolbar`
 
-On Linux and OSX, use : instead of ; to separate your paths. You can append the $MOPS/otls path to any existing HOUDINI_OTLSCAN_PATHS you have, just make sure the paths end with @/otls.
+On Linux and OSX, use : instead of ; to separate your paths. You can append the $MOPS/otls path to any existing HOUDINI_OTLSCAN_PATHS you have, just make sure the paths end with @/otls, and similarly for HOUDINI_TOOLBAR_PATH.
 
 ### Usage basics:
 
