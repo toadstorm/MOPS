@@ -1,0 +1,73 @@
+# Dialog script for MOPS::Explode::1.0 automatically generated
+
+{
+    name	MOPS::Explode::1.0
+    script	MOPS::Explode::1.0
+    label	"MOPs Explode"
+
+    help {
+	""
+    }
+
+    inputlabel	1	Geometry
+    inputlabel	2	"Sub-Network Input #2"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+
+    parm {
+        name    "docalcnorm"
+        label   "Recalculate Input Normals"
+        type    toggle
+        default { "1" }
+        range   { 0! 10 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "preservefalloff"
+        label   "Preserve Falloff"
+        type    toggle
+        default { "1" }
+    }
+    parm {
+        name    "manual_up"
+        label   "Manual Up Vector"
+        type    toggle
+        default { "0" }
+        range   { 0 10 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "Up_Vector"
+        label   "Up Vector"
+        type    vector
+        size    3
+        default { "0" "1" "0" }
+        disablewhen "{ manual_up != 1 }"
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "jitter"
+        label   "Jitter Up Vector"
+        type    toggle
+        default { "1" }
+        disablewhen "{ manual_up == 0 }"
+        range   { 0 10 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "jitter_amount"
+        label   "Jitter Amount"
+        type    float
+        default { "0.01" }
+        disablewhen "{ manual_up == 0 }"
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "doinvertnormal"
+        label   "Invert Normal"
+        type    toggle
+        default { "0" }
+    }
+}

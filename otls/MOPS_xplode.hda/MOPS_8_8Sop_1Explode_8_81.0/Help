@@ -1,0 +1,57 @@
+= MOPs Explode =
+
+#icon: opdef:.?mops_misc_05.svg
+
+"""Turns each polygon in a geometry into an individual MOPs instance."""
+
+Known Limitations: This node can produce errors in Houdini's viewport shading of newly created MOPs instances.
+
+If you'd like to use MOPs tools on a geometry's polygons, use this node to turn the geometry into individual MOPs instances.
+
+== Overview ==
+
+@inputs
+
+Geometry:
+    Plug in geometry that should be converted to instances in here.
+
+@parameters
+
+== General ==
+
+Recalculate Input Normals:
+    #id: docalcnorm
+
+    Recalculates the geometry's input normals before converting geo to instances.
+    
+Preserve Falloff:
+    #id: preservefalloff
+
+    Preserves falloff values that exist on the input geometry's primitives (f@mops_falloff).
+    
+Manual Up Vector:
+    #id: manual_up
+
+    Use a manually set up vector to generate each individual instance's local coordinate system.
+    
+Up Vector:
+    #id: Up_Vector
+
+    Up Vector to use when calculating instance's local coordinate system..
+    
+Invert Normal:
+    #id: doinvertnormal
+
+    Invert instance's normal.
+                    
+@related
+
+* [Node:sop/MOPs_Combine_Falloffs]
+* [Node:sop/MOPs_Object_Falloff]
+* [Node:sop/MOPs_Plain_Falloff]
+* [Node:sop/MOPs_Remap_Falloff]
+* [Node:sop/MOPs_Shape_Falloff]
+* [Node:sop/MOPs_Spline_Falloff]
+* [Node:sop/MOPs_Texture_Falloff]
+* [Node:sop/MOPs_Index_From_Attribute]
+* [Node:sop/MOPs_Transform_Falloffs]

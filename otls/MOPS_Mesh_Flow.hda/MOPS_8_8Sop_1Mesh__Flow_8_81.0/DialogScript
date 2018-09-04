@@ -1,0 +1,176 @@
+# Dialog script for MOPS::Mesh_Flow::1.0 automatically generated
+
+{
+    name	MOPS::Mesh_Flow::1.0
+    script	MOPS::Mesh_Flow::1.0
+    label	"MOPs Mesh Flow"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Input Mesh"
+    inputlabel	2	"Sub-Network Input #2"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+
+    parm {
+        name    "do_n"
+        label   "Compute Normal"
+        type    toggle
+        default { "1" }
+        range   { 0! 10 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "do_up"
+        label   "Compute Up"
+        type    toggle
+        default { "1" }
+        range   { 0! 10 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "up"
+        label   "Up"
+        type    vector
+        size    3
+        default { "0" "1" "0" }
+        disablewhen "{ do_up == 0 }"
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "use_orient"
+        label   "Derive N/Up From Orient"
+        type    toggle
+        default { "0" }
+        range   { 0! 10 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "do_curl"
+        label   "Enable Curl Noise"
+        type    toggle
+        default { "0" }
+        range   { 0! 10 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    group {
+        name    "folder0"
+        label   "Curl Noise"
+        disablewhentab "{ do_curl == 0 }"
+
+        parm {
+            name    "bias"
+            label   "Blend with Original"
+            type    float
+            default { "0.5" }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "parmvop" "1" }
+            parmtag { "shaderparmcontexts" "cvex" }
+        }
+        parm {
+            name    "use_rest"
+            label   "Use Rest Position"
+            type    toggle
+            default { "off" }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "parmvop" "1" }
+            parmtag { "shaderparmcontexts" "cvex" }
+        }
+        parm {
+            name    "type"
+            label   "Noise Type"
+            type    string
+            default { "pnoise" }
+            menu {
+                "pnoise"        "Perlin Noise"
+                "onoise"        "Original Perlin Noise"
+                "snoise"        "Sparse Convolution Noise"
+                "anoise"        "Alligator Noise"
+                "xnoise"        "Simplex Noise"
+                "exact_pnoise"  "Analytic Perlin Noise"
+                "exact_xnoise"  "Analytic Simplex Noise"
+            }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "parmvop" "1" }
+            parmtag { "shaderparmcontexts" "cvex" }
+        }
+        parm {
+            name    "freq"
+            label   "Frequency"
+            type    float
+            size    3
+            default { "1" "1" "1" }
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "parmvop" "1" }
+            parmtag { "shaderparmcontexts" "cvex" }
+        }
+        parm {
+            name    "offset"
+            label   "Offset"
+            type    float
+            size    3
+            default { "0" "0" "0" }
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "parmvop" "1" }
+            parmtag { "shaderparmcontexts" "cvex" }
+        }
+        parm {
+            name    "amp"
+            label   "Amplitude"
+            type    float
+            default { "1" }
+            range   { -1 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "parmvop" "1" }
+            parmtag { "shaderparmcontexts" "cvex" }
+        }
+        parm {
+            name    "rough"
+            label   "Roughness"
+            type    float
+            default { "0.5" }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "parmvop" "1" }
+            parmtag { "shaderparmcontexts" "cvex" }
+        }
+        parm {
+            name    "atten"
+            label   "Attenuation"
+            type    float
+            default { "1" }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "parmvop" "1" }
+            parmtag { "shaderparmcontexts" "cvex" }
+        }
+        parm {
+            name    "turb"
+            label   "Turbulence"
+            type    integer
+            default { "3" }
+            range   { 1 12 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "parmvop" "1" }
+            parmtag { "shaderparmcontexts" "cvex" }
+        }
+        parm {
+            name    "h"
+            label   "Step Size"
+            type    float
+            default { "0.0001" }
+            disablewhen "{ type == exact_pnoise } { type == exact_xnoise }"
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "parmvop" "1" }
+            parmtag { "shaderparmcontexts" "cvex" }
+        }
+    }
+
+}

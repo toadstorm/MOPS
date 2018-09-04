@@ -1,0 +1,46 @@
+= MOPs Mesh Flow =
+#icon: opdef:.?mops_modifier_02.svg
+
+""" Initializes N and up vectors for use by MOPs Move Along Mesh. """
+
+The MOPs Mesh Flow Modifier can be used to quickly generate normal and up vectors for use by MOPs Move Along Mesh. The resulting vectors can be further modified by a Comb SOP or any other point operation.
+
+== Overview ==
+
+@inputs
+Input Mesh:
+    The polygon mesh to generate flow vectors on.
+    
+@parameters
+
+== General ==
+
+Compute Normal:
+    #id: do_n
+    Compute normals on the input mesh.
+    
+Compute Up:
+    #id: do_up
+    Initialize an up vector on the input mesh. This is done by computing the cross product of the "up" parameter with the mesh normals.
+    
+Up:
+    #id: up
+    The vector to use when computing the up vector. You can think of this as the normal vector of an imaginary plane that slices through each point. The cross product of this vector and the mesh normals determines the output up vector.
+    
+Derive N/up from Orient:
+    #id: use_orient
+    If your input mesh already has a p@orient attribute, the mesh flow vectors will be generated from this attribute instead.
+    
+Enable Curl Noise:
+    #id: do_curl
+    Blend the mesh flow vectors with curl noise.
+   
+== Curl Noise ==
+
+Blend With Original:
+    #id: bias
+    The amount to blend the curl noise in with the initial flow vectors. A value of 1.0 outputs entirely curl noise.
+    
+Use Rest Position:
+    #id: use_rest
+    If the input mesh has a v@rest point attribute, use this attribute to lookup the noise values instead of position (@P).

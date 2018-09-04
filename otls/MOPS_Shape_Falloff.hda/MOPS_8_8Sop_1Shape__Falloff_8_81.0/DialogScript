@@ -1,0 +1,404 @@
+# Dialog script for MOPS::Shape_Falloff::1.0 automatically generated
+
+{
+    name	MOPS::Shape_Falloff::1.0
+    script	MOPS::Shape_Falloff::1.0
+    label	"MOPs Shape Falloff"
+
+    help {
+	""
+    }
+    bindhandle rx xform "Transformer" rx "movetool_candidate(1) ownerop('transform2') owneropgroup('group')"
+    bindhandle ry xform "Transformer" ry "movetool_candidate(1) ownerop('transform2') owneropgroup('group')"
+    bindhandle rz xform "Transformer" rz "movetool_candidate(1) ownerop('transform2') owneropgroup('group')"
+    bindhandle sx xform "Transformer" sx "movetool_candidate(1) ownerop('transform2') owneropgroup('group')"
+    bindhandle sy xform "Transformer" sy "movetool_candidate(1) ownerop('transform2') owneropgroup('group')"
+    bindhandle sz xform "Transformer" sz "movetool_candidate(1) ownerop('transform2') owneropgroup('group')"
+    bindhandle xOrd xform "Transformer" trs_order "movetool_candidate(1) ownerop('transform2') owneropgroup('group')"
+    bindhandle tx xform "Transformer" tx "movetool_candidate(1) ownerop('transform2') owneropgroup('group')"
+    bindhandle ty xform "Transformer" ty "movetool_candidate(1) ownerop('transform2') owneropgroup('group')"
+    bindhandle tz xform "Transformer" tz "movetool_candidate(1) ownerop('transform2') owneropgroup('group')"
+    bindhandle scale xform "Transformer" uniform_scale "movetool_candidate(1) ownerop('transform2') owneropgroup('group')"
+    bindhandle rOrd xform "Transformer" xyz_order "movetool_candidate(1) ownerop('transform2') owneropgroup('group')"
+
+    inputlabel	1	"Packed Primitives"
+    inputlabel	2	"Falloff Transforms"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+
+    parm {
+        name    "do_preview"
+        label   "Preview Falloff"
+        type    toggle
+        default { "1" }
+    }
+    parm {
+        name    "sepparm"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "input"
+        label   "Show Helper Geo"
+        type    toggle
+        default { "1" }
+    }
+    parm {
+        name    "shapemode_switch"
+        label   "Mode"
+        type    ordinal
+        default { "0" }
+        menu {
+            "0" "Sphere"
+            "1" "Linear"
+            "2" "Box"
+            "3" "Torus"
+            "4" "Cylinder"
+        }
+    }
+    parm {
+        name    "blendmode"
+        label   "Blend Mode"
+        type    ordinal
+        default { "0" }
+        menu {
+            "0" "Normal (Set)"
+            "1" "Add"
+            "2" "Subtract"
+            "3" "Multiply"
+            "4" "Divide"
+        }
+    }
+    parm {
+        name    "clamp"
+        label   "Clamp Falloff Values (0-1)"
+        type    toggle
+        default { "0" }
+    }
+    groupsimple {
+        name    "xform"
+        label   "Transform"
+
+        parm {
+            name    "t"
+            label   "Translate"
+            type    vector
+            size    3
+            default { "0" "0" "0" }
+            range   { -1 1 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "r"
+            label   "Rotate"
+            type    vector
+            size    3
+            default { "0" "0" "0" }
+            range   { 0 360 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "s"
+            label   "Scale"
+            type    vector
+            size    3
+            default { "1" "1" "1" }
+            range   { -1 1 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "scale"
+            label   "Uniform Scale"
+            type    float
+            default { "1" }
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "xOrd"
+            label   "Transform Order"
+            type    ordinal
+            joinnext
+            default { "srt" }
+            menu {
+                "srt"   "Scale Rot Trans"
+                "str"   "Scale Trans Rot"
+                "rst"   "Rot Scale Trans"
+                "rts"   "Rot Trans Scale"
+                "tsr"   "Trans Scale Rot"
+                "trs"   "Trans Rot Scale"
+            }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "rOrd"
+            label   "Rotate Order"
+            type    ordinal
+            nolabel
+            default { "xyz" }
+            menu {
+                "xyz"   "Rx Ry Rz"
+                "xzy"   "Rx Rz Ry"
+                "yxz"   "Ry Rx Rz"
+                "yzx"   "Ry Rz Rx"
+                "zxy"   "Rz Rx Ry"
+                "zyx"   "Rz Ry Rx"
+            }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+    }
+
+    group {
+        name    "sphere_settings"
+        label   "Sphere"
+        hidewhentab "{ shapemode_switch != 0 }"
+
+        parm {
+            name    "radius"
+            label   "Radius"
+            type    float
+            default { "1" }
+            range   { 0 1 }
+        }
+        parm {
+            name    "falloff"
+            label   "Falloff"
+            type    float
+            default { "1" }
+            range   { 0 1 }
+        }
+        parm {
+            name    "spline"
+            label   "Remap Falloff"
+            type    ramp_flt
+            default { "2" }
+            range   { 1! 10 }
+        }
+    }
+
+    group {
+        name    "sphere_settings_1"
+        label   "Linear"
+        hidewhentab "{ shapemode_switch != 1 }"
+
+        parm {
+            name    "length"
+            label   "Length"
+            type    float
+            default { "1" }
+            range   { 0 1 }
+        }
+        parm {
+            name    "falloff2"
+            label   "Falloff"
+            type    float
+            default { "1" }
+            range   { 0 1 }
+        }
+        parm {
+            name    "spline2"
+            label   "Remap Falloff"
+            type    ramp_flt
+            default { "2" }
+            range   { 1! 10 }
+        }
+    }
+
+    group {
+        name    "sphere_settings_2"
+        label   "Box"
+        tabbreak
+        hidewhentab "{ shapemode_switch != 2 }"
+
+        parm {
+            name    "size"
+            label   "Size"
+            type    vector
+            size    3
+            default { "1" "1" "1" }
+            range   { 0 1 }
+        }
+        parm {
+            name    "falloff3"
+            label   "Falloff"
+            type    float
+            default { "1" }
+            range   { 0 1 }
+        }
+        parm {
+            name    "spline3"
+            label   "Remap Falloff"
+            type    ramp_flt
+            default { "2" }
+            range   { 1! 10 }
+        }
+    }
+
+    group {
+        name    "sphere_settings_3"
+        label   "Torus"
+        hidewhentab "{ shapemode_switch != 3 }"
+
+        parm {
+            name    "size2"
+            label   "Size"
+            type    vector
+            size    3
+            default { "0.4" "0.2" "0" }
+            range   { 0 1 }
+        }
+        parm {
+            name    "falloff4"
+            label   "Falloff"
+            type    float
+            default { "0.5" }
+            range   { 0 1 }
+        }
+        parm {
+            name    "spline4"
+            label   "Remap Falloff"
+            type    ramp_flt
+            default { "2" }
+            range   { 1! 10 }
+        }
+    }
+
+    group {
+        name    "sphere_settings_3_1"
+        label   "Cylinder"
+        tabbreak
+        hidewhentab "{ shapemode_switch != 4 }"
+
+        parm {
+            name    "size3"
+            label   "Size"
+            type    vector
+            size    3
+            default { "0.36" "1.2" "0" }
+            range   { 0 1 }
+        }
+        parm {
+            name    "falloff5"
+            label   "Falloff"
+            type    float
+            default { "0.4" }
+            range   { 0 1 }
+        }
+        parm {
+            name    "spline5"
+            label   "Remap Fallloff"
+            type    ramp_flt
+            default { "2" }
+            range   { 1! 10 }
+        }
+    }
+
+    groupsimple {
+        name    "folder0"
+        label   "Noise"
+
+        parm {
+            name    "donoise"
+            label   "Add Noise"
+            type    toggle
+            default { "0" }
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "parmvop" "1" }
+            parmtag { "shaderparmcontexts" "cvex" }
+        }
+        parm {
+            name    "basis"
+            label   "Noise Type"
+            type    string
+            default { "alligator" }
+            hidewhen "{ donoise != 1 }"
+            menu {
+                "sine"      "Sinusoid"
+                "perlin"    "Perlin"
+                "pperlin"   "Periodic Perlin"
+                "simplex"   "Simplex (Improved Perlin)"
+                "sparse"    "Sparse Convolution"
+                "flow"      "Flow"
+                "pflow"     "Periodic Flow"
+                "worleyFA"  "Worley (cellular) F1"
+                "worleyFB"  "Worley (cellular) F2-F1"
+                "mworleyFA" "Manhattan Worley (cellular) F1"
+                "mworleyFB" "Manhattan Worley (cellular) F2-F1"
+                "cworleyFA" "Chebyshev Worley (cellular) F1"
+                "cworleyFB" "Chebyshev Worley (cellular) F2-F1"
+                "alligator" "Alligator"
+            }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "parmvop" "1" }
+            parmtag { "shaderparmcontexts" "cvex" }
+        }
+        parm {
+            name    "noiseamp"
+            label   "Amplitude"
+            type    float
+            default { "0" }
+            hidewhen "{ donoise != 1 }"
+            range   { 0 10 }
+        }
+        parm {
+            name    "freq"
+            label   "Frequency"
+            type    float
+            size    4
+            default { "5" "5" "5" "1" }
+            hidewhen "{ donoise != 1 }"
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "parmvop" "1" }
+            parmtag { "shaderparmcontexts" "cvex" }
+        }
+        parm {
+            name    "offset"
+            label   "Offset"
+            type    float
+            size    4
+            default { "0" "0" "0" "0" }
+            hidewhen "{ donoise != 1 }"
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "parmvop" "1" }
+            parmtag { "shaderparmcontexts" "cvex" }
+        }
+        parm {
+            name    "fractal"
+            label   "Fractal"
+            type    string
+            default { "none" }
+            hidewhen "{ donoise != 1 }"
+            menu {
+                "none"  "None"
+                "fBm"   "Standard (fBm)"
+                "mfT"   "Terrain"
+                "hmfT"  "Hybrid Terrain"
+            }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "parmvop" "1" }
+            parmtag { "shaderparmcontexts" "cvex" }
+        }
+        parm {
+            name    "ramp_noise"
+            label   "Ramp Noise"
+            type    ramp_flt
+            default { "2" }
+            hidewhen "{ donoise != 1 }"
+            range   { 1! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "parmvop" "1" }
+            parmtag { "rampbasis_var" "ramp_noise_the_basis_strings" }
+            parmtag { "rampbasisdefault" "linear" }
+            parmtag { "rampfloatdefault" "1pos ( 0 ) 1value ( 0 ) 1interp ( linear ) 2pos ( 1 ) 2value ( 1 ) 2interp ( linear )" }
+            parmtag { "rampkeys_var" "ramp_noise_the_key_positions" }
+            parmtag { "rampshowcontrolsdefault" "1" }
+            parmtag { "rampvalues_var" "ramp_noise_the_key_values" }
+            parmtag { "shaderparmcontexts" "cvex" }
+        }
+    }
+
+}

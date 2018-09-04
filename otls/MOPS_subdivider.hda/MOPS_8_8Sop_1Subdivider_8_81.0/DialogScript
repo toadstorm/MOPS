@@ -1,0 +1,51 @@
+# Dialog script for MOPS::Subdivider::1.0 automatically generated
+
+{
+    name	MOPS::Subdivider::1.0
+    script	MOPS::Subdivider::1.0
+    label	"MOPs Subdivider"
+
+    help {
+	""
+    }
+
+    inputlabel	1	Geometry
+    inputlabel	2	"Sub-Network Input #2"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+
+    parm {
+        name    "maxsubs"
+        label   "Max Subdivisions"
+        type    integer
+        default { "2" }
+        range   { 0 10 }
+    }
+    parm {
+        name    "extrudeamt"
+        label   "Extrude Strength"
+        type    float
+        default { "0.5" }
+        range   { -1 1 }
+    }
+    parm {
+        name    "scaleexp"
+        label   "Extrusion Falloff Exponent"
+        type    float
+        default { "3" }
+        range   { 1 8 }
+    }
+    parm {
+        name    "minarea"
+        label   "Min. Area"
+        type    float
+        default { "0.001" }
+        range   { 0 10 }
+    }
+    parm {
+        name    "recompN"
+        label   "Recompute Normals"
+        type    toggle
+        default { "1" }
+    }
+}

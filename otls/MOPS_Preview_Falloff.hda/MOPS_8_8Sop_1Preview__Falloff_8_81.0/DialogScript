@@ -1,0 +1,48 @@
+# Dialog script for MOPS::Preview_Falloff::1.0 automatically generated
+
+{
+    name	MOPS::Preview_Falloff::1.0
+    script	MOPS::Preview_Falloff::1.0
+    label	"MOPs Preview Falloff"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Input MOPs Primitives"
+    inputlabel	2	"Sub-Network Input #2"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+
+    parm {
+        name    "restore_backup_cd"
+        label   "Restore Original Color"
+        type    toggle
+        default { "0" }
+        range   { 0! 10 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "ramp_preset"
+        label   "Preset"
+        type    ordinal
+        default { "0" }
+        menu {
+            "heatmap"   "Heatmap"
+            "blackbody" "Blackbody"
+            "infrared"  "Infrared"
+        }
+        parmtag { "script_callback" "hou.phm().ramp_preset_callback(kwargs)" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "falloff_heatmap"
+        label   "Falloff Ramp"
+        type    ramp_rgb
+        default { "5" }
+        range   { 1! 10 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "rampcolordefault" "1pos ( 0 ) 1c ( 0.036199998110532761 0 0.5429999828338623 ) 1interp ( linear ) 2pos ( 0.27027025818824768 ) 2c ( 0.7369999885559082 0 0 ) 2interp ( linear ) 3pos ( 0.71814674139022827 ) 3c ( 1 0.28333333134651184 0 ) 3interp ( linear ) 4pos ( 0.90154439210891724 ) 4c ( 0.89999997615814209 0.89999997615814209 0 ) 4interp ( linear ) 5pos ( 1 ) 5c ( 1 1 1 ) 5interp ( linear )" }
+        parmtag { "rampshowcontrolsdefault" "0" }
+    }
+}

@@ -1,0 +1,20 @@
+= MOPs Extract Attributes =
+
+#icon: opdef:.?mops_TD_tools_05.svg
+
+"""Creates Houdini point instancing attributes from MOPs Packed Primitives."""
+
+This is a low-level node intended to help artists develop their own MOPs modifiers. 
+The Extract Attributes node takes MOPs packed primitives and converts their packed primitive intrinsic attributes into standard Houdini instancing attributes (p@orient, v@scale, @pscale, etc.)
+The extracted attributes are written directly to the points representing the packed primitives.
+
+This operator generates the following point attributes: p@orient, v@scale, v@N, v@up, v@pivot
+
+@inputs
+
+Input MOPs Primitives:
+    The MOPs primitives to extract instancing attributes from.
+    
+@related
+
+* [MOPs Apply Attributes|Node:sop/MOPS--Apply_Attributes-1.0]
