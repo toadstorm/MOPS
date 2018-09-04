@@ -1168,6 +1168,26 @@
                 parmtag { "autoscope" "0000000000000000" }
             }
             parm {
+                name    "usedensityattrib"
+                label   "Use Density Attribute"
+                type    toggle
+                nolabel
+                joinnext
+                default { "off" }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "densityattrib"
+                label   "Density Attribute"
+                type    string
+                default { "density" }
+                disablewhen "{ usedensityattrib 0 }"
+                menutoggle {
+                    [ "opmenu -l scatter1 densityattrib" ]
+                }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
                 name    "relaxiterations"
                 label   "Relax Iterations"
                 type    integer
