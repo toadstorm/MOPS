@@ -513,7 +513,6 @@
         group {
             name    "stdswitcher_2"
             label   "Trigger"
-            tabbreak
 
             parm {
                 name    "do_trigger"
@@ -634,7 +633,6 @@
             group {
                 name    "stdswitcher3_2"
                 label   "Sustain"
-                tabbreak
                 disablewhentab "{ do_trigger == 0 }"
 
                 parm {
@@ -689,6 +687,170 @@
                 }
             }
 
+        }
+
+        group {
+            name    "stdswitcher_3"
+            label   "Lag"
+
+            parm {
+                name    "do_lag"
+                label   "Enable Lag"
+                type    toggle
+                default { "0" }
+            }
+            parm {
+                name    "lagmethod"
+                label   "Method"
+                type    ordinal
+                default { "value" }
+                disablewhen "{ do_lag == 0 }"
+                menu {
+                    "value" "Lag Value"
+                    "amp"   "Lag Amplitude"
+                    "mag"   "Lag Magnitude"
+                }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "lag"
+                label   "Lag"
+                type    float
+                size    2
+                default { "0.2" "0.2" }
+                disablewhen "{ do_lag 0 }"
+                range   { 0! 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "overshoot"
+                label   "Overshoot"
+                type    float
+                size    2
+                default { "0" "0" }
+                disablewhen "{ do_lag 0 }"
+                range   { 0! 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "clamp"
+                label   "Clamp Slope"
+                type    toggle
+                default { "off" }
+                disablewhen "{ do_lag 0 }"
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "slope"
+                label   "Max Slope"
+                type    float
+                size    2
+                default { "1" "1" }
+                disablewhen "{ do_lag 0 }"
+                range   { 0! 2 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "aclamp"
+                label   "Clamp Acceleration"
+                type    toggle
+                default { "off" }
+                disablewhen "{ do_lag 0 }"
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "accel"
+                label   "Max Acceleration"
+                type    float
+                size    2
+                default { "1" "1" }
+                disablewhen "{ do_lag == 0 }"
+                range   { 0! 2 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+        }
+
+        group {
+            name    "stdswitcher_4"
+            label   "Area"
+            tabbreak
+
+            parm {
+                name    "do_area"
+                label   "Enable Area"
+                type    toggle
+                default { "0" }
+            }
+            parm {
+                name    "order"
+                label   "Order"
+                type    ordinal
+                default { "first" }
+                disablewhen "{ do_area == 0 }"
+                menu {
+                    "first"     "First"
+                    "second"    "Second"
+                    "third"     "Third"
+                }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "constant1"
+                label   "First Constant"
+                type    float
+                default { "0" }
+                disablewhen "{ do_area == 0 }"
+                range   { -10 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "constant2"
+                label   "Second Constant"
+                type    float
+                default { "0" }
+                disablewhen "{ do_area == 0 }"
+                range   { -10 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "constant3"
+                label   "Third Constant"
+                type    float
+                default { "0" }
+                disablewhen "{ do_area == 0 }"
+                range   { -10 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "relative2"
+                label   "Unit Values"
+                type    ordinal
+                default { "rel" }
+                disablewhen "{ do_area == 0 }"
+                menu {
+                    "abs"   "Absolute"
+                    "rel"   "Relative to Start/End"
+                }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "start2"
+                label   "Start"
+                type    float
+                default { "0" }
+                disablewhen "{ do_area == 0 }"
+                range   { -10 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "end2"
+                label   "End"
+                type    float
+                default { "0" }
+                disablewhen "{ do_area == 0 }"
+                range   { -10 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
         }
 
     }

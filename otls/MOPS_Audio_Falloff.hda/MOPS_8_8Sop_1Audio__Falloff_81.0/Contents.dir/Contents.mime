@@ -32,24 +32,25 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.965998 -10.5994
-connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+position -2.31531 -1.90914
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
+0 "output1"
 }
 inputsNamed3
 {
-0 	MOPs_Spread_Falloff 1 1 "input1"
+1 	switch1 1 1 "input1"
 }
 inputs
 {
-0 	MOPs_Spread_Falloff 0 1
+0 	switch1 0 1
 }
 stat
 {
-  create 1536029867
-  modify 1536029996
+  create 1527129470
+  modify 1536033306
   author Henry@LAPPY586
   access 0777
 }
@@ -1167,7 +1168,7 @@ sepparm	[ 0	locks=0 ]	(	)
 ramp_preset	[ 0	locks=0 ]	(	[ ramp_preset	0 ] 	)
 falloff_heatmap	[ 0	locks=0 ]	(	[ falloff_heatmap	5 ] 	)
 fitparams	[ 0	locks=0 ]	(	0	)
-switchfit	[ 0	locks=0 ]	(	[ switchfit	1 ] 	)
+switchfit	[ 0	locks=0 ]	(	[ switchfit	0 ] 	)
 auto_min_max	[ 0	locks=0 ]	(	[ auto_min_max	0 ] 	)
 frame	[ 0	locks=0 ]	(	[ frame	1 ] 	)
 imin	[ 0	locks=0 ]	(	[ imin	0 ] 	)
@@ -1512,7 +1513,7 @@ inputs
 stat
 {
   create 1527115203
-  modify 1529113737
+  modify 1536033098
   author Henry@LAPPY586
   access 0777
 }
@@ -1676,11 +1677,11 @@ Content-Type: text/plain
 {
 version 0.8
 stdswitcher	[ 0	locks=0 ]	(	0	0	)
-file	[ 8	locks=0 ]	(	[ file	"" ] 	)
+file	[ 8	locks=0 ]	(	[ file	"C:/Users/Henry/Downloads/Daydream Nation/02 Silver Rocket.mp3" ] 	)
 reload	[ 0	locks=0 ]	(	[ reload	0 ] 	)
 nameoption	[ 0	locks=0 ]	(	[ nameoption	0 ] 	)
 name	[ 0	locks=0 ]	(	[ name	chan0 ] 	)
-rateoption	[ 0	locks=0 ]	(	[ rateoption	0 ] 	)
+rateoption	[ 0	locks=0 ]	(	[ rateoption	2 ] 	)
 rate	[ 0	locks=0 ]	(	[ rate	4096 ] 	)
 left	[ 0	locks=0 ]	(	[ left	0 ] 	)
 right	[ 0	locks=0 ]	(	[ right	0 ] 	)
@@ -1828,7 +1829,7 @@ inputs
 stat
 {
   create 1527118656
-  modify 1536029991
+  modify 1536033297
   author Henry@LAPPY586
   access 0777
 }
@@ -1888,10 +1889,10 @@ Content-Disposition: attachment; filename="hdaroot/audio/BANDS.inp"
 Content-Type: text/plain
 
 4
-0 0 2.2590000000000008 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
-1 15.249599999999999 -4.3674000987410544 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
-2 15.249599999999999 -3.2379000987410538 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
-3 17.508800000000001 -3.9156000807881353 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+0 -7.1430389999999999 8.2566041346468939 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+1 12.624961000000001 0.72660400000000003 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+2 12.624961000000001 1.856104 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+3 14.884161000000001 1.1784040179529192 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/audio/BANDS/MERGE_BANDS.init"
@@ -1905,7 +1906,7 @@ Content-Disposition: attachment; filename="hdaroot/audio/BANDS/MERGE_BANDS.def"
 Content-Type: text/plain
 
 comment ""
-position 5.648 -3.2379
+position 0.764161 1.8561
 connectornextid 0
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on audio off export off
 outputsNamed3
@@ -1921,7 +1922,7 @@ inputs
 stat
 {
   create 1527118701
-  modify 1536029991
+  modify 1536033297
   author Henry@LAPPY586
   access 0777
 }
@@ -1985,7 +1986,7 @@ Content-Disposition: attachment; filename="hdaroot/audio/BANDS/OUT.def"
 Content-Type: text/plain
 
 comment ""
-position 5.648 -4.3674
+position 0.764161 0.726604
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on audio on export off
 outputsNamed3
@@ -2002,7 +2003,7 @@ inputs
 stat
 {
   create 1527118714
-  modify 1536029867
+  modify 1527556401
   author Henry@LAPPY586
   access 0777
 }
@@ -2078,7 +2079,7 @@ Content-Disposition: attachment; filename="hdaroot/audio/BANDS/IN.def"
 Content-Type: text/plain
 
 comment ""
-position 0 1.1295
+position -7.14304 7.1271
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on audio off export off
 outputsNamed3
@@ -2096,7 +2097,7 @@ inputs
 stat
 {
   create 1527130753
-  modify 1536029867
+  modify 1527556401
   author Henry@LAPPY586
   access 0777
 }
@@ -2173,7 +2174,7 @@ Content-Disposition: attachment; filename="hdaroot/audio/OUT.def"
 Content-Type: text/plain
 
 comment ""
-position -0.888235 -10.947
+position -0.781531 -15.9234
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display on render off highlight off unload off savedata off compress on colordefault on exposed on audio on export off
 outputsNamed3
@@ -2181,16 +2182,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	do_trigger 1 1 "input1"
+0 	do_area 1 1 "input1"
 }
 inputs
 {
-0 	do_trigger 0 1
+0 	do_area 0 1
 }
 stat
 {
   create 1527125417
-  modify 1529187419
+  modify 1536033091
   author Henry@LAPPY586
   access 0777
 }
@@ -2342,7 +2343,7 @@ version 0.8
 stdswitcher	[ 0	locks=0 ]	(	0	0	)
 method	[ 0	locks=0 ]	(	[ method	0 ] 	)
 bounds	[ 0	locks=0 ]	(	[ bounds	1 ] 	)
-width	[ 0	locks=0 ]	(	[ width	2 ] 	)
+width	[ 0	locks=0 ]	(	[ width	30 ] 	)
 interp	[ 0	locks=0 ]	(	[ interp	1 ] 	)
 norm	[ 0	locks=0 ]	(	[ norm	0 ] 	)
 resample	[ 0	locks=0 ]	(	[ resample	1 ] 	)
@@ -2641,7 +2642,7 @@ version 0.8
 stdswitcher	[ 0	locks=0 ]	(	0	0	)
 reference	[ 0	locks=0 ]	(	[ reference	0 ] 	)
 relative	[ 0	locks=0 ]	(	[ relative	1 ] 	)
-start	[ 0	locks=0 ]	(	[ start	0 ] 	)
+start	[ 0	locks=0 ]	(	[ start	-20 ] 	)
 end	[ 0	locks=0 ]	(	[ end	0 ] 	)
 scroll	[ 0	locks=0 ]	(	[ scroll	0 ] 	)
 scope	[ 0	locks=0 ]	(	*	)
@@ -2846,7 +2847,7 @@ version 0.8
 stdswitcher	[ 0	locks=0 ]	(	1	1	)
 type	[ 0	locks=0 ]	(	[ type	0 ] 	)
 effect	[ 0	locks=0 ]	(	[ effect	1 ] 	)
-width	[ 0	locks=0 ]	(	[ width	1 ] 	)
+width	[ 0	locks=0 ]	(	[ width	0.13600000000000001 ] 	)
 spike	[ 0	locks=0 ]	(	[ spike	0.10000000000000001 ] 	)
 passes	[ 0	locks=0 ]	(	[ passes	1 ] 	)
 scope	[ 0	locks=0 ]	(	*	)
@@ -2945,7 +2946,7 @@ Content-Type: text/plain
 version 0.8
 stdswitcher	[ 0	locks=0 ]	(	0	0	)
 indexfirst	[ 0	locks=0 ]	(	"off"	)
-index	[ 0	locks=0 ]	(	[ index	0 ] 	)
+index	[ 0	locks=0 ]	(	[ index	1 ] 	)
 scope	[ 0	locks=0 ]	(	*	)
 srselect	[ 0	locks=0 ]	(	"max"	)
 units	[ 0	locks=0 ]	(	"seconds"	)
@@ -3042,7 +3043,7 @@ Content-Type: text/plain
 version 0.8
 stdswitcher	[ 0	locks=0 ]	(	0	0	)
 indexfirst	[ 0	locks=0 ]	(	"off"	)
-index	[ 0	locks=0 ]	(	[ index	0 ] 	)
+index	[ 0	locks=0 ]	(	[ index	1 ] 	)
 scope	[ 0	locks=0 ]	(	*	)
 srselect	[ 0	locks=0 ]	(	"max"	)
 units	[ 0	locks=0 ]	(	"seconds"	)
@@ -3176,7 +3177,7 @@ Content-Disposition: attachment; filename="hdaroot/audio/do_trigger.def"
 Content-Type: text/plain
 
 comment ""
-position -0.888235 -9.59273
+position -0.888235 -9.49896
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on audio off export off
 outputsNamed3
@@ -3196,7 +3197,7 @@ inputs
 stat
 {
   create 1529113730
-  modify 1536029867
+  modify 1536033076
   author Henry@LAPPY586
   access 0777
 }
@@ -3273,7 +3274,7 @@ Content-Disposition: attachment; filename="hdaroot/audio/trigger1.def"
 Content-Type: text/plain
 
 comment ""
-position 0.732376 -8.67687
+position 0.748004 -8.52059
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on audio off export off
 outputsNamed3
@@ -3291,7 +3292,7 @@ inputs
 stat
 {
   create 1529113737
-  modify 1536029867
+  modify 1536033077
   author Henry@LAPPY586
   access 0777
 }
@@ -3419,9 +3420,9 @@ Content-Type: text/plain
 
 {
 version 0.8
-stdswitcher	[ 0	locks=0 ]	(	4	4	4	4	4	)
+stdswitcher	[ 0	locks=0 ]	(	0	0	0	0	0	)
 threshold	[ 0	locks=0 ]	(	[ threshold	1 ] 	)
-threshup	[ 0	locks=0 ]	(	[ threshup	0.317 ] 	)
+threshup	[ 0	locks=0 ]	(	[ threshup	0 ] 	)
 threshdown	[ 0	locks=0 ]	(	[ threshdown	0 ] 	)
 retrigger	[ 0	locks=0 ]	(	[ retrigger	0 ] 	)
 mintrigger	[ 0	locks=0 ]	(	[ mintrigger	0 ] 	)
@@ -3475,10 +3476,507 @@ Content-Type: text/plain
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/audio/do_area.init"
+Content-Type: text/plain
+
+type = switch
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/audio/do_area.def"
+Content-Type: text/plain
+
+comment ""
+position -0.781531 -14.2813
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on audio off export off
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	do_lag 1 1 "input1"
+2 	area1 1 1 "input2"
+}
+inputs
+{
+0 	do_lag 0 1
+1 	area1 0 1
+}
+stat
+{
+  create 1536032692
+  modify 1536033091
+  author Henry@LAPPY586
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/audio/do_area.chn"
+Content-Type: text/plain
+
+{
+    channel index {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../do_area\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/audio/do_area.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+stdswitcher	[ 0	locks=0 ]	(	0	0	)
+indexfirst	[ 0	locks=0 ]	(	"off"	)
+index	[ 8	locks=0 ]	(	[ index	0 ] 	)
+scope	[ 0	locks=0 ]	(	*	)
+srselect	[ 0	locks=0 ]	(	"max"	)
+units	[ 0	locks=0 ]	(	"seconds"	)
+timeslice	[ 0	locks=0 ]	(	"off"	)
+unload	[ 0	locks=0 ]	(	"off"	)
+export	[ 0	locks=0 ]	(	../..	)
+gcolor	[ 0	locks=0 ]	(	0	0.89999997615814209	0.89999997615814209	)
+gcolorstep	[ 0	locks=0 ]	(	0.050000000000000003	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/audio/do_area.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.5.495"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/audio/do_area.chop"
+Content-Type: text/plain
+
+5
+2
+0
+0
+1
+0
+0
+0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/audio/area1.init"
+Content-Type: text/plain
+
+type = area
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/audio/area1.def"
+Content-Type: text/plain
+
+comment ""
+position 1.13988 -13.6942
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on audio off export off
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	do_lag 1 1 "input1"
+}
+inputs
+{
+0 	do_lag 0 1
+}
+stat
+{
+  create 1536032699
+  modify 1536033091
+  author Henry@LAPPY586
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/audio/area1.chn"
+Content-Type: text/plain
+
+{
+    channel order {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../order\") }
+    }
+    channel constant1 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../constant1\") }
+    }
+    channel constant2 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../constant2\") }
+    }
+    channel constant3 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../constant3\") }
+    }
+    channel relative {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../../relative2\") }
+    }
+    channel start {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../start2\") }
+    }
+    channel end {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../end2\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/audio/area1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+stdswitcher	[ 0	locks=0 ]	(	1	1	1	)
+order	[ 0	locks=0 ]	(	[ order	0 ] 	)
+constant1	[ 0	locks=0 ]	(	[ constant1	0 ] 	)
+constant2	[ 0	locks=0 ]	(	[ constant2	0 ] 	)
+constant3	[ 0	locks=0 ]	(	[ constant3	0 ] 	)
+relative	[ 0	locks=0 ]	(	[ relative	1 ] 	)
+start	[ 0	locks=0 ]	(	[ start	0 ] 	)
+end	[ 0	locks=0 ]	(	[ end	10 ] 	)
+scope	[ 0	locks=0 ]	(	*	)
+srselect	[ 0	locks=0 ]	(	"max"	)
+units	[ 0	locks=0 ]	(	"seconds"	)
+timeslice	[ 0	locks=0 ]	(	"off"	)
+unload	[ 0	locks=0 ]	(	"off"	)
+export	[ 0	locks=0 ]	(	../..	)
+gcolor	[ 0	locks=0 ]	(	0	0.44999998807907104	0.89999997615814209	)
+gcolorstep	[ 0	locks=0 ]	(	0.050000000000000003	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/audio/area1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.5.495"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/audio/area1.chop"
+Content-Type: text/plain
+
+5
+2
+0
+0
+1
+0
+0
+0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/audio/do_lag.init"
+Content-Type: text/plain
+
+type = switch
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/audio/do_lag.def"
+Content-Type: text/plain
+
+comment ""
+position -0.888235 -12.3501
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on audio off export off
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	do_trigger 1 1 "input1"
+2 	lag1 1 1 "input2"
+}
+inputs
+{
+0 	do_trigger 0 1
+1 	lag1 0 1
+}
+stat
+{
+  create 1536033084
+  modify 1536033220
+  author Henry@LAPPY586
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/audio/do_lag.chn"
+Content-Type: text/plain
+
+{
+    channel index {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../do_lag\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/audio/do_lag.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+stdswitcher	[ 0	locks=0 ]	(	0	0	)
+indexfirst	[ 0	locks=0 ]	(	"off"	)
+index	[ 8	locks=0 ]	(	[ index	0 ] 	)
+scope	[ 0	locks=0 ]	(	*	)
+srselect	[ 0	locks=0 ]	(	"max"	)
+units	[ 0	locks=0 ]	(	"seconds"	)
+timeslice	[ 0	locks=0 ]	(	"off"	)
+unload	[ 0	locks=0 ]	(	"off"	)
+export	[ 0	locks=0 ]	(	../..	)
+gcolor	[ 0	locks=0 ]	(	0	0	0.89999997615814209	)
+gcolorstep	[ 0	locks=0 ]	(	0.050000000000000003	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/audio/do_lag.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.5.495"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/audio/do_lag.chop"
+Content-Type: text/plain
+
+5
+2
+0
+0
+1
+0
+0
+0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/audio/lag1.init"
+Content-Type: text/plain
+
+type = lag
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/audio/lag1.def"
+Content-Type: text/plain
+
+comment ""
+position 0.474077 -10.9711
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on audio off export off
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	do_trigger 1 1 "input1"
+}
+inputs
+{
+0 	do_trigger 0 1
+}
+stat
+{
+  create 1536033098
+  modify 1536033253
+  author Henry@LAPPY586
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/audio/lag1.chn"
+Content-Type: text/plain
+
+{
+    channel lagmethod {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../lagmethod\") }
+    }
+    channel lag1 {
+      lefttype = extend
+      righttype = extend
+      default = 0.20000000000000001
+      flags = 0
+      segment { length = 0 value = 0.20000000000000001 0.20000000000000001 expr = ch(\"../../lag1\") }
+    }
+    channel lag2 {
+      lefttype = extend
+      righttype = extend
+      default = 0.20000000000000001
+      flags = 0
+      segment { length = 0 value = 0.20000000000000001 0.20000000000000001 expr = ch(\"../../lag2\") }
+    }
+    channel overshoot1 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../overshoot1\") }
+    }
+    channel overshoot2 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../overshoot2\") }
+    }
+    channel clamp {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../clamp\") }
+    }
+    channel slope1 {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../../slope1\") }
+    }
+    channel slope2 {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../../slope2\") }
+    }
+    channel aclamp {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../aclamp\") }
+    }
+    channel accel1 {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../../accel1\") }
+    }
+    channel accel2 {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../../accel2\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/audio/lag1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+stdswitcher	[ 0	locks=0 ]	(	0	0	)
+lagmethod	[ 0	locks=0 ]	(	[ lagmethod	1 ] 	)
+lag	[ 0	locks=0 ]	(	[ lag1	0.20000000000000001 ] 	[ lag2	0.20000000000000001 ] 	)
+overshoot	[ 0	locks=0 ]	(	[ overshoot1	0 ] 	[ overshoot2	0 ] 	)
+clamp	[ 0	locks=0 ]	(	[ clamp	0 ] 	)
+slope	[ 0	locks=0 ]	(	[ slope1	1 ] 	[ slope2	1 ] 	)
+aclamp	[ 0	locks=0 ]	(	[ aclamp	0 ] 	)
+accel	[ 0	locks=0 ]	(	[ accel1	1 ] 	[ accel2	1 ] 	)
+scope	[ 0	locks=0 ]	(	*	)
+srselect	[ 0	locks=0 ]	(	"max"	)
+units	[ 0	locks=0 ]	(	"seconds"	)
+timeslice	[ 0	locks=0 ]	(	"off"	)
+unload	[ 0	locks=0 ]	(	"off"	)
+export	[ 0	locks=0 ]	(	../..	)
+gcolor	[ 0	locks=0 ]	(	0.44999998807907104	0	0.89999997615814209	)
+gcolorstep	[ 0	locks=0 ]	(	0.050000000000000003	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/audio/lag1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.5.495"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/audio/lag1.chop"
+Content-Type: text/plain
+
+5
+2
+0
+0
+1
+0
+0
+0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/audio.order"
 Content-Type: text/plain
 
-15
+19
 file1
 filtered_audio
 BANDS
@@ -3494,6 +3992,10 @@ do_envelope
 isolate_band
 do_trigger
 trigger1
+do_area
+area1
+do_lag
+lag1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/audio.net"
