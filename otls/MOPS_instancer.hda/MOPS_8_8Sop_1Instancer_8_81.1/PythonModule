@@ -33,4 +33,17 @@ def onInstancePathChanged(kwargs):
     if not assigned:
         override_parm.revertToDefaults()
             
+def do_quick_select(kwargs):
+    """ Fires when Quick Add parm is modified. Add all object paths to the multiparm list. """
+    me = kwargs['node']
+    paths = me.evalParm('quick_add').split()
+    me.parm('quick_add').set("")
+    scale = me.evalParm('quick_scale')
+    if paths:
+        for i in paths:
+            index = me.parm('instanceobjects').evalAsInt()
+            me.parm('instanceobjects').insertMultiParmInstance(index)
+            me.parm('instancepath'+str(index+1)).set(i)
+            me.parm('instance_pscale'+str(index+1)).set(scale)
+    
         

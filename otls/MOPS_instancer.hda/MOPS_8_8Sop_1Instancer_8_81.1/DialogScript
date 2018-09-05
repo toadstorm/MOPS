@@ -614,6 +614,28 @@
             range   { 0! 10 }
             parmtag { "autoscope" "0000000000000000" }
         }
+        parm {
+            name    "sepparm2"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "quick_add"
+            label   "Quick Add Objects"
+            type    oplist
+            joinnext
+            default { "" }
+            parmtag { "script_callback" "hou.phm().do_quick_select(kwargs)" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "quick_scale"
+            label   "Scale"
+            type    float
+            default { "0.1" }
+            range   { 0 10 }
+        }
         multiparm {
             name    "instanceobjects"
             label    "Instance Objects"
@@ -1181,7 +1203,7 @@
                 label   "Density Attribute"
                 type    string
                 default { "density" }
-                disablewhen "{ usedensityattrib 0 }"
+                disablewhen "{ usedensityattrib == 0 }"
                 menutoggle {
                     [ "opmenu -l scatter1 densityattrib" ]
                 }
