@@ -11,7 +11,8 @@ def onInstancePathChanged(kwargs):
     material for this layer. 
     """
     
-    newPath = parm.eval()
+    newPath = hou.node(parm.eval()).path()
+    relPath = node.relativePathTo(hou.node(newPath))
     assigned = False
     # get number of modified multiparm
     test = re.match('^.+?(\d+)$', parm.name())
@@ -42,8 +43,10 @@ def do_quick_select(kwargs):
     if paths:
         for i in paths:
             index = me.parm('instanceobjects').evalAsInt()
+            # get path relative to instancer
+            relpath = me.relativePathTo(hou.node(i))
             me.parm('instanceobjects').insertMultiParmInstance(index)
-            me.parm('instancepath'+str(index+1)).set(i)
+            me.parm('instancepath'+str(index+1)).set(relpath)
             me.parm('instance_pscale'+str(index+1)).set(scale)
     
         
