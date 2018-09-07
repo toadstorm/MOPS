@@ -607,6 +607,18 @@
             parmtag { "autoscope" "0000000000000000" }
         }
         parm {
+            name    "xformtype"
+            label   "Transform Type"
+            type    ordinal
+            default { "none" }
+            menu {
+                "none"      "None"
+                "local"     "Into This Object"
+                "object"    "Into Specified Object"
+            }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
             name    "do_material_overrides"
             label   "Enable Material Overrides"
             type    toggle
