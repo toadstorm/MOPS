@@ -619,6 +619,24 @@
             parmtag { "autoscope" "0000000000000000" }
         }
         parm {
+            name    "xformpath"
+            label   "Transform Object"
+            type    oppath
+            default { "" }
+            hidewhen "{ xformtype != object }"
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "opfilter" "!!OBJ!!" }
+            parmtag { "oprelative" "." }
+        }
+        parm {
+            name    "invertxform"
+            label   "Invert Transform"
+            type    toggle
+            default { "off" }
+            disablewhen "{ xformtype == none }"
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
             name    "do_material_overrides"
             label   "Enable Material Overrides"
             type    toggle
