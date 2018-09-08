@@ -159,4 +159,113 @@ for i in sel:
     instances_container.layoutChildren()
     hou.node('/obj').layoutChildren()]]></script>
   </tool>
+
+  <tool name="MOPS_Update" label="MOPs Updater" icon="PLASMA_App">
+    <script scriptType="python"><![CDATA[import json
+import urllib
+import os
+import platform
+import zipfile
+import distutils.dir_util
+import hou
+
+# github URL
+MOPS_URL = 'https://api.github.com/repos/toadstorm/MOPS'
+# branches (only filters the filenames of the .ZIP files attached as assets for each release!)
+BRANCHES = ['stable', 'experimental']
+# paths to download zip files to before extraction
+HOU_TEMP_PATH = os.path.join(os.getenv("APPDATA"), "MOPS")
+HOU_TEMP_PATH_STR = "$APPDATA\\MOPS"
+if platform.system() != "Windows":
+    HOU_TEMP_PATH = os.path.join(os.getenv("HOUDINI_USER_PREF_DIR"), "MOPS")
+    HOU_TEMP_PATH_STR = HOU_TEMP_PATH
+# local record of branch/version
+MOPS_SETTINGS = os.path.join(os.getenv("HOUDINI_USER_PREF_DIR"), "mops.json")
+HOUDINI_ENV = os.path.join(os.getenv("HOUDINI_USER_PREF_DIR"), "houdini.env")
+
+# TODO: urllib is deprecated in python3
+
+def get_releases(type=None):
+    """
+    get a list of all MOPS releases on github.
+    :return: a list of releases (version numbers).
+    """
+    response = urllib.urlopen(MOPS_URL + "/releases")
+    data = response.read()
+    if data == "":
+        raise ValueError("No response from release server: {}".format(MOPS_URL + "/releases"))
+    j_data = json.loads(data.decode('utf-8'))
+    releases = list()
+    for release in j_data:
+        releases.append(release["tag_name"])
+    if not type:
+        return releases
+    out_releases = list()
+    if type == 'stable':
+        out_releases = [f for f in releases if not f.endswith('e')]
+    elif type == 'experimental':
+        out_releases = [f for f in releases if f.endswith('e')]
+    return out_releases
+
+def get_download_path(release):
+    """
+    get the .ZIP download URL given a version and branch.
+    :param release: the release version
+    :return: the download URL
+    """
+    response = urllib.urlopen(MOPS_URL + "/releases/tags/" + release)
+    data = response.read()
+    # print(data)
+    if data == "":
+        raise ValueError("No response from release server: {}".format(MOPS_URL + "/releases/tags"  + release))
+    j_data = json.loads(data.decode('utf-8'))
+    return j_data.get('zipball_url')
+
+def download_url(source):
+    """
+    Download the url source to the local temp folder.
+    :param source: the source URL
+    :return: the local file path
+    """
+    filename = 'MOPS_' + os.path.basename(source) + '.zip'
+    local_path = os.path.join(HOU_TEMP_PATH, filename)
+    print(local_path)
+    if not os.path.exists(os.path.dirname(local_path)):
+        os.makedirs(os.path.dirname(local_path))
+    urllib.urlretrieve(source, local_path)
+    return local_path
+    
+def apply_update(zip_file):
+    """
+    Unzip the downloaded file and copy it to the appropriate install directory.
+    :param zipfile: the downloaded zip file location on disk.
+    :return: None
+    """
+    # the destination is based on the users' local MOPS install directory.
+    # hopefully they followed the install instructions...
+    extract_path = os.path.join(os.path.dirname(zip_file), os.path.splitext(os.path.basename(zip_file))[0])
+    if not os.path.exists(extract_path):
+        os.makedirs(extract_path)
+    install_path = hou.getenv('MOPS')
+    if install_path is None:
+        # prompt user for proper install path...
+        pass
+    if install_path is None:
+        return
+    # unzip the folder, then copy the contents of the folder to install_path.
+    zip = zipfile.ZipFile(zip_file, 'r', zipfile.ZIP_DEFLATED)
+    zip.extractall(extract_path)
+    # the extracted item contains another folder, we want the contents
+    actual_path = os.path.join(extract_path, os.listdir(extract_path)[0])
+    distutils.dir_util.copy_tree(actual_path, install_path)
+    
+# TODO: function to glue this shit together and create the json MOPS_SETTINGS file
+
+
+releases = get_releases()
+path = get_download_path(releases[0])
+print(path)
+dl = download_url(path)
+apply_update(dl)]]></script>
+  </tool>
 </shelfDocument>
