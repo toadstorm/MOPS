@@ -255,7 +255,7 @@ def download_url(source):
     """
     filename = 'MOPS_' + os.path.basename(source) + '.zip'
     local_path = os.path.join(HOU_TEMP_PATH, filename)
-    print(local_path)
+    # print(local_path)
     if not os.path.exists(os.path.dirname(local_path)):
         os.makedirs(os.path.dirname(local_path))
     urllib.urlretrieve(source, local_path)
@@ -388,6 +388,27 @@ class MOPsUpdateWindow(QtWidgets.QDialog):
     
 # launch ui
 win = MOPsUpdateWindow(hou.ui.mainQtWindow())
+]]></script>
+  </tool>
+
+  <tool name="MOPS_Disable_Preview" label="Disable Falloff Previews" icon="opdef:MOPS::Sop/Plain_Falloff::1.0?mops_falloff_04.svg">
+    <script scriptType="python"><![CDATA[import toolutils
+
+# get current location
+pane = toolutils.activePane(kwargs)
+node = pane.pwd()
+
+# recursively get all child nodes
+if node:
+    children = node.allSubChildren()
+    if children:
+        for i in children:
+            if i.parm('do_preview') is not None:
+                try:
+                    i.parm('do_preview').set(0)
+                except:
+                    pass
+
 ]]></script>
   </tool>
 </shelfDocument>
