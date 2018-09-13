@@ -1,0 +1,48 @@
+me = kwargs['node']
+
+# get paths for inputs
+inputs = me.inputs()
+objects = list()
+for i in inputs:
+    if i is not None:
+        objects.append(i.path())
+
+# for each input, create an object merge and a copy node if it doesn't exist.
+# set object merge to objects[i].
+# set copy node target points to i@index==x.
+parentNode = me.node('CLONES')
+merge_all = parentNode.node('MERGE_ALL')
+points = parentNode.node('ALL_POINTS')
+output = parentNode.node('OUT')
+# store existing children for cleanup later.
+all_children = [f for f in parentNode.children() if f not in (merge_all, points, output)]
+valid_children = list()
+for x in range(len(objects)):
+    merge_name = 'objectmerge{}'.format(x)
+    copy_name = 'copytopoints{}'.format(x)
+    merge = parentNode.node(merge_name)
+    copy = parentNode.node(copy_name)
+    if merge is None:
+        merge = parentNode.createNode('object_merge', node_name=merge_name)
+    if copy is None:
+        copy = parentNode.createNode('copytopoints', node_name=copy_name)
+        # connect copy to input points
+        copy.setInput(1, points, 0)
+        # connect copy to object merge
+        copy.setInput(0, merge, 0)
+        # connect copy output to MERGE_ALL
+        merge_all.setNextInput(copy, 0)
+    valid_children.append(merge)
+    valid_children.append(copy)
+    # set attributes.
+    merge.parm('objpath1').set(objects[x])
+    merge.parm('xformtype').set(1)
+    copy.parm('pack').set(True)
+    expr = '@mops_index=={}'.format(x)
+    copy.parm('targetgroup').set(expr)
+
+# cleanup extra nodes.
+nodes_to_clean = [f for f in all_children if f not in valid_children]
+if nodes_to_clean:
+    for f in nodes_to_clean:
+        f.destroy()

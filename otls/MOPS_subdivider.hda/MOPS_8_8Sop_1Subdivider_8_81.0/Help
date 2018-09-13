@@ -1,0 +1,56 @@
+= MOPs Subdivider =
+
+#icon: opdef:.?mops_misc_05.svg
+
+"""Subdivides a geometry's polygons based on a falloff value."""
+
+
+This node subdivides a geometry's polygons based on a falloff value. The falloff value (f@mops_falloff) should be a point attribute on the incoming geometry. The falloff values should be in the range of 0 - 1. A value of 1 wmeans the a polygon will be subdivided the value that's set in the "Max Subdivisions" slider.
+
+== Overview ==
+
+@inputs
+
+Geometry:
+    Plug in geometry that should be subdivided in here.
+
+@parameters
+
+== General ==
+
+Max Subdivisions:
+    #id: maxsubs
+
+    Maximum number of times a polygon will be subdivided.
+    
+Extrude Strength:
+    #id: extrudeamt
+
+    Maximum distance a polygon will be extruded each subdivision step.
+    
+Extrusion Falloff Exponent:
+    #id: scaleexp
+
+    The extrusion's distance will decrease each subdivision step. This exponent drives how strongly it decreases. Higher values means tronger decrease.
+    
+Min Area:
+    #id: minarea
+
+    Minimum area to subdivide. If polygon's area is smaller than this, it won't be subdivided/extruded.
+    
+Recompute Normal:
+    #id: recompN
+
+    Recalculates the geometry's normals after extrusion.
+                    
+@related
+
+* [Node:sop/MOPs_Combine_Falloffs]
+* [Node:sop/MOPs_Object_Falloff]
+* [Node:sop/MOPs_Plain_Falloff]
+* [Node:sop/MOPs_Remap_Falloff]
+* [Node:sop/MOPs_Shape_Falloff]
+* [Node:sop/MOPs_Spline_Falloff]
+* [Node:sop/MOPs_Texture_Falloff]
+* [Node:sop/MOPs_Index_From_Attribute]
+* [Node:sop/MOPs_Transform_Falloffs]

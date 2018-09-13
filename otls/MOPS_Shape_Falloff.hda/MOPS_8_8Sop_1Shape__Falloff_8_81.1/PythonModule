@@ -1,0 +1,25 @@
+def autoFit(kwargs):
+    """ automatically fits the XFORM_MATRIX of the manipulator
+        handle to the bounding box of the input geometry. """
+    # get node and parms
+    node = kwargs['node']
+    tx = node.parm('translatex')
+    ty = node.parm('translatey')
+    tz = node.parm('translatez')
+    sx = node.parm('scalex')
+    sy = node.parm('scaley')
+    sz = node.parm('scalez')
+    uscale = node.parm('uniform_scale')
+    # compute bounds
+    bbox = node.node('IN_MOPS').geometry().boundingBox()
+    center = bbox.center()
+    # set translate to center
+    tx.set(center.x())
+    ty.set(center.y())
+    tz.set(center.z())
+    # set scale to bbox size
+    size = bbox.sizevec()
+    sx.set(size.x()/2)
+    sy.set(size.y()/2)
+    sz.set(size.z()/2)
+    uscale.set(1)

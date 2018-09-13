@@ -1,0 +1,196 @@
+= MOPs Shape Falloff =
+
+#icon: opdef:.?mops_falloff_04.svg
+
+"""Applies a falloff value using primitive shapes."""
+
+MOPs is based on a falloff value (usually in the range of 0-1). The falloff value controls how strongly instances will be affected by modifiers.
+This node sets the falloff value on MOPs instances using basic primitive shapes:
+- Sphere
+- Box
+- Torus
+- Cylinder
+- Linear Ramp
+
+== Overview ==
+
+@inputs
+
+Packed Primitives:
+    Plug in MOPs instances in here.
+    
+Falloff Transforms:
+    If you'd like to transform (move, scale, rotatet) your falloff, you can plug in a MOPs Transform Falloff node in here.
+
+@parameters
+
+== General ==
+
+Show Helper Geo:
+    #id: input
+
+    Toggle wireframe display of primitive shape used to generate falloff.
+
+Visualize Falloff:
+    #id: vis_switch
+
+    Colorize instances to show falloff values.
+    
+Mode:
+    #id: shapemode_switch
+
+    Select which primitive Shape to use to generate falloff.
+    
+Blend Mode:
+    #id: blendmode
+    
+    Select how to apply falloff values (Set, Add, Subtract, Multiply, Divide).
+    
+Clamp Falloff Values:
+    #id: clamp
+    
+    Clamps falloff to values in the range of 0-1.    
+    
+== Sphere ==
+
+"""Applies a spherical falloff to instances."""
+
+Radius:
+    #id: radius
+    
+    Sphere Radius.
+    
+Falloff:
+    #id: falloff
+    
+    How broad the falloff will be. A value of 1 will result in a linear falloff from the sphere's center to its radius. A value of 0 will result in instances within the sphere being set to 1.
+    
+Remap Falloff:
+    #id: spline
+    
+    Remap falloff values according to ramp.
+    
+== Linear == 
+
+"""Applies a linear falloff to instances."""
+
+Length:
+    #id: length
+    
+    Length of linear gradient ramp.
+    
+Falloff:
+    #id: falloff2
+    
+    How broad the falloff will be. A value of 1 will result in a linear falloff from start to end.
+    
+Remap Falloff:
+    #id: spline2
+    
+    Remap falloff values according to ramp.
+    
+== Box == 
+
+"""Applies a box shaped falloff to instances."""
+
+Size:
+    #id: size
+    
+    Box Size.
+    
+Falloff:
+    #id: falloff3
+    
+    How broad the falloff will be. A value of 1 will result in a linear falloff from start to end. A value of 0 will result in instances within the box being set to 1.
+    
+Remap Falloff:
+    #id: spline3
+    
+    Remap falloff values according to ramp.
+    
+== Torus == 
+
+"""Applies a toroidally shaped falloff to instances."""
+
+Size:
+    #id: size2
+    
+    Torus Size.
+    
+Falloff:
+    #id: falloff4
+    
+    How broad the falloff will be. A value of 1 will result in a linear falloff from start to end. A value of 0 will result in instances within the torus being set to 1.
+    
+Remap Falloff:
+    #id: spline4
+    
+    Remap falloff values according to ramp.
+    
+== Cylinder == 
+
+"""Applies a cylindrically shaped falloff to instances."""
+
+Size:
+    #id: size3
+    
+    Cylinder Size.
+    
+Falloff:
+    #id: falloff5
+    
+    How broad the falloff will be. A value of 1 will result in a linear falloff from start to end. A value of 0 will result in instances within the cylinder being set to 1.
+    
+Remap Falloff:
+    #id: spline5
+    
+    Remap falloff values according to ramp.
+    
+== Noise ==    
+    
+Add Noise:
+    #id: donoise
+    
+    Mixes in noise to the falloff (similar to dithering a gradient ramp).
+    
+Noise Type:
+    #id: basis
+    
+    Select which noise type to use.    
+    
+Amplitude:
+    #id: noiseamp
+    
+    Overall noise strength.    
+    
+Frequency:
+    #id: freq
+    
+    How quickly the noise value fluctuates. Higher frequency values mean smaller noise patterns.
+    
+Offset:
+    #id: offset
+    
+    Translates the noise in space.
+    
+Fractal:
+    #id: fractal
+    
+    Adds seccondary detail to noise.
+    
+Ramp Noise:
+    #id: ramp_noise
+    
+    Remap the noise values depending on a ramp.
+           
+@related
+
+* [Node:sop/MOPs_Combine_Falloffs]
+* [Node:sop/MOPs_Object_Falloffs]
+* [Node:sop/MOPs_Plain_Falloffs]
+* [Node:sop/MOPs_Remap_Falloffs]
+* [Node:sop/MOPs_Shape_Falloffs]
+* [Node:sop/MOPs_Spline_Falloffs]
+* [Node:sop/MOPs_Texture_Falloffs]
+* [Node:sop/MOPs_Index_From_Attribute]
+* [Node:sop/MOPs_Transform_Falloffs]

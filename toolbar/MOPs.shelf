@@ -7,6 +7,8 @@
 
   <toolshelf name="MOPs" label="MOPs">
     <memberTool name="MOPS_convert_point_instances"/>
+    <memberTool name="MOPS_Disable_Preview"/>
+    <memberTool name="MOPS_Update"/>
   </toolshelf>
 
   <tool name="MOPS_convert_point_instances" label="MOPs to Point Instances" icon="opdef:MOPS::Sop/Instancer::1.1?mops_instancing.svg">
@@ -157,5 +159,256 @@ for i in sel:
     i.setDisplayFlag(False)
     instances_container.layoutChildren()
     hou.node('/obj').layoutChildren()]]></script>
+  </tool>
+
+  <tool name="MOPS_Update" label="MOPs Updater" icon="opdef:MOPS::Sop/Instancer::1.1?mops_update.svg">
+    <script scriptType="python"><![CDATA[import json
+import urllib
+import os
+import platform
+import zipfile
+import distutils.dir_util
+import hou
+from PySide2 import QtWidgets
+
+# github URL
+MOPS_URL = 'https://api.github.com/repos/toadstorm/MOPS'
+# branches (only filters the filenames of the .ZIP files attached as assets for each release!)
+BRANCHES = ['stable', 'experimental']
+# paths to download zip files to before extraction
+HOU_TEMP_PATH = os.path.join(os.getenv("APPDATA"), "MOPS")
+HOU_TEMP_PATH_STR = "$APPDATA\\MOPS"
+if platform.system() != "Windows":
+    HOU_TEMP_PATH = os.path.join(os.getenv("HOUDINI_USER_PREF_DIR"), "MOPS")
+    HOU_TEMP_PATH_STR = HOU_TEMP_PATH
+# local record of branch/version
+MOPS_SETTINGS = os.path.join(os.getenv("HOUDINI_USER_PREF_DIR"), "mops.json")
+HOUDINI_ENV = os.path.join(os.getenv("HOUDINI_USER_PREF_DIR"), "houdini.env")
+
+# TODO: urllib is deprecated in python3
+# TODO: function to glue this shit together and create the json MOPS_SETTINGS file
+# TODO: UI for choosing install path if MOPS env var doesn't exist
+# TODO: UI to select releases, install progress window
+
+def get_install_info():
+    info = {'branch': "N/A", 'release': "N/A"}
+    if not os.path.exists(MOPS_SETTINGS):
+        return info
+    with open(MOPS_SETTINGS, 'r') as f:
+        jdata = json.load(f)
+    if jdata.get('branch'):
+        info['branch'] = jdata['branch']
+    if jdata.get('release'):
+        info['release'] = jdata['release']
+    return info
+    
+def update_info(branch, release):
+    info = {'branch': branch, 'release': release}
+    with open(MOPS_SETTINGS, 'w') as f:
+        json.dump(info, f)
+
+def get_releases():
+    """
+    get a list of all MOPS releases on github.
+    :return: a list of releases (version numbers).
+    """
+    response = urllib.urlopen(MOPS_URL + "/releases")
+    data = response.read()
+    # print(data)
+    if data == "":
+        raise ValueError("No response from release server: {}".format(MOPS_URL + "/releases"))
+    j_data = json.loads(data.decode('utf-8'))
+    releases = list()
+    try:
+        for release in j_data:
+            releases.append(release["tag_name"])
+    except TypeError:
+        raise ValueError("Rate limit reached. Please try again later.")
+    return releases
+
+def filter_releases(releases, type=None):
+    if type == 'stable':
+        releases = [f for f in releases if not f.endswith('e')]
+    elif type == 'experimental':
+        releases = [f for f in releases if f.endswith('e')]
+    return releases
+
+def get_download_path(release):
+    """
+    get the .ZIP download URL given a version and branch.
+    :param release: the release version
+    :return: the download URL
+    """
+    response = urllib.urlopen(MOPS_URL + "/releases/tags/" + release)
+    data = response.read()
+    # print(data)
+    if data == "":
+        raise ValueError("No response from release server: {}".format(MOPS_URL + "/releases/tags"  + release))
+    j_data = json.loads(data.decode('utf-8'))
+    return j_data.get('zipball_url')
+
+def download_url(source):
+    """
+    Download the url source to the local temp folder.
+    :param source: the source URL
+    :return: the local file path
+    """
+    filename = 'MOPS_' + os.path.basename(source) + '.zip'
+    local_path = os.path.join(HOU_TEMP_PATH, filename)
+    # print(local_path)
+    if not os.path.exists(os.path.dirname(local_path)):
+        os.makedirs(os.path.dirname(local_path))
+    urllib.urlretrieve(source, local_path)
+    return local_path
+    
+def extract_update(zip_file):
+    """
+    Unzip the downloaded file and copy it to the appropriate install directory.
+    :param zipfile: the downloaded zip file location on disk.
+    :return: None
+    """
+    # the destination is based on the users' local MOPS install directory.
+    # hopefully they followed the install instructions...
+    extract_path = os.path.join(os.path.dirname(zip_file), os.path.splitext(os.path.basename(zip_file))[0])
+    if not os.path.exists(extract_path):
+        os.makedirs(extract_path)
+    install_path = hou.getenv('MOPS')
+    if install_path is None:
+        # prompt user for proper install path...
+        install_path = QtWidgets.QFileDialog.getExistingDirectory(self, 'Choose install parent directory...', HOUDINI_USER_PREF_DIR)
+        install_path = os.path.join(install_path, "MOPS")
+    if install_path is None:
+        return
+    # unzip the folder, then copy the contents of the folder to install_path.
+    zip = zipfile.ZipFile(zip_file, 'r', zipfile.ZIP_DEFLATED)
+    zip.extractall(extract_path)
+    # the extracted item contains another folder, we want the contents
+    actual_path = os.path.join(extract_path, os.listdir(extract_path)[0])
+    distutils.dir_util.copy_tree(actual_path, install_path)
+    
+# ui shit
+
+class MOPsUpdateWindow(QtWidgets.QDialog):
+    def __init__(self, parent):
+        super(MOPsUpdateWindow, self).__init__(parent)
+        self.setWindowTitle("MOPs Auto Updater")
+        self.branch = 'stable'
+        self.version = None
+        self.releases = get_releases()
+        self.buildui()
+        self.refresh()
+        
+    def buildui(self):
+        main_layout = QtWidgets.QVBoxLayout()
+        btn_layout = QtWidgets.QHBoxLayout()
+        form = QtWidgets.QGridLayout()
+        main_layout.addLayout(form)
+        current_branch_label = QtWidgets.QLabel('Current Branch: ')
+        current_branch = QtWidgets.QLineEdit()
+        current_build_label = QtWidgets.QLabel('Current Build: ')
+        current_build = QtWidgets.QLineEdit()
+        branch_combo_label = QtWidgets.QLabel('Select Branch: ')
+        self.branch_combo = QtWidgets.QComboBox()
+        build_combo_label = QtWidgets.QLabel('Select Build: ')
+        self.build_combo = QtWidgets.QComboBox()
+        apply_btn = QtWidgets.QPushButton('Apply Update')
+        cancel_btn = QtWidgets.QPushButton('Cancel')
+        form.addWidget(current_branch_label, 0, 0)
+        form.addWidget(current_branch, 0, 1)
+        form.addWidget(current_build_label, 1, 0)
+        form.addWidget(current_build, 1, 1)
+        form.addWidget(branch_combo_label, 2, 0)
+        form.addWidget(self.branch_combo, 2, 1)
+        form.addWidget(build_combo_label, 3, 0)
+        form.addWidget(self.build_combo, 3, 1)
+        main_layout.addStretch()
+        main_layout.addLayout(btn_layout)
+        btn_layout.addWidget(apply_btn)
+        btn_layout.addWidget(cancel_btn)
+        self.setLayout(main_layout)
+        # defaults
+        current_branch.setEnabled(False)
+        current_build.setEnabled(False)
+        install_info = get_install_info()
+        current_branch.setText(install_info['branch'])
+        current_build.setText(install_info['release'])
+        # signals / slots
+        self.branch_combo.currentIndexChanged.connect(self.set_branch)
+        self.build_combo.currentIndexChanged.connect(self.set_build)
+        apply_btn.clicked.connect(self.apply)
+        cancel_btn.clicked.connect(self.close)
+        # window size
+        self.setFixedSize(300, 200)
+        
+    def populate_releases(self):
+        releases = filter_releases(self.releases, self.branch)
+        self.build_combo.clear()
+        for i in releases:
+            self.build_combo.addItem(i)
+        
+    def refresh(self):
+        self.branch_combo.clear()
+        for i in BRANCHES:
+            self.branch_combo.addItem(i)
+        index = self.branch_combo.findText(self.branch)
+        self.branch_combo.setCurrentIndex(index)
+        self.populate_releases()
+        self.show()
+        self.raise_()
+        
+    def set_branch(self):
+        branch_name = self.branch_combo.currentText()
+        self.branch = branch_name
+        self.populate_releases()
+        
+    def set_build(self):
+        build = self.build_combo.currentText()
+        self.build = build
+        
+    def apply(self):
+        # get the download path for the selected release, run download_url,
+        # apply_update, then update the local json data file.
+        try:
+            release = self.build
+            url = get_download_path(release)
+            dl = download_url(url)
+            extract_update(dl)
+            update_info(self.branch, self.build)
+            # notify user
+            msg = '{} release {} installed. Please restart Houdini to see changes.'.format(self.branch.upper(), release)
+            QtWidgets.QMessageBox.information(self, 'Update complete!', msg)
+        except:
+            # display error
+            err = traceback.format_exc()
+            msg = 'Error installing update: \n\n{}'.format(err)
+            QtWidgets.QMessageBox.critical(self, 'Error installing update!', msg)
+        finally:
+            self.close()
+        
+    
+# launch ui
+win = MOPsUpdateWindow(hou.ui.mainQtWindow())
+]]></script>
+  </tool>
+
+  <tool name="MOPS_Disable_Preview" label="Disable Falloff Previews" icon="opdef:MOPS::Sop/Plain_Falloff::1.0?mops_falloff_04.svg">
+    <script scriptType="python"><![CDATA[import toolutils
+
+# get current location
+pane = toolutils.activePane(kwargs)
+node = pane.pwd()
+
+# recursively get all child nodes
+if node:
+    children = node.allSubChildren()
+    if children:
+        for i in children:
+            if i.parm('do_preview') is not None:
+                try:
+                    i.parm('do_preview').set(0)
+                except:
+                    pass
+
+]]></script>
   </tool>
 </shelfDocument>

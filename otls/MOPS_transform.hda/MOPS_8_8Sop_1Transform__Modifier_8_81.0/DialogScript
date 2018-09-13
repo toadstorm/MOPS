@@ -1,0 +1,193 @@
+# Dialog script for MOPS::Transform_Modifier::1.0 automatically generated
+
+{
+    name	MOPS::Transform_Modifier::1.0
+    script	MOPS::Transform_Modifier::1.0
+    label	"MOPs Transform Modifier"
+
+    help {
+	""
+    }
+    bindhandle rotatex xform "Transformer" rx "movetool_candidate(1) ownerop('transform') owneropgroup('group')"
+    bindhandle rotatey xform "Transformer" ry "movetool_candidate(1) ownerop('transform') owneropgroup('group')"
+    bindhandle rotatez xform "Transformer" rz "movetool_candidate(1) ownerop('transform') owneropgroup('group')"
+    bindhandle scalex xform "Transformer" sx "movetool_candidate(1) ownerop('transform') owneropgroup('group')"
+    bindhandle scaley xform "Transformer" sy "movetool_candidate(1) ownerop('transform') owneropgroup('group')"
+    bindhandle scalez xform "Transformer" sz "movetool_candidate(1) ownerop('transform') owneropgroup('group')"
+    bindhandle translatex xform "Transformer" tx "movetool_candidate(1) ownerop('transform') owneropgroup('group')"
+    bindhandle translatey xform "Transformer" ty "movetool_candidate(1) ownerop('transform') owneropgroup('group')"
+    bindhandle translatez xform "Transformer" tz "movetool_candidate(1) ownerop('transform') owneropgroup('group')"
+    bindhandle uniform_scale xform "Transformer" uniform_scale "movetool_candidate(1) ownerop('transform') owneropgroup('group')"
+
+    inputlabel	1	"Packed Primitives"
+    inputlabel	2	"Sub-Network Input #2"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+
+    parm {
+        name    "group"
+        label   "Group"
+        type    string
+        default { "" }
+        menutoggle {
+            [ "opmenu -l Apply_Attributes1 group" ]
+        }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_action" "import soputils\nkwargs['geometrytype'] = kwargs['node'].parmTuple('grouptype')\nkwargs['inputindex'] = 0\nsoputils.selectGroupParm(kwargs)" }
+        parmtag { "script_action_help" "Select geometry from an available viewport." }
+        parmtag { "script_action_icon" "BUTTONS_reselect" }
+    }
+    parm {
+        name    "grouptype"
+        label   "Group Type"
+        type    ordinal
+        default { "guess" }
+        menu {
+            "guess"     "Guess from Group"
+            "vertices"  "Vertices"
+            "edges"     "Edges"
+            "points"    "Points"
+            "prims"     "Primitives"
+        }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "ignore_no_falloff"
+        label   "Ignore Zero Falloff Prims"
+        type    toggle
+        default { "on" }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "local"
+        label   "Local Space"
+        type    toggle
+        default { "1" }
+        range   { 0 10 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "translate"
+        label   "Translate"
+        type    vector
+        size    3
+        default { "0" "0" "0" }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "rotate"
+        label   "Rotate"
+        type    vector
+        size    3
+        default { "0" "0" "0" }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "scale"
+        label   "Scale"
+        type    vector
+        size    3
+        default { "1" "1" "1" }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "uniform_scale"
+        label   "Uniform Scale"
+        type    float
+        default { "1" }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "pivot"
+        label   "Pivot"
+        type    vector
+        size    3
+        default { "0" "0" "0" }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "do_weight"
+        label   "Do Falloff"
+        type    toggle
+        default { "on" }
+        range   { 0 10 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "do_vexpression"
+        label   "Use VEXpression"
+        type    toggle
+        default { "off" }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "vexpression"
+        label   "VEXpression"
+        type    string
+        default { "// translate = {0,0,0};\n// rotate = {0,0,0};\n// scale = {1,1,1};\n// pscale = 1;\n// local = 1;" }
+        hidewhen "{ do_vexpression == 0 }"
+        parmtag { "editor" "1" }
+        parmtag { "editorlang" "vex" }
+    }
+    parm {
+        name    "rotate_mode"
+        label   "Rotate Mode"
+        type    integer
+        default { "0" }
+        menu {
+            "0" "Add"
+            "1" "Set"
+        }
+        range   { 0 10 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "scale_mode"
+        label   "Scale Mode"
+        type    integer
+        default { "0" }
+        menu {
+            "0" "Multiply"
+            "1" "Replace"
+        }
+        range   { 0 10 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "rotate_order"
+        label   "Rotate Order"
+        type    integer
+        default { "0" }
+        menu {
+            "0" "XYZ"
+            "1" "XZY"
+            "2" "YXZ"
+            "3" "YZX"
+            "4" "ZXY"
+            "5" "ZYX"
+        }
+        range   { 0 10 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "pivot_mode"
+        label   "Pivot Mode"
+        type    integer
+        default { "0" }
+        menu {
+            "0" "Add"
+            "1" "Set"
+        }
+        range   { 0 10 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+}
