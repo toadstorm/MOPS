@@ -1,0 +1,61 @@
+= MOPs Randomize =
+#icon: opdef:.?mops_modifier_02.svg
+
+""" Randomizes point attributes. """
+
+MOPs Randomize can be quickly used to randomize transform attributes on packed primitives.
+
+== Overview ==
+
+@inputs
+
+MOPs Primitives:
+    The MOPs packed primitives to randomize.
+    
+@parameters
+
+== General ==
+
+Randomize Position:
+    #id: do_P
+    Enable randomization of object positions. The controls are derived from the Attribute Randomize SOP.
+    
+Randomize Orientation:
+    #id: do_orient
+    Enable randomization of object orientation.
+       
+Rotate Mode:
+    #id: rotate_mode
+    Determines how the generated rotation is applied to the existing rotation.
+        * Add: The random orientation is added (quaternion multiplication) to the original orientation.
+        * Set: The random orientation becomes the object's total orientation.
+
+Rotate Minimum:
+    #id: min4
+    The minimum rotation values for each axis, in degrees.
+    
+Rotate Maximum:
+    #id: max4
+    The maximum rotation values for each axis, in degrees.
+    
+Rotate Order:
+    #id: order
+    The Euler rotation order for the applied rotations.
+        
+Randomize Scale:
+    #id: do_scale
+    Enable randomization of object scale.
+    
+Scale Mode:
+    #id: scale_mode
+    Determines how the generated scale value is applied to the existing scale.
+        * Multiply: The generated value is multiplied against the existing scale. This is typical scaling behavior.
+        * Replace: The generated value becomes the object's total scale.
+        
+Randomize Uniform Scale:
+    #id: do_pscale
+    Enable randomization of object uniform scale (pscale).
+    
+Randomize Falloff:
+    #id: do_falloff
+    Enable randomization of @mops_falloff. Most of the controls are derived from the [MOPs Combine Falloffs SOP|Node:sop/MOPS--Combine_Falloffs-1.0].

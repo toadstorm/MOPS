@@ -1,8 +1,8 @@
-# Dialog script for MOPS::Randomize::1.0 automatically generated
+# Dialog script for MOPS::Randomize::1.1 automatically generated
 
 {
-    name	MOPS::Randomize::1.0
-    script	MOPS::Randomize::1.0
+    name	MOPS::Randomize::1.1
+    script	MOPS::Randomize::1.1
     label	"MOPs Randomize"
 
     help {
@@ -29,15 +29,6 @@
         parmtag { "script_action_icon" "BUTTONS_reselect" }
     }
     parm {
-        name    "local_space"
-        label   "Local Space"
-        type    toggle
-        invisible
-        default { "on" }
-        range   { 0 10 }
-        parmtag { "autoscope" "0000000000000000" }
-    }
-    parm {
         name    "grouptype"
         label   "Group Type"
         type    ordinal
@@ -50,6 +41,14 @@
             "prims"     "Primitives"
         }
         range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "local_space"
+        label   "Local Space"
+        type    toggle
+        default { "on" }
+        range   { 0 10 }
         parmtag { "autoscope" "0000000000000000" }
     }
     parm {
@@ -66,31 +65,29 @@
         hidewhentab "{ do_P == 0 }"
 
         parm {
-            name    "scale"
-            label   "Scale"
-            type    float
-            default { "1" }
-            disablewhen "{ do_P == 0 }"
-            range   { 0 10 }
-            parmtag { "autoscope" "0000000000000000" }
-        }
-        parm {
-            name    "axisscale"
-            label   "Axis Scales"
-            type    vector
-            size    3
-            default { "1" "1" "1" }
-            disablewhen "{ do_P == 0 }"
-            range   { -1 1 }
-            parmtag { "autoscope" "0000000000000000" }
-        }
-        parm {
             name    "seed"
             label   "Seed"
             type    float
             default { "0" }
-            disablewhen "{ do_P == 0 }"
-            range   { 0 10 }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "minp"
+            label   "Translate Minimum"
+            type    vector
+            size    3
+            default { [ "" hscript-expr ] [ "" hscript-expr ] [ "" hscript-expr ] }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "maxp"
+            label   "Translate Maximum"
+            type    vector
+            size    3
+            default { [ "" hscript-expr ] [ "" hscript-expr ] [ "" hscript-expr ] }
+            range   { 0 1 }
             parmtag { "autoscope" "0000000000000000" }
         }
     }
