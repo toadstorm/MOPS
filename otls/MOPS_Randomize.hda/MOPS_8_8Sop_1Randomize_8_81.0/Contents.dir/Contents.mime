@@ -32,26 +32,25 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -3.934 -6.14426
-connectornextid 2
+position 3.76543 -2.37288
+connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-1 "output1"
 }
 inputsNamed3
 {
-0 	MOPs_Instancer1 0 1 "input1"
+0 	MOPs_Randomize 1 1 "input1"
 }
 inputs
 {
-0 	MOPs_Instancer1 0 1
+0 	MOPs_Randomize 0 1
 }
 stat
 {
-  create 1530403326
-  modify 1530403877
-  author henry@GlaDOS
+  create 1536946571
+  modify 1536947435
+  author Henry@LAPPY586
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -76,110 +75,6 @@ Content-Type: text/plain
 
 1
 0 0 6 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/pointjitter1.init"
-Content-Type: text/plain
-
-type = pointjitter
-matchesdef = 1
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/pointjitter1.def"
-Content-Type: text/plain
-
-sopflags sopflags = 
-comment ""
-position 5.48409 1.31373
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
-outputsNamed3
-{
-1 "output1"
-}
-inputsNamed3
-{
-0 	init_values 1 1 "input1"
-}
-inputs
-{
-0 	init_values 0 1
-}
-stat
-{
-  create 1528499331
-  modify 1530403326
-  author Henry@LAPPY586
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/pointjitter1.chn"
-Content-Type: text/plain
-
-{
-    channel scale {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../scale\") }
-    }
-    channel axisscalex {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../axisscalex\") }
-    }
-    channel axisscaley {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../axisscaley\") }
-    }
-    channel axisscalez {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../axisscalez\") }
-    }
-    channel seed {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../seed\") }
-    }
-  }
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/pointjitter1.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-group	[ 0	locks=0	autoscope=0 ]	(	""	)
-useidattrib	[ 0	locks=0	autoscope=0 ]	(	"on"	)
-idattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
-scale	[ 0	locks=0	autoscope=0 ]	(	[ scale	1 ] 	)
-axisscale	[ 0	locks=0	autoscope=0 ]	(	[ axisscalex	1 ] 	[ axisscaley	1 ] 	[ axisscalez	1 ] 	)
-seed	[ 0	locks=0	autoscope=0 ]	(	[ seed	0 ] 	)
-usepscale	[ 0	locks=0	autoscope=0 ]	(	"off"	)
-updatenmls	[ 0	locks=0	autoscope=0 ]	(	"on"	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/pointjitter1.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":""
-	}
-}
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/Apply_Attributes1.init"
@@ -214,7 +109,7 @@ inputs
 stat
 {
   create 1528499331
-  modify 1530403796
+  modify 1536946571
   author Henry@LAPPY586
   access 0777
 }
@@ -328,7 +223,7 @@ inputs
 stat
 {
   create 1528499331
-  modify 1530403326
+  modify 1536946571
   author Henry@LAPPY586
   access 0777
 }
@@ -515,7 +410,7 @@ inputs
 stat
 {
   create 1528499331
-  modify 1530403326
+  modify 1536946571
   author Henry@LAPPY586
   access 0777
 }
@@ -696,7 +591,7 @@ inputs
 stat
 {
   create 1528499331
-  modify 1530403667
+  modify 1536946571
   author Henry@LAPPY586
   access 0777
 }
@@ -853,7 +748,7 @@ inputs
 stat
 {
   create 1528499331
-  modify 1530403326
+  modify 1536946571
   author Henry@LAPPY586
   access 0777
 }
@@ -1025,7 +920,7 @@ inputs
 stat
 {
   create 1528499331
-  modify 1530403794
+  modify 1536946571
   author Henry@LAPPY586
   access 0777
 }
@@ -1138,7 +1033,7 @@ inputs
 stat
 {
   create 1528499331
-  modify 1530403326
+  modify 1536946571
   author Henry@LAPPY586
   access 0777
 }
@@ -1460,7 +1355,7 @@ inputs
 stat
 {
   create 1528936208
-  modify 1530403326
+  modify 1536946571
   author Henry@LAPPY586
   access 0777
 }
@@ -1500,6 +1395,348 @@ vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/init_values.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/randomize_P.init"
+Content-Type: text/plain
+
+type = attribwrangle
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/randomize_P.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 4.82348 1.65444
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	init_values 1 1 "input1"
+}
+inputs
+{
+0 	init_values 0 1
+}
+stat
+{
+  create 1536946673
+  modify 1536947406
+  author Henry@LAPPY586
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/randomize_P.spareparmdef"
+Content-Type: text/plain
+
+    group {
+        name    "folder1"
+        label   "Code"
+
+        parm {
+            name    "group"
+            baseparm
+            label   "Group"
+            export  none
+            bindselector points "Modify Points"
+                "Select the points to affect and press Enter to complete."
+                0 1 0xffffffff 0 grouptype 0
+        }
+        parm {
+            name    "grouptype"
+            baseparm
+            label   "Group Type"
+            export  none
+        }
+        parm {
+            name    "class"
+            baseparm
+            label   "Run Over"
+            export  none
+        }
+        parm {
+            name    "vex_numcount"
+            baseparm
+            label   "Number Count"
+            export  none
+        }
+        parm {
+            name    "vex_threadjobsize"
+            baseparm
+            label   "Thread Job Size"
+            export  none
+        }
+        parm {
+            name    "snippet"
+            baseparm
+            label   "VEXpression"
+            export  all
+        }
+        parm {
+            name    "exportlist"
+            baseparm
+            label   "Attributes to Create"
+            export  none
+        }
+        parm {
+            name    "vex_strict"
+            baseparm
+            label   "Enforce Prototypes"
+            export  none
+        }
+    }
+
+    group {
+        name    "folder1_1"
+        label   "Bindings"
+
+        parm {
+            name    "autobind"
+            baseparm
+            label   "Autobind by Name"
+            export  none
+        }
+        multiparm {
+            name    "bindings"
+            label    "Number of Bindings"
+            baseparm
+            default 0
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "multistartoffset" "1" }
+
+            parm {
+                name    "bindname#"
+                baseparm
+                label   "Attribute Name"
+                export  none
+            }
+            parm {
+                name    "bindparm#"
+                baseparm
+                label   "VEX Parameter"
+                export  none
+            }
+        }
+
+        parm {
+            name    "groupautobind"
+            baseparm
+            label   "Autobind Groups by Name"
+            export  none
+        }
+        multiparm {
+            name    "groupbindings"
+            label    "Group Bindings"
+            baseparm
+            default 0
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "multistartoffset" "1" }
+
+            parm {
+                name    "bindgroupname#"
+                baseparm
+                label   "Group Name"
+                export  none
+            }
+            parm {
+                name    "bindgroupparm#"
+                baseparm
+                label   "VEX Parameter"
+                export  none
+            }
+        }
+
+        parm {
+            name    "vex_cwdpath"
+            baseparm
+            label   "Evaluation Node Path"
+            export  none
+        }
+        parm {
+            name    "vex_outputmask"
+            baseparm
+            label   "Export Parameters"
+            export  none
+        }
+        parm {
+            name    "vex_updatenmls"
+            baseparm
+            label   "Update Normals If Displaced"
+            export  none
+        }
+        parm {
+            name    "vex_matchattrib"
+            baseparm
+            label   "Attribute to Match"
+            export  none
+        }
+        parm {
+            name    "vex_inplace"
+            baseparm
+            label   "Compute Results In Place"
+            export  none
+        }
+        parm {
+            name    "vex_selectiongroup"
+            baseparm
+            label   "Output Selection Group"
+            export  none
+        }
+    }
+
+    parm {
+        name    "seed"
+        label   "Seed"
+        type    float
+        default { "0" }
+        range   { 0 1 }
+    }
+    parm {
+        name    "min"
+        label   "Min"
+        type    vector
+        size    3
+        default { "0" "0" "0" }
+        range   { 0 1 }
+    }
+    parm {
+        name    "max"
+        label   "Max"
+        type    vector
+        size    3
+        default { "0" "0" "0" }
+        range   { 0 1 }
+    }
+    parm {
+        name    "local"
+        label   "Local"
+        type    integer
+        default { "0" }
+        range   { 0 10 }
+    }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/randomize_P.chn"
+Content-Type: text/plain
+
+{
+    channel seed {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../seed\") }
+    }
+    channel minx {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../minpx\") }
+    }
+    channel miny {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../minpy\") }
+    }
+    channel minz {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../minpz\") }
+    }
+    channel maxx {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../maxpx\") }
+    }
+    channel maxy {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../maxpy\") }
+    }
+    channel maxz {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../maxpz\") }
+    }
+    channel local {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../local_space\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/randomize_P.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+folder0	[ 0	locks=0 ]	(	0	0	)
+group	[ 0	locks=0 ]	(	""	)
+grouptype	[ 0	locks=0 ]	(	"guess"	)
+class	[ 0	locks=0 ]	(	"point"	)
+vex_numcount	[ 0	locks=0 ]	(	10	)
+vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
+snippet	[ 0	locks=0 ]	(	"float seed = ch(\"seed\");
+vector min = chv(\"min\");
+vector max = chv(\"max\");
+float x = fit01(rand(i@id+seed), min.x, max.x);
+float y = fit01(rand(i@id+seed+345), min.y, max.y);
+float z = fit01(rand(i@id+seed+678), min.z, max.z);
+int local = chi(\"local\");
+vector translate = set(x,y,z);
+if(local==1) { 
+    matrix3 m = primintrinsic(0, \"transform\", @ptnum);
+    vector4 q = quaternion(m);
+    translate = qrotate(q, translate);
+}
+@P += translate;"	)
+exportlist	[ 0	locks=0 ]	(	*	)
+vex_strict	[ 0	locks=0 ]	(	"off"	)
+autobind	[ 0	locks=0 ]	(	"on"	)
+bindings	[ 0	locks=0 ]	(	0	)
+groupautobind	[ 0	locks=0 ]	(	"on"	)
+groupbindings	[ 0	locks=0 ]	(	0	)
+vex_cwdpath	[ 0	locks=0 ]	(	.	)
+vex_outputmask	[ 0	locks=0 ]	(	*	)
+vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
+vex_matchattrib	[ 0	locks=0 ]	(	id	)
+vex_inplace	[ 0	locks=0 ]	(	"off"	)
+vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+folder1	[ 0	locks=0 ]	(	0	0	)
+seed	[ 0	locks=0 ]	(	[ seed	0 ] 	)
+min	[ 0	locks=0 ]	(	[ minx	0 ] 	[ miny	0 ] 	[ minz	0 ] 	)
+max	[ 0	locks=0 ]	(	[ maxx	0 ] 	[ maxy	0.10000000000000001 ] 	[ maxz	0 ] 	)
+local	[ 8	locks=0 ]	(	[ local	1 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/randomize_P.userdata"
 Content-Type: text/plain
 
 {
@@ -1593,17 +1830,17 @@ outputsNamed3
 inputsNamed3
 {
 1 	init_values 1 1 "input1"
-2 	pointjitter1 1 1 "input2"
+2 	randomize_P 1 1 "input2"
 }
 inputs
 {
 0 	init_values 0 1
-1 	pointjitter1 0 1
+1 	randomize_P 0 1
 }
 stat
 {
   create 1528499331
-  modify 1530403326
+  modify 1536946677
   author Henry@LAPPY586
   access 0777
 }
@@ -1631,7 +1868,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0	autoscope=0 ]	(	[ input	0 ] 	)
+input	[ 0	locks=0	autoscope=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1678,7 +1915,7 @@ inputs
 stat
 {
   create 1528499331
-  modify 1530403326
+  modify 1536946571
   author Henry@LAPPY586
   access 0777
 }
@@ -1753,7 +1990,7 @@ inputs
 stat
 {
   create 1528499331
-  modify 1530403326
+  modify 1536946571
   author Henry@LAPPY586
   access 0777
 }
@@ -1887,7 +2124,7 @@ inputs
 stat
 {
   create 1528499331
-  modify 1530403326
+  modify 1536946571
   author Henry@LAPPY586
   access 0777
 }
@@ -1915,7 +2152,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0	autoscope=0 ]	(	[ input	1 ] 	)
+input	[ 0	locks=0	autoscope=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1962,7 +2199,7 @@ inputs
 stat
 {
   create 1528499331
-  modify 1530403800
+  modify 1536946571
   author Henry@LAPPY586
   access 0777
 }
@@ -1990,7 +2227,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0	autoscope=0 ]	(	[ input	1 ] 	)
+input	[ 0	locks=0	autoscope=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2009,7 +2246,6 @@ Content-Disposition: attachment; filename="hdaroot.order"
 Content-Type: text/plain
 
 16
-pointjitter1
 Apply_Attributes1
 attribrandomize1
 attribrandomize2
@@ -2025,6 +2261,7 @@ switch_do_pscale
 switch_do_falloff
 pointwrangle1
 init_values
+randomize_P
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"
