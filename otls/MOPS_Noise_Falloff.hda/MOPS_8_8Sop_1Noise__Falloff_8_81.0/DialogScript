@@ -54,14 +54,6 @@
         parmtag { "autoscope" "0000000000000000" }
     }
     parm {
-        name    "do_preview"
-        label   "Preview Falloff"
-        type    toggle
-        default { "0" }
-        range   { 0! 10 }
-        parmtag { "autoscope" "0000000000000000" }
-    }
-    parm {
         name    "input"
         label   "Blend Mode"
         type    ordinal
@@ -102,27 +94,73 @@
         default { "" }
     }
     parm {
-        name    "ramp_preset"
-        label   "Preset"
-        type    ordinal
-        default { "heatmap" }
-        menu {
-            "heatmap"   "Heatmap"
-            "blackbody" "Blackbody"
-            "infrared"  "Infrared"
-        }
+        name    "do_preview"
+        label   "Preview Falloff"
+        type    toggle
+        default { "0" }
+        range   { 0! 10 }
         parmtag { "autoscope" "0000000000000000" }
-        parmtag { "script_callback_language" "python" }
     }
+    groupsimple {
+        name    "folder2"
+        label   "Falloff Preview"
+        hidewhentab "{ do_preview == 0 }"
+
+        parm {
+            name    "do_sprite"
+            label   "Display as Sprites"
+            type    toggle
+            default { "on" }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "spritescale"
+            label   "Sprite Scale"
+            type    float
+            default { "1" }
+            hidewhen "{ do_sprite == 0 }"
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "override_scale"
+            label   "Override Scale"
+            type    toggle
+            default { "off" }
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "ramp_preset"
+            label   "Preset"
+            type    ordinal
+            default { "heatmap" }
+            menu {
+                "heatmap"   "Heatmap"
+                "blackbody" "Blackbody"
+                "infrared"  "Infrared"
+            }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "falloff_heatmap"
+            label   "Falloff Ramp"
+            type    ramp_rgb
+            default { "5" }
+            range   { 1! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "rampcolordefault" "1pos ( 0 ) 1c ( 0.036199998110532761 0 0.5429999828338623 ) 1interp ( linear ) 2pos ( 0.27027025818824768 ) 2c ( 0.7369999885559082 0 0 ) 2interp ( linear ) 3pos ( 0.71814674139022827 ) 3c ( 1 0.28333333134651184 0 ) 3interp ( linear ) 4pos ( 0.90154439210891724 ) 4c ( 0.89999997615814209 0.89999997615814209 0 ) 4interp ( linear ) 5pos ( 1 ) 5c ( 1 1 1 ) 5interp ( linear )" }
+            parmtag { "rampshowcontrolsdefault" "0" }
+        }
+    }
+
     parm {
-        name    "falloff_heatmap"
-        label   "Falloff Ramp"
-        type    ramp_rgb
-        default { "5" }
-        range   { 1! 10 }
-        parmtag { "autoscope" "0000000000000000" }
-        parmtag { "rampcolordefault" "1pos ( 0 ) 1c ( 0.036199998110532761 0 0.5429999828338623 ) 1interp ( linear ) 2pos ( 0.27027025818824768 ) 2c ( 0.7369999885559082 0 0 ) 2interp ( linear ) 3pos ( 0.71814674139022827 ) 3c ( 1 0.28333333134651184 0 ) 3interp ( linear ) 4pos ( 0.90154439210891724 ) 4c ( 0.89999997615814209 0.89999997615814209 0 ) 4interp ( linear ) 5pos ( 1 ) 5c ( 1 1 1 ) 5interp ( linear )" }
-        parmtag { "rampshowcontrolsdefault" "0" }
+        name    "sepparm3"
+        label   "Separator"
+        type    separator
+        default { "" }
     }
     group {
         name    "folder1"

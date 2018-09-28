@@ -32,7 +32,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.38235 -1.49029
+position -2.15882 0.662647
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -41,16 +41,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	MOPs_Remap_Falloff 1 1 "input1"
+0 	MOPs_Instancer 0 1 "input1"
 }
 inputs
 {
-0 	MOPs_Remap_Falloff 0 1
+0 	MOPs_Instancer 0 1
 }
 stat
 {
-  create 1536023183
-  modify 1536028094
+  create 1538070740
+  modify 1538086232
   author Henry@LAPPY586
   access 0777
 }
@@ -111,7 +111,7 @@ inputs
 stat
 {
   create 1524060597
-  modify 1536024500
+  modify 1538070740
   author Henry@LAPPY586
   access 0777
 }
@@ -201,7 +201,7 @@ inputs
 stat
 {
   create 1524060597
-  modify 1536024500
+  modify 1538070740
   author Henry@LAPPY586
   access 0777
 }
@@ -287,7 +287,7 @@ group	[ 0	locks=0	autoscope=0 ]	(	""	)
 grouptype	[ 0	locks=0 ]	(	"guess"	)
 ignore_no_falloff	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 local	[ 0	locks=0	autoscope=0 ]	(	"on"	)
-translate	[ 0	locks=0	autoscope=0 ]	(	[ translatex	0 ] 	[ translatey	0 ] 	[ translatez	0 ] 	)
+translate	[ 0	locks=0	autoscope=0 ]	(	[ translatex	0 ] 	[ translatey	0 ] 	[ translatez	-0.061372629832476377 ] 	)
 rotate	[ 0	locks=0	autoscope=0 ]	(	[ rotatex	0 ] 	[ rotatey	0 ] 	[ rotatez	0 ] 	)
 scale	[ 0	locks=0	autoscope=0 ]	(	[ scalex	1 ] 	[ scaley	1 ] 	[ scalez	1 ] 	)
 uniform_scale	[ 0	locks=0	autoscope=0 ]	(	[ uniform_scale	1 ] 	)
@@ -345,7 +345,7 @@ inputs
 stat
 {
   create 1524060597
-  modify 1536024500
+  modify 1538070740
   author Henry@LAPPY586
   access 0777
 }
@@ -424,7 +424,7 @@ inputs
 stat
 {
   create 1524060597
-  modify 1536024500
+  modify 1538070740
   author Henry@LAPPY586
   access 0777
 }
@@ -627,7 +627,7 @@ inputs
 stat
 {
   create 1524060597
-  modify 1536024500
+  modify 1538070740
   author Henry@LAPPY586
   access 0777
 }
@@ -913,7 +913,7 @@ inputs
 stat
 {
   create 1524060597
-  modify 1536024500
+  modify 1538070740
   author Henry@LAPPY586
   access 0777
 }
@@ -1221,7 +1221,7 @@ inputs
 stat
 {
   create 1524060597
-  modify 1536024500
+  modify 1538070740
   author Henry@LAPPY586
   access 0777
 }
@@ -1525,7 +1525,7 @@ inputs
 stat
 {
   create 1524060597
-  modify 1536028010
+  modify 1538085724
   author Henry@LAPPY586
   access 0777
 }
@@ -1576,7 +1576,11 @@ grouptype	[ 0	locks=0 ]	(	[ grouptype	0 ] 	)
 input	[ 0	locks=0	autoscope=0 ]	(	[ input	8 ] 	)
 strength	[ 0	locks=0	autoscope=0 ]	(	[ strength	1 ] 	)
 switchclamp	[ 0	locks=0	autoscope=0 ]	(	[ switchclamp	0 ] 	)
+sepparm	[ 0	locks=0 ]	(	)
 do_preview	[ 0	locks=0 ]	(	"off"	)
+folder0	[ 0	locks=0 ]	(	0	)
+do_sprite	[ 0	locks=0 ]	(	"on"	)
+spritescale	[ 0	locks=0 ]	(	1	)
 ramp_preset	[ 0	locks=0 ]	(	"infrared"	)
 falloff_heatmap	[ 0	locks=0 ]	(	5	)
 falloff_heatmap1pos	[ 0	locks=0 ]	(	0	)
@@ -1640,7 +1644,7 @@ inputs
 stat
 {
   create 1524060597
-  modify 1536024500
+  modify 1538070740
   author Henry@LAPPY586
   access 0777
 }
@@ -1947,7 +1951,7 @@ inputs
 stat
 {
   create 1524060597
-  modify 1536024501
+  modify 1538086228
   author Henry@LAPPY586
   access 0777
 }
@@ -7874,7 +7878,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1536024500
+  modify 1538070740
   author Henry@LAPPY586
   access 0777
 }
@@ -7952,7 +7956,7 @@ inputs
 stat
 {
   create 1536023588
-  modify 1536029483
+  modify 1538086219
   author Henry@LAPPY586
   access 0777
 }
@@ -8161,6 +8165,33 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = ch(\"../do_preview\") }
     }
+    channel do_sprite {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../do_sprite\") }
+    }
+    channel spritemap {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"sphere_matte.pic\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../spritemap\") }
+    }
+    channel spritescale {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../spritescale\") }
+    }
+    channel override_scale {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../override_scale\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -8170,6 +8201,10 @@ Content-Type: text/plain
 {
 version 0.8
 do_preview	[ 0	locks=0 ]	(	[ do_preview	0 ] 	)
+do_sprite	[ 0	locks=0 ]	(	[ do_sprite	1 ] 	)
+spritemap	[ 0	locks=0 ]	(	[ spritemap	sphere_matte.pic ] 	)
+spritescale	[ 0	locks=0 ]	(	[ spritescale	1 ] 	)
+override_scale	[ 0	locks=0 ]	(	[ override_scale	0 ] 	)
 ramp_preset	[ 0	locks=0 ]	(	[ ramp_preset	0 ] 	)
 falloff_heatmap	[ 0	locks=0 ]	(	[ falloff_heatmap	5 ] 	)
 falloff_heatmap1pos	[ 0	locks=0 ]	(	[ falloff_heatmap1pos	0 ] 	)
@@ -8673,7 +8708,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1536024500
+  modify 1538070740
   author Henry@LAPPY586
   access 0777
 }
@@ -8824,7 +8859,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1536024500
+  modify 1538070740
   author Henry@LAPPY586
   access 0777
 }
@@ -8951,7 +8986,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1536024500
+  modify 1538070740
   author Henry@LAPPY586
   access 0777
 }
@@ -9040,7 +9075,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1536024500
+  modify 1538070740
   author Henry@LAPPY586
   access 0777
 }
@@ -9068,7 +9103,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0	autoscope=0 ]	(	[ input	0 ] 	)
+input	[ 0	locks=0	autoscope=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -9170,7 +9205,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1536024500
+  modify 1538070740
   author Henry@LAPPY586
   access 0777
 }
@@ -9255,7 +9290,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1536024500
+  modify 1538070740
   author Henry@LAPPY586
   access 0777
 }
@@ -9472,7 +9507,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1536024500
+  modify 1538070740
   author Henry@LAPPY586
   access 0777
 }
@@ -9500,7 +9535,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0	autoscope=0 ]	(	[ input	0 ] 	)
+input	[ 0	locks=0	autoscope=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -9543,7 +9578,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1536024500
+  modify 1538070740
   author Henry@LAPPY586
   access 0777
 }
@@ -9830,7 +9865,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1536024500
+  modify 1538070740
   author Henry@LAPPY586
   access 0777
 }
@@ -9985,7 +10020,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1536024500
+  modify 1538070740
   author Henry@LAPPY586
   access 0777
 }
@@ -10140,7 +10175,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1536024500
+  modify 1538070740
   author Henry@LAPPY586
   access 0777
 }
@@ -10359,7 +10394,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1536024500
+  modify 1538070740
   author Henry@LAPPY586
   access 0777
 }
@@ -10460,7 +10495,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1536024500
+  modify 1538070740
   author Henry@LAPPY586
   access 0777
 }
@@ -10589,7 +10624,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1536028014
+  modify 1538070740
   author Henry@LAPPY586
   access 0777
 }

@@ -19,6 +19,44 @@
         label   "Preview Falloff"
         type    toggle
         default { "1" }
+        parmtag { "script_callback" "hou.phm().disableUpstreamPreviews(kwargs)" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "do_sprite"
+        label   "Display as Sprites"
+        type    toggle
+        default { "0" }
+        range   { 0! 10 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "spritemap"
+        label   "Sprite Map"
+        type    image
+        default { "sphere_matte.pic" }
+        hidewhen "{ do_sprite == 0 }"
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "surface" }
+    }
+    parm {
+        name    "spritescale"
+        label   "Sprite Scale"
+        type    float
+        default { "1" }
+        hidewhen "{ do_sprite == 0 }"
+        range   { 0 10 }
+    }
+    parm {
+        name    "override_scale"
+        label   "Override Scale"
+        type    toggle
+        default { "0" }
+        hidewhen "{ do_sprite == 0 }"
+        range   { 0 10 }
+        parmtag { "autoscope" "0000000000000000" }
     }
     parm {
         name    "ramp_preset"

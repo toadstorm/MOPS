@@ -32,7 +32,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.965998 -6.55259
+position -1.75835 -9.44287
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -41,18 +41,18 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	MOPs_Object_Falloff 2 1 "input1"
+0 	MOPs_Remap_Falloff 1 1 "input1"
 1 	curve1 0 1 "input2"
 }
 inputs
 {
-0 	MOPs_Object_Falloff 0 1
+0 	MOPs_Remap_Falloff 0 1
 1 	curve1 0 1
 }
 stat
 {
-  create 1536024090
-  modify 1536029491
+  create 1538097645
+  modify 1538097924
   author Henry@LAPPY586
   access 0777
 }
@@ -111,7 +111,7 @@ inputs
 stat
 {
   create 1520238981
-  modify 1536024090
+  modify 1538097645
   author Mo@Mo-PC
   access 0777
 }
@@ -191,7 +191,7 @@ inputs
 stat
 {
   create 1520238994
-  modify 1536024090
+  modify 1538097645
   author Mo@Mo-PC
   access 0777
 }
@@ -276,7 +276,7 @@ inputs
 stat
 {
   create 1520239056
-  modify 1536024090
+  modify 1538097645
   author Mo@Mo-PC
   access 0777
 }
@@ -561,7 +561,7 @@ inputs
 stat
 {
   create 1520239092
-  modify 1536024090
+  modify 1538097645
   author Mo@Mo-PC
   access 0777
 }
@@ -907,7 +907,7 @@ inputs
 stat
 {
   create 1520239111
-  modify 1536024090
+  modify 1538097645
   author Mo@Mo-PC
   access 0777
 }
@@ -985,7 +985,7 @@ inputs
 stat
 {
   create 1520239857
-  modify 1536024090
+  modify 1538097645
   author Mo@Mo-PC
   access 0777
 }
@@ -1240,7 +1240,7 @@ inputs
 stat
 {
   create 1523234729
-  modify 1536024124
+  modify 1538097645
   author henry@GlaDOS
   access 0777
 }
@@ -1293,7 +1293,12 @@ grouptype	[ 0	locks=0 ]	(	[ grouptype	0 ] 	)
 input	[ 0	locks=0 ]	(	[ input	8 ] 	)
 strength	[ 0	locks=0 ]	(	[ strength	1 ] 	)
 switchclamp	[ 0	locks=0 ]	(	[ switchclamp	0 ] 	)
+sepparm	[ 0	locks=0 ]	(	)
 do_preview	[ 0	locks=0 ]	(	"off"	)
+folder0	[ 0	locks=0 ]	(	0	)
+do_sprite	[ 0	locks=0 ]	(	"on"	)
+spritescale	[ 0	locks=0 ]	(	1	)
+override_scale	[ 0	locks=0 ]	(	"off"	)
 ramp_preset	[ 0	locks=0 ]	(	"heatmap"	)
 falloff_heatmap	[ 0	locks=0 ]	(	5	)
 falloff_heatmap1pos	[ 0	locks=0 ]	(	0	)
@@ -1355,7 +1360,7 @@ inputs
 stat
 {
   create 1523228567
-  modify 1536026056
+  modify 1538097646
   author henry@GlaDOS
   access 0777
 }
@@ -7315,7 +7320,7 @@ inputs
 stat
 {
   create 1523247616
-  modify 1536024090
+  modify 1538097645
   author henry@GlaDOS
   access 0777
 }
@@ -7393,7 +7398,7 @@ inputs
 stat
 {
   create 1523247855
-  modify 1536024119
+  modify 1538097645
   author henry@GlaDOS
   access 0777
 }
@@ -7516,8 +7521,12 @@ Content-Type: text/plain
 version 0.8
 group	[ 0	locks=0 ]	(	`chs(\"../pointwrangle3/group\")`	)
 grouptype	[ 0	locks=0 ]	(	"guess"	)
-do_preview	[ 0	locks=0 ]	(	"off"	)
 sepparm	[ 0	locks=0 ]	(	)
+do_preview	[ 0	locks=0 ]	(	"off"	)
+folder0	[ 0	locks=0 ]	(	0	)
+do_sprite	[ 0	locks=0 ]	(	"on"	)
+spritescale	[ 0	locks=0 ]	(	1	)
+override_scale	[ 0	locks=0 ]	(	"off"	)
 ramp_preset	[ 0	locks=0 ]	(	"heatmap"	)
 falloff_heatmap	[ 0	locks=0 ]	(	5	)
 fitparams	[ 0	locks=0 ]	(	0	)
@@ -7594,7 +7603,7 @@ inputs
 stat
 {
   create 1536024126
-  modify 1536029483
+  modify 1538097729
   author Henry@LAPPY586
   access 0777
 }
@@ -7807,6 +7816,26 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 5 5 expr = ch(\"../falloff_heatmap\") }
     }
+    channel do_sprite {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../do_sprite\") }
+    }
+    channel spritescale {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../spritescale\") }
+    }
+    channel override_scale {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../override_scale\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -7816,6 +7845,10 @@ Content-Type: text/plain
 {
 version 0.8
 do_preview	[ 0	locks=0 ]	(	[ do_preview	0 ] 	)
+do_sprite	[ 0	locks=0 ]	(	[ do_sprite	1 ] 	)
+spritemap	[ 0	locks=0 ]	(	sphere_matte.pic	)
+spritescale	[ 0	locks=0 ]	(	[ spritescale	1 ] 	)
+override_scale	[ 0	locks=0 ]	(	[ override_scale	0 ] 	)
 ramp_preset	[ 0	locks=0 ]	(	[ ramp_preset	0 ] 	)
 falloff_heatmap	[ 0	locks=0 ]	(	[ falloff_heatmap	5 ] 	)
 falloff_heatmap1pos	[ 0	locks=0 ]	(	[ falloff_heatmap1pos	0 ] 	)
@@ -8001,7 +8034,7 @@ inputs
 stat
 {
   create 1520238964
-  modify 1536024090
+  modify 1538097645
   author Mo@Mo-PC
   access 0777
 }
@@ -8074,7 +8107,7 @@ inputs
 stat
 {
   create 1520238968
-  modify 1536024090
+  modify 1538097645
   author Mo@Mo-PC
   access 0777
 }
@@ -8271,7 +8304,7 @@ inputs
 stat
 {
   create 1520239135
-  modify 1536024090
+  modify 1538097645
   author Mo@Mo-PC
   access 0777
 }
@@ -8652,7 +8685,7 @@ inputs
 stat
 {
   create 1523234394
-  modify 1536024090
+  modify 1538097645
   author henry@GlaDOS
   access 0777
 }
@@ -8861,7 +8894,7 @@ inputs
 stat
 {
   create 1523247567
-  modify 1536024090
+  modify 1538097645
   author henry@GlaDOS
   access 0777
 }
@@ -8936,7 +8969,7 @@ inputs
 stat
 {
   create 1523247595
-  modify 1536024130
+  modify 1538097645
   author henry@GlaDOS
   access 0777
 }

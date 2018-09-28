@@ -32,25 +32,24 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -2.31531 -1.90914
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+position -1.75835 -13.5016
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-0 "output1"
 }
 inputsNamed3
 {
-1 	switch1 1 1 "input1"
+0 	MOPs_Texture_Falloff 1 1 "input1"
 }
 inputs
 {
-0 	switch1 0 1
+0 	MOPs_Texture_Falloff 0 1
 }
 stat
 {
-  create 1527129470
-  modify 1536033306
+  create 1538098242
+  modify 1538098337
   author Henry@LAPPY586
   access 0777
 }
@@ -108,7 +107,7 @@ inputs
 stat
 {
   create 1527119029
-  modify 1536029867
+  modify 1538098242
   author Henry@LAPPY586
   access 0777
 }
@@ -392,7 +391,7 @@ inputs
 stat
 {
   create 1527124869
-  modify 1536029867
+  modify 1538098242
   author Henry@LAPPY586
   access 0777
 }
@@ -658,7 +657,7 @@ inputs
 stat
 {
   create 1527127477
-  modify 1536029867
+  modify 1538098242
   author Henry@LAPPY586
   access 0777
 }
@@ -906,7 +905,7 @@ inputs
 stat
 {
   create 1527133419
-  modify 1536029963
+  modify 1538098242
   author Henry@LAPPY586
   access 0777
 }
@@ -1163,10 +1162,15 @@ Content-Type: text/plain
 version 0.8
 group	[ 0	locks=0 ]	(	`chs(\"../Combine_Falloffs1/group\")`	)
 grouptype	[ 8	locks=0 ]	(	[ grouptype	0 ] 	)
-do_preview	[ 0	locks=0 ]	(	"off"	)
 sepparm	[ 0	locks=0 ]	(	)
+do_preview	[ 0	locks=0 ]	(	"off"	)
+folder0	[ 0	locks=0 ]	(	0	)
+do_sprite	[ 0	locks=0 ]	(	"on"	)
+spritescale	[ 0	locks=0 ]	(	1	)
+override_scale	[ 0	locks=0 ]	(	"off"	)
 ramp_preset	[ 0	locks=0 ]	(	[ ramp_preset	0 ] 	)
 falloff_heatmap	[ 0	locks=0 ]	(	[ falloff_heatmap	5 ] 	)
+sepparm2	[ 0	locks=0 ]	(	)
 fitparams	[ 0	locks=0 ]	(	0	)
 switchfit	[ 0	locks=0 ]	(	[ switchfit	0 ] 	)
 auto_min_max	[ 0	locks=0 ]	(	[ auto_min_max	0 ] 	)
@@ -1243,7 +1247,7 @@ inputs
 stat
 {
   create 1527134483
-  modify 1536029963
+  modify 1538098242
   author Henry@LAPPY586
   access 0777
 }
@@ -1303,7 +1307,12 @@ grouptype	[ 0	locks=0 ]	(	[ grouptype	0 ] 	)
 input	[ 0	locks=0 ]	(	[ input	8 ] 	)
 strength	[ 0	locks=0 ]	(	[ strength	1 ] 	)
 switchclamp	[ 0	locks=0 ]	(	[ switchclamp	0 ] 	)
+sepparm	[ 0	locks=0 ]	(	)
 do_preview	[ 0	locks=0 ]	(	"off"	)
+folder0	[ 0	locks=0 ]	(	0	)
+do_sprite	[ 0	locks=0 ]	(	"on"	)
+spritescale	[ 0	locks=0 ]	(	1	)
+override_scale	[ 0	locks=0 ]	(	"off"	)
 ramp_preset	[ 0	locks=0 ]	(	"heatmap"	)
 falloff_heatmap	[ 0	locks=0 ]	(	5	)
 falloff_heatmap1pos	[ 0	locks=0 ]	(	0	)
@@ -1365,7 +1374,7 @@ inputs
 stat
 {
   create 1536029968
-  modify 1536029985
+  modify 1538098325
   author Henry@LAPPY586
   access 0777
 }
@@ -1386,6 +1395,26 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../do_preview\") }
     }
+    channel do_sprite {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../do_sprite\") }
+    }
+    channel spritescale {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../spritescale\") }
+    }
+    channel override_scale {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../override_scale\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1395,6 +1424,10 @@ Content-Type: text/plain
 {
 version 0.8
 do_preview	[ 0	locks=0 ]	(	[ do_preview	0 ] 	)
+do_sprite	[ 0	locks=0 ]	(	[ do_sprite	1 ] 	)
+spritemap	[ 0	locks=0 ]	(	sphere_matte.pic	)
+spritescale	[ 0	locks=0 ]	(	[ spritescale	1 ] 	)
+override_scale	[ 0	locks=0 ]	(	[ override_scale	0 ] 	)
 ramp_preset	[ 0	locks=0 ]	(	"heatmap"	)
 falloff_heatmap	[ 0	locks=0 ]	(	5	)
 falloff_heatmap1pos	[ 0	locks=0 ]	(	0	)
@@ -1596,7 +1629,7 @@ inputs
 stat
 {
   create 1527115230
-  modify 1536029867
+  modify 1538098242
   author Henry@LAPPY586
   access 0777
 }
@@ -1677,11 +1710,11 @@ Content-Type: text/plain
 {
 version 0.8
 stdswitcher	[ 0	locks=0 ]	(	0	0	)
-file	[ 8	locks=0 ]	(	[ file	"C:/Users/Henry/Downloads/Daydream Nation/02 Silver Rocket.mp3" ] 	)
+file	[ 8	locks=0 ]	(	[ file	"" ] 	)
 reload	[ 0	locks=0 ]	(	[ reload	0 ] 	)
 nameoption	[ 0	locks=0 ]	(	[ nameoption	0 ] 	)
 name	[ 0	locks=0 ]	(	[ name	chan0 ] 	)
-rateoption	[ 0	locks=0 ]	(	[ rateoption	2 ] 	)
+rateoption	[ 0	locks=0 ]	(	[ rateoption	0 ] 	)
 rate	[ 0	locks=0 ]	(	[ rate	4096 ] 	)
 left	[ 0	locks=0 ]	(	[ left	0 ] 	)
 right	[ 0	locks=0 ]	(	[ right	0 ] 	)
@@ -2003,7 +2036,7 @@ inputs
 stat
 {
   create 1527118714
-  modify 1527556401
+  modify 1538098242
   author Henry@LAPPY586
   access 0777
 }
@@ -2097,7 +2130,7 @@ inputs
 stat
 {
   create 1527130753
-  modify 1527556401
+  modify 1538098242
   author Henry@LAPPY586
   access 0777
 }
@@ -2271,7 +2304,7 @@ inputs
 stat
 {
   create 1527125854
-  modify 1536029867
+  modify 1538098242
   author Henry@LAPPY586
   access 0777
 }
@@ -2412,7 +2445,7 @@ inputs
 stat
 {
   create 1527133238
-  modify 1536029867
+  modify 1538098242
   author Henry@LAPPY586
   access 0777
 }
@@ -2494,7 +2527,7 @@ inputs
 stat
 {
   create 1527133254
-  modify 1536029867
+  modify 1538098242
   author Henry@LAPPY586
   access 0777
 }
@@ -2585,7 +2618,7 @@ inputs
 stat
 {
   create 1527133507
-  modify 1536029867
+  modify 1538098242
   author Henry@LAPPY586
   access 0777
 }
@@ -2708,7 +2741,7 @@ inputs
 stat
 {
   create 1527133607
-  modify 1536029867
+  modify 1538098242
   author Henry@LAPPY586
   access 0777
 }
@@ -2788,7 +2821,7 @@ inputs
 stat
 {
   create 1527556983
-  modify 1536029867
+  modify 1538098242
   author Henry@LAPPY586
   access 0777
 }
@@ -2916,7 +2949,7 @@ inputs
 stat
 {
   create 1527556988
-  modify 1536029867
+  modify 1538098242
   author Henry@LAPPY586
   access 0777
 }
@@ -2946,7 +2979,7 @@ Content-Type: text/plain
 version 0.8
 stdswitcher	[ 0	locks=0 ]	(	0	0	)
 indexfirst	[ 0	locks=0 ]	(	"off"	)
-index	[ 0	locks=0 ]	(	[ index	1 ] 	)
+index	[ 0	locks=0 ]	(	[ index	0 ] 	)
 scope	[ 0	locks=0 ]	(	*	)
 srselect	[ 0	locks=0 ]	(	"max"	)
 units	[ 0	locks=0 ]	(	"seconds"	)
@@ -3013,7 +3046,7 @@ inputs
 stat
 {
   create 1527557165
-  modify 1536029867
+  modify 1538098242
   author Henry@LAPPY586
   access 0777
 }
@@ -3043,7 +3076,7 @@ Content-Type: text/plain
 version 0.8
 stdswitcher	[ 0	locks=0 ]	(	0	0	)
 indexfirst	[ 0	locks=0 ]	(	"off"	)
-index	[ 0	locks=0 ]	(	[ index	1 ] 	)
+index	[ 0	locks=0 ]	(	[ index	0 ] 	)
 scope	[ 0	locks=0 ]	(	*	)
 srselect	[ 0	locks=0 ]	(	"max"	)
 units	[ 0	locks=0 ]	(	"seconds"	)
@@ -3108,7 +3141,7 @@ inputs
 stat
 {
   create 1527985918
-  modify 1536029867
+  modify 1538098242
   author henry@GlaDOS
   access 0777
 }
@@ -3197,7 +3230,7 @@ inputs
 stat
 {
   create 1529113730
-  modify 1536033076
+  modify 1538098242
   author Henry@LAPPY586
   access 0777
 }
@@ -3292,7 +3325,7 @@ inputs
 stat
 {
   create 1529113737
-  modify 1536033077
+  modify 1538098242
   author Henry@LAPPY586
   access 0777
 }
@@ -3507,7 +3540,7 @@ inputs
 stat
 {
   create 1536032692
-  modify 1536033091
+  modify 1538098242
   author Henry@LAPPY586
   access 0777
 }
@@ -3602,7 +3635,7 @@ inputs
 stat
 {
   create 1536032699
-  modify 1536033091
+  modify 1538098242
   author Henry@LAPPY586
   access 0777
 }
@@ -3741,7 +3774,7 @@ inputs
 stat
 {
   create 1536033084
-  modify 1536033220
+  modify 1538098242
   author Henry@LAPPY586
   access 0777
 }
@@ -3836,7 +3869,7 @@ inputs
 stat
 {
   create 1536033098
-  modify 1536033253
+  modify 1538098242
   author Henry@LAPPY586
   access 0777
 }
@@ -4034,7 +4067,7 @@ inputs
 stat
 {
   create 1527125024
-  modify 1536029867
+  modify 1538098242
   author Henry@LAPPY586
   access 0777
 }

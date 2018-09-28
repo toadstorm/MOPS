@@ -1,6 +1,2 @@
-if ( “$arg1” == “” ) then
-echo This script is intended as a creation script
-exit
-endif
-
-#opcolor -c 0.98 0.15 0.45 $arg1
+me = kwargs['node']
+me.setName('MOPs_Combine_Falloffs', True)
