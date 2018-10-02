@@ -20,12 +20,28 @@
         type    string
         default { "" }
         menutoggle {
-            [ "opmenu -l attach_to_curve_simple_vop bindgroup" ]
+            [ "opmenu -l split1 group" ]
         }
+        range   { 0 1 }
         parmtag { "autoscope" "0000000000000000" }
-        parmtag { "script_action" "import soputils\nkwargs['geometrytype'] = kwargs['node'].parmTuple('bindgrouptype')\nkwargs['inputindex'] = 0\nsoputils.selectGroupParm(kwargs)" }
-        parmtag { "script_action_help" "Select geometry from an available viewport.\nShift-click to turn on Select Groups." }
+        parmtag { "script_action" "import soputils\nkwargs['geometrytype'] = kwargs['node'].parmTuple('grouptype')\nkwargs['inputindex'] = 0\nsoputils.selectGroupParm(kwargs)" }
+        parmtag { "script_action_help" "Select geometry from an available viewport." }
         parmtag { "script_action_icon" "BUTTONS_reselect" }
+    }
+    parm {
+        name    "grouptype"
+        label   "Group Type"
+        type    ordinal
+        default { "guess" }
+        menu {
+            "guess"         "Guess from Group"
+            "breakpoints"   "Breakpoints"
+            "edges"         "Edges"
+            "points"        "Points"
+            "prims"         "Primitives"
+        }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
     }
     parm {
         name    "mode"
@@ -51,6 +67,13 @@
             "2" "Delete Instances, Keep Center Points"
         }
         range   { 0! 10 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "curve_number"
+        label   "Curve Number"
+        type    string
+        default { "0" }
         parmtag { "autoscope" "0000000000000000" }
     }
     group {
@@ -208,106 +231,159 @@
         label   "Interpolate Or Advect"
         hidewhentab "{ mode == 0 }"
 
-        parm {
-            name    "resimulate"
-            label   "Reset Simulation"
-            type    button
-            default { "0" }
-            hidewhen "{ mode != 2 }"
-            range   { 0 1 }
-            parmtag { "autoscope" "0000000000000000" }
+        group {
+            name    "folder2"
+            label   "Settings"
+
+            parm {
+                name    "goalu"
+                label   "Goal U"
+                type    float
+                default { "1" }
+                hidewhen "{ mode != 1 }"
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "stepsize"
+                label   "Step Size"
+                type    float
+                default { "0.01" }
+                hidewhen "{ mode != 2 }"
+                range   { 0 10 }
+            }
+            parm {
+                name    "wrap2"
+                label   "Wrap"
+                type    toggle
+                default { "off" }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "offset_amount2"
+                label   "Offset Amount"
+                type    float
+                default { "1" }
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "random_goal"
+                label   "Randomize Goal"
+                type    float
+                default { "0" }
+                disablewhen "{ mode != 1 }"
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "random_seed2"
+                label   "Random Seed"
+                type    integer
+                default { "0" }
+                range   { 0 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "blend_in_orient"
+                label   "Blend In Orient"
+                type    ramp_flt
+                default { "2" }
+                disablewhen "{ mode != 2 }"
+                range   { 1! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "rampfloatdefault" "1pos ( 0 ) 1value ( 0 ) 1interp ( linear ) 2pos ( 1 ) 2value ( 1 ) 2interp ( linear )" }
+                parmtag { "rampshowcontrolsdefault" "0" }
+            }
+            parm {
+                name    "do_rotate2"
+                label   "Orient Copies to Curve"
+                type    toggle
+                default { "on" }
+                range   { 0 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "frame2"
+                label   "Reference Frame"
+                type    float
+                default { "$FSTART" }
+                range   { 0 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "do_vexpression2"
+                label   "Use VEXpressions"
+                type    toggle
+                default { "0" }
+            }
+            parm {
+                name    "vexpression2"
+                label   "VEXpression"
+                type    string
+                default { "// offset_amount = 1.0;\n// wrap = 1;\n// goalu = 0.5;\n// stepsize = 0.01;" }
+                hidewhen "{ do_vexpression2 == 0 }"
+                parmtag { "editor" "1" }
+                parmtag { "editorlang" "vex" }
+            }
         }
-        parm {
-            name    "goalu"
-            label   "Goal U"
-            type    float
-            default { "1" }
-            hidewhen "{ mode != 1 }"
-            range   { 0 1 }
-            parmtag { "autoscope" "0000000000000000" }
+
+        group {
+            name    "folder2_1"
+            label   "Solver"
+            hidewhentab "{ mode != 2 }"
+
+            parm {
+                name    "resimulate"
+                label   "Reset Simulation"
+                type    button
+                default { "0" }
+                hidewhen "{ mode != 2 }"
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "startframe"
+                label   "Start Frame"
+                type    integer
+                default { "1" }
+                range   { 1 240 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "substep"
+                label   "Sub Steps"
+                type    integer
+                default { "1" }
+                range   { 1! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "cacheenabled"
+                label   "Cache Simulation"
+                type    toggle
+                default { "on" }
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "cachetodisk"
+                label   "Allow Caching To Disk"
+                type    toggle
+                default { "off" }
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "cachemaxsize"
+                label   "Cache Memory (MB)"
+                type    integer
+                default { "5000" }
+                range   { 0! 1000 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
         }
-        parm {
-            name    "stepsize"
-            label   "Step Size"
-            type    float
-            default { "0.01" }
-            hidewhen "{ mode != 2 }"
-            range   { 0 10 }
-        }
-        parm {
-            name    "wrap2"
-            label   "Wrap"
-            type    toggle
-            default { "off" }
-            parmtag { "autoscope" "0000000000000000" }
-        }
-        parm {
-            name    "offset_amount2"
-            label   "Offset Amount"
-            type    float
-            default { "1" }
-            range   { 0 1 }
-            parmtag { "autoscope" "0000000000000000" }
-        }
-        parm {
-            name    "random_goal"
-            label   "Randomize Goal"
-            type    float
-            default { "0" }
-            disablewhen "{ mode != 1 }"
-            range   { 0 1 }
-            parmtag { "autoscope" "0000000000000000" }
-        }
-        parm {
-            name    "random_seed2"
-            label   "Random Seed"
-            type    integer
-            default { "0" }
-            range   { 0 10 }
-            parmtag { "autoscope" "0000000000000000" }
-        }
-        parm {
-            name    "blend_in_orient"
-            label   "Blend In Orient"
-            type    ramp_flt
-            default { "2" }
-            disablewhen "{ mode != 2 }"
-            range   { 1! 10 }
-            parmtag { "autoscope" "0000000000000000" }
-            parmtag { "rampfloatdefault" "1pos ( 0 ) 1value ( 0 ) 1interp ( linear ) 2pos ( 1 ) 2value ( 1 ) 2interp ( linear )" }
-            parmtag { "rampshowcontrolsdefault" "0" }
-        }
-        parm {
-            name    "do_rotate2"
-            label   "Orient Copies to Curve"
-            type    toggle
-            default { "on" }
-            range   { 0 10 }
-            parmtag { "autoscope" "0000000000000000" }
-        }
-        parm {
-            name    "frame2"
-            label   "Reference Frame"
-            type    float
-            default { "$FSTART" }
-            range   { 0 10 }
-            parmtag { "autoscope" "0000000000000000" }
-        }
-        parm {
-            name    "do_vexpression2"
-            label   "Use VEXpressions"
-            type    toggle
-            default { "0" }
-        }
-        parm {
-            name    "vexpression2"
-            label   "VEXpression"
-            type    string
-            default { "// offset_amount = 1.0;\n// wrap = 1;\n// goalu = 0.5;\n// stepsize = 0.01;" }
-            hidewhen "{ do_vexpression2 == 0 }"
-            parmtag { "editor" "1" }
-            parmtag { "editorlang" "vex" }
-        }
+
     }
 
     group {

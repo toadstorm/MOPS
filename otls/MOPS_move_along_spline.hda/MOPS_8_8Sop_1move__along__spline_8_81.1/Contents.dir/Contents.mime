@@ -32,27 +32,28 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.73529 -2.29029
-connectornextid 2
+position -2.49269 -8.10063
+connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
+2 "output1"
 }
 inputsNamed3
 {
-0 	MOPs_Shape_Falloff 1 1 "input1"
-1 	curve1 0 1 "input2"
+0 	MOPs_Randomize 1 1 "input1"
+1 	wires 1 1 "input2"
 }
 inputs
 {
-0 	MOPs_Shape_Falloff 0 1
-1 	curve1 0 1
+0 	MOPs_Randomize 0 1
+1 	wires 0 1
 }
 stat
 {
-  create 1528660845
-  modify 1528661629
-  author Mo@Mo-PC
+  create 1530400599
+  modify 1530413765
+  author henry@GlaDOS
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -76,7 +77,7 @@ Content-Disposition: attachment; filename="hdaroot.inp"
 Content-Type: text/plain
 
 2
-0 0 6 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+0 -0.068828081048100967 6.4817965673367066 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
 1 3 7.9310106370447864 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -123,23 +124,23 @@ sopflags sopflags =
 comment ""
 position 2.96865 1.57003
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 1 "output1"
 }
 inputsNamed3
 {
-0 	pointwrangle4 1 1 "input1"
+0 	polyframe1 1 1 "input1"
 }
 inputs
 {
-0 	pointwrangle4 0 1
+0 	polyframe1 0 1
 }
 stat
 {
   create 1524271534
-  modify 1525972743
+  modify 1530413721
   author Henry@LAPPY586
   access 0777
 }
@@ -185,7 +186,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -3.24276 -6.9787
+position -3.24276 -7.15999
 connectornextid 4
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -207,7 +208,7 @@ inputs
 stat
 {
   create 1524198909
-  modify 1528660845
+  modify 1530401837
   author Henry@LAPPY586
   access 0777
 }
@@ -534,73 +535,6 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 2 2 expr = ch(\"../twist_ramp\") }
     }
-    channel snippet {
-      lefttype = extend
-      righttype = extend
-      defaultString = "\"// figure out how much to tweak falloff to allow for clean wrapping
-float err = 1.0/((float)@numpt);
-if(chi(\\\"wrap\\\")) {
-    @__goalu = fit(@__goalu, 0, 1, 0, 1-err);
-    @test = @__goalu;
-}
-
-// randomize goal
-float randomAmount = ch(\\\"random_shift\\\");
-int randomSeed = chi(\\\"random_seed\\\");
-@__goalu += fit01(rand(i@id + (randomSeed*100000)), -randomAmount, randomAmount);
-
-// determine travel and wrap targetu if wrap enabled
-float goalu = ch(\\\"travel\\\") + @__goalu;
-if(chi(\\\"wrap\\\")) {
-    goalu %= 1.0;
-} else {
-    goalu = clamp(goalu, 0, 1);
-}
-
-float offset_amount = ch(\\\"offset_amount\\\");
-
-/* SNIPPET */
-
-// determine target position, orientation
-vector targetP = primuv(1, \\\"P\\\", 0, goalu);
-vector tgt_binorm = primuv(1, \\\"mops_PT_binormal\\\", 0, goalu);
-vector tgt_tangent = primuv(1, \\\"mops_PT_tangent\\\", 0, goalu);
-vector4 rot = quaternion(maketransform(tgt_tangent, tgt_binorm));
-
-// twisting
-float twist_scale = ch(\\\"twist_scale\\\");
-float twist_ramp = chramp(\\\"twist_ramp\\\", goalu);
-vector4 twist = quaternion(radians(twist_scale) * twist_ramp, tgt_tangent);
-
-rot = qmultiply(twist, rot);
-
-// determine offset from curve based on the start of the curve.
-vector originP = point(2, \\\"P\\\", @ptnum);
-vector originTarget = primuv(1, \\\"P\\\", 0, 0);
-vector4 originO = primuv(1, \\\"orient\\\", 0, 0);
-vector offset = originP - originTarget;
-
-// compute position. offset needs to be rotated around reference frame...?
-offset = qrotate(rot, offset);
-offset *= offset_amount;
-@P = targetP + offset;
-
-// compute orientation (can be disabled on Apply node)
-p@orient = rot;
-\""
-      flags = 0
-      start = 12.375
-      segment { options = {	 autoslope  ai ao }
-
-	 length = 0 accel = 0.33333333333333331 0.33333333333333331 expr = "snippet = hou.node('../attach_to_curve_simple_CODE').evalParm('snippet').split('/* SNIPPET */')
-vexpression = hou.pwd().evalParm('vexpression')
-do_vexpression = hou.pwd().evalParm('do_vexpression')
-if not do_vexpression:
-    vexpression = \"\"
-
-return \"\\n\".join([snippet[0], vexpression, snippet[1]])
-" language = python }
-    }
     channel do_vexpression {
       lefttype = extend
       righttype = extend
@@ -616,12 +550,12 @@ Content-Type: text/plain
 {
 version 0.8
 folder0	[ 0	locks=0 ]	(	0	0	)
-group	[ 0	locks=0 ]	(	`chs(\"../bindgroup\")`	)
+group	[ 0	locks=0 ]	(	""	)
 grouptype	[ 0	locks=0 ]	(	"guess"	)
 class	[ 0	locks=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
-snippet	[ 0	locks=0	autoscope=1 ]	(	[ snippet	"// figure out how much to tweak falloff to allow for clean wrapping
+snippet	[ 0	locks=0	autoscope=1 ]	(	"// figure out how much to tweak falloff to allow for clean wrapping
 float err = 1.0/((float)@numpt);
 if(chi(\"wrap\")) {
     @__goalu = fit(@__goalu, 0, 1, 0, 1-err);
@@ -644,13 +578,13 @@ goalu = 1.0 - goalu;
 float offset_amount = ch(\"offset_amount\");
 
 
-
+`ifs(ch(\"./do_vexpression\"), chs(\"./vexpression\"), \"\")`
 
 
 // determine target position, orientation
-vector targetP = primuv(1, \"P\", 0, goalu);
-vector tgt_binorm = primuv(1, \"mops_PT_binormal\", 0, goalu);
-vector tgt_tangent = primuv(1, \"mops_PT_tangent\", 0, goalu);
+vector targetP = primuv(1, \"P\", i@__curvenum, goalu);
+vector tgt_binorm = primuv(1, \"mops_PT_binormal\", i@__curvenum, goalu);
+vector tgt_tangent = primuv(1, \"mops_PT_tangent\", i@__curvenum, goalu);
 vector4 rot = quaternion(maketransform(tgt_binorm, tgt_tangent));
 
 // twisting
@@ -662,8 +596,8 @@ rot = qmultiply(twist, rot);
 
 // determine offset from curve based on the start of the curve.
 vector originP = point(2, \"P\", @ptnum);
-vector originTarget = primuv(1, \"P\", 0, 0);
-vector4 originO = primuv(1, \"orient\", 0, 0);
+vector originTarget = primuv(1, \"P\", i@__curvenum, 0);
+vector4 originO = primuv(1, \"orient\", i@__curvenum, 0);
 vector offset = originP - originTarget;
 
 // compute position. offset needs to be rotated around reference frame...?
@@ -673,7 +607,7 @@ offset *= offset_amount;
 
 // compute orientation (can be disabled on Apply node)
 p@orient = rot;
-" ] 	)
+"	)
 exportlist	[ 0	locks=0 ]	(	*	)
 vex_strict	[ 0	locks=0 ]	(	"off"	)
 autobind	[ 0	locks=0 ]	(	"on"	)
@@ -688,9 +622,9 @@ vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 wrap	[ 0	locks=0 ]	(	[ wrap	1 ] 	)
-travel	[ 8	locks=0 ]	(	[ travel	0 ] 	)
-offset_amount	[ 8	locks=0 ]	(	[ offset_amount	1 ] 	)
-random_shift	[ 8	locks=0 ]	(	[ random_shift	0 ] 	)
+travel	[ 8	locks=0 ]	(	[ travel	1.1791666666666667 ] 	)
+offset_amount	[ 8	locks=0 ]	(	[ offset_amount	0 ] 	)
+random_shift	[ 8	locks=0 ]	(	[ random_shift	0.13400000000000001 ] 	)
 random_seed	[ 8	locks=0 ]	(	[ random_seed	0 ] 	)
 twist_scale	[ 0	locks=0 ]	(	[ twist_scale	0 ] 	)
 twist_ramp	[ 8	locks=0 ]	(	[ twist_ramp	2 ] 	)
@@ -746,7 +680,7 @@ inputs
 stat
 {
   create 1524426408
-  modify 1528660845
+  modify 1530400599
   author Henry@LAPPY586
   access 0777
 }
@@ -1038,8 +972,8 @@ twist_ramp	[ 0	locks=0 ]	(	[ twist_ramp	2 ] 	)
 twist_ramp1pos	[ 0	locks=0 ]	(	[ twist_ramp1pos	0 ] 	)
 twist_ramp1value	[ 0	locks=0 ]	(	[ twist_ramp1value	0 ] 	)
 twist_ramp1interp	[ 0	locks=0 ]	(	[ twist_ramp1interp	1 ] 	)
-twist_ramp2pos	[ 0	locks=0 ]	(	[ twist_ramp2pos	0 ] 	)
-twist_ramp2value	[ 0	locks=0 ]	(	[ twist_ramp2value	0 ] 	)
+twist_ramp2pos	[ 0	locks=0 ]	(	[ twist_ramp2pos	1 ] 	)
+twist_ramp2value	[ 0	locks=0 ]	(	[ twist_ramp2value	1 ] 	)
 twist_ramp2interp	[ 0	locks=0 ]	(	[ twist_ramp2interp	1 ] 	)
 }
 
@@ -1067,7 +1001,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -3.00843 -1.71171
+position -3.00843 -1.893
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1085,7 +1019,7 @@ inputs
 stat
 {
   create 1524427774
-  modify 1528660845
+  modify 1530400599
   author Henry@LAPPY586
   access 0777
 }
@@ -1345,7 +1279,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -4.56894 -9.5105
+position -4.56894 -9.69179
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1365,7 +1299,7 @@ inputs
 stat
 {
   create 1524429377
-  modify 1528660845
+  modify 1530400599
   author Henry@LAPPY586
   access 0777
 }
@@ -1394,7 +1328,8 @@ Content-Type: text/plain
 
 {
 version 0.8
-group	[ 0	locks=0 ]	(	`chs(\"../bindgroup\")`	)
+group	[ 0	locks=0 ]	(	""	)
+grouptype	[ 0	locks=0 ]	(	"guess"	)
 do_translate	[ 0	locks=0 ]	(	"on"	)
 do_rotate	[ 0	locks=0 ]	(	[ do_rotate	1 ] 	)
 do_scale	[ 0	locks=0 ]	(	"on"	)
@@ -1432,7 +1367,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.897349 -9.5105
+position -0.897349 -9.69179
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1452,7 +1387,7 @@ inputs
 stat
 {
   create 1524429377
-  modify 1528660845
+  modify 1530400599
   author Henry@LAPPY586
   access 0777
 }
@@ -1481,7 +1416,8 @@ Content-Type: text/plain
 
 {
 version 0.8
-group	[ 0	locks=0 ]	(	`chs(\"../bindgroup\")`	)
+group	[ 0	locks=0 ]	(	""	)
+grouptype	[ 0	locks=0 ]	(	"guess"	)
 do_translate	[ 0	locks=0 ]	(	"on"	)
 do_rotate	[ 0	locks=0 ]	(	[ do_rotate	1 ] 	)
 do_scale	[ 0	locks=0 ]	(	"on"	)
@@ -1519,7 +1455,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 3.76142 -4.74038
+position 3.76142 -4.92167
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1537,7 +1473,7 @@ inputs
 stat
 {
   create 1524716081
-  modify 1526105095
+  modify 1529386711
   author Henry@LAPPY586
   access 0777
 }
@@ -1578,7 +1514,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 8.55311 -7.17784
+position 8.55311 -7.35913
 connectornextid 4
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -1600,7 +1536,7 @@ inputs
 stat
 {
   create 1524198909
-  modify 1528660845
+  modify 1530402593
   author Henry@LAPPY586
   access 0777
 }
@@ -1919,7 +1855,7 @@ Content-Type: text/plain
 {
 version 0.8
 folder0	[ 0	locks=0 ]	(	0	0	)
-group	[ 0	locks=0 ]	(	`chs(\"../bindgroup\")`	)
+group	[ 0	locks=0 ]	(	""	)
 grouptype	[ 0	locks=0 ]	(	"guess"	)
 class	[ 0	locks=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0 ]	(	10	)
@@ -1932,14 +1868,14 @@ vector originP = point(2, \"P\", @ptnum);
 string trail_group = chs(\"trail_group\");
 
 // determine curve offset vector
-vector originTarget = primuv(1, \"P\", 0, 0);
+vector originTarget = primuv(1, \"P\", i@__curvenum, 0);
 vector offset = originP - originTarget;
 
 // determine iteration settings
 int iterations = chi(\"iterations\");
 
 float targetu = 0;
-vector4 prevO = primuv(1, \"orient\", 0, 0);
+vector4 prevO = primuv(1, \"orient\", i@__curvenum, 0);
 float goalu; // actual final goal U after scaling
 
 float twist_scale = ch(\"twist_scale\");
@@ -1950,18 +1886,18 @@ for(int i=0; i<iterations; i++) {
     if(chi(\"wrap\")) {
         goalu %= 1.0;
     }
-    vector goalP = primuv(1, \"P\", 0, goalu);
-    vector4 goalO = primuv(1, \"orient\", 0, goalu);
+    vector goalP = primuv(1, \"P\", i@__curvenum, goalu);
+    vector4 goalO = primuv(1, \"orient\", i@__curvenum, goalu);
     int tgtptid = nearpoint(1, goalP);
     //vector4 targetO = point(1, \"orient\", tgtptid);
-    vector tgt_binorm = primuv(1, \"mops_PT_binormal\", 0, goalu);
-    vector tgt_tangent = primuv(1, \"mops_PT_tangent\", 0, goalu);
+    vector tgt_binorm = primuv(1, \"mops_PT_binormal\", i@__curvenum, goalu);
+    vector tgt_tangent = primuv(1, \"mops_PT_tangent\", i@__curvenum, goalu);
     vector4 rot = quaternion(maketransform(tgt_tangent, tgt_binorm));
     vector twist_axis = tgt_tangent;
     float twist_ramp = chramp(\"twist_ramp\", goalu);
     vector4 twist = quaternion(radians(twist_scale)*twist_ramp, twist_axis);
     vector4 targetO = qmultiply(twist, rot);
-    vector4 prevO = primuv(1, \"orient\", 0, 0);
+    vector4 prevO = primuv(1, \"orient\", i@__curvenum, 0);
     vector rot_offset = qrotate( qmultiply( targetO, qinvert(prevO) ), offset);
     // vector rot_offset = qrotate( qmultiply( goalO, qinvert(prevO) ), offset);
     @P = goalP + (rot_offset * ch(\"offset_amount\"));
@@ -2028,7 +1964,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 3.60955 -13.5794
+position 3.60955 -13.7607
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -2046,7 +1982,7 @@ inputs
 stat
 {
   create 1524803896
-  modify 1528660845
+  modify 1530400599
   author Henry@LAPPY586
   access 0777
 }
@@ -2107,7 +2043,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 3.60955 -15.4317
+position 3.60955 -15.613
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -2125,7 +2061,7 @@ inputs
 stat
 {
   create 1524803987
-  modify 1528660845
+  modify 1530400599
   author Henry@LAPPY586
   access 0777
 }
@@ -2185,7 +2121,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.40409 -6.9787
+position 1.40409 -7.15999
 connectornextid 4
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -2207,7 +2143,7 @@ inputs
 stat
 {
   create 1524198909
-  modify 1528660845
+  modify 1530402104
   author Henry@LAPPY586
   access 0777
 }
@@ -2541,70 +2477,6 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 2 2 expr = ch(\"../twist_ramp\") }
     }
-    channel snippet {
-      lefttype = extend
-      righttype = extend
-      defaultString = "'vector originP = point(2, \"P\", @ptnum);
-
-// determine curve offset vector
-vector originTarget = primuv(1, \"P\", 0, 0);
-vector offset = originP - originTarget;
-
-float offset_amount = ch(\"offset_amount\");
-int wrap = chi(\"wrap\");
-
-// random values
-float randspeed = fit01(rand(i@id+chi(\"random_seed\")), -ch(\"random_speed\"), ch(\"random_speed\"));
-
-// initial goal U on curve
-float goalu = (ch(\"travel\") + randspeed) * @mops_falloff;
-
-if(wrap) {
-    goalu %= 1.0;
-} else {
-    goalu = clamp(goalu, 0, 1);
-}
-
-float twist_ramp = chramp(\"twist_ramp\", goalu);
-
-
-goalu = 0.5;
-
-
-// twisting
-float twist_scale = ch(\"twist\");
-vector goalP = primuv(1, \"P\", 0, goalu);
-int tgtptid = nearpoint(1, goalP);
-//vector4 targetO = point(1, \"orient\", tgtptid);
-vector tgt_binorm = primuv(1, \"mops_PT_binormal\", 0, goalu);
-vector tgt_tangent = primuv(1, \"mops_PT_tangent\", 0, goalu);
-vector4 rot = quaternion(maketransform(tgt_tangent, tgt_binorm));
-vector twist_axis = tgt_tangent;
-vector4 twist = quaternion(radians(twist_scale)*twist_ramp, twist_axis);
-vector4 targetO = qmultiply(twist, rot);
-vector4 prevO = primuv(1, \"orient\", 0, 0);
-vector rot_offset = qrotate( qmultiply( targetO, qinvert(prevO) ), offset);
-@P = goalP + (rot_offset * offset_amount);
-
-vector4 origO = point(2, \"orient\", @ptnum);
-float bias = chramp(\"blend_in_orient\", clamp(goalu, 0, 1));
-// compute orientation (can be disabled on Apply node)
-@goalu = goalu;
-p@orient = slerp(origO, targetO, bias);
-'"
-      flags = 0
-      start = 20.791666666666668
-      segment { options = {	 autoslope  ai ao }
-
-	 length = 0 accel = 0.33333333333333331 0.33333333333333331 expr = "snippet = hou.node('../attach_to_curve_CODE').evalParm('snippet').split('/* SNIPPET */')
-vexpression = hou.pwd().evalParm('vexpression')
-do_vexpression = hou.pwd().evalParm('do_vexpression')
-if not do_vexpression:
-    vexpression = \"\"
-
-return \"\\n\".join([snippet[0], vexpression, snippet[1]])
-" language = python }
-    }
     channel do_vexpression {
       lefttype = extend
       righttype = extend
@@ -2620,15 +2492,15 @@ Content-Type: text/plain
 {
 version 0.8
 folder0	[ 0	locks=0 ]	(	0	0	)
-group	[ 0	locks=0 ]	(	`chs(\"../bindgroup\")`	)
+group	[ 0	locks=0 ]	(	""	)
 grouptype	[ 0	locks=0 ]	(	"guess"	)
 class	[ 0	locks=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
-snippet	[ 0	locks=0	autoscope=1 ]	(	[ snippet	"vector originP = point(2, \"P\", @ptnum);
+snippet	[ 0	locks=0	autoscope=1 ]	(	"vector originP = point(2, \"P\", @ptnum);
 
 // determine curve offset vector
-vector originTarget = primuv(1, \"P\", 0, 0);
+vector originTarget = primuv(1, \"P\", i@__curvenum, 0);
 vector offset = originP - originTarget;
 
 float offset_amount = ch(\"offset_amount\");
@@ -2649,15 +2521,15 @@ if(wrap) {
 float twist_scale = ch(\"twist\");
 
 
-
+`ifs(ch(\"do_vexpression\"), chs(\"vexpression\"), \"\")`
 
 
 // twisting
 
 float twist_ramp = chramp(\"twist_ramp\", goalu);
-vector goalP = primuv(1, \"P\", 0, goalu);
-vector tgt_binorm = primuv(1, \"mops_PT_binormal\", 0, goalu);
-vector tgt_tangent = primuv(1, \"mops_PT_tangent\", 0, goalu);
+vector goalP = primuv(1, \"P\", i@__curvenum, goalu);
+vector tgt_binorm = primuv(1, \"mops_PT_binormal\", i@__curvenum, goalu);
+vector tgt_tangent = primuv(1, \"mops_PT_tangent\", i@__curvenum, goalu);
 vector4 rot = quaternion(maketransform(tgt_tangent, tgt_binorm));
 vector4 twist = quaternion(radians(twist_scale)*twist_ramp, tgt_tangent);
 vector4 targetO = qmultiply(twist, rot);
@@ -2670,7 +2542,7 @@ float bias = chramp(\"blend_in_orient\", clamp(goalu, 0, 1));
 // compute orientation (can be disabled on Apply node)
 @goalu = goalu;
 p@orient = slerp(origO, targetO, bias);
-" ] 	)
+"	)
 exportlist	[ 0	locks=0 ]	(	*	)
 vex_strict	[ 0	locks=0 ]	(	"off"	)
 autobind	[ 0	locks=0 ]	(	"on"	)
@@ -2686,7 +2558,7 @@ vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 wrap	[ 0	locks=0 ]	(	[ wrap	0 ] 	)
 goalu	[ 0	locks=0 ]	(	[ goalu	1 ] 	)
-offset_amount	[ 8	locks=0 ]	(	[ offset_amount	1 ] 	)
+offset_amount	[ 8	locks=0 ]	(	[ offset_amount	0 ] 	)
 random_speed	[ 8	locks=0 ]	(	[ random_speed	0 ] 	)
 random_seed	[ 8	locks=0 ]	(	[ random_seed	0 ] 	)
 blend_in_orient	[ 8	locks=0 ]	(	2	)
@@ -2750,7 +2622,7 @@ inputs
 stat
 {
   create 1525972713
-  modify 1528660845
+  modify 1530413703
   author Mo@Mo-PC
   access 0777
 }
@@ -2798,124 +2670,6 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attach_to_curve_CODE.init"
-Content-Type: text/plain
-
-type = attribwrangle
-matchesdef = 1
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attach_to_curve_CODE.def"
-Content-Type: text/plain
-
-sopflags sopflags = 
-comment ""
-position 3.09762 -7.6755
-connectornextid 0
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
-outputsNamed3
-{
-}
-inputsNamed3
-{
-}
-inputs
-{
-}
-stat
-{
-  create 1526015899
-  modify 1528660845
-  author Henry@LAPPY586
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attach_to_curve_CODE.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-folder0	[ 0	locks=0 ]	(	0	0	)
-group	[ 0	locks=0 ]	(	`chs(\"../bindgroup\")`	)
-grouptype	[ 0	locks=0 ]	(	"guess"	)
-class	[ 0	locks=0 ]	(	"point"	)
-vex_numcount	[ 0	locks=0 ]	(	10	)
-vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
-snippet	[ 0	locks=0 ]	(	"vector originP = point(2, \"P\", @ptnum);
-
-// determine curve offset vector
-vector originTarget = primuv(1, \"P\", 0, 0);
-vector offset = originP - originTarget;
-
-float offset_amount = ch(\"offset_amount\");
-int wrap = chi(\"wrap\");
-
-// random values
-float randspeed = fit01(rand(i@id+chi(\"random_seed\")), -ch(\"random_speed\"), ch(\"random_speed\"));
-
-// initial goal U on curve
-float goalu = (ch(\"goalu\") + randspeed) * @mops_falloff;
-
-if(wrap) {
-    goalu %= 1.0;
-} else {
-    goalu = clamp(goalu, 0, 1);
-}
-
-float twist_scale = ch(\"twist\");
-
-/* SNIPPET */
-
-// twisting
-
-float twist_ramp = chramp(\"twist_ramp\", goalu);
-vector goalP = primuv(1, \"P\", 0, goalu);
-vector tgt_binorm = primuv(1, \"mops_PT_binormal\", 0, goalu);
-vector tgt_tangent = primuv(1, \"mops_PT_tangent\", 0, goalu);
-vector4 rot = quaternion(maketransform(tgt_tangent, tgt_binorm));
-vector4 twist = quaternion(radians(twist_scale)*twist_ramp, tgt_tangent);
-vector4 targetO = qmultiply(twist, rot);
-vector4 prevO = primuv(1, \"orient\", 0, 0);
-vector rot_offset = qrotate( qmultiply( targetO, qinvert(prevO) ), offset);
-@P = goalP + (rot_offset * offset_amount);
-
-vector4 origO = point(2, \"orient\", @ptnum);
-float bias = chramp(\"blend_in_orient\", clamp(goalu, 0, 1));
-// compute orientation (can be disabled on Apply node)
-@goalu = goalu;
-p@orient = slerp(origO, targetO, bias);
-"	)
-exportlist	[ 0	locks=0 ]	(	*	)
-vex_strict	[ 0	locks=0 ]	(	"off"	)
-autobind	[ 0	locks=0 ]	(	"on"	)
-bindings	[ 0	locks=0 ]	(	0	)
-groupautobind	[ 0	locks=0 ]	(	"on"	)
-groupbindings	[ 0	locks=0 ]	(	0	)
-vex_cwdpath	[ 0	locks=0 ]	(	.	)
-vex_outputmask	[ 0	locks=0 ]	(	*	)
-vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
-vex_matchattrib	[ 0	locks=0 ]	(	id	)
-vex_inplace	[ 0	locks=0 ]	(	"off"	)
-vex_selectiongroup	[ 0	locks=0 ]	(	""	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attach_to_curve_CODE.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":""
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/make_curve_orient_frame1.init"
 Content-Type: text/plain
 
@@ -2946,7 +2700,7 @@ inputs
 stat
 {
   create 1524426408
-  modify 1528660845
+  modify 1530400599
   author Henry@LAPPY586
   access 0777
 }
@@ -3229,138 +2983,13 @@ twist_ramp	[ 0	locks=0 ]	(	[ twist_ramp	2 ] 	)
 twist_ramp1pos	[ 0	locks=0 ]	(	[ twist_ramp1pos	0 ] 	)
 twist_ramp1value	[ 0	locks=0 ]	(	[ twist_ramp1value	0 ] 	)
 twist_ramp1interp	[ 0	locks=0 ]	(	[ twist_ramp1interp	1 ] 	)
-twist_ramp2pos	[ 0	locks=0 ]	(	[ twist_ramp2pos	0 ] 	)
-twist_ramp2value	[ 0	locks=0 ]	(	[ twist_ramp2value	0 ] 	)
+twist_ramp2pos	[ 0	locks=0 ]	(	[ twist_ramp2pos	1 ] 	)
+twist_ramp2value	[ 0	locks=0 ]	(	[ twist_ramp2value	1 ] 	)
 twist_ramp2interp	[ 0	locks=0 ]	(	[ twist_ramp2interp	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/make_curve_orient_frame1.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":""
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attach_to_curve_simple_CODE.init"
-Content-Type: text/plain
-
-type = attribwrangle
-matchesdef = 1
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attach_to_curve_simple_CODE.def"
-Content-Type: text/plain
-
-sopflags sopflags = 
-comment ""
-position -2.13466 -7.6755
-connectornextid 0
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
-outputsNamed3
-{
-}
-inputsNamed3
-{
-}
-inputs
-{
-}
-stat
-{
-  create 1526146871
-  modify 1528660845
-  author Henry@LAPPY586
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attach_to_curve_simple_CODE.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-folder0	[ 0	locks=0 ]	(	0	0	)
-group	[ 0	locks=0 ]	(	""	)
-grouptype	[ 0	locks=0 ]	(	"guess"	)
-class	[ 0	locks=0 ]	(	"point"	)
-vex_numcount	[ 0	locks=0 ]	(	10	)
-vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
-snippet	[ 0	locks=0 ]	(	"// figure out how much to tweak falloff to allow for clean wrapping
-float err = 1.0/((float)@numpt);
-if(chi(\"wrap\")) {
-    @__goalu = fit(@__goalu, 0, 1, 0, 1-err);
-    @test = @__goalu;
-}
-
-// randomize goal
-float randomAmount = ch(\"random_shift\");
-int randomSeed = chi(\"random_seed\");
-@__goalu += fit01(rand(i@id + (randomSeed*100000)), -randomAmount, randomAmount);
-
-// determine travel and wrap targetu if wrap enabled
-float goalu = ch(\"travel\") + @__goalu;
-if(chi(\"wrap\")) {
-    goalu %= 1.0;
-} else {
-    goalu = clamp(goalu, 0, 1);
-}
-goalu = 1.0 - goalu;
-float offset_amount = ch(\"offset_amount\");
-
-/* SNIPPET */
-
-// determine target position, orientation
-vector targetP = primuv(1, \"P\", 0, goalu);
-vector tgt_binorm = primuv(1, \"mops_PT_binormal\", 0, goalu);
-vector tgt_tangent = primuv(1, \"mops_PT_tangent\", 0, goalu);
-vector4 rot = quaternion(maketransform(tgt_binorm, tgt_tangent));
-
-// twisting
-float twist_scale = ch(\"twist_scale\");
-float twist_ramp = chramp(\"twist_ramp\", goalu);
-vector4 twist = quaternion(radians(twist_scale) * twist_ramp, tgt_tangent);
-
-rot = qmultiply(twist, rot);
-
-// determine offset from curve based on the start of the curve.
-vector originP = point(2, \"P\", @ptnum);
-vector originTarget = primuv(1, \"P\", 0, 0);
-vector4 originO = primuv(1, \"orient\", 0, 0);
-vector offset = originP - originTarget;
-
-// compute position. offset needs to be rotated around reference frame...?
-offset = qrotate(rot, offset);
-offset *= offset_amount;
-@P = targetP + offset;
-
-// compute orientation (can be disabled on Apply node)
-p@orient = rot;
-"	)
-exportlist	[ 0	locks=0 ]	(	*	)
-vex_strict	[ 0	locks=0 ]	(	"off"	)
-autobind	[ 0	locks=0 ]	(	"on"	)
-bindings	[ 0	locks=0 ]	(	0	)
-groupautobind	[ 0	locks=0 ]	(	"on"	)
-groupbindings	[ 0	locks=0 ]	(	0	)
-vex_cwdpath	[ 0	locks=0 ]	(	.	)
-vex_outputmask	[ 0	locks=0 ]	(	*	)
-vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
-vex_matchattrib	[ 0	locks=0 ]	(	id	)
-vex_inplace	[ 0	locks=0 ]	(	"off"	)
-vex_selectiongroup	[ 0	locks=0 ]	(	""	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attach_to_curve_simple_CODE.userdata"
 Content-Type: text/plain
 
 {
@@ -3383,7 +3012,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 5.43041 -6.9777
+position 5.43041 -7.15899
 connectornextid 4
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -3405,7 +3034,7 @@ inputs
 stat
 {
   create 1526978028
-  modify 1528660845
+  modify 1530400599
   author Mo@Mo-PC
   access 0777
 }
@@ -3425,6 +3054,40 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = ch(\"../resimulate\") }
     }
+    channel startframe {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../startframe\") }
+    }
+    channel substep {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../substep\") }
+    }
+    channel cacheenabled {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../cacheenabled\") }
+    }
+    channel cachetodisk {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../cachetodisk\") }
+    }
+    channel cachemaxsize {
+      lefttype = extend
+      righttype = extend
+      default = 5000
+      flags = 0
+      segment { length = 0 value = 5000 5000 expr = ch(\"../cachemaxsize\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -3436,11 +3099,11 @@ version 0.8
 resimulate	[ 0	locks=0 ]	(	[ resimulate	0 ] 	)
 useinitialsop	[ 0	locks=0 ]	(	"off"	)
 initialsop	[ 0	locks=0 ]	(	""	)
-startframe	[ 0	locks=0 ]	(	1	)
-substep	[ 0	locks=0 ]	(	1	)
-cacheenabled	[ 0	locks=0 ]	(	"on"	)
-cachetodisk	[ 0	locks=0 ]	(	"off"	)
-cachemaxsize	[ 0	locks=0 ]	(	5000	)
+startframe	[ 0	locks=0 ]	(	[ startframe	1 ] 	)
+substep	[ 0	locks=0 ]	(	[ substep	1 ] 	)
+cacheenabled	[ 0	locks=0 ]	(	[ cacheenabled	1 ] 	)
+cachetodisk	[ 0	locks=0 ]	(	[ cachetodisk	0 ] 	)
+cachemaxsize	[ 0	locks=0 ]	(	[ cachemaxsize	5000 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -3477,7 +3140,7 @@ inputs
 stat
 {
   create 1324348265
-  modify 1527981626
+  modify 1530413692
   author jlait@andorra.sidefx.com
   access 0777
 }
@@ -3566,7 +3229,7 @@ inputs
 stat
 {
   create 1526978478
-  modify 1528660845
+  modify 1530402530
   author Mo@Mo-PC
   access 0777
 }
@@ -3957,70 +3620,6 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = ch(\"../../../../twist\") }
     }
-    channel snippet {
-      lefttype = extend
-      righttype = extend
-      defaultString = "\"vector originP = point(3, \\\"P\\\", @ptnum);
-
-// determine curve offset vector
-vector originTarget = primuv(1, \\\"P\\\", 0, 0);
-vector offset = originP - originTarget;
-
-float offset_amount = ch(\\\"offset_amount\\\");
-int wrap = chi(\\\"wrap\\\");
-
-// random values
-float randspeed = 1.0 + fit01(rand(i@id+chi(\\\"random_seed\\\")), -ch(\\\"random_speed\\\"), ch(\\\"random_speed\\\"));
-float stepsize = chf(\\\"step_size\\\");
-if(@Frame <= 1)
-    stepsize = 0.0;
-
-// initial goal U on curve
-float goalu = f@goalu + (stepsize * randspeed * @mops_falloff);
-
-if(wrap) {
-    goalu %= 1.0;
-} else {
-    goalu = clamp(goalu, 0, 1);
-}
-
-float twist_scale = ch(\\\"twist\\\");
-
-/* SNIPPET */
-
-// twisting
-
-float twist_ramp = chramp(\\\"twist_ramp\\\", goalu);
-vector goalP = primuv(1, \\\"P\\\", 0, goalu);
-vector tgt_binorm = primuv(1, \\\"mops_PT_binormal\\\", 0, goalu);
-vector tgt_tangent = primuv(1, \\\"mops_PT_tangent\\\", 0, goalu);
-vector4 rot = quaternion(maketransform(tgt_tangent, tgt_binorm));
-vector4 twist = quaternion(radians(twist_scale)*twist_ramp, tgt_tangent);
-vector4 targetO = qmultiply(twist, rot);
-vector4 prevO = primuv(1, \\\"orient\\\", 0, 0);
-vector rot_offset = qrotate( qmultiply( targetO, qinvert(prevO) ), offset);
-v@P = goalP + (rot_offset * offset_amount);
-//v@P = goalP;
-
-vector4 origO = point(2, \\\"orient\\\", @ptnum);
-float bias = chramp(\\\"blend_in_orient\\\", clamp(goalu, 0, 1));
-// compute orientation (can be disabled on Apply node)
-f@goalu = goalu;
-p@orient = slerp(origO, targetO, bias);
-\""
-      flags = 0
-      start = 2.6666666666666665
-      segment { options = {	 autoslope  ai ao }
-
-	 length = 0 accel = 0.33333333333333331 0.33333333333333331 expr = "snippet = hou.node('../pointwrangle_CODE').evalParm('snippet').split('/* SNIPPET */')
-vexpression = hou.pwd().evalParm('vexpression')
-do_vexpression = hou.pwd().evalParm('do_vexpression')
-if not do_vexpression:
-    vexpression = \"\"
-
-return \"\\n\".join([snippet[0], vexpression, snippet[1]])
-" language = python }
-    }
     channel do_vexpression {
       lefttype = extend
       righttype = extend
@@ -4041,7 +3640,7 @@ grouptype	[ 0	locks=0 ]	(	"guess"	)
 class	[ 0	locks=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
-snippet	[ 0	locks=0	autoscope=1 ]	(	[ snippet	"vector originP = point(3, \"P\", @ptnum);
+snippet	[ 0	locks=0	autoscope=1 ]	(	"vector originP = point(3, \"P\", @ptnum);
 
 // determine curve offset vector
 vector originTarget = primuv(1, \"P\", 0, 0);
@@ -4059,10 +3658,7 @@ if(@Frame <= 1)
 float goalu = f@goalu;
 
 
-// offset_amount = 1.0;
-// wrap = 1;
-// goalu = 0.5;
-// stepsize = 0.01;
+`ifs(ch(\"do_vexpression\"), chs(\"vexpression\"), \"\")`
 
     
 // initial goal U on curve
@@ -4081,163 +3677,13 @@ float twist_scale = ch(\"twist\");
 // twisting
 
 float twist_ramp = chramp(\"twist_ramp\", goalu);
-vector goalP = primuv(1, \"P\", 0, goalu);
-vector tgt_binorm = primuv(1, \"mops_PT_binormal\", 0, goalu);
-vector tgt_tangent = primuv(1, \"mops_PT_tangent\", 0, goalu);
+vector goalP = primuv(1, \"P\", i@__curvenum, goalu);
+vector tgt_binorm = primuv(1, \"mops_PT_binormal\", i@__curvenum, goalu);
+vector tgt_tangent = primuv(1, \"mops_PT_tangent\", i@__curvenum, goalu);
 vector4 rot = quaternion(maketransform(tgt_tangent, tgt_binorm));
 vector4 twist = quaternion(radians(twist_scale)*twist_ramp, tgt_tangent);
 vector4 targetO = qmultiply(twist, rot);
-vector4 prevO = primuv(1, \"orient\", 0, 0);
-vector rot_offset = qrotate( qmultiply( targetO, qinvert(prevO) ), offset);
-v@P = goalP + (rot_offset * offset_amount);
-//v@P = goalP;
-
-vector4 origO = point(2, \"orient\", @ptnum);
-float bias = chramp(\"blend_in_orient\", clamp(goalu, 0, 1));
-// compute orientation (can be disabled on Apply node)
-f@goalu = goalu;
-p@orient = slerp(origO, targetO, bias);
-" ] 	)
-exportlist	[ 0	locks=0 ]	(	*	)
-vex_strict	[ 0	locks=0 ]	(	"off"	)
-autobind	[ 0	locks=0 ]	(	"on"	)
-bindings	[ 0	locks=0 ]	(	0	)
-groupautobind	[ 0	locks=0 ]	(	"on"	)
-groupbindings	[ 0	locks=0 ]	(	0	)
-vex_cwdpath	[ 0	locks=0 ]	(	.	)
-vex_outputmask	[ 0	locks=0 ]	(	*	)
-vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
-vex_matchattrib	[ 0	locks=0 ]	(	id	)
-vex_inplace	[ 0	locks=0 ]	(	"off"	)
-vex_selectiongroup	[ 0	locks=0 ]	(	""	)
-folder1	[ 0	locks=0 ]	(	0	0	)
-step_size	[ 0	locks=0 ]	(	[ step_size	0.01 ] 	)
-offset_amount	[ 0	locks=0 ]	(	[ offset_amount	1 ] 	)
-random_speed	[ 0	locks=0 ]	(	[ random_speed	0 ] 	)
-goalu	[ 0	locks=0 ]	(	0	)
-twist	[ 0	locks=0 ]	(	[ twist	0 ] 	)
-wrap	[ 0	locks=0 ]	(	[ wrap	0 ] 	)
-random_seed	[ 0	locks=0 ]	(	[ random_seed	0 ] 	)
-twist_ramp	[ 8	locks=0 ]	(	[ twist_ramp	2 ] 	)
-twist_ramp1pos	[ 0	locks=0 ]	(	[ twist_ramp1pos	0 ] 	)
-twist_ramp1value	[ 0	locks=0 ]	(	[ twist_ramp1value	0 ] 	)
-twist_ramp1interp	[ 0	locks=0 ]	(	[ twist_ramp1interp	1 ] 	)
-blend_in_orient	[ 8	locks=0 ]	(	[ blend_in_orient	2 ] 	)
-blend_in_orient1pos	[ 0	locks=0 ]	(	[ blend_in_orient1pos	0 ] 	)
-blend_in_orient1value	[ 0	locks=0 ]	(	[ blend_in_orient1value	0 ] 	)
-blend_in_orient1interp	[ 0	locks=0 ]	(	[ blend_in_orient1interp	1 ] 	)
-do_vexpression	[ 0	locks=0 ]	(	[ do_vexpression	1 ] 	)
-vexpression	[ 0	locks=0 ]	(	`chs(\"../../../../vexpression2\")`	)
-twist_ramp2pos	[ 0	locks=0 ]	(	[ twist_ramp2pos	1 ] 	)
-twist_ramp2value	[ 0	locks=0 ]	(	[ twist_ramp2value	1 ] 	)
-twist_ramp2interp	[ 0	locks=0 ]	(	[ twist_ramp2interp	1 ] 	)
-blend_in_orient2pos	[ 0	locks=0 ]	(	[ blend_in_orient2pos	1 ] 	)
-blend_in_orient2value	[ 0	locks=0 ]	(	[ blend_in_orient2value	1 ] 	)
-blend_in_orient2interp	[ 0	locks=0 ]	(	[ blend_in_orient2interp	1 ] 	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/solver1/d/s/pointwrangle1.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":""
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/solver1/d/s/pointwrangle_CODE.init"
-Content-Type: text/plain
-
-type = attribwrangle
-matchesdef = 1
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/solver1/d/s/pointwrangle_CODE.def"
-Content-Type: text/plain
-
-sopflags sopflags = 
-comment ""
-position 8.7756 -6.64169
-connectornextid 0
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
-outputsNamed3
-{
-}
-inputsNamed3
-{
-}
-inputs
-{
-}
-stat
-{
-  create 1527981626
-  modify 1528660845
-  author henry@GlaDOS
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/solver1/d/s/pointwrangle_CODE.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-folder0	[ 0	locks=0 ]	(	0	0	)
-group	[ 0	locks=0 ]	(	""	)
-grouptype	[ 0	locks=0 ]	(	"guess"	)
-class	[ 0	locks=0 ]	(	"point"	)
-vex_numcount	[ 0	locks=0 ]	(	10	)
-vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
-snippet	[ 0	locks=0 ]	(	"vector originP = point(3, \"P\", @ptnum);
-
-// determine curve offset vector
-vector originTarget = primuv(1, \"P\", 0, 0);
-vector offset = originP - originTarget;
-
-float offset_amount = ch(\"offset_amount\");
-int wrap = chi(\"wrap\");
-
-// random values
-float randspeed = 1.0 + fit01(rand(i@id+chi(\"random_seed\")), -ch(\"random_speed\"), ch(\"random_speed\"));
-float stepsize = chf(\"step_size\");
-if(@Frame <= 1)
-    stepsize = 0.0;
-    
-float goalu = f@goalu;
-
-/* SNIPPET */
-    
-// initial goal U on curve
-goalu += (stepsize * randspeed * @mops_falloff);
-
-if(wrap) {
-    goalu %= 1.0;
-} else {
-    goalu = clamp(goalu, 0, 1);
-}
-
-float twist_scale = ch(\"twist\");
-
-
-
-// twisting
-
-float twist_ramp = chramp(\"twist_ramp\", goalu);
-vector goalP = primuv(1, \"P\", 0, goalu);
-vector tgt_binorm = primuv(1, \"mops_PT_binormal\", 0, goalu);
-vector tgt_tangent = primuv(1, \"mops_PT_tangent\", 0, goalu);
-vector4 rot = quaternion(maketransform(tgt_tangent, tgt_binorm));
-vector4 twist = quaternion(radians(twist_scale)*twist_ramp, tgt_tangent);
-vector4 targetO = qmultiply(twist, rot);
-vector4 prevO = primuv(1, \"orient\", 0, 0);
+vector4 prevO = primuv(1, \"orient\", i@__curvenum, 0);
 vector rot_offset = qrotate( qmultiply( targetO, qinvert(prevO) ), offset);
 v@P = goalP + (rot_offset * offset_amount);
 //v@P = goalP;
@@ -4260,10 +3706,34 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+folder1	[ 0	locks=0 ]	(	0	0	)
+step_size	[ 0	locks=0 ]	(	[ step_size	0.01 ] 	)
+offset_amount	[ 0	locks=0 ]	(	[ offset_amount	0 ] 	)
+random_speed	[ 0	locks=0 ]	(	[ random_speed	0 ] 	)
+goalu	[ 0	locks=0 ]	(	0	)
+twist	[ 0	locks=0 ]	(	[ twist	0 ] 	)
+wrap	[ 0	locks=0 ]	(	[ wrap	1 ] 	)
+random_seed	[ 0	locks=0 ]	(	[ random_seed	0 ] 	)
+twist_ramp	[ 8	locks=0 ]	(	[ twist_ramp	2 ] 	)
+twist_ramp1pos	[ 0	locks=0 ]	(	[ twist_ramp1pos	0 ] 	)
+twist_ramp1value	[ 0	locks=0 ]	(	[ twist_ramp1value	0 ] 	)
+twist_ramp1interp	[ 0	locks=0 ]	(	[ twist_ramp1interp	1 ] 	)
+blend_in_orient	[ 8	locks=0 ]	(	[ blend_in_orient	2 ] 	)
+blend_in_orient1pos	[ 0	locks=0 ]	(	[ blend_in_orient1pos	0 ] 	)
+blend_in_orient1value	[ 0	locks=0 ]	(	[ blend_in_orient1value	0 ] 	)
+blend_in_orient1interp	[ 0	locks=0 ]	(	[ blend_in_orient1interp	1 ] 	)
+do_vexpression	[ 0	locks=0 ]	(	[ do_vexpression	0 ] 	)
+vexpression	[ 0	locks=0 ]	(	`chs(\"../../../../vexpression2\")`	)
+twist_ramp2pos	[ 0	locks=0 ]	(	[ twist_ramp2pos	1 ] 	)
+twist_ramp2value	[ 0	locks=0 ]	(	[ twist_ramp2value	1 ] 	)
+twist_ramp2interp	[ 0	locks=0 ]	(	[ twist_ramp2interp	1 ] 	)
+blend_in_orient2pos	[ 0	locks=0 ]	(	[ blend_in_orient2pos	1 ] 	)
+blend_in_orient2value	[ 0	locks=0 ]	(	[ blend_in_orient2value	1 ] 	)
+blend_in_orient2interp	[ 0	locks=0 ]	(	[ blend_in_orient2interp	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/solver1/d/s/pointwrangle_CODE.userdata"
+Content-Disposition: attachment; filename="hdaroot/solver1/d/s/pointwrangle1.userdata"
 Content-Type: text/plain
 
 {
@@ -4286,7 +3756,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.11759e-08 3.2971
+position -0.228696 5.33546
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -4304,7 +3774,7 @@ inputs
 stat
 {
   create 1526978650
-  modify 1528660845
+  modify 1530400599
   author Mo@Mo-PC
   access 0777
 }
@@ -4364,7 +3834,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.69261 -9.5105
+position 1.69261 -9.69179
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -4384,7 +3854,7 @@ inputs
 stat
 {
   create 1524429377
-  modify 1528660845
+  modify 1530400599
   author Henry@LAPPY586
   access 0777
 }
@@ -4413,7 +3883,8 @@ Content-Type: text/plain
 
 {
 version 0.8
-group	[ 0	locks=0 ]	(	`chs(\"../bindgroup\")`	)
+group	[ 0	locks=0 ]	(	""	)
+grouptype	[ 0	locks=0 ]	(	"guess"	)
 do_translate	[ 0	locks=0 ]	(	"on"	)
 do_rotate	[ 0	locks=0 ]	(	[ do_rotate	1 ] 	)
 do_scale	[ 0	locks=0 ]	(	"on"	)
@@ -4451,7 +3922,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 4.68969 -18.9068
+position 4.68969 -19.0881
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -4469,7 +3940,7 @@ inputs
 stat
 {
   create 1524805177
-  modify 1528661495
+  modify 1529386711
   author Henry@LAPPY586
   access 0777
 }
@@ -4485,6 +3956,23 @@ Content-Type: text/plain
 {
 version 0.8
 restore_backup_cd	[ 0	locks=0 ]	(	"off"	)
+ramp_preset	[ 0	locks=0 ]	(	"heatmap"	)
+falloff_heatmap	[ 0	locks=0 ]	(	5	)
+falloff_heatmap1pos	[ 0	locks=0 ]	(	0	)
+falloff_heatmap1c	[ 0	locks=0 ]	(	0.036199998110532761	0	0.5429999828338623	)
+falloff_heatmap1interp	[ 0	locks=0 ]	(	"linear"	)
+falloff_heatmap2pos	[ 0	locks=0 ]	(	0.27027025818824768	)
+falloff_heatmap2c	[ 0	locks=0 ]	(	0.7369999885559082	0	0	)
+falloff_heatmap2interp	[ 0	locks=0 ]	(	"linear"	)
+falloff_heatmap3pos	[ 0	locks=0 ]	(	0.71814674139022827	)
+falloff_heatmap3c	[ 0	locks=0 ]	(	1	0.28333333134651184	0	)
+falloff_heatmap3interp	[ 0	locks=0 ]	(	"linear"	)
+falloff_heatmap4pos	[ 0	locks=0 ]	(	0.90154439210891724	)
+falloff_heatmap4c	[ 0	locks=0 ]	(	0.89999997615814209	0.89999997615814209	0	)
+falloff_heatmap4interp	[ 0	locks=0 ]	(	"linear"	)
+falloff_heatmap5pos	[ 0	locks=0 ]	(	1	)
+falloff_heatmap5c	[ 0	locks=0 ]	(	1	1	1	)
+falloff_heatmap5interp	[ 0	locks=0 ]	(	"linear"	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -4511,7 +3999,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 5.88025 -17.0309
+position 5.88025 -17.2122
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -4529,7 +4017,7 @@ inputs
 stat
 {
   create 1524805213
-  modify 1528660845
+  modify 1530400599
   author Henry@LAPPY586
   access 0777
 }
@@ -4589,7 +4077,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 2.3738 -16.8859
+position 2.3738 -17.0672
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -4606,7 +4094,7 @@ inputs
 stat
 {
   create 1527980358
-  modify 1527980383
+  modify 1529386711
   author henry@GlaDOS
   access 0777
 }
@@ -4769,7 +4257,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 5.88325 -20.6373
+position 5.88325 -20.8186
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -4787,7 +4275,7 @@ inputs
 stat
 {
   create 1528661451
-  modify 1528661634
+  modify 1529386711
   author Mo@Mo-PC
   access 0777
 }
@@ -4831,6 +4319,266 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/determine_curve_number.init"
+Content-Type: text/plain
+
+type = attribwrangle
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/determine_curve_number.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -0.351749 2.02119
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	split1 1 1 "input1"
+}
+inputs
+{
+0 	split1 0 1
+}
+stat
+{
+  create 1530400908
+  modify 1530401334
+  author henry@GlaDOS
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/determine_curve_number.spareparmdef"
+Content-Type: text/plain
+
+    group {
+        name    "folder1"
+        label   "Code"
+
+        parm {
+            name    "group"
+            baseparm
+            label   "Group"
+            export  none
+            bindselector points "Modify Points"
+                "Select the points to affect and press Enter to complete."
+                0 1 0xffffffff 0 grouptype 0
+        }
+        parm {
+            name    "grouptype"
+            baseparm
+            label   "Group Type"
+            export  none
+        }
+        parm {
+            name    "class"
+            baseparm
+            label   "Run Over"
+            export  none
+        }
+        parm {
+            name    "vex_numcount"
+            baseparm
+            label   "Number Count"
+            export  none
+        }
+        parm {
+            name    "vex_threadjobsize"
+            baseparm
+            label   "Thread Job Size"
+            export  none
+        }
+        parm {
+            name    "snippet"
+            baseparm
+            label   "VEXpression"
+            export  all
+        }
+        parm {
+            name    "exportlist"
+            baseparm
+            label   "Attributes to Create"
+            export  none
+        }
+        parm {
+            name    "vex_strict"
+            baseparm
+            label   "Enforce Prototypes"
+            export  none
+        }
+    }
+
+    group {
+        name    "folder1_1"
+        label   "Bindings"
+
+        parm {
+            name    "autobind"
+            baseparm
+            label   "Autobind by Name"
+            export  none
+        }
+        multiparm {
+            name    "bindings"
+            label    "Number of Bindings"
+            baseparm
+            default 0
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "multistartoffset" "1" }
+
+            parm {
+                name    "bindname#"
+                baseparm
+                label   "Attribute Name"
+                export  none
+            }
+            parm {
+                name    "bindparm#"
+                baseparm
+                label   "VEX Parameter"
+                export  none
+            }
+        }
+
+        parm {
+            name    "groupautobind"
+            baseparm
+            label   "Autobind Groups by Name"
+            export  none
+        }
+        multiparm {
+            name    "groupbindings"
+            label    "Group Bindings"
+            baseparm
+            default 0
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "multistartoffset" "1" }
+
+            parm {
+                name    "bindgroupname#"
+                baseparm
+                label   "Group Name"
+                export  none
+            }
+            parm {
+                name    "bindgroupparm#"
+                baseparm
+                label   "VEX Parameter"
+                export  none
+            }
+        }
+
+        parm {
+            name    "vex_cwdpath"
+            baseparm
+            label   "Evaluation Node Path"
+            export  none
+        }
+        parm {
+            name    "vex_outputmask"
+            baseparm
+            label   "Export Parameters"
+            export  none
+        }
+        parm {
+            name    "vex_updatenmls"
+            baseparm
+            label   "Update Normals If Displaced"
+            export  none
+        }
+        parm {
+            name    "vex_matchattrib"
+            baseparm
+            label   "Attribute to Match"
+            export  none
+        }
+        parm {
+            name    "vex_inplace"
+            baseparm
+            label   "Compute Results In Place"
+            export  none
+        }
+        parm {
+            name    "vex_selectiongroup"
+            baseparm
+            label   "Output Selection Group"
+            export  none
+        }
+    }
+
+    parm {
+        name    "curve_number"
+        label   "Curve Number"
+        type    string
+        default { "" }
+    }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/determine_curve_number.chn"
+Content-Type: text/plain
+
+{
+    channel curve_number {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"0\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../curve_number\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/determine_curve_number.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+folder0	[ 0	locks=0 ]	(	0	0	)
+group	[ 0	locks=0 ]	(	""	)
+grouptype	[ 0	locks=0 ]	(	"guess"	)
+class	[ 0	locks=0 ]	(	"point"	)
+vex_numcount	[ 0	locks=0 ]	(	10	)
+vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
+snippet	[ 0	locks=0 ]	(	"i@__curvenum = `chs(\"curve_number\")`;"	)
+exportlist	[ 0	locks=0 ]	(	*	)
+vex_strict	[ 0	locks=0 ]	(	"off"	)
+autobind	[ 0	locks=0 ]	(	"on"	)
+bindings	[ 0	locks=0 ]	(	0	)
+groupautobind	[ 0	locks=0 ]	(	"on"	)
+groupbindings	[ 0	locks=0 ]	(	0	)
+vex_cwdpath	[ 0	locks=0 ]	(	.	)
+vex_outputmask	[ 0	locks=0 ]	(	*	)
+vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
+vex_matchattrib	[ 0	locks=0 ]	(	id	)
+vex_inplace	[ 0	locks=0 ]	(	"off"	)
+vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+folder1	[ 0	locks=0 ]	(	0	0	)
+curve_number	[ 0	locks=0 ]	(	[ curve_number	i@prnum ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/determine_curve_number.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/IN_MOPS.init"
 Content-Type: text/plain
 
@@ -4843,7 +4591,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.19492 0.611814
+position -0.348749 0.52613
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -4852,16 +4600,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	pointwrangle5 1 1 "input1"
+0 	determine_curve_number 1 1 "input1"
 }
 inputs
 {
-0 	pointwrangle5 0 1
+0 	determine_curve_number 0 1
 }
 stat
 {
   create 1524186784
-  modify 1526978650
+  modify 1530400918
   author Henry@LAPPY586
   access 0777
 }
@@ -5044,7 +4792,7 @@ inputs
 stat
 {
   create 1524188610
-  modify 1528660845
+  modify 1530400599
   author Henry@LAPPY586
   access 0777
 }
@@ -5201,24 +4949,24 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.731564 -29.6628
+position -0.731564 -31.2939
 connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
 inputsNamed3
 {
-0 	switch_trails 1 1 "input1"
+0 	merge1 1 1 "input1"
 }
 inputs
 {
-0 	switch_trails 0 1
+0 	merge1 0 1
 }
 stat
 {
   create 1524272158
-  modify 1528661549
+  modify 1530413699
   author Henry@LAPPY586
   access 0777
 }
@@ -5260,7 +5008,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -3.00888 -0.547306
+position -3.00888 -0.728599
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -5278,7 +5026,7 @@ inputs
 stat
 {
   create 1524427855
-  modify 1524716643
+  modify 1529386711
   author Henry@LAPPY586
   access 0777
 }
@@ -5326,7 +5074,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.28726 -3.08911
+position -1.28726 -3.2704
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -5344,7 +5092,7 @@ inputs
 stat
 {
   create 1524430266
-  modify 1528660845
+  modify 1530400599
   author Henry@LAPPY586
   access 0777
 }
@@ -5436,7 +5184,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -4.79198 -3.08911
+position -4.79198 -3.2704
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -5454,7 +5202,7 @@ inputs
 stat
 {
   create 1524544154
-  modify 1524716643
+  modify 1529386711
   author Henry@LAPPY586
   access 0777
 }
@@ -5502,7 +5250,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 3.76142 -3.94848
+position 3.76142 -4.12977
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -5520,7 +5268,7 @@ inputs
 stat
 {
   create 1524430266
-  modify 1528660845
+  modify 1530400599
   author Henry@LAPPY586
   access 0777
 }
@@ -5612,7 +5360,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.75161 -10.5281
+position -1.75161 -10.7094
 connectornextid 4
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -5634,7 +5382,7 @@ inputs
 stat
 {
   create 1524716515
-  modify 1528661123
+  modify 1530400599
   author Henry@LAPPY586
   access 0777
 }
@@ -5662,7 +5410,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -5792,7 +5540,7 @@ inputs
 stat
 {
   create 1524716837
-  modify 1528660845
+  modify 1530400599
   author Henry@LAPPY586
   access 0777
 }
@@ -5847,7 +5595,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 8.55611 -8.23606
+position 8.55611 -8.41735
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -5865,7 +5613,7 @@ inputs
 stat
 {
   create 1524802348
-  modify 1528660845
+  modify 1530400599
   author Henry@LAPPY586
   access 0777
 }
@@ -5912,7 +5660,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.731564 -28.1388
+position -0.731564 -28.3201
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -5932,7 +5680,7 @@ inputs
 stat
 {
   create 1524802371
-  modify 1528661466
+  modify 1530400599
   author Henry@LAPPY586
   access 0777
 }
@@ -5961,7 +5709,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -5988,7 +5736,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.849588 -23.5842
+position 0.849588 -23.7655
 connectornextid 0
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -6008,7 +5756,7 @@ inputs
 stat
 {
   create 1524802916
-  modify 1528661466
+  modify 1529386711
   author Henry@LAPPY586
   access 0777
 }
@@ -6049,7 +5797,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 3.82892 -9.5105
+position 3.82892 -9.69179
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -6067,7 +5815,7 @@ inputs
 stat
 {
   create 1524803864
-  modify 1526104960
+  modify 1529386711
   author Henry@LAPPY586
   access 0777
 }
@@ -6115,7 +5863,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 3.6091 -11.83
+position 3.6091 -12.0113
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -6135,7 +5883,7 @@ inputs
 stat
 {
   create 1524803875
-  modify 1527980327
+  modify 1529386711
   author Henry@LAPPY586
   access 0777
 }
@@ -6189,7 +5937,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 3.6091 -12.744
+position 3.6091 -12.9253
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -6207,7 +5955,7 @@ inputs
 stat
 {
   create 1524803955
-  modify 1526104960
+  modify 1529386711
   author Henry@LAPPY586
   access 0777
 }
@@ -6255,7 +6003,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 3.61255 -14.525
+position 3.61255 -14.7063
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -6273,7 +6021,7 @@ inputs
 stat
 {
   create 1524803976
-  modify 1527980288
+  modify 1529386711
   author Henry@LAPPY586
   access 0777
 }
@@ -6323,7 +6071,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 8.55611 -9.72408
+position 8.55611 -9.90537
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -6341,7 +6089,7 @@ inputs
 stat
 {
   create 1524802443
-  modify 1527980517
+  modify 1529386711
   author Henry@LAPPY586
   access 0777
 }
@@ -6414,7 +6162,7 @@ inputs
 stat
 {
   create 1324348265
-  modify 1528660845
+  modify 1530403239
   author jlait@andorra.sidefx.com
   access 0777
 }
@@ -6518,7 +6266,7 @@ inputs
 stat
 {
   create 1324348294
-  modify 1528660845
+  modify 1530400599
   author jlait@andorra.sidefx.com
   access 0777
 }
@@ -6597,7 +6345,7 @@ inputs
 stat
 {
   create 1324348294
-  modify 1528660845
+  modify 1530400599
   author jlait@andorra.sidefx.com
   access 0777
 }
@@ -6676,7 +6424,7 @@ inputs
 stat
 {
   create 1324348294
-  modify 1528660845
+  modify 1530400599
   author jlait@andorra.sidefx.com
   access 0777
 }
@@ -6755,7 +6503,7 @@ inputs
 stat
 {
   create 1324348294
-  modify 1528660845
+  modify 1530400599
   author jlait@andorra.sidefx.com
   access 0777
 }
@@ -7019,7 +6767,7 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot/solver1/d/s.order"
 Content-Type: text/plain
 
-10
+9
 Prev_Frame
 Input_1
 Input_2
@@ -7029,7 +6777,6 @@ switch1
 OUT
 pointwrangle1
 switch2
-pointwrangle_CODE
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/solver1/d/s.net"
@@ -7050,7 +6797,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 3.83237 -10.6424
+position 3.83237 -10.8237
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -7070,7 +6817,7 @@ inputs
 stat
 {
   create 1526983006
-  modify 1528660845
+  modify 1530400599
   author Mo@Mo-PC
   access 0777
 }
@@ -7125,7 +6872,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 3.61255 -16.2687
+position 3.61255 -16.45
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -7143,7 +6890,7 @@ inputs
 stat
 {
   create 1527980297
-  modify 1527980513
+  modify 1529386711
   author henry@GlaDOS
   access 0777
 }
@@ -7208,7 +6955,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 4.68969 -18.0802
+position 4.68969 -18.2615
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -7228,7 +6975,7 @@ inputs
 stat
 {
   create 1524805328
-  modify 1528660845
+  modify 1530400599
   author Henry@LAPPY586
   access 0777
 }
@@ -7283,7 +7030,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 5.88325 -22.0327
+position 5.88325 -22.214
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -7301,7 +7048,7 @@ inputs
 stat
 {
   create 1528660910
-  modify 1528661549
+  modify 1529386711
   author Mo@Mo-PC
   access 0777
 }
@@ -7361,7 +7108,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 4.68969 -22.9033
+position 4.68969 -23.0846
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -7381,7 +7128,7 @@ inputs
 stat
 {
   create 1528660913
-  modify 1528661466
+  modify 1530400599
   author Mo@Mo-PC
   access 0777
 }
@@ -7436,7 +7183,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.28198 -19.4442
+position -1.28198 -19.6255
 connectornextid 4
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -7458,7 +7205,7 @@ inputs
 stat
 {
   create 1528660994
-  modify 1528661242
+  modify 1530400599
   author Mo@Mo-PC
   access 0777
 }
@@ -7572,7 +7319,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.06504 -17.9303
+position 1.06504 -18.1116
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -7590,7 +7337,7 @@ inputs
 stat
 {
   create 1528661236
-  modify 1528661301
+  modify 1529386711
   author Mo@Mo-PC
   access 0777
 }
@@ -7638,10 +7385,294 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/split1.init"
+Content-Type: text/plain
+
+type = split
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/split1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -0.0688281 4.29756
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+2 "output2"
+}
+inputsNamed3
+{
+0 	pointwrangle5 1 1 "input1"
+}
+inputs
+{
+0 	pointwrangle5 0 1
+}
+stat
+{
+  create 1529386646
+  modify 1530400599
+  author Henry@LAPPY586
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/split1.chn"
+Content-Type: text/plain
+
+{
+    channel group {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../bindgroup\") }
+    }
+    channel grouptype {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../grouptype\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/split1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+group	[ 0	locks=0 ]	(	[ group	"" ] 	)
+grouptype	[ 0	locks=0 ]	(	[ grouptype	0 ] 	)
+negate	[ 0	locks=0 ]	(	"off"	)
+removegrp	[ 0	locks=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/split1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/out_group.init"
+Content-Type: text/plain
+
+type = null
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/out_group.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 0.705122 3.33589
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+}
+inputsNamed3
+{
+0 	split1 2 1 "input1"
+}
+inputs
+{
+0 	split1 1 1
+}
+stat
+{
+  create 1529386670
+  modify 1529386750
+  author Henry@LAPPY586
+  access 0777
+}
+color UT_Color RGB 0.6 0.7 0.77 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/out_group.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+copyinput	[ 0	locks=0 ]	(	"on"	)
+cacheinput	[ 0	locks=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/out_group.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.5.473"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/merge1.init"
+Content-Type: text/plain
+
+type = merge
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/merge1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -0.731564 -30.1307
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	switch_trails 1 1 "input1"
+2 	object_merge1 0 1 "input2"
+}
+inputs
+{
+0 	switch_trails 0 1
+1 	object_merge1 0 1
+}
+stat
+{
+  create 1529386683
+  modify 1529386750
+  author Henry@LAPPY586
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/merge1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/merge1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.5.473"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/object_merge1.init"
+Content-Type: text/plain
+
+type = object_merge
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/object_merge1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 1.66257 -29.0094
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create 1529386686
+  modify 1530400599
+  author Henry@LAPPY586
+  access 0777
+}
+color UT_Color RGB 0.8 1 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/object_merge1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+numobj	[ 0	locks=0 ]	(	1	)
+_separator	[ 0	locks=0 ]	(	)
+xformtype	[ 0	locks=0 ]	(	"local"	)
+xformpath	[ 0	locks=0 ]	(	""	)
+invertxform	[ 0	locks=0 ]	(	"off"	)
+createptgroups	[ 0	locks=0 ]	(	"off"	)
+ptgroupprefix	[ 0	locks=0 ]	(	_ptgrp_	)
+createprimgroups	[ 0	locks=0 ]	(	"off"	)
+primgroupprefix	[ 0	locks=0 ]	(	_primgrp_	)
+verbosegroups	[ 0	locks=0 ]	(	"off"	)
+suffixfirstgroup	[ 0	locks=0 ]	(	"on"	)
+createptstring	[ 0	locks=0 ]	(	"off"	)
+createprimstring	[ 0	locks=0 ]	(	"off"	)
+pathattrib	[ 0	locks=0 ]	(	objname	)
+pack	[ 0	locks=0 ]	(	"off"	)
+pivot	[ 0	locks=0 ]	(	"centroid"	)
+viewportlod	[ 0	locks=0 ]	(	"full"	)
+addpath	[ 0	locks=0 ]	(	"on"	)
+enable1	[ 0	locks=0 ]	(	"on"	)
+objpath1	[ 0	locks=0 ]	(	../out_group	)
+group1	[ 0	locks=0 ]	(	""	)
+expand1	[ 0	locks=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/object_merge1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.5.473"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.order"
 Content-Type: text/plain
 
-51
+54
 MOPs_Parallel_Transport
 attach_to_curve_simple
 make_curve_orient_frame_manually
@@ -7675,9 +7706,7 @@ pointwrangle2
 add1
 attach_to_curve_interpolate
 pointwrangle4
-attach_to_curve_CODE
 make_curve_orient_frame1
-attach_to_curve_simple_CODE
 solver1
 pointwrangle5
 Apply_Attributes6
@@ -7693,6 +7722,11 @@ switch3
 null1
 add3
 clean1
+split1
+out_group
+merge1
+object_merge1
+determine_curve_number
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"
