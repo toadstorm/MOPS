@@ -1,0 +1,151 @@
+= MOPs Move Along Spline Modifier =
+
+#icon: opdef:.?mops_modifier_02.svg
+
+"""Moves instances along a guide spline."""
+
+This moves instances along a guide spline (polyline).
+
+== Overview ==
+
+@inputs
+
+Packed Primitives:
+    Plug in MOPs instances in here.
+    
+Spline:
+    Plug in a spline (polyline) to use as guide to move instances.
+
+@parameters
+
+== General ==
+
+Mode:
+    #id: mode
+
+    How to move the instances.
+    - Simple: Instances are snapped to a position along the curve according to an attribute value, plus the goal value.
+    - Interpolate: Instances blend between their original position and the final goal position along the curve, multiplied by their falloff value.
+    - Advect: Instances move along the curve in a solver, based on the Step Size.
+    
+Curve Number:
+    #id: curve_number
+    The primitive number of the curve to attach to. You can have all your objects attach to the same curve, or use a VEXpression (like @ptnum) to attach each object to a different curve primitive.
+    
+== Curve Settings ==
+
+Resample Curve:
+    #id: do_resample
+    Resample the incoming curve.
+    
+Length:
+    #id: length
+    The step size between samples. Lower values mean a more precise resampling of the curve.
+    
+Treat Polygons As:
+    #id: treatpolysas
+    How to interpolate polyline curves.
+    
+Twist:
+    #id: twist
+    The total amount of twist, in degrees, to apply to the curve between start and end. You can use the Twist Ramp parameter to dial in exactly where the twisting occurs.
+    
+== Simple Mode ==
+
+Goal Mode:
+    #id: goal_mode
+    How the objects are initially attached to the spline. 
+        - Position by Attribute: Use an attribute with a 0-1 value (such as @mops_falloff) to determine the attachment position.
+        - Position by Id: Use the i@id attribute to position each copy.
+        
+Goal Attribute:
+    #id: bindname1
+    The goal attribute to use.
+    
+Goal U:
+    #id: goalu2
+    The amount to add to each object's goal position along the curve. The goal position is a 0-1 value reflecting the start and end of the curve.
+    
+Wrap:
+    #id: wrap
+    Enable "wrapping" so that objects with a total goal position greater than 1 loop back to the start of the curve.
+    
+Offset Amount:
+    #id: offset
+    Scales the distance between each object and the curve itself. Objects by default will maintain their original distance from the curve.
+    
+Randomize Goal:
+    #id: random_shift
+    Add a random value to the goal of each object.
+    
+Random Seed:
+    #id: random_seed
+    The seed to use for generating the Randomize Goal value.
+    
+Orient Copies to Curve:
+    #id: do_rotate
+    Rotate the copies so that they aim along the direction of motion.
+    
+Reference Frame:
+    #id: frame
+    The frame (in the timeline) to use when computing the attachment positions of the objects. By default this always uses the current frame.
+    
+Use VEXpressions:
+    #id: do_vexpression
+    Enable the use of custom VEX to modify the effects of this SOP per-point.
+    
+== Interpolate or Advect ==
+
+Goal U:
+    #id: goalu
+    The position along the curve for each point to reach. This is multiplied against each point's @mops_falloff value.
+    
+Wrap:
+    #id: wrap2
+    Enable "wrapping" so that any object with a goal value greater than 1.0 will loop back to the beginning of the curve.
+    
+Offset Amount:
+    #id: offset_amount2
+    Scales the distance between each object and the curve itself. Objects by default will maintain their original distance from the curve.
+
+Randomize Goal:
+    #id: random_goal
+    Add a random value to the goal of each object.
+    
+Random Seed:
+    #id: random_seed2
+    The seed to use for generating the Randomize Goal value.
+    
+Blend in Orient:
+    #id: blend_in_orient
+    Advection mode only. This control allows you to specify how the original orientation of each object is blended in with that of the curve, based on the current goal position.
+    
+Orient Copies to Curve:
+    #id: do_rotate2
+    Rotate the copies so that they aim along the direction of motion.
+    
+Reference Frame:
+    #id: frame2
+    The frame (in the timeline) to use when computing the attachment positions of the objects. By default this always uses the current frame.
+    
+Use VEXpressions:
+    #id: do_vexpression2
+    Enable the use of custom VEX to modify the effects of this SOP per-point.
+    
+== Trails ==
+
+Create Trails:
+    #id: do_trails
+    Interpolate or Advection modes only. Create a polyline trail following the path of each object.
+    
+Trail Group:
+    #id: trail_group
+    The name of the point group to create that contains the trail points.
+    
+Trail Samples:
+    #id: trail_samples
+    The number of samples to take along the path of each object. Higher numbers mean more accurate curves, at the cost of additional computation time.
+    
+Fade Trail Falloff:
+    #id: trail_fade_falloff
+    Multiply the falloff value of each trail by the relative position along the curve.
