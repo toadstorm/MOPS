@@ -176,11 +176,13 @@ MOPS_URL = 'https://api.github.com/repos/toadstorm/MOPS'
 # branches (only filters the filenames of the .ZIP files attached as assets for each release!)
 BRANCHES = ['stable', 'experimental']
 # paths to download zip files to before extraction
-HOU_TEMP_PATH = os.path.join(os.getenv("APPDATA"), "MOPS")
-HOU_TEMP_PATH_STR = "$APPDATA\\MOPS"
-if platform.system() != "Windows":
+if platform.system() == "Windows":
+    HOU_TEMP_PATH = os.path.join(os.getenv("APPDATA"), "MOPS")
+    HOU_TEMP_PATH_STR = "$APPDATA\\MOPS"
+else:
     HOU_TEMP_PATH = os.path.join(os.getenv("HOUDINI_USER_PREF_DIR"), "MOPS")
     HOU_TEMP_PATH_STR = HOU_TEMP_PATH
+
 # local record of branch/version
 MOPS_SETTINGS = os.path.join(os.getenv("HOUDINI_USER_PREF_DIR"), "mops.json")
 HOUDINI_ENV = os.path.join(os.getenv("HOUDINI_USER_PREF_DIR"), "houdini.env")
