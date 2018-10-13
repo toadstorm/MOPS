@@ -97,7 +97,8 @@ for network in INSTANCE_DICT:
         instanced_node = instances_container.node(name)
         if instanced_node is None:
             instanced_node = instances_container.createNode('geo', name)
-            instanced_node.node('file1').destroy()
+            if instanced_node.node('file1') is not None:
+			    instanced_node.node('file1').destroy()
             merge = instanced_node.createNode('object_merge')
             merge.parm('xformtype').set('local')
             merge.parm('objpath1').set(i)
