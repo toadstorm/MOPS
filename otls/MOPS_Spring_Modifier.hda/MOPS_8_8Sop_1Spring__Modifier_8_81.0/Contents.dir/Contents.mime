@@ -32,7 +32,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.93529 -2.74912
+position -0.0411765 -2.32559
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -40,16 +40,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	MOPs_Falloff_From_Attribute 1 1 "input1"
+0 	MOPs_Transform_Modifier 1 1 "input1"
 }
 inputs
 {
-0 	MOPs_Falloff_From_Attribute 0 1
+0 	MOPs_Transform_Modifier 0 1
 }
 stat
 {
-  create 1539666309
-  modify 1539669233
+  create 1539751906
+  modify 1539752374
   author henry@GlaDOS
   access 0777
 }
@@ -107,7 +107,7 @@ inputs
 stat
 {
   create 1523565945
-  modify 1539669097
+  modify 1539751994
   author Mo@Mo-PC
   access 0777
 }
@@ -296,7 +296,7 @@ inputs
 stat
 {
   create 1523567617
-  modify 1539666958
+  modify 1539751906
   author Mo@Mo-PC
   access 0777
 }
@@ -385,7 +385,7 @@ inputs
 stat
 {
   create 1523571831
-  modify 1539667204
+  modify 1539751906
   author Mo@Mo-PC
   access 0777
 }
@@ -590,7 +590,7 @@ inputs
 stat
 {
   create 1523571831
-  modify 1539667204
+  modify 1539751906
   author Mo@Mo-PC
   access 0777
 }
@@ -677,7 +677,7 @@ inputs
 stat
 {
   create 1523571831
-  modify 1539667204
+  modify 1539751906
   author Mo@Mo-PC
   access 0777
 }
@@ -764,7 +764,7 @@ inputs
 stat
 {
   create 1523566105
-  modify 1539667204
+  modify 1539751906
   author Mo@Mo-PC
   access 0777
 }
@@ -1131,7 +1131,7 @@ inputs
 stat
 {
   create 1523566105
-  modify 1539667204
+  modify 1539751906
   author Mo@Mo-PC
   access 0777
 }
@@ -1500,7 +1500,7 @@ inputs
 stat
 {
   create 1523566105
-  modify 1539667204
+  modify 1539751906
   author Mo@Mo-PC
   access 0777
 }
@@ -1863,7 +1863,7 @@ inputs
 stat
 {
   create 1523566105
-  modify 1539667204
+  modify 1539751906
   author Mo@Mo-PC
   access 0777
 }
@@ -2229,7 +2229,7 @@ inputs
 stat
 {
   create 1523566105
-  modify 1539667204
+  modify 1539751906
   author Mo@Mo-PC
   access 0777
 }
@@ -2325,7 +2325,7 @@ inputs
 stat
 {
   create 1527702812
-  modify 1539666310
+  modify 1539751906
   author Henry@LAPPY586
   access 0777
 }
@@ -2414,7 +2414,7 @@ inputs
 stat
 {
   create 1527702901
-  modify 1539666310
+  modify 1539751906
   author Henry@LAPPY586
   access 0777
 }
@@ -2504,7 +2504,7 @@ inputs
 stat
 {
   create 1527702960
-  modify 1539667309
+  modify 1539751906
   author Henry@LAPPY586
   access 0777
 }
@@ -2594,7 +2594,7 @@ inputs
 stat
 {
   create 1527702978
-  modify 1539666310
+  modify 1539751906
   author Henry@LAPPY586
   access 0777
 }
@@ -2689,7 +2689,7 @@ inputs
 stat
 {
   create 1539667218
-  modify 1539668923
+  modify 1539751987
   author henry@GlaDOS
   access 0777
 }
@@ -3141,7 +3141,7 @@ inputs
 stat
 {
   create 1539666485
-  modify 1539666734
+  modify 1539752011
   author henry@GlaDOS
   access 0777
 }
@@ -3349,6 +3349,19 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../do_preview\") }
     }
+    channel spritescale {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../spritescale\") }
+    }
+    channel override_scale {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../override_scale\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -3357,11 +3370,11 @@ Content-Type: text/plain
 
 {
 version 0.8
-do_preview	[ 0	locks=0	autoscope=0 ]	(	[ do_preview	1 ] 	)
+do_preview	[ 0	locks=0	autoscope=0 ]	(	[ do_preview	0 ] 	)
 do_sprite	[ 0	locks=0	autoscope=0 ]	(	[ do_sprite	1 ] 	)
 spritemap	[ 0	locks=0	autoscope=0 ]	(	sphere_matte.pic	)
-spritescale	[ 0	locks=0	autoscope=0 ]	(	1	)
-override_scale	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+spritescale	[ 0	locks=0	autoscope=0 ]	(	[ spritescale	1 ] 	)
+override_scale	[ 0	locks=0	autoscope=0 ]	(	[ override_scale	0 ] 	)
 ramp_preset	[ 0	locks=0	autoscope=0 ]	(	[ ramp_preset	0 ] 	)
 falloff_heatmap	[ 0	locks=0	autoscope=0 ]	(	[ falloff_heatmap	5 ] 	)
 falloff_heatmap1pos	[ 0	locks=0	autoscope=0 ]	(	[ falloff_heatmap1pos	0 ] 	)
@@ -3504,7 +3517,7 @@ inputs
 stat
 {
   create 1533874785
-  modify 1539666310
+  modify 1539751962
   author Henry@LAPPY586
   access 0777
 }
@@ -3572,7 +3585,7 @@ sopflags sopflags =
 comment ""
 position 3.29247 3.30888
 connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 1 "output1"
@@ -3590,7 +3603,7 @@ inputs
 stat
 {
   create 1539668025
-  modify 1539669175
+  modify 1539752003
   author henry@GlaDOS
   access 0777
 }
@@ -3690,7 +3703,7 @@ inputs
 stat
 {
   create 1539668567
-  modify 1539669090
+  modify 1539751990
   author henry@GlaDOS
   access 0777
 }
@@ -3747,7 +3760,7 @@ inputs
 stat
 {
   create 1324348265
-  modify 1539670049
+  modify 1539752551
   author jlait@andorra.sidefx.com
   access 0777
 }
@@ -3851,7 +3864,7 @@ inputs
 stat
 {
   create 1324348294
-  modify 1539666310
+  modify 1539751906
   author jlait@andorra.sidefx.com
   access 0777
 }
@@ -3930,7 +3943,7 @@ inputs
 stat
 {
   create 1324348294
-  modify 1539666310
+  modify 1539751906
   author jlait@andorra.sidefx.com
   access 0777
 }
@@ -4009,7 +4022,7 @@ inputs
 stat
 {
   create 1324348294
-  modify 1539666310
+  modify 1539751906
   author jlait@andorra.sidefx.com
   access 0777
 }
@@ -4088,7 +4101,7 @@ inputs
 stat
 {
   create 1324348294
-  modify 1539666310
+  modify 1539751906
   author jlait@andorra.sidefx.com
   access 0777
 }
@@ -4259,7 +4272,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -4306,7 +4319,7 @@ inputs
 stat
 {
   create 1523606814
-  modify 1539667204
+  modify 1539751906
   author Mo@Mo-PC
   access 0777
 }
@@ -4381,7 +4394,7 @@ inputs
 stat
 {
   create 1523606836
-  modify 1539667204
+  modify 1539751906
   author Mo@Mo-PC
   access 0777
 }
@@ -4456,7 +4469,7 @@ inputs
 stat
 {
   create 1523606853
-  modify 1539667204
+  modify 1539751906
   author Mo@Mo-PC
   access 0777
 }
@@ -4531,7 +4544,7 @@ inputs
 stat
 {
   create 1523606861
-  modify 1539667204
+  modify 1539751906
   author Mo@Mo-PC
   access 0777
 }
@@ -4603,7 +4616,7 @@ inputs
 stat
 {
   create 1539668613
-  modify 1539668923
+  modify 1539751987
   author henry@GlaDOS
   access 0777
 }
@@ -4778,7 +4791,7 @@ inputs
 stat
 {
   create 1523609953
-  modify 1533876286
+  modify 1539752010
   author Mo@Mo-PC
   access 0777
 }
@@ -4843,7 +4856,7 @@ inputs
 stat
 {
   create 1533875540
-  modify 1539666310
+  modify 1539751970
   author Henry@LAPPY586
   access 0777
 }
@@ -4908,7 +4921,7 @@ inputs
 stat
 {
   create 1533875557
-  modify 1539666517
+  modify 1539752021
   author Henry@LAPPY586
   access 0777
 }
@@ -5033,7 +5046,7 @@ inputs
 stat
 {
   create 1533876282
-  modify 1539668032
+  modify 1539752007
   author Henry@LAPPY586
   access 0777
 }
@@ -5089,7 +5102,7 @@ sopflags sopflags =
 comment ""
 position 0.215371 -8.28547
 connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
@@ -5104,7 +5117,7 @@ inputs
 stat
 {
   create 1533877671
-  modify 1539669031
+  modify 1539752016
   author Henry@LAPPY586
   access 0777
 }
@@ -5166,7 +5179,7 @@ inputs
 stat
 {
   create 1539666524
-  modify 1539666682
+  modify 1539752015
   author henry@GlaDOS
   access 0777
 }
