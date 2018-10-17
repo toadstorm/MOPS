@@ -63,6 +63,24 @@
             parmtag { "autoscope" "0000000000000000" }
         }
         parm {
+            name    "spritescale"
+            label   "Sprite Scale"
+            type    float
+            default { "1" }
+            hidewhen "{ do_sprite == 0 }"
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "override_scale"
+            label   "Override Scale"
+            type    toggle
+            default { "off" }
+            hidewhen "{ do_sprite == 0 }"
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
             name    "ramp_preset"
             label   "Preset"
             type    ordinal
