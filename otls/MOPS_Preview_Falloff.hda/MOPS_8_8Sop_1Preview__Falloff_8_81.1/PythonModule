@@ -12,3 +12,26 @@ def ramp_preset_callback(kwargs):
     presetName = parm.menuItems()[preset]
     ramp_parm = node.parm('falloff_heatmap')
     ramp_parm.set(RAMPS[presetName])
+    
+    
+def disableUpstreamPreviews(kwargs):
+    # disable upstream falloffs if we just turned this one on
+    parm = kwargs['parm']
+    # if this is inside an HDA, it'll be referenced to another parm...
+    parm = parm.getReferencedParm()
+    node = parm.node()
+    ancestors = node.inputAncestors()
+    if ancestors:
+        for a in ancestors:
+            if a.type().name().startswith("MOPS::"):
+                p = a.parm('do_preview')
+                if p is not None:
+                    # get the parm driver if one exists.
+                    # if there's no driver, this returns the same parm.
+                    # this will throw a PermissionError if the upstream node
+                    # is inside a locked HDA...
+                    r = p.getReferencedParm()
+                    try:
+                        r.set(0)
+                    except:
+                        pass

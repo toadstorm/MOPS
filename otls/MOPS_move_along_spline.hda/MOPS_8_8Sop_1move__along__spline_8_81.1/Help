@@ -28,6 +28,10 @@ Mode:
     - Interpolate: Instances blend between their original position and the final goal position along the curve, multiplied by their falloff value.
     - Advect: Instances move along the curve in a solver, based on the Step Size.
     
+Curve Number:
+    #id: curve_number
+    The primitive number of the curve to attach to. You can have all your objects attach to the same curve, or use a VEXpression (like @ptnum) to attach each object to a different curve primitive.
+    
 == Curve Settings ==
 
 Resample Curve:

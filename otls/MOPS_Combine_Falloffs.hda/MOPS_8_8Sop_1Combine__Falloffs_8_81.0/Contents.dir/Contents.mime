@@ -32,27 +32,26 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -4.49467 -6.44926
-connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+position -1.57093 -4.12785
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-2 "output1"
 }
 inputsNamed3
 {
-0 	IN_MOPS 1 1 "input1"
-1 	MOPs_Remap_Falloff 1 1 "input2"
+0 	MOPs_Falloff_From_Attribute 1 1 "input1"
+1 	MOPs_Noise_Falloff 1 1 "input2"
 }
 inputs
 {
-0 	IN_MOPS 0 1
-1 	MOPs_Remap_Falloff 0 1
+0 	MOPs_Falloff_From_Attribute 0 1
+1 	MOPs_Noise_Falloff 0 1
 }
 stat
 {
-  create 1524060597
-  modify 1536023832
+  create 1538088212
+  modify 1538088772
   author Henry@LAPPY586
   access 0777
 }
@@ -113,7 +112,7 @@ inputs
 stat
 {
   create 1524060262
-  modify 1529379329
+  modify 1538088212
   author Henry@LAPPY586
   access 0777
 }
@@ -389,7 +388,7 @@ inputs
 stat
 {
   create 1524060262
-  modify 1529379338
+  modify 1538088212
   author Henry@LAPPY586
   access 0777
 }
@@ -659,7 +658,7 @@ inputs
 stat
 {
   create 1524060262
-  modify 1529379341
+  modify 1538088212
   author Henry@LAPPY586
   access 0777
 }
@@ -931,7 +930,7 @@ inputs
 stat
 {
   create 1524060262
-  modify 1529379345
+  modify 1538088212
   author Henry@LAPPY586
   access 0777
 }
@@ -1203,7 +1202,7 @@ inputs
 stat
 {
   create 1524060262
-  modify 1529379349
+  modify 1538088212
   author Henry@LAPPY586
   access 0777
 }
@@ -1490,7 +1489,7 @@ inputs
 stat
 {
   create 1524060262
-  modify 1529379354
+  modify 1538088212
   author Henry@LAPPY586
   access 0777
 }
@@ -1781,7 +1780,7 @@ inputs
 stat
 {
   create 1524060262
-  modify 1529379367
+  modify 1538088212
   author Henry@LAPPY586
   access 0777
 }
@@ -2065,7 +2064,7 @@ inputs
 stat
 {
   create 1524060262
-  modify 1529379367
+  modify 1538088212
   author Henry@LAPPY586
   access 0777
 }
@@ -2347,7 +2346,7 @@ inputs
 stat
 {
   create 1524060262
-  modify 1529379373
+  modify 1538088212
   author Henry@LAPPY586
   access 0777
 }
@@ -2440,7 +2439,7 @@ inputs
 stat
 {
   create 1524060262
-  modify 1529379335
+  modify 1538088212
   author Henry@LAPPY586
   access 0777
 }
@@ -2709,7 +2708,7 @@ inputs
 stat
 {
   create 1524060262
-  modify 1524060310
+  modify 1538088212
   author Henry@LAPPY586
   access 0777
 }
@@ -2792,7 +2791,7 @@ inputs
 stat
 {
   create 1536023239
-  modify 1536023917
+  modify 1538088783
   author Henry@LAPPY586
   access 0777
 }
@@ -2812,6 +2811,26 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = ch(\"../do_preview\") }
     }
+    channel do_sprite {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../do_sprite\") }
+    }
+    channel spritescale {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../spritescale\") }
+    }
+    channel override_scale {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../override_scale\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2820,7 +2839,11 @@ Content-Type: text/plain
 
 {
 version 0.8
-do_preview	[ 0	locks=0 ]	(	[ do_preview	0 ] 	)
+do_preview	[ 0	locks=0 ]	(	[ do_preview	1 ] 	)
+do_sprite	[ 0	locks=0 ]	(	[ do_sprite	1 ] 	)
+spritemap	[ 0	locks=0 ]	(	sphere_matte.pic	)
+spritescale	[ 0	locks=0 ]	(	[ spritescale	1 ] 	)
+override_scale	[ 0	locks=0 ]	(	[ override_scale	0 ] 	)
 ramp_preset	[ 0	locks=0 ]	(	"heatmap"	)
 falloff_heatmap	[ 0	locks=0 ]	(	5	)
 falloff_heatmap1pos	[ 0	locks=0 ]	(	0	)
@@ -3020,7 +3043,7 @@ inputs
 stat
 {
   create 1524060262
-  modify 1524060279
+  modify 1538088212
   author Henry@LAPPY586
   access 0777
 }
@@ -3048,7 +3071,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0	autoscope=0 ]	(	[ input	8 ] 	)
+input	[ 0	locks=0	autoscope=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -3095,7 +3118,7 @@ inputs
 stat
 {
   create 1524060262
-  modify 1524060272
+  modify 1538088212
   author Henry@LAPPY586
   access 0777
 }

@@ -32,25 +32,25 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 2.25339 0.104826
+position -2.03947 -8.10753
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 1 "output1"
 }
 inputsNamed3
 {
-0 	switch1 9 1 "input1"
+0 	MOPs_Plain_Falloff 1 1 "input1"
 }
 inputs
 {
-0 	switch1 0 1
+0 	MOPs_Plain_Falloff 0 1
 }
 stat
 {
-  create 1524060463
-  modify 1536026405
+  create 1538097259
+  modify 1538097924
   author Henry@LAPPY586
   access 0777
 }
@@ -108,7 +108,7 @@ inputs
 stat
 {
   create 1520240273
-  modify 1536023027
+  modify 1538097260
   author Mo@Mo-PC
   access 0777
 }
@@ -468,7 +468,7 @@ remap_falloff1interp	[ 0	locks=0 ]	(	[ remap_falloff1interp	1 ] 	)
 remap_falloff2pos	[ 0	locks=0 ]	(	[ remap_falloff2pos	1 ] 	)
 remap_falloff2value	[ 0	locks=0 ]	(	[ remap_falloff2value	1 ] 	)
 remap_falloff2interp	[ 0	locks=0 ]	(	[ remap_falloff2interp	1 ] 	)
-do_fit	[ 0	locks=0 ]	(	[ do_fit	0 ] 	)
+do_fit	[ 0	locks=0 ]	(	[ do_fit	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -513,7 +513,7 @@ inputs
 stat
 {
   create 1521375946
-  modify 1536023027
+  modify 1538097260
   author Mo@Mo-PC
   access 0777
 }
@@ -774,19 +774,19 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/MOPs_Preview_Falloff.init"
+Content-Disposition: attachment; filename="hdaroot/MOPs_Preview_Falloff1.init"
 Content-Type: text/plain
 
 type = MOPS::Preview_Falloff::1.1
 matchesdef = 1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/MOPs_Preview_Falloff.def"
+Content-Disposition: attachment; filename="hdaroot/MOPs_Preview_Falloff1.def"
 Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -4.9293e-09 -2.25918
+position -4.9293e-09 -2.23385
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -803,8 +803,8 @@ inputs
 }
 stat
 {
-  create 1536023045
-  modify 1536026486
+  create 1538097305
+  modify 1538097403
   author Henry@LAPPY586
   access 0777
 }
@@ -814,37 +814,7 @@ exprlanguage hscript
 end
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/MOPs_Preview_Falloff.spareparmdef"
-Content-Type: text/plain
-
-    parm {
-        name    "do_preview"
-        baseparm
-        label   "Preview Falloff"
-        export  none
-    }
-    parm {
-        name    "ramp_preset"
-        baseparm
-        label   "Preset"
-        export  none
-    }
-    parm {
-        name    "falloff_heatmap"
-        baseparm
-        label   "Falloff Ramp"
-        export  none
-    }
-    parm {
-        name    "enable"
-        label   "enable"
-        type    float
-        default { "0" }
-        range   { 0 10 }
-    }
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/MOPs_Preview_Falloff.chn"
+Content-Disposition: attachment; filename="hdaroot/MOPs_Preview_Falloff1.chn"
 Content-Type: text/plain
 
 {
@@ -855,15 +825,39 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../do_preview\") }
     }
+    channel do_sprite {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../do_sprite\") }
+    }
+    channel spritescale {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../spritescale\") }
+    }
+    channel override_scale {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../override_scale\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/MOPs_Preview_Falloff.parm"
+Content-Disposition: attachment; filename="hdaroot/MOPs_Preview_Falloff1.parm"
 Content-Type: text/plain
 
 {
 version 0.8
 do_preview	[ 0	locks=0 ]	(	[ do_preview	0 ] 	)
+do_sprite	[ 0	locks=0 ]	(	[ do_sprite	1 ] 	)
+spritemap	[ 0	locks=0 ]	(	sphere_matte.pic	)
+spritescale	[ 0	locks=0 ]	(	[ spritescale	1 ] 	)
+override_scale	[ 0	locks=0 ]	(	[ override_scale	0 ] 	)
 ramp_preset	[ 0	locks=0 ]	(	"heatmap"	)
 falloff_heatmap	[ 0	locks=0 ]	(	5	)
 falloff_heatmap1pos	[ 0	locks=0 ]	(	0	)
@@ -881,11 +875,10 @@ falloff_heatmap4interp	[ 0	locks=0 ]	(	"linear"	)
 falloff_heatmap5pos	[ 0	locks=0 ]	(	1	)
 falloff_heatmap5c	[ 0	locks=0 ]	(	1	1	1	)
 falloff_heatmap5interp	[ 0	locks=0 ]	(	"linear"	)
-enable	[ 0	locks=0 ]	(	0	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/MOPs_Preview_Falloff.userdata"
+Content-Disposition: attachment; filename="hdaroot/MOPs_Preview_Falloff1.userdata"
 Content-Type: text/plain
 
 {
@@ -1121,7 +1114,7 @@ inputs
 stat
 {
   create 1521376615
-  modify 1536023027
+  modify 1538097260
   author Mo@Mo-PC
   access 0777
 }
@@ -1149,7 +1142,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	0 ] 	)
+input	[ 0	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1258,7 +1251,7 @@ inputs
 stat
 {
   create 1522362408
-  modify 1536023027
+  modify 1538097260
   author Henry@LAPPY586
   access 0777
 }
@@ -1318,7 +1311,7 @@ Content-Type: text/plain
 {
 version 0.8
 method	[ 0	locks=0 ]	(	"byframe"	)
-frame	[ 0	locks=0 ]	(	[ frame	3 ] 	)
+frame	[ 0	locks=0 ]	(	[ frame	1 ] 	)
 integerframe	[ 0	locks=0 ]	(	"on"	)
 time	[ 0	locks=0 ]	(	[ time	0 ] 	)
 rangeclamp	[ 0	locks=0 ]	(	"none"	)
@@ -1432,16 +1425,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	MOPs_Preview_Falloff 1 1 "input1"
+0 	MOPs_Preview_Falloff1 1 1 "input1"
 }
 inputs
 {
-0 	MOPs_Preview_Falloff 0 1
+0 	MOPs_Preview_Falloff1 0 1
 }
 stat
 {
   create 1522362487
-  modify 1536026425
+  modify 1538097309
   author Henry@LAPPY586
   access 0777
 }
@@ -1485,7 +1478,7 @@ attribdelete1
 timeshift1
 attribcopy1
 output1
-MOPs_Preview_Falloff
+MOPs_Preview_Falloff1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"

@@ -11,10 +11,14 @@ MOPs is based on an internal framework of nodes that convert point attributes to
 
 ### Installation:
 
+Option 1:
 Navigate to the folder you want to contain MOPs, and from BASH / Git BASH type:
 `git clone https://github.com/toadstorm/MOPS.git`
 
-Edit your houdini.env file and create a variable called MOPS that points to the new folder:
+Option 2:
+Download the desired release directly from the [releases page](https://github.com/toadstorm/MOPS/releases) and extract it to the desired location.
+
+Next, edit your houdini.env file and create a variable called MOPS that points to the new folder:
 `MOPS = "/path/to/MOPS"`
 
 Finally, add `$MOPS/otls` to your HOUDINI_OTLSCAN_PATH:

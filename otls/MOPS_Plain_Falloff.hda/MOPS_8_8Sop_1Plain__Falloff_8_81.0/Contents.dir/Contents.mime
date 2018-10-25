@@ -32,25 +32,24 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.38235 0.392059
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+position -2.39088 -6.84247
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-1 "output1"
 }
 inputsNamed3
 {
-0 	grid1 0 1 "input1"
+0 	MOPs_Object_Falloff 2 1 "input1"
 }
 inputs
 {
-0 	grid1 0 1
+0 	MOPs_Object_Falloff 0 1
 }
 stat
 {
-  create 1536023074
-  modify 1536027394
+  create 1538095152
+  modify 1538095268
   author Henry@LAPPY586
   access 0777
 }
@@ -108,7 +107,7 @@ inputs
 stat
 {
   create 1520763177
-  modify 1536023715
+  modify 1538095153
   author Mo@Mo-PC
   access 0777
 }
@@ -370,7 +369,7 @@ inputs
 stat
 {
   create 1522551176
-  modify 1536023717
+  modify 1538095153
   author henry@GlaDOS
   access 0777
 }
@@ -429,7 +428,12 @@ grouptype	[ 0	locks=0 ]	(	[ grouptype	0 ] 	)
 input	[ 8	locks=0 ]	(	[ input	8 ] 	)
 strength	[ 8	locks=0 ]	(	[ strength	1 ] 	)
 switchclamp	[ 0	locks=0 ]	(	[ switchclamp	0 ] 	)
+sepparm	[ 0	locks=0 ]	(	)
 do_preview	[ 0	locks=0 ]	(	"off"	)
+folder0	[ 0	locks=0 ]	(	0	)
+do_sprite	[ 0	locks=0 ]	(	"on"	)
+spritescale	[ 0	locks=0 ]	(	1	)
+override_scale	[ 0	locks=0 ]	(	"off"	)
 ramp_preset	[ 0	locks=0 ]	(	"heatmap"	)
 falloff_heatmap	[ 0	locks=0 ]	(	5	)
 falloff_heatmap1pos	[ 0	locks=0 ]	(	0	)
@@ -491,7 +495,7 @@ inputs
 stat
 {
   create 1536023094
-  modify 1536027503
+  modify 1538095255
   author Henry@LAPPY586
   access 0777
 }
@@ -512,6 +516,26 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../do_preview\") }
     }
+    channel do_sprite {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../do_sprite\") }
+    }
+    channel spritescale {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../spritescale\") }
+    }
+    channel override_scale {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../override_scale\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -520,7 +544,11 @@ Content-Type: text/plain
 
 {
 version 0.8
-do_preview	[ 0	locks=0 ]	(	[ do_preview	0 ] 	)
+do_preview	[ 0	locks=0 ]	(	[ do_preview	1 ] 	)
+do_sprite	[ 0	locks=0 ]	(	[ do_sprite	1 ] 	)
+spritemap	[ 0	locks=0 ]	(	sphere_matte.pic	)
+spritescale	[ 0	locks=0 ]	(	[ spritescale	1 ] 	)
+override_scale	[ 0	locks=0 ]	(	[ override_scale	0 ] 	)
 ramp_preset	[ 0	locks=0 ]	(	"heatmap"	)
 falloff_heatmap	[ 0	locks=0 ]	(	5	)
 falloff_heatmap1pos	[ 0	locks=0 ]	(	0	)
@@ -645,7 +673,7 @@ inputs
 stat
 {
   create 1521374085
-  modify 1536023074
+  modify 1538095153
   author Mo@Mo-PC
   access 0777
 }
