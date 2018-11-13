@@ -32,7 +32,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -5.11408 -7.45969
+position -2.25643 -2.76934
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -40,17 +40,17 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	MOPs_Transform_Modifier 1 1 "input1"
+0 	MOPs_Convert 1 1 "input1"
 }
 inputs
 {
-0 	MOPs_Transform_Modifier 0 1
+0 	MOPs_Convert 0 1
 }
 stat
 {
-  create 1539750434
-  modify 1539750750
-  author henry@GlaDOS
+  create 1542074127
+  modify 1542074615
+  author henry_foster@mvp-production2-mac03.local
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -107,7 +107,7 @@ inputs
 stat
 {
   create 1522436772
-  modify 1539750727
+  modify 1542074127
   author Henry@LAPPY586
   access 0777
 }
@@ -552,7 +552,7 @@ inputs
 stat
 {
   create 1536025246
-  modify 1539750727
+  modify 1542074127
   author Henry@LAPPY586
   access 0777
 }
@@ -817,7 +817,7 @@ inputs
 stat
 {
   create 1538069567
-  modify 1539750727
+  modify 1542074127
   author Henry@LAPPY586
   access 0777
 }
@@ -921,7 +921,7 @@ inputs
 stat
 {
   create 1539749753
-  modify 1539750736
+  modify 1542074517
   author henry@GlaDOS
   access 0777
 }
@@ -943,9 +943,13 @@ class	[ 0	locks=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
 snippet	[ 0	locks=0 ]	(	"float bounds[] = primintrinsic(0, \"packedbounds\", @ptnum);
-vector min = set(bounds[0],bounds[1],bounds[2]);
-vector max = set(bounds[3],bounds[4],bounds[5]);
-v@scale *= (max-min)/2;
+string frag = primintrinsic(0, \"packedtypelabel\", @ptnum);
+// we can't use bounding scale on packed fragments, so leave the scale attribute alone.
+if(frag != \"Packed Fragment\") {
+    vector min = set(bounds[0],bounds[1],bounds[2]);
+    vector max = set(bounds[3],bounds[4],bounds[5]);
+    v@scale *= (max-min)/2;  
+}
 "	)
 exportlist	[ 0	locks=0 ]	(	*	)
 vex_strict	[ 0	locks=0 ]	(	"off"	)
@@ -985,7 +989,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.0721906 -1.65609
+position -0.110834 -1.5423
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1003,7 +1007,7 @@ inputs
 stat
 {
   create 1539750726
-  modify 1539750732
+  modify 1542074136
   author henry@GlaDOS
   access 0777
 }
@@ -1088,7 +1092,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -1147,7 +1151,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -1225,7 +1229,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -1262,7 +1266,7 @@ inputs
 stat
 {
   create 1536021933
-  modify 1539750727
+  modify 1542074127
   author Henry@LAPPY586
   access 0777
 }
@@ -1300,7 +1304,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -1337,7 +1341,7 @@ inputs
 stat
 {
   create 1538070395
-  modify 1539750727
+  modify 1542074127
   author Henry@LAPPY586
   access 0777
 }
@@ -1375,7 +1379,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
