@@ -32,7 +32,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.884471 -2.55194
+position -0.0565402 -5.88425
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -40,17 +40,17 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	MOPs_Explode 1 1 "input1"
+0 	MOPs_Randomize 1 1 "input1"
 }
 inputs
 {
-0 	MOPs_Explode 0 1
+0 	MOPs_Randomize 0 1
 }
 stat
 {
-  create 1532375425
-  modify 1532406446
-  author Henry@LAPPY586
+  create 1542074768
+  modify 1542079706
+  author henry_foster@mvp-production2-mac03.local
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -1228,7 +1228,7 @@ inputs
 stat
 {
   create 1524060453
-  modify 1532406455
+  modify 1542079416
   author Henry@LAPPY586
   access 0777
 }
@@ -1287,7 +1287,7 @@ inputs
 stat
 {
   create 1524060453
-  modify 1532406462
+  modify 1542079416
   author Henry@LAPPY586
   access 0777
 }
@@ -1870,7 +1870,7 @@ vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
 vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
 stdswitcher3	[ 0	locks=0 ]	(	0	0	)
-parm_translate	[ 0	locks=0	autoscope=0 ]	(	[ parm_translate1	0 ] 	[ parm_translate2	0 ] 	[ parm_translate3	0.20899999999999999 ] 	)
+parm_translate	[ 0	locks=0	autoscope=0 ]	(	[ parm_translate1	0 ] 	[ parm_translate2	0 ] 	[ parm_translate3	0.10000000000000001 ] 	)
 parm_rotate	[ 0	locks=0	autoscope=0 ]	(	[ parm_rotate1	0 ] 	[ parm_rotate2	0 ] 	[ parm_rotate3	0 ] 	)
 parm_uniform_scale	[ 0	locks=0	autoscope=0 ]	(	[ parm_uniform_scale	1 ] 	)
 do_vexpression	[ 0	locks=0	autoscope=0 ]	(	[ do_vexpression	0 ] 	)
@@ -1907,7 +1907,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.495"
+		"value":"17.0.352"
 	}
 }
 
@@ -1961,7 +1961,7 @@ inputs
 stat
 {
   create 1524060453
-  modify 1529387323
+  modify 1542079416
   author Henry@LAPPY586
   access 0777
 }
@@ -2004,8 +2004,12 @@ if(local) {
     vector p = P;
     //matrix3 m = primintrinsic(0, \"transform\", @ptnum);
     vector4 rot = quaternion(m);
-    rot = qmultiply(mops_orient, rot);
-    T = qrotate(rot ,T);
+    if(haspointattrib(0, \"mops_orient\")) {
+        rot = point(0, \"mops_orient\", @ptnum);
+    }
+    //rot = qmultiply(mops_orient, rot);
+    //rot = mops_orient;
+    T = qrotate(rot, T);
 }
 
 P += T;"	)
@@ -2016,6 +2020,7 @@ strict	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 namenum	[ 0	locks=0	autoscope=0 ]	(	8	)
 exportlist	[ 0	locks=0	autoscope=0 ]	(	""	)
 forcecodegeneration	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+strictvariables	[ 0	locks=0 ]	(	"on"	)
 name1	[ 0	locks=0	autoscope=0 ]	(	translate	)
 name2	[ 0	locks=0 ]	(	rotate	)
 name3	[ 0	locks=0 ]	(	scale	)
@@ -2033,7 +2038,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.495"
+		"value":"17.0.352"
 	}
 }
 
@@ -2119,8 +2124,8 @@ vectoradef	[ 0	locks=0 ]	(	)
 pointadef	[ 0	locks=0 ]	(	)
 normaladef	[ 0	locks=0 ]	(	)
 coloradef	[ 0	locks=0 ]	(	)
-float4adef	[ 0	locks=0 ]	(	)
 floatm2adef	[ 0	locks=0 ]	(	)
+float4adef	[ 0	locks=0 ]	(	)
 float9adef	[ 0	locks=0 ]	(	)
 float16adef	[ 0	locks=0 ]	(	)
 stringadef	[ 0	locks=0 ]	(	)
@@ -2160,7 +2165,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.495"
+		"value":"17.0.352"
 	}
 }
 
@@ -2246,8 +2251,8 @@ vectoradef	[ 0	locks=0 ]	(	)
 pointadef	[ 0	locks=0 ]	(	)
 normaladef	[ 0	locks=0 ]	(	)
 coloradef	[ 0	locks=0 ]	(	)
-float4adef	[ 0	locks=0 ]	(	)
 floatm2adef	[ 0	locks=0 ]	(	)
+float4adef	[ 0	locks=0 ]	(	)
 float9adef	[ 0	locks=0 ]	(	)
 float16adef	[ 0	locks=0 ]	(	)
 stringadef	[ 0	locks=0 ]	(	)
@@ -2287,7 +2292,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.495"
+		"value":"17.0.352"
 	}
 }
 
@@ -2373,8 +2378,8 @@ vectoradef	[ 0	locks=0 ]	(	)
 pointadef	[ 0	locks=0 ]	(	)
 normaladef	[ 0	locks=0 ]	(	)
 coloradef	[ 0	locks=0 ]	(	)
-float4adef	[ 0	locks=0 ]	(	)
 floatm2adef	[ 0	locks=0 ]	(	)
+float4adef	[ 0	locks=0 ]	(	)
 float9adef	[ 0	locks=0 ]	(	)
 float16adef	[ 0	locks=0 ]	(	)
 stringadef	[ 0	locks=0 ]	(	)
@@ -2414,7 +2419,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.495"
+		"value":"17.0.352"
 	}
 }
 
@@ -2500,8 +2505,8 @@ vectoradef	[ 0	locks=0 ]	(	)
 pointadef	[ 0	locks=0 ]	(	)
 normaladef	[ 0	locks=0 ]	(	)
 coloradef	[ 0	locks=0 ]	(	)
-float4adef	[ 0	locks=0 ]	(	)
 floatm2adef	[ 0	locks=0 ]	(	)
+float4adef	[ 0	locks=0 ]	(	)
 float9adef	[ 0	locks=0 ]	(	)
 float16adef	[ 0	locks=0 ]	(	)
 stringadef	[ 0	locks=0 ]	(	)
@@ -2541,7 +2546,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.495"
+		"value":"17.0.352"
 	}
 }
 
@@ -2628,7 +2633,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.495"
+		"value":"17.0.352"
 	}
 }
 
@@ -2674,7 +2679,7 @@ inputs
 stat
 {
   create 1524060453
-  modify 1532375425
+  modify 1542079415
   author Henry@LAPPY586
   access 0777
 }
@@ -2711,7 +2716,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.495"
+		"value":"17.0.352"
 	}
 }
 
@@ -2797,8 +2802,8 @@ vectoradef	[ 0	locks=0 ]	(	)
 pointadef	[ 0	locks=0 ]	(	)
 normaladef	[ 0	locks=0 ]	(	)
 coloradef	[ 0	locks=0 ]	(	)
-float4adef	[ 0	locks=0 ]	(	)
 floatm2adef	[ 0	locks=0 ]	(	)
+float4adef	[ 0	locks=0 ]	(	)
 float9adef	[ 0	locks=0 ]	(	)
 float16adef	[ 0	locks=0 ]	(	)
 stringadef	[ 0	locks=0 ]	(	)
@@ -2838,7 +2843,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.495"
+		"value":"17.0.352"
 	}
 }
 
@@ -2924,8 +2929,8 @@ vectoradef	[ 0	locks=0 ]	(	)
 pointadef	[ 0	locks=0 ]	(	)
 normaladef	[ 0	locks=0 ]	(	)
 coloradef	[ 0	locks=0 ]	(	)
-float4adef	[ 0	locks=0 ]	(	)
 floatm2adef	[ 0	locks=0 ]	(	)
+float4adef	[ 0	locks=0 ]	(	)
 float9adef	[ 0	locks=0 ]	(	)
 float16adef	[ 0	locks=0 ]	(	)
 stringadef	[ 0	locks=0 ]	(	)
@@ -2965,7 +2970,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.495"
+		"value":"17.0.352"
 	}
 }
 
@@ -3011,7 +3016,7 @@ inputs
 stat
 {
   create 1524060453
-  modify 1532375425
+  modify 1542079415
   author Henry@LAPPY586
   access 0777
 }
@@ -3047,6 +3052,7 @@ strict	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 namenum	[ 0	locks=0	autoscope=0 ]	(	5	)
 exportlist	[ 0	locks=0	autoscope=0 ]	(	""	)
 forcecodegeneration	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+strictvariables	[ 0	locks=0 ]	(	"on"	)
 name1	[ 0	locks=0	autoscope=0 ]	(	translate	)
 name2	[ 0	locks=0 ]	(	rotate	)
 name3	[ 0	locks=0 ]	(	scale	)
@@ -3061,7 +3067,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.495"
+		"value":"17.0.352"
 	}
 }
 
@@ -3139,8 +3145,8 @@ vectoradef	[ 0	locks=0 ]	(	)
 pointadef	[ 0	locks=0 ]	(	)
 normaladef	[ 0	locks=0 ]	(	)
 coloradef	[ 0	locks=0 ]	(	)
-float4adef	[ 0	locks=0 ]	(	)
 floatm2adef	[ 0	locks=0 ]	(	)
+float4adef	[ 0	locks=0 ]	(	)
 float9adef	[ 0	locks=0 ]	(	)
 float16adef	[ 0	locks=0 ]	(	)
 stringadef	[ 0	locks=0 ]	(	)
@@ -3158,7 +3164,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.495"
+		"value":"17.0.352"
 	}
 }
 
@@ -3265,7 +3271,7 @@ inputs
 stat
 {
   create 1524060453
-  modify 1529387322
+  modify 1542079415
   author Henry@LAPPY586
   access 0777
 }
@@ -3314,8 +3320,8 @@ vectoradef	[ 0	locks=0 ]	(	)
 pointadef	[ 0	locks=0 ]	(	)
 normaladef	[ 0	locks=0 ]	(	)
 coloradef	[ 0	locks=0 ]	(	)
-float4adef	[ 0	locks=0 ]	(	)
 floatm2adef	[ 0	locks=0 ]	(	)
+float4adef	[ 0	locks=0 ]	(	)
 float9adef	[ 0	locks=0 ]	(	)
 float16adef	[ 0	locks=0 ]	(	)
 stringadef	[ 0	locks=0 ]	(	)
@@ -3336,7 +3342,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.495"
+		"value":"17.0.352"
 	}
 }
 
@@ -3377,7 +3383,7 @@ inputs
 stat
 {
   create 1524060453
-  modify 1529387323
+  modify 1542079416
   author Henry@LAPPY586
   access 0777
 }
@@ -3434,7 +3440,7 @@ inputs
 stat
 {
   create 1524060453
-  modify 1529387322
+  modify 1542079415
   author Henry@LAPPY586
   access 0777
 }
@@ -3483,8 +3489,8 @@ vectoradef	[ 0	locks=0 ]	(	)
 pointadef	[ 0	locks=0 ]	(	)
 normaladef	[ 0	locks=0 ]	(	)
 coloradef	[ 0	locks=0 ]	(	)
-float4adef	[ 0	locks=0 ]	(	)
 floatm2adef	[ 0	locks=0 ]	(	)
+float4adef	[ 0	locks=0 ]	(	)
 float9adef	[ 0	locks=0 ]	(	)
 float16adef	[ 0	locks=0 ]	(	)
 stringadef	[ 0	locks=0 ]	(	)
@@ -3505,7 +3511,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.495"
+		"value":"17.0.352"
 	}
 }
 
@@ -3538,7 +3544,7 @@ inputs
 stat
 {
   create 1524060453
-  modify 1529387322
+  modify 1542079415
   author Henry@LAPPY586
   access 0777
 }
@@ -3587,8 +3593,8 @@ vectoradef	[ 0	locks=0 ]	(	)
 pointadef	[ 0	locks=0 ]	(	)
 normaladef	[ 0	locks=0 ]	(	)
 coloradef	[ 0	locks=0 ]	(	)
-float4adef	[ 0	locks=0 ]	(	)
 floatm2adef	[ 0	locks=0 ]	(	)
+float4adef	[ 0	locks=0 ]	(	)
 float9adef	[ 0	locks=0 ]	(	)
 float16adef	[ 0	locks=0 ]	(	)
 stringadef	[ 0	locks=0 ]	(	)
@@ -3609,7 +3615,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.495"
+		"value":"17.0.352"
 	}
 }
 
@@ -3735,7 +3741,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.495"
+		"value":"17.0.352"
 	}
 }
 
@@ -3797,7 +3803,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.495"
+		"value":"17.0.352"
 	}
 }
 

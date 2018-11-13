@@ -32,22 +32,25 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -3.72521 0.437515
-connectornextid 0
+position 1.80409 -1.3829
+connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
+1 "output1"
 }
 inputsNamed3
 {
+0 	sphere1 0 1 "input1"
 }
 inputs
 {
+0 	sphere1 0 1
 }
 stat
 {
-  create 1541964601
-  modify 1541964617
+  create 1542074629
+  modify 1542079686
   author henry_foster@mvp-production2-mac03.local
   access 0777
 }
@@ -105,7 +108,7 @@ inputs
 stat
 {
   create 1520078384
-  modify 1541964602
+  modify 1542079664
   author Mo@Mo-PC
   access 0777
 }
@@ -404,7 +407,7 @@ vector tmp = point(0, \"P\", npts[0]);
 vector up = normalize(tmp - ctr);
 
 if(chi(\"manual_up\")){
-    up = chv(\"Up_Vector\");
+    up = chv(\"Up_Vector\") * (doinvert * -1);
 }
 if(chi(\"jitter\")) {
     up = sample_direction_cone(up, chf(\"jitter_amount\"), rand(@primnum));
@@ -475,7 +478,7 @@ vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 folder1	[ 0	locks=0 ]	(	0	0	)
-Invert_Normal	[ 0	locks=0 ]	(	[ Invert_Normal	0 ] 	)
+Invert_Normal	[ 0	locks=0 ]	(	[ Invert_Normal	1 ] 	)
 manual_up	[ 0	locks=0 ]	(	[ manual_up	1 ] 	)
 Up_Vector	[ 0	locks=0 ]	(	[ Up_Vectorx	0 ] 	[ Up_Vectory	1 ] 	[ Up_Vectorz	0 ] 	)
 jitter_amount	[ 0	locks=0 ]	(	[ jitter_amount	0.01 ] 	)
@@ -526,7 +529,7 @@ inputs
 stat
 {
   create 1520078518
-  modify 1541964602
+  modify 1542074629
   author Mo@Mo-PC
   access 0777
 }
@@ -608,7 +611,7 @@ inputs
 stat
 {
   create 1520078663
-  modify 1541964602
+  modify 1542074629
   author Mo@Mo-PC
   access 0777
 }
@@ -690,7 +693,7 @@ inputs
 stat
 {
   create 1520842200
-  modify 1541964602
+  modify 1542078012
   author Mo@Mo-PC
   access 0777
 }
@@ -924,7 +927,7 @@ vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 folder1	[ 0	locks=0 ]	(	0	0	)
-Invert_Normal	[ 8	locks=0 ]	(	[ Invert_Normal	0 ] 	)
+Invert_Normal	[ 8	locks=0 ]	(	[ Invert_Normal	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -969,7 +972,7 @@ inputs
 stat
 {
   create 1520860472
-  modify 1541964602
+  modify 1542078061
   author Mo@Mo-PC
   access 0777
 }
@@ -1047,7 +1050,7 @@ inputs
 stat
 {
   create 1520078384
-  modify 1541964602
+  modify 1542078064
   author Mo@Mo-PC
   access 0777
 }
@@ -1324,7 +1327,7 @@ inputs
 stat
 {
   create 1520077093
-  modify 1541964602
+  modify 1542074629
   author Mo@Mo-PC
   access 0777
 }
@@ -1524,7 +1527,7 @@ inputs
 stat
 {
   create 1520839960
-  modify 1541964602
+  modify 1542074629
   author Mo@Mo-PC
   access 0777
 }
@@ -1598,7 +1601,7 @@ inputs
 stat
 {
   create 1520078344
-  modify 1541964602
+  modify 1542074629
   author Mo@Mo-PC
   access 0777
 }
@@ -1666,7 +1669,7 @@ inputs
 stat
 {
   create 1520860402
-  modify 1532405466
+  modify 1542078063
   author Mo@Mo-PC
   access 0777
 }
@@ -1782,16 +1785,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	switch3 2 1 "input1"
+0 	enumerate1 1 1 "input1"
 }
 inputs
 {
-0 	switch3 0 1
+0 	enumerate1 0 1
 }
 stat
 {
   create 1532405563
-  modify 1541964612
+  modify 1542078242
   author Henry@LAPPY586
   access 0777
 }
@@ -1833,22 +1836,25 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.53142 -8.73681
-connectornextid 0
+position 1.53142 -8.93017
+connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
+1 "output1"
 }
 inputsNamed3
 {
+0 	switch3 2 1 "input1"
 }
 inputs
 {
+0 	switch3 0 1
 }
 stat
 {
   create 1541964617
-  modify 1541964627
+  modify 1542074680
   author henry_foster@mvp-production2-mac03.local
   access 0777
 }
