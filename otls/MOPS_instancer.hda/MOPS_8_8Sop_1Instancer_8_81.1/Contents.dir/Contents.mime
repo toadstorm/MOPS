@@ -32,11 +32,12 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.04118 0.956765
-connectornextid 0
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+position -1.45294 0.380294
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
+0 "output1"
 }
 inputsNamed3
 {
@@ -46,9 +47,9 @@ inputs
 }
 stat
 {
-  create 1540441571
-  modify 1540442489
-  author henry@GlaDOS
+  create 1531964143
+  modify 1542135024
+  author Henry@LAPPY586
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -2064,10 +2065,10 @@ vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 folder1	[ 0	locks=0 ]	(	0	0	)
-grid_x	[ 0	locks=0 ]	(	[ grid_x	3 ] 	)
+grid_x	[ 0	locks=0 ]	(	[ grid_x	20 ] 	)
 grid_y	[ 0	locks=0 ]	(	[ grid_y	1 ] 	)
-grid_z	[ 0	locks=0 ]	(	[ grid_z	3 ] 	)
-distance	[ 0	locks=0 ]	(	[ distancex	0.29999999999999999 ] 	[ distancey	0 ] 	[ distancez	0.29999999999999999 ] 	)
+grid_z	[ 0	locks=0 ]	(	[ grid_z	20 ] 	)
+distance	[ 0	locks=0 ]	(	[ distancex	0.14999999999999999 ] 	[ distancey	0.14999999999999999 ] 	[ distancez	0.14999999999999999 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2778,7 +2779,7 @@ version 0.8
 group	[ 0	locks=0 ]	(	""	)
 keepgeo	[ 0	locks=0 ]	(	"off"	)
 folder1	[ 0	locks=0 ]	(	1	1	1	1	)
-nptsperpt	[ 8	locks=0 ]	(	[ nptsperpt	100 ] 	)
+nptsperpt	[ 8	locks=0 ]	(	[ nptsperpt	400 ] 	)
 genfromattrib	[ 0	locks=0 ]	(	"off"	)
 attrib	[ 0	locks=0 ]	(	""	)
 shape	[ 0	locks=0 ]	(	"point"	)
@@ -7556,7 +7557,7 @@ inputs
 stat
 {
   create 1540442383
-  modify 1540442424
+  modify 1542134980
   author henry@GlaDOS
   access 0777
 }
@@ -7577,7 +7578,7 @@ grouptype	[ 0	locks=0 ]	(	"guess"	)
 class	[ 0	locks=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
-snippet	[ 0	locks=0 ]	(	"@group__abc = 1;"	)
+snippet	[ 0	locks=0 ]	(	"@group___abc = 1;"	)
 exportlist	[ 0	locks=0 ]	(	*	)
 vex_strict	[ 0	locks=0 ]	(	"off"	)
 autobind	[ 0	locks=0 ]	(	"on"	)
@@ -7660,7 +7661,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -7747,7 +7748,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -7808,7 +7809,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -7914,6 +7915,7 @@ type	[ 0	locks=0 ]	(	"poly"	)
 orient	[ 0	locks=0 ]	(	"xy"	)
 rad	[ 0	locks=0 ]	(	[ radx	1 ] 	[ rady	1 ] 	)
 t	[ 0	locks=0 ]	(	0	0	0	)
+r	[ 0	locks=0 ]	(	0	0	0	)
 scale	[ 0	locks=0 ]	(	[ scale	1 ] 	)
 order	[ 0	locks=0 ]	(	4	)
 divs	[ 0	locks=0 ]	(	[ divs	50 ] 	)
@@ -7929,7 +7931,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -8027,7 +8029,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -8088,7 +8090,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -8186,7 +8188,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -8234,7 +8236,7 @@ Content-Type: text/plain
     parm {
         name    "copyinput"
         baseparm
-        label   "Copy Input"
+        label   "Copy Input (Note: Input will be still cooked if disabled)"
         export  none
     }
     parm {
@@ -8299,7 +8301,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -8360,7 +8362,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -8469,6 +8471,8 @@ usedensityattrib	[ 0	locks=0 ]	(	[ usedensityattrib	1 ] 	)
 densityattrib	[ 0	locks=0 ]	(	[ densityattrib	density ] 	)
 useareaattrib	[ 0	locks=0 ]	(	"off"	)
 areaattrib	[ 0	locks=0 ]	(	area	)
+indepvoxel	[ 0	locks=0 ]	(	"off"	)
+useareaforvolumes	[ 0	locks=0 ]	(	"off"	)
 forcetotal	[ 0	locks=0 ]	(	"on"	)
 npts	[ 8	locks=0 ]	(	[ npts	231 ] 	)
 usedensitytexture	[ 0	locks=0 ]	(	"off"	)
@@ -8507,7 +8511,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -8568,7 +8572,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -8645,7 +8649,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -8727,7 +8731,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -8788,7 +8792,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -8849,7 +8853,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -8927,7 +8931,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -9004,7 +9008,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -9065,7 +9069,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -9140,7 +9144,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -9228,7 +9232,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -9302,7 +9306,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -9363,7 +9367,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -9424,7 +9428,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -9498,7 +9502,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -9559,7 +9563,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -9635,7 +9639,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -9903,7 +9907,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -9977,7 +9981,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -10039,7 +10043,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -10102,7 +10106,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -10168,7 +10172,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -10244,7 +10248,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -10309,7 +10313,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -10380,7 +10384,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -10442,7 +10446,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -10507,7 +10511,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -10566,7 +10570,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -10642,7 +10646,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -10743,7 +10747,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -10805,7 +10809,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -10880,6 +10884,9 @@ updatenmls	[ 0	locks=0 ]	(	"off"	)
 updateaffectednmls	[ 0	locks=0 ]	(	"on"	)
 vlength	[ 0	locks=0 ]	(	"on"	)
 invertxform	[ 0	locks=0 ]	(	"off"	)
+addattrib	[ 0	locks=0 ]	(	"off"	)
+outputattrib	[ 0	locks=0 ]	(	xform	)
+outputmerge	[ 0	locks=0 ]	(	"post"	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -10889,7 +10896,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -10964,6 +10971,9 @@ updatenmls	[ 0	locks=0 ]	(	"off"	)
 updateaffectednmls	[ 0	locks=0 ]	(	"on"	)
 vlength	[ 0	locks=0 ]	(	"on"	)
 invertxform	[ 0	locks=0 ]	(	"off"	)
+addattrib	[ 0	locks=0 ]	(	"off"	)
+outputattrib	[ 0	locks=0 ]	(	xform	)
+outputmerge	[ 0	locks=0 ]	(	"post"	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -10973,7 +10983,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -11051,7 +11061,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -11112,7 +11122,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -11176,7 +11186,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -11253,7 +11263,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -11328,7 +11338,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -11405,7 +11415,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -11530,7 +11540,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -11601,7 +11611,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -11678,7 +11688,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -11739,7 +11749,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -11816,7 +11826,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -11965,7 +11975,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -12041,7 +12051,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -12172,7 +12182,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -12269,7 +12279,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -12410,7 +12420,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -12476,7 +12486,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	0 ] 	)
+input	[ 0	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -12486,7 +12496,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -12547,7 +12557,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -12599,6 +12609,7 @@ type	[ 0	locks=0 ]	(	"poly"	)
 orient	[ 0	locks=0 ]	(	"zx"	)
 rad	[ 0	locks=0 ]	(	0.67000000000000004	0.67000000000000004	)
 t	[ 0	locks=0 ]	(	0	0	0	)
+r	[ 0	locks=0 ]	(	0	0	0	)
 scale	[ 0	locks=0 ]	(	0.10000000000000001	)
 order	[ 0	locks=0 ]	(	4	)
 divs	[ 0	locks=0 ]	(	6	)
@@ -12614,7 +12625,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -12712,7 +12723,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -12810,7 +12821,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -12863,6 +12874,8 @@ version 0.8
 inname	[ 0	locks=0 ]	(	copynum	)
 inclass	[ 0	locks=0 ]	(	"primitive"	)
 outclass	[ 0	locks=0 ]	(	"point"	)
+usepieceattrib	[ 0	locks=0 ]	(	"off"	)
+pieceattrib	[ 0	locks=0 ]	(	name	)
 method	[ 0	locks=0 ]	(	"mean"	)
 useoutname	[ 0	locks=0 ]	(	"off"	)
 outname	[ 0	locks=0 ]	(	""	)
@@ -12876,7 +12889,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -12951,7 +12964,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -13090,7 +13103,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -13166,7 +13179,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -13258,6 +13271,8 @@ usedensityattrib	[ 0	locks=0 ]	(	"off"	)
 densityattrib	[ 0	locks=0 ]	(	density	)
 useareaattrib	[ 0	locks=0 ]	(	"off"	)
 areaattrib	[ 0	locks=0 ]	(	area	)
+indepvoxel	[ 0	locks=0 ]	(	"off"	)
+useareaforvolumes	[ 0	locks=0 ]	(	"off"	)
 forcetotal	[ 0	locks=0 ]	(	"on"	)
 npts	[ 8	locks=0 ]	(	[ npts	1770 ] 	)
 usedensitytexture	[ 0	locks=0 ]	(	"off"	)
@@ -13296,7 +13311,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -13375,7 +13390,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -13451,7 +13466,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -13527,7 +13542,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -13562,7 +13577,7 @@ inputs
 stat
 {
   create 1522969308
-  modify 1540442160
+  modify 1542134610
   author Wolf_User@admin-hp
   access 0777
 }
@@ -13579,6 +13594,7 @@ Content-Type: text/plain
 version 0.8
 method	[ 0	locks=0 ]	(	"piece"	)
 blockpath	[ 0	locks=0 ]	(	../foreach_end2	)
+resetcookpass	[ 0	locks=0 ]	(	0	)
 createmetablock	[ 0	locks=0 ]	(	0	)
 label1	[ 0	locks=0 ]	(	"iteration, numiterations, value, ivalue"	)
 }
@@ -13590,7 +13606,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -13696,7 +13712,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -13771,7 +13787,7 @@ version 0.8
 sourcegroup	[ 0	locks=0 ]	(	""	)
 targetgroup	[ 0	locks=0 ]	(	""	)
 showguide	[ 0	locks=0 ]	(	"on"	)
-pack	[ 0	locks=0 ]	(	[ pack	1 ] 	)
+pack	[ 0	locks=0 ]	(	[ pack	0 ] 	)
 pivot	[ 0	locks=0 ]	(	"centroid"	)
 viewportlod	[ 0	locks=0 ]	(	[ viewportlod	0 ] 	)
 transform	[ 0	locks=0 ]	(	"on"	)
@@ -13798,7 +13814,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -13872,7 +13888,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -13947,7 +13963,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -14036,6 +14052,9 @@ updatenmls	[ 0	locks=0 ]	(	"off"	)
 updateaffectednmls	[ 0	locks=0 ]	(	"on"	)
 vlength	[ 0	locks=0 ]	(	"on"	)
 invertxform	[ 0	locks=0 ]	(	"off"	)
+addattrib	[ 0	locks=0 ]	(	"off"	)
+outputattrib	[ 0	locks=0 ]	(	xform	)
+outputmerge	[ 0	locks=0 ]	(	"post"	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -14045,7 +14064,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -14121,7 +14140,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	},
 	"___toolcount___":{
 		"type":"string",
@@ -14225,6 +14244,9 @@ updatenmls	[ 0	locks=0 ]	(	"off"	)
 updateaffectednmls	[ 0	locks=0 ]	(	"on"	)
 vlength	[ 0	locks=0 ]	(	"on"	)
 invertxform	[ 0	locks=0 ]	(	"off"	)
+addattrib	[ 0	locks=0 ]	(	"off"	)
+outputattrib	[ 0	locks=0 ]	(	xform	)
+outputmerge	[ 0	locks=0 ]	(	"post"	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -14234,7 +14256,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -14309,7 +14331,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -14374,7 +14396,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -14642,7 +14664,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -14910,7 +14932,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -15178,7 +15200,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -15446,7 +15468,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -15714,7 +15736,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -15982,7 +16004,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -16048,6 +16070,7 @@ type	[ 0	locks=0 ]	(	"nurbs"	)
 surftype	[ 0	locks=0 ]	(	"quads"	)
 rad	[ 0	locks=0 ]	(	1	1	1	)
 t	[ 0	locks=0 ]	(	0	0	0	)
+r	[ 0	locks=0 ]	(	0	0	0	)
 scale	[ 8	locks=0 ]	(	[ scale	1 ] 	)
 orient	[ 0	locks=0 ]	(	"y"	)
 freq	[ 0	locks=0 ]	(	2	)
@@ -16068,7 +16091,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -16174,6 +16197,8 @@ usedensityattrib	[ 0	locks=0 ]	(	"off"	)
 densityattrib	[ 0	locks=0 ]	(	density	)
 useareaattrib	[ 0	locks=0 ]	(	"off"	)
 areaattrib	[ 0	locks=0 ]	(	area	)
+indepvoxel	[ 0	locks=0 ]	(	"off"	)
+useareaforvolumes	[ 0	locks=0 ]	(	"off"	)
 forcetotal	[ 0	locks=0 ]	(	"on"	)
 npts	[ 8	locks=0 ]	(	[ npts	4113 ] 	)
 usedensitytexture	[ 0	locks=0 ]	(	"off"	)
@@ -16212,7 +16237,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -16304,7 +16329,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -16380,7 +16405,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -16462,7 +16487,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -16549,7 +16574,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -16631,7 +16656,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -16737,6 +16762,8 @@ usedensityattrib	[ 0	locks=0 ]	(	"off"	)
 densityattrib	[ 0	locks=0 ]	(	density	)
 useareaattrib	[ 0	locks=0 ]	(	"off"	)
 areaattrib	[ 0	locks=0 ]	(	area	)
+indepvoxel	[ 0	locks=0 ]	(	"off"	)
+useareaforvolumes	[ 0	locks=0 ]	(	"off"	)
 forcetotal	[ 0	locks=0 ]	(	"on"	)
 npts	[ 8	locks=0 ]	(	[ npts	867 ] 	)
 usedensitytexture	[ 0	locks=0 ]	(	"off"	)
@@ -16775,7 +16802,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -16849,7 +16876,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -16914,7 +16941,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -16924,7 +16951,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -16999,7 +17026,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -17093,8 +17120,10 @@ delayload	[ 0	locks=0 ]	(	"off"	)
 mkpath	[ 0	locks=0 ]	(	"on"	)
 cachesize	[ 0	locks=0 ]	(	0	)
 prefetch	[ 0	locks=0 ]	(	"off"	)
-f	[ 0	locks=0 ]	(	[ f1	1 ] 	[ f2	48 ] 	)
+f	[ 0	locks=0 ]	(	[ f1	1 ] 	[ f2	24 ] 	)
 index	[ 8	locks=0 ]	(	[ index	0 ] 	)
+wrap	[ 0	locks=0 ]	(	"cycle"	)
+retry	[ 0	locks=0 ]	(	0	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -17104,7 +17133,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -17137,7 +17166,7 @@ inputs
 stat
 {
   create 1530848886
-  modify 1540441572
+  modify 1542134571
   author Henry@LAPPY586
   access 0777
 }
@@ -17174,6 +17203,7 @@ Content-Type: text/plain
 {
 version 0.8
 reload	[ 0	locks=0 ]	(	0	)
+numlayers	[ 0	locks=0 ]	(	0	)
 fileName	[ 0	locks=0 ]	(	"`chsop(\"../instancefilepath\" + (point(\"../foreach_begin2\", 0, mops_index, 0)+1))`"	)
 frame	[ 0	locks=0 ]	(	[ frame	1 ] 	)
 fps	[ 0	locks=0 ]	(	[ fps	24 ] 	)
@@ -17189,6 +17219,8 @@ usevisibility	[ 0	locks=0 ]	(	"on"	)
 statictimezero	[ 0	locks=0 ]	(	"on"	)
 groupnames	[ 0	locks=0 ]	(	"none"	)
 subdgroup	[ 0	locks=0 ]	(	""	)
+rootPath	[ 0	locks=0 ]	(	""	)
+pickrootPath	[ 0	locks=0 ]	(	0	)
 objectPath	[ 0	locks=0 ]	(	""	)
 pickobjectPath	[ 0	locks=0 ]	(	0	)
 objectExclude	[ 0	locks=0 ]	(	""	)
@@ -17228,7 +17260,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -17331,7 +17363,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -17368,7 +17400,7 @@ inputs
 stat
 {
   create 1540442277
-  modify 1540442479
+  modify 1542135005
   author henry@GlaDOS
   access 0777
 }
@@ -17386,7 +17418,7 @@ Content-Type: text/plain
       lefttype = extend
       righttype = extend
       flags = 0
-      segment { length = 0 expr = "npointsgroup(\"../group_alembics\", \"abc\")" }
+      segment { length = 0 expr = "npointsgroup(\"../group_alembics\", \"__abc\")" }
     }
   }
 
@@ -17396,7 +17428,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+input	[ 8	locks=0 ]	(	[ input	400 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -17406,7 +17438,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
@@ -17441,7 +17473,7 @@ inputs
 stat
 {
   create 1540442489
-  modify 1540442523
+  modify 1542135009
   author henry@GlaDOS
   access 0777
 }
@@ -17459,7 +17491,7 @@ version 0.8
 deletions	[ 0	locks=0 ]	(	1	)
 enable1	[ 0	locks=0 ]	(	"on"	)
 grouptype1	[ 0	locks=0 ]	(	"any"	)
-group1	[ 0	locks=0 ]	(	_abc	)
+group1	[ 0	locks=0 ]	(	__abc	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -17469,7 +17501,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.0.352"
 	}
 }
 
