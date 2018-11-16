@@ -1,0 +1,785 @@
+# Dialog script for MOPS::MOPs_Spread_Falloff::1.1 automatically generated
+
+{
+    name	MOPS::MOPs_Spread_Falloff::1.1
+    script	MOPS::MOPs_Spread_Falloff::1.0
+    label	"MOPs Spread Falloff"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Input MOPs or Mesh"
+    inputlabel	2	"Start Point Cloud"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+
+    parm {
+        name    "group"
+        label   "Group"
+        type    string
+        default { "" }
+        menutoggle {
+            [ "opmenu -l map_cost_to_falloff group" ]
+        }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_action" "import soputils\nkwargs['geometrytype'] = kwargs['node'].parmTuple('grouptype')\nkwargs['inputindex'] = 0\nsoputils.selectGroupParm(kwargs)" }
+        parmtag { "script_action_help" "Select geometry from an available viewport." }
+        parmtag { "script_action_icon" "BUTTONS_reselect" }
+    }
+    parm {
+        name    "grouptype"
+        label   "Group Type"
+        type    ordinal
+        default { "guess" }
+        menu {
+            "guess"     "Guess from Group"
+            "vertices"  "Vertices"
+            "edges"     "Edges"
+            "points"    "Points"
+            "prims"     "Primitives"
+        }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "sepparm"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "do_preview"
+        label   "Preview Falloff"
+        type    toggle
+        default { "0" }
+        range   { 0! 10 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    groupsimple {
+        name    "folder4"
+        label   "Falloff Preview"
+        hidewhentab "{ do_preview == 0 }"
+
+        parm {
+            name    "do_sprite"
+            label   "Display as Sprites"
+            type    toggle
+            default { "on" }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "spritescale"
+            label   "Sprite Scale"
+            type    float
+            default { "1" }
+            hidewhen "{ do_sprite == 0 }"
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "override_scale"
+            label   "Override Scale"
+            type    toggle
+            default { "off" }
+            hidewhen "{ do_sprite == 0 }"
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "ramp_preset"
+            label   "Preset"
+            type    ordinal
+            default { "heatmap" }
+            menu {
+                "heatmap"   "Heatmap"
+                "blackbody" "Blackbody"
+                "infrared"  "Infrared"
+            }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "falloff_heatmap"
+            label   "Falloff Ramp"
+            type    ramp_rgb
+            default { "5" }
+            range   { 1! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "rampcolordefault" "1pos ( 0 ) 1c ( 0.036199998110532761 0 0.5429999828338623 ) 1interp ( linear ) 2pos ( 0.27027025818824768 ) 2c ( 0.7369999885559082 0 0 ) 2interp ( linear ) 3pos ( 0.71814674139022827 ) 3c ( 1 0.28333333134651184 0 ) 3interp ( linear ) 4pos ( 0.90154439210891724 ) 4c ( 0.89999997615814209 0.89999997615814209 0 ) 4interp ( linear ) 5pos ( 1 ) 5c ( 1 1 1 ) 5interp ( linear )" }
+            parmtag { "rampshowcontrolsdefault" "0" }
+        }
+    }
+
+    parm {
+        name    "sepparm3"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    group {
+        name    "folder3"
+        label   "Start Points"
+
+        parm {
+            name    "spread_mode"
+            label   "Start Points Mode"
+            type    ordinal
+            default { "0" }
+            menu {
+                "0" "Group Mask"
+                "1" "Point Cloud"
+                "2" "Attribute"
+            }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        groupsimple {
+            name    "folder0"
+            label   "Group Mask"
+            hidewhentab "{ spread_mode != 0 }"
+
+            parm {
+                name    "basegroup"
+                label   "Start Point Group"
+                type    string
+                default { "0" }
+                menutoggle {
+                    [ "opmenu -l group1 basegroup" ]
+                }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_action" "import soputils\nkwargs['geometrytype'] = kwargs['node'].parmTuple('grouptype')\nkwargs['inputindex'] = 0\nkwargs['ordered'] = kwargs['node'].parm('ordered').eval()\nsoputils.selectGroupParm(kwargs)" }
+                parmtag { "script_action_help" "Select geometry from an available viewport.\nShift-click to turn on Select Groups." }
+                parmtag { "script_action_icon" "BUTTONS_reselect" }
+            }
+        }
+
+        groupsimple {
+            name    "folder1"
+            label   "Point Cloud"
+            hidewhentab "{ spread_mode != 1 }"
+
+            parm {
+                name    "group2"
+                label   "Group"
+                type    string
+                default { "" }
+                menutoggle {
+                    [ "opmenu -l pointwrangle1 group" ]
+                }
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_action" "import soputils\nkwargs['geometrytype'] = kwargs['node'].parmTuple('grouptype')\nkwargs['inputindex'] = 0\nsoputils.selectGroupParm(kwargs)" }
+                parmtag { "script_action_help" "Select geometry from an available viewport." }
+                parmtag { "script_action_icon" "BUTTONS_reselect" }
+            }
+            parm {
+                name    "grouptype2"
+                label   "Group Type"
+                type    ordinal
+                default { "guess" }
+                menu {
+                    "guess"     "Guess from Group"
+                    "vertices"  "Vertices"
+                    "edges"     "Edges"
+                    "points"    "Points"
+                    "prims"     "Primitives"
+                }
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "sepparm2"
+                label   "Separator"
+                type    separator
+                default { "" }
+            }
+            parm {
+                name    "kernel"
+                label   "Kernel Function"
+                type    string
+                default { "elendt" }
+                menu {
+                    "wyvill"    "Wyvill model"
+                    "elendt"    "Elendt model"
+                    "blinn"     "Blinn model"
+                    "links"     "Links model"
+                    "prman"     "RenderMan model"
+                    "hart"      "Hart model"
+                    "xpbump"    "Exponential Bump"
+                    "uniform"   "Uniform Model"
+                }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "kernelradius"
+                label   "Kernel Radius"
+                type    float
+                default { "10" }
+                range   { 0.1 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "maxsamplecount"
+                label   "Max Sample Count"
+                type    integer
+                default { "1" }
+                range   { 1! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "threshold"
+                label   "Label"
+                type    toggle
+                nolabel
+                joinnext
+                default { "on" }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "thresholddist"
+                label   "Distance Threshold"
+                type    float
+                default { "1" }
+                disablewhen "{ threshold == 0 }"
+                range   { 0 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "blendwidth"
+                label   "Blend Width"
+                type    float
+                default { "0" }
+                range   { 0 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "uniformbias"
+                label   "Uniform Bias"
+                type    float
+                default { "0.5" }
+                disablewhen "{ kernel != uniform }"
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+        }
+
+        groupsimple {
+            name    "folder2"
+            label   "Attribute"
+            hidewhentab "{ spread_mode != 2 }"
+
+            parm {
+                name    "bindname1"
+                label   "Attribute Name"
+                type    string
+                default { "mops_falloff" }
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "threshold2"
+                label   "Threshold"
+                type    float
+                default { "0" }
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+        }
+
+    }
+
+    group {
+        name    "folder3_1"
+        label   "Animate"
+
+        parm {
+            name    "distance_metric"
+            label   "Distance Metric"
+            type    ordinal
+            default { "0" }
+            menu {
+                "0" "Radius"
+                "1" "Connectivity"
+            }
+        }
+        parm {
+            name    "frame"
+            label   "Reference Frame"
+            type    float
+            default { [ "$F" hscript-expr ] }
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "searchradius"
+            label   "Search Radius"
+            type    float
+            default { "1" }
+            hidewhen "{ distance_metric == 1 }"
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "maxsearchpoints"
+            label   "Max Connections"
+            type    integer
+            default { "10" }
+            hidewhen "{ distance_metric == 1 }"
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "spread"
+            label   "Spread"
+            type    float
+            default { "0" }
+            range   { 0 2 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "falloff_width"
+            label   "Falloff Width"
+            type    float
+            default { "0.2" }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "do_noise"
+            label   "Use Noise"
+            type    toggle
+            default { "0" }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        groupsimple {
+            name    "folder6"
+            label   "Noise"
+            hidewhentab "{ do_noise == 0 }"
+
+            parm {
+                name    "do_timebased"
+                label   "Time-Varying Noise"
+                type    toggle
+                default { "off" }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "parmvop" "1" }
+                parmtag { "shaderparmcontexts" "cvex" }
+            }
+            parm {
+                name    "timescale"
+                label   "Time Scale"
+                type    float
+                default { "1" }
+                disablewhen "{ do_timebased == 0 }"
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "parmvop" "1" }
+                parmtag { "shaderparmcontexts" "cvex" }
+            }
+            parm {
+                name    "noise_amt"
+                label   "Noise Amount"
+                type    float
+                default { "0.25" }
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "parmvop" "1" }
+                parmtag { "shaderparmcontexts" "cvex" }
+            }
+            parm {
+                name    "basis"
+                label   "Noise Type"
+                type    string
+                default { "simplex" }
+                menu {
+                    "sine"      "Sinusoid"
+                    "perlin"    "Perlin"
+                    "pperlin"   "Periodic Perlin"
+                    "simplex"   "Simplex (Improved Perlin)"
+                    "sparse"    "Sparse Convolution"
+                    "flow"      "Flow"
+                    "pflow"     "Periodic Flow"
+                    "worleyFA"  "Worley (cellular) F1"
+                    "worleyFB"  "Worley (cellular) F2-F1"
+                    "mworleyFA" "Manhattan Worley (cellular) F1"
+                    "mworleyFB" "Manhattan Worley (cellular) F2-F1"
+                    "cworleyFA" "Chebyshev Worley (cellular) F1"
+                    "cworleyFB" "Chebyshev Worley (cellular) F2-F1"
+                    "alligator" "Alligator"
+                }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "parmvop" "1" }
+                parmtag { "shaderparmcontexts" "cvex" }
+            }
+            parm {
+                name    "freq"
+                label   "Frequency"
+                type    float
+                size    4
+                default { "2" "2" "2" "2" }
+                range   { 0 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "parmvop" "1" }
+                parmtag { "shaderparmcontexts" "cvex" }
+            }
+            parm {
+                name    "offset"
+                label   "Offset"
+                type    float
+                size    4
+                default { "0" "0" "0" "0" }
+                range   { 0 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "parmvop" "1" }
+                parmtag { "shaderparmcontexts" "cvex" }
+            }
+            parm {
+                name    "period"
+                label   "Period"
+                type    float
+                size    4
+                default { "1" "1" "1" "1" }
+                hidewhen "{ basis != pperlin basis != pflow }"
+                range   { 0 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "parmvop" "1" }
+                parmtag { "shaderparmcontexts" "cvex" }
+            }
+            groupsimple {
+                name    "folder7"
+                label   "Fractal"
+
+                parm {
+                    name    "fractal"
+                    label   "Fractal"
+                    type    string
+                    default { "none" }
+                    menu {
+                        "none"  "None"
+                        "fBm"   "Standard (fBm)"
+                        "mfT"   "Terrain"
+                        "hmfT"  "Hybrid Terrain"
+                    }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "parmvop" "1" }
+                    parmtag { "shaderparmcontexts" "cvex" }
+                }
+                parm {
+                    name    "oct"
+                    label   "Max Octaves"
+                    type    float
+                    default { "8" }
+                    hidewhen "{ fractal == none } { fractal == none }"
+                    range   { 0 16 }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "parmvop" "1" }
+                    parmtag { "shaderparmcontexts" "cvex" }
+                }
+                parm {
+                    name    "lac"
+                    label   "Lacunarity"
+                    type    float
+                    default { "2.01234" }
+                    hidewhen "{ fractal == none }"
+                    range   { 0 4 }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "parmvop" "1" }
+                    parmtag { "shaderparmcontexts" "cvex" }
+                }
+                parm {
+                    name    "rough"
+                    label   "Roughness"
+                    type    float
+                    default { "0.5" }
+                    hidewhen "{ fractal == none }"
+                    range   { 0 1 }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "parmvop" "1" }
+                    parmtag { "shaderparmcontexts" "cvex" }
+                }
+            }
+
+            groupsimple {
+                name    "folder8"
+                label   "Warping"
+
+                parm {
+                    name    "dolwarp"
+                    label   "Enable Lattice Warp"
+                    type    toggle
+                    default { "off" }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "parmvop" "1" }
+                    parmtag { "shaderparmcontexts" "cvex" }
+                }
+                parm {
+                    name    "accuml"
+                    label   "Accumulate Lattice Warp"
+                    type    toggle
+                    default { "off" }
+                    hidewhen "{ dolwarp == 0 } { fractal == none }"
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "parmvop" "1" }
+                    parmtag { "shaderparmcontexts" "cvex" }
+                }
+                parm {
+                    name    "disp"
+                    label   "Lattice Warp"
+                    type    float
+                    joinnext
+                    default { "0" }
+                    hidewhen "{ dolwarp == 0 }"
+                    range   { -0.5 0.5 }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "parmvop" "1" }
+                    parmtag { "shaderparmcontexts" "cvex" }
+                }
+                parm {
+                    name    "dispfreq"
+                    label   "Freq"
+                    type    float
+                    default { "1" }
+                    hidewhen "{ dolwarp == 0 }"
+                    range   { 0 1 }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "parmvop" "1" }
+                    parmtag { "shaderparmcontexts" "cvex" }
+                }
+                parm {
+                    name    "dogwarp"
+                    label   "Enable Gradient Warp"
+                    type    toggle
+                    default { "off" }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "parmvop" "1" }
+                    parmtag { "shaderparmcontexts" "cvex" }
+                }
+                parm {
+                    name    "accumg"
+                    label   "Accumulate Gradient Warp"
+                    type    toggle
+                    default { "off" }
+                    hidewhen "{ dogwarp == 0 } { fractal == none }"
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "parmvop" "1" }
+                    parmtag { "shaderparmcontexts" "cvex" }
+                }
+                parm {
+                    name    "gflow"
+                    label   "Gradient Warp"
+                    type    float
+                    default { "0" }
+                    hidewhen "{ dogwarp == 0 }"
+                    range   { -0.5 0.5 }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "parmvop" "1" }
+                    parmtag { "shaderparmcontexts" "cvex" }
+                }
+                parm {
+                    name    "flowrot"
+                    label   "Flow Rotation"
+                    type    float
+                    default { "0" }
+                    hidewhen "{ basis != flow basis != pflow }"
+                    range   { 0 1 }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "parmvop" "1" }
+                    parmtag { "shaderparmcontexts" "cvex" }
+                }
+            }
+
+            groupsimple {
+                name    "folder0_1"
+                label   "Output Correction"
+
+                parm {
+                    name    "cc_fold"
+                    label   "Fold"
+                    type    toggle
+                    default { "off" }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "parmvop" "1" }
+                    parmtag { "shaderparmcontexts" "cvex" }
+                }
+                parm {
+                    name    "cc_dobias"
+                    label   "Do Bias"
+                    type    toggle
+                    default { "off" }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "parmvop" "1" }
+                    parmtag { "shaderparmcontexts" "cvex" }
+                }
+                parm {
+                    name    "cc_bias"
+                    label   "Bias"
+                    type    float
+                    size    3
+                    default { "0.5" "0.5" "0.5" }
+                    hidewhen "{ cc_dobias == 0 }"
+                    range   { 0 10 }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "parmvop" "1" }
+                    parmtag { "shaderparmcontexts" "cvex" }
+                }
+                parm {
+                    name    "cc_dogain"
+                    label   "Do Gain"
+                    type    toggle
+                    default { "off" }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "parmvop" "1" }
+                    parmtag { "shaderparmcontexts" "cvex" }
+                }
+                parm {
+                    name    "cc_gain"
+                    label   "Gain"
+                    type    float
+                    size    3
+                    default { "0.5" "0.5" "0.5" }
+                    hidewhen "{ cc_dogain == 0 }"
+                    range   { 0 10 }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "parmvop" "1" }
+                    parmtag { "shaderparmcontexts" "cvex" }
+                }
+                parm {
+                    name    "cc_inv"
+                    label   "Complement"
+                    type    toggle
+                    default { "off" }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "parmvop" "1" }
+                    parmtag { "shaderparmcontexts" "cvex" }
+                }
+                parm {
+                    name    "cc_dorng"
+                    label   "Output Range (Clamped)"
+                    type    toggle
+                    default { "on" }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "parmvop" "1" }
+                    parmtag { "shaderparmcontexts" "cvex" }
+                }
+                parm {
+                    name    "cc_rnglo"
+                    label   "New Minimum"
+                    type    float
+                    size    3
+                    default { "-1" "-1" "-1" }
+                    hidewhen "{ cc_dorng == 0 }"
+                    range   { 0 10 }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "parmvop" "1" }
+                    parmtag { "shaderparmcontexts" "cvex" }
+                }
+                parm {
+                    name    "cc_rnghi"
+                    label   "New Maximum"
+                    type    float
+                    size    3
+                    default { "1" "1" "1" }
+                    hidewhen "{ cc_dorng == 0 }"
+                    range   { 0 10 }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "parmvop" "1" }
+                    parmtag { "shaderparmcontexts" "cvex" }
+                }
+                parm {
+                    name    "cc_amp"
+                    label   "Final Amplitude"
+                    type    float
+                    size    3
+                    default { "1" "1" "1" }
+                    range   { 0 10 }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "parmvop" "1" }
+                    parmtag { "shaderparmcontexts" "cvex" }
+                }
+            }
+
+            parm {
+                name    "fscale"
+                label   "Filter Scale"
+                type    float
+                default { "1" }
+                range   { 0 2 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "parmvop" "1" }
+                parmtag { "shaderparmcontexts" "cvex" }
+            }
+        }
+
+    }
+
+    group {
+        name    "folder3_2"
+        label   "Remap"
+
+        parm {
+            name    "switchfit"
+            label   "Fit"
+            type    toggle
+            default { "off" }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "auto_min_max"
+            label   "Auto min and max input values"
+            type    toggle
+            default { "off" }
+            disablewhen "{ switchfit != 1 }"
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "imin"
+            label   "Input Min"
+            type    float
+            default { "0" }
+            disablewhen "{ auto_min_max == 1 } { switchfit != 1 }"
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "imax"
+            label   "Input Max"
+            type    float
+            default { "1" }
+            disablewhen "{ auto_min_max == 1 } { switchfit != 1 }"
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "omin"
+            label   "Output Min"
+            type    float
+            default { "0" }
+            disablewhen "{ switchfit != 1 }"
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "omax"
+            label   "Output Max"
+            type    float
+            default { "1" }
+            disablewhen "{ switchfit != 1 }"
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "remap_falloff"
+            label   "Remap Falloff"
+            type    ramp_flt
+            default { "2" }
+            range   { 1! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "rampfloatdefault" "1pos ( 0 ) 1value ( 0 ) 1interp ( linear ) 2pos ( 1 ) 2value ( 1 ) 2interp ( linear )" }
+        }
+    }
+
+}

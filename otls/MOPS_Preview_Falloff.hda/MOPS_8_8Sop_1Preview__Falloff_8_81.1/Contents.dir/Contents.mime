@@ -32,7 +32,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -2.25643 -2.76934
+position 5.709 -5.06654
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -40,16 +40,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	MOPs_Convert 1 1 "input1"
+0 	MOPs_Shape_Falloff 1 1 "input1"
 }
 inputs
 {
-0 	MOPs_Convert 0 1
+0 	MOPs_Shape_Falloff 0 1
 }
 stat
 {
-  create 1542074127
-  modify 1542074615
+  create 1542258859
+  modify 1542259468
   author henry_foster@mvp-production2-mac03.local
   access 0777
 }
@@ -74,7 +74,7 @@ Content-Disposition: attachment; filename="hdaroot.inp"
 Content-Type: text/plain
 
 1
-0 -1.195482849459778 0.56611226781779633 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+0 -2.0420961169434486 0.62073247862319447 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/apply_ramp.init"
@@ -89,7 +89,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.30116 -8.06079
+position 0.766055 -10.935
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -98,16 +98,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	do_sprite 1 1 "input1"
+0 	switch_is_geo_packed 1 1 "input1"
 }
 inputs
 {
-0 	do_sprite 0 1
+0 	switch_is_geo_packed 0 1
 }
 stat
 {
   create 1522436772
-  modify 1542074127
+  modify 1542258860
   author Henry@LAPPY586
   access 0777
 }
@@ -472,7 +472,7 @@ Content-Type: text/plain
 {
 version 0.8
 folder0	[ 0	locks=0 ]	(	0	0	)
-group	[ 0	locks=0 ]	(	@mops_falloff_preview==1	)
+group	[ 0	locks=0 ]	(	""	)
 grouptype	[ 0	locks=0 ]	(	"points"	)
 class	[ 0	locks=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0 ]	(	10	)
@@ -534,7 +534,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.33138 -4.86339
+position 2.31454 -6.61802
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -552,7 +552,7 @@ inputs
 stat
 {
   create 1536025246
-  modify 1542074127
+  modify 1542258860
   author Henry@LAPPY586
   access 0777
 }
@@ -758,7 +758,8 @@ if(!chi(\"override_scale\")) {
     f@pscale = max(v@scale);
 } else {
     f@pscale = 1;
-}"	)
+}
+f@pscale = max(f@pscale, 0.005);"	)
 exportlist	[ 0	locks=0 ]	(	*	)
 vex_strict	[ 0	locks=0 ]	(	"off"	)
 autobind	[ 0	locks=0 ]	(	"on"	)
@@ -799,7 +800,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 2.09505 -5.80621
+position 3.07821 -7.56084
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -817,7 +818,7 @@ inputs
 stat
 {
   create 1538069567
-  modify 1542074127
+  modify 1542258860
   author Henry@LAPPY586
   access 0777
 }
@@ -874,7 +875,7 @@ texturerowcol	[ 0	locks=0 ]	(	1	1	)
 dospriterot	[ 0	locks=0 ]	(	"off"	)
 spriterot	[ 0	locks=0 ]	(	0	)
 dospritescale	[ 0	locks=0 ]	(	"on"	)
-spritescale	[ 8	locks=0 ]	(	[ spritescalex	1 ] 	[ spritescaley	1 ] 	)
+spritescale	[ 8	locks=0 ]	(	[ spritescalex	0.050000000000000003 ] 	[ spritescaley	0.050000000000000003 ] 	)
 usevexpression	[ 0	locks=0 ]	(	"off"	)
 localexpression	[ 0	locks=0 ]	(	""	)
 }
@@ -903,7 +904,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.08108 -2.69599
+position 2.06424 -4.45062
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -921,7 +922,7 @@ inputs
 stat
 {
   create 1539749753
-  modify 1542074517
+  modify 1542258969
   author henry@GlaDOS
   access 0777
 }
@@ -942,13 +943,16 @@ grouptype	[ 0	locks=0 ]	(	"guess"	)
 class	[ 0	locks=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
-snippet	[ 0	locks=0 ]	(	"float bounds[] = primintrinsic(0, \"packedbounds\", @ptnum);
-string frag = primintrinsic(0, \"packedtypelabel\", @ptnum);
-// we can't use bounding scale on packed fragments, so leave the scale attribute alone.
-if(frag != \"Packed Fragment\") {
-    vector min = set(bounds[0],bounds[1],bounds[2]);
-    vector max = set(bounds[3],bounds[4],bounds[5]);
-    v@scale *= (max-min)/2;  
+snippet	[ 0	locks=0 ]	(	"string type = primintrinsic(0, \"typename\", @ptnum);
+if(type == \"PackedGeometry\" || type == \"PackedFragment\") {
+    float bounds[] = primintrinsic(0, \"packedbounds\", @ptnum);
+    string frag = primintrinsic(0, \"packedtypelabel\", @ptnum);
+    // we can't use bounding scale on packed fragments, so leave the scale attribute alone.
+    if(frag != \"Packed Fragment\") {
+        vector min = set(bounds[0],bounds[1],bounds[2]);
+        vector max = set(bounds[3],bounds[4],bounds[5]);
+        v@scale *= (max-min)/2;  
+    }
 }
 "	)
 exportlist	[ 0	locks=0 ]	(	*	)
@@ -989,7 +993,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.110834 -1.5423
+position 1.85549 -3.51541
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -998,16 +1002,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	IN 1 1 "input1"
+0 	attribpromote1 1 1 "input1"
 }
 inputs
 {
-0 	IN 0 1
+0 	attribpromote1 0 1
 }
 stat
 {
   create 1539750726
-  modify 1542074136
+  modify 1542258971
   author henry@GlaDOS
   access 0777
 }
@@ -1036,6 +1040,87 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/is_geo_packed.init"
+Content-Type: text/plain
+
+type = attribwrangle
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/is_geo_packed.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -0.820897 -1.47751
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	IN 1 1 "input1"
+}
+inputs
+{
+0 	IN 0 1
+}
+stat
+{
+  create 1542258177
+  modify 1542258952
+  author henry_foster@mvp-production2-mac03.local
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/is_geo_packed.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+folder0	[ 0	locks=0 ]	(	0	0	)
+group	[ 0	locks=0 ]	(	""	)
+grouptype	[ 0	locks=0 ]	(	"guess"	)
+class	[ 0	locks=0 ]	(	"point"	)
+vex_numcount	[ 0	locks=0 ]	(	10	)
+vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
+snippet	[ 0	locks=0 ]	(	"string type = primintrinsic(0, \"typename\", @ptnum);
+if(type == \"PackedGeometry\" || type == \"PackedFragment\" || type == \"PackedDiskSequence\" || type == \"AlembicRef\") {
+    @__packed = 1;
+}"	)
+exportlist	[ 0	locks=0 ]	(	*	)
+vex_strict	[ 0	locks=0 ]	(	"off"	)
+autobind	[ 0	locks=0 ]	(	"on"	)
+bindings	[ 0	locks=0 ]	(	0	)
+groupautobind	[ 0	locks=0 ]	(	"on"	)
+groupbindings	[ 0	locks=0 ]	(	0	)
+vex_cwdpath	[ 0	locks=0 ]	(	.	)
+vex_outputmask	[ 0	locks=0 ]	(	*	)
+vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
+vex_matchattrib	[ 0	locks=0 ]	(	id	)
+vex_inplace	[ 0	locks=0 ]	(	"off"	)
+vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/is_geo_packed.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/IN.init"
 Content-Type: text/plain
 
@@ -1048,7 +1133,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.19548 -0.563388
+position -2.04209 -0.508768
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1066,7 +1151,7 @@ inputs
 stat
 {
   create 1522438513
-  modify 1536029461
+  modify 1542258199
   author Henry@LAPPY586
   access 0777
 }
@@ -1109,9 +1194,9 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.110834 -10.6797
+position -1.60179 -14.1625
 connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
@@ -1126,7 +1211,7 @@ inputs
 stat
 {
   create 1522440022
-  modify 1539750727
+  modify 1542258666
   author Henry@LAPPY586
   access 0777
 }
@@ -1168,9 +1253,9 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.33138 -3.73389
+position 2.31454 -5.48852
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 1 "output1"
@@ -1186,7 +1271,7 @@ inputs
 stat
 {
   create 1536021901
-  modify 1539750727
+  modify 1542258963
   author Henry@LAPPY586
   access 0777
 }
@@ -1246,7 +1331,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.110834 -9.55015
+position -1.60179 -13.0329
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1256,17 +1341,17 @@ outputsNamed3
 inputsNamed3
 {
 0 	IN 1 1 "input1"
-2 	apply_ramp 1 1 "input2"
+2 	attribdelete1 1 1 "input2"
 }
 inputs
 {
 0 	IN 0 1
-1 	apply_ramp 0 1
+1 	attribdelete1 0 1
 }
 stat
 {
   create 1536021933
-  modify 1542074127
+  modify 1542258860
   author Henry@LAPPY586
   access 0777
 }
@@ -1321,7 +1406,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.20896 -6.96129
+position 2.19212 -8.71592
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1341,7 +1426,7 @@ inputs
 stat
 {
   create 1538070395
-  modify 1542074127
+  modify 1542258860
   author Henry@LAPPY586
   access 0777
 }
@@ -1369,7 +1454,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	1 ] 	)
+input	[ 0	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1384,10 +1469,217 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribpromote1.init"
+Content-Type: text/plain
+
+type = attribpromote
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribpromote1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 0.262348 -2.51541
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	is_geo_packed 1 1 "input1"
+}
+inputs
+{
+0 	is_geo_packed 0 1
+}
+stat
+{
+  create 1542258350
+  modify 1542258482
+  author henry_foster@mvp-production2-mac03.local
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribpromote1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+inname	[ 0	locks=0 ]	(	__packed	)
+inclass	[ 0	locks=0 ]	(	"point"	)
+outclass	[ 0	locks=0 ]	(	"detail"	)
+usepieceattrib	[ 0	locks=0 ]	(	"off"	)
+pieceattrib	[ 0	locks=0 ]	(	name	)
+method	[ 0	locks=0 ]	(	"max"	)
+useoutname	[ 0	locks=0 ]	(	"off"	)
+outname	[ 0	locks=0 ]	(	""	)
+deletein	[ 0	locks=0 ]	(	"on"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribpromote1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.0.352"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch_is_geo_packed.init"
+Content-Type: text/plain
+
+type = switch
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch_is_geo_packed.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 1.27282 -9.83552
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+2 	attribpromote1 1 1 "input1"
+0 	do_sprite 1 1 "input2"
+}
+inputs
+{
+0 	attribpromote1 0 1
+1 	do_sprite 0 1
+}
+stat
+{
+  create 1542258372
+  modify 1542258881
+  author henry_foster@mvp-production2-mac03.local
+  access 0777
+}
+color UT_Color RGB 0.8 1 0.7 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch_is_geo_packed.chn"
+Content-Type: text/plain
+
+{
+    channel input {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = "detail(\"../attribpromote1\", \"__packed\", 0)" }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch_is_geo_packed.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch_is_geo_packed.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.0.352"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribdelete1.init"
+Content-Type: text/plain
+
+type = attribdelete
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribdelete1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -0.503936 -11.9729
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	apply_ramp 1 1 "input1"
+}
+inputs
+{
+0 	apply_ramp 0 1
+}
+stat
+{
+  create 1542258496
+  modify 1542258502
+  author henry_foster@mvp-production2-mac03.local
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribdelete1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+ptdel	[ 0	locks=0 ]	(	""	)
+vtxdel	[ 0	locks=0 ]	(	""	)
+primdel	[ 0	locks=0 ]	(	""	)
+dtldel	[ 0	locks=0 ]	(	__packed	)
+updatevar	[ 0	locks=0 ]	(	"on"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribdelete1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.order"
 Content-Type: text/plain
 
-10
+14
 apply_ramp
 IN
 output1
@@ -1398,6 +1690,10 @@ sprite1
 do_sprite
 get_world_scale
 MOPs_Extract_Attributes
+is_geo_packed
+attribpromote1
+switch_is_geo_packed
+attribdelete1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"
