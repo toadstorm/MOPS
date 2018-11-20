@@ -47,7 +47,7 @@ inputs
 stat
 {
   create 1542745619
-  modify 1542745642
+  modify 1542746187
   author Henry@LAPPY586
   access 0777
 }
@@ -626,11 +626,11 @@ twist_ramp	[ 8	locks=0 ]	(	[ twist_ramp	2 ] 	)
 twist_ramp1pos	[ 0	locks=0 ]	(	[ twist_ramp1pos	0 ] 	)
 twist_ramp1value	[ 0	locks=0 ]	(	[ twist_ramp1value	0 ] 	)
 twist_ramp1interp	[ 0	locks=0 ]	(	[ twist_ramp1interp	1 ] 	)
-do_vexpression	[ 8	locks=0 ]	(	[ do_vexpression	0 ] 	)
-vexpression	[ 0	locks=0 ]	(	`chs(\"../vexpression\")`	)
 twist_ramp2pos	[ 0	locks=0 ]	(	[ twist_ramp2pos	1 ] 	)
 twist_ramp2value	[ 0	locks=0 ]	(	[ twist_ramp2value	1 ] 	)
 twist_ramp2interp	[ 0	locks=0 ]	(	[ twist_ramp2interp	1 ] 	)
+do_vexpression	[ 8	locks=0 ]	(	[ do_vexpression	0 ] 	)
+vexpression	[ 0	locks=0 ]	(	`chs(\"../vexpression\")`	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1935,10 +1935,10 @@ twist_ramp	[ 8	locks=0 ]	(	[ twist_ramp	2 ] 	)
 twist_ramp1pos	[ 0	locks=0 ]	(	[ twist_ramp1pos	0 ] 	)
 twist_ramp1value	[ 0	locks=0 ]	(	[ twist_ramp1value	0 ] 	)
 twist_ramp1interp	[ 0	locks=0 ]	(	[ twist_ramp1interp	1 ] 	)
-trail_group	[ 0	locks=0 ]	(	[ trail_group	trails ] 	)
 twist_ramp2pos	[ 0	locks=0 ]	(	[ twist_ramp2pos	1 ] 	)
 twist_ramp2value	[ 0	locks=0 ]	(	[ twist_ramp2value	1 ] 	)
 twist_ramp2interp	[ 0	locks=0 ]	(	[ twist_ramp2interp	1 ] 	)
+trail_group	[ 0	locks=0 ]	(	[ trail_group	trails ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2566,19 +2566,19 @@ blend_in_orient	[ 8	locks=0 ]	(	2	)
 blend_in_orient1pos	[ 0	locks=0 ]	(	0	)
 blend_in_orient1value	[ 0	locks=0 ]	(	0	)
 blend_in_orient1interp	[ 0	locks=0 ]	(	"linear"	)
+blend_in_orient2pos	[ 0	locks=0 ]	(	1	)
+blend_in_orient2value	[ 0	locks=0 ]	(	1	)
+blend_in_orient2interp	[ 0	locks=0 ]	(	"linear"	)
 twist	[ 0	locks=0 ]	(	[ twist	0 ] 	)
 twist_ramp	[ 8	locks=0 ]	(	[ twist_ramp	2 ] 	)
 twist_ramp1pos	[ 0	locks=0 ]	(	[ twist_ramp1pos	0 ] 	)
 twist_ramp1value	[ 0	locks=0 ]	(	[ twist_ramp1value	0 ] 	)
 twist_ramp1interp	[ 0	locks=0 ]	(	[ twist_ramp1interp	1 ] 	)
-do_vexpression	[ 8	locks=0 ]	(	[ do_vexpression	0 ] 	)
-vexpression	[ 0	locks=0 ]	(	`chs(\"../vexpression2\")`	)
-blend_in_orient2pos	[ 0	locks=0 ]	(	1	)
-blend_in_orient2value	[ 0	locks=0 ]	(	1	)
-blend_in_orient2interp	[ 0	locks=0 ]	(	"linear"	)
 twist_ramp2pos	[ 0	locks=0 ]	(	[ twist_ramp2pos	1 ] 	)
 twist_ramp2value	[ 0	locks=0 ]	(	[ twist_ramp2value	1 ] 	)
 twist_ramp2interp	[ 0	locks=0 ]	(	[ twist_ramp2interp	1 ] 	)
+do_vexpression	[ 8	locks=0 ]	(	[ do_vexpression	0 ] 	)
+vexpression	[ 0	locks=0 ]	(	`chs(\"../vexpression2\")`	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -3284,6 +3284,25 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../../../../twist_ramp1interp\") }
     }
+    channel twist_ramp2pos {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../../../twist_ramp2pos\") }
+    }
+    channel twist_ramp2value {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../../../twist_ramp2value\") }
+    }
+    channel twist_ramp2interp {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../../../../twist_ramp2interp\") }
+    }
     channel blend_in_orient1pos {
       lefttype = extend
       righttype = extend
@@ -3302,6 +3321,25 @@ Content-Type: text/plain
       default = 1
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../../../../blend_in_orient1interp\") }
+    }
+    channel blend_in_orient2pos {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../../../blend_in_orient2pos\") }
+    }
+    channel blend_in_orient2value {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../../../blend_in_orient2value\") }
+    }
+    channel blend_in_orient2interp {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../../../../blend_in_orient2interp\") }
     }
     channel Acceleration1pos {
       lefttype = extend
@@ -3322,44 +3360,6 @@ Content-Type: text/plain
       default = 1
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../../../../Acceleration1interp\") }
-    }
-    channel twist_ramp2pos {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../../../../twist_ramp2pos\") }
-    }
-    channel twist_ramp2value {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../../../../twist_ramp2value\") }
-    }
-    channel twist_ramp2interp {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../../../../twist_ramp2interp\") }
-    }
-    channel blend_in_orient2pos {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../../../../blend_in_orient2pos\") }
-    }
-    channel blend_in_orient2value {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../../../../blend_in_orient2value\") }
-    }
-    channel blend_in_orient2interp {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../../../../blend_in_orient2interp\") }
     }
     channel Acceleration2pos {
       lefttype = extend
@@ -3575,22 +3575,22 @@ twist_ramp	[ 8	locks=0 ]	(	[ twist_ramp	2 ] 	)
 twist_ramp1pos	[ 0	locks=0 ]	(	[ twist_ramp1pos	0 ] 	)
 twist_ramp1value	[ 0	locks=0 ]	(	[ twist_ramp1value	0 ] 	)
 twist_ramp1interp	[ 0	locks=0 ]	(	[ twist_ramp1interp	1 ] 	)
+twist_ramp2pos	[ 0	locks=0 ]	(	[ twist_ramp2pos	1 ] 	)
+twist_ramp2value	[ 0	locks=0 ]	(	[ twist_ramp2value	1 ] 	)
+twist_ramp2interp	[ 0	locks=0 ]	(	[ twist_ramp2interp	1 ] 	)
 blend_in_orient	[ 8	locks=0 ]	(	[ blend_in_orient	2 ] 	)
 blend_in_orient1pos	[ 0	locks=0 ]	(	[ blend_in_orient1pos	0 ] 	)
 blend_in_orient1value	[ 0	locks=0 ]	(	[ blend_in_orient1value	0 ] 	)
 blend_in_orient1interp	[ 0	locks=0 ]	(	[ blend_in_orient1interp	1 ] 	)
+blend_in_orient2pos	[ 0	locks=0 ]	(	[ blend_in_orient2pos	1 ] 	)
+blend_in_orient2value	[ 0	locks=0 ]	(	[ blend_in_orient2value	1 ] 	)
+blend_in_orient2interp	[ 0	locks=0 ]	(	[ blend_in_orient2interp	1 ] 	)
 do_vexpression	[ 0	locks=0 ]	(	[ do_vexpression	0 ] 	)
 vexpression	[ 0	locks=0 ]	(	`chs(\"../../../../vexpression2\")`	)
 Acceleration	[ 0	locks=0 ]	(	[ Acceleration	4 ] 	)
 Acceleration1pos	[ 0	locks=0 ]	(	[ Acceleration1pos	0 ] 	)
 Acceleration1value	[ 0	locks=0 ]	(	[ Acceleration1value	0.10000000149011612 ] 	)
 Acceleration1interp	[ 0	locks=0 ]	(	[ Acceleration1interp	1 ] 	)
-twist_ramp2pos	[ 0	locks=0 ]	(	[ twist_ramp2pos	1 ] 	)
-twist_ramp2value	[ 0	locks=0 ]	(	[ twist_ramp2value	1 ] 	)
-twist_ramp2interp	[ 0	locks=0 ]	(	[ twist_ramp2interp	1 ] 	)
-blend_in_orient2pos	[ 0	locks=0 ]	(	[ blend_in_orient2pos	1 ] 	)
-blend_in_orient2value	[ 0	locks=0 ]	(	[ blend_in_orient2value	1 ] 	)
-blend_in_orient2interp	[ 0	locks=0 ]	(	[ blend_in_orient2interp	1 ] 	)
 Acceleration2pos	[ 0	locks=0 ]	(	[ Acceleration2pos	0.26933702826499939 ] 	)
 Acceleration2value	[ 0	locks=0 ]	(	[ Acceleration2value	1 ] 	)
 Acceleration2interp	[ 0	locks=0 ]	(	[ Acceleration2interp	1 ] 	)
