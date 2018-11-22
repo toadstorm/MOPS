@@ -1,15 +1,15 @@
-# Dialog script for MOPS::Parallel_Transport::1.0 automatically generated
+# Dialog script for MOPS::Orient_Curve::1.0 automatically generated
 
 {
-    name	MOPS::Parallel_Transport::1.0
-    script	MOPS::Parallel_Transport::1.0
-    label	"MOPs Parallel Transport"
+    name	MOPS::Orient_Curve::1.0
+    script	MOPS::Orient_Curve::1.0
+    label	"MOPs Orient Curve"
 
     help {
 	""
     }
 
-    inputlabel	1	Spline
+    inputlabel	1	"Input Curve"
     inputlabel	2	"Sub-Network Input #2"
     inputlabel	3	"Sub-Network Input #3"
     inputlabel	4	"Sub-Network Input #4"
@@ -20,7 +20,7 @@
         type    string
         default { "" }
         menutoggle {
-            [ "opmenu -l Parallel_transport group" ]
+            [ "opmenu -l MOPs_Parallel_Transport1 group" ]
         }
         range   { 0 1 }
         parmtag { "autoscope" "0000000000000000" }
@@ -44,10 +44,24 @@
         parmtag { "autoscope" "0000000000000000" }
     }
     parm {
+        name    "sepparm"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "invert"
+        label   "Invert Normal"
+        type    toggle
+        default { "0" }
+        range   { 0 10 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
         name    "custom_first_tangent"
         label   "Custom First Tangent"
         type    toggle
-        default { "0" }
+        default { "off" }
         range   { 0 1 }
         parmtag { "autoscope" "0000000000000000" }
     }
@@ -62,24 +76,40 @@
         parmtag { "autoscope" "0000000000000000" }
     }
     parm {
-        name    "Transported_Normal_Name"
-        label   "Transported Normal Name"
-        type    string
-        default { "mops_PT_normal" }
+        name    "sepparm2"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "remove_temp"
+        label   "Remove Temporary Attrs"
+        type    toggle
+        default { "1" }
+        range   { 0! 10 }
         parmtag { "autoscope" "0000000000000000" }
     }
     parm {
-        name    "Transported_Tangent_Name"
-        label   "Transported Tangent Name"
-        type    string
-        default { "mops_PT_tangent" }
+        name    "sepparm3"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "twist_amount"
+        label   "Twist Amount"
+        type    float
+        default { "0" }
+        range   { -360 360 }
         parmtag { "autoscope" "0000000000000000" }
     }
     parm {
-        name    "Transported_Bitangent_Name"
-        label   "Transported Bitangent Name"
-        type    string
-        default { "mops_PT_binormal" }
+        name    "twist_ramp"
+        label   "Twist Ramp"
+        type    ramp_flt
+        default { "2" }
+        range   { 1! 10 }
         parmtag { "autoscope" "0000000000000000" }
+        parmtag { "rampfloatdefault" "1pos ( 0 ) 1value ( 0 ) 1interp ( linear ) 2pos ( 1 ) 2value ( 1 ) 2interp ( linear )" }
     }
 }
