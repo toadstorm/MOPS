@@ -32,27 +32,27 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 6.25501 -16.0202
+position -12.73 -15.396
 connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-0 "output1"
+2 "output1"
 }
 inputsNamed3
 {
-1 	MOPs_Instancer1 0 1 "input1"
-2 	MOPs_Orient_Curve 1 1 "input2"
+0 	MOPs_Falloff_From_Attribute1 1 1 "input1"
+1 	curve1 0 1 "input2"
 }
 inputs
 {
-0 	MOPs_Instancer1 0 1
-1 	MOPs_Orient_Curve 0 1
+0 	MOPs_Falloff_From_Attribute1 0 1
+1 	curve1 0 1
 }
 stat
 {
-  create 1542775262
-  modify 1543010707
+  create 1542920368
+  modify 1543011809
   author Henry@LAPPY586
   access 0777
 }
@@ -4094,7 +4094,7 @@ vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 folder1	[ 0	locks=0 ]	(	0	0	)
-curve_num_expr	[ 8	locks=0	autoscope=1	autosel=4294967295 ]	(	[ curve_num_expr	@prnum ] 	)
+curve_num_expr	[ 8	locks=0	autoscope=1	autosel=4294967295 ]	(	[ curve_num_expr	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -4423,7 +4423,7 @@ vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 search_dist	[ 0	locks=0 ]	(	[ search_dist	100 ] 	)
-mode	[ 0	locks=0 ]	(	[ mode	0 ] 	)
+mode	[ 0	locks=0 ]	(	[ mode	1 ] 	)
 invert_normal	[ 0	locks=0 ]	(	"off"	)
 bindname1	[ 0	locks=0 ]	(	[ bindname1	mops_falloff ] 	)
 bindparm1	[ 0	locks=0 ]	(	mops_falloff	)
@@ -4473,7 +4473,7 @@ inputs
 stat
 {
   create 1542753142
-  modify 1543010263
+  modify 1543011802
   author Henry@LAPPY586
   access 0777
 }
@@ -4875,25 +4875,6 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 2 2 expr = ch(\"../post_twist_ramp\") }
     }
-    channel offset_ramp2pos {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../offset_ramp2pos\") }
-    }
-    channel offset_ramp2value {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../offset_ramp2value\") }
-    }
-    channel offset_ramp2interp {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../offset_ramp2interp\") }
-    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -4957,7 +4938,7 @@ vector4 twist = quaternion(twist_ramp*twist_amt, tangent);
 // transform offset vector into goal space
 vector4 offset_rot = qmultiply(goal_O, qinvert(p@__orig_orient));
 // apply additional twist to offset
-offset_rot = qmultiply(offset_rot, twist);
+offset_rot = qmultiply(twist, offset_rot);
 vector offset = qrotate(offset_rot, v@__orig_offset);
 
 // output position
@@ -4989,12 +4970,12 @@ vexpression	[ 0	locks=0 ]	(	[ vexpression	"// random_amount = 0.0;
 // goalu = 0.5;
 // twist_amt = 0;" ] 	)
 do_vexpression	[ 0	locks=0 ]	(	[ do_vexpression	0 ] 	)
-offset_ramp	[ 0	locks=0 ]	(	[ offset_ramp	2 ] 	)
+offset_ramp	[ 0	locks=0 ]	(	[ offset_ramp	1 ] 	)
 offset_ramp1pos	[ 0	locks=0 ]	(	[ offset_ramp1pos	0 ] 	)
 offset_ramp1value	[ 0	locks=0 ]	(	[ offset_ramp1value	1 ] 	)
 offset_ramp1interp	[ 0	locks=0 ]	(	[ offset_ramp1interp	1 ] 	)
 do_falloff	[ 0	locks=0 ]	(	[ do_falloff	0 ] 	)
-twist_amount	[ 0	locks=0 ]	(	[ twist_amount	0 ] 	)
+twist_amount	[ 0	locks=0 ]	(	[ twist_amount	180 ] 	)
 twist_ramp	[ 0	locks=0 ]	(	[ twist_ramp	2 ] 	)
 twist_ramp1pos	[ 0	locks=0 ]	(	[ twist_ramp1pos	0 ] 	)
 twist_ramp1value	[ 0	locks=0 ]	(	[ twist_ramp1value	0 ] 	)
@@ -5002,9 +4983,6 @@ twist_ramp1interp	[ 0	locks=0 ]	(	[ twist_ramp1interp	1 ] 	)
 twist_ramp2pos	[ 0	locks=0 ]	(	[ twist_ramp2pos	1 ] 	)
 twist_ramp2value	[ 0	locks=0 ]	(	[ twist_ramp2value	1 ] 	)
 twist_ramp2interp	[ 0	locks=0 ]	(	[ twist_ramp2interp	1 ] 	)
-offset_ramp2pos	[ 0	locks=0 ]	(	[ offset_ramp2pos	1 ] 	)
-offset_ramp2value	[ 0	locks=0 ]	(	[ offset_ramp2value	1 ] 	)
-offset_ramp2interp	[ 0	locks=0 ]	(	[ offset_ramp2interp	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
