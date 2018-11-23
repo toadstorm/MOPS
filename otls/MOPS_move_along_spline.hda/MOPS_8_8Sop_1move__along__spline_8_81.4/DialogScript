@@ -55,17 +55,17 @@
         range   { 0! 10 }
         parmtag { "autoscope" "0000000000000000" }
     }
-    parm {
-        name    "curve_num_expr"
-        label   "Curve Number"
-        type    string
-        default { "0" }
-        parmtag { "autoscope" "1000000000000000" }
-    }
     group {
         name    "folder0"
         label   "Attach"
 
+        parm {
+            name    "curve_num_expr"
+            label   "Primitive Number"
+            type    string
+            default { "0" }
+            parmtag { "autoscope" "1000000000000000" }
+        }
         parm {
             name    "attach_mode"
             label   "Attach Method"
@@ -80,12 +80,29 @@
             parmtag { "autoscope" "0000000000000000" }
         }
         parm {
+            name    "attach_attr"
+            label   "Attribute Name"
+            type    string
+            default { "mops_falloff" }
+            hidewhen "{ attach_mode != 1 }"
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
             name    "search_dist"
             label   "Search Distance"
             type    float
             default { "100" }
-            disablewhen "{ attach_mode != 0 }"
+            hidewhen "{ attach_mode != 0 }"
             range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "frame"
+            label   "Attach Time"
+            type    float
+            default { [ "$FF" hscript-expr ] }
+            range   { 0 10 }
             parmtag { "autoscope" "0000000000000000" }
         }
         parm {
@@ -107,6 +124,14 @@
             label   "Reorient Input Curve"
             type    toggle
             default { "1" }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "do_snap"
+            label   "Snap MOPs Centroid to Curve Start"
+            type    toggle
+            default { "0" }
             range   { 0! 10 }
             parmtag { "autoscope" "0000000000000000" }
         }
@@ -233,6 +258,41 @@
             }
         }
 
+        group {
+            name    "folder2_2"
+            label   "Snap Centroid"
+            hidewhentab "{ do_snap == 0 }"
+
+            parm {
+                name    "do_orient_snap"
+                label   "Do Orient Snap"
+                type    toggle
+                default { "on" }
+                range   { 0 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "normal_axis"
+                label   "Normal Axis"
+                type    vector
+                size    3
+                default { "0" "1" "0" }
+                disablewhen "{ do_orient_snap == 0 }"
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "up_axis"
+                label   "Up Axis"
+                type    vector
+                size    3
+                default { "0" "0" "1" }
+                disablewhen "{ do_orient_snap == 0 }"
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+        }
+
     }
 
     group {
@@ -240,19 +300,35 @@
         label   "Animate"
 
         parm {
-            name    "goal"
-            label   "Goal U"
-            type    float
-            default { "0" }
-            range   { 0 1 }
-            parmtag { "autoscope" "0000000000000000" }
-        }
-        parm {
             name    "wrap"
             label   "Wrap"
             type    toggle
             default { "1" }
             range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "do_rotate"
+            label   "Align to Curve"
+            type    toggle
+            default { "on" }
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "do_falloff"
+            label   "Do Falloff"
+            type    toggle
+            default { "0" }
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "goal"
+            label   "Goal U"
+            type    float
+            default { "0" }
+            range   { 0 1 }
             parmtag { "autoscope" "0000000000000000" }
         }
         parm {
@@ -272,41 +348,76 @@
             range   { 0 10 }
             parmtag { "autoscope" "0000000000000000" }
         }
-        parm {
-            name    "maintain_offset"
-            label   "Maintain Offset"
-            type    float
-            default { "1" }
-            range   { 0 1 }
-            parmtag { "autoscope" "0000000000000000" }
+        groupsimple {
+            name    "folder1"
+            label   "Offset"
+
+            parm {
+                name    "maintain_offset"
+                label   "Maintain Offset"
+                type    float
+                default { "1" }
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "offset_ramp"
+                label   "Offset Ramp"
+                type    ramp_flt
+                default { "2" }
+                range   { 1! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "rampfloatdefault" "1pos ( 0 ) 1value ( 1 ) 1interp ( linear ) 2pos ( 1 ) 2value ( 1 ) 2interp ( linear )" }
+            }
         }
-        parm {
-            name    "offset_ramp"
-            label   "Offset Ramp"
-            type    ramp_flt
-            default { "2" }
-            range   { 1! 10 }
-            parmtag { "autoscope" "0000000000000000" }
-            parmtag { "rampfloatdefault" "1pos ( 0 ) 1value ( 1 ) 1interp ( linear ) 2pos ( 1 ) 2value ( 1 ) 2interp ( linear )" }
+
+        groupsimple {
+            name    "folder3"
+            label   "Twist"
+
+            parm {
+                name    "post_twist_amount"
+                label   "Twist Amount"
+                type    float
+                default { "0" }
+                range   { -360 360 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "post_twist_ramp"
+                label   "Twist Ramp"
+                type    ramp_flt
+                default { "2" }
+                range   { 1! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "rampfloatdefault" "1pos ( 0 ) 1value ( 0 ) 1interp ( linear ) 2pos ( 1 ) 2value ( 1 ) 2interp ( linear )" }
+            }
         }
-        parm {
-            name    "do_vexpression"
-            label   "Use VEXpression"
-            type    toggle
-            default { "off" }
-            range   { 0 1 }
-            parmtag { "autoscope" "0000000000000000" }
+
+        groupsimple {
+            name    "folder4"
+            label   "VEXpressions"
+
+            parm {
+                name    "do_vexpression"
+                label   "Use VEXpression"
+                type    toggle
+                default { "off" }
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "vexpression"
+                label   "VEXpression"
+                type    string
+                default { "// random_amount = 0.0;\n// random_seed = i@id;\n// offset_amount = 1.0;\n// goalu = 0.5;\n// twist_amt = 0;" }
+                hidewhen "{ do_vexpression == 0 }"
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "editor" "1" }
+                parmtag { "editorlang" "vex" }
+            }
         }
-        parm {
-            name    "vexpression"
-            label   "VEXpression"
-            type    string
-            default { "// random_amount = 0.0;\n// random_seed = i@id;\n// offset_amount = 1.0;\n// goalu = 0.5;" }
-            hidewhen "{ do_vexpression == 0 }"
-            parmtag { "autoscope" "0000000000000000" }
-            parmtag { "editor" "1" }
-            parmtag { "editorlang" "vex" }
-        }
+
     }
 
 }
