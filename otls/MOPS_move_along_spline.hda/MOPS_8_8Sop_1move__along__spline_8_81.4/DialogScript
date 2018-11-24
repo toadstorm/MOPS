@@ -47,11 +47,10 @@
         name    "mode"
         label   "Mode"
         type    integer
-        invisible
         default { "0" }
         menu {
             "0" "Simple"
-            "1" "Advect"
+            "1" "Solver"
         }
         range   { 0! 10 }
         parmtag { "autoscope" "0000000000000000" }
@@ -301,6 +300,33 @@
         label   "Animate"
 
         parm {
+            name    "startframe"
+            label   "Start Frame"
+            type    integer
+            default { "$RFSTART" }
+            hidewhen "{ mode != 1 }"
+            range   { 1 240 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "resimulate"
+            label   "Reset Simulation"
+            type    button
+            default { "0" }
+            hidewhen "{ mode != 1 }"
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "cachemaxsize"
+            label   "Cache Memory (MB)"
+            type    integer
+            default { "5000" }
+            hidewhen "{ mode != 1 }"
+            range   { 0! 1000 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
             name    "wrap"
             label   "Wrap"
             type    toggle
@@ -329,12 +355,22 @@
             label   "Goal U"
             type    float
             default { "0" }
+            hidewhen "{ mode != 0 }"
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "speed"
+            label   "Speed"
+            type    float
+            default { "0.01" }
+            hidewhen "{ mode != 1 }"
             range   { 0 1 }
             parmtag { "autoscope" "0000000000000000" }
         }
         parm {
             name    "random_shift"
-            label   "Randomize Goal"
+            label   "Randomize"
             type    float
             default { "0" }
             range   { 0 1 }
@@ -349,7 +385,7 @@
             range   { 0 10 }
             parmtag { "autoscope" "0000000000000000" }
         }
-        groupsimple {
+        group {
             name    "folder1"
             label   "Offset"
 
@@ -372,8 +408,8 @@
             }
         }
 
-        groupsimple {
-            name    "folder3"
+        group {
+            name    "folder1_1"
             label   "Twist"
 
             parm {
@@ -395,8 +431,55 @@
             }
         }
 
-        groupsimple {
-            name    "folder4"
+        group {
+            name    "folder1_2"
+            label   "Acceleration"
+            hidewhentab "{ mode != 1 }"
+
+            parm {
+                name    "acceleration_ramp"
+                label   "Acceleration Ramp"
+                type    ramp_flt
+                default { "2" }
+                hidewhen "{ mode != 1 }"
+                range   { 1! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "rampfloatdefault" "1pos ( 0 ) 1value ( 1 ) 1interp ( linear ) 2pos ( 1 ) 2value ( 1 ) 2interp ( linear )" }
+            }
+        }
+
+        group {
+            name    "folder1_3"
+            label   "Trails"
+
+            parm {
+                name    "do_trails"
+                label   "Create Trails"
+                type    toggle
+                default { "0" }
+                range   { 0! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "do_taper"
+                label   "Taper Trail Falloff"
+                type    toggle
+                invisible
+                default { "0" }
+                range   { 0 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "trailgroup"
+                label   "Trail Group Name"
+                type    string
+                default { "mops_trails" }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+        }
+
+        group {
+            name    "folder1_4"
             label   "VEXpressions"
 
             parm {
@@ -404,14 +487,34 @@
                 label   "Use VEXpression"
                 type    toggle
                 default { "off" }
+                hidewhen "{ mode != 0 }"
                 range   { 0 1 }
                 parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "do_vexpression_solver"
+                label   "Use VEXpression"
+                type    toggle
+                default { "off" }
+                hidewhen "{ mode != 1 }"
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "vexpression_solver"
+                label   "VEXpression"
+                type    string
+                default { "// random_amount = 0.0;\n// random_seed = i@id;\n// offset_amount = 1.0;\n// speed = 0.02;\n// twist_amount = 0.0;" }
+                hidewhen "{ do_vexpression_solver == 0 }"
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "editor" "1" }
+                parmtag { "editorlang" "vex" }
             }
             parm {
                 name    "vexpression"
                 label   "VEXpression"
                 type    string
-                default { "// random_amount = 0.0;\n// random_seed = i@id;\n// offset_amount = 1.0;\n// goalu = 0.5;\n// twist_amt = 0;" }
+                default { "// random_amount = 0.0;\n// random_seed = i@id;\n// offset_amount = 1.0;\n// goalu = 0.5;\n// twist_amount = 0;" }
                 hidewhen "{ do_vexpression == 0 }"
                 parmtag { "autoscope" "0000000000000000" }
                 parmtag { "editor" "1" }
