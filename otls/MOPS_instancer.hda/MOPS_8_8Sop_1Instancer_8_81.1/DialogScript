@@ -828,7 +828,7 @@
             label   "Number of Points"
             type    integer
             default { "10" }
-            disablewhen "{ distro_type == 3 }"
+            disablewhen "{ distro_type == 3 } { distro_type == 5 }"
             range   { 0 10000 }
             parmtag { "autoscope" "0000000000000000" }
         }
@@ -1870,6 +1870,13 @@
             default { "0" }
             range   { 0 10 }
             parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "id_offset"
+            label   "ID Start Number"
+            type    integer
+            default { "0" }
+            range   { 0 10 }
         }
     }
 

@@ -77,7 +77,7 @@
             label   "Translate Minimum"
             type    vector
             size    3
-            default { [ "" hscript-expr ] [ "" hscript-expr ] [ "" hscript-expr ] }
+            default { "0" "0" "0" }
             range   { 0 1 }
             parmtag { "autoscope" "0000000000000000" }
         }
@@ -86,7 +86,7 @@
             label   "Translate Maximum"
             type    vector
             size    3
-            default { [ "" hscript-expr ] [ "" hscript-expr ] [ "" hscript-expr ] }
+            default { "0" "0" "0" }
             range   { 0 1 }
             parmtag { "autoscope" "0000000000000000" }
         }
@@ -390,7 +390,7 @@
             name    "do_preview"
             label   "Preview Falloff"
             type    toggle
-            default { "on" }
+            default { "off" }
             range   { 0! 10 }
             parmtag { "autoscope" "0000000000000000" }
         }

@@ -32,24 +32,25 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.78235 0.697941
-connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+position -11.0831 -2.86938
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
+1 "output1"
 }
 inputsNamed3
 {
-0 	MOPs_Instancer 0 1 "input1"
+0 	pick_random_primitive 1 1 "input1"
 }
 inputs
 {
-0 	MOPs_Instancer 0 1
+0 	pick_random_primitive 0 1
 }
 stat
 {
-  create 1536951755
-  modify 1536952051
+  create 1543108850
+  modify 1543108927
   author Henry@LAPPY586
   access 0777
 }
@@ -109,7 +110,7 @@ inputs
 stat
 {
   create 1528499331
-  modify 1536951756
+  modify 1543108850
   author Henry@LAPPY586
   access 0777
 }
@@ -223,7 +224,7 @@ inputs
 stat
 {
   create 1528499331
-  modify 1536951756
+  modify 1543108850
   author Henry@LAPPY586
   access 0777
 }
@@ -410,7 +411,7 @@ inputs
 stat
 {
   create 1528499331
-  modify 1536951756
+  modify 1543108850
   author Henry@LAPPY586
   access 0777
 }
@@ -591,7 +592,7 @@ inputs
 stat
 {
   create 1528499331
-  modify 1536951756
+  modify 1543108850
   author Henry@LAPPY586
   access 0777
 }
@@ -645,8 +646,8 @@ constvalue	[ 0	locks=0	autoscope=0 ]	(	0	0	0	0	)
 valuea	[ 0	locks=0	autoscope=0 ]	(	0	0	0	0	)
 valueb	[ 0	locks=0	autoscope=0 ]	(	1	1	1	1	)
 probvalueb	[ 0	locks=0	autoscope=0 ]	(	0.5	)
-min	[ 0	locks=0	autoscope=0 ]	(	[ minx	0.75 ] 	0	0	0	)
-max	[ 0	locks=0	autoscope=0 ]	(	[ maxx	1.25 ] 	1	1	1	)
+min	[ 0	locks=0	autoscope=0 ]	(	[ minx	0.83999999999999997 ] 	0	0	0	)
+max	[ 0	locks=0	autoscope=0 ]	(	[ maxx	1.7 ] 	1	1	1	)
 mindiscrete	[ 0	locks=0	autoscope=0 ]	(	0	0	0	0	)
 maxdiscrete	[ 0	locks=0	autoscope=0 ]	(	9	9	9	9	)
 stepsize	[ 0	locks=0	autoscope=0 ]	(	1	1	1	1	)
@@ -748,7 +749,7 @@ inputs
 stat
 {
   create 1528499331
-  modify 1536951756
+  modify 1543108850
   author Henry@LAPPY586
   access 0777
 }
@@ -920,7 +921,7 @@ inputs
 stat
 {
   create 1528499331
-  modify 1536951756
+  modify 1543108850
   author Henry@LAPPY586
   access 0777
 }
@@ -971,7 +972,12 @@ grouptype	[ 0	locks=0 ]	(	"guess"	)
 input	[ 0	locks=0	autoscope=0 ]	(	[ input	8 ] 	)
 strength	[ 0	locks=0	autoscope=0 ]	(	[ strength	1 ] 	)
 switchclamp	[ 0	locks=0	autoscope=0 ]	(	[ switchclamp	0 ] 	)
+sepparm	[ 0	locks=0 ]	(	)
 do_preview	[ 0	locks=0	autoscope=0 ]	(	[ do_preview	0 ] 	)
+folder0	[ 0	locks=0 ]	(	0	)
+do_sprite	[ 0	locks=0 ]	(	"on"	)
+spritescale	[ 0	locks=0 ]	(	1	)
+override_scale	[ 0	locks=0 ]	(	"off"	)
 ramp_preset	[ 0	locks=0 ]	(	"heatmap"	)
 falloff_heatmap	[ 0	locks=0 ]	(	5	)
 falloff_heatmap1pos	[ 0	locks=0 ]	(	0	)
@@ -1033,7 +1039,7 @@ inputs
 stat
 {
   create 1528499331
-  modify 1536951756
+  modify 1543108850
   author Henry@LAPPY586
   access 0777
 }
@@ -1346,16 +1352,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	MOPS_IN 0 1 "input1"
+0 	switch_has_no_id 2 1 "input1"
 }
 inputs
 {
-0 	MOPS_IN 0 1
+0 	switch_has_no_id 0 1
 }
 stat
 {
   create 1528936208
-  modify 1536951756
+  modify 1543108850
   author Henry@LAPPY586
   access 0777
 }
@@ -1435,7 +1441,7 @@ inputs
 stat
 {
   create 1536946673
-  modify 1536951901
+  modify 1543108850
   author Henry@LAPPY586
   access 0777
 }
@@ -1759,7 +1765,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.11759e-08 3.65565
+position -1.11759e-08 4.7733
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1777,7 +1783,7 @@ inputs
 stat
 {
   create 1528499331
-  modify 1528499339
+  modify 1541964855
   author Henry@LAPPY586
   access 0777
 }
@@ -1803,7 +1809,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.495"
+		"value":"17.0.352"
 	}
 }
 
@@ -1840,7 +1846,7 @@ inputs
 stat
 {
   create 1528499331
-  modify 1536951778
+  modify 1543108850
   author Henry@LAPPY586
   access 0777
 }
@@ -1868,7 +1874,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0	autoscope=0 ]	(	[ input	1 ] 	)
+input	[ 0	locks=0	autoscope=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1878,7 +1884,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.495"
+		"value":"17.0.352"
 	}
 }
 
@@ -1915,7 +1921,7 @@ inputs
 stat
 {
   create 1528499331
-  modify 1536951756
+  modify 1543108850
   author Henry@LAPPY586
   access 0777
 }
@@ -1953,7 +1959,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.495"
+		"value":"17.0.352"
 	}
 }
 
@@ -1990,7 +1996,7 @@ inputs
 stat
 {
   create 1528499331
-  modify 1536951756
+  modify 1543108850
   author Henry@LAPPY586
   access 0777
 }
@@ -2028,7 +2034,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.495"
+		"value":"17.0.352"
 	}
 }
 
@@ -2087,7 +2093,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.495"
+		"value":"17.0.352"
 	}
 }
 
@@ -2124,7 +2130,7 @@ inputs
 stat
 {
   create 1528499331
-  modify 1536951756
+  modify 1543108850
   author Henry@LAPPY586
   access 0777
 }
@@ -2152,7 +2158,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0	autoscope=0 ]	(	[ input	0 ] 	)
+input	[ 0	locks=0	autoscope=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2162,7 +2168,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.495"
+		"value":"17.0.352"
 	}
 }
 
@@ -2199,7 +2205,7 @@ inputs
 stat
 {
   create 1528499331
-  modify 1536951756
+  modify 1543108850
   author Henry@LAPPY586
   access 0777
 }
@@ -2227,7 +2233,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0	autoscope=0 ]	(	[ input	0 ] 	)
+input	[ 0	locks=0	autoscope=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2237,7 +2243,144 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.495"
+		"value":"17.0.352"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch_has_no_id.init"
+Content-Type: text/plain
+
+type = switch
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch_has_no_id.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 1.61151 3.79464
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+2 "output1"
+}
+inputsNamed3
+{
+0 	MOPS_IN 0 1 "input1"
+1 	enumerate1 1 1 "input2"
+}
+inputs
+{
+0 	MOPS_IN 0 1
+1 	enumerate1 0 1
+}
+stat
+{
+  create 1541964861
+  modify 1543108850
+  author henry_foster@mvp-production2-mac03.local
+  access 0777
+}
+color UT_Color RGB 0.8 1 0.7 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch_has_no_id.chn"
+Content-Type: text/plain
+
+{
+    channel input {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = "!haspointattrib(\"../MOPS_IN\", \"id\")" }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch_has_no_id.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch_has_no_id.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.0.352"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/enumerate1.init"
+Content-Type: text/plain
+
+type = enumerate
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/enumerate1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 2.91739 4.45346
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	MOPS_IN 0 1 "input1"
+}
+inputs
+{
+0 	MOPS_IN 0 1
+}
+stat
+{
+  create 1541964870
+  modify 1541964932
+  author henry_foster@mvp-production2-mac03.local
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/enumerate1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+group	[ 0	locks=0 ]	(	""	)
+grouptype	[ 0	locks=0 ]	(	"point"	)
+attribname	[ 0	locks=0 ]	(	id	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/enumerate1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.0.352"
 	}
 }
 
@@ -2245,7 +2388,7 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot.order"
 Content-Type: text/plain
 
-16
+18
 Apply_Attributes1
 attribrandomize1
 attribrandomize2
@@ -2262,6 +2405,8 @@ switch_do_falloff
 pointwrangle1
 init_values
 randomize_P
+switch_has_no_id
+enumerate1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"
