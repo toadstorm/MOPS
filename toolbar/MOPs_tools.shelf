@@ -10,7 +10,7 @@
     <memberTool name="MOPs_snap_centroid_to_spline"/>
   </toolshelf>
 
-  <tool name="MOPs_snap_centroid_to_spline" label="MOPs Move Along Spline (Snap Group)" icon="$JOB/Projects/VFX/MOPS/icons/mops_modifier_02.svg">
+  <tool name="MOPs_snap_centroid_to_spline" label="MOPs Move Along Spline (Snap Group)" icon="opdef:MOPS::Sop/move_along_spline::1.4?mops_modifier_02.svg">
     <toolMenuContext name="network">
       <contextNetType>SOP</contextNetType>
     </toolMenuContext>
@@ -25,5 +25,19 @@ node.parm('do_snap').set(1)
 node.parm('maintain_offset').set(1.0)
 node.parm('attach_mode').set(1)
 node.parm('attach_attr').set("")]]></script>
+  </tool>
+
+  <tool name="MOPs_distribute_on_spline" label="MOPs Move Along Spline (Distribute)" icon="opdef:MOPS::Sop/move_along_spline::1.4?mops_modifier_02.svg">
+    <toolMenuContext name="network">
+      <contextNetType>SOP</contextNetType>
+    </toolMenuContext>
+    <toolSubmenu>MOPs/Modifiers</toolSubmenu>
+    <script scriptType="python"><![CDATA[import soptoolutils
+
+# generate a MOPs Move Along Spline modifier, then set it to distribute
+# everything onto the spline.
+
+node = soptoolutils.genericTool(kwargs, 'MOPS::move_along_spline::1.4', force_filter=True)
+node.parm('attach_mode').set(2)]]></script>
   </tool>
 </shelfDocument>
