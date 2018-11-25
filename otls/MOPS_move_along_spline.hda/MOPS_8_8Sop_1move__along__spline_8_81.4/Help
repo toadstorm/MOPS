@@ -32,6 +32,12 @@ Mode:
 
 These parameters determine how each instance is initially attached to the spline.
 
+Curve Select Mode:
+    #id: curve_select_mode
+    How to choose the primitive to attach to. There are two modes:
+    * Primitive Number: Use an attribute or an expression to define which spline primitive each instance attaches to.
+    * Use Nearest: Automatically determine the nearest spline primitive per-instance and attach to it.
+
 Primitive Number:
     #id: curve_num_expr
     The primitive number to attach to. This can either be a number or an expression referencing an attribute, such as "@prnum" 
@@ -69,6 +75,17 @@ Reorient Input Curve:
 Snap MOPs Centroid to Curve Start:
     #id: do_snap
     Enables snapping of the centroid of the group of MOPs objects to the start of the spline.
+    
+=== Offset ===
+
+Maintain Offset:
+    #id: maintain_offset
+    If objects are not directly on the spline when they're attached, this parameter acts on a scale on the distance from the spline.
+    If this value is set to zero, the primitives will all sit directly on top of the spline regardless of their original positions.
+    
+Offset Ramp:
+    #id: offset_ramp
+    This scales the Maintain Offset parameter based on the position of each primitive along the spline.
     
 === Resample Curve ===
 
@@ -130,16 +147,6 @@ Random Seed:
     #id: random_seed
     The random seed to use for the Randomize parameter.
     
-=== Offset ===
-
-Maintain Offset:
-    #id: maintain_offset
-    If objects are not directly on the spline when they're attached, this parameter acts on a scale on the distance from the spline.
-    If this value is set to zero, the primitives will all sit directly on top of the spline regardless of their original positions.
-    
-Offset Ramp:
-    #id: offset_ramp
-    This scales the Maintain Offset parameter based on the position of each primitive along the spline.
     
 === Twist ===
 

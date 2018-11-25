@@ -60,10 +60,23 @@
         label   "Attach"
 
         parm {
+            name    "curve_select_mode"
+            label   "Curve Select Mode"
+            type    ordinal
+            default { "0" }
+            menu {
+                "0" "Primitive Number"
+                "1" "Use Nearest"
+            }
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
             name    "curve_num_expr"
             label   "Primitive Number"
             type    string
             default { "0" }
+            disablewhen "{ curve_select_mode == 1 }"
             parmtag { "autoscope" "1000000000000000" }
         }
         parm {
@@ -80,21 +93,20 @@
             parmtag { "autoscope" "0000000000000000" }
         }
         parm {
-            name    "attach_attr"
-            label   "Attribute Name"
-            type    string
-            default { "mops_falloff" }
-            hidewhen "{ attach_mode != 1 }"
-            range   { 0 1 }
-            parmtag { "autoscope" "0000000000000000" }
-        }
-        parm {
             name    "search_dist"
             label   "Search Distance"
             type    float
             default { "100" }
             hidewhen "{ attach_mode != 0 }"
             range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "attach_attr"
+            label   "Attach Attr"
+            type    string
+            default { "goalu" }
+            hidewhen "{ attach_mode != 1 }"
             parmtag { "autoscope" "0000000000000000" }
         }
         parm {
@@ -136,7 +148,40 @@
             parmtag { "autoscope" "0000000000000000" }
         }
         group {
-            name    "folder2"
+            name    "folder1"
+            label   "Offset"
+
+            parm {
+                name    "show_offset"
+                label   "Visualize Offset"
+                type    toggle
+                default { "0" }
+                range   { 0! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback" "hou.phm().visualize_offset(kwargs)" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "maintain_offset"
+                label   "Maintain Offset"
+                type    float
+                default { "0" }
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "offset_ramp"
+                label   "Offset Ramp"
+                type    ramp_flt
+                default { "2" }
+                range   { 1! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "rampfloatdefault" "1pos ( 0 ) 1value ( 1 ) 1interp ( linear ) 2pos ( 1 ) 2value ( 1 ) 2interp ( linear )" }
+            }
+        }
+
+        group {
+            name    "folder1_1"
             label   "Resample Curve"
             hidewhentab "{ do_resample == 0 }"
 
@@ -227,7 +272,7 @@
         }
 
         group {
-            name    "folder2_1"
+            name    "folder1_2"
             label   "Orient Curve"
             hidewhentab "{ do_reorient == 0 }"
 
@@ -259,7 +304,7 @@
         }
 
         group {
-            name    "folder2_2"
+            name    "folder1_3"
             label   "Snap Centroid"
             hidewhentab "{ do_snap == 0 }"
 
@@ -331,6 +376,7 @@
             label   "Wrap"
             type    toggle
             default { "1" }
+            disablewhen "{ do_trails == 1 }"
             range   { 0 10 }
             parmtag { "autoscope" "0000000000000000" }
         }
@@ -386,30 +432,7 @@
             parmtag { "autoscope" "0000000000000000" }
         }
         group {
-            name    "folder1"
-            label   "Offset"
-
-            parm {
-                name    "maintain_offset"
-                label   "Maintain Offset"
-                type    float
-                default { "1" }
-                range   { 0 1 }
-                parmtag { "autoscope" "0000000000000000" }
-            }
-            parm {
-                name    "offset_ramp"
-                label   "Offset Ramp"
-                type    ramp_flt
-                default { "2" }
-                range   { 1! 10 }
-                parmtag { "autoscope" "0000000000000000" }
-                parmtag { "rampfloatdefault" "1pos ( 0 ) 1value ( 1 ) 1interp ( linear ) 2pos ( 1 ) 2value ( 1 ) 2interp ( linear )" }
-            }
-        }
-
-        group {
-            name    "folder1_1"
+            name    "folder1_4"
             label   "Twist"
 
             parm {
@@ -432,7 +455,7 @@
         }
 
         group {
-            name    "folder1_2"
+            name    "folder1_4_1"
             label   "Acceleration"
             hidewhentab "{ mode != 1 }"
 
@@ -449,7 +472,7 @@
         }
 
         group {
-            name    "folder1_3"
+            name    "folder1_4_2"
             label   "Trails"
 
             parm {
@@ -479,7 +502,7 @@
         }
 
         group {
-            name    "folder1_4"
+            name    "folder1_4_3"
             label   "VEXpressions"
 
             parm {
@@ -514,7 +537,7 @@
                 name    "vexpression"
                 label   "VEXpression"
                 type    string
-                default { "// random_amount = 0.0;\n// random_seed = i@id;\n// offset_amount = 1.0;\n// goalu = 0.5;\n// twist_amount = 0;" }
+                default { "// random_amount = 0.0;\n// random_seed = i@id;\n// offset_amount = 1.0;\n// goalu += 0.5;\n// twist_amount = 0;" }
                 hidewhen "{ do_vexpression == 0 }"
                 parmtag { "autoscope" "0000000000000000" }
                 parmtag { "editor" "1" }

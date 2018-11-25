@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shelfDocument>
+  <!-- This file contains definitions of shelves, toolbars, and tools.
+ It should not be hand-edited when it is being used by the application.
+ Note, that two definitions of the same element are not allowed in
+ a single file. -->
+
+  <toolshelf name="MOPs_Tools" label="MOPs Tools">
+    <memberTool name="MOPs_distribute_on_spline"/>
+    <memberTool name="MOPs_snap_centroid_to_spline"/>
+  </toolshelf>
+
+  <tool name="MOPs_snap_centroid_to_spline" label="MOPs Move Along Spline (Snap Group)" icon="$JOB/Projects/VFX/MOPS/icons/mops_modifier_02.svg">
+    <toolMenuContext name="network">
+      <contextNetType>SOP</contextNetType>
+    </toolMenuContext>
+    <toolSubmenu>MOPs/Modifiers</toolSubmenu>
+    <script scriptType="python"><![CDATA[import soptoolutils
+
+# generate a MOPs Move Along Spline modifier, enable Snap to Centroid,
+# set the starting attachment position to 0, and set Offset to 1.
+
+node = soptoolutils.genericTool(kwargs, "MOPS::move_along_spline::1.4", force_filter=True)
+node.parm('do_snap').set(1)
+node.parm('maintain_offset').set(1.0)
+node.parm('attach_mode').set(1)
+node.parm('attach_attr').set("")]]></script>
+  </tool>
+</shelfDocument>
