@@ -1,0 +1,73 @@
+= MOPs Apply Attributes = 
+
+#icon: opdef:.?mops_TD_tools_05.svg
+
+"""Applies instancing attributes to packed primitives."""
+
+This is a low-level node intended to help artists develop their own MOPs modifiers. The Apply Attributes node takes point attributes from points in the second input, and applies them to the packed primitive intrinsics of the MOPs primitives to transform them. 
+
+== Overview ==
+
+@inputs
+
+Packed Primitives:
+    Plug in MOPs primitives, or any packed primitives, here.
+    
+Template Points:
+    Plug in matching template points with instancing attributes (@P, @orient, @scale, @pscale, etc) here. Points are matched by id.
+    
+@parameters
+
+Do Translate:
+    #id: do_translate
+    
+    Toggle translating of MOPs primitives.
+    
+Do Rotate:
+    #id: do_rotate
+    
+    Toggle rotation of MOPs primitives. If an attribute called v@euler exists on the template points, MOPs will build a quaternion from this instead of using @orient.
+    
+Do Scale:
+    #id: do_scale
+    
+    Toggle scaling of MOPs primitives. v@scale and @pscale are both supported.
+    
+Do Falloff:
+    #id: do_falloff
+    
+    Apply falloff to the transformations. Falloff in MOPs is defined by the point attribute @mops_falloff, with values typically between 0-1. A falloff of 0 implies no transformation.
+
+Ignore Zero Falloff Prims:
+    #id: ignore_no_falloff
+    Objects with a @mops_falloff value of 0.0 will be completely ignored. This can speed up operations with lots of primitives.
+    
+Rotate Mode:
+    #id: rotate_mode
+    
+    * Add: Add the rotation of the template points to the existing rotation (default).
+    * Set: Overwrite the existing rotation with the rotation of the template points.
+    
+Scale Mode:
+    #id: scale_mode
+    
+    * Multiply: Multiply scaling operations together (default). 
+    * Replace: Overwrite the existing scale with the scale of the template points.
+    
+Local Space:
+    #id: local_space
+    
+    Apply transformations in local space (meaning, relative to the current orientation of the primitives). If this is disabled, transformations will happen in world space.
+    
+Create Id Attr If Missing:
+    #id: do_make_id
+    If the incoming primitives don't have an i@id attribute, create one based on the primitive number.
+    
+Copy Attributes:
+    #id: attribname
+    
+    A space-separated list of attributes from the Template Points can be provided here. These attributes will be copied to the MOPs packed primitives.
+    
+@related
+
+* [MOPs Extract Attributes|Node:sop/MOPS--Extract_Attributes-1.0]
