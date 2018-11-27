@@ -38,6 +38,7 @@ node.parm('attach_attr').set("")]]></script>
 # everything onto the spline.
 
 node = soptoolutils.genericTool(kwargs, 'MOPS::move_along_spline::1.4', force_filter=True)
-node.parm('attach_mode').set(2)]]></script>
+node.parm('attach_mode').set(2)
+node.parm('curve_select_mode').set(1)]]></script>
   </tool>
 </shelfDocument>
