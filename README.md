@@ -36,10 +36,6 @@ HOUDINI_OTLSCAN_PATH = $MOPS/otls;@/otls
 HOUDINI_TOOLBAR_PATH = $MOPS/toolbar;@/toolbar
 HOUDINI_SCRIPT_PATH = $MOPS/scripts;@/scripts
 ```
-### Data collection:
-
-MOPs collects anonymized user data via Google Analytics in order to help us prioritize development and get feedback. The only information associated with an individual user is a randomized UUID. By default, MOPs follows the same permissions as Houdini does when collecting data (i.e., if you opt out of Houdini's collection, we will not collect either). If you would like to set an override on this behavior, you can add the key MOPS_ALLOW_ANALYTICS to your houdini.env file. 
-Setting MOPS_ALLOW_ANALYTICS = 1 will allow the collection to go ahead. Setting it to 0 will always disable it, regardless of your Houdini data collection settings.
 
 ### Usage basics:
 
@@ -50,6 +46,10 @@ The simplest network to start with is the MOPs Instancer. Create a Instancer and
 Append a MOPs Transform Modifier to the MOPs Instancer. Try playing with the rotation and translation settings. Next, connect a MOPs Shape Falloff in between the MOPs Instancer and the Transform Modifier. The Falloff node by default will change how much the Transform Modifier affects the objects upstream. If you want to reposition the center of the falloff effect, connect a MOPs Transform Falloff node to the second input of the Shape Falloff. All MOPs Modifiers by default will respect the Falloff value assigned to incoming points. 
 
 For more detailed examples, see the "examples" folder for HIP files.
+
+### Data analytics:
+
+MOPs *optionally* collects data about what MOPs nodes are being used via Google Analytics in order to help us prioritize development and get feedback. The *only* information associated with an individual user is a randomized UUID. By default, MOPs follows the same permissions as Houdini does when collecting data (i.e., if you opt out of Houdini's collection, we will not collect either). If you would like to set an override on this behavior, you can add the key MOPS_ALLOW_ANALYTICS to your houdini.env file. Setting MOPS_ALLOW_ANALYTICS = 1 will allow the collection to go ahead. Setting it to 0 will always disable it, regardless of your Houdini data collection settings.
 
 ### Developers:
 This section is in progress.
