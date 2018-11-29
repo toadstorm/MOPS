@@ -146,7 +146,7 @@
                 label   "VEXpression"
                 type    string
                 default { "// weight = 0.001;\n// maxvel = 0.15;" }
-                hidewhen "{ do_vexpression 0 }"
+                hidewhen "{ do_vexpression == 0 }"
                 parmtag { "autoscope" "0000000000000000" }
                 parmtag { "editor" "1" }
                 parmtag { "editorlang" "vex" }
@@ -199,7 +199,7 @@
                 label   "VEXpression"
                 type    string
                 default { "// maxdist = 0.1;\n// repel_weight = 0.05;\n// angle_of_influence = 180;\n// maxvel = 0.15;" }
-                hidewhen "{ do_vexpression2 0 }"
+                hidewhen "{ do_vexpression2 == 0 }"
                 parmtag { "autoscope" "0000000000000000" }
                 parmtag { "editor" "1" }
                 parmtag { "editorlang" "vex" }
@@ -252,7 +252,7 @@
                 label   "VEXpression"
                 type    string
                 default { "// maxdist = 0.25;\n// angle_of_influence = 180;\n// maxvel = 0.15;\n// match_vel_weight = 0.05;" }
-                hidewhen "{ do_vexpression3 0 }"
+                hidewhen "{ do_vexpression3 == 0 }"
                 parmtag { "autoscope" "0000000000000000" }
                 parmtag { "editor" "1" }
                 parmtag { "editorlang" "vex" }
@@ -330,7 +330,7 @@
                 label   "VEXpression"
                 type    string
                 default { "// maxvel = 0.15;" }
-                hidewhen "{ do_vexpression5 0 }"
+                hidewhen "{ do_vexpression5 == 0 }"
                 parmtag { "autoscope" "0000000000000000" }
                 parmtag { "editor" "1" }
                 parmtag { "editorlang" "vex" }
@@ -375,7 +375,7 @@
                 label   "VEXpression"
                 type    string
                 default { "// amp = 0;\n// maxvel = 0.15;" }
-                hidewhen "{ do_vexpression4 0 }"
+                hidewhen "{ do_vexpression4 == 0 }"
                 parmtag { "autoscope" "0000000000000000" }
                 parmtag { "editor" "1" }
                 parmtag { "editorlang" "vex" }
