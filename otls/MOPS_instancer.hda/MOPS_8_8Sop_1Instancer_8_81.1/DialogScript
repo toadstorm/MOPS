@@ -806,6 +806,16 @@
                     range   { -1 1 }
                 }
                 parm {
+                    name    "pack_from#"
+                    label   "Pack From"
+                    type    ordinal
+                    default { "1" }
+                    menu {
+                        "0" "Origin"
+                        "1" "Centroid"
+                    }
+                }
+                parm {
                     name    "instance_material#"
                     label   "Material Override"
                     type    oppath

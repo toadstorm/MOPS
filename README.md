@@ -11,6 +11,8 @@ MOPs is based on an internal framework of nodes that convert point attributes to
 
 ### Installation:
 
+**INSTALLATION PROCEDURE HAS BEEN SIMPLIFIED FROM PREVIOUS RELEASES. PLEASE READ CAREFULLY.**
+
 Option 1:
 Navigate to the folder you want to contain MOPs, and from BASH / Git BASH type:
 `git clone https://github.com/toadstorm/MOPS.git`
@@ -21,12 +23,17 @@ Download the desired release directly from the [releases page](https://github.co
 Next, edit your houdini.env file and create a variable called MOPS that points to the new folder:
 `MOPS = "/path/to/MOPS"`
 
-Finally, add `$MOPS/otls` to your HOUDINI_OTLSCAN_PATH:
-`HOUDINI_OTLSCAN_PATH = $MOPS/otls;@/otls`
-And add `$MOPS/toolbar` to your HOUDINI_TOOLBAR_PATH:
-`HOUDINI_TOOLBAR_PATH = $MOPS/toolbar;@/toolbar`
+Finally, add `$MOPS` to your HOUDINI_PATH:
+`HOUDINI_PATH = $MOPS;&`
 
-On Linux and OSX, use : instead of ; to separate your paths. You can append the $MOPS/otls path to any existing HOUDINI_OTLSCAN_PATHS you have, just make sure the paths end with @/otls, and similarly for HOUDINI_TOOLBAR_PATH.
+It's important that your HOUDINI_PATH always ends in ;&. You can append any other paths you like,
+but the last path should be `&`. This will ensure that Houdini's built-in operators work normally.
+On Linux and OSX, use : instead of ; to separate your paths. 
+
+### Data collection:
+
+MOPs collects anonymized user data via Google Analytics in order to help us prioritize development and get feedback. The only information associated with an individual user is a randomized UUID. By default, MOPs follows the same permissions as Houdini does when collecting data (i.e., if you opt out of Houdini's collection, we will not collect either). If you would like to set an override on this behavior, you can add the key MOPS_ALLOW_ANALYTICS to your houdini.env file. 
+Setting MOPS_ALLOW_ANALYTICS = 1 will allow the collection to go ahead. Setting it to 0 will always disable it, regardless of your Houdini data collection settings.
 
 ### Usage basics:
 

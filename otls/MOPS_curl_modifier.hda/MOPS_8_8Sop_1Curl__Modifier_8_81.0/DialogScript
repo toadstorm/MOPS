@@ -149,7 +149,7 @@
         label   "VEXpression"
         type    string
         default { "// amp = {1.0, 1.0, 1.0};\n// freq = {1.0, 1.0, 1.0};\n// offset = {0, 0, 0};\n// globalscale = 1;" }
-        disablewhen "{ do_vexpression 0 }"
+        disablewhen "{ do_vexpression == 0 }"
         menureplace {
             [ "opmenu -l vexpression snippet" ]
         }
