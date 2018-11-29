@@ -30,6 +30,12 @@ It's important that your HOUDINI_PATH always ends in ;&. You can append any othe
 but the last path should be `&`. This will ensure that Houdini's built-in operators work normally.
 On Linux and OSX, use : instead of ; to separate your paths. 
 
+If you want to use the old installation procedure, set the following environment keys in houdini.env:
+```
+HOUDINI_OTLSCAN_PATH = $MOPS/otls;@/otls 
+HOUDINI_TOOLBAR_PATH = $MOPS/toolbar;@/toolbar
+HOUDINI_SCRIPT_PATH = $MOPS/scripts;@/scripts
+```
 ### Data collection:
 
 MOPs collects anonymized user data via Google Analytics in order to help us prioritize development and get feedback. The only information associated with an individual user is a randomized UUID. By default, MOPs follows the same permissions as Houdini does when collecting data (i.e., if you opt out of Houdini's collection, we will not collect either). If you would like to set an override on this behavior, you can add the key MOPS_ALLOW_ANALYTICS to your houdini.env file. 
