@@ -11,6 +11,8 @@ MOPs is based on an internal framework of nodes that convert point attributes to
 
 ### Installation:
 
+* INSTALLATION PROCEDURE HAS BEEN SIMPLIFIED FROM PREVIOUS RELEASES. PLEASE READ CAREFULLY. *
+
 Option 1:
 Navigate to the folder you want to contain MOPs, and from BASH / Git BASH type:
 `git clone https://github.com/toadstorm/MOPS.git`
