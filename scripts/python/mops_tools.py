@@ -23,6 +23,7 @@ GA_TRACKING_ID = "UA-129987675-1"
 MOPS_SETTINGS = os.path.join(os.getenv("HOUDINI_USER_PREF_DIR"), "mops.json")
 MOPS_FEEDBACK_ADDRESS = "https://www.motionoperators.com/kontakt/"
 
+
 def get_uuid():
     # check MOPS_SETTINGS file for UUID info
     userid = None
