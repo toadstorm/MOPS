@@ -170,6 +170,8 @@ import platform
 import zipfile
 import distutils.dir_util
 import hou
+import shutil
+import traceback
 from PySide2 import QtWidgets
 
 # github URL
@@ -187,6 +189,7 @@ else:
 # local record of branch/version
 MOPS_SETTINGS = os.path.join(os.getenv("HOUDINI_USER_PREF_DIR"), "mops.json")
 HOUDINI_ENV = os.path.join(os.getenv("HOUDINI_USER_PREF_DIR"), "houdini.env")
+DEFAULT_SETTINGS = {'branch': "N/A", 'release': "N/A"}
 
 # TODO: urllib is deprecated in python3
 # TODO: function to glue this shit together and create the json MOPS_SETTINGS file
@@ -194,11 +197,13 @@ HOUDINI_ENV = os.path.join(os.getenv("HOUDINI_USER_PREF_DIR"), "houdini.env")
 # TODO: UI to select releases, install progress window
 
 def get_install_info():
-    info = {'branch': "N/A", 'release': "N/A"}
+    info = DEFAULT_SETTINGS
     if not os.path.exists(MOPS_SETTINGS):
         return info
     with open(MOPS_SETTINGS, 'r') as f:
         jdata = json.load(f)
+    if not jdata:
+        jdata = info
     if jdata.get('branch'):
         info['branch'] = jdata['branch']
     if jdata.get('release'):
@@ -206,14 +211,18 @@ def get_install_info():
     return info
     
 def update_info(branch, release):
-    settings = dict()
+    settings = DEFAULT_SETTINGS
     if os.path.exists(MOPS_SETTINGS):
         with open(MOPS_SETTINGS, 'r') as f:
             settings = json.load(f)
+    if settings is None:
+        settings = DEFAULT_SETTINGS
     info = {'branch': branch, 'release': release}
-    settings = settings.update(info)
+    settings.update(info)
     with open(MOPS_SETTINGS, 'w') as f:
         json.dump(settings, f)
+    print(settings)
+    return(settings)
 
 def get_releases():
     """
@@ -476,6 +485,8 @@ class MOPsUpdateWindow(QtWidgets.QDialog):
                 update_houdini_env(HOUDINI_ENV, do_analytics)
             # notify user
             msg = '{} release {} installed. Please restart Houdini to see changes.'.format(self.branch.upper(), release)
+            if self.update_env.isChecked():
+                msg += "\nHoudini.env has been modified. A backup has been saved as houdini.env.BAK."
             QtWidgets.QMessageBox.information(self, 'Update complete!', msg)
         except:
             # display error
@@ -487,8 +498,7 @@ class MOPsUpdateWindow(QtWidgets.QDialog):
         
     
 # launch ui
-win = MOPsUpdateWindow(hou.ui.mainQtWindow())
-]]></script>
+win = MOPsUpdateWindow(hou.ui.mainQtWindow())]]></script>
   </tool>
 
   <tool name="MOPS_Disable_Preview" label="Disable Falloff Previews" icon="opdef:MOPS::Sop/Plain_Falloff::1.0?mops_falloff_04.svg">
