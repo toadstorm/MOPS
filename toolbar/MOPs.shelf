@@ -221,7 +221,7 @@ def update_info(branch, release):
     settings.update(info)
     with open(MOPS_SETTINGS, 'w') as f:
         json.dump(settings, f)
-    print(settings)
+    # print(settings)
     return(settings)
 
 def get_releases():
@@ -356,7 +356,12 @@ def update_houdini_env(env_file, analytics=False):
                         if paths:
                             if "$mops" not in [f.lower() for f in paths]:
                                 # insert mops variable into houdini_path
-                                paths.insert(0, "$MOPS")
+                                # if the user has quotes around the paths, make sure to start with a quote
+                                if paths[0].startswith('"'):
+                                    paths[0] = paths[0][1:]
+                                    paths.insert(0, '"$MOPS')
+                                else:    
+                                    paths.insert(0, "$MOPS")
                             line = "HOUDINI_PATH = " + separator.join(paths) + '\n'
                             env_text[index] = line
 

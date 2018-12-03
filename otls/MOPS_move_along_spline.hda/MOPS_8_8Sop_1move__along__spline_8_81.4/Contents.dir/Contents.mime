@@ -32,7 +32,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 2.02892 1.50016
+position 8.28975 2.11116
 connectornextid 0
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -46,8 +46,8 @@ inputs
 }
 stat
 {
-  create 1543604882
-  modify 1543604891
+  create 1543810460
+  modify 1543812162
   author Henry@LAPPY586
   access 0777
 }
@@ -133,7 +133,7 @@ inputs
 stat
 {
   create 1542751057
-  modify 1543604882
+  modify 1543810460
   author Henry@LAPPY586
   access 0777
 }
@@ -387,7 +387,7 @@ vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 folder1	[ 0	locks=0 ]	(	0	0	)
-curve_num_expr	[ 8	locks=0	autoscope=1	autosel=4294967295 ]	(	[ curve_num_expr	@prnum ] 	)
+curve_num_expr	[ 8	locks=0	autoscope=1	autosel=4294967295 ]	(	[ curve_num_expr	0 ] 	)
 curve_select_mode	[ 0	locks=0 ]	(	[ curve_select_mode	0 ] 	)
 search_dist	[ 8	locks=0 ]	(	[ search_dist	100 ] 	)
 }
@@ -438,7 +438,7 @@ inputs
 stat
 {
   create 1542751296
-  modify 1543604882
+  modify 1543810460
   author Henry@LAPPY586
   access 0777
 }
@@ -773,7 +773,7 @@ inputs
 stat
 {
   create 1542753142
-  modify 1543604882
+  modify 1543811914
   author Henry@LAPPY586
   access 0777
 }
@@ -1036,6 +1036,13 @@ Content-Type: text/plain
         default { "2" }
         range   { 1! 10 }
     }
+    parm {
+        name    "goal_type"
+        label   "Goal Type"
+        type    integer
+        default { "0" }
+        range   { 0 10 }
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/apply_new_goals.chn"
@@ -1194,6 +1201,12 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 2 2 expr = ch(\"../post_twist_ramp\") }
     }
+    channel goal_type {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../goal_type\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1221,12 +1234,19 @@ float invert = 1;
 if(chi(\"invert_tangent\")) {
     invert = -1;
 }
+int goal_type = chi(\"goal_type\");
 float twist_amount = radians(ch(\"twist_amount\"));
 
 // apply randomization
 float random_amount = ch(\"random_shift\");
 int random_seed = chi(\"random_seed\");
 goalu += fit01(rand(i@id + (random_seed*100000)), -random_amount, random_amount);
+
+// optional arc length goal mode
+if( goal_type == 1 ){ 
+    goalu = primuvconvert(@OpInput2, goalu, i@__curvenum, 10)[0]; 
+}
+
 
 // apply wrap
 if(wrap) {
@@ -1282,7 +1302,7 @@ vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 folder1	[ 0	locks=0 ]	(	0	0	)
-travel	[ 8	locks=0 ]	(	[ travel	0.30000000000000004 ] 	)
+travel	[ 8	locks=0 ]	(	[ travel	0 ] 	)
 maintain_offset	[ 0	locks=0 ]	(	[ maintain_offset	0 ] 	)
 wrap	[ 0	locks=0 ]	(	[ wrap	1 ] 	)
 invert_tangent	[ 0	locks=0 ]	(	"off"	)
@@ -1298,18 +1318,19 @@ offset_ramp	[ 0	locks=0 ]	(	[ offset_ramp	2 ] 	)
 offset_ramp1pos	[ 0	locks=0 ]	(	[ offset_ramp1pos	0 ] 	)
 offset_ramp1value	[ 0	locks=0 ]	(	[ offset_ramp1value	1 ] 	)
 offset_ramp1interp	[ 0	locks=0 ]	(	[ offset_ramp1interp	1 ] 	)
+offset_ramp2pos	[ 0	locks=0 ]	(	[ offset_ramp2pos	1 ] 	)
+offset_ramp2value	[ 0	locks=0 ]	(	[ offset_ramp2value	1 ] 	)
+offset_ramp2interp	[ 0	locks=0 ]	(	[ offset_ramp2interp	1 ] 	)
 do_falloff	[ 0	locks=0 ]	(	[ do_falloff	0 ] 	)
 twist_amount	[ 0	locks=0 ]	(	[ twist_amount	0 ] 	)
 twist_ramp	[ 0	locks=0 ]	(	[ twist_ramp	2 ] 	)
 twist_ramp1pos	[ 0	locks=0 ]	(	[ twist_ramp1pos	0 ] 	)
 twist_ramp1value	[ 0	locks=0 ]	(	[ twist_ramp1value	0 ] 	)
 twist_ramp1interp	[ 0	locks=0 ]	(	[ twist_ramp1interp	1 ] 	)
-offset_ramp2pos	[ 0	locks=0 ]	(	[ offset_ramp2pos	1 ] 	)
-offset_ramp2value	[ 0	locks=0 ]	(	[ offset_ramp2value	1 ] 	)
-offset_ramp2interp	[ 0	locks=0 ]	(	[ offset_ramp2interp	1 ] 	)
 twist_ramp2pos	[ 0	locks=0 ]	(	[ twist_ramp2pos	1 ] 	)
 twist_ramp2value	[ 0	locks=0 ]	(	[ twist_ramp2value	1 ] 	)
 twist_ramp2interp	[ 0	locks=0 ]	(	[ twist_ramp2interp	1 ] 	)
+goal_type	[ 0	locks=0 ]	(	[ goal_type	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1356,7 +1377,7 @@ inputs
 stat
 {
   create 1542754285
-  modify 1543604882
+  modify 1543810460
   author Henry@LAPPY586
   access 0777
 }
@@ -1442,7 +1463,7 @@ inputs
 stat
 {
   create 1542837100
-  modify 1543604882
+  modify 1543810460
   author Henry@LAPPY586
   access 0777
 }
@@ -1591,7 +1612,7 @@ inputs
 stat
 {
   create 1542849253
-  modify 1543604882
+  modify 1543810460
   author Henry@LAPPY586
   access 0777
 }
@@ -1676,7 +1697,7 @@ inputs
 stat
 {
   create 1542940107
-  modify 1543604882
+  modify 1543810460
   author Henry@LAPPY586
   access 0777
 }
@@ -2089,7 +2110,7 @@ inputs
 stat
 {
   create 1543010707
-  modify 1543604882
+  modify 1543810460
   author Henry@LAPPY586
   access 0777
 }
@@ -2172,7 +2193,7 @@ inputs
 stat
 {
   create 1543025427
-  modify 1543604882
+  modify 1543810460
   author Henry@LAPPY586
   access 0777
 }
@@ -2347,7 +2368,7 @@ inputs
 stat
 {
   create 1543025898
-  modify 1543604882
+  modify 1543810460
   author Henry@LAPPY586
   access 0777
 }
@@ -2996,7 +3017,7 @@ inputs
 stat
 {
   create 1543036768
-  modify 1543604882
+  modify 1543810460
   author Henry@LAPPY586
   access 0777
 }
@@ -3244,7 +3265,7 @@ inputs
 stat
 {
   create 1543038368
-  modify 1543604882
+  modify 1543810460
   author Henry@LAPPY586
   access 0777
 }
@@ -3325,7 +3346,7 @@ inputs
 stat
 {
   create 1543038949
-  modify 1543604882
+  modify 1543810460
   author Henry@LAPPY586
   access 0777
 }
@@ -3403,7 +3424,7 @@ inputs
 stat
 {
   create 1543040132
-  modify 1543604882
+  modify 1543810460
   author Henry@LAPPY586
   access 0777
 }
@@ -3969,7 +3990,7 @@ inputs
 stat
 {
   create 1542750726
-  modify 1543604882
+  modify 1543810460
   author Henry@LAPPY586
   access 0777
 }
@@ -3997,7 +4018,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	1 ] 	)
+input	[ 0	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -4042,7 +4063,7 @@ inputs
 stat
 {
   create 1542750742
-  modify 1543604882
+  modify 1543810460
   author Henry@LAPPY586
   access 0777
 }
@@ -4192,7 +4213,7 @@ inputs
 stat
 {
   create 1542750786
-  modify 1543604882
+  modify 1543810460
   author Henry@LAPPY586
   access 0777
 }
@@ -4326,7 +4347,7 @@ inputs
 stat
 {
   create 1542751469
-  modify 1543604882
+  modify 1543810460
   author Henry@LAPPY586
   access 0777
 }
@@ -4386,7 +4407,7 @@ Content-Type: text/plain
 {
 version 0.8
 method	[ 0	locks=0 ]	(	"byframe"	)
-frame	[ 8	locks=0 ]	(	[ frame	37 ] 	)
+frame	[ 8	locks=0 ]	(	[ frame	1 ] 	)
 integerframe	[ 0	locks=0 ]	(	"off"	)
 time	[ 0	locks=0 ]	(	[ time	2.375 ] 	)
 rangeclamp	[ 0	locks=0 ]	(	"none"	)
@@ -4844,7 +4865,7 @@ inputs
 stat
 {
   create 1542940068
-  modify 1543604882
+  modify 1543810460
   author Henry@LAPPY586
   access 0777
 }
@@ -4982,7 +5003,7 @@ inputs
 stat
 {
   create 1542942166
-  modify 1543604882
+  modify 1543810460
   author Henry@LAPPY586
   access 0777
 }
@@ -5042,7 +5063,7 @@ Content-Type: text/plain
 {
 version 0.8
 method	[ 0	locks=0 ]	(	"byframe"	)
-frame	[ 8	locks=0 ]	(	[ frame	37 ] 	)
+frame	[ 8	locks=0 ]	(	[ frame	1 ] 	)
 integerframe	[ 0	locks=0 ]	(	"off"	)
 time	[ 0	locks=0 ]	(	[ time	0 ] 	)
 rangeclamp	[ 0	locks=0 ]	(	"none"	)
@@ -5090,7 +5111,7 @@ inputs
 stat
 {
   create 1324348265
-  modify 1543604882
+  modify 1543810460
   author nobody@nowhere.sidefx.com
   access 0777
 }
@@ -5194,7 +5215,7 @@ inputs
 stat
 {
   create 1324348294
-  modify 1543604882
+  modify 1543810460
   author nobody@nowhere.sidefx.com
   access 0777
 }
@@ -5273,7 +5294,7 @@ inputs
 stat
 {
   create 1324348294
-  modify 1543604882
+  modify 1543810460
   author nobody@nowhere.sidefx.com
   access 0777
 }
@@ -5352,7 +5373,7 @@ inputs
 stat
 {
   create 1324348294
-  modify 1543604882
+  modify 1543810460
   author nobody@nowhere.sidefx.com
   access 0777
 }
@@ -5431,7 +5452,7 @@ inputs
 stat
 {
   create 1324348294
-  modify 1543604882
+  modify 1543810460
   author nobody@nowhere.sidefx.com
   access 0777
 }
@@ -5770,7 +5791,7 @@ inputs
 stat
 {
   create 1543036720
-  modify 1543604882
+  modify 1543810460
   author Henry@LAPPY586
   access 0777
 }
@@ -5931,7 +5952,7 @@ inputs
 stat
 {
   create 1543025695
-  modify 1543604882
+  modify 1543810460
   author Henry@LAPPY586
   access 0777
 }
@@ -6412,7 +6433,7 @@ inputs
 stat
 {
   create 1543038086
-  modify 1543604882
+  modify 1543810460
   author Henry@LAPPY586
   access 0777
 }
@@ -7159,7 +7180,7 @@ inputs
 stat
 {
   create 1543040599
-  modify 1543604882
+  modify 1543810460
   author Henry@LAPPY586
   access 0777
 }
@@ -7238,7 +7259,7 @@ inputs
 stat
 {
   create 1543044120
-  modify 1543604882
+  modify 1543810460
   author Henry@LAPPY586
   access 0777
 }
@@ -7377,7 +7398,7 @@ inputs
 stat
 {
   create 1543085443
-  modify 1543604882
+  modify 1543810460
   author Henry@LAPPY586
   access 0777
 }
@@ -7515,7 +7536,7 @@ inputs
 stat
 {
   create 1542942166
-  modify 1543604882
+  modify 1543810460
   author Henry@LAPPY586
   access 0777
 }
@@ -7575,7 +7596,7 @@ Content-Type: text/plain
 {
 version 0.8
 method	[ 0	locks=0 ]	(	"byframe"	)
-frame	[ 8	locks=0 ]	(	[ frame	37 ] 	)
+frame	[ 8	locks=0 ]	(	[ frame	1 ] 	)
 integerframe	[ 0	locks=0 ]	(	"off"	)
 time	[ 0	locks=0 ]	(	[ time	0 ] 	)
 rangeclamp	[ 0	locks=0 ]	(	"none"	)
@@ -7625,7 +7646,7 @@ inputs
 stat
 {
   create 1542942166
-  modify 1543604882
+  modify 1543810460
   author Henry@LAPPY586
   access 0777
 }
@@ -7685,7 +7706,7 @@ Content-Type: text/plain
 {
 version 0.8
 method	[ 0	locks=0 ]	(	"byframe"	)
-frame	[ 8	locks=0 ]	(	[ frame	37 ] 	)
+frame	[ 8	locks=0 ]	(	[ frame	1 ] 	)
 integerframe	[ 0	locks=0 ]	(	"off"	)
 time	[ 0	locks=0 ]	(	[ time	0 ] 	)
 rangeclamp	[ 0	locks=0 ]	(	"none"	)
