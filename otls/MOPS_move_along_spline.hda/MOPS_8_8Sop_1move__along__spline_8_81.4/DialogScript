@@ -397,8 +397,21 @@
             parmtag { "autoscope" "0000000000000000" }
         }
         parm {
+            name    "goal_type"
+            label   "Goal Type"
+            type    ordinal
+            default { "0" }
+            hidewhen "{ mode != 0 }"
+            menu {
+                "0" "Goal U"
+                "1" "Arc Length"
+            }
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
             name    "goal"
-            label   "Goal U"
+            label   "Goal"
             type    float
             default { "0" }
             hidewhen "{ mode != 0 }"

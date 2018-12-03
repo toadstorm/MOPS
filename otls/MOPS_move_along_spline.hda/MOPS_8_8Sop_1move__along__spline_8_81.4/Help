@@ -25,8 +25,7 @@ Spline:
 
 Mode:
     #id: mode
-    The mode to use for animating the instances. "Simple" mode is fast and fully procedural, and uses a "goal" attribute to determine position.
-    "Solver" mode is a slower simulation-based method that uses a "speed" attribute to move instances per timestep.
+    The mode to use for animating the instances. "Simple" mode is fast and fully procedural, and uses a "goal" attribute to determine position. "Solver" mode is a slower simulation-based method that uses a "speed" attribute to move instances per timestep.
     
 == Attach ==
 
@@ -80,8 +79,7 @@ Snap MOPs Centroid to Curve Start:
 
 Maintain Offset:
     #id: maintain_offset
-    If objects are not directly on the spline when they're attached, this parameter acts on a scale on the distance from the spline.
-    If this value is set to zero, the primitives will all sit directly on top of the spline regardless of their original positions.
+    If objects are not directly on the spline when they're attached, this parameter acts on a scale on the distance from the spline. If this value is set to zero, the primitives will all sit directly on top of the spline regardless of their original positions.
     
 Offset Ramp:
     #id: offset_ramp
@@ -103,8 +101,7 @@ Do Orient Snap:
     
 Normal Axis:
     #id: normal_axis
-    The normal axis to use for orientation snapping. This will differ based on how your MOPs objects are arranged. This should be
-    a normalized vector, preferably orthogonal to the Up Axis.
+    The normal axis to use for orientation snapping. This will differ based on how your MOPs objects are arranged. This should be a normalized vector, preferably orthogonal to the Up Axis.
     
 Up Axis:
     #id: up_axis
@@ -129,10 +126,13 @@ Do Falloff:
     #id: do_falloff
     The mops_falloff attribute will act as a multiplier against the Goal U (Simple Mode) or the Speed (Solver Mode) of each instance.
     
-Goal U:
+Goal Type:
+    #id: goal_type
+    The way in which to interpret the Goal parameter. The default, Goal U, reads the Goal as a parameterized value between 0 and 1, representing the start and end of the curve. The alternate mode, Arc Length, reads the Goal value as a total distance traveled along the arc length of the spline.
+    
+Goal:
     #id: goal
-    (Simple Mode only) The amount to add to each primitive's current position along the spline. If wrapping is enabled, a value of 1 will move every
-    primitive back to its original position.
+    (Simple Mode only) The amount to add to each primitive's current position along the spline. If wrapping is enabled, a value of 1 will move every primitive back to its original position.
     
 Speed:
     #id: speed
@@ -140,8 +140,7 @@ Speed:
     
 Randomize:
     #id: random_shift
-    The amount to randomize the goal position of each primitive. In Simple mode, this randomizes the Goal U. In Solver mode, this 
-    randomizes the speed.
+    The amount to randomize the goal position of each primitive. In Simple mode, this randomizes the Goal U. In Solver mode, this randomizes the speed.
     
 Random Seed:
     #id: random_seed
@@ -152,8 +151,7 @@ Random Seed:
 
 Twist Amount:
     #id: post_twist_amount
-    This applies a twisting effect to the primitives' positions as they animate along the spline, as if they were attached to the 
-    twisting spline by a wire.
+    This applies a twisting effect to the primitives' positions as they animate along the spline, as if they were attached to the twisting spline by a wire.
     
 Twist Ramp:
     #id: post_twist_ramp
@@ -179,6 +177,5 @@ Trail Group Name:
 
 Use VEXpressions:
     #id: do_vexpression
-    Enable the use of VEXpressions for modifying various parameters per-primitive. Use the commented defaults in the VEXpression 
-    parameter for examples of what can be modified.
+    Enable the use of VEXpressions for modifying various parameters per-primitive. Use the commented defaults in the VEXpression parameter for examples of what can be modified.
     
