@@ -1,0 +1,8 @@
+def updateVisualizers(kwargs):
+    me = kwargs['node']
+    scale = kwargs['parm'].eval()
+    visualizers = hou.viewportVisualizers.visualizers(hou.viewportVisualizerCategory.Node, me)
+    if visualizers:
+        for i in visualizers:
+            i.setParm('lengthscale', scale)
+    

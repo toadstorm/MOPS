@@ -32,22 +32,27 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 8.28975 2.11116
-connectornextid 0
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+position 1.53296 -3.53322
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
+0 "output1"
 }
 inputsNamed3
 {
+1 	MOPs_Instancer1 0 1 "input1"
+2 	MOPs_Orient_Curve 1 1 "input2"
 }
 inputs
 {
+0 	MOPs_Instancer1 0 1
+1 	MOPs_Orient_Curve 0 1
 }
 stat
 {
-  create 1543810460
-  modify 1543812162
+  create 1542775262
+  modify 1543993534
   author Henry@LAPPY586
   access 0777
 }
@@ -387,7 +392,7 @@ vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 folder1	[ 0	locks=0 ]	(	0	0	)
-curve_num_expr	[ 8	locks=0	autoscope=1	autosel=4294967295 ]	(	[ curve_num_expr	0 ] 	)
+curve_num_expr	[ 8	locks=0	autoscope=1	autosel=4294967295 ]	(	[ curve_num_expr	@prnum ] 	)
 curve_select_mode	[ 0	locks=0 ]	(	[ curve_select_mode	0 ] 	)
 search_dist	[ 8	locks=0 ]	(	[ search_dist	100 ] 	)
 }
@@ -724,9 +729,9 @@ vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 search_dist	[ 0	locks=0 ]	(	[ search_dist	100 ] 	)
-mode	[ 0	locks=0 ]	(	[ mode	2 ] 	)
+mode	[ 0	locks=0 ]	(	[ mode	0 ] 	)
 invert_normal	[ 0	locks=0 ]	(	"off"	)
-attach_attr	[ 0	locks=0 ]	(	[ attach_attr	goalu ] 	)
+attach_attr	[ 0	locks=0 ]	(	[ attach_attr	mops_falloff ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -773,7 +778,7 @@ inputs
 stat
 {
   create 1542753142
-  modify 1543811914
+  modify 1543992873
   author Henry@LAPPY586
   access 0777
 }
@@ -1229,6 +1234,12 @@ if(chi(\"do_falloff\")) {
 // define other starting params
 int wrap = chi(\"wrap\");
 float goalu = travel + @__goalu;
+if(chi(\"goal_type\") == 1) {
+    // convert to arc length
+    goalu = primuvconvert(@OpInput2, @__goalu, i@__curvenum, 5)[0];
+    goalu += travel;
+}
+
 float offset_amount = ch(\"maintain_offset\");
 float invert = 1;
 if(chi(\"invert_tangent\")) {
@@ -1242,11 +1253,13 @@ float random_amount = ch(\"random_shift\");
 int random_seed = chi(\"random_seed\");
 goalu += fit01(rand(i@id + (random_seed*100000)), -random_amount, random_amount);
 
-// optional arc length goal mode
-if( goal_type == 1 ){ 
-    goalu = primuvconvert(@OpInput2, goalu, i@__curvenum, 10)[0]; 
-}
+// apply VEXpressions
+`ifs(ch(\"do_vexpression\"), chs(\"vexpression\"), \"\")`
 
+// convert back to primuv space
+if(chi(\"goal_type\") == 1) {
+    goalu = primuvconvert(@OpInput2, goalu, i@__curvenum, 10)[0];
+}
 
 // apply wrap
 if(wrap) {
@@ -1254,9 +1267,6 @@ if(wrap) {
 } else {
     goalu = clamp(goalu, 0, 1);
 }
-
-// apply VEXpressions
-`ifs(ch(\"do_vexpression\"), chs(\"vexpression\"), \"\")`
 
 
 // apply ramp control to offset amount
@@ -1303,7 +1313,7 @@ vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 travel	[ 8	locks=0 ]	(	[ travel	0 ] 	)
-maintain_offset	[ 0	locks=0 ]	(	[ maintain_offset	0 ] 	)
+maintain_offset	[ 0	locks=0 ]	(	[ maintain_offset	1 ] 	)
 wrap	[ 0	locks=0 ]	(	[ wrap	1 ] 	)
 invert_tangent	[ 0	locks=0 ]	(	"off"	)
 random_shift	[ 0	locks=0 ]	(	[ random_shift	0 ] 	)
@@ -1311,26 +1321,26 @@ random_seed	[ 0	locks=0 ]	(	[ random_seed	0 ] 	)
 vexpression	[ 0	locks=0 ]	(	[ vexpression	"// random_amount = 0.0;
 // random_seed = i@id;
 // offset_amount = 1.0;
-// goalu += 0.5;
+// goalu = 0.5;
 // twist_amount = 0;" ] 	)
 do_vexpression	[ 0	locks=0 ]	(	[ do_vexpression	0 ] 	)
 offset_ramp	[ 0	locks=0 ]	(	[ offset_ramp	2 ] 	)
 offset_ramp1pos	[ 0	locks=0 ]	(	[ offset_ramp1pos	0 ] 	)
 offset_ramp1value	[ 0	locks=0 ]	(	[ offset_ramp1value	1 ] 	)
 offset_ramp1interp	[ 0	locks=0 ]	(	[ offset_ramp1interp	1 ] 	)
-offset_ramp2pos	[ 0	locks=0 ]	(	[ offset_ramp2pos	1 ] 	)
-offset_ramp2value	[ 0	locks=0 ]	(	[ offset_ramp2value	1 ] 	)
-offset_ramp2interp	[ 0	locks=0 ]	(	[ offset_ramp2interp	1 ] 	)
 do_falloff	[ 0	locks=0 ]	(	[ do_falloff	0 ] 	)
 twist_amount	[ 0	locks=0 ]	(	[ twist_amount	0 ] 	)
 twist_ramp	[ 0	locks=0 ]	(	[ twist_ramp	2 ] 	)
 twist_ramp1pos	[ 0	locks=0 ]	(	[ twist_ramp1pos	0 ] 	)
 twist_ramp1value	[ 0	locks=0 ]	(	[ twist_ramp1value	0 ] 	)
 twist_ramp1interp	[ 0	locks=0 ]	(	[ twist_ramp1interp	1 ] 	)
+goal_type	[ 0	locks=0 ]	(	[ goal_type	1 ] 	)
+offset_ramp2pos	[ 0	locks=0 ]	(	[ offset_ramp2pos	1 ] 	)
+offset_ramp2value	[ 0	locks=0 ]	(	[ offset_ramp2value	1 ] 	)
+offset_ramp2interp	[ 0	locks=0 ]	(	[ offset_ramp2interp	1 ] 	)
 twist_ramp2pos	[ 0	locks=0 ]	(	[ twist_ramp2pos	1 ] 	)
 twist_ramp2value	[ 0	locks=0 ]	(	[ twist_ramp2value	1 ] 	)
 twist_ramp2interp	[ 0	locks=0 ]	(	[ twist_ramp2interp	1 ] 	)
-goal_type	[ 0	locks=0 ]	(	[ goal_type	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2368,7 +2378,7 @@ inputs
 stat
 {
   create 1543025898
-  modify 1543810460
+  modify 1543993488
   author Henry@LAPPY586
   access 0777
 }
@@ -2640,6 +2650,13 @@ Content-Type: text/plain
         default { "0" }
         range   { 0 10 }
     }
+    parm {
+        name    "goal_type"
+        label   "Goal Type"
+        type    integer
+        default { "0" }
+        range   { 0 10 }
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/advect_mops/d/s/advect_points.chn"
@@ -2851,6 +2868,12 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = ch(\"../switch_do_trails/input\") }
     }
+    channel goal_type {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../../../goal_type\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2877,6 +2900,11 @@ if(!chi(\"do_falloff\")) {
     falloff = 1.0;
 }
 
+if(chi(\"goal_type\") == 1) {
+    // convert to arc length
+    goalu = primuvconvert(@OpInput2, @__goalu, i@__curvenum, 5)[0];
+}
+
 // apply VEXpression
 `ifs(ch(\"do_vexpression\"), chs(\"vexpression\"), \"\")`
 
@@ -2885,6 +2913,11 @@ float random_amount = ch(\"random_amount\");
 int random_seed = chi(\"random_seed\");
 float randspeed = 1.0 + fit01(rand(i@id+(random_seed*100000)), -random_amount, random_amount);
 goalu += (speed * randspeed * falloff) * chramp(\"acceleration_ramp\", goalu);
+
+if(chi(\"goal_type\") == 1) {
+    // convert back to uv space
+    goalu = primuvconvert(@OpInput2, goalu, i@__curvenum, 10)[0];
+}
 
 // apply wrap
 // wrapping is disabled if trails are enabled.
@@ -2940,7 +2973,7 @@ vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 speed	[ 0	locks=0 ]	(	[ speed	0.01 ] 	)
 maintain_offset	[ 8	locks=0 ]	(	[ maintain_offset	1 ] 	)
-twist_amount	[ 8	locks=0 ]	(	[ twist_amount	180 ] 	)
+twist_amount	[ 8	locks=0 ]	(	[ twist_amount	0 ] 	)
 random_amount	[ 8	locks=0 ]	(	[ random_amount	0 ] 	)
 wrap	[ 8	locks=0 ]	(	[ wrap	1 ] 	)
 do_falloff	[ 8	locks=0 ]	(	[ do_falloff	0 ] 	)
@@ -2949,30 +2982,31 @@ acceleration_ramp	[ 0	locks=0 ]	(	[ acceleration_ramp	2 ] 	)
 acceleration_ramp1pos	[ 0	locks=0 ]	(	[ acceleration_ramp1pos	0 ] 	)
 acceleration_ramp1value	[ 0	locks=0 ]	(	[ acceleration_ramp1value	1 ] 	)
 acceleration_ramp1interp	[ 0	locks=0 ]	(	[ acceleration_ramp1interp	1 ] 	)
+acceleration_ramp2pos	[ 0	locks=0 ]	(	[ acceleration_ramp2pos	1 ] 	)
+acceleration_ramp2value	[ 0	locks=0 ]	(	[ acceleration_ramp2value	1 ] 	)
+acceleration_ramp2interp	[ 0	locks=0 ]	(	[ acceleration_ramp2interp	1 ] 	)
 offset_ramp	[ 8	locks=0 ]	(	[ offset_ramp	2 ] 	)
 offset_ramp1pos	[ 0	locks=0 ]	(	[ offset_ramp1pos	0 ] 	)
 offset_ramp1value	[ 0	locks=0 ]	(	[ offset_ramp1value	1 ] 	)
-offset_ramp1interp	[ 0	locks=0 ]	(	[ offset_ramp1interp	3 ] 	)
+offset_ramp1interp	[ 0	locks=0 ]	(	[ offset_ramp1interp	1 ] 	)
+offset_ramp2pos	[ 0	locks=0 ]	(	[ offset_ramp2pos	1 ] 	)
+offset_ramp2value	[ 0	locks=0 ]	(	[ offset_ramp2value	1 ] 	)
+offset_ramp2interp	[ 0	locks=0 ]	(	[ offset_ramp2interp	1 ] 	)
 twist_ramp	[ 8	locks=0 ]	(	[ twist_ramp	2 ] 	)
 twist_ramp1pos	[ 0	locks=0 ]	(	[ twist_ramp1pos	0 ] 	)
 twist_ramp1value	[ 0	locks=0 ]	(	[ twist_ramp1value	0 ] 	)
 twist_ramp1interp	[ 0	locks=0 ]	(	[ twist_ramp1interp	1 ] 	)
+twist_ramp2pos	[ 0	locks=0 ]	(	[ twist_ramp2pos	1 ] 	)
+twist_ramp2value	[ 0	locks=0 ]	(	[ twist_ramp2value	1 ] 	)
+twist_ramp2interp	[ 0	locks=0 ]	(	[ twist_ramp2interp	1 ] 	)
 do_vexpression	[ 8	locks=0 ]	(	[ do_vexpression	0 ] 	)
 vexpression	[ 0	locks=0 ]	(	[ vexpression	"// random_amount = 0.0;
 // random_seed = i@id;
 // offset_amount = 1.0;
 // speed = 0.02;
 // twist_amount = 0.0;" ] 	)
-trails	[ 8	locks=0 ]	(	[ trails	1 ] 	)
-acceleration_ramp2pos	[ 0	locks=0 ]	(	[ acceleration_ramp2pos	1 ] 	)
-acceleration_ramp2value	[ 0	locks=0 ]	(	[ acceleration_ramp2value	1 ] 	)
-acceleration_ramp2interp	[ 0	locks=0 ]	(	[ acceleration_ramp2interp	1 ] 	)
-offset_ramp2pos	[ 0	locks=0 ]	(	[ offset_ramp2pos	0.46200001239776611 ] 	)
-offset_ramp2value	[ 0	locks=0 ]	(	[ offset_ramp2value	0.29999999999999999 ] 	)
-offset_ramp2interp	[ 0	locks=0 ]	(	[ offset_ramp2interp	3 ] 	)
-twist_ramp2pos	[ 0	locks=0 ]	(	[ twist_ramp2pos	1 ] 	)
-twist_ramp2value	[ 0	locks=0 ]	(	[ twist_ramp2value	1 ] 	)
-twist_ramp2interp	[ 0	locks=0 ]	(	[ twist_ramp2interp	1 ] 	)
+trails	[ 8	locks=0 ]	(	[ trails	0 ] 	)
+goal_type	[ 8	locks=0 ]	(	[ goal_type	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -4018,7 +4052,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	0 ] 	)
+input	[ 0	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -4149,7 +4183,7 @@ edge	[ 0	locks=0 ]	(	[ edge	0 ] 	)
 method	[ 0	locks=0 ]	(	[ method	0 ] 	)
 measure	[ 0	locks=0 ]	(	[ measure	0 ] 	)
 dolength	[ 0	locks=0 ]	(	[ dolength	1 ] 	)
-length	[ 0	locks=0 ]	(	[ length	0.10000000000000001 ] 	)
+length	[ 0	locks=0 ]	(	[ length	0.059999999999999998 ] 	)
 dosegs	[ 0	locks=0 ]	(	[ dosegs	0 ] 	)
 segs	[ 0	locks=0 ]	(	[ segs	10 ] 	)
 useattribs	[ 0	locks=0 ]	(	"on"	)
@@ -4157,7 +4191,7 @@ allequal	[ 0	locks=0 ]	(	[ allequal	1 ] 	)
 last	[ 0	locks=0 ]	(	"off"	)
 randomshift	[ 0	locks=0 ]	(	"off"	)
 onlypoints	[ 0	locks=0 ]	(	"off"	)
-treatpolysas	[ 0	locks=0 ]	(	[ treatpolysas	0 ] 	)
+treatpolysas	[ 0	locks=0 ]	(	[ treatpolysas	1 ] 	)
 outputsubdpoly	[ 0	locks=0 ]	(	"off"	)
 doptdistattr	[ 0	locks=0 ]	(	"off"	)
 ptdistattr	[ 0	locks=0 ]	(	ptdist	)
@@ -4502,7 +4536,7 @@ sopflags sopflags =
 comment ""
 position -17.8921 -33.2506
 connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
@@ -4517,7 +4551,7 @@ inputs
 stat
 {
   create 1542769838
-  modify 1543107943
+  modify 1543993417
   author Henry@LAPPY586
   access 0777
 }
@@ -5111,7 +5145,7 @@ inputs
 stat
 {
   create 1324348265
-  modify 1543810460
+  modify 1543993736
   author nobody@nowhere.sidefx.com
   access 0777
 }
@@ -5685,7 +5719,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -5820,7 +5854,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -5981,7 +6015,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -6074,7 +6108,7 @@ sopflags sopflags =
 comment ""
 position -14.0147 -10.1507
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight on unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight on unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 1 "output1"
@@ -6090,7 +6124,7 @@ inputs
 stat
 {
   create 1543037511
-  modify 1543097701
+  modify 1543993417
   author Henry@LAPPY586
   access 0777
 }
