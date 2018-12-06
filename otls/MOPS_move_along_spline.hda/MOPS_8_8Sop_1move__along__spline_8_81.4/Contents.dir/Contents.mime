@@ -32,7 +32,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.53296 -3.53322
+position 1.53296 -3.73312
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -42,17 +42,17 @@ outputsNamed3
 inputsNamed3
 {
 1 	MOPs_Instancer1 0 1 "input1"
-2 	MOPs_Orient_Curve 1 1 "input2"
+2 	CLONED_CURVES 1 1 "input2"
 }
 inputs
 {
 0 	MOPs_Instancer1 0 1
-1 	MOPs_Orient_Curve 0 1
+1 	CLONED_CURVES 0 1
 }
 stat
 {
   create 1542775262
-  modify 1543993534
+  modify 1544077609
   author Henry@LAPPY586
   access 0777
 }
@@ -60,6 +60,420 @@ color UT_Color RGB 0.8 0.8 0.8
 delscript ""
 exprlanguage hscript
 end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.spareparmdef"
+Content-Type: text/plain
+
+    parm {
+        name    "bindgroup"
+        baseparm
+        label   "Group"
+        export  none
+    }
+    parm {
+        name    "grouptype"
+        baseparm
+        label   "Group Type"
+        export  none
+    }
+    parm {
+        name    "mode"
+        baseparm
+        label   "Mode"
+        export  none
+    }
+    group {
+        name    "folder2"
+        label   "Attach"
+
+        parm {
+            name    "curve_select_mode"
+            baseparm
+            label   "Curve Select Mode"
+            export  none
+        }
+        parm {
+            name    "curve_num_expr"
+            baseparm
+            label   "Primitive Number"
+            export  none
+        }
+        parm {
+            name    "attach_mode"
+            baseparm
+            label   "Attach Method"
+            export  none
+        }
+        parm {
+            name    "search_dist"
+            baseparm
+            label   "Search Distance"
+            export  none
+        }
+        parm {
+            name    "attach_attr"
+            baseparm
+            label   "Attach Attr"
+            export  none
+        }
+        parm {
+            name    "frame"
+            baseparm
+            label   "Attach Time"
+            export  none
+        }
+        parm {
+            name    "sepparm"
+            baseparm
+            label   "Separator"
+            export  none
+        }
+        parm {
+            name    "do_resample"
+            baseparm
+            label   "Resample Input Curve"
+            export  none
+        }
+        parm {
+            name    "do_reorient"
+            baseparm
+            label   "Reorient Input Curve"
+            export  none
+        }
+        parm {
+            name    "do_snap"
+            baseparm
+            label   "Snap MOPs Centroid to Curve Start"
+            export  none
+        }
+        group {
+            name    "folder3"
+            label   "Offset"
+
+            parm {
+                name    "show_offset"
+                baseparm
+                label   "Visualize Offset"
+                export  none
+            }
+            parm {
+                name    "maintain_offset"
+                baseparm
+                label   "Maintain Offset"
+                export  none
+            }
+            parm {
+                name    "offset_ramp"
+                baseparm
+                label   "Offset Ramp"
+                export  none
+            }
+        }
+
+        group {
+            name    "folder3_1"
+            label   "Resample Curve"
+            hidewhentab "{ do_resample == 0 }"
+
+            parm {
+                name    "edge"
+                baseparm
+                label   "Resample by Polygon Edge"
+                export  none
+            }
+            parm {
+                name    "method"
+                baseparm
+                label   "Method"
+                export  none
+            }
+            parm {
+                name    "measure"
+                baseparm
+                label   "Measure"
+                export  none
+            }
+            parm {
+                name    "dolength"
+                baseparm
+                label   "Maximum Segment Length"
+                export  none
+            }
+            parm {
+                name    "length"
+                baseparm
+                label   "Length"
+                export  none
+            }
+            parm {
+                name    "dosegs"
+                baseparm
+                label   "Maximum Segments"
+                export  none
+            }
+            parm {
+                name    "segs"
+                baseparm
+                label   "Segments"
+                export  none
+            }
+            parm {
+                name    "allequal"
+                baseparm
+                label   "Even Last Segment Same Length"
+                export  none
+            }
+            parm {
+                name    "treatpolysas"
+                baseparm
+                label   "Treat Polygons As"
+                export  none
+            }
+        }
+
+        group {
+            name    "folder3_2"
+            label   "Orient Curve"
+            hidewhentab "{ do_reorient == 0 }"
+
+            parm {
+                name    "invert"
+                baseparm
+                label   "Invert Tangent"
+                export  none
+            }
+            parm {
+                name    "twist_amount"
+                baseparm
+                label   "Twist Amount"
+                export  none
+            }
+            parm {
+                name    "twist_ramp"
+                baseparm
+                label   "Twist Ramp"
+                export  none
+            }
+        }
+
+        group {
+            name    "folder3_3"
+            label   "Snap Centroid"
+            hidewhentab "{ do_snap == 0 }"
+
+            parm {
+                name    "do_orient_snap"
+                baseparm
+                label   "Do Orient Snap"
+                export  none
+            }
+            parm {
+                name    "normal_axis"
+                baseparm
+                label   "Normal Axis"
+                export  none
+            }
+            parm {
+                name    "up_axis"
+                baseparm
+                label   "Up Axis"
+                export  none
+            }
+        }
+
+    }
+
+    group {
+        name    "folder2_1"
+        label   "Animate"
+
+        parm {
+            name    "startframe"
+            baseparm
+            label   "Start Frame"
+            export  none
+        }
+        parm {
+            name    "resimulate"
+            baseparm
+            label   "Reset Simulation"
+            export  none
+        }
+        parm {
+            name    "cachemaxsize"
+            baseparm
+            label   "Cache Memory (MB)"
+            export  none
+        }
+        parm {
+            name    "wrap"
+            baseparm
+            label   "Wrap"
+            export  none
+        }
+        parm {
+            name    "do_rotate"
+            baseparm
+            label   "Align to Curve"
+            export  none
+        }
+        parm {
+            name    "do_falloff"
+            baseparm
+            label   "Do Falloff"
+            export  none
+        }
+        parm {
+            name    "goal_type"
+            baseparm
+            label   "Goal Type"
+            export  none
+        }
+        parm {
+            name    "goal"
+            baseparm
+            label   "Goal"
+            export  none
+        }
+        parm {
+            name    "speed"
+            baseparm
+            label   "Speed"
+            export  none
+        }
+        parm {
+            name    "random_shift"
+            baseparm
+            label   "Randomize"
+            export  none
+        }
+        parm {
+            name    "random_seed"
+            baseparm
+            label   "Random Seed"
+            export  none
+        }
+        group {
+            name    "folder1_5"
+            label   "Twist"
+
+            parm {
+                name    "post_twist_amount"
+                baseparm
+                label   "Twist Amount"
+                export  none
+            }
+            parm {
+                name    "post_twist_ramp"
+                baseparm
+                label   "Twist Ramp"
+                export  none
+            }
+        }
+
+        group {
+            name    "folder1_5_1"
+            label   "Acceleration"
+            hidewhentab "{ mode != 1 }"
+
+            parm {
+                name    "acceleration_ramp"
+                baseparm
+                label   "Acceleration Ramp"
+                export  none
+            }
+        }
+
+        group {
+            name    "folder1_5_2"
+            label   "Trails"
+
+            parm {
+                name    "do_trails"
+                baseparm
+                label   "Create Trails"
+                export  none
+            }
+            parm {
+                name    "do_taper"
+                baseparm
+                label   "Taper Trail Falloff"
+                invisible
+                export  none
+            }
+            parm {
+                name    "trailgroup"
+                baseparm
+                label   "Trail Group Name"
+                export  none
+            }
+        }
+
+        group {
+            name    "folder1_5_3"
+            label   "VEXpressions"
+
+            parm {
+                name    "do_vexpression"
+                baseparm
+                label   "Use VEXpression"
+                export  none
+            }
+            parm {
+                name    "do_vexpression_solver"
+                baseparm
+                label   "Use VEXpression"
+                export  none
+            }
+            parm {
+                name    "vexpression_solver"
+                baseparm
+                label   "VEXpression"
+                export  none
+            }
+            parm {
+                name    "vexpression"
+                baseparm
+                label   "VEXpression"
+                export  none
+            }
+        }
+
+    }
+
+    parm {
+        name    "node_vis_enabled"
+        label   "Visualization Enabled"
+        type    toggle
+        invisible
+        default { "1" }
+    }
+    multiparm {
+        name    "num_visualizers"
+        label    "Visualizers"
+        invisible
+        default 0
+        parmtag { "multistartoffset" "0" }
+
+        parm {
+            name    "vis_active#"
+            label   "Active #"
+            type    toggle
+            invisible
+            default { "0" }
+        }
+        parm {
+            name    "vis_data#"
+            label   "Raw Data #"
+            type    string
+            invisible
+            nolabel
+            default { "" }
+            parmtag { "editor" "1" }
+        }
+    }
+
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.userdata"
@@ -78,7 +492,7 @@ Content-Type: text/plain
 
 2
 0 -22.744472407864102 7.8925322620232725 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
-1 -14.029942390851311 7.7543514836127185 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+1 -14.015899992290512 8.416292543997729 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/__stickynote2.postitinit"
@@ -138,7 +552,7 @@ inputs
 stat
 {
   create 1542751057
-  modify 1543810460
+  modify 1544076363
   author Henry@LAPPY586
   access 0777
 }
@@ -443,7 +857,7 @@ inputs
 stat
 {
   create 1542751296
-  modify 1543810460
+  modify 1544077010
   author Henry@LAPPY586
   access 0777
 }
@@ -760,7 +1174,7 @@ sopflags sopflags =
 comment ""
 position -15.8508 -11.3817
 connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
 {
 2 "output1"
@@ -778,7 +1192,7 @@ inputs
 stat
 {
   create 1542753142
-  modify 1543992873
+  modify 1544077460
   author Henry@LAPPY586
   access 0777
 }
@@ -1231,21 +1645,24 @@ snippet	[ 0	locks=0 ]	(	"float travel = ch(\"travel\");
 if(chi(\"do_falloff\")) {
     travel *= @mops_falloff;
 }
+int goal_type = chi(\"goal_type\");
 // define other starting params
 int wrap = chi(\"wrap\");
-float goalu = travel + @__goalu;
-if(chi(\"goal_type\") == 1) {
-    // convert to arc length
-    goalu = primuvconvert(@OpInput2, @__goalu, i@__curvenum, 5)[0];
-    goalu += travel;
+float goalu = @__goalu;
+
+// if in arc length mode, switch to length space
+if(goal_type == 1) {
+    goalu = primuvconvert(@OpInput2, goalu, i@__curvenum, 5)[0];
 }
+
+goalu += travel;
 
 float offset_amount = ch(\"maintain_offset\");
 float invert = 1;
 if(chi(\"invert_tangent\")) {
     invert = -1;
 }
-int goal_type = chi(\"goal_type\");
+
 float twist_amount = radians(ch(\"twist_amount\"));
 
 // apply randomization
@@ -1253,12 +1670,9 @@ float random_amount = ch(\"random_shift\");
 int random_seed = chi(\"random_seed\");
 goalu += fit01(rand(i@id + (random_seed*100000)), -random_amount, random_amount);
 
-// apply VEXpressions
-`ifs(ch(\"do_vexpression\"), chs(\"vexpression\"), \"\")`
-
-// convert back to primuv space
-if(chi(\"goal_type\") == 1) {
-    goalu = primuvconvert(@OpInput2, goalu, i@__curvenum, 10)[0];
+// if in arc length mode, switch back to unit space
+if( goal_type == 1 ){ 
+    goalu = primuvconvert(@OpInput2, goalu, i@__curvenum, 10)[0]; 
 }
 
 // apply wrap
@@ -1267,6 +1681,9 @@ if(wrap) {
 } else {
     goalu = clamp(goalu, 0, 1);
 }
+
+// apply VEXpressions
+`ifs(ch(\"do_vexpression\"), chs(\"vexpression\"), \"\")`
 
 
 // apply ramp control to offset amount
@@ -1313,7 +1730,7 @@ vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 travel	[ 8	locks=0 ]	(	[ travel	0 ] 	)
-maintain_offset	[ 0	locks=0 ]	(	[ maintain_offset	1 ] 	)
+maintain_offset	[ 0	locks=0 ]	(	[ maintain_offset	0 ] 	)
 wrap	[ 0	locks=0 ]	(	[ wrap	1 ] 	)
 invert_tangent	[ 0	locks=0 ]	(	"off"	)
 random_shift	[ 0	locks=0 ]	(	[ random_shift	0 ] 	)
@@ -1473,7 +1890,7 @@ inputs
 stat
 {
   create 1542837100
-  modify 1543810460
+  modify 1544075038
   author Henry@LAPPY586
   access 0777
 }
@@ -1707,7 +2124,7 @@ inputs
 stat
 {
   create 1542940107
-  modify 1543810460
+  modify 1544075153
   author Henry@LAPPY586
   access 0777
 }
@@ -2048,7 +2465,7 @@ inputs
 stat
 {
   create 1542941667
-  modify 1543097701
+  modify 1544075157
   author Henry@LAPPY586
   access 0777
 }
@@ -2102,7 +2519,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -14.0189 6.19053
+position -14.0189 7.20149
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -2120,7 +2537,7 @@ inputs
 stat
 {
   create 1543010707
-  modify 1543810460
+  modify 1544073172
   author Henry@LAPPY586
   access 0777
 }
@@ -2378,7 +2795,7 @@ inputs
 stat
 {
   create 1543025898
-  modify 1543993488
+  modify 1544077554
   author Henry@LAPPY586
   access 0777
 }
@@ -2651,8 +3068,8 @@ Content-Type: text/plain
         range   { 0 10 }
     }
     parm {
-        name    "goal_type"
-        label   "Goal Type"
+        name    "curve_mode"
+        label   "Curve Mode"
         type    integer
         default { "0" }
         range   { 0 10 }
@@ -2868,12 +3285,6 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = ch(\"../switch_do_trails/input\") }
     }
-    channel goal_type {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../../../../goal_type\") }
-    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2890,19 +3301,21 @@ vex_numcount	[ 0	locks=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
 snippet	[ 0	locks=0 ]	(	"// based on speed parameter, compute new goal position and orientation.
 // establish parameters
+
 float goalu = f@__goalu;
 int wrap = chi(\"wrap\");
 float speed = ch(\"speed\");
 float offset_amount  = ch(\"maintain_offset\");
 float twist_amount = radians(ch(\"twist_amount\"));
 float falloff = @mops_falloff;
+int curve_mode = chi(\"curve_mode\");
 if(!chi(\"do_falloff\")) {
     falloff = 1.0;
 }
 
-if(chi(\"goal_type\") == 1) {
-    // convert to arc length
-    goalu = primuvconvert(@OpInput2, @__goalu, i@__curvenum, 5)[0];
+// if in arc length mode, switch to length space
+if(curve_mode == 1) {
+    goalu = primuvconvert(@OpInput2, goalu, i@__curvenum, 5)[0];
 }
 
 // apply VEXpression
@@ -2914,8 +3327,8 @@ int random_seed = chi(\"random_seed\");
 float randspeed = 1.0 + fit01(rand(i@id+(random_seed*100000)), -random_amount, random_amount);
 goalu += (speed * randspeed * falloff) * chramp(\"acceleration_ramp\", goalu);
 
-if(chi(\"goal_type\") == 1) {
-    // convert back to uv space
+// if in arc length mode, switch back to unit space
+if(curve_mode == 1) {
     goalu = primuvconvert(@OpInput2, goalu, i@__curvenum, 10)[0];
 }
 
@@ -2972,7 +3385,7 @@ vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 speed	[ 0	locks=0 ]	(	[ speed	0.01 ] 	)
-maintain_offset	[ 8	locks=0 ]	(	[ maintain_offset	1 ] 	)
+maintain_offset	[ 8	locks=0 ]	(	[ maintain_offset	0 ] 	)
 twist_amount	[ 8	locks=0 ]	(	[ twist_amount	0 ] 	)
 random_amount	[ 8	locks=0 ]	(	[ random_amount	0 ] 	)
 wrap	[ 8	locks=0 ]	(	[ wrap	1 ] 	)
@@ -3006,7 +3419,7 @@ vexpression	[ 0	locks=0 ]	(	[ vexpression	"// random_amount = 0.0;
 // speed = 0.02;
 // twist_amount = 0.0;" ] 	)
 trails	[ 8	locks=0 ]	(	[ trails	0 ] 	)
-goal_type	[ 8	locks=0 ]	(	[ goal_type	0 ] 	)
+curve_mode	[ 0	locks=0 ]	(	0	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -3719,7 +4132,7 @@ inputs
 stat
 {
   create 1543107520
-  modify 1543107943
+  modify 1544073044
   author Henry@LAPPY586
   access 0777
 }
@@ -3961,7 +4374,7 @@ inputs
 stat
 {
   create 1542750708
-  modify 1543010707
+  modify 1544076599
   author Henry@LAPPY586
   access 0777
 }
@@ -4024,7 +4437,7 @@ inputs
 stat
 {
   create 1542750726
-  modify 1543810460
+  modify 1544076588
   author Henry@LAPPY586
   access 0777
 }
@@ -4247,7 +4660,7 @@ inputs
 stat
 {
   create 1542750786
-  modify 1543810460
+  modify 1544075150
   author Henry@LAPPY586
   access 0777
 }
@@ -4320,7 +4733,7 @@ inputs
 stat
 {
   create 1542750877
-  modify 1542951642
+  modify 1544076577
   author Henry@LAPPY586
   access 0777
 }
@@ -4491,7 +4904,7 @@ inputs
 stat
 {
   create 1542751506
-  modify 1543097701
+  modify 1544075182
   author Henry@LAPPY586
   access 0777
 }
@@ -4551,7 +4964,7 @@ inputs
 stat
 {
   create 1542769838
-  modify 1543993417
+  modify 1544073165
   author Henry@LAPPY586
   access 0777
 }
@@ -4740,7 +5153,7 @@ inputs
 stat
 {
   create 1542838154
-  modify 1542839003
+  modify 1544076592
   author Henry@LAPPY586
   access 0777
 }
@@ -4825,7 +5238,7 @@ inputs
 stat
 {
   create 1542838175
-  modify 1542854727
+  modify 1544076590
   author Henry@LAPPY586
   access 0777
 }
@@ -4899,7 +5312,7 @@ inputs
 stat
 {
   create 1542940068
-  modify 1543810460
+  modify 1544076367
   author Henry@LAPPY586
   access 0777
 }
@@ -5037,7 +5450,7 @@ inputs
 stat
 {
   create 1542942166
-  modify 1543810460
+  modify 1544075211
   author Henry@LAPPY586
   access 0777
 }
@@ -5145,7 +5558,7 @@ inputs
 stat
 {
   create 1324348265
-  modify 1543993736
+  modify 1544077746
   author nobody@nowhere.sidefx.com
   access 0777
 }
@@ -5719,7 +6132,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -6015,7 +6428,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -6108,7 +6521,7 @@ sopflags sopflags =
 comment ""
 position -14.0147 -10.1507
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight on unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight on unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 1 "output1"
@@ -6124,7 +6537,7 @@ inputs
 stat
 {
   create 1543037511
-  modify 1543993417
+  modify 1543097701
   author Henry@LAPPY586
   access 0777
 }
