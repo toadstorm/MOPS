@@ -32,7 +32,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.53296 -3.73312
+position 1.53296 -3.53322
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -42,17 +42,17 @@ outputsNamed3
 inputsNamed3
 {
 1 	MOPs_Instancer1 0 1 "input1"
-2 	CLONED_CURVES 1 1 "input2"
+2 	MOPs_Orient_Curve 1 1 "input2"
 }
 inputs
 {
 0 	MOPs_Instancer1 0 1
-1 	CLONED_CURVES 0 1
+1 	MOPs_Orient_Curve 0 1
 }
 stat
 {
   create 1542775262
-  modify 1544077609
+  modify 1544147743
   author Henry@LAPPY586
   access 0777
 }
@@ -60,420 +60,6 @@ color UT_Color RGB 0.8 0.8 0.8
 delscript ""
 exprlanguage hscript
 end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot.spareparmdef"
-Content-Type: text/plain
-
-    parm {
-        name    "bindgroup"
-        baseparm
-        label   "Group"
-        export  none
-    }
-    parm {
-        name    "grouptype"
-        baseparm
-        label   "Group Type"
-        export  none
-    }
-    parm {
-        name    "mode"
-        baseparm
-        label   "Mode"
-        export  none
-    }
-    group {
-        name    "folder2"
-        label   "Attach"
-
-        parm {
-            name    "curve_select_mode"
-            baseparm
-            label   "Curve Select Mode"
-            export  none
-        }
-        parm {
-            name    "curve_num_expr"
-            baseparm
-            label   "Primitive Number"
-            export  none
-        }
-        parm {
-            name    "attach_mode"
-            baseparm
-            label   "Attach Method"
-            export  none
-        }
-        parm {
-            name    "search_dist"
-            baseparm
-            label   "Search Distance"
-            export  none
-        }
-        parm {
-            name    "attach_attr"
-            baseparm
-            label   "Attach Attr"
-            export  none
-        }
-        parm {
-            name    "frame"
-            baseparm
-            label   "Attach Time"
-            export  none
-        }
-        parm {
-            name    "sepparm"
-            baseparm
-            label   "Separator"
-            export  none
-        }
-        parm {
-            name    "do_resample"
-            baseparm
-            label   "Resample Input Curve"
-            export  none
-        }
-        parm {
-            name    "do_reorient"
-            baseparm
-            label   "Reorient Input Curve"
-            export  none
-        }
-        parm {
-            name    "do_snap"
-            baseparm
-            label   "Snap MOPs Centroid to Curve Start"
-            export  none
-        }
-        group {
-            name    "folder3"
-            label   "Offset"
-
-            parm {
-                name    "show_offset"
-                baseparm
-                label   "Visualize Offset"
-                export  none
-            }
-            parm {
-                name    "maintain_offset"
-                baseparm
-                label   "Maintain Offset"
-                export  none
-            }
-            parm {
-                name    "offset_ramp"
-                baseparm
-                label   "Offset Ramp"
-                export  none
-            }
-        }
-
-        group {
-            name    "folder3_1"
-            label   "Resample Curve"
-            hidewhentab "{ do_resample == 0 }"
-
-            parm {
-                name    "edge"
-                baseparm
-                label   "Resample by Polygon Edge"
-                export  none
-            }
-            parm {
-                name    "method"
-                baseparm
-                label   "Method"
-                export  none
-            }
-            parm {
-                name    "measure"
-                baseparm
-                label   "Measure"
-                export  none
-            }
-            parm {
-                name    "dolength"
-                baseparm
-                label   "Maximum Segment Length"
-                export  none
-            }
-            parm {
-                name    "length"
-                baseparm
-                label   "Length"
-                export  none
-            }
-            parm {
-                name    "dosegs"
-                baseparm
-                label   "Maximum Segments"
-                export  none
-            }
-            parm {
-                name    "segs"
-                baseparm
-                label   "Segments"
-                export  none
-            }
-            parm {
-                name    "allequal"
-                baseparm
-                label   "Even Last Segment Same Length"
-                export  none
-            }
-            parm {
-                name    "treatpolysas"
-                baseparm
-                label   "Treat Polygons As"
-                export  none
-            }
-        }
-
-        group {
-            name    "folder3_2"
-            label   "Orient Curve"
-            hidewhentab "{ do_reorient == 0 }"
-
-            parm {
-                name    "invert"
-                baseparm
-                label   "Invert Tangent"
-                export  none
-            }
-            parm {
-                name    "twist_amount"
-                baseparm
-                label   "Twist Amount"
-                export  none
-            }
-            parm {
-                name    "twist_ramp"
-                baseparm
-                label   "Twist Ramp"
-                export  none
-            }
-        }
-
-        group {
-            name    "folder3_3"
-            label   "Snap Centroid"
-            hidewhentab "{ do_snap == 0 }"
-
-            parm {
-                name    "do_orient_snap"
-                baseparm
-                label   "Do Orient Snap"
-                export  none
-            }
-            parm {
-                name    "normal_axis"
-                baseparm
-                label   "Normal Axis"
-                export  none
-            }
-            parm {
-                name    "up_axis"
-                baseparm
-                label   "Up Axis"
-                export  none
-            }
-        }
-
-    }
-
-    group {
-        name    "folder2_1"
-        label   "Animate"
-
-        parm {
-            name    "startframe"
-            baseparm
-            label   "Start Frame"
-            export  none
-        }
-        parm {
-            name    "resimulate"
-            baseparm
-            label   "Reset Simulation"
-            export  none
-        }
-        parm {
-            name    "cachemaxsize"
-            baseparm
-            label   "Cache Memory (MB)"
-            export  none
-        }
-        parm {
-            name    "wrap"
-            baseparm
-            label   "Wrap"
-            export  none
-        }
-        parm {
-            name    "do_rotate"
-            baseparm
-            label   "Align to Curve"
-            export  none
-        }
-        parm {
-            name    "do_falloff"
-            baseparm
-            label   "Do Falloff"
-            export  none
-        }
-        parm {
-            name    "goal_type"
-            baseparm
-            label   "Goal Type"
-            export  none
-        }
-        parm {
-            name    "goal"
-            baseparm
-            label   "Goal"
-            export  none
-        }
-        parm {
-            name    "speed"
-            baseparm
-            label   "Speed"
-            export  none
-        }
-        parm {
-            name    "random_shift"
-            baseparm
-            label   "Randomize"
-            export  none
-        }
-        parm {
-            name    "random_seed"
-            baseparm
-            label   "Random Seed"
-            export  none
-        }
-        group {
-            name    "folder1_5"
-            label   "Twist"
-
-            parm {
-                name    "post_twist_amount"
-                baseparm
-                label   "Twist Amount"
-                export  none
-            }
-            parm {
-                name    "post_twist_ramp"
-                baseparm
-                label   "Twist Ramp"
-                export  none
-            }
-        }
-
-        group {
-            name    "folder1_5_1"
-            label   "Acceleration"
-            hidewhentab "{ mode != 1 }"
-
-            parm {
-                name    "acceleration_ramp"
-                baseparm
-                label   "Acceleration Ramp"
-                export  none
-            }
-        }
-
-        group {
-            name    "folder1_5_2"
-            label   "Trails"
-
-            parm {
-                name    "do_trails"
-                baseparm
-                label   "Create Trails"
-                export  none
-            }
-            parm {
-                name    "do_taper"
-                baseparm
-                label   "Taper Trail Falloff"
-                invisible
-                export  none
-            }
-            parm {
-                name    "trailgroup"
-                baseparm
-                label   "Trail Group Name"
-                export  none
-            }
-        }
-
-        group {
-            name    "folder1_5_3"
-            label   "VEXpressions"
-
-            parm {
-                name    "do_vexpression"
-                baseparm
-                label   "Use VEXpression"
-                export  none
-            }
-            parm {
-                name    "do_vexpression_solver"
-                baseparm
-                label   "Use VEXpression"
-                export  none
-            }
-            parm {
-                name    "vexpression_solver"
-                baseparm
-                label   "VEXpression"
-                export  none
-            }
-            parm {
-                name    "vexpression"
-                baseparm
-                label   "VEXpression"
-                export  none
-            }
-        }
-
-    }
-
-    parm {
-        name    "node_vis_enabled"
-        label   "Visualization Enabled"
-        type    toggle
-        invisible
-        default { "1" }
-    }
-    multiparm {
-        name    "num_visualizers"
-        label    "Visualizers"
-        invisible
-        default 0
-        parmtag { "multistartoffset" "0" }
-
-        parm {
-            name    "vis_active#"
-            label   "Active #"
-            type    toggle
-            invisible
-            default { "0" }
-        }
-        parm {
-            name    "vis_data#"
-            label   "Raw Data #"
-            type    string
-            invisible
-            nolabel
-            default { "" }
-            parmtag { "editor" "1" }
-        }
-    }
-
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.userdata"
@@ -1143,9 +729,9 @@ vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 search_dist	[ 0	locks=0 ]	(	[ search_dist	100 ] 	)
-mode	[ 0	locks=0 ]	(	[ mode	0 ] 	)
+mode	[ 0	locks=0 ]	(	[ mode	1 ] 	)
 invert_normal	[ 0	locks=0 ]	(	"off"	)
-attach_attr	[ 0	locks=0 ]	(	[ attach_attr	mops_falloff ] 	)
+attach_attr	[ 0	locks=0 ]	(	[ attach_attr	"" ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1174,7 +760,7 @@ sopflags sopflags =
 comment ""
 position -15.8508 -11.3817
 connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault off exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
 {
 2 "output1"
@@ -1192,7 +778,7 @@ inputs
 stat
 {
   create 1542753142
-  modify 1544077460
+  modify 1544122578
   author Henry@LAPPY586
   access 0777
 }
@@ -1672,11 +1258,21 @@ goalu += fit01(rand(i@id + (random_seed*100000)), -random_amount, random_amount)
 
 // if in arc length mode, switch back to unit space
 if( goal_type == 1 ){ 
-    goalu = primuvconvert(@OpInput2, goalu, i@__curvenum, 10)[0]; 
+    string curvetype = primintrinsic(1, \"typename\", i@__curvenum);
+    // arclength works for NURBS only...
+    float arclen = primintrinsic(1, \"arclength\", i@__curvenum);
+    if (curvetype == \"Poly\") {
+        arclen = primintrinsic(1, \"measuredperimeter\", i@__curvenum);
+    }
+    if(wrap) {
+        goalu = primuvconvert(@OpInput2, goalu % arclen, i@__curvenum, 10)[0]; 
+    } else {
+        goalu = primuvconvert(@OpInput2, goalu, i@__curvenum, 10)[0]; 
+    }
 }
 
 // apply wrap
-if(wrap) {
+if((wrap) && (goal_type == 0)) {
     goalu %= 1.0;
 } else {
     goalu = clamp(goalu, 0, 1);
@@ -2795,7 +2391,7 @@ inputs
 stat
 {
   create 1543025898
-  modify 1544077554
+  modify 1544147690
   author Henry@LAPPY586
   access 0777
 }
@@ -3328,21 +2924,26 @@ float randspeed = 1.0 + fit01(rand(i@id+(random_seed*100000)), -random_amount, r
 goalu += (speed * randspeed * falloff) * chramp(\"acceleration_ramp\", goalu);
 
 // if in arc length mode, switch back to unit space
-if(curve_mode == 1) {
-    goalu = primuvconvert(@OpInput2, goalu, i@__curvenum, 10)[0];
+if( curve_mode == 1 ){ 
+    string curvetype = primintrinsic(1, \"typename\", i@__curvenum);
+    // arclength works for NURBS only...
+    float arclen = primintrinsic(1, \"arclength\", i@__curvenum);
+    if (curvetype == \"Poly\") {
+        arclen = primintrinsic(1, \"measuredperimeter\", i@__curvenum);
+    }
+    if(wrap) {
+        goalu = primuvconvert(@OpInput2, goalu % arclen, i@__curvenum, 10)[0]; 
+    } else {
+        goalu = primuvconvert(@OpInput2, goalu, i@__curvenum, 10)[0]; 
+    }
 }
 
 // apply wrap
-// wrapping is disabled if trails are enabled.
-if(chi(\"trails\")) {
-    wrap = 0;
-}
-if(wrap) {
+if((wrap) && (curve_mode == 0)) {
     goalu %= 1.0;
 } else {
     goalu = clamp(goalu, 0, 1);
 }
-
 // apply offset ramp
 offset_amount *= chramp(\"offset_ramp\", goalu);
 
@@ -3395,23 +2996,14 @@ acceleration_ramp	[ 0	locks=0 ]	(	[ acceleration_ramp	2 ] 	)
 acceleration_ramp1pos	[ 0	locks=0 ]	(	[ acceleration_ramp1pos	0 ] 	)
 acceleration_ramp1value	[ 0	locks=0 ]	(	[ acceleration_ramp1value	1 ] 	)
 acceleration_ramp1interp	[ 0	locks=0 ]	(	[ acceleration_ramp1interp	1 ] 	)
-acceleration_ramp2pos	[ 0	locks=0 ]	(	[ acceleration_ramp2pos	1 ] 	)
-acceleration_ramp2value	[ 0	locks=0 ]	(	[ acceleration_ramp2value	1 ] 	)
-acceleration_ramp2interp	[ 0	locks=0 ]	(	[ acceleration_ramp2interp	1 ] 	)
 offset_ramp	[ 8	locks=0 ]	(	[ offset_ramp	2 ] 	)
 offset_ramp1pos	[ 0	locks=0 ]	(	[ offset_ramp1pos	0 ] 	)
 offset_ramp1value	[ 0	locks=0 ]	(	[ offset_ramp1value	1 ] 	)
 offset_ramp1interp	[ 0	locks=0 ]	(	[ offset_ramp1interp	1 ] 	)
-offset_ramp2pos	[ 0	locks=0 ]	(	[ offset_ramp2pos	1 ] 	)
-offset_ramp2value	[ 0	locks=0 ]	(	[ offset_ramp2value	1 ] 	)
-offset_ramp2interp	[ 0	locks=0 ]	(	[ offset_ramp2interp	1 ] 	)
 twist_ramp	[ 8	locks=0 ]	(	[ twist_ramp	2 ] 	)
 twist_ramp1pos	[ 0	locks=0 ]	(	[ twist_ramp1pos	0 ] 	)
 twist_ramp1value	[ 0	locks=0 ]	(	[ twist_ramp1value	0 ] 	)
 twist_ramp1interp	[ 0	locks=0 ]	(	[ twist_ramp1interp	1 ] 	)
-twist_ramp2pos	[ 0	locks=0 ]	(	[ twist_ramp2pos	1 ] 	)
-twist_ramp2value	[ 0	locks=0 ]	(	[ twist_ramp2value	1 ] 	)
-twist_ramp2interp	[ 0	locks=0 ]	(	[ twist_ramp2interp	1 ] 	)
 do_vexpression	[ 8	locks=0 ]	(	[ do_vexpression	0 ] 	)
 vexpression	[ 0	locks=0 ]	(	[ vexpression	"// random_amount = 0.0;
 // random_seed = i@id;
@@ -3420,6 +3012,15 @@ vexpression	[ 0	locks=0 ]	(	[ vexpression	"// random_amount = 0.0;
 // twist_amount = 0.0;" ] 	)
 trails	[ 8	locks=0 ]	(	[ trails	0 ] 	)
 curve_mode	[ 0	locks=0 ]	(	0	)
+acceleration_ramp2pos	[ 0	locks=0 ]	(	[ acceleration_ramp2pos	1 ] 	)
+acceleration_ramp2value	[ 0	locks=0 ]	(	[ acceleration_ramp2value	1 ] 	)
+acceleration_ramp2interp	[ 0	locks=0 ]	(	[ acceleration_ramp2interp	1 ] 	)
+offset_ramp2pos	[ 0	locks=0 ]	(	[ offset_ramp2pos	1 ] 	)
+offset_ramp2value	[ 0	locks=0 ]	(	[ offset_ramp2value	1 ] 	)
+offset_ramp2interp	[ 0	locks=0 ]	(	[ offset_ramp2interp	1 ] 	)
+twist_ramp2pos	[ 0	locks=0 ]	(	[ twist_ramp2pos	1 ] 	)
+twist_ramp2value	[ 0	locks=0 ]	(	[ twist_ramp2value	1 ] 	)
+twist_ramp2interp	[ 0	locks=0 ]	(	[ twist_ramp2interp	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -4949,7 +4550,7 @@ sopflags sopflags =
 comment ""
 position -17.8921 -33.2506
 connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
@@ -4964,7 +4565,7 @@ inputs
 stat
 {
   create 1542769838
-  modify 1544073165
+  modify 1544122543
   author Henry@LAPPY586
   access 0777
 }
@@ -5558,7 +5159,7 @@ inputs
 stat
 {
   create 1324348265
-  modify 1544077746
+  modify 1544148298
   author nobody@nowhere.sidefx.com
   access 0777
 }
@@ -6428,7 +6029,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
