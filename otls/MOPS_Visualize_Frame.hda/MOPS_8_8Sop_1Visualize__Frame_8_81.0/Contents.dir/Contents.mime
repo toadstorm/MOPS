@@ -32,24 +32,24 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -13.2721 -8.58437
+position 5.44122 -17.1052
 connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
 inputsNamed3
 {
-0 	guide_curves 1 1 "input1"
+0 	ANIMATED_GOALS 1 1 "input1"
 }
 inputs
 {
-0 	guide_curves 0 1
+0 	ANIMATED_GOALS 0 1
 }
 stat
 {
-  create 1542951592
-  modify 1542951637
+  create 1543899607
+  modify 1543899938
   author Henry@LAPPY586
   access 0777
 }
@@ -57,49 +57,6 @@ color UT_Color RGB 0.8 0.8 0.8
 delscript ""
 exprlanguage hscript
 end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot.spareparmdef"
-Content-Type: text/plain
-
-    parm {
-        name    "scale"
-        baseparm
-        label   "Length Scale"
-        export  none
-    }
-    parm {
-        name    "node_vis_enabled"
-        label   "Visualization Enabled"
-        type    toggle
-        invisible
-        default { "1" }
-    }
-    multiparm {
-        name    "num_visualizers"
-        label    "Visualizers"
-        invisible
-        default 0
-        parmtag { "multistartoffset" "0" }
-
-        parm {
-            name    "vis_active#"
-            label   "Active #"
-            type    toggle
-            invisible
-            default { "0" }
-        }
-        parm {
-            name    "vis_data#"
-            label   "Raw Data #"
-            type    string
-            invisible
-            nolabel
-            default { "" }
-            parmtag { "editor" "1" }
-        }
-    }
-
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.userdata"
@@ -150,7 +107,7 @@ inputs
 stat
 {
   create 1542840097
-  modify 1542951592
+  modify 1543899607
   author Henry@LAPPY586
   access 0777
 }
@@ -231,7 +188,7 @@ inputs
 stat
 {
   create 1542923710
-  modify 1542923742
+  modify 1543605181
   author Henry@LAPPY586
   access 0777
 }
@@ -314,7 +271,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.352"
+		"value":"17.0.416"
 	}
 }
 
@@ -351,7 +308,7 @@ inputs
 stat
 {
   create 1542923714
-  modify 1542951592
+  modify 1543899607
   author Henry@LAPPY586
   access 0777
 }
@@ -389,7 +346,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.352"
+		"value":"17.0.416"
 	}
 }
 
@@ -450,7 +407,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.352"
+		"value":"17.0.416"
 	}
 }
 

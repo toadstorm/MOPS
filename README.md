@@ -11,6 +11,8 @@ MOPs is based on an internal framework of nodes that convert point attributes to
 
 ### Installation:
 
+**INSTALLATION PROCEDURE HAS BEEN SIMPLIFIED FROM PREVIOUS RELEASES. PLEASE READ CAREFULLY.**
+
 Option 1:
 Navigate to the folder you want to contain MOPs, and from BASH / Git BASH type:
 `git clone https://github.com/toadstorm/MOPS.git`
@@ -21,12 +23,19 @@ Download the desired release directly from the [releases page](https://github.co
 Next, edit your houdini.env file and create a variable called MOPS that points to the new folder:
 `MOPS = "/path/to/MOPS"`
 
-Finally, add `$MOPS/otls` to your HOUDINI_OTLSCAN_PATH:
-`HOUDINI_OTLSCAN_PATH = $MOPS/otls;@/otls`
-And add `$MOPS/toolbar` to your HOUDINI_TOOLBAR_PATH:
-`HOUDINI_TOOLBAR_PATH = $MOPS/toolbar;@/toolbar`
+Finally, add `$MOPS` to your HOUDINI_PATH:
+`HOUDINI_PATH = $MOPS;&`
 
-On Linux and OSX, use : instead of ; to separate your paths. You can append the $MOPS/otls path to any existing HOUDINI_OTLSCAN_PATHS you have, just make sure the paths end with @/otls, and similarly for HOUDINI_TOOLBAR_PATH.
+It's important that your HOUDINI_PATH always ends in ;&. You can append any other paths you like,
+but the last path should be `&`. This will ensure that Houdini's built-in operators work normally.
+On Linux and OSX, use : instead of ; to separate your paths. 
+
+If you want to use the old installation procedure, set the following environment keys in houdini.env:
+```
+HOUDINI_OTLSCAN_PATH = $MOPS/otls;@/otls 
+HOUDINI_TOOLBAR_PATH = $MOPS/toolbar;@/toolbar
+HOUDINI_SCRIPT_PATH = $MOPS/scripts;@/scripts
+```
 
 ### Usage basics:
 
@@ -37,6 +46,10 @@ The simplest network to start with is the MOPs Instancer. Create a Instancer and
 Append a MOPs Transform Modifier to the MOPs Instancer. Try playing with the rotation and translation settings. Next, connect a MOPs Shape Falloff in between the MOPs Instancer and the Transform Modifier. The Falloff node by default will change how much the Transform Modifier affects the objects upstream. If you want to reposition the center of the falloff effect, connect a MOPs Transform Falloff node to the second input of the Shape Falloff. All MOPs Modifiers by default will respect the Falloff value assigned to incoming points. 
 
 For more detailed examples, see the "examples" folder for HIP files.
+
+### Data analytics:
+
+MOPs *optionally* collects data about what MOPs nodes are being used via Google Analytics in order to help us prioritize development and get feedback. The *only* information associated with an individual user is a randomized UUID. By default, MOPs follows the same permissions as Houdini does when collecting data (i.e., if you opt out of Houdini's collection, we will not collect either). If you would like to set an override on this behavior, you can add the key MOPS_ALLOW_ANALYTICS to your houdini.env file. Setting MOPS_ALLOW_ANALYTICS = 1 will allow the collection to go ahead. Setting it to 0 will always disable it, regardless of your Houdini data collection settings.
 
 ### Developers:
 This section is in progress.

@@ -806,6 +806,16 @@
                     range   { -1 1 }
                 }
                 parm {
+                    name    "pack_from#"
+                    label   "Pack From"
+                    type    ordinal
+                    default { "1" }
+                    menu {
+                        "0" "Origin"
+                        "1" "Centroid"
+                    }
+                }
+                parm {
                     name    "instance_material#"
                     label   "Material Override"
                     type    oppath
@@ -828,7 +838,7 @@
             label   "Number of Points"
             type    integer
             default { "10" }
-            disablewhen "{ distro_type == 3 }"
+            disablewhen "{ distro_type == 3 } { distro_type == 5 }"
             range   { 0 10000 }
             parmtag { "autoscope" "0000000000000000" }
         }
@@ -1382,6 +1392,12 @@
             tabbreak
             hidewhentab "{ distro_type != 5 }"
 
+            parm {
+                name    "do_convert_to_polygon_curve"
+                label   "Convert to Polygons"
+                type    toggle
+                default { "0" }
+            }
             parm {
                 name    "do_orient_curve"
                 label   "Orient Curve"

@@ -58,7 +58,7 @@
         label   "Frame Index"
         type    float
         default { "@Frame" }
-        hidewhen "{ indextype 1 }"
+        hidewhen "{ indextype == 1 }"
         range   { 0 1 }
         parmtag { "autoscope" "0000000000000000" }
     }
@@ -67,7 +67,7 @@
         label   "Attribute Name"
         type    string
         default { "__frame" }
-        hidewhen "{ indextype 0 }"
+        hidewhen "{ indextype == 0 }"
         range   { 0 1 }
         parmtag { "autoscope" "0000000000000000" }
     }

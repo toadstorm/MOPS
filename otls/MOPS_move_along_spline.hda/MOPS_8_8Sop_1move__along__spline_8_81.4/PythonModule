@@ -1,0 +1,18 @@
+def visualize_offset(kwargs):
+    me = kwargs['node']
+    viz = me.parm('show_offset').eval()
+    if viz:
+        # create sop vizualizer
+        if hasattr(hou, 'viewportVisualizers'):
+            v = hou.viewportVisualizers.createVisualizer(hou.viewportVisualizers.type('vis_marker'), hou.viewportVisualizerCategory.Node, me)
+            v.setIsActive(True)
+            v.setParm('attrib', '__offset')
+            v.setParm('style', 3)
+    else:
+        # remove it
+        if hasattr(hou, 'viewportVisualizers'):
+            v = hou.viewportVisualizers.visualizers(hou.viewportVisualizerCategory.Node, me)
+            if v:
+                for i in v:
+                    i.destroy()
+        
