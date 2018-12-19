@@ -9,6 +9,8 @@
     <memberTool name="MOPS_convert_point_instances"/>
     <memberTool name="MOPS_Disable_Preview"/>
     <memberTool name="MOPS_Update"/>
+    <memberTool name="collapse_hdas"/>
+    <memberTool name="expand_hdas"/>
   </toolshelf>
 
   <tool name="MOPS_convert_point_instances" label="MOPs to Point Instances" icon="opdef:MOPS::Sop/Instancer::1.1?mops_instancing.svg">
@@ -525,5 +527,45 @@ if node:
                     pass
 
 ]]></script>
+  </tool>
+
+  <tool name="collapse_hdas" label="Collapse HDAs" icon="opdef:MOPS::Sop/Instancer::1.1?mops_collapse.svg">
+    <script scriptType="python"><![CDATA[import mops_tools
+import os
+import traceback
+
+def do_collapse():
+    if hou.getenv('MOPS') is None:
+        hou.ui.displayMessage('$MOPS environment variable not found! Aborting.')
+        return
+        
+    hda_path = os.path.join(hou.getenv('MOPS'), 'otls')
+    try:
+        mops_tools.collapse_hdas(hda_path)
+        hou.ui.displayMessage('MOPS HDAs collapsed succesfully!')
+    except:
+        hou.ui.displayMessage('Error collapsing HDAs: {}'.format(traceback.format_exc()), severity=hou.severityType.Error)
+        
+do_collapse()]]></script>
+  </tool>
+
+  <tool name="expand_hdas" label="Expand HDAs" icon="opdef:MOPS::Sop/Instancer::1.1?mops_expand.svg">
+    <script scriptType="python"><![CDATA[import mops_tools
+import os
+import traceback
+
+def do_expand():
+    if hou.getenv('MOPS') is None:
+        hou.ui.displayMessage('$MOPS environment variable not found! Aborting.')
+        return
+        
+    hda_path = os.path.join(hou.getenv('MOPS'), 'otls')
+    try:
+        mops_tools.expand_hdas(hda_path)
+        hou.ui.displayMessage('MOPS HDAs expanded succesfully!')
+    except:
+        hou.ui.displayMessage('Error expanding HDAs: {}'.format(traceback.format_exc()), severity=hou.severityType.Error)
+        
+do_expand()]]></script>
   </tool>
 </shelfDocument>

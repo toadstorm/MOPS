@@ -1437,7 +1437,7 @@
                 label   "Parametric Offset"
                 type    float
                 default { "0" }
-                disablewhen "{ curve_distro_method 0 }"
+                disablewhen "{ curve_distro_method == 0 }"
                 range   { 0 1 }
                 parmtag { "autoscope" "0000000000000000" }
             }
