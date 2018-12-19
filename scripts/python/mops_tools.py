@@ -117,6 +117,48 @@ def send_on_create_analytics(node):
         track_event("Node Created", str(node.type().name()), str(node.type().definition().version()))
 
 
+def collapse_hdas(directory):
+    """
+    Collapses all expanded operators in the given directory.
+    :param directory: the "otls" directory where the definitions are stored.
+    :return: None
+    """
+    if not os.path.exists(directory):
+        raise FileNotFoundError, "Directory does not exist!"
+    if not os.path.isdir(directory):
+        raise FileNotFoundError, "Given path is not a directory!"
+    for i in os.listdir(directory):
+        in_dir = os.path.join(directory, i)
+        if os.path.isdir(in_dir) and os.path.splitext(i)[-1] == '.hda':
+            out_hda = os.path.join(directory, i+'_')
+            try:
+                hou.hda.collapseFromDirectory(out_hda, in_dir)
+                print('Collapsed HDA: {}'.format(i))
+            except:
+                print('Error collapsing {}: {}'.format(i, traceback.format_exc()))
+
+def expand_hdas(directory):
+    """
+    Expands all collapsed operators in the given directory.
+    :param directory: the "otls" directory where the definitions are stored.
+    :return: None
+    """
+    if not os.path.exists(directory):
+        raise FileNotFoundError, "Directory does not exist!"
+    if not os.path.isdir(directory):
+        raise FileNotFoundError, "Given path is not a directory!"
+    for i in os.listdir(directory):
+        in_hda = os.path.join(directory, i)
+        if not os.path.isdir(in_hda) and os.path.splitext(i)[-1] == '.hda':
+
+            out_dir = os.path.join(directory, i)
+            try:
+                hou.hda.expandToDirectory(in_hda, out_dir)
+                print('Expanded HDA: {}'.format(i))
+            except:
+                print('Error expanding {}: {}'.format(i, traceback.format_exc()))
+
+
 """ WEB SERVER STUFF FOR LAUNCHING FEEDBACK WINDOW """
 
 """ NONE OF THIS SHIT WORKS YET, IGNORE IT UNTIL I CAN UNDERSTAND WHAT'S EVEN HAPPENING """
