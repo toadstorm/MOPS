@@ -354,7 +354,7 @@ def update_houdini_env(env_file, analytics=False):
                 elif line.lower().startswith('houdini_path'):
                     has_houdini_path = True
                     if has_mops_var:
-                        paths = line.split('=')[-1].strip().split(separator)
+                        paths = line.split('=')[-1].strip('"').strip().split(separator)
                         if paths:
                             if "$mops" not in [f.lower() for f in paths]:
                                 # insert mops variable into houdini_path
@@ -371,7 +371,7 @@ def update_houdini_env(env_file, analytics=False):
                 # add houdini_path env var
                 env_text.append("HOUDINI_PATH = $MOPS" + separator + "&\n")
             if analytics and not has_analytics_var:
-                env_text.append("MOPS_ALLOW_ANALYTICS = 1\n")
+                env_text.append("\nMOPS_ALLOW_ANALYTICS = 1\n")
 
         if not has_mops_var:
             hou.ui.displayMessage('$MOPS not found in houdini.env! Aborting.')
