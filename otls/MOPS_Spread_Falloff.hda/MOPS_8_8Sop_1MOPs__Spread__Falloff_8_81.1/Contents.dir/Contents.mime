@@ -50,7 +50,7 @@ inputs
 stat
 {
   create 1546494542
-  modify 1546496442
+  modify 1546576876
   author Henry@LAPPY586
   access 0777
 }
@@ -516,7 +516,7 @@ vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 folder1	[ 0	locks=0 ]	(	0	0	)
-spread	[ 0	locks=0 ]	(	[ spread	0.84999999999999998 ] 	)
+spread	[ 0	locks=0 ]	(	[ spread	1.3180000000000001 ] 	)
 falloff_width	[ 0	locks=0 ]	(	[ falloff_width	0.091999999999999998 ] 	)
 }
 
@@ -562,7 +562,7 @@ inputs
 stat
 {
   create 1535601794
-  modify 1546494683
+  modify 1546495415
   author Henry@LAPPY586
   access 0777
 }
@@ -7764,8 +7764,8 @@ auto_min_max	[ 0	locks=0 ]	(	[ auto_min_max	0 ] 	)
 frame	[ 0	locks=0 ]	(	[ frame	124 ] 	)
 imin	[ 0	locks=0 ]	(	[ imin	0 ] 	)
 imax	[ 0	locks=0 ]	(	[ imax	1 ] 	)
-omin	[ 0	locks=0 ]	(	[ omin	0 ] 	)
-omax	[ 0	locks=0 ]	(	[ omax	1 ] 	)
+omin	[ 0	locks=0 ]	(	[ omin	1 ] 	)
+omax	[ 0	locks=0 ]	(	[ omax	0 ] 	)
 remap_falloff	[ 0	locks=0 ]	(	[ remap_falloff	2 ] 	)
 falloff_heatmap1pos	[ 0	locks=0 ]	(	0	)
 falloff_heatmap1c	[ 0	locks=0 ]	(	0.036199998110532761	0	0.5429999828338623	)
@@ -7954,7 +7954,7 @@ Content-Type: text/plain
 version 0.8
 mode	[ 0	locks=0 ]	(	0	)
 folder0	[ 0	locks=0 ]	(	0	)
-frame	[ 0	locks=0 ]	(	[ frame	83 ] 	)
+frame	[ 0	locks=0 ]	(	[ frame	1 ] 	)
 searchradius	[ 0	locks=0 ]	(	[ searchradius	1 ] 	)
 uniformradius	[ 0	locks=0 ]	(	"on"	)
 maxsearchpoints	[ 0	locks=0 ]	(	[ maxsearchpoints	10 ] 	)
@@ -8330,6 +8330,88 @@ vis_data0	[ 0	locks=0 ]	(	"{
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/visualize3.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/transfer_spread_to_nearest.init"
+Content-Type: text/plain
+
+type = attribwrangle
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/transfer_spread_to_nearest.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -0.759729 -2.74922
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+2 "output1"
+}
+inputsNamed3
+{
+0 	MOPS_Neighbors 1 1 "input1"
+1 	findshortestpath2 1 1 "input2"
+}
+inputs
+{
+0 	MOPS_Neighbors 0 1
+1 	findshortestpath2 0 1
+}
+stat
+{
+  create 1546576717
+  modify 1546576943
+  author Henry@LAPPY586
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/transfer_spread_to_nearest.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+folder0	[ 0	locks=0 ]	(	0	0	)
+group	[ 0	locks=0 ]	(	""	)
+grouptype	[ 0	locks=0 ]	(	"guess"	)
+class	[ 0	locks=0 ]	(	"point"	)
+vex_numcount	[ 0	locks=0 ]	(	10	)
+vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
+snippet	[ 0	locks=0 ]	(	"int nearpt = nearpoint(1, @P);
+float spread = point(1, \"__spread\", nearpt);
+@__spread = spread;"	)
+exportlist	[ 0	locks=0 ]	(	*	)
+vex_strict	[ 0	locks=0 ]	(	"off"	)
+autobind	[ 0	locks=0 ]	(	"on"	)
+bindings	[ 0	locks=0 ]	(	0	)
+groupautobind	[ 0	locks=0 ]	(	"on"	)
+groupbindings	[ 0	locks=0 ]	(	0	)
+vex_cwdpath	[ 0	locks=0 ]	(	.	)
+vex_outputmask	[ 0	locks=0 ]	(	*	)
+vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
+vex_matchattrib	[ 0	locks=0 ]	(	id	)
+vex_inplace	[ 0	locks=0 ]	(	"off"	)
+vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/transfer_spread_to_nearest.userdata"
 Content-Type: text/plain
 
 {
@@ -9616,18 +9698,18 @@ outputsNamed3
 }
 inputsNamed3
 {
-2 	attribtransfer2 1 1 "input1"
+2 	transfer_spread_to_nearest 2 1 "input1"
 0 	findshortestpath1 1 1 "input2"
 }
 inputs
 {
-0 	attribtransfer2 0 1
+0 	transfer_spread_to_nearest 0 1
 1 	findshortestpath1 0 1
 }
 stat
 {
   create 1542260756
-  modify 1546494824
+  modify 1546576871
   author Henry@LAPPY586
   access 0777
 }
@@ -10000,7 +10082,7 @@ Content-Type: text/plain
 {
 version 0.8
 method	[ 0	locks=0 ]	(	"byframe"	)
-frame	[ 8	locks=0 ]	(	[ frame	83 ] 	)
+frame	[ 8	locks=0 ]	(	[ frame	1 ] 	)
 integerframe	[ 0	locks=0 ]	(	"off"	)
 time	[ 0	locks=0 ]	(	[ time	0 ] 	)
 rangeclamp	[ 0	locks=0 ]	(	"none"	)
@@ -10294,89 +10376,6 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribtransfer2.init"
-Content-Type: text/plain
-
-type = attribtransfer
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribtransfer2.def"
-Content-Type: text/plain
-
-sopflags sopflags = 
-comment ""
-position -1.26299 -2.52792
-connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
-outputsNamed3
-{
-1 "output1"
-}
-inputsNamed3
-{
-0 	MOPS_Neighbors 1 1 "input1"
-2 	findshortestpath2 1 1 "input2"
-}
-inputs
-{
-0 	MOPS_Neighbors 0 1
-1 	findshortestpath2 0 1
-}
-stat
-{
-  create 1546494824
-  modify 1546495128
-  author Henry@LAPPY586
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribtransfer2.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-srcgroups	[ 0	locks=0 ]	(	""	)
-srcgrouptype	[ 0	locks=0 ]	(	"primitive"	)
-dstgroups	[ 0	locks=0 ]	(	""	)
-dstgrouptype	[ 0	locks=0 ]	(	"primitive"	)
-cardswitcher	[ 0	locks=0 ]	(	1	1	)
-detailattribs	[ 0	locks=0 ]	(	"off"	)
-detailattriblist	[ 0	locks=0 ]	(	""	)
-primitiveattribs	[ 0	locks=0 ]	(	"off"	)
-primattriblist	[ 0	locks=0 ]	(	""	)
-pointattribs	[ 0	locks=0 ]	(	"on"	)
-pointattriblist	[ 0	locks=0 ]	(	__spread	)
-vertexattribs	[ 0	locks=0 ]	(	"off"	)
-vertexattriblist	[ 0	locks=0 ]	(	""	)
-copyvariable	[ 0	locks=0 ]	(	"on"	)
-matchpattrib	[ 0	locks=0 ]	(	"off"	)
-kernel	[ 0	locks=0 ]	(	elendt	)
-kernelradius	[ 0	locks=0 ]	(	10	)
-maxsamplecount	[ 0	locks=0 ]	(	1	)
-threshold	[ 0	locks=0 ]	(	"on"	)
-thresholddist	[ 0	locks=0 ]	(	10	)
-blendwidth	[ 0	locks=0 ]	(	0	)
-uniformbias	[ 0	locks=0 ]	(	0.5	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribtransfer2.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"17.0.416"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/add1.init"
 Content-Type: text/plain
 
@@ -10538,8 +10537,8 @@ switch_has_no_id
 enumerate1
 switch_has_no_id1
 enumerate2
-attribtransfer2
 add1
+transfer_spread_to_nearest
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"
