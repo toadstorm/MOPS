@@ -32,22 +32,27 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.85718 3.97162
-connectornextid 0
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+position -5.03108 -42.9167
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
+0 "output1"
 }
 inputsNamed3
 {
+1 	enable_material_overrides 1 1 "input1"
+2 	define_local_user_transforms 1 1 "input2"
 }
 inputs
 {
+0 	enable_material_overrides 0 1
+1 	define_local_user_transforms 0 1
 }
 stat
 {
-  create 1543605057
-  modify 1543605066
+  create 1547069120
+  modify 1547069231
   author Henry@LAPPY586
   access 0777
 }
@@ -108,7 +113,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1543605057
+  modify 1547069121
   author Henry@LAPPY586
   access 0777
 }
@@ -426,7 +431,7 @@ Content-Type: text/plain
 {
 version 0.8
 folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
-group	[ 0	locks=0	autoscope=1 ]	(	[ group	@mops_falloff>0 ] 	)
+group	[ 0	locks=0	autoscope=1 ]	(	[ group	"" ] 	)
 grouptype	[ 0	locks=0	autoscope=0 ]	(	[ grouptype	0 ] 	)
 class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
@@ -578,9 +583,9 @@ do_translate	[ 0	locks=0	autoscope=0 ]	(	[ do_translate	1 ] 	)
 do_rotate	[ 0	locks=0	autoscope=0 ]	(	[ do_rotate	1 ] 	)
 do_scale	[ 0	locks=0	autoscope=0 ]	(	[ do_scale	1 ] 	)
 do_weight	[ 0	locks=0	autoscope=0 ]	(	[ do_weight	1 ] 	)
-rotate_mode	[ 0	locks=0	autoscope=0 ]	(	[ rotate_mode	0 ] 	)
+rotate_mode	[ 0	locks=0	autoscope=0 ]	(	[ rotate_mode	1 ] 	)
 scale_mode	[ 0	locks=0	autoscope=0 ]	(	[ scale_mode	0 ] 	)
-local_space	[ 0	locks=0	autoscope=0 ]	(	[ local_space	1 ] 	)
+local_space	[ 0	locks=0	autoscope=0 ]	(	[ local_space	0 ] 	)
 rotate_order	[ 0	locks=0	autoscope=0 ]	(	[ rotate_order	0 ] 	)
 }
 
@@ -626,7 +631,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1543605057
+  modify 1547069121
   author Henry@LAPPY586
   access 0777
 }
@@ -708,7 +713,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1543605057
+  modify 1547069121
   author Henry@LAPPY586
   access 0777
 }
@@ -857,7 +862,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1543605057
+  modify 1547069121
   author Henry@LAPPY586
   access 0777
 }
@@ -1116,7 +1121,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1529358497
+  modify 1547069194
   author Henry@LAPPY586
   access 0777
 }
@@ -1134,14 +1139,7 @@ Content-Type: text/plain
       lefttype = extend
       righttype = extend
       flags = 0
-      segment { options = {	 autoslope  ai ao }
-
-	 length = 0 accel = 0.33333333333333331 0.33333333333333331 expr = "n = hou.node(\"../attribcopy1\")
-p = n.parm(\"attribname\").eval()
-
-if not p or p == \"\":
-    return 0
-return 1" language = python }
+      segment { length = 0 expr = ch(\"../do_copy_attrs\") }
     }
   }
 
@@ -1151,7 +1149,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0	autoscope=1 ]	(	[ input	0 ] 	)
+input	[ 8	locks=0	autoscope=1 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1198,7 +1196,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1543605057
+  modify 1547069121
   author Henry@LAPPY586
   access 0777
 }
@@ -1226,7 +1224,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0	autoscope=0 ]	(	[ input	1 ] 	)
+input	[ 0	locks=0	autoscope=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
