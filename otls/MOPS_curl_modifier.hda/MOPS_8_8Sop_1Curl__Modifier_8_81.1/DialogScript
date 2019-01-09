@@ -197,6 +197,23 @@
             parmtag { "autoscope" "0000000000000000" }
         }
         parm {
+            name    "attribname"
+            label   "Update Attributes"
+            type    string
+            default { "mops_falloff" }
+            menutoggle {
+                [ "opmenu -l advect_curl/d/s/update_attrs attribname" ]
+            }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "sop_input" "2else1" }
+        }
+        parm {
+            name    "sepparm2"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
             name    "startframe"
             label   "Start Frame"
             type    integer
