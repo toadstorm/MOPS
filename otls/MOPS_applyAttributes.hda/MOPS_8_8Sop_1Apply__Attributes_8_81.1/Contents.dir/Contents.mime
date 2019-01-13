@@ -32,27 +32,27 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -5.03108 -42.9167
+position -19.866 -17.0087
 connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-0 "output1"
+2 "output1"
 }
 inputsNamed3
 {
-1 	enable_material_overrides 1 1 "input1"
-2 	define_local_user_transforms 1 1 "input2"
+0 	MOPs_Reorient1 2 1 "input1"
+1 	MOPs_Extract_Attributes1 1 1 "input2"
 }
 inputs
 {
-0 	enable_material_overrides 0 1
-1 	define_local_user_transforms 0 1
+0 	MOPs_Reorient1 0 1
+1 	MOPs_Extract_Attributes1 0 1
 }
 stat
 {
-  create 1547069120
-  modify 1547069231
+  create 1547174604
+  modify 1547414362
   author Henry@LAPPY586
   access 0777
 }
@@ -93,7 +93,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.827829 4.46475
+position -1.02361 4.18507
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -113,7 +113,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1547069121
+  modify 1547361557
   author Henry@LAPPY586
   access 0777
 }
@@ -458,7 +458,6 @@ if( haspointattrib(0, \"mops_falloff\") ) {
     weight = point(0, \"mops_falloff\", @ptnum);
 }
     
-
 // default values if attribs don't exist
 if(!haspointattrib(1, \"scale\")) {
     scale2 = {1,1,1};
@@ -490,9 +489,6 @@ if(!doWeight) {
 // if \"euler\" attribute exists, created by a Transform Modifier,
 // use this instead of orient2 to help with falloff.
 if(!haspointattrib(1, \"euler\")) {
-    //vector angleaxis = qconvert(orient2);
-    //angleaxis *= weight;
-    //orient2 = quaternion(angleaxis);
     orient2 = slerp(orient, orient2, weight);
 } else {
     vector euler = point(1, \"euler\", matchpt);
@@ -533,6 +529,7 @@ if(haspointattrib(0, \"mops_orient\")) {
     mops_orient = point(0, \"mops_orient\", @ptnum);
 }
 
+
 if(doR) {
     if(Rmode == 0) {
         // accumulate rotation
@@ -545,19 +542,21 @@ if(doR) {
             out_orient = qmultiply(orient2, orient);
         }
         orient = out_orient;
+        // re-apply mops_orient.
+        if(local) {
+            orient = qmultiply(mops_orient, orient);
+        }
     } else {
         // set rotation directly
-        // orient = slerp(orient, orient2, weight);
-        orient = orient2;
+        orient = qmultiply(orient2, qinvert(mops_orient));
     }
-    // re-apply mops_orient.
-    if(local) {
-        orient = qmultiply(mops_orient, orient);
-    }
+   
 }
 if(doT) {
     @P = lerp(@P, P2, weight);
 }
+
+p@__out_orient = orient;
 
 // generate output matrix.
 matrix3 out = ident();
@@ -585,7 +584,7 @@ do_scale	[ 0	locks=0	autoscope=0 ]	(	[ do_scale	1 ] 	)
 do_weight	[ 0	locks=0	autoscope=0 ]	(	[ do_weight	1 ] 	)
 rotate_mode	[ 0	locks=0	autoscope=0 ]	(	[ rotate_mode	1 ] 	)
 scale_mode	[ 0	locks=0	autoscope=0 ]	(	[ scale_mode	0 ] 	)
-local_space	[ 0	locks=0	autoscope=0 ]	(	[ local_space	0 ] 	)
+local_space	[ 0	locks=0	autoscope=0 ]	(	[ local_space	1 ] 	)
 rotate_order	[ 0	locks=0	autoscope=0 ]	(	[ rotate_order	0 ] 	)
 }
 
@@ -1224,7 +1223,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0	autoscope=0 ]	(	[ input	0 ] 	)
+input	[ 0	locks=0	autoscope=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
