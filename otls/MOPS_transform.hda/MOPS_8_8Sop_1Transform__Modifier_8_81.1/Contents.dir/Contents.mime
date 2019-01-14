@@ -32,22 +32,25 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 7.4284 2.61651
-connectornextid 0
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+position -7.12389 -3.54818
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
+1 "output1"
 }
 inputsNamed3
 {
+0 	MOPs_Reorient 2 1 "input1"
 }
 inputs
 {
+0 	MOPs_Reorient 0 1
 }
 stat
 {
-  create 1543604902
-  modify 1543604906
+  create 1547077576
+  modify 1547158763
   author Henry@LAPPY586
   access 0777
 }
@@ -105,7 +108,7 @@ inputs
 stat
 {
   create 1524060453
-  modify 1543604902
+  modify 1547158755
   author Henry@LAPPY586
   access 0777
 }
@@ -426,6 +429,12 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = chs(\"../vexpression\") }
     }
+    channel do_vexpression {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../do_vexpression\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -444,24 +453,24 @@ snippet	[ 0	locks=0	autoscope=0 ]	(	"// transform incoming points.
 // rotation can be set explicitly or added to.
 
 // user inputs.
-vector T = chv(\"translate\");
-vector R = chv(\"rotate\");
-vector S = chv(\"scale\");
-float U = ch(\"uniform_scale\");
+vector translate = chv(\"translate\");
+vector rotate = chv(\"rotate\");
+vector scale = chv(\"scale\");
+float pscale = ch(\"uniform_scale\");
 int local = chi(\"local\");
 
 // VEXpression
 
-`ifs(chi(\"do_vexpression\"), chs(\"vexpression\"), \"\")`;
+`ifs(ch(\"do_vexpression\"), chs(\"vexpression\"), \"\")`
 
 // convert euler rotations to orient quaternion.
-vector4 orient = eulertoquaternion(radians(R), 0);
+vector4 orient = eulertoquaternion(radians(rotate), 0);
 // also store eulers in case of flipping rotations due to falloff later.
-v@euler = R;
+v@euler = rotate;
 
 // set attributes.
-v@scale = S;
-@pscale = U;
+v@scale = scale;
+@pscale = pscale;
 p@orient = orient;
 
 vector4 mops_orient = quaternion(ident());
@@ -475,10 +484,10 @@ if(local) {
     matrix3 m = primintrinsic(0, \"transform\", @ptnum);
     vector4 rot = quaternion(m);
     rot = qmultiply(mops_orient, rot);
-    T = qrotate(rot ,T);
+    translate = qrotate(rot, translate);
 }
 
-v@P += T;"	)
+v@P += translate;"	)
 exportlist	[ 0	locks=0	autoscope=0 ]	(	*	)
 vex_strict	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 autobind	[ 0	locks=0	autoscope=0 ]	(	"on"	)
@@ -493,11 +502,11 @@ vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 uniform_scale	[ 0	locks=0	autoscope=0 ]	(	[ uniform_scale	1 ] 	)
-translate	[ 0	locks=0	autoscope=0 ]	(	[ translatex	0 ] 	[ translatey	0 ] 	[ translatez	0 ] 	)
+translate	[ 0	locks=0	autoscope=0 ]	(	[ translatex	0 ] 	[ translatey	0 ] 	[ translatez	0.40999999999999998 ] 	)
 rotate	[ 0	locks=0	autoscope=0 ]	(	[ rotatex	0 ] 	[ rotatey	0 ] 	[ rotatez	0 ] 	)
 scale	[ 0	locks=0	autoscope=0 ]	(	[ scalex	1 ] 	[ scaley	1 ] 	[ scalez	1 ] 	)
 local	[ 0	locks=0	autoscope=0 ]	(	[ local	1 ] 	)
-do_vexpression	[ 0	locks=0 ]	(	"off"	)
+do_vexpression	[ 0	locks=0 ]	(	[ do_vexpression	1 ] 	)
 vexpression	[ 0	locks=0 ]	(	[ vexpression	"// translate = {0,0,0};
 // rotate = {0,0,0};
 // scale = {1,1,1};
@@ -549,7 +558,7 @@ inputs
 stat
 {
   create 1543210695
-  modify 1543604902
+  modify 1547077576
   author Henry@LAPPY586
   access 0777
 }
@@ -631,6 +640,7 @@ scale_mode	[ 0	locks=0	autoscope=0 ]	(	[ scale_mode	0 ] 	)
 rotate_order	[ 0	locks=0	autoscope=0 ]	(	[ rotate_order	0 ] 	)
 local_space	[ 0	locks=0	autoscope=0 ]	(	[ local_space	1 ] 	)
 do_make_id	[ 0	locks=0 ]	(	"on"	)
+do_copy_attrs	[ 0	locks=0 ]	(	"off"	)
 attribname	[ 0	locks=0 ]	(	""	)
 }
 
@@ -676,7 +686,7 @@ inputs
 stat
 {
   create 1524060453
-  modify 1543604902
+  modify 1547077576
   author Henry@LAPPY586
   access 0777
 }
@@ -985,7 +995,7 @@ inputs
 stat
 {
   create 1524060453
-  modify 1543604902
+  modify 1547077576
   author Henry@LAPPY586
   access 0777
 }
@@ -1328,7 +1338,7 @@ inputs
 stat
 {
   create 1524060453
-  modify 1543604903
+  modify 1547077577
   author Henry@LAPPY586
   access 0777
 }
@@ -2638,7 +2648,7 @@ inputs
 stat
 {
   create 1524060453
-  modify 1543604902
+  modify 1547077576
   author Henry@LAPPY586
   access 0777
 }
@@ -2720,7 +2730,7 @@ inputs
 stat
 {
   create 1524060453
-  modify 1543604902
+  modify 1547077576
   author Henry@LAPPY586
   access 0777
 }
