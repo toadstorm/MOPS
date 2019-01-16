@@ -2,11 +2,15 @@
 
 #icon: opdef:.?mops_misc_05.svg
 
-"""Turns each polygon in a geometry into an individual MOPs instance."""
+"""Splits polygon primitives into individual MOPs packed primitives."""
 
-Known Limitations: This node can produce errors in Houdini's viewport shading of newly created MOPs instances.
+MOPs Explode breaks a polygon mesh apart into MOPs primitives, so that each primitive/face can be moved individually. 
+You can optionally use a primitive attribute or K-means clustering to create grouped "chunks" instead of breaking apart every face.
 
-If you'd like to use MOPs tools on a geometry's polygons, use this node to turn the geometry into individual MOPs instances.
+This operator works in three steps: first, an orientation frame is computed on the source object. Next, the object is split into MOPs primitives
+based on either the primitive numbers, a primitive attribute, or K-means clustering (via the Cluster SOP). Finally, the orientation from
+the original mesh points is transferred onto the MOPs primitives as the p@mops_orient attribute, which makes the generated pieces
+follow the orientation of the source mesh as much as possible.
 
 == Overview ==
 
@@ -19,39 +23,65 @@ Geometry:
 
 == General ==
 
-Recalculate Input Normals:
-    #id: docalcnorm
-
-    Recalculates the geometry's input normals before converting geo to instances.
+Compute Source Orient:
+    #id: compute_orient
+    Compute the orientation frame of the input mesh. If your mesh doesn't already have a p@orient attribute, this should be enabled.
     
-Preserve Falloff:
-    #id: preservefalloff
-
-    Preserves falloff values that exist on the input geometry's primitives (f@mops_falloff).
+== Compute Source Orient ==
     
-Manual Up Vector:
-    #id: manual_up
-
-    Use a manually set up vector to generate each individual instance's local coordinate system.
+Compute N/Up:
+    #id: compute_N_up
+    Compute normal and up vectors on the input mesh, to be used in creating the orientation frame.
     
-Up Vector:
-    #id: Up_Vector
-
-    Up Vector to use when calculating instance's local coordinate system..
+Style:
+    #id: style
+    The method by which the initial N and up vectors are computed. See the Polyframe SOP for details.
+    
+Attribute Name:
+    #id: attribname
+    If Style is set to "Texture UV", the vector point attribute to read to determine the directionality of the tangent and bitangent vectors.
+    
+Custom Up Vector:
+    #id: custom_up_vector
+    If enabled, use this up vector instead of the one computed via the above parameters.
     
 Invert Normal:
-    #id: doinvertnormal
+    #id: invert_N
+    Invert the computed normal.
+    
+Invert Up:
+    #id: invert_up
+    Invert the computed up vector.
+    
+==  Define Pieces ==
 
-    Invert instance's normal.
-                    
-@related
+Method:
+    #id: piece_method
+    The method by which pieces are split up.
+        * Primitive Number: each primitive becomes its own MOPs packed primitive.
+        * Piece Attribute: The primitive attribute to use to differentiate pieces. Each unique attribute value gets its own MOPs primitive.
+        * Clustering: Use K-means clustering to naturally group primitives into chunks. See the Cluster SOP for details.
+Piece Attribute:
+    #id: piece_attribute
+    The attribute to use for determining pieces if the Method is set to Piece Attribute.
+    
+Id Offset:
+    #id: id_offset
+    The starting value for generated piece i@id attributes.
+    
+Name Prefix:
+    #id: name_prefix
+    The prefix to use as the basis for the s@name attribute of each piece. This can be used to ensure packed primitives from multiple
+    streams all have unique names.
+    
+Visualize Pieces:
+    #id: do_viz_pieces
+    Apply a color attribute to the pieces before packing in order to better differentiate the generated pieces.
+    
+Visualization Seed:
+    #id: viz_seed
+    The seed to use for generating random colors.
+    
+== Transfer Orient ==
 
-* [Node:sop/MOPs_Combine_Falloffs]
-* [Node:sop/MOPs_Object_Falloff]
-* [Node:sop/MOPs_Plain_Falloff]
-* [Node:sop/MOPs_Remap_Falloff]
-* [Node:sop/MOPs_Shape_Falloff]
-* [Node:sop/MOPs_Spline_Falloff]
-* [Node:sop/MOPs_Texture_Falloff]
-* [Node:sop/MOPs_Index_From_Attribute]
-* [Node:sop/MOPs_Transform_Falloffs]
+See the Attribute Transfer SOP for details.

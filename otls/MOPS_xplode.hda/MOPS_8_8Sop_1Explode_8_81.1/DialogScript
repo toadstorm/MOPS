@@ -16,13 +16,14 @@
 
     parm {
         name    "compute_orient"
-        label   "(Re)compute Orient"
+        label   "Compute Source Orient"
         type    toggle
-        default { "0" }
+        default { "1" }
     }
     group {
         name    "folder0"
         label   "Compute Source Orient"
+        disablewhentab "{ compute_orient 0 }"
 
         parm {
             name    "compute_N_up"
@@ -39,12 +40,10 @@
             default { "edge2" }
             disablewhen "{ compute_N_up == 0 }"
             menu {
-                "edge1"     "First Edge"
-                "edge2"     "Two Edges"
-                "primC"     "Primitive Centroid"
-                "texuv"     "Texture UV"
-                "tex"       "Texture UV Gradient"
-                "attrib"    "Attribute Gradient"
+                "edge1" "First Edge"
+                "edge2" "Two Edges"
+                "primC" "Primitive Centroid"
+                "texuv" "Texture UV"
             }
             parmtag { "autoscope" "0000000000000000" }
         }
@@ -116,6 +115,21 @@
             type    string
             default { "name" }
             disablewhen "{ piece_method != 1 }"
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "id_offset"
+            label   "Id Offset"
+            type    integer
+            default { "0" }
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "name_prefix"
+            label   "Name Prefix"
+            type    string
+            default { "piece" }
             parmtag { "autoscope" "0000000000000000" }
         }
         parm {
