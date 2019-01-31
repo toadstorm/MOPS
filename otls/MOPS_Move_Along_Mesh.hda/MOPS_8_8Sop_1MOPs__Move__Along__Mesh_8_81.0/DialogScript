@@ -21,28 +21,6 @@
         default { "" }
     }
     group {
-        name    "folder2"
-        label   "Source Mesh"
-
-        parm {
-            name    "do_polyframe"
-            label   "Compute Normal / Up"
-            type    toggle
-            default { "0" }
-            range   { 0! 10 }
-            parmtag { "autoscope" "0000000000000000" }
-        }
-        parm {
-            name    "ref_frame"
-            label   "Reference Frame"
-            type    float
-            default { "$FSTART" }
-            range   { 0 10 }
-            parmtag { "autoscope" "0000000000000000" }
-        }
-    }
-
-    group {
         name    "folder2_1"
         label   "Attach"
 
@@ -60,10 +38,18 @@
             parmtag { "autoscope" "0000000000000000" }
         }
         parm {
-            name    "do_rotate"
-            label   "Align to Surface"
+            name    "do_polyframe"
+            label   "Compute Normal / Up"
             type    toggle
-            default { "on" }
+            default { "0" }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "ref_frame"
+            label   "Attach Time"
+            type    float
+            default { "$FSTART" }
             range   { 0 10 }
             parmtag { "autoscope" "0000000000000000" }
         }
@@ -467,9 +453,17 @@
     }
 
     group {
-        name    "folder2_2"
-        label   "Move"
+        name    "folder2_1_1"
+        label   "Animate"
 
+        parm {
+            name    "do_rotate"
+            label   "Align to Surface"
+            type    toggle
+            default { "on" }
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
         parm {
             name    "do_move"
             label   "Enable Move"
@@ -495,66 +489,17 @@
             parmtag { "autoscope" "0000000000000000" }
         }
         parm {
+            name    "sepparm"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
             name    "do_relax"
             label   "Enable Relax"
             type    toggle
             default { "0" }
             range   { 0! 10 }
-            parmtag { "autoscope" "0000000000000000" }
-        }
-        parm {
-            name    "group2"
-            label   "Points to Relax"
-            type    string
-            default { "" }
-            menutoggle {
-                [ "opmenu -l solver1/d/s/relax1 group" ]
-            }
-            parmtag { "autoscope" "0000000000000000" }
-            parmtag { "script_action" "import soputils\nkwargs['geometrytype'] = (hou.geometryType.Points,)\nkwargs['inputindex'] = 0\nsoputils.selectGroupParm(kwargs)" }
-            parmtag { "script_action_help" "Select geometry from an available viewport.\nShift-click to turn on Select Groups." }
-            parmtag { "script_action_icon" "BUTTONS_reselect" }
-        }
-        parm {
-            name    "influencegroup"
-            label   "Influencing Points"
-            type    string
-            default { "" }
-            menutoggle {
-                [ "opmenu -l solver1/d/s/relax1 influencegroup" ]
-            }
-            parmtag { "autoscope" "0000000000000000" }
-            parmtag { "script_action" "import soputils\nkwargs['geometrytype'] = (hou.geometryType.Points,)\nkwargs['inputindex'] = 0\nsoputils.selectGroupParm(kwargs)" }
-            parmtag { "script_action_help" "Select geometry from an available viewport.\nShift-click to turn on Select Groups." }
-            parmtag { "script_action_icon" "BUTTONS_reselect" }
-        }
-        parm {
-            name    "maxiterations"
-            label   "Max Iterations"
-            type    integer
-            default { "10" }
-            range   { 0! 100 }
-            parmtag { "autoscope" "0000000000000000" }
-        }
-        parm {
-            name    "radius"
-            label   "Point Radius Scale"
-            type    float
-            default { "1" }
-            range   { 0.001 1000 }
-            parmtag { "autoscope" "0000000000000000" }
-        }
-        parm {
-            name    "scale_axis"
-            label   "Pscale Axis"
-            type    integer
-            default { "0" }
-            menu {
-                "0" "X"
-                "1" "Y"
-                "2" "Z"
-            }
-            range   { 0 1 }
             parmtag { "autoscope" "0000000000000000" }
         }
         parm {
@@ -564,6 +509,68 @@
             default { "off" }
             parmtag { "autoscope" "0000000000000000" }
         }
+        group {
+            name    "folder0"
+            label   "Relax"
+            hidewhentab "{ do_relax 0 }"
+
+            parm {
+                name    "group2"
+                label   "Points to Relax"
+                type    string
+                default { "" }
+                menutoggle {
+                    [ "opmenu -l solver1/d/s/relax1 group" ]
+                }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_action" "import soputils\nkwargs['geometrytype'] = (hou.geometryType.Points,)\nkwargs['inputindex'] = 0\nsoputils.selectGroupParm(kwargs)" }
+                parmtag { "script_action_help" "Select geometry from an available viewport.\nShift-click to turn on Select Groups." }
+                parmtag { "script_action_icon" "BUTTONS_reselect" }
+            }
+            parm {
+                name    "influencegroup"
+                label   "Influencing Points"
+                type    string
+                default { "" }
+                menutoggle {
+                    [ "opmenu -l solver1/d/s/relax1 influencegroup" ]
+                }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_action" "import soputils\nkwargs['geometrytype'] = (hou.geometryType.Points,)\nkwargs['inputindex'] = 0\nsoputils.selectGroupParm(kwargs)" }
+                parmtag { "script_action_help" "Select geometry from an available viewport.\nShift-click to turn on Select Groups." }
+                parmtag { "script_action_icon" "BUTTONS_reselect" }
+            }
+            parm {
+                name    "maxiterations"
+                label   "Max Iterations"
+                type    integer
+                default { "10" }
+                range   { 0! 100 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "radius"
+                label   "Point Radius Scale"
+                type    float
+                default { "1" }
+                range   { 0.001 1000 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "scale_axis"
+                label   "Pscale Axis"
+                type    integer
+                default { "0" }
+                menu {
+                    "0" "X"
+                    "1" "Y"
+                    "2" "Z"
+                }
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+        }
+
         parm {
             name    "vexpression"
             label   "VEXpression"

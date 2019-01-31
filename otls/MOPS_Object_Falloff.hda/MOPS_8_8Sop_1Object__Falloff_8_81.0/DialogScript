@@ -202,6 +202,7 @@
                 "2" "Inside & Outside"
                 "3" "Inside & Outside (signed)"
                 "4" "Volume Sample"
+                "5" "Point Cloud"
             }
             range   { 0! 10 }
             parmtag { "autoscope" "0000000000000000" }
@@ -211,7 +212,7 @@
             label   "(Re)Calculate Normals"
             type    toggle
             default { "0" }
-            disablewhen "{ input2 == 4 }"
+            disablewhen "{ input2 >= 4 }"
             range   { 0! 10 }
             parmtag { "autoscope" "0000000000000000" }
         }
@@ -247,9 +248,76 @@
             range   { 0 10 }
             parmtag { "autoscope" "0000000000000000" }
         }
-        groupsimple {
+        group {
+            name    "folder5"
+            label   "Point Cloud"
+            hidewhen "{ input2 != 5 }"
+
+            parm {
+                name    "kernel"
+                label   "Kernel Function"
+                type    string
+                default { "elendt" }
+                menu {
+                    [ "opmenu -l attribtransfer1 kernel" ]
+                }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "kernelradius"
+                label   "Kernel Radius"
+                type    float
+                default { "10" }
+                range   { 0.1 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "maxsamplecount"
+                label   "Max Sample Count"
+                type    integer
+                default { "10" }
+                range   { 1! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "threshold"
+                label   "Label"
+                type    toggle
+                nolabel
+                joinnext
+                default { "on" }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "thresholddist"
+                label   "Distance Threshold"
+                type    float
+                default { "0.1" }
+                range   { 0 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "blendwidth"
+                label   "Blend Width"
+                type    float
+                default { "0.1" }
+                range   { 0 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "uniformbias"
+                label   "Uniform Bias"
+                type    float
+                default { "0.5" }
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+        }
+
+        group {
             name    "folder3"
             label   "Transform"
+            tabbreak
 
             parm {
                 name    "t"
