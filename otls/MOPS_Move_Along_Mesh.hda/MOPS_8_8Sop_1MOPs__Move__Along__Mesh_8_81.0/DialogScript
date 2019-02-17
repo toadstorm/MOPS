@@ -481,6 +481,30 @@
             parmtag { "autoscope" "0000000000000000" }
         }
         parm {
+            name    "random_speed"
+            label   "Randomize Speed"
+            type    float
+            default { "0" }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "seed2"
+            label   "Random Seed"
+            type    float
+            default { "0" }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "aim_weight"
+            label   "Aim Weight"
+            type    float
+            default { "0.1" }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
             name    "maxdist"
             label   "Search Distance"
             type    float
@@ -512,7 +536,7 @@
         group {
             name    "folder0"
             label   "Relax"
-            hidewhentab "{ do_relax 0 }"
+            hidewhentab "{ do_relax == 0 }"
 
             parm {
                 name    "group2"
@@ -580,6 +604,44 @@
             parmtag { "autoscope" "0000000000000000" }
             parmtag { "editor" "1" }
             parmtag { "editorlang" "vex" }
+        }
+    }
+
+    group {
+        name    "folder2_1_2"
+        label   "Solver Settings"
+
+        parm {
+            name    "startframe"
+            label   "Start Frame"
+            type    integer
+            default { "1" }
+            range   { 1 240 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "resimulate"
+            label   "Reset Simulation"
+            type    button
+            default { "0" }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "substep"
+            label   "Sub Steps"
+            type    integer
+            default { "1" }
+            range   { 1! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "cachemaxsize"
+            label   "Cache Memory (MB)"
+            type    integer
+            default { "5000" }
+            range   { 0! 1000 }
+            parmtag { "autoscope" "0000000000000000" }
         }
     }
 

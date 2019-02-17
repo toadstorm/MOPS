@@ -1,8 +1,8 @@
-# Dialog script for MOPS::Shape_Falloff::1.1 automatically generated
+# Dialog script for MOPS::Shape_Falloff::1.2 automatically generated
 
 {
-    name	MOPS::Shape_Falloff::1.1
-    script	MOPS::Shape_Falloff::1.1
+    name	MOPS::Shape_Falloff::1.2
+    script	MOPS::Shape_Falloff::1.2
     label	"MOPs Shape Falloff"
 
     help {
@@ -324,378 +324,137 @@
     }
 
     group {
-        name    "folder6_1"
+        name    "folder1"
         label   "Noise"
 
         parm {
-            name    "doNoise"
-            label   "Apply Noise"
+            name    "do_noise"
+            label   "Add Noise"
             type    toggle
             default { "0" }
             range   { 0! 10 }
             parmtag { "autoscope" "0000000000000000" }
         }
-        parm {
-            name    "useRest"
-            label   "Use Rest Position"
-            type    toggle
-            default { "on" }
-            disablewhen "{ doNoise == 0 }"
-            parmtag { "autoscope" "0000000000000000" }
-            parmtag { "parmvop" "1" }
-            parmtag { "shaderparmcontexts" "cvex" }
-        }
-        parm {
-            name    "doTimeVarying"
-            label   "Use Time-Varying Noise"
-            type    toggle
-            default { "off" }
-            disablewhen "{ doNoise == 0 }"
-            parmtag { "autoscope" "0000000000000000" }
-            parmtag { "parmvop" "1" }
-            parmtag { "shaderparmcontexts" "cvex" }
-        }
-        parm {
-            name    "timeScale"
-            label   "Time Scale"
-            type    float
-            default { "1" }
-            disablewhen "{ doNoise == 0 }"
-            range   { 0 10 }
-            parmtag { "autoscope" "0000000000000000" }
-            parmtag { "parmvop" "1" }
-            parmtag { "shaderparmcontexts" "cvex" }
-        }
-        parm {
-            name    "basis"
-            label   "Noise Type"
-            type    string
-            default { "simplex" }
-            disablewhen "{ doNoise == 0 }"
-            menu {
-                "sine"      "Sinusoid"
-                "perlin"    "Perlin"
-                "pperlin"   "Periodic Perlin"
-                "simplex"   "Simplex (Improved Perlin)"
-                "sparse"    "Sparse Convolution"
-                "flow"      "Flow"
-                "pflow"     "Periodic Flow"
-                "worleyFA"  "Worley (cellular) F1"
-                "worleyFB"  "Worley (cellular) F2-F1"
-                "mworleyFA" "Manhattan Worley (cellular) F1"
-                "mworleyFB" "Manhattan Worley (cellular) F2-F1"
-                "cworleyFA" "Chebyshev Worley (cellular) F1"
-                "cworleyFB" "Chebyshev Worley (cellular) F2-F1"
-                "alligator" "Alligator"
-            }
-            parmtag { "autoscope" "0000000000000000" }
-            parmtag { "parmvop" "1" }
-            parmtag { "shaderparmcontexts" "cvex" }
-        }
-        parm {
-            name    "freq"
-            label   "Frequency"
-            type    float
-            size    4
-            default { "1" "1" "1" "1" }
-            disablewhen "{ doNoise == 0 }"
-            range   { 0 10 }
-            parmtag { "autoscope" "0000000000000000" }
-            parmtag { "parmvop" "1" }
-            parmtag { "shaderparmcontexts" "cvex" }
-        }
-        parm {
-            name    "offset"
-            label   "Offset"
-            type    float
-            size    4
-            default { "0" "0" "0" "0" }
-            disablewhen "{ doNoise == 0 }"
-            range   { 0 10 }
-            parmtag { "autoscope" "0000000000000000" }
-            parmtag { "parmvop" "1" }
-            parmtag { "shaderparmcontexts" "cvex" }
-        }
-        parm {
-            name    "period"
-            label   "Period"
-            type    float
-            size    4
-            default { "1" "1" "1" "1" }
-            disablewhen "{ doNoise == 0 }"
-            hidewhen "{ basis != pperlin basis != pflow }"
-            range   { 0 10 }
-            parmtag { "autoscope" "0000000000000000" }
-            parmtag { "parmvop" "1" }
-            parmtag { "shaderparmcontexts" "cvex" }
-        }
-        groupsimple {
-            name    "folder1"
-            label   "Fractal"
-            disablewhen "{ doNoise == 0 }"
+        group {
+            name    "folder7"
+            label   "Noise Controls"
+            disablewhentab "{ do_noise 0 }"
 
             parm {
-                name    "fractal"
-                label   "Fractal"
-                type    string
-                default { "none" }
+                name    "input"
+                label   "Noise Type"
+                type    ordinal
+                default { "0" }
                 menu {
-                    "none"  "None"
-                    "fBm"   "Standard (fBm)"
-                    "mfT"   "Terrain"
-                    "hmfT"  "Hybrid Terrain"
+                    "0" "Perlin"
+                    "1" "Simplex"
+                    "2" "Worley (F2-F1)"
+                    "3" "Worley (F1)"
+                    "4" "Worley (F2)"
+                    "5" "Mosaic"
+                    "6" "Simplex Folded"
+                    "7" "Simplex Warped"
+                    "8" "Mix Minima"
                 }
+                range   { 0! 10 }
                 parmtag { "autoscope" "0000000000000000" }
-                parmtag { "parmvop" "1" }
-                parmtag { "shaderparmcontexts" "cvex" }
             }
             parm {
-                name    "oct"
-                label   "Max Octaves"
+                name    "use_rest"
+                label   "Use Rest Attribute"
+                type    toggle
+                default { "on" }
+                range   { 0 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "amp"
+                label   "Amplitude"
                 type    float
-                default { "8" }
-                hidewhen "{ fractal == none } { fractal == none }"
-                range   { 0 16 }
+                default { "1" }
+                range   { 0 1 }
                 parmtag { "autoscope" "0000000000000000" }
-                parmtag { "parmvop" "1" }
-                parmtag { "shaderparmcontexts" "cvex" }
             }
             parm {
-                name    "lac"
-                label   "Lacunarity"
-                type    float
-                default { "2.01234" }
-                hidewhen "{ fractal == none }"
-                range   { 0 4 }
+                name    "freq"
+                label   "Frequency"
+                type    vector4
+                size    4
+                default { "1" "1" "1" "1" }
+                range   { 0 1 }
                 parmtag { "autoscope" "0000000000000000" }
-                parmtag { "parmvop" "1" }
-                parmtag { "shaderparmcontexts" "cvex" }
             }
             parm {
-                name    "rough"
+                name    "uniform"
+                label   "Uniform"
+                type    toggle
+                default { "off" }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "roughness"
                 label   "Roughness"
                 type    float
                 default { "0.5" }
-                hidewhen "{ fractal == none }"
-                range   { 0 1 }
+                range   { 0.0001! 1 }
                 parmtag { "autoscope" "0000000000000000" }
-                parmtag { "parmvop" "1" }
-                parmtag { "shaderparmcontexts" "cvex" }
-            }
-        }
-
-        groupsimple {
-            name    "folder7"
-            label   "Warping"
-            disablewhen "{ doNoise == 0 }"
-
-            parm {
-                name    "dolwarp"
-                label   "Enable Lattice Warp"
-                type    toggle
-                default { "off" }
-                parmtag { "autoscope" "0000000000000000" }
-                parmtag { "parmvop" "1" }
-                parmtag { "shaderparmcontexts" "cvex" }
             }
             parm {
-                name    "accuml"
-                label   "Accumulate Lattice Warp"
-                type    toggle
-                default { "off" }
-                hidewhen "{ dolwarp == 0 } { fractal == none }"
-                parmtag { "autoscope" "0000000000000000" }
-                parmtag { "parmvop" "1" }
-                parmtag { "shaderparmcontexts" "cvex" }
-            }
-            parm {
-                name    "disp"
-                label   "Lattice Warp"
-                type    float
-                joinnext
-                default { "0" }
-                hidewhen "{ dolwarp == 0 }"
-                range   { -0.5 0.5 }
-                parmtag { "autoscope" "0000000000000000" }
-                parmtag { "parmvop" "1" }
-                parmtag { "shaderparmcontexts" "cvex" }
-            }
-            parm {
-                name    "dispfreq"
-                label   "Freq"
-                type    float
+                name    "octaves"
+                label   "Octaves"
+                type    integer
                 default { "1" }
-                hidewhen "{ dolwarp == 0 }"
+                range   { 1! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "offset"
+                label   "Offset"
+                type    vector4
+                size    4
+                default { "0" "0" "0" "0" }
                 range   { 0 1 }
                 parmtag { "autoscope" "0000000000000000" }
-                parmtag { "parmvop" "1" }
-                parmtag { "shaderparmcontexts" "cvex" }
             }
             parm {
-                name    "dogwarp"
-                label   "Enable Gradient Warp"
-                type    toggle
-                default { "off" }
-                parmtag { "autoscope" "0000000000000000" }
-                parmtag { "parmvop" "1" }
-                parmtag { "shaderparmcontexts" "cvex" }
-            }
-            parm {
-                name    "accumg"
-                label   "Accumulate Gradient Warp"
-                type    toggle
-                default { "off" }
-                hidewhen "{ dogwarp == 0 } { fractal == none }"
-                parmtag { "autoscope" "0000000000000000" }
-                parmtag { "parmvop" "1" }
-                parmtag { "shaderparmcontexts" "cvex" }
-            }
-            parm {
-                name    "gflow"
-                label   "Gradient Warp"
-                type    float
-                default { "0" }
-                hidewhen "{ dogwarp == 0 }"
-                range   { -0.5 0.5 }
-                parmtag { "autoscope" "0000000000000000" }
-                parmtag { "parmvop" "1" }
-                parmtag { "shaderparmcontexts" "cvex" }
-            }
-            parm {
-                name    "flowrot"
-                label   "Flow Rotation"
-                type    float
-                default { "0" }
-                hidewhen "{ basis != flow basis != pflow }"
-                range   { 0 1 }
-                parmtag { "autoscope" "0000000000000000" }
-                parmtag { "parmvop" "1" }
-                parmtag { "shaderparmcontexts" "cvex" }
-            }
-        }
-
-        groupsimple {
-            name    "folder0_1"
-            label   "Output Correction"
-            disablewhen "{ doNoise == 0 }"
-
-            parm {
-                name    "cc_fold"
-                label   "Fold"
-                type    toggle
-                default { "off" }
-                parmtag { "autoscope" "0000000000000000" }
-                parmtag { "parmvop" "1" }
-                parmtag { "shaderparmcontexts" "cvex" }
-            }
-            parm {
-                name    "cc_dobias"
-                label   "Do Bias"
-                type    toggle
-                default { "off" }
-                parmtag { "autoscope" "0000000000000000" }
-                parmtag { "parmvop" "1" }
-                parmtag { "shaderparmcontexts" "cvex" }
-            }
-            parm {
-                name    "cc_bias"
-                label   "Bias"
-                type    float
-                size    3
-                default { "0.5" "0.5" "0.5" }
-                hidewhen "{ cc_dobias == 0 }"
-                range   { 0 10 }
-                parmtag { "autoscope" "0000000000000000" }
-                parmtag { "parmvop" "1" }
-                parmtag { "shaderparmcontexts" "cvex" }
-            }
-            parm {
-                name    "cc_dogain"
-                label   "Do Gain"
-                type    toggle
-                default { "off" }
-                parmtag { "autoscope" "0000000000000000" }
-                parmtag { "parmvop" "1" }
-                parmtag { "shaderparmcontexts" "cvex" }
-            }
-            parm {
-                name    "cc_gain"
-                label   "Gain"
-                type    float
-                size    3
-                default { "0.5" "0.5" "0.5" }
-                hidewhen "{ cc_dogain == 0 }"
-                range   { 0 10 }
-                parmtag { "autoscope" "0000000000000000" }
-                parmtag { "parmvop" "1" }
-                parmtag { "shaderparmcontexts" "cvex" }
-            }
-            parm {
-                name    "cc_inv"
-                label   "Complement"
-                type    toggle
-                default { "off" }
-                parmtag { "autoscope" "0000000000000000" }
-                parmtag { "parmvop" "1" }
-                parmtag { "shaderparmcontexts" "cvex" }
-            }
-            parm {
-                name    "cc_dorng"
-                label   "Output Range (Clamped)"
-                type    toggle
-                default { "on" }
-                parmtag { "autoscope" "0000000000000000" }
-                parmtag { "parmvop" "1" }
-                parmtag { "shaderparmcontexts" "cvex" }
-            }
-            parm {
-                name    "cc_rnglo"
-                label   "New Minimum"
-                type    float
-                size    3
-                default { "-1" "-1" "-1" }
-                hidewhen "{ cc_dorng == 0 }"
-                range   { 0 10 }
-                parmtag { "autoscope" "0000000000000000" }
-                parmtag { "parmvop" "1" }
-                parmtag { "shaderparmcontexts" "cvex" }
-            }
-            parm {
-                name    "cc_rnghi"
-                label   "New Maximum"
-                type    float
+                name    "tile_size"
+                label   "Tile Size"
+                type    vector
                 size    3
                 default { "1" "1" "1" }
-                hidewhen "{ cc_dorng == 0 }"
-                range   { 0 10 }
+                disablewhen "{ input != 5 }"
+                range   { 0 1 }
                 parmtag { "autoscope" "0000000000000000" }
-                parmtag { "parmvop" "1" }
-                parmtag { "shaderparmcontexts" "cvex" }
             }
             parm {
-                name    "cc_amp"
-                label   "Final Amplitude"
-                type    float
+                name    "Distort"
+                label   "Distort"
+                type    vector
                 size    3
-                default { "0.5" "0.5" "0.5" }
+                default { "0" "0" "0" }
+                disablewhen "{ input != 7 }"
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "time_varying"
+                label   "Time Varying"
+                type    toggle
+                default { "off" }
                 range   { 0 10 }
                 parmtag { "autoscope" "0000000000000000" }
-                parmtag { "parmvop" "1" }
-                parmtag { "shaderparmcontexts" "cvex" }
+            }
+            parm {
+                name    "time_scale"
+                label   "Time Scale"
+                type    float
+                default { "1" }
+                disablewhen "{ time_varying == 0 }"
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
             }
         }
 
-        parm {
-            name    "fscale"
-            label   "Filter Scale"
-            type    float
-            default { "1" }
-            disablewhen "{ doNoise == 0 }"
-            range   { 0 2 }
-            parmtag { "autoscope" "0000000000000000" }
-            parmtag { "parmvop" "1" }
-            parmtag { "shaderparmcontexts" "cvex" }
-        }
     }
 
     group {
