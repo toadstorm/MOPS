@@ -13,6 +13,7 @@
     <memberTool name="expand_hdas"/>
     <memberTool name="wiki"/>
     <memberTool name="mops_donate"/>
+    <memberTool name="mops_feedback"/>
   </toolshelf>
 
   <tool name="MOPS_convert_point_instances" label="MOPs to Point Instances" icon="opdef:MOPS::Sop/Instancer::1.1?mops_instancing.svg">
@@ -643,6 +644,24 @@ to MOPs, they will only exist as a complement to the core tools, not a replaceme
 Please consider donating to our cause, because we don't get paid to do this and we need to pay for our hosting!]]></helpText>
     <script scriptType="python"><![CDATA[import webbrowser
 url = 'https://secure.squarespace.com/checkout/donate?donatePageId=5bbd25fce5e5f0018b1fe49d'
+
+webbrowser.open(url)]]></script>
+  </tool>
+
+  <tool name="mops_feedback" label="Share Feedback" icon="opdef:MOPS::Sop/Instancer::1.1?mops_feedback.svg">
+    <helpText><![CDATA[= Share Feedback = 
+
+""" Open a web browser to display our contact form. """
+
+We really value feedback, questions, concerns, or just general opinions about MOPs. While
+we would encourage you to visit [our forums|https://forum.motionoperators.com] to post bug 
+reports or questions that could help other people, if you'd like to contact us privately,
+we have a handy form to fill out. You can also email us at [info@motionoperators.com|mailto:info@motionoperators.com].
+
+Thanks for using MOPs!
+Moritz and Henry]]></helpText>
+    <script scriptType="python"><![CDATA[import webbrowser
+url = 'https://www.motionoperators.com/kontakt'
 
 webbrowser.open(url)]]></script>
   </tool>
