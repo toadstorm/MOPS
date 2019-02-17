@@ -205,8 +205,22 @@
         parmtag { "autoscope" "0000000000000000" }
     }
     parm {
+        name    "sepparm"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
         name    "do_curl"
         label   "Enable Curl Noise"
+        type    toggle
+        default { "0" }
+        range   { 0! 10 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "do_blur"
+        label   "Enable Blur"
         type    toggle
         default { "0" }
         range   { 0! 10 }
@@ -326,6 +340,41 @@
             parmtag { "autoscope" "0000000000000000" }
             parmtag { "parmvop" "1" }
             parmtag { "shaderparmcontexts" "cvex" }
+        }
+    }
+
+    group {
+        name    "folder3"
+        label   "Blur"
+        tabbreak
+        disablewhentab "{ do_blur 0 }"
+
+        parm {
+            name    "iterations"
+            label   "Blurring Iterations"
+            type    integer
+            default { "1" }
+            range   { 0 100 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "stepsize"
+            label   "Step Size"
+            type    float
+            default { "0.5" }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "influencetype"
+            label   "Influence Type"
+            type    ordinal
+            default { "connectivity" }
+            menu {
+                "connectivity"  "Connectivity"
+                "proximity"     "Proximity"
+            }
+            parmtag { "autoscope" "0000000000000000" }
         }
     }
 
