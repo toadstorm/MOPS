@@ -1,0 +1,542 @@
+# Dialog script for MOPS::Shape_Falloff::1.2 automatically generated
+
+{
+    name	MOPS::Shape_Falloff::1.2
+    script	MOPS::Shape_Falloff::1.2
+    label	"MOPs Shape Falloff"
+
+    help {
+	""
+    }
+    bindhandle rotatex xform "Transformer" rx "movetool_candidate(1) ownerop('do_local_transform/transform') owneropgroup('group')"
+    bindhandle rotatey xform "Transformer" ry "movetool_candidate(1) ownerop('do_local_transform/transform') owneropgroup('group')"
+    bindhandle rotatez xform "Transformer" rz "movetool_candidate(1) ownerop('do_local_transform/transform') owneropgroup('group')"
+    bindhandle scalex xform "Transformer" sx "movetool_candidate(1) ownerop('do_local_transform/transform') owneropgroup('group')"
+    bindhandle scaley xform "Transformer" sy "movetool_candidate(1) ownerop('do_local_transform/transform') owneropgroup('group')"
+    bindhandle scalez xform "Transformer" sz "movetool_candidate(1) ownerop('do_local_transform/transform') owneropgroup('group')"
+    bindhandle translatex xform "Transformer" tx "movetool_candidate(1) ownerop('do_local_transform/transform') owneropgroup('group')"
+    bindhandle translatey xform "Transformer" ty "movetool_candidate(1) ownerop('do_local_transform/transform') owneropgroup('group')"
+    bindhandle translatez xform "Transformer" tz "movetool_candidate(1) ownerop('do_local_transform/transform') owneropgroup('group')"
+    bindhandle uniform_scale xform "Transformer" uniform_scale "movetool_candidate(1) ownerop('do_local_transform/transform') owneropgroup('group')"
+
+    inputlabel	1	"Packed Primitives"
+    inputlabel	2	"Falloff Transforms"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+
+    parm {
+        name    "group"
+        label   "Group"
+        type    string
+        default { "" }
+        menutoggle {
+            [ "opmenu -l MOPs_Remap_Falloff group" ]
+        }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_action" "import soputils\nkwargs['geometrytype'] = kwargs['node'].parmTuple('grouptype')\nkwargs['inputindex'] = 0\nsoputils.selectGroupParm(kwargs)" }
+        parmtag { "script_action_help" "Select geometry from an available viewport." }
+        parmtag { "script_action_icon" "BUTTONS_reselect" }
+    }
+    parm {
+        name    "grouptype"
+        label   "Group Type"
+        type    ordinal
+        default { "guess" }
+        menu {
+            "guess"     "Guess from Group"
+            "vertices"  "Vertices"
+            "edges"     "Edges"
+            "points"    "Points"
+            "prims"     "Primitives"
+        }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "blend_mode"
+        label   "Blend Mode"
+        type    ordinal
+        default { "8" }
+        menu {
+            "0" "Add"
+            "1" "Subtract"
+            "2" "Multiply"
+            "3" "Divide"
+            "4" "Screen"
+            "5" "Overlay"
+            "6" "Max"
+            "7" "Min"
+            "8" "Set"
+        }
+        range   { 0! 10 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "strength"
+        label   "Blend Strength"
+        type    float
+        default { "1" }
+        range   { 0! 1! }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "switchclamp"
+        label   "Clamp"
+        type    toggle
+        default { "off" }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "sepparm"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "do_preview"
+        label   "Preview Falloff"
+        type    toggle
+        default { "0" }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    groupsimple {
+        name    "folder8"
+        label   "Falloff Preview"
+        hidewhentab "{ do_preview == 0 }"
+
+        parm {
+            name    "do_sprite"
+            label   "Display as Sprites"
+            type    toggle
+            default { "off" }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "spritescale"
+            label   "Sprite Scale"
+            type    float
+            default { "1" }
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "override_scale"
+            label   "Override Scale"
+            type    toggle
+            default { "off" }
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "ramp_preset"
+            label   "Preset"
+            type    ordinal
+            default { "heatmap" }
+            menu {
+                "heatmap"   "Heatmap"
+                "blackbody" "Blackbody"
+                "infrared"  "Infrared"
+            }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "falloff_heatmap"
+            label   "Falloff Ramp"
+            type    ramp_rgb
+            default { "5" }
+            range   { 1! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "rampcolordefault" "1pos ( 0 ) 1c ( 0.036199998110532761 0 0.5429999828338623 ) 1interp ( linear ) 2pos ( 0.27027025818824768 ) 2c ( 0.7369999885559082 0 0 ) 2interp ( linear ) 3pos ( 0.71814674139022827 ) 3c ( 1 0.28333333134651184 0 ) 3interp ( linear ) 4pos ( 0.90154439210891724 ) 4c ( 0.89999997615814209 0.89999997615814209 0 ) 4interp ( linear ) 5pos ( 1 ) 5c ( 1 1 1 ) 5interp ( linear )" }
+            parmtag { "rampshowcontrolsdefault" "0" }
+        }
+    }
+
+    parm {
+        name    "spritemap"
+        label   "Sprite Map"
+        type    image
+        invisible
+        default { "sphere_matte.pic" }
+        hidewhen "{ do_sprite == 0 }"
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "surface" }
+    }
+    group {
+        name    "folder6"
+        label   "Shape"
+
+        parm {
+            name    "falloff_type"
+            label   "Falloff Type"
+            type    integer
+            default { "0" }
+            menu {
+                "0" "Linear"
+                "1" "Spherical"
+                "2" "Box"
+                "3" "Torus"
+                "4" "Cylinder"
+            }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        groupsimple {
+            name    "folder0"
+            label   "Transform"
+
+            parm {
+                name    "auto_fit"
+                label   "Auto-Fit"
+                type    button
+                default { "0" }
+                parmtag { "script_callback" "hou.phm().autoFit(kwargs)" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "translate"
+                label   "Translate"
+                type    vector
+                size    3
+                default { "0" "0" "0" }
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "rotate"
+                label   "Rotate"
+                type    vector
+                size    3
+                default { "0" "0" "0" }
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "scale"
+                label   "Scale"
+                type    vector
+                size    3
+                default { "1" "1" "1" }
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "uniform_scale"
+                label   "Uniform Scale"
+                type    float
+                default { "1" }
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+        }
+
+        groupsimple {
+            name    "folder2"
+            label   "Sphere"
+            hidewhentab "{ falloff_type != 1 }"
+
+            parm {
+                name    "sphere_radius"
+                label   "Inner/Outer Radius"
+                type    vector2
+                size    2
+                default { "0.25" "1" }
+                range   { -1 1 }
+            }
+        }
+
+        groupsimple {
+            name    "folder3"
+            label   "Box"
+            hidewhentab "{ falloff_type != 2 }"
+
+            parm {
+                name    "box_scale"
+                label   "Scale"
+                type    vector
+                size    3
+                default { "1" "1" "1" }
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "box_falloff"
+                label   "Falloff"
+                type    float
+                default { "0.5" }
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+        }
+
+        groupsimple {
+            name    "folder4"
+            label   "Torus"
+            hidewhentab "{ falloff_type != 3 }"
+
+            parm {
+                name    "torus_size"
+                label   "Size"
+                type    vector2
+                size    2
+                default { "0.75" "0.25" }
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "torus_falloff"
+                label   "Falloff"
+                type    float
+                default { "0.5" }
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+        }
+
+        groupsimple {
+            name    "folder5"
+            label   "Cylinder"
+            hidewhentab "{ falloff_type != 4 }"
+
+            parm {
+                name    "cylinder_size"
+                label   "Size"
+                type    vector
+                size    3
+                default { "1" "1" "0" }
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "cylinder_falloff"
+                label   "Falloff"
+                type    float
+                default { "0.5" }
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+        }
+
+    }
+
+    group {
+        name    "folder6_1"
+        label   "Noise"
+
+        parm {
+            name    "do_noise"
+            label   "Add Noise"
+            type    toggle
+            default { "0" }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        group {
+            name    "folder7"
+            label   "Noise Controls"
+            tabbreak
+            disablewhentab "{ do_noise == 0 }"
+
+            parm {
+                name    "input"
+                label   "Noise Type"
+                type    ordinal
+                default { "0" }
+                menu {
+                    "0" "Perlin"
+                    "1" "Simplex"
+                    "2" "Worley (F2-F1)"
+                    "3" "Worley (F1)"
+                    "4" "Worley (F2)"
+                    "5" "Mosaic"
+                    "6" "Simplex Folded"
+                    "7" "Simplex Warped"
+                    "8" "Mix Minima"
+                }
+                range   { 0! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "use_rest"
+                label   "Use Rest Attribute"
+                type    toggle
+                default { "on" }
+                range   { 0 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "amp"
+                label   "Amplitude"
+                type    float
+                default { "1" }
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "freq"
+                label   "Frequency"
+                type    vector4
+                size    4
+                default { "1" "1" "1" "1" }
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "uniform"
+                label   "Uniform"
+                type    toggle
+                default { "off" }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "roughness"
+                label   "Roughness"
+                type    float
+                default { "0.5" }
+                range   { 0.0001! 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "octaves"
+                label   "Octaves"
+                type    integer
+                default { "1" }
+                range   { 1! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "offset"
+                label   "Offset"
+                type    vector4
+                size    4
+                default { "0" "0" "0" "0" }
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "tile_size"
+                label   "Tile Size"
+                type    vector
+                size    3
+                default { "1" "1" "1" }
+                disablewhen "{ input != 5 }"
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "Distort"
+                label   "Distort"
+                type    vector
+                size    3
+                default { "0" "0" "0" }
+                disablewhen "{ input != 7 }"
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "time_varying"
+                label   "Time Varying"
+                type    toggle
+                default { "off" }
+                range   { 0 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "time_scale"
+                label   "Time Scale"
+                type    float
+                default { "1" }
+                disablewhen "{ time_varying == 0 }"
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+        }
+
+    }
+
+    group {
+        name    "folder6_2"
+        label   "Remap"
+
+        groupsimple {
+            name    "fitparams"
+            label   "Fit"
+
+            parm {
+                name    "switchfit"
+                label   "Fit"
+                type    toggle
+                default { "off" }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "auto_min_max"
+                label   "Auto min and max input values"
+                type    toggle
+                default { "off" }
+                disablewhen "{ switchfit != 1 }"
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "frame"
+                label   "Reference Frame"
+                type    float
+                default { [ "$F" hscript-expr ] }
+                hidewhen "{ auto_min_max == 0 }"
+                range   { 0 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "imin"
+                label   "Input Min"
+                type    float
+                default { "0" }
+                disablewhen "{ auto_min_max == 1 } { switchfit != 1 }"
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "imax"
+                label   "Input Max"
+                type    float
+                default { "1" }
+                disablewhen "{ auto_min_max == 1 } { switchfit != 1 }"
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "omin"
+                label   "Output Min"
+                type    float
+                default { "0" }
+                disablewhen "{ switchfit != 1 }"
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "omax"
+                label   "Output Max"
+                type    float
+                default { "1" }
+                disablewhen "{ switchfit != 1 }"
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+        }
+
+        parm {
+            name    "remap_falloff"
+            label   "Remap Falloff"
+            type    ramp_flt
+            default { "2" }
+            range   { 1! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "rampfloatdefault" "1pos ( 0 ) 1value ( 0 ) 1interp ( linear ) 2pos ( 1 ) 2value ( 1 ) 2interp ( linear )" }
+        }
+    }
+
+}

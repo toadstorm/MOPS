@@ -32,22 +32,25 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.86944 3.64172
-connectornextid 0
+position -1.77768 -0.6907
+connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
+0 "output1"
 }
 inputsNamed3
 {
+1 	testgeometry_pighead2 0 1 "input1"
 }
 inputs
 {
+0 	testgeometry_pighead2 0 1
 }
 stat
 {
-  create 1543604869
-  modify 1543604873
+  create 1531533834
+  modify 1548356547
   author Henry@LAPPY586
   access 0777
 }
@@ -105,7 +108,7 @@ inputs
 stat
 {
   create 1526617897
-  modify 1543604869
+  modify 1548356077
   author Henry@LAPPY586
   access 0777
 }
@@ -543,7 +546,7 @@ inputs
 stat
 {
   create 1526618124
-  modify 1543604869
+  modify 1548356077
   author Henry@LAPPY586
   access 0777
 }
@@ -624,7 +627,7 @@ inputs
 stat
 {
   create 1526618368
-  modify 1543604870
+  modify 1548356078
   author Henry@LAPPY586
   access 0777
 }
@@ -3938,7 +3941,7 @@ inputs
 stat
 {
   create 1529781411
-  modify 1543604869
+  modify 1548356077
   author henry@GlaDOS
   access 0777
 }
@@ -4212,7 +4215,7 @@ inputs
 stat
 {
   create 1529782497
-  modify 1543604869
+  modify 1548356077
   author henry@GlaDOS
   access 0777
 }
@@ -4461,6 +4464,185 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribblur1.init"
+Content-Type: text/plain
+
+type = attribblur
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribblur1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 2.42448 -9.81903
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	do_curl_noise 0 1 "input1"
+}
+inputs
+{
+0 	do_curl_noise 0 1
+}
+stat
+{
+  create 1548356239
+  modify 1548356465
+  author Henry@LAPPY586
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribblur1.chn"
+Content-Type: text/plain
+
+{
+    channel iterations {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../iterations\") }
+    }
+    channel stepsize {
+      lefttype = extend
+      righttype = extend
+      default = 0.5
+      flags = 0
+      segment { length = 0 value = 0.5 0.5 expr = ch(\"../stepsize\") }
+    }
+    channel influencetype {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../influencetype\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribblur1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+group	[ 0	locks=0 ]	(	""	)
+attributes	[ 0	locks=0 ]	(	"N up"	)
+method	[ 0	locks=0 ]	(	"uniform"	)
+iterations	[ 0	locks=0 ]	(	[ iterations	1 ] 	)
+mode	[ 0	locks=0 ]	(	"laplacian"	)
+frequency	[ 0	locks=0 ]	(	0.10000000000000001	)
+stepsize	[ 0	locks=0 ]	(	[ stepsize	0.02 ] 	)
+oddstepsize	[ 0	locks=0 ]	(	0.5	)
+evenstepsize	[ 0	locks=0 ]	(	0.5	)
+weightattrib	[ 0	locks=0 ]	(	""	)
+pinborder	[ 0	locks=0 ]	(	"off"	)
+influencetype	[ 0	locks=0 ]	(	[ influencetype	0 ] 	)
+proxrad	[ 0	locks=0 ]	(	0.5	)
+maxneigh	[ 0	locks=0 ]	(	20	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribblur1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"1.0"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointwrangle1.init"
+Content-Type: text/plain
+
+type = attribwrangle
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointwrangle1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 1.3036 -12.2092
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	do_blur 1 1 "input1"
+}
+inputs
+{
+0 	do_blur 0 1
+}
+stat
+{
+  create 1548356267
+  modify 1548356364
+  author Henry@LAPPY586
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointwrangle1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+folder0	[ 0	locks=0 ]	(	0	0	)
+group	[ 0	locks=0 ]	(	""	)
+grouptype	[ 0	locks=0 ]	(	"guess"	)
+class	[ 0	locks=0 ]	(	"point"	)
+vex_numcount	[ 0	locks=0 ]	(	10	)
+vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
+snippet	[ 0	locks=0 ]	(	"v@N = normalize(v@N);
+v@up = normalize(v@up);"	)
+exportlist	[ 0	locks=0 ]	(	*	)
+vex_strict	[ 0	locks=0 ]	(	"off"	)
+autobind	[ 0	locks=0 ]	(	"on"	)
+bindings	[ 0	locks=0 ]	(	0	)
+groupautobind	[ 0	locks=0 ]	(	"on"	)
+groupbindings	[ 0	locks=0 ]	(	0	)
+vex_cwdpath	[ 0	locks=0 ]	(	.	)
+vex_outputmask	[ 0	locks=0 ]	(	*	)
+vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
+vex_matchattrib	[ 0	locks=0 ]	(	id	)
+vex_inplace	[ 0	locks=0 ]	(	"off"	)
+vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointwrangle1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/output1.init"
 Content-Type: text/plain
 
@@ -4473,7 +4655,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.16559 -10.3086
+position 1.3036 -13.2471
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -4481,16 +4663,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	do_curl_noise 0 1 "input1"
+0 	pointwrangle1 1 1 "input1"
 }
 inputs
 {
-0 	do_curl_noise 0 1
+0 	pointwrangle1 0 1
 }
 stat
 {
   create 1526619596
-  modify 1529782485
+  modify 1548356363
   author Henry@LAPPY586
   access 0777
 }
@@ -4648,7 +4830,7 @@ inputs
 stat
 {
   create 1526619587
-  modify 1543604869
+  modify 1548356077
   author Henry@LAPPY586
   access 0777
 }
@@ -4721,7 +4903,7 @@ inputs
 stat
 {
   create 1529781023
-  modify 1543604869
+  modify 1548356077
   author henry@GlaDOS
   access 0777
 }
@@ -4825,7 +5007,7 @@ Content-Type: text/plain
 version 0.8
 group	[ 0	locks=0 ]	(	[ group	"" ] 	)
 entity	[ 0	locks=0 ]	(	[ entity	0 ] 	)
-style	[ 0	locks=0 ]	(	[ style	edge1 ] 	)
+style	[ 0	locks=0 ]	(	[ style	edge2 ] 	)
 attribname	[ 0	locks=0 ]	(	[ attribname	"" ] 	)
 Non	[ 0	locks=0 ]	(	[ Non	1 ] 	)
 N	[ 0	locks=0 ]	(	[ N	N ] 	)
@@ -4883,7 +5065,7 @@ inputs
 stat
 {
   create 1529781118
-  modify 1543604869
+  modify 1548356077
   author henry@GlaDOS
   access 0777
 }
@@ -5341,7 +5523,7 @@ inputs
 stat
 {
   create 1529781399
-  modify 1543604869
+  modify 1548356077
   author henry@GlaDOS
   access 0777
 }
@@ -5416,7 +5598,7 @@ inputs
 stat
 {
   create 1531533595
-  modify 1543604869
+  modify 1548356077
   author Henry@LAPPY586
   access 0777
 }
@@ -5492,7 +5674,7 @@ inputs
 stat
 {
   create 1531533642
-  modify 1543604869
+  modify 1548356077
   author Henry@LAPPY586
   access 0777
 }
@@ -5536,10 +5718,85 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/do_blur.init"
+Content-Type: text/plain
+
+type = switch
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/do_blur.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 1.21312 -11.1097
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+2 	do_curl_noise 0 1 "input1"
+0 	attribblur1 1 1 "input2"
+}
+inputs
+{
+0 	do_curl_noise 0 1
+1 	attribblur1 0 1
+}
+stat
+{
+  create 1548356363
+  modify 1548356460
+  author Henry@LAPPY586
+  access 0777
+}
+color UT_Color RGB 0.8 1 0.7 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/do_blur.chn"
+Content-Type: text/plain
+
+{
+    channel input {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../do_blur\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/do_blur.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+input	[ 0	locks=0 ]	(	[ input	1 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/do_blur.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.0.416"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.order"
 Content-Type: text/plain
 
-20
+23
 output1
 cross_up
 visualize1
@@ -5560,6 +5817,9 @@ do_cross_up
 inversions
 do_normal
 do_up
+attribblur1
+pointwrangle1
+do_blur
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"

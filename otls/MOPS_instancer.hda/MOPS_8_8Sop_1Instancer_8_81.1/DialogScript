@@ -838,7 +838,7 @@
             label   "Number of Points"
             type    integer
             default { "10" }
-            disablewhen "{ distro_type == 3 } { distro_type == 5 }"
+            disablewhen "{ distro_type == 3 }"
             range   { 0 10000 }
             parmtag { "autoscope" "0000000000000000" }
         }
@@ -880,10 +880,18 @@
             parmtag { "autoscope" "0000000000000000" }
         }
         parm {
-            name    "attribname"
+            name    "do_copy_attrs"
             label   "Copy Attributes"
+            type    toggle
+            default { "off" }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "attribname"
+            label   "Attributes To Copy"
             type    string
             default { "" }
+            disablewhen "{ do_copy_attrs == 0 }"
             menutoggle {
                 [ "opmenu -l Apply_Attributes1 attribname" ]
             }
@@ -1393,6 +1401,16 @@
             hidewhentab "{ distro_type != 5 }"
 
             parm {
+                name    "curve_distro_method"
+                label   "Curve Distribution"
+                type    ordinal
+                default { "0" }
+                menu {
+                    "0" "Copy To Points"
+                    "1" "Parametric"
+                }
+            }
+            parm {
                 name    "do_convert_to_polygon_curve"
                 label   "Convert to Polygons"
                 type    toggle
@@ -1420,6 +1438,15 @@
                 type    toggle
                 default { "0" }
                 range   { 0! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "curve_u_offset"
+                label   "Parametric Offset"
+                type    float
+                default { "0" }
+                disablewhen "{ curve_distro_method == 0 }"
+                range   { 0 1 }
                 parmtag { "autoscope" "0000000000000000" }
             }
             group {

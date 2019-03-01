@@ -138,10 +138,17 @@
         parmtag { "autoscope" "0000000000000000" }
     }
     parm {
-        name    "attribname"
+        name    "do_copy_attrs"
         label   "Copy Attributes"
+        type    toggle
+        default { "0" }
+    }
+    parm {
+        name    "attribname"
+        label   "Attributes to Copy"
         type    string
         default { "" }
+        disablewhen "{ do_copy_attrs 0 }"
         menutoggle {
             [ "opmenu -l attribcopy1 attribname" ]
         }

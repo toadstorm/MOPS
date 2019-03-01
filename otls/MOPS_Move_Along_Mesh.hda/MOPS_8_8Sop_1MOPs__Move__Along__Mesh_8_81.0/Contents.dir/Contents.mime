@@ -32,22 +32,27 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 2.02892 2.61651
-connectornextid 0
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+position -4.25403 -3.05948
+connectornextid 3
+flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
+2 "output1"
 }
 inputsNamed3
 {
+0 	MOPs_Instancer 0 1 "input1"
+1 	comb1 1 1 "input2"
 }
 inputs
 {
+0 	MOPs_Instancer 0 1
+1 	comb1 0 1
 }
 stat
 {
-  create 1543604875
-  modify 1543604880
+  create 1526534496
+  modify 1550446048
   author Henry@LAPPY586
   access 0777
 }
@@ -448,6 +453,7 @@ scale_mode	[ 0	locks=0 ]	(	0	)
 rotate_order	[ 0	locks=0 ]	(	0	)
 local_space	[ 0	locks=0 ]	(	"on"	)
 do_make_id	[ 0	locks=0 ]	(	"on"	)
+do_copy_attrs	[ 0	locks=0 ]	(	"off"	)
 attribname	[ 0	locks=0 ]	(	""	)
 }
 
@@ -1170,7 +1176,7 @@ inputs
 stat
 {
   create 1526159737
-  modify 1526533215
+  modify 1550444942
   author Henry@LAPPY586
   access 0777
 }
@@ -1180,19 +1186,53 @@ exprlanguage hscript
 end
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/solver1.chn"
+Content-Type: text/plain
+
+{
+    channel startframe {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../startframe\") }
+    }
+    channel resimulate {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../resimulate\") }
+    }
+    channel substep {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../substep\") }
+    }
+    channel cachemaxsize {
+      lefttype = extend
+      righttype = extend
+      default = 5000
+      flags = 0
+      segment { length = 0 value = 5000 5000 expr = ch(\"../cachemaxsize\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/solver1.parm"
 Content-Type: text/plain
 
 {
 version 0.8
-resimulate	[ 0	locks=0 ]	(	0	)
+resimulate	[ 0	locks=0 ]	(	[ resimulate	0 ] 	)
 useinitialsop	[ 0	locks=0 ]	(	"off"	)
 initialsop	[ 0	locks=0 ]	(	""	)
-startframe	[ 0	locks=0 ]	(	1	)
-substep	[ 0	locks=0 ]	(	1	)
+startframe	[ 0	locks=0 ]	(	[ startframe	1 ] 	)
+substep	[ 0	locks=0 ]	(	[ substep	1 ] 	)
 cacheenabled	[ 0	locks=0 ]	(	"on"	)
 cachetodisk	[ 0	locks=0 ]	(	"off"	)
-cachemaxsize	[ 0	locks=0 ]	(	5000	)
+cachemaxsize	[ 0	locks=0 ]	(	[ cachemaxsize	5000 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1322,7 +1362,7 @@ inputs
 stat
 {
   create 1526159756
-  modify 1543604875
+  modify 1550445042
   author Henry@LAPPY586
   access 0777
 }
@@ -1517,6 +1557,27 @@ Content-Type: text/plain
         default { "" }
         parmtag { "editor" "1" }
     }
+    parm {
+        name    "aim_weight"
+        label   "Aim Weight"
+        type    float
+        default { "0" }
+        range   { 0 1 }
+    }
+    parm {
+        name    "seed"
+        label   "Seed"
+        type    float
+        default { "0" }
+        range   { 0 1 }
+    }
+    parm {
+        name    "random_speed"
+        label   "Random Speed"
+        type    float
+        default { "0" }
+        range   { 0 1 }
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/solver1/d/s/move_along_surface.chn"
@@ -1550,6 +1611,24 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = chs(\"../../../../vexpression\") }
     }
+    channel aim_weight {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../../../aim_weight\") }
+    }
+    channel random_speed {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../../../random_speed\") }
+    }
+    channel seed {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../../../seed2\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1566,7 +1645,9 @@ vex_numcount	[ 0	locks=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
 snippet	[ 0	locks=0	autoscope=1 ]	(	"vector dir = v@up;
 float speed = ch(\"speed\");
+float rand_speed = fit01(rand(@ptnum+ch(\"seed\")), -ch(\"random_speed\"), ch(\"random_speed\"));
 
+speed += rand_speed;
 
 `ifs(ch(\"do_vexpression\"), chs(\"vexpression\"), \"\")`
 
@@ -1582,9 +1663,12 @@ float maxdist = ch(\"maxdist\");
 xyzdist(2, pos, posprim, primuv, maxdist);
 i@sourceprim = posprim;
 v@sourceprimuv = primuv;
+float bias = ch(\"aim_weight\");
 @P = primuv(2, \"P\", posprim, primuv);
-@N = primuv(2, \"N\", posprim, primuv);
-v@up = primuv(3, \"up\", posprim, primuv);"	)
+vector new_N = primuv(2, \"N\", posprim, primuv);
+vector new_up = primuv(3, \"up\", posprim, primuv);
+v@N = normalize(lerp(v@N, new_N, bias));
+v@up = normalize(lerp(v@up, new_up, bias));"	)
 exportlist	[ 0	locks=0 ]	(	*	)
 vex_strict	[ 0	locks=0 ]	(	"off"	)
 autobind	[ 0	locks=0 ]	(	"on"	)
@@ -1603,6 +1687,9 @@ maxdist	[ 0	locks=0 ]	(	[ maxdist	1 ] 	)
 do_vexpression	[ 0	locks=0 ]	(	[ do_vexpression	0 ] 	)
 vexpression	[ 0	locks=0 ]	(	[ vexpression	"// dir = v@up; 
 // speed = 0.1;" ] 	)
+aim_weight	[ 0	locks=0 ]	(	[ aim_weight	0.10000000000000001 ] 	)
+seed	[ 0	locks=0 ]	(	[ seed	0 ] 	)
+random_speed	[ 0	locks=0 ]	(	[ random_speed	0.01 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1924,6 +2011,7 @@ Content-Type: text/plain
 
 {
 version 0.8
+do_pivot	[ 0	locks=0 ]	(	"on"	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2237,7 +2325,7 @@ inputs
 stat
 {
   create 1324348265
-  modify 1543604875
+  modify 1550446250
   author jlait@andorra.sidefx.com
   access 0777
 }
@@ -2714,7 +2802,7 @@ version 0.8
 group	[ 0	locks=0 ]	(	[ group	"" ] 	)
 influencegroup	[ 0	locks=0 ]	(	[ influencegroup	"" ] 	)
 surfacegroup	[ 0	locks=0 ]	(	""	)
-maxiterations	[ 0	locks=0 ]	(	[ maxiterations	10 ] 	)
+maxiterations	[ 0	locks=0 ]	(	[ maxiterations	51 ] 	)
 radius	[ 0	locks=0 ]	(	[ radius	0.10000000000000001 ] 	)
 useradiusattrib	[ 0	locks=0 ]	(	"on"	)
 radiusattrib	[ 0	locks=0 ]	(	pscale	)
@@ -2801,7 +2889,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	1 ] 	)
+input	[ 0	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY

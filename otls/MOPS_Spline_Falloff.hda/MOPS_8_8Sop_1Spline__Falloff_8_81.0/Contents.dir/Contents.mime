@@ -32,7 +32,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 5.97438 2.31281
+position 4.99012 -1.77514
 connectornextid 0
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -46,8 +46,8 @@ inputs
 }
 stat
 {
-  create 1543604553
-  modify 1543604561
+  create 1549073594
+  modify 1549073620
   author Henry@LAPPY586
   access 0777
 }
@@ -106,7 +106,7 @@ inputs
 stat
 {
   create 1520238981
-  modify 1543604554
+  modify 1549073594
   author Mo@Mo-PC
   access 0777
 }
@@ -186,7 +186,7 @@ inputs
 stat
 {
   create 1520238994
-  modify 1543604554
+  modify 1549073594
   author Mo@Mo-PC
   access 0777
 }
@@ -271,7 +271,7 @@ inputs
 stat
 {
   create 1520239056
-  modify 1543604554
+  modify 1549073594
   author Mo@Mo-PC
   access 0777
 }
@@ -556,7 +556,7 @@ inputs
 stat
 {
   create 1520239092
-  modify 1543604554
+  modify 1549073594
   author Mo@Mo-PC
   access 0777
 }
@@ -902,7 +902,7 @@ inputs
 stat
 {
   create 1520239111
-  modify 1543604554
+  modify 1549073594
   author Mo@Mo-PC
   access 0777
 }
@@ -980,7 +980,7 @@ inputs
 stat
 {
   create 1520239857
-  modify 1543604554
+  modify 1549073594
   author Mo@Mo-PC
   access 0777
 }
@@ -1235,7 +1235,7 @@ inputs
 stat
 {
   create 1523234729
-  modify 1543604666
+  modify 1549073594
   author henry@GlaDOS
   access 0777
 }
@@ -1355,7 +1355,7 @@ inputs
 stat
 {
   create 1523228567
-  modify 1543604555
+  modify 1549073595
   author henry@GlaDOS
   access 0777
 }
@@ -7285,84 +7285,6 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/pointwrangle7.init"
-Content-Type: text/plain
-
-type = attribwrangle
-matchesdef = 1
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/pointwrangle7.def"
-Content-Type: text/plain
-
-sopflags sopflags = 
-comment ""
-position -1.19324 -17.0403
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
-outputsNamed3
-{
-1 "output1"
-}
-inputsNamed3
-{
-0 	Combine_Falloffs1 2 1 "input1"
-}
-inputs
-{
-0 	Combine_Falloffs1 0 1
-}
-stat
-{
-  create 1523247616
-  modify 1543604554
-  author henry@GlaDOS
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/pointwrangle7.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-folder0	[ 0	locks=0 ]	(	0	0	)
-group	[ 0	locks=0 ]	(	""	)
-grouptype	[ 0	locks=0 ]	(	"guess"	)
-class	[ 0	locks=0 ]	(	"point"	)
-vex_numcount	[ 0	locks=0 ]	(	10	)
-vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
-snippet	[ 0	locks=0 ]	(	"@P = v@__orig_P;"	)
-exportlist	[ 0	locks=0 ]	(	*	)
-vex_strict	[ 0	locks=0 ]	(	"off"	)
-autobind	[ 0	locks=0 ]	(	"on"	)
-bindings	[ 0	locks=0 ]	(	0	)
-groupautobind	[ 0	locks=0 ]	(	"on"	)
-groupbindings	[ 0	locks=0 ]	(	0	)
-vex_cwdpath	[ 0	locks=0 ]	(	.	)
-vex_outputmask	[ 0	locks=0 ]	(	*	)
-vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
-vex_matchattrib	[ 0	locks=0 ]	(	id	)
-vex_inplace	[ 0	locks=0 ]	(	"off"	)
-vex_selectiongroup	[ 0	locks=0 ]	(	""	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/pointwrangle7.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":""
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/MOPs_Remap_Falloff.init"
 Content-Type: text/plain
 
@@ -7393,7 +7315,7 @@ inputs
 stat
 {
   create 1523247855
-  modify 1543604713
+  modify 1549073594
   author henry@GlaDOS
   access 0777
 }
@@ -7590,16 +7512,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	switch_restore_P 1 1 "input1"
+0 	Combine_Falloffs1 2 1 "input1"
 }
 inputs
 {
-0 	switch_restore_P 0 1
+0 	Combine_Falloffs1 0 1
 }
 stat
 {
   create 1536024126
-  modify 1543604554
+  modify 1549073609
   author Henry@LAPPY586
   access 0777
 }
@@ -8030,7 +7952,7 @@ inputs
 stat
 {
   create 1520238964
-  modify 1543604554
+  modify 1549073594
   author Mo@Mo-PC
   access 0777
 }
@@ -8103,7 +8025,7 @@ inputs
 stat
 {
   create 1520238968
-  modify 1543604554
+  modify 1549073594
   author Mo@Mo-PC
   access 0777
 }
@@ -8300,7 +8222,7 @@ inputs
 stat
 {
   create 1520239135
-  modify 1543604554
+  modify 1549073594
   author Mo@Mo-PC
   access 0777
 }
@@ -8681,7 +8603,7 @@ inputs
 stat
 {
   create 1523234394
-  modify 1543604554
+  modify 1549073594
   author henry@GlaDOS
   access 0777
 }
@@ -8890,7 +8812,7 @@ inputs
 stat
 {
   create 1523247567
-  modify 1543604554
+  modify 1549073594
   author henry@GlaDOS
   access 0777
 }
@@ -8933,149 +8855,10 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/switch_restore_P.init"
-Content-Type: text/plain
-
-type = switch
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/switch_restore_P.def"
-Content-Type: text/plain
-
-sopflags sopflags = 
-comment ""
-position -2.69511 -19.7376
-connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
-outputsNamed3
-{
-1 "output1"
-}
-inputsNamed3
-{
-0 	Combine_Falloffs1 2 1 "input1"
-2 	attribdelete2 1 1 "input2"
-}
-inputs
-{
-0 	Combine_Falloffs1 0 1
-1 	attribdelete2 0 1
-}
-stat
-{
-  create 1523247595
-  modify 1543604554
-  author henry@GlaDOS
-  access 0777
-}
-color UT_Color RGB 0.8 1 0.7 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/switch_restore_P.chn"
-Content-Type: text/plain
-
-{
-    channel input {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../do_noise/input\") }
-    }
-  }
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/switch_restore_P.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-input	[ 8	locks=0 ]	(	[ input	0 ] 	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/switch_restore_P.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"17.0.416"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribdelete2.init"
-Content-Type: text/plain
-
-type = attribdelete
-matchesdef = 1
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribdelete2.def"
-Content-Type: text/plain
-
-sopflags sopflags = 
-comment ""
-position -1.19369 -18.0584
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
-outputsNamed3
-{
-1 "output1"
-}
-inputsNamed3
-{
-0 	pointwrangle7 1 1 "input1"
-}
-inputs
-{
-0 	pointwrangle7 0 1
-}
-stat
-{
-  create 1523248136
-  modify 1523248143
-  author henry@GlaDOS
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribdelete2.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-ptdel	[ 0	locks=0 ]	(	__orig_P	)
-vtxdel	[ 0	locks=0 ]	(	""	)
-primdel	[ 0	locks=0 ]	(	""	)
-dtldel	[ 0	locks=0 ]	(	""	)
-updatevar	[ 0	locks=0 ]	(	"on"	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribdelete2.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":""
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.order"
 Content-Type: text/plain
 
-26
+23
 pointwrangle1
 get_nearest_point
 pointwrangle3
@@ -9097,10 +8880,7 @@ sort1
 Combine_Falloffs1
 apply_noise
 do_noise
-switch_restore_P
-pointwrangle7
 MOPs_Remap_Falloff
-attribdelete2
 MOPs_Preview_Falloff
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY

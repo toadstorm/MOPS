@@ -9,6 +9,11 @@
     <memberTool name="MOPS_convert_point_instances"/>
     <memberTool name="MOPS_Disable_Preview"/>
     <memberTool name="MOPS_Update"/>
+    <memberTool name="collapse_hdas"/>
+    <memberTool name="expand_hdas"/>
+    <memberTool name="wiki"/>
+    <memberTool name="mops_donate"/>
+    <memberTool name="mops_feedback"/>
   </toolshelf>
 
   <tool name="MOPS_convert_point_instances" label="MOPs to Point Instances" icon="opdef:MOPS::Sop/Instancer::1.1?mops_instancing.svg">
@@ -98,7 +103,7 @@ for network in INSTANCE_DICT:
         if instanced_node is None:
             instanced_node = instances_container.createNode('geo', name)
             if instanced_node.node('file1') is not None:
-			    instanced_node.node('file1').destroy()
+                            instanced_node.node('file1').destroy()
             merge = instanced_node.createNode('object_merge')
             merge.parm('xformtype').set('local')
             merge.parm('objpath1').set(i)
@@ -163,6 +168,24 @@ for i in sel:
   </tool>
 
   <tool name="MOPS_Update" label="MOPs Updater" icon="opdef:MOPS::Sop/Instancer::1.1?mops_update.svg">
+    <helpText><![CDATA[= MOPs Updater = 
+
+""" Automatically download and install any Experimental or Stable release of MOPs. """
+
+This tool uses the Github API to automatically look for newer version of MOPs. You can
+select either the Experimental or Stable branches, then use the dropdown to choose which
+version you want to install. The most recent version is always the default entry.
+
+Installing an update will overwrite your current MOPs installation.
+
+If you select "Auto-Update houdini.env", the patcher will try to update your houdini.env
+file to meet the latest installation standard for MOPs (appending to HOUDINI_PATH rather
+than HOUDINI_OTLSCAN_PATH, etc). This is unnecessary if you've already used the current
+recommended installation process from README.MD.
+
+If you enable "Share anonymous MOPs data", you will send us completely anonymous metrics
+data describing what MOPs nodes you're most frequently using. If you enable this and want to
+disable it later, you can edit your houdini.env file and set MOPS_ALLOW_ANALYTICS to 0.]]></helpText>
     <script scriptType="python"><![CDATA[import json
 import urllib
 import os
@@ -352,7 +375,7 @@ def update_houdini_env(env_file, analytics=False):
                 elif line.lower().startswith('houdini_path'):
                     has_houdini_path = True
                     if has_mops_var:
-                        paths = line.split('=')[-1].strip().split(separator)
+                        paths = line.split('=')[-1].strip('"').strip().split(separator)
                         if paths:
                             if "$mops" not in [f.lower() for f in paths]:
                                 # insert mops variable into houdini_path
@@ -369,7 +392,7 @@ def update_houdini_env(env_file, analytics=False):
                 # add houdini_path env var
                 env_text.append("HOUDINI_PATH = $MOPS" + separator + "&\n")
             if analytics and not has_analytics_var:
-                env_text.append("MOPS_ALLOW_ANALYTICS = 1\n")
+                env_text.append("\nMOPS_ALLOW_ANALYTICS = 1\n")
 
         if not has_mops_var:
             hou.ui.displayMessage('$MOPS not found in houdini.env! Aborting.')
@@ -507,6 +530,12 @@ win = MOPsUpdateWindow(hou.ui.mainQtWindow())]]></script>
   </tool>
 
   <tool name="MOPS_Disable_Preview" label="Disable Falloff Previews" icon="opdef:MOPS::Sop/Plain_Falloff::1.0?mops_falloff_04.svg">
+    <helpText><![CDATA[= Disable Falloff Previews =
+
+""" Disables all falloff previews in the current SOP chain. """
+
+Falloff previews are currently a destructive operation, as they overwrite the MOPs primitives with colored sprites.
+This tool disables falloff previews for all nodes in the current SOP hierarchy.]]></helpText>
     <script scriptType="python"><![CDATA[import toolutils
 
 # get current location
@@ -525,5 +554,115 @@ if node:
                     pass
 
 ]]></script>
+  </tool>
+
+  <tool name="collapse_hdas" label="Collapse HDAs" icon="opdef:MOPS::Sop/Instancer::1.1?mops_collapse.svg">
+    <helpText><![CDATA[= Collapse HDAs = 
+
+""" Compress the MOPs toolkit into packed format. """
+
+MOPs is distributed as expanded HDAs, meaning they are described in plain text. This makes 
+updating code on Github much more straightforward, but it creates a lot of files. This can be
+problematic if you're running MOPs on a network server. Running this shelf tool will convert
+all MOPs HDAs into packed format, which will make them load much faster over a network connection.
+]]></helpText>
+    <script scriptType="python"><![CDATA[import mops_tools
+import os
+import traceback
+
+def do_collapse():
+    if hou.getenv('MOPS') is None:
+        hou.ui.displayMessage('$MOPS environment variable not found! Aborting.')
+        return
+        
+    hda_path = os.path.join(hou.getenv('MOPS'), 'otls')
+    try:
+        mops_tools.collapse_hdas(hda_path)
+        hou.ui.displayMessage('MOPS HDAs collapsed succesfully!')
+    except:
+        hou.ui.displayMessage('Error collapsing HDAs: {}'.format(traceback.format_exc()), severity=hou.severityType.Error)
+        
+do_collapse()]]></script>
+  </tool>
+
+  <tool name="expand_hdas" label="Expand HDAs" icon="opdef:MOPS::Sop/Instancer::1.1?mops_expand.svg">
+    <helpText><![CDATA[= Expand HDAs =
+
+""" Expand the MOPs HDAs into unpacked (plaintext) format. """
+
+MOPs is distributed as expanded HDAs, meaning they are described in plain text. This makes 
+updating code on Github much more straightforward, but it creates a lot of files. This can be
+problematic if you're running MOPs on a network server. 
+
+If you've used the Collapse HDAs tool to convert MOPs into packed format and you need to convert back for 
+some reason, this shelf tool will expand all MOPs HDAs into their original format.]]></helpText>
+    <script scriptType="python"><![CDATA[import mops_tools
+import os
+import traceback
+
+def do_expand():
+    if hou.getenv('MOPS') is None:
+        hou.ui.displayMessage('$MOPS environment variable not found! Aborting.')
+        return
+        
+    hda_path = os.path.join(hou.getenv('MOPS'), 'otls')
+    try:
+        mops_tools.expand_hdas(hda_path)
+        hou.ui.displayMessage('MOPS HDAs expanded succesfully!')
+    except:
+        hou.ui.displayMessage('Error expanding HDAs: {}'.format(traceback.format_exc()), severity=hou.severityType.Error)
+        
+do_expand()]]></script>
+  </tool>
+
+  <tool name="wiki" label="MOPs Wiki" icon="opdef:MOPS::Sop/Instancer::1.1?mops_wiki.svg">
+    <helpText><![CDATA[= MOPs Wiki =
+
+""" Open the default web browser to the MOPs Wiki page on Github. """
+
+:note: 
+    The MOPs Wiki is a work in progress! For complete documentation on a MOPs node, use the Help function in Houdini.
+    
+The MOPs Wiki on Github is a high-level overview of the MOPs installation process, overall design and concepts,
+and a quick primer on most of the nodes. It's not meant to be a replacement for the documentation embedded in
+each HDA's Help section. Use it as a reference when looking for a specific effect you're trying to create.
+
+This button opens the default web browser and points it to the wiki homepage.]]></helpText>
+    <script scriptType="python"><![CDATA[import webbrowser
+url = 'https://github.com/toadstorm/MOPS/wiki'
+webbrowser.open(url)]]></script>
+  </tool>
+
+  <tool name="mops_donate" label="Donate" icon="opdef:MOPS::Sop/Instancer::1.1?mops_donate.svg">
+    <helpText><![CDATA[= Donate to MOPs = 
+
+""" Open the default browser to the MOPs donation page. """
+
+The core MOPs tools are and will always be free and open source. While we may eventually release paid add-ons
+to MOPs, they will only exist as a complement to the core tools, not a replacement.
+
+Please consider donating to our cause, because we don't get paid to do this and we need to pay for our hosting!]]></helpText>
+    <script scriptType="python"><![CDATA[import webbrowser
+url = 'https://secure.squarespace.com/checkout/donate?donatePageId=5bbd25fce5e5f0018b1fe49d'
+
+webbrowser.open(url)]]></script>
+  </tool>
+
+  <tool name="mops_feedback" label="Share Feedback" icon="opdef:MOPS::Sop/Instancer::1.1?mops_feedback.svg">
+    <helpText><![CDATA[= Share Feedback = 
+
+""" Open a web browser to display our contact form. """
+
+We really value feedback, questions, concerns, or just general opinions about MOPs. While
+we would encourage you to visit [our forums|https://forum.motionoperators.com] to post bug 
+reports or questions that could help other people, if you'd like to contact us privately,
+we have a handy form to fill out. You can also email us at [info@motionoperators.com|mailto:info@motionoperators.com].
+
+Thanks for using MOPs!
+Moritz and Henry]]></helpText>
+    <script scriptType="python"><![CDATA[import webbrowser
+url = 'https://www.motionoperators.com/kontakt'
+
+webbrowser.open(url)]]></script>
   </tool>
 </shelfDocument>

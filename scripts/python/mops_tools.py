@@ -6,6 +6,8 @@ import traceback
 from SimpleHTTPServer import SimpleHTTPRequestHandler
 from BaseHTTPServer import HTTPServer as BaseHTTPServer
 import threading
+import subprocess
+import shutil
 from PySide2 import QtCore, QtWebEngineWidgets, QtWidgets
 
 REQUESTS_ENABLED = True
@@ -22,7 +24,7 @@ CONFIG = os.path.join(home, "hcommon.pref")
 GA_TRACKING_ID = "UA-129987675-1"
 MOPS_SETTINGS = os.path.join(os.getenv("HOUDINI_USER_PREF_DIR"), "mops.json")
 MOPS_FEEDBACK_ADDRESS = "https://www.motionoperators.com/kontakt/"
-
+HOUDINI_BIN = os.path.join(os.getenv("HFS"), "bin")
 
 def get_uuid():
     # check MOPS_SETTINGS file for UUID info
@@ -115,6 +117,72 @@ def send_on_create_analytics(node):
             # print('analytics skipping child node')
             return
         track_event("Node Created", str(node.type().name()), str(node.type().definition().version()))
+
+
+def collapse_hdas(directory):
+    """
+    Collapses all expanded operators in the given directory.
+    :param directory: the "otls" directory where the definitions are stored.
+    :return: None
+    """
+    if not os.path.exists(directory):
+        raise FileNotFoundError, "Directory does not exist!"
+    if not os.path.isdir(directory):
+        raise FileNotFoundError, "Given path is not a directory!"
+    for i in os.listdir(directory):
+        in_dir = os.path.join(directory, i)
+        if os.path.isdir(in_dir) and os.path.splitext(i)[-1] == '.hda':
+            out_hda = os.path.join(directory, i + '_')
+            try:
+                hotl = os.path.join(HOUDINI_BIN, "hotl.exe")
+                cmd = [hotl, '-l', in_dir, out_hda]
+                startup = subprocess.STARTUPINFO
+                startup.dwFlags |= subprocess.STARTF_USESHOWWINDOW
+                proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, startupinfo=startup)
+                out, err = proc.communicate()
+                if err:
+                    raise RuntimeError, err
+                # rename file and remove original
+                shutil.rmtree(in_dir)
+                os.rename(out_hda, in_dir)
+                print('Collapsed HDA: {}'.format(i))
+            except:
+                print('Error collapsing {}: {}'.format(i, traceback.format_exc()))
+
+def expand_hdas(directory):
+    """
+    Expands all collapsed operators in the given directory.
+    :param directory: the "otls" directory where the definitions are stored.
+    :return: None
+    """
+    if not os.path.exists(directory):
+        raise FileNotFoundError, "Directory does not exist!"
+    if not os.path.isdir(directory):
+        raise FileNotFoundError, "Given path is not a directory!"
+    for i in os.listdir(directory):
+        in_hda = os.path.join(directory, i)
+        if not os.path.isdir(in_hda) and os.path.splitext(i)[-1] == '.hda':
+
+            out_dir = os.path.join(directory, i + '_')
+            try:
+                hotl = os.path.join(HOUDINI_BIN, "hotl.exe")
+                cmd = [hotl, '-t', out_dir, in_hda]
+                startup = subprocess.STARTUPINFO
+                startup.dwFlags |= subprocess.STARTF_USESHOWWINDOW
+                proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, startupinfo=startup)
+                out, err = proc.communicate()
+                if err:
+                    raise RuntimeError, err
+                # rename file and remove original
+                os.remove(in_hda)
+                os.rename(out_dir, in_hda)
+                print('Expanded HDA: {}'.format(i))
+            except:
+                print('Error expanding {}: {}'.format(i, traceback.format_exc()))
+
+
+
+
 
 
 """ WEB SERVER STUFF FOR LAUNCHING FEEDBACK WINDOW """

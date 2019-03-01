@@ -44,6 +44,20 @@
         parmtag { "autoscope" "0000000000000000" }
     }
     parm {
+        name    "do_falloff2"
+        label   "Enable Falloff"
+        type    toggle
+        default { "on" }
+        range   { 0 10 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "sepparm"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
         name    "local_space"
         label   "Local Space"
         type    toggle
