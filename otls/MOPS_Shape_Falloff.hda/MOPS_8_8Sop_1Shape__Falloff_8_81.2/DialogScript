@@ -109,7 +109,7 @@
             name    "do_sprite"
             label   "Display as Sprites"
             type    toggle
-            default { "on" }
+            default { "off" }
             range   { 0! 10 }
             parmtag { "autoscope" "0000000000000000" }
         }
@@ -324,7 +324,7 @@
     }
 
     group {
-        name    "folder1"
+        name    "folder6_1"
         label   "Noise"
 
         parm {
@@ -338,7 +338,8 @@
         group {
             name    "folder7"
             label   "Noise Controls"
-            disablewhentab "{ do_noise 0 }"
+            tabbreak
+            disablewhentab "{ do_noise == 0 }"
 
             parm {
                 name    "input"

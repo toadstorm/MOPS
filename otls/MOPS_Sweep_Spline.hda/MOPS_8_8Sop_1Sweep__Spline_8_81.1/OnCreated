@@ -1,0 +1,10 @@
+me = kwargs['node']
+me.setName('MOPs_Sweep_Spline', True)
+
+# send anonymous statistics if enabled.
+# see README.md for more information.
+try:
+    import mops_tools
+    mops_tools.send_on_create_analytics(me)
+except:
+    pass

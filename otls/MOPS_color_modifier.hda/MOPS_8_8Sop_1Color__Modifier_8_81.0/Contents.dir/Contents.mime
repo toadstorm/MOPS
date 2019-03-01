@@ -32,22 +32,24 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -2.98325 2.61651
-connectornextid 0
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+position -3.02066 -2.61281
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
 inputsNamed3
 {
+0 	MOPs_Falloff_From_Attribute 1 1 "input1"
 }
 inputs
 {
+0 	MOPs_Falloff_From_Attribute 0 1
 }
 stat
 {
-  create 1543604852
-  modify 1543604857
+  create 1550646910
+  modify 1550649862
   author Henry@LAPPY586
   access 0777
 }
@@ -105,7 +107,7 @@ inputs
 stat
 {
   create 1520090169
-  modify 1543604852
+  modify 1550646976
   author Mo@Mo-PC
   access 0777
 }
@@ -429,6 +431,19 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../Color_From_Falloff4interp\") }
     }
+    channel group {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../group\") }
+    }
+    channel grouptype {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../grouptype\") }
+    }
     channel Color_From_Falloff5pos {
       lefttype = extend
       righttype = extend
@@ -459,19 +474,6 @@ Content-Type: text/plain
       default = 1
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../Color_From_Falloff5interp\") }
-    }
-    channel group {
-      lefttype = extend
-      righttype = extend
-      defaultString = \"\"
-      flags = 0
-      segment { length = 0 expr = chs(\"../group\") }
-    }
-    channel grouptype {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../grouptype\") }
     }
   }
 
@@ -505,19 +507,19 @@ vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 Color_From_Falloff	[ 0	locks=0 ]	(	[ Color_From_Falloff	5 ] 	)
 Color_From_Falloff1pos	[ 0	locks=0 ]	(	[ Color_From_Falloff1pos	0 ] 	)
-Color_From_Falloff1c	[ 0	locks=0 ]	(	[ Color_From_Falloff1cr	0.89999997615814209 ] 	[ Color_From_Falloff1cg	0 ] 	[ Color_From_Falloff1cb	0 ] 	)
+Color_From_Falloff1c	[ 0	locks=0 ]	(	[ Color_From_Falloff1cr	0.44999998807907104 ] 	[ Color_From_Falloff1cg	0 ] 	[ Color_From_Falloff1cb	0.89999997615814209 ] 	)
 Color_From_Falloff1interp	[ 0	locks=0 ]	(	[ Color_From_Falloff1interp	1 ] 	)
 Color_From_Falloff2pos	[ 0	locks=0 ]	(	[ Color_From_Falloff2pos	0.25 ] 	)
-Color_From_Falloff2c	[ 0	locks=0 ]	(	[ Color_From_Falloff2cr	0.89999997615814209 ] 	[ Color_From_Falloff2cg	0.89999997615814209 ] 	[ Color_From_Falloff2cb	0 ] 	)
+Color_From_Falloff2c	[ 0	locks=0 ]	(	[ Color_From_Falloff2cr	0 ] 	[ Color_From_Falloff2cg	0.89999997615814209 ] 	[ Color_From_Falloff2cb	0.89999997615814209 ] 	)
 Color_From_Falloff2interp	[ 0	locks=0 ]	(	[ Color_From_Falloff2interp	1 ] 	)
 Color_From_Falloff3pos	[ 0	locks=0 ]	(	[ Color_From_Falloff3pos	0.5 ] 	)
 Color_From_Falloff3c	[ 0	locks=0 ]	(	[ Color_From_Falloff3cr	0 ] 	[ Color_From_Falloff3cg	0.89999997615814209 ] 	[ Color_From_Falloff3cb	0 ] 	)
 Color_From_Falloff3interp	[ 0	locks=0 ]	(	[ Color_From_Falloff3interp	1 ] 	)
 Color_From_Falloff4pos	[ 0	locks=0 ]	(	[ Color_From_Falloff4pos	0.75 ] 	)
-Color_From_Falloff4c	[ 0	locks=0 ]	(	[ Color_From_Falloff4cr	0 ] 	[ Color_From_Falloff4cg	0.89999997615814209 ] 	[ Color_From_Falloff4cb	0.89999997615814209 ] 	)
+Color_From_Falloff4c	[ 0	locks=0 ]	(	[ Color_From_Falloff4cr	0.89999997615814209 ] 	[ Color_From_Falloff4cg	0.89999997615814209 ] 	[ Color_From_Falloff4cb	0 ] 	)
 Color_From_Falloff4interp	[ 0	locks=0 ]	(	[ Color_From_Falloff4interp	1 ] 	)
 Color_From_Falloff5pos	[ 0	locks=0 ]	(	[ Color_From_Falloff5pos	1 ] 	)
-Color_From_Falloff5c	[ 0	locks=0 ]	(	[ Color_From_Falloff5cr	0.44999998807907104 ] 	[ Color_From_Falloff5cg	0 ] 	[ Color_From_Falloff5cb	0.89999997615814209 ] 	)
+Color_From_Falloff5c	[ 0	locks=0 ]	(	[ Color_From_Falloff5cr	0.89999997615814209 ] 	[ Color_From_Falloff5cg	0 ] 	[ Color_From_Falloff5cb	0 ] 	)
 Color_From_Falloff5interp	[ 0	locks=0 ]	(	[ Color_From_Falloff5interp	1 ] 	)
 }
 
@@ -563,7 +565,7 @@ inputs
 stat
 {
   create 1520090169
-  modify 1543604852
+  modify 1550646976
   author Mo@Mo-PC
   access 0777
 }
@@ -887,6 +889,12 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../Color_From_Falloff4interp\") }
     }
+    channel grouptype {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../Set/grouptype\") }
+    }
     channel Color_From_Falloff5pos {
       lefttype = extend
       righttype = extend
@@ -917,12 +925,6 @@ Content-Type: text/plain
       default = 1
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../Color_From_Falloff5interp\") }
-    }
-    channel grouptype {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../Set/grouptype\") }
     }
   }
 
@@ -970,8 +972,8 @@ Color_From_Falloff3interp	[ 0	locks=0 ]	(	[ Color_From_Falloff3interp	1 ] 	)
 Color_From_Falloff4pos	[ 0	locks=0 ]	(	[ Color_From_Falloff4pos	0.75 ] 	)
 Color_From_Falloff4c	[ 0	locks=0 ]	(	[ Color_From_Falloff4cr	0 ] 	[ Color_From_Falloff4cg	0.89999997615814209 ] 	[ Color_From_Falloff4cb	0.89999997615814209 ] 	)
 Color_From_Falloff4interp	[ 0	locks=0 ]	(	[ Color_From_Falloff4interp	1 ] 	)
-Color_From_Falloff5pos	[ 0	locks=0 ]	(	[ Color_From_Falloff5pos	1 ] 	)
-Color_From_Falloff5c	[ 0	locks=0 ]	(	[ Color_From_Falloff5cr	0.44999998807907104 ] 	[ Color_From_Falloff5cg	0 ] 	[ Color_From_Falloff5cb	0.89999997615814209 ] 	)
+Color_From_Falloff5pos	[ 0	locks=0 ]	(	[ Color_From_Falloff5pos	0 ] 	)
+Color_From_Falloff5c	[ 0	locks=0 ]	(	[ Color_From_Falloff5cr	0 ] 	[ Color_From_Falloff5cg	0 ] 	[ Color_From_Falloff5cb	0 ] 	)
 Color_From_Falloff5interp	[ 0	locks=0 ]	(	[ Color_From_Falloff5interp	1 ] 	)
 }
 
@@ -1017,7 +1019,7 @@ inputs
 stat
 {
   create 1520090169
-  modify 1543604852
+  modify 1550646976
   author Mo@Mo-PC
   access 0777
 }
@@ -1341,6 +1343,12 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../Color_From_Falloff4interp\") }
     }
+    channel grouptype {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../Set/grouptype\") }
+    }
     channel Color_From_Falloff5pos {
       lefttype = extend
       righttype = extend
@@ -1371,12 +1379,6 @@ Content-Type: text/plain
       default = 1
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../Color_From_Falloff5interp\") }
-    }
-    channel grouptype {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../Set/grouptype\") }
     }
   }
 
@@ -1424,8 +1426,8 @@ Color_From_Falloff3interp	[ 0	locks=0 ]	(	[ Color_From_Falloff3interp	1 ] 	)
 Color_From_Falloff4pos	[ 0	locks=0 ]	(	[ Color_From_Falloff4pos	0.75 ] 	)
 Color_From_Falloff4c	[ 0	locks=0 ]	(	[ Color_From_Falloff4cr	0 ] 	[ Color_From_Falloff4cg	0.89999997615814209 ] 	[ Color_From_Falloff4cb	0.89999997615814209 ] 	)
 Color_From_Falloff4interp	[ 0	locks=0 ]	(	[ Color_From_Falloff4interp	1 ] 	)
-Color_From_Falloff5pos	[ 0	locks=0 ]	(	[ Color_From_Falloff5pos	1 ] 	)
-Color_From_Falloff5c	[ 0	locks=0 ]	(	[ Color_From_Falloff5cr	0.44999998807907104 ] 	[ Color_From_Falloff5cg	0 ] 	[ Color_From_Falloff5cb	0.89999997615814209 ] 	)
+Color_From_Falloff5pos	[ 0	locks=0 ]	(	[ Color_From_Falloff5pos	0 ] 	)
+Color_From_Falloff5c	[ 0	locks=0 ]	(	[ Color_From_Falloff5cr	0 ] 	[ Color_From_Falloff5cg	0 ] 	[ Color_From_Falloff5cb	0 ] 	)
 Color_From_Falloff5interp	[ 0	locks=0 ]	(	[ Color_From_Falloff5interp	1 ] 	)
 }
 
@@ -1471,7 +1473,7 @@ inputs
 stat
 {
   create 1520090169
-  modify 1543604852
+  modify 1550646976
   author Mo@Mo-PC
   access 0777
 }
@@ -1795,6 +1797,12 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../Color_From_Falloff4interp\") }
     }
+    channel grouptype {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../Set/grouptype\") }
+    }
     channel Color_From_Falloff5pos {
       lefttype = extend
       righttype = extend
@@ -1825,12 +1833,6 @@ Content-Type: text/plain
       default = 1
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../Color_From_Falloff5interp\") }
-    }
-    channel grouptype {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../Set/grouptype\") }
     }
   }
 
@@ -1880,8 +1882,8 @@ Color_From_Falloff3interp	[ 0	locks=0 ]	(	[ Color_From_Falloff3interp	1 ] 	)
 Color_From_Falloff4pos	[ 0	locks=0 ]	(	[ Color_From_Falloff4pos	0.75 ] 	)
 Color_From_Falloff4c	[ 0	locks=0 ]	(	[ Color_From_Falloff4cr	0 ] 	[ Color_From_Falloff4cg	0.89999997615814209 ] 	[ Color_From_Falloff4cb	0.89999997615814209 ] 	)
 Color_From_Falloff4interp	[ 0	locks=0 ]	(	[ Color_From_Falloff4interp	1 ] 	)
-Color_From_Falloff5pos	[ 0	locks=0 ]	(	[ Color_From_Falloff5pos	1 ] 	)
-Color_From_Falloff5c	[ 0	locks=0 ]	(	[ Color_From_Falloff5cr	0.44999998807907104 ] 	[ Color_From_Falloff5cg	0 ] 	[ Color_From_Falloff5cb	0.89999997615814209 ] 	)
+Color_From_Falloff5pos	[ 0	locks=0 ]	(	[ Color_From_Falloff5pos	0 ] 	)
+Color_From_Falloff5c	[ 0	locks=0 ]	(	[ Color_From_Falloff5cr	0 ] 	[ Color_From_Falloff5cg	0 ] 	[ Color_From_Falloff5cb	0 ] 	)
 Color_From_Falloff5interp	[ 0	locks=0 ]	(	[ Color_From_Falloff5interp	1 ] 	)
 }
 
@@ -1927,7 +1929,7 @@ inputs
 stat
 {
   create 1520090169
-  modify 1543604852
+  modify 1550646976
   author Mo@Mo-PC
   access 0777
 }
@@ -2251,6 +2253,12 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../Color_From_Falloff4interp\") }
     }
+    channel grouptype {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../Set/grouptype\") }
+    }
     channel Color_From_Falloff5pos {
       lefttype = extend
       righttype = extend
@@ -2281,12 +2289,6 @@ Content-Type: text/plain
       default = 1
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../Color_From_Falloff5interp\") }
-    }
-    channel grouptype {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../Set/grouptype\") }
     }
   }
 
@@ -2334,8 +2336,8 @@ Color_From_Falloff3interp	[ 0	locks=0 ]	(	[ Color_From_Falloff3interp	1 ] 	)
 Color_From_Falloff4pos	[ 0	locks=0 ]	(	[ Color_From_Falloff4pos	0.75 ] 	)
 Color_From_Falloff4c	[ 0	locks=0 ]	(	[ Color_From_Falloff4cr	0 ] 	[ Color_From_Falloff4cg	0.89999997615814209 ] 	[ Color_From_Falloff4cb	0.89999997615814209 ] 	)
 Color_From_Falloff4interp	[ 0	locks=0 ]	(	[ Color_From_Falloff4interp	1 ] 	)
-Color_From_Falloff5pos	[ 0	locks=0 ]	(	[ Color_From_Falloff5pos	1 ] 	)
-Color_From_Falloff5c	[ 0	locks=0 ]	(	[ Color_From_Falloff5cr	0.44999998807907104 ] 	[ Color_From_Falloff5cg	0 ] 	[ Color_From_Falloff5cb	0.89999997615814209 ] 	)
+Color_From_Falloff5pos	[ 0	locks=0 ]	(	[ Color_From_Falloff5pos	0 ] 	)
+Color_From_Falloff5c	[ 0	locks=0 ]	(	[ Color_From_Falloff5cr	0 ] 	[ Color_From_Falloff5cg	0 ] 	[ Color_From_Falloff5cb	0 ] 	)
 Color_From_Falloff5interp	[ 0	locks=0 ]	(	[ Color_From_Falloff5interp	1 ] 	)
 }
 
@@ -2381,7 +2383,7 @@ inputs
 stat
 {
   create 1520090169
-  modify 1543604852
+  modify 1550646976
   author Mo@Mo-PC
   access 0777
 }
@@ -2705,6 +2707,12 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../Color_From_Falloff4interp\") }
     }
+    channel grouptype {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../Set/grouptype\") }
+    }
     channel Color_From_Falloff5pos {
       lefttype = extend
       righttype = extend
@@ -2735,12 +2743,6 @@ Content-Type: text/plain
       default = 1
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../Color_From_Falloff5interp\") }
-    }
-    channel grouptype {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../Set/grouptype\") }
     }
   }
 
@@ -2788,8 +2790,8 @@ Color_From_Falloff3interp	[ 0	locks=0 ]	(	[ Color_From_Falloff3interp	1 ] 	)
 Color_From_Falloff4pos	[ 0	locks=0 ]	(	[ Color_From_Falloff4pos	0.75 ] 	)
 Color_From_Falloff4c	[ 0	locks=0 ]	(	[ Color_From_Falloff4cr	0 ] 	[ Color_From_Falloff4cg	0.89999997615814209 ] 	[ Color_From_Falloff4cb	0.89999997615814209 ] 	)
 Color_From_Falloff4interp	[ 0	locks=0 ]	(	[ Color_From_Falloff4interp	1 ] 	)
-Color_From_Falloff5pos	[ 0	locks=0 ]	(	[ Color_From_Falloff5pos	1 ] 	)
-Color_From_Falloff5c	[ 0	locks=0 ]	(	[ Color_From_Falloff5cr	0.44999998807907104 ] 	[ Color_From_Falloff5cg	0 ] 	[ Color_From_Falloff5cb	0.89999997615814209 ] 	)
+Color_From_Falloff5pos	[ 0	locks=0 ]	(	[ Color_From_Falloff5pos	0 ] 	)
+Color_From_Falloff5c	[ 0	locks=0 ]	(	[ Color_From_Falloff5cr	0 ] 	[ Color_From_Falloff5cg	0 ] 	[ Color_From_Falloff5cb	0 ] 	)
 Color_From_Falloff5interp	[ 0	locks=0 ]	(	[ Color_From_Falloff5interp	1 ] 	)
 }
 
@@ -2835,7 +2837,7 @@ inputs
 stat
 {
   create 1520090169
-  modify 1543604852
+  modify 1550646976
   author Mo@Mo-PC
   access 0777
 }
@@ -3159,6 +3161,12 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../Color_From_Falloff4interp\") }
     }
+    channel grouptype {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../Set/grouptype\") }
+    }
     channel Color_From_Falloff5pos {
       lefttype = extend
       righttype = extend
@@ -3189,12 +3197,6 @@ Content-Type: text/plain
       default = 1
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../Color_From_Falloff5interp\") }
-    }
-    channel grouptype {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../Set/grouptype\") }
     }
   }
 
@@ -3250,8 +3252,8 @@ Color_From_Falloff3interp	[ 0	locks=0 ]	(	[ Color_From_Falloff3interp	1 ] 	)
 Color_From_Falloff4pos	[ 0	locks=0 ]	(	[ Color_From_Falloff4pos	0.75 ] 	)
 Color_From_Falloff4c	[ 0	locks=0 ]	(	[ Color_From_Falloff4cr	0 ] 	[ Color_From_Falloff4cg	0.89999997615814209 ] 	[ Color_From_Falloff4cb	0.89999997615814209 ] 	)
 Color_From_Falloff4interp	[ 0	locks=0 ]	(	[ Color_From_Falloff4interp	1 ] 	)
-Color_From_Falloff5pos	[ 0	locks=0 ]	(	[ Color_From_Falloff5pos	1 ] 	)
-Color_From_Falloff5c	[ 0	locks=0 ]	(	[ Color_From_Falloff5cr	0.44999998807907104 ] 	[ Color_From_Falloff5cg	0 ] 	[ Color_From_Falloff5cb	0.89999997615814209 ] 	)
+Color_From_Falloff5pos	[ 0	locks=0 ]	(	[ Color_From_Falloff5pos	0 ] 	)
+Color_From_Falloff5c	[ 0	locks=0 ]	(	[ Color_From_Falloff5cr	0 ] 	[ Color_From_Falloff5cg	0 ] 	[ Color_From_Falloff5cb	0 ] 	)
 Color_From_Falloff5interp	[ 0	locks=0 ]	(	[ Color_From_Falloff5interp	1 ] 	)
 }
 
@@ -3297,7 +3299,7 @@ inputs
 stat
 {
   create 1520090169
-  modify 1543604852
+  modify 1550646976
   author Mo@Mo-PC
   access 0777
 }
@@ -3621,6 +3623,12 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../Color_From_Falloff4interp\") }
     }
+    channel grouptype {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../Set/grouptype\") }
+    }
     channel Color_From_Falloff5pos {
       lefttype = extend
       righttype = extend
@@ -3651,12 +3659,6 @@ Content-Type: text/plain
       default = 1
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../Color_From_Falloff5interp\") }
-    }
-    channel grouptype {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../Set/grouptype\") }
     }
   }
 
@@ -3706,8 +3708,8 @@ Color_From_Falloff3interp	[ 0	locks=0 ]	(	[ Color_From_Falloff3interp	1 ] 	)
 Color_From_Falloff4pos	[ 0	locks=0 ]	(	[ Color_From_Falloff4pos	0.75 ] 	)
 Color_From_Falloff4c	[ 0	locks=0 ]	(	[ Color_From_Falloff4cr	0 ] 	[ Color_From_Falloff4cg	0.89999997615814209 ] 	[ Color_From_Falloff4cb	0.89999997615814209 ] 	)
 Color_From_Falloff4interp	[ 0	locks=0 ]	(	[ Color_From_Falloff4interp	1 ] 	)
-Color_From_Falloff5pos	[ 0	locks=0 ]	(	[ Color_From_Falloff5pos	1 ] 	)
-Color_From_Falloff5c	[ 0	locks=0 ]	(	[ Color_From_Falloff5cr	0.44999998807907104 ] 	[ Color_From_Falloff5cg	0 ] 	[ Color_From_Falloff5cb	0.89999997615814209 ] 	)
+Color_From_Falloff5pos	[ 0	locks=0 ]	(	[ Color_From_Falloff5pos	0 ] 	)
+Color_From_Falloff5c	[ 0	locks=0 ]	(	[ Color_From_Falloff5cr	0 ] 	[ Color_From_Falloff5cg	0 ] 	[ Color_From_Falloff5cb	0 ] 	)
 Color_From_Falloff5interp	[ 0	locks=0 ]	(	[ Color_From_Falloff5interp	1 ] 	)
 }
 
@@ -3753,7 +3755,7 @@ inputs
 stat
 {
   create 1520090169
-  modify 1543604852
+  modify 1550646976
   author Mo@Mo-PC
   access 0777
 }
@@ -4077,6 +4079,12 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../Color_From_Falloff4interp\") }
     }
+    channel grouptype {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../Set/grouptype\") }
+    }
     channel Color_From_Falloff5pos {
       lefttype = extend
       righttype = extend
@@ -4107,12 +4115,6 @@ Content-Type: text/plain
       default = 1
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../Color_From_Falloff5interp\") }
-    }
-    channel grouptype {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../Set/grouptype\") }
     }
   }
 
@@ -4162,8 +4164,8 @@ Color_From_Falloff3interp	[ 0	locks=0 ]	(	[ Color_From_Falloff3interp	1 ] 	)
 Color_From_Falloff4pos	[ 0	locks=0 ]	(	[ Color_From_Falloff4pos	0.75 ] 	)
 Color_From_Falloff4c	[ 0	locks=0 ]	(	[ Color_From_Falloff4cr	0 ] 	[ Color_From_Falloff4cg	0.89999997615814209 ] 	[ Color_From_Falloff4cb	0.89999997615814209 ] 	)
 Color_From_Falloff4interp	[ 0	locks=0 ]	(	[ Color_From_Falloff4interp	1 ] 	)
-Color_From_Falloff5pos	[ 0	locks=0 ]	(	[ Color_From_Falloff5pos	1 ] 	)
-Color_From_Falloff5c	[ 0	locks=0 ]	(	[ Color_From_Falloff5cr	0.44999998807907104 ] 	[ Color_From_Falloff5cg	0 ] 	[ Color_From_Falloff5cb	0.89999997615814209 ] 	)
+Color_From_Falloff5pos	[ 0	locks=0 ]	(	[ Color_From_Falloff5pos	0 ] 	)
+Color_From_Falloff5c	[ 0	locks=0 ]	(	[ Color_From_Falloff5cr	0 ] 	[ Color_From_Falloff5cg	0 ] 	[ Color_From_Falloff5cb	0 ] 	)
 Color_From_Falloff5interp	[ 0	locks=0 ]	(	[ Color_From_Falloff5interp	1 ] 	)
 }
 
@@ -4209,7 +4211,7 @@ inputs
 stat
 {
   create 1520090169
-  modify 1543604852
+  modify 1550646976
   author Mo@Mo-PC
   access 0777
 }
@@ -4533,6 +4535,12 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../Color_From_Falloff4interp\") }
     }
+    channel grouptype {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../Set/grouptype\") }
+    }
     channel Color_From_Falloff5pos {
       lefttype = extend
       righttype = extend
@@ -4563,12 +4571,6 @@ Content-Type: text/plain
       default = 1
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../Color_From_Falloff5interp\") }
-    }
-    channel grouptype {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../Set/grouptype\") }
     }
   }
 
@@ -4620,8 +4622,8 @@ Color_From_Falloff3interp	[ 0	locks=0 ]	(	[ Color_From_Falloff3interp	1 ] 	)
 Color_From_Falloff4pos	[ 0	locks=0 ]	(	[ Color_From_Falloff4pos	0.75 ] 	)
 Color_From_Falloff4c	[ 0	locks=0 ]	(	[ Color_From_Falloff4cr	0 ] 	[ Color_From_Falloff4cg	0.89999997615814209 ] 	[ Color_From_Falloff4cb	0.89999997615814209 ] 	)
 Color_From_Falloff4interp	[ 0	locks=0 ]	(	[ Color_From_Falloff4interp	1 ] 	)
-Color_From_Falloff5pos	[ 0	locks=0 ]	(	[ Color_From_Falloff5pos	1 ] 	)
-Color_From_Falloff5c	[ 0	locks=0 ]	(	[ Color_From_Falloff5cr	0.44999998807907104 ] 	[ Color_From_Falloff5cg	0 ] 	[ Color_From_Falloff5cb	0.89999997615814209 ] 	)
+Color_From_Falloff5pos	[ 0	locks=0 ]	(	[ Color_From_Falloff5pos	0 ] 	)
+Color_From_Falloff5c	[ 0	locks=0 ]	(	[ Color_From_Falloff5cr	0 ] 	[ Color_From_Falloff5cg	0 ] 	[ Color_From_Falloff5cb	0 ] 	)
 Color_From_Falloff5interp	[ 0	locks=0 ]	(	[ Color_From_Falloff5interp	1 ] 	)
 }
 
@@ -4667,7 +4669,7 @@ inputs
 stat
 {
   create 1520090169
-  modify 1543604852
+  modify 1550646976
   author Mo@Mo-PC
   access 0777
 }
@@ -4991,6 +4993,12 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../Color_From_Falloff4interp\") }
     }
+    channel grouptype {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../Set/grouptype\") }
+    }
     channel Color_From_Falloff5pos {
       lefttype = extend
       righttype = extend
@@ -5021,12 +5029,6 @@ Content-Type: text/plain
       default = 1
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../Color_From_Falloff5interp\") }
-    }
-    channel grouptype {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../Set/grouptype\") }
     }
   }
 
@@ -5078,8 +5080,8 @@ Color_From_Falloff3interp	[ 0	locks=0 ]	(	[ Color_From_Falloff3interp	1 ] 	)
 Color_From_Falloff4pos	[ 0	locks=0 ]	(	[ Color_From_Falloff4pos	0.75 ] 	)
 Color_From_Falloff4c	[ 0	locks=0 ]	(	[ Color_From_Falloff4cr	0 ] 	[ Color_From_Falloff4cg	0.89999997615814209 ] 	[ Color_From_Falloff4cb	0.89999997615814209 ] 	)
 Color_From_Falloff4interp	[ 0	locks=0 ]	(	[ Color_From_Falloff4interp	1 ] 	)
-Color_From_Falloff5pos	[ 0	locks=0 ]	(	[ Color_From_Falloff5pos	1 ] 	)
-Color_From_Falloff5c	[ 0	locks=0 ]	(	[ Color_From_Falloff5cr	0.44999998807907104 ] 	[ Color_From_Falloff5cg	0 ] 	[ Color_From_Falloff5cb	0.89999997615814209 ] 	)
+Color_From_Falloff5pos	[ 0	locks=0 ]	(	[ Color_From_Falloff5pos	0 ] 	)
+Color_From_Falloff5c	[ 0	locks=0 ]	(	[ Color_From_Falloff5cr	0 ] 	[ Color_From_Falloff5cg	0 ] 	[ Color_From_Falloff5cb	0 ] 	)
 Color_From_Falloff5interp	[ 0	locks=0 ]	(	[ Color_From_Falloff5interp	1 ] 	)
 }
 
@@ -5125,7 +5127,7 @@ inputs
 stat
 {
   create 1520090169
-  modify 1543604852
+  modify 1550646976
   author Mo@Mo-PC
   access 0777
 }
@@ -5449,6 +5451,12 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../Color_From_Falloff4interp\") }
     }
+    channel grouptype {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../Set/grouptype\") }
+    }
     channel Color_From_Falloff5pos {
       lefttype = extend
       righttype = extend
@@ -5479,12 +5487,6 @@ Content-Type: text/plain
       default = 1
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../Color_From_Falloff5interp\") }
-    }
-    channel grouptype {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../Set/grouptype\") }
     }
   }
 
@@ -5536,8 +5538,8 @@ Color_From_Falloff3interp	[ 0	locks=0 ]	(	[ Color_From_Falloff3interp	1 ] 	)
 Color_From_Falloff4pos	[ 0	locks=0 ]	(	[ Color_From_Falloff4pos	0.75 ] 	)
 Color_From_Falloff4c	[ 0	locks=0 ]	(	[ Color_From_Falloff4cr	0 ] 	[ Color_From_Falloff4cg	0.89999997615814209 ] 	[ Color_From_Falloff4cb	0.89999997615814209 ] 	)
 Color_From_Falloff4interp	[ 0	locks=0 ]	(	[ Color_From_Falloff4interp	1 ] 	)
-Color_From_Falloff5pos	[ 0	locks=0 ]	(	[ Color_From_Falloff5pos	1 ] 	)
-Color_From_Falloff5c	[ 0	locks=0 ]	(	[ Color_From_Falloff5cr	0.44999998807907104 ] 	[ Color_From_Falloff5cg	0 ] 	[ Color_From_Falloff5cb	0.89999997615814209 ] 	)
+Color_From_Falloff5pos	[ 0	locks=0 ]	(	[ Color_From_Falloff5pos	0 ] 	)
+Color_From_Falloff5c	[ 0	locks=0 ]	(	[ Color_From_Falloff5cr	0 ] 	[ Color_From_Falloff5cg	0 ] 	[ Color_From_Falloff5cb	0 ] 	)
 Color_From_Falloff5interp	[ 0	locks=0 ]	(	[ Color_From_Falloff5interp	1 ] 	)
 }
 
@@ -5583,7 +5585,7 @@ inputs
 stat
 {
   create 1520090169
-  modify 1543604852
+  modify 1550646976
   author Mo@Mo-PC
   access 0777
 }
@@ -5907,6 +5909,12 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../Color_From_Falloff4interp\") }
     }
+    channel grouptype {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../Set/grouptype\") }
+    }
     channel Color_From_Falloff5pos {
       lefttype = extend
       righttype = extend
@@ -5937,12 +5945,6 @@ Content-Type: text/plain
       default = 1
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../Color_From_Falloff5interp\") }
-    }
-    channel grouptype {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../Set/grouptype\") }
     }
   }
 
@@ -5994,8 +5996,8 @@ Color_From_Falloff3interp	[ 0	locks=0 ]	(	[ Color_From_Falloff3interp	1 ] 	)
 Color_From_Falloff4pos	[ 0	locks=0 ]	(	[ Color_From_Falloff4pos	0.75 ] 	)
 Color_From_Falloff4c	[ 0	locks=0 ]	(	[ Color_From_Falloff4cr	0 ] 	[ Color_From_Falloff4cg	0.89999997615814209 ] 	[ Color_From_Falloff4cb	0.89999997615814209 ] 	)
 Color_From_Falloff4interp	[ 0	locks=0 ]	(	[ Color_From_Falloff4interp	1 ] 	)
-Color_From_Falloff5pos	[ 0	locks=0 ]	(	[ Color_From_Falloff5pos	1 ] 	)
-Color_From_Falloff5c	[ 0	locks=0 ]	(	[ Color_From_Falloff5cr	0.44999998807907104 ] 	[ Color_From_Falloff5cg	0 ] 	[ Color_From_Falloff5cb	0.89999997615814209 ] 	)
+Color_From_Falloff5pos	[ 0	locks=0 ]	(	[ Color_From_Falloff5pos	0 ] 	)
+Color_From_Falloff5c	[ 0	locks=0 ]	(	[ Color_From_Falloff5cr	0 ] 	[ Color_From_Falloff5cg	0 ] 	[ Color_From_Falloff5cb	0 ] 	)
 Color_From_Falloff5interp	[ 0	locks=0 ]	(	[ Color_From_Falloff5interp	1 ] 	)
 }
 
@@ -6041,7 +6043,7 @@ inputs
 stat
 {
   create 1522812784
-  modify 1543604852
+  modify 1550646910
   author Henry@LAPPY586
   access 0777
 }
@@ -6145,7 +6147,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.0.478"
 	}
 }
 
@@ -6205,7 +6207,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.0.478"
 	}
 }
 
@@ -6264,7 +6266,7 @@ inputs
 stat
 {
   create 1520091888
-  modify 1543604852
+  modify 1550646910
   author Mo@Mo-PC
   access 0777
 }
@@ -6302,7 +6304,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.0.478"
 	}
 }
 
@@ -6339,7 +6341,7 @@ inputs
 stat
 {
   create 1522812778
-  modify 1543604852
+  modify 1550646910
   author Henry@LAPPY586
   access 0777
 }
@@ -6367,7 +6369,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -6377,7 +6379,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.0.478"
 	}
 }
 
