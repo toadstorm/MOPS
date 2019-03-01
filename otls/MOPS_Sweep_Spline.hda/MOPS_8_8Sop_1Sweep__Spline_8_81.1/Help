@@ -1,0 +1,132 @@
+= MOPs Sweep Spline =
+
+#icon: opdef:.?mops_misc_05.svg
+
+"""Sweeps a crossection along a backbone to create geometry."""
+
+This node creates a sweep spline using a cross section (closed polygon) and a backbone (polyline).
+
+== Overview ==
+
+@inputs
+
+Crosssection:
+    Cross section of resulting sweep.
+    
+Backbone:
+    Path to sweep cross section along.
+    
+@parameters
+
+== General ==
+
+Show Backbone:
+    #id: docalcnorm
+
+    Recalculates the geometry's input normals before converting geo to instances.
+    
+Resample Backbone:
+    #id: preservefalloff
+
+    Preserves falloff values that exist on the input geometry's primitives (f@mops_falloff).
+
+== Sweep Controls ==
+"""Controls the appearance of the resulting geometry."""
+
+== Spline Start & End ==
+"""Controls where geometry starts and ends (relative to backbone)."""
+
+Start:
+    #id: domainu1
+
+    Start of sweep.
+    
+End:
+    #id: domainu2
+
+    End of sweep.
+
+== Twist ==
+"""Rotates cross section while sweeping along backbone."""
+    
+Ramp Twist:
+    #id: ramp_twist
+
+    Ramp to control cross section's rotation.
+    
+Rotation Min:
+    #id: destmin
+
+    Rotation at beginning of spline (degrees).
+    
+Rotation Max:
+    #id: destmax
+
+    Rotation at end of spline (degrees).
+    
+Rotation Offset:
+    #id: input2
+
+    Offset of rotation at beginning of spline (degrees).
+    
+== Scale ==
+"""Scales cross section while sweeping along backbone."""
+    
+Ramp Scale:
+    #id: scale
+
+    Ramp to control cross section's scale.
+    
+Rotation Min:
+    #id: destmin2
+
+    Scale at beginning of spline.
+    
+Rotation Max:
+    #id: destmax2
+
+    Scale at end of spline.
+    
+Rotation Offset:
+    #id: input3
+
+    Offset of Scale at beginning of spline.  
+    
+== Extend Spline ==
+"""Extends backbone past its beginngin/end by using spline's tangent."""
+
+Extend Spline:
+    #id: switchextend
+
+    Enable spline extension.
+    
+Elongate Spline:
+    #id: domainu2
+
+    Length of segments to add.
+    
+== Keep Pscale & Orient ==
+"""Allows to keep Pscale & Orient if those attributes exist on input backbone."""
+
+Keep Pscale Attribute:
+    #id: keeppscale
+
+    Keep Pscale.
+    
+Keep Orient Attribute:
+    #id: keeporient
+
+    Keep orient.
+                    
+@related
+
+* [Node:sop/MOPs_Combine_Falloffs]
+* [Node:sop/MOPs_Object_Falloff]
+* [Node:sop/MOPs_Plain_Falloff]
+* [Node:sop/MOPs_Remap_Falloff]
+* [Node:sop/MOPs_Shape_Falloff]
+* [Node:sop/MOPs_Spline_Falloff]
+* [Node:sop/MOPs_Texture_Falloff]
+* [Node:sop/MOPs_Index_From_Attribute]
+* [Node:sop/MOPs_Transform_Falloffs]
+* [Node:sop/resample]
