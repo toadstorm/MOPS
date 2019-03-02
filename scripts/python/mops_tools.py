@@ -137,13 +137,13 @@ def collapse_hdas(directory):
             try:
                 hotl = os.path.join(HOUDINI_BIN, "hotl.exe")
                 cmd = [hotl, '-l', in_dir, out_hda]
-				proc = None
-				if platform.system() == "Windows":
-					startup = subprocess.STARTUPINFO
-					startup.dwFlags |= subprocess.STARTF_USESHOWWINDOW
-					proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, startupinfo=startup)
-				else:
-					proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+                proc = None
+                if platform.system() == "Windows":
+                    startup = subprocess.STARTUPINFO
+                    startup.dwFlags |= subprocess.STARTF_USESHOWWINDOW
+                    proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, startupinfo=startup)
+                else:
+                    proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
                 out, err = proc.communicate()
                 if err:
                     raise RuntimeError, err
@@ -172,13 +172,13 @@ def expand_hdas(directory):
             try:
                 hotl = os.path.join(HOUDINI_BIN, "hotl.exe")
                 cmd = [hotl, '-t', out_dir, in_hda]
-				proc = None
-				if platform.system() == 'Windows':
-					startup = subprocess.STARTUPINFO
-					startup.dwFlags |= subprocess.STARTF_USESHOWWINDOW
-					proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, startupinfo=startup)
-				else:
-					proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+                proc = None
+                if platform.system() == 'Windows':
+                    startup = subprocess.STARTUPINFO
+                    startup.dwFlags |= subprocess.STARTF_USESHOWWINDOW
+                    proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, startupinfo=startup)
+                else:
+                    proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
                 out, err = proc.communicate()
                 if err:
                     raise RuntimeError, err
