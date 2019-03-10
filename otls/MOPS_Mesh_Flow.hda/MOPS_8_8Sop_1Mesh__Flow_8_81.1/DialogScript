@@ -18,7 +18,7 @@
         name    "compute_method"
         label   "Compute Method"
         type    integer
-        default { "0" }
+        default { "1" }
         menu {
             "0" "Compute From Polygons"
             "1" "N and Up"
@@ -344,10 +344,9 @@
     }
 
     group {
-        name    "folder3"
+        name    "folder0_1"
         label   "Blur"
-        tabbreak
-        disablewhentab "{ do_blur 0 }"
+        disablewhentab "{ do_blur == 0 }"
 
         parm {
             name    "iterations"
