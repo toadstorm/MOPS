@@ -8,6 +8,7 @@ from BaseHTTPServer import HTTPServer as BaseHTTPServer
 import threading
 import subprocess
 import shutil
+import platform
 from PySide2 import QtCore, QtWebEngineWidgets, QtWidgets
 
 REQUESTS_ENABLED = True
@@ -134,11 +135,17 @@ def collapse_hdas(directory):
         if os.path.isdir(in_dir) and os.path.splitext(i)[-1] == '.hda':
             out_hda = os.path.join(directory, i + '_')
             try:
-                hotl = os.path.join(HOUDINI_BIN, "hotl.exe")
-                cmd = [hotl, '-l', in_dir, out_hda]
-                startup = subprocess.STARTUPINFO
-                startup.dwFlags |= subprocess.STARTF_USESHOWWINDOW
-                proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, startupinfo=startup)
+                proc = None
+                if platform.system() == "Windows":
+                    hotl = os.path.join(HOUDINI_BIN, "hotl.exe")
+                    cmd = [hotl, '-l', in_dir, out_hda]
+                    startup = subprocess.STARTUPINFO
+                    startup.dwFlags |= subprocess.STARTF_USESHOWWINDOW
+                    proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, startupinfo=startup)
+                else:
+                    hotl = os.path.join(HOUDINI_BIN, "hotl")
+                    cmd = [hotl, '-l', in_dir, out_hda]
+                    proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
                 out, err = proc.communicate()
                 if err:
                     raise RuntimeError, err
@@ -164,12 +171,18 @@ def expand_hdas(directory):
         if not os.path.isdir(in_hda) and os.path.splitext(i)[-1] == '.hda':
 
             out_dir = os.path.join(directory, i + '_')
-            try:
-                hotl = os.path.join(HOUDINI_BIN, "hotl.exe")
-                cmd = [hotl, '-t', out_dir, in_hda]
-                startup = subprocess.STARTUPINFO
-                startup.dwFlags |= subprocess.STARTF_USESHOWWINDOW
-                proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, startupinfo=startup)
+            try:      
+                proc = None
+                if platform.system() == 'Windows':
+                    hotl = os.path.join(HOUDINI_BIN, "hotl.exe")
+                    cmd = [hotl, '-t', out_dir, in_hda]
+                    startup = subprocess.STARTUPINFO
+                    startup.dwFlags |= subprocess.STARTF_USESHOWWINDOW
+                    proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, startupinfo=startup)
+                else:
+                    hotl = os.path.join(HOUDINI_BIN, "hotl")
+                    cmd = [hotl, '-t', out_dir, in_hda]
+                    proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
                 out, err = proc.communicate()
                 if err:
                     raise RuntimeError, err

@@ -60,6 +60,19 @@
         parmtag { "oprelative" "." }
     }
     parm {
+        name    "stick_reorient"
+        label   "Reorient to Surface"
+        type    toggle
+        default { "0" }
+        disablewhen "{ sticktosurface == 0 }"
+    }
+    parm {
+        name    "sepparm"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
         name    "input"
         label   "Use Falloff"
         type    toggle
@@ -87,7 +100,7 @@
         name    "relaxin3d"
         label   "Relax in 3D Space"
         type    toggle
-        default { "on" }
+        default { "off" }
         parmtag { "autoscope" "0000000000000000" }
     }
     parm {
