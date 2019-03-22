@@ -32,22 +32,26 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -2.98325 3.64172
-connectornextid 0
+position -0.57438 -1.32355
+connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
 inputsNamed3
 {
+0 	MOPs_Instancer 0 1 "input1"
+1 	transform1 1 1 "input2"
 }
 inputs
 {
+0 	MOPs_Instancer 0 1
+1 	transform1 0 1
 }
 stat
 {
-  create 1543604846
-  modify 1543604855
+  create 1551854842
+  modify 1551855314
   author Henry@LAPPY586
   access 0777
 }
@@ -73,7 +77,7 @@ Content-Type: text/plain
 
 2
 0 -2.0845399888241292 8.7927700011742118 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
-1 5.1787632634610716 8.1903833341995309 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+1 6.3373753485244464 8.7927700011742118 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/create_aim_vector.init"
@@ -108,7 +112,7 @@ inputs
 stat
 {
   create 1523778096
-  modify 1543604846
+  modify 1551854842
   author henry@GlaDOS
   access 0777
 }
@@ -414,7 +418,7 @@ inputs
 stat
 {
   create 1523778301
-  modify 1543604846
+  modify 1551855015
   author henry@GlaDOS
   access 0777
 }
@@ -461,6 +465,7 @@ scale_mode	[ 0	locks=0 ]	(	0	)
 rotate_order	[ 0	locks=0 ]	(	0	)
 local_space	[ 0	locks=0 ]	(	"on"	)
 do_make_id	[ 0	locks=0 ]	(	"on"	)
+do_copy_attrs	[ 0	locks=0 ]	(	"off"	)
 attribname	[ 0	locks=0 ]	(	""	)
 }
 
@@ -521,6 +526,7 @@ Content-Type: text/plain
 
 {
 version 0.8
+do_pivot	[ 0	locks=0 ]	(	"on"	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -567,7 +573,7 @@ inputs
 stat
 {
   create 1523780303
-  modify 1543604846
+  modify 1551854842
   author henry@GlaDOS
   access 0777
 }
@@ -858,7 +864,7 @@ sopflags sopflags =
 comment ""
 position 9.49793 6.24926
 connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 2 "output1"
@@ -876,7 +882,7 @@ inputs
 stat
 {
   create 1525057897
-  modify 1543604846
+  modify 1551855176
   author henry@GlaDOS
   access 0777
 }
@@ -1054,6 +1060,32 @@ Content-Type: text/plain
     }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointwrangle1.chn"
+Content-Type: text/plain
+
+{
+    channel upx {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../upx\") }
+    }
+    channel upy {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../upy\") }
+    }
+    channel upz {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../upz\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/pointwrangle1.parm"
 Content-Type: text/plain
 
@@ -1066,7 +1098,7 @@ class	[ 0	locks=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
 snippet	[ 0	locks=0 ]	(	"vector pos = getbbox_center(1);
-vector aim = normalize(pos - @p);
+vector aim = normalize(pos - @P);
 vector up = chv(\"up\");
 
 vector4 q = quaternion(maketransform(aim, up));
@@ -1085,7 +1117,7 @@ vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 folder1	[ 0	locks=0 ]	(	0	0	)
-up	[ 0	locks=0 ]	(	0	1	0	)
+up	[ 0	locks=0 ]	(	[ upx	0 ] 	[ upy	1 ] 	[ upz	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1156,7 +1188,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.0.506"
 	}
 }
 
@@ -1224,7 +1256,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.0.506"
 	}
 }
 
@@ -1259,7 +1291,7 @@ inputs
 stat
 {
   create 1523778074
-  modify 1543604846
+  modify 1551854842
   author henry@GlaDOS
   access 0777
 }
@@ -1303,7 +1335,7 @@ group	[ 0	locks=0 ]	(	""	)
 grouptype	[ 0	locks=0 ]	(	"guess"	)
 xOrd	[ 0	locks=0 ]	(	"srt"	)
 rOrd	[ 0	locks=0 ]	(	"xyz"	)
-t	[ 0	locks=0	autoscope=4 ]	(	[ tx	0 ] 	[ ty	0 ] 	[ tz	0 ] 	)
+t	[ 0	locks=0	autoscope=4 ]	(	[ tx	2.2999999999999998 ] 	[ ty	0.59999999999999998 ] 	[ tz	0.5 ] 	)
 r	[ 0	locks=0 ]	(	0	0	0	)
 s	[ 0	locks=0 ]	(	1	1	1	)
 shear	[ 0	locks=0 ]	(	0	0	0	)
@@ -1336,7 +1368,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.0.506"
 	}
 }
 
@@ -1397,7 +1429,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.0.506"
 	}
 }
 
@@ -1416,7 +1448,7 @@ sopflags sopflags =
 comment ""
 position -1.63175 -1.36181
 connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
@@ -1431,7 +1463,7 @@ inputs
 stat
 {
   create 1523779784
-  modify 1523780246
+  modify 1551855121
   author henry@GlaDOS
   access 0777
 }
@@ -1456,7 +1488,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.0.506"
 	}
 }
 
@@ -1495,7 +1527,7 @@ inputs
 stat
 {
   create 1523780233
-  modify 1543604846
+  modify 1551854842
   author henry@GlaDOS
   access 0777
 }
@@ -1523,7 +1555,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	0 ] 	)
+input	[ 0	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1533,7 +1565,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.0.506"
 	}
 }
 
@@ -1594,7 +1626,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.0.506"
 	}
 }
 
@@ -1655,7 +1687,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.0.506"
 	}
 }
 
@@ -1716,7 +1748,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.0.506"
 	}
 }
 
@@ -1753,7 +1785,7 @@ inputs
 stat
 {
   create 1525058140
-  modify 1543604846
+  modify 1551854842
   author henry@GlaDOS
   access 0777
 }
@@ -1781,7 +1813,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1791,7 +1823,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.0.506"
 	}
 }
 
@@ -1850,7 +1882,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.0.506"
 	}
 }
 

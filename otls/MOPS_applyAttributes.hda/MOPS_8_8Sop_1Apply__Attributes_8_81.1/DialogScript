@@ -150,11 +150,17 @@
         label   "Attributes To Copy"
         type    string
         default { "" }
-        disablewhen "{ do_copy_attrs 0 }"
+        disablewhen "{ do_copy_attrs == 0 }"
         menutoggle {
             [ "opmenu -l attribcopy1 attribname" ]
         }
         parmtag { "autoscope" "0000000000000000" }
         parmtag { "sop_input" "2else1" }
+    }
+    parm {
+        name    "do_orient"
+        label   "Output Orient Attribute"
+        type    toggle
+        default { "0" }
     }
 }
