@@ -32,25 +32,22 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.637607 -1.69872
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+position -1.04098 -0.092623
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-0 "output1"
 }
 inputsNamed3
 {
-1 	Combine_Falloffs1 2 1 "input1"
 }
 inputs
 {
-0 	Combine_Falloffs1 0 1
 }
 stat
 {
-  create 1536026656
-  modify 1551419040
+  create 1554440734
+  modify 1554440743
   author Henry@LAPPY586
   access 0777
 }
@@ -108,7 +105,7 @@ inputs
 stat
 {
   create 1522436772
-  modify 1551417923
+  modify 1554440734
   author Henry@LAPPY586
   access 0777
 }
@@ -553,7 +550,7 @@ inputs
 stat
 {
   create 1536025246
-  modify 1551417923
+  modify 1554440734
   author Henry@LAPPY586
   access 0777
 }
@@ -819,7 +816,7 @@ inputs
 stat
 {
   create 1538069567
-  modify 1551417923
+  modify 1554440734
   author Henry@LAPPY586
   access 0777
 }
@@ -923,7 +920,7 @@ inputs
 stat
 {
   create 1539749753
-  modify 1551417941
+  modify 1554440734
   author henry@GlaDOS
   access 0777
 }
@@ -1072,7 +1069,7 @@ inputs
 stat
 {
   create 1542258177
-  modify 1551417923
+  modify 1554440734
   author Henry@LAPPY586
   access 0777
 }
@@ -1153,7 +1150,7 @@ inputs
 stat
 {
   create 1522436772
-  modify 1551418504
+  modify 1554440734
   author Henry@LAPPY586
   access 0777
 }
@@ -1589,16 +1586,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	check_version_compat 1 1 "input1"
+0 	(0) "" 1 "input1"
 }
 inputs
 {
-0 	check_version_compat 0 1
+0 	(0) 0 1
 }
 stat
 {
   create 1522438513
-  modify 1551418395
+  modify 1554440605
   author Henry@LAPPY586
   access 0777
 }
@@ -1624,7 +1621,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.498"
+		"value":"17.5.173"
 	}
 }
 
@@ -1683,7 +1680,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.498"
+		"value":"17.5.173"
 	}
 }
 
@@ -1761,7 +1758,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.498"
+		"value":"17.5.173"
 	}
 }
 
@@ -1798,7 +1795,7 @@ inputs
 stat
 {
   create 1536021933
-  modify 1551417923
+  modify 1554440734
   author Henry@LAPPY586
   access 0777
 }
@@ -1826,7 +1823,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1836,7 +1833,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.498"
+		"value":"17.5.173"
 	}
 }
 
@@ -1873,7 +1870,7 @@ inputs
 stat
 {
   create 1538070395
-  modify 1551417923
+  modify 1554440734
   author Henry@LAPPY586
   access 0777
 }
@@ -1911,7 +1908,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.498"
+		"value":"17.5.173"
 	}
 }
 
@@ -1979,7 +1976,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.498"
+		"value":"17.5.173"
 	}
 }
 
@@ -2016,7 +2013,7 @@ inputs
 stat
 {
   create 1542258372
-  modify 1551417923
+  modify 1554440734
   author Henry@LAPPY586
   access 0777
 }
@@ -2044,7 +2041,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2054,7 +2051,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.498"
+		"value":"17.5.173"
 	}
 }
 
@@ -2155,7 +2152,7 @@ inputs
 stat
 {
   create 1551417962
-  modify 1551418993
+  modify 1554440691
   author Henry@LAPPY586
   access 0777
 }
@@ -2173,7 +2170,7 @@ Content-Type: text/plain
       lefttype = extend
       righttype = extend
       flags = 0
-      segment { length = 0 expr = "detail(\"../IN\", \"mops_preview_available\", 0) && ch(\"../do_sprite\") == 0" }
+      segment { length = 0 expr = "$MOPS_PREVIEW_ENABLED == \"1\"" }
     }
   }
 
@@ -2193,7 +2190,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.498"
+		"value":"17.5.173"
 	}
 }
 
@@ -2210,9 +2207,9 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -2.04209 0.768148
+position 0.771396 0.716994
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass on display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 1 "output1"
@@ -2228,7 +2225,7 @@ inputs
 stat
 {
   create 1551418116
-  modify 1551418300
+  modify 1554440603
   author Henry@LAPPY586
   access 0777
 }
@@ -2249,7 +2246,9 @@ geo = node.geometry()
 geo.addAttrib(hou.attribType.Global, \"mops_preview_available\", 0)
 
 version = hou.applicationVersion()
-if version[0] >= 17 and version[2] >= 498:
+if version[0] == 17 and (version[1] >= 5 or version[2] >= 498):
+    geo.setGlobalAttribValue(\"mops_preview_available\", 1)
+elif version[0] > 17:
     geo.setGlobalAttribValue(\"mops_preview_available\", 1)"	)
 }
 
@@ -2260,7 +2259,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.498"
+		"value":"17.5.173"
 	}
 }
 
@@ -2361,7 +2360,7 @@ inputs
 stat
 {
   create 1551418993
-  modify 1551419033
+  modify 1554440734
   author Henry@LAPPY586
   access 0777
 }
@@ -2389,7 +2388,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	0 ] 	)
+input	[ 0	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2399,7 +2398,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.498"
+		"value":"17.5.173"
 	}
 }
 
