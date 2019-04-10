@@ -105,6 +105,7 @@
                 "6" "Simplex Folded"
                 "7" "Simplex Warped"
                 "8" "Mix Minima"
+                "9" "Curl"
             }
             range   { 0! 10 }
             parmtag { "autoscope" "0000000000000000" }
@@ -126,8 +127,9 @@
         parm {
             name    "amp"
             label   "Amplitude"
-            type    float
-            default { "1" }
+            type    vector
+            size    3
+            default { "1" "1" "1" }
             range   { 0 1 }
             parmtag { "autoscope" "0000000000000000" }
         }
