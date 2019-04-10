@@ -287,7 +287,7 @@ class MOPsUpdateWindow(QtWidgets.QDialog):
         cancel_btn.clicked.connect(self.close)
         self.update_env.clicked.connect(self.toggle_env_update)
         # window size
-        self.setFixedSize(300, 200)
+        # self.setFixedSize(300, 200)
         
     def toggle_env_update(self):
         do_env = self.update_env.isChecked()
