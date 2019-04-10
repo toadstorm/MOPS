@@ -32,22 +32,25 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -4.69315 -5.81952
-connectornextid 0
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+position -11.4134 2.92935
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
+1 "output1"
 }
 inputsNamed3
 {
+0 	MOPs_Extract_Attributes 1 1 "input1"
 }
 inputs
 {
+0 	MOPs_Extract_Attributes 0 1
 }
 stat
 {
-  create 1550443863
-  modify 1550443886
+  create 1554925271
+  modify 1554929178
   author Henry@LAPPY586
   access 0777
 }
@@ -130,7 +133,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1550443863
+  modify 1554928930
   author Henry@LAPPY586
   access 0777
 }
@@ -301,8 +304,9 @@ Content-Type: text/plain
     parm {
         name    "amp"
         label   "Amp"
-        type    float
-        default { "0" }
+        type    vector
+        size    3
+        default { "0" "0" "0" }
         range   { 0 1 }
     }
     parm {
@@ -373,13 +377,6 @@ Content-Type: text/plain
       righttype = extend
       flags = 0
       segment { length = 0 expr = ch(\"../grouptype\") }
-    }
-    channel amp {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
     }
     channel freqx {
       lefttype = extend
@@ -465,6 +462,27 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../time_scale\") }
     }
+    channel ampx {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../ampx\") }
+    }
+    channel ampy {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../ampy\") }
+    }
+    channel ampz {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../ampz\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -482,7 +500,7 @@ vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
 snippet	[ 0	locks=0	autoscope=0 ]	(	"vector4 pos = @P;
 vector4 freq = chp(\"freq\");
 vector4 offset = chp(\"offset\");
-float amp = ch(\"amp\");
+vector amp = chv(\"amp\");
 
 int oct = chi(\"octaves\");
 float rough = chf(\"roughness\");
@@ -528,17 +546,17 @@ vex_updatenmls	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
 vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
-folder1	[ 0	locks=0	autoscope=0 ]	(	1	1	)
-amp	[ 0	locks=0	autoscope=0 ]	(	[ amp	1 ] 	)
+bindname1	[ 0	locks=0 ]	(	__attr	)
+bindparm1	[ 0	locks=0 ]	(	attr	)
+folder1	[ 0	locks=0 ]	(	0	0	)
+amp	[ 0	locks=0	autoscope=0 ]	(	[ ampx	1 ] 	[ ampy	1 ] 	[ ampz	1 ] 	)
 roughness	[ 0	locks=0	autoscope=0 ]	(	[ roughness	0.5 ] 	)
 octaves	[ 0	locks=0	autoscope=0 ]	(	[ octaves	1 ] 	)
 freq	[ 0	locks=0	autoscope=0 ]	(	[ freqx	1 ] 	[ freqy	1 ] 	[ freqz	1 ] 	[ freqw	1 ] 	)
 offset	[ 0	locks=0	autoscope=0 ]	(	[ offsetx	0 ] 	[ offsety	0 ] 	[ offsetz	0 ] 	[ offsetw	0 ] 	)
 uniform	[ 0	locks=0	autoscope=0 ]	(	[ uniform	0 ] 	)
 time_scale	[ 0	locks=0	autoscope=0 ]	(	[ time_scale	1 ] 	)
-time_varying	[ 0	locks=0	autoscope=0 ]	(	[ time_varying	0 ] 	)
-bindname1	[ 0	locks=0 ]	(	__attr	)
-bindparm1	[ 0	locks=0 ]	(	attr	)
+time_varying	[ 0	locks=0	autoscope=0 ]	(	[ time_varying	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -583,7 +601,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1550443863
+  modify 1554928967
   author Henry@LAPPY586
   access 0777
 }
@@ -754,8 +772,9 @@ Content-Type: text/plain
     parm {
         name    "amp"
         label   "Amp"
-        type    float
-        default { "0" }
+        type    vector
+        size    3
+        default { "0" "0" "0" }
         range   { 0 1 }
     }
     parm {
@@ -827,13 +846,6 @@ Content-Type: text/plain
       default = 2
       flags = 0
       segment { length = 0 value = 2 2 expr = ch(\"../Perlin/class\") }
-    }
-    channel amp {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
     }
     channel freqx {
       lefttype = extend
@@ -919,6 +931,27 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../time_scale\") }
     }
+    channel ampx {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../ampx\") }
+    }
+    channel ampy {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../ampy\") }
+    }
+    channel ampz {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../ampz\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -936,7 +969,7 @@ vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
 snippet	[ 0	locks=0	autoscope=0 ]	(	"vector4 pos = @P;
 vector4 freq = chp(\"freq\");
 vector4 offset = chp(\"offset\");
-float amp = chf(\"amp\");
+vector amp = chv(\"amp\");
 
 int oct = chi(\"octaves\");
 float rough = chf(\"roughness\");
@@ -982,8 +1015,10 @@ vex_updatenmls	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
 vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
-folder1	[ 0	locks=0	autoscope=0 ]	(	1	1	)
-amp	[ 0	locks=0	autoscope=0 ]	(	[ amp	1 ] 	)
+bindname1	[ 0	locks=0 ]	(	__attr	)
+bindparm1	[ 0	locks=0 ]	(	attr	)
+folder1	[ 0	locks=0 ]	(	0	0	)
+amp	[ 0	locks=0 ]	(	[ ampx	1 ] 	[ ampy	1 ] 	[ ampz	1 ] 	)
 roughness	[ 0	locks=0	autoscope=0 ]	(	[ roughness	0.5 ] 	)
 octaves	[ 0	locks=0	autoscope=0 ]	(	[ octaves	1 ] 	)
 freq	[ 0	locks=0	autoscope=0 ]	(	[ freqx	1 ] 	[ freqy	1 ] 	[ freqz	1 ] 	[ freqw	1 ] 	)
@@ -991,8 +1026,6 @@ offset	[ 0	locks=0	autoscope=0 ]	(	[ offsetx	0 ] 	[ offsety	0 ] 	[ offsetz	0 ] 	
 uniform	[ 0	locks=0	autoscope=0 ]	(	[ uniform	0 ] 	)
 time_scale	[ 0	locks=0	autoscope=0 ]	(	[ time_scale	1 ] 	)
 time_varying	[ 0	locks=0	autoscope=0 ]	(	[ time_varying	1 ] 	)
-bindname1	[ 0	locks=0 ]	(	__attr	)
-bindparm1	[ 0	locks=0 ]	(	attr	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1037,7 +1070,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1550443863
+  modify 1554929011
   author Henry@LAPPY586
   access 0777
 }
@@ -1208,8 +1241,9 @@ Content-Type: text/plain
     parm {
         name    "amp"
         label   "Amp"
-        type    float
-        default { "0" }
+        type    vector
+        size    3
+        default { "0" "0" "0" }
         range   { 0 1 }
     }
     parm {
@@ -1281,13 +1315,6 @@ Content-Type: text/plain
       default = 2
       flags = 0
       segment { length = 0 value = 2 2 expr = ch(\"../Perlin/class\") }
-    }
-    channel amp {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
     }
     channel freqx {
       lefttype = extend
@@ -1373,6 +1400,27 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../time_scale\") }
     }
+    channel ampx {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../ampx\") }
+    }
+    channel ampy {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../ampy\") }
+    }
+    channel ampz {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../ampz\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1390,7 +1438,7 @@ vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
 snippet	[ 0	locks=0	autoscope=0 ]	(	"vector4 pos = @P;
 vector4 freq = chp(\"freq\");
 vector4 offset = chp(\"offset\");
-float amp = chf(\"amp\");
+vector amp = chv(\"amp\");
 
 int oct = chi(\"octaves\");
 float rough = chf(\"roughness\");
@@ -1441,8 +1489,10 @@ vex_updatenmls	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
 vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
-folder1	[ 0	locks=0	autoscope=0 ]	(	1	1	)
-amp	[ 0	locks=0	autoscope=0 ]	(	[ amp	1 ] 	)
+bindname1	[ 0	locks=0 ]	(	__attr	)
+bindparm1	[ 0	locks=0 ]	(	attr	)
+folder1	[ 0	locks=0 ]	(	0	0	)
+amp	[ 0	locks=0 ]	(	[ ampx	1 ] 	[ ampy	1 ] 	[ ampz	1 ] 	)
 roughness	[ 0	locks=0	autoscope=0 ]	(	[ roughness	0.5 ] 	)
 octaves	[ 0	locks=0	autoscope=0 ]	(	[ octaves	1 ] 	)
 freq	[ 0	locks=0	autoscope=0 ]	(	[ freqx	1 ] 	[ freqy	1 ] 	[ freqz	1 ] 	[ freqw	1 ] 	)
@@ -1450,8 +1500,6 @@ offset	[ 0	locks=0	autoscope=0 ]	(	[ offsetx	0 ] 	[ offsety	0 ] 	[ offsetz	0 ] 	
 uniform	[ 0	locks=0	autoscope=0 ]	(	[ uniform	0 ] 	)
 time_scale	[ 0	locks=0	autoscope=0 ]	(	[ time_scale	1 ] 	)
 time_varying	[ 0	locks=0	autoscope=0 ]	(	[ time_varying	1 ] 	)
-bindname1	[ 0	locks=0 ]	(	__attr	)
-bindparm1	[ 0	locks=0 ]	(	attr	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1496,7 +1544,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1550443863
+  modify 1554929041
   author Henry@LAPPY586
   access 0777
 }
@@ -1667,8 +1715,9 @@ Content-Type: text/plain
     parm {
         name    "amp"
         label   "Amp"
-        type    float
-        default { "0" }
+        type    vector
+        size    3
+        default { "0" "0" "0" }
         range   { 0 1 }
     }
     parm {
@@ -1740,13 +1789,6 @@ Content-Type: text/plain
       default = 2
       flags = 0
       segment { length = 0 value = 2 2 expr = ch(\"../Perlin/class\") }
-    }
-    channel amp {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
     }
     channel freqx {
       lefttype = extend
@@ -1832,6 +1874,27 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../time_scale\") }
     }
+    channel ampx {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../ampx\") }
+    }
+    channel ampy {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../ampy\") }
+    }
+    channel ampz {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../ampz\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1849,7 +1912,7 @@ vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
 snippet	[ 0	locks=0	autoscope=0 ]	(	"vector4 pos = @P;
 vector4 freq = chp(\"freq\");
 vector4 offset = chp(\"offset\");
-float amp = chf(\"amp\");
+vector amp = chv(\"amp\");
 
 int oct = chi(\"octaves\");
 float rough = chf(\"roughness\");
@@ -1900,8 +1963,10 @@ vex_updatenmls	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
 vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
-folder1	[ 0	locks=0	autoscope=0 ]	(	1	1	)
-amp	[ 0	locks=0	autoscope=0 ]	(	[ amp	1 ] 	)
+bindname1	[ 0	locks=0 ]	(	__attr	)
+bindparm1	[ 0	locks=0 ]	(	attr	)
+folder1	[ 0	locks=0 ]	(	0	0	)
+amp	[ 0	locks=0 ]	(	[ ampx	1 ] 	[ ampy	1 ] 	[ ampz	1 ] 	)
 roughness	[ 0	locks=0	autoscope=0 ]	(	[ roughness	0.5 ] 	)
 octaves	[ 0	locks=0	autoscope=0 ]	(	[ octaves	1 ] 	)
 freq	[ 0	locks=0	autoscope=0 ]	(	[ freqx	1 ] 	[ freqy	1 ] 	[ freqz	1 ] 	[ freqw	1 ] 	)
@@ -1909,8 +1974,6 @@ offset	[ 0	locks=0	autoscope=0 ]	(	[ offsetx	0 ] 	[ offsety	0 ] 	[ offsetz	0 ] 	
 uniform	[ 0	locks=0	autoscope=0 ]	(	[ uniform	0 ] 	)
 time_scale	[ 0	locks=0	autoscope=0 ]	(	[ time_scale	1 ] 	)
 time_varying	[ 0	locks=0	autoscope=0 ]	(	[ time_varying	1 ] 	)
-bindname1	[ 0	locks=0 ]	(	__attr	)
-bindparm1	[ 0	locks=0 ]	(	attr	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1955,7 +2018,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1550443863
+  modify 1554929069
   author Henry@LAPPY586
   access 0777
 }
@@ -2126,8 +2189,9 @@ Content-Type: text/plain
     parm {
         name    "amp"
         label   "Amp"
-        type    float
-        default { "0" }
+        type    vector
+        size    3
+        default { "0" "0" "0" }
         range   { 0 1 }
     }
     parm {
@@ -2198,13 +2262,6 @@ Content-Type: text/plain
       default = 2
       flags = 0
       segment { length = 0 value = 2 2 expr = ch(\"../Perlin/class\") }
-    }
-    channel amp {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
     }
     channel freqx {
       lefttype = extend
@@ -2290,6 +2347,27 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../time_scale\") }
     }
+    channel ampx {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../ampx\") }
+    }
+    channel ampy {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../ampy\") }
+    }
+    channel ampz {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../ampz\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2307,7 +2385,7 @@ vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
 snippet	[ 0	locks=0	autoscope=0 ]	(	"vector4 pos = @P;
 vector4 freq = chp(\"freq\");
 vector4 offset = chp(\"offset\");
-float amp = chf(\"amp\");
+vector amp = chv(\"amp\");
 
 int oct = chi(\"octaves\");
 float rough = chf(\"roughness\");
@@ -2358,8 +2436,10 @@ vex_updatenmls	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
 vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
-folder1	[ 0	locks=0	autoscope=0 ]	(	1	1	)
-amp	[ 0	locks=0	autoscope=0 ]	(	[ amp	1 ] 	)
+bindname1	[ 0	locks=0 ]	(	__attr	)
+bindparm1	[ 0	locks=0 ]	(	attr	)
+folder1	[ 0	locks=0 ]	(	0	0	)
+amp	[ 0	locks=0 ]	(	[ ampx	1 ] 	[ ampy	1 ] 	[ ampz	1 ] 	)
 roughness	[ 0	locks=0	autoscope=0 ]	(	[ roughness	0.5 ] 	)
 octaves	[ 0	locks=0	autoscope=0 ]	(	[ octaves	1 ] 	)
 freq	[ 0	locks=0	autoscope=0 ]	(	[ freqx	1 ] 	[ freqy	1 ] 	[ freqz	1 ] 	[ freqw	1 ] 	)
@@ -2367,8 +2447,6 @@ offset	[ 0	locks=0	autoscope=0 ]	(	[ offsetx	0 ] 	[ offsety	0 ] 	[ offsetz	0 ] 	
 uniform	[ 0	locks=0	autoscope=0 ]	(	[ uniform	0 ] 	)
 time_scale	[ 0	locks=0	autoscope=0 ]	(	[ time_scale	1 ] 	)
 time_varying	[ 0	locks=0	autoscope=0 ]	(	[ time_varying	1 ] 	)
-bindname1	[ 0	locks=0 ]	(	__attr	)
-bindparm1	[ 0	locks=0 ]	(	attr	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2413,7 +2491,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1550443863
+  modify 1554929098
   author Henry@LAPPY586
   access 0777
 }
@@ -2584,8 +2662,9 @@ Content-Type: text/plain
     parm {
         name    "amp"
         label   "Amp"
-        type    float
-        default { "0" }
+        type    vector
+        size    3
+        default { "0" "0" "0" }
         range   { 0 1 }
     }
     parm {
@@ -2664,13 +2743,6 @@ Content-Type: text/plain
       default = 2
       flags = 0
       segment { length = 0 value = 2 2 expr = ch(\"../Perlin/class\") }
-    }
-    channel amp {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
     }
     channel freqx {
       lefttype = extend
@@ -2777,6 +2849,27 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../tile_sizez\") }
     }
+    channel ampx {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../ampx\") }
+    }
+    channel ampy {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../ampy\") }
+    }
+    channel ampz {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../ampz\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2794,7 +2887,7 @@ vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
 snippet	[ 0	locks=0	autoscope=0 ]	(	"vector4 pos = @P;
 vector4 freq = chp(\"freq\");
 vector4 offset = chp(\"offset\");
-float amp = chf(\"amp\");
+vector amp = chv(\"amp\");
 
 vector tile = chv(\"tile_size\");
 
@@ -2848,8 +2941,10 @@ vex_updatenmls	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
 vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
-folder1	[ 0	locks=0	autoscope=0 ]	(	1	1	)
-amp	[ 0	locks=0	autoscope=0 ]	(	[ amp	1 ] 	)
+bindname1	[ 0	locks=0 ]	(	__attr	)
+bindparm1	[ 0	locks=0 ]	(	attr	)
+folder1	[ 0	locks=0 ]	(	0	0	)
+amp	[ 0	locks=0 ]	(	[ ampx	1 ] 	[ ampy	1 ] 	[ ampz	1 ] 	)
 roughness	[ 0	locks=0	autoscope=0 ]	(	[ roughness	0.5 ] 	)
 octaves	[ 0	locks=0	autoscope=0 ]	(	[ octaves	1 ] 	)
 freq	[ 0	locks=0	autoscope=0 ]	(	[ freqx	1 ] 	[ freqy	1 ] 	[ freqz	1 ] 	[ freqw	1 ] 	)
@@ -2858,8 +2953,6 @@ tile_size	[ 0	locks=0	autoscope=0 ]	(	[ tile_sizex	1 ] 	[ tile_sizey	1 ] 	[ tile
 uniform	[ 0	locks=0	autoscope=0 ]	(	[ uniform	0 ] 	)
 time_scale	[ 0	locks=0	autoscope=0 ]	(	[ time_scale	1 ] 	)
 time_varying	[ 0	locks=0	autoscope=0 ]	(	[ time_varying	1 ] 	)
-bindname1	[ 0	locks=0 ]	(	__attr	)
-bindparm1	[ 0	locks=0 ]	(	attr	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2904,7 +2997,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1550443863
+  modify 1554929129
   author Henry@LAPPY586
   access 0777
 }
@@ -3075,8 +3168,9 @@ Content-Type: text/plain
     parm {
         name    "amp"
         label   "Amp"
-        type    float
-        default { "0" }
+        type    vector
+        size    3
+        default { "0" "0" "0" }
         range   { 0 1 }
     }
     parm {
@@ -3141,13 +3235,6 @@ Content-Type: text/plain
       righttype = extend
       flags = 0
       segment { length = 0 expr = ch(\"../Perlin/grouptype\") }
-    }
-    channel amp {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
     }
     channel freqx {
       lefttype = extend
@@ -3233,6 +3320,27 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../time_scale\") }
     }
+    channel ampx {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../ampx\") }
+    }
+    channel ampy {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../ampy\") }
+    }
+    channel ampz {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../ampz\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -3250,7 +3358,7 @@ vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
 snippet	[ 0	locks=0	autoscope=0 ]	(	"vector4 pos = @P;
 vector4 freq = chp(\"freq\");
 vector4 offset = chp(\"offset\");
-float amp = chf(\"amp\");
+vector amp = chv(\"amp\");
 
 int oct = chi(\"octaves\");
 float rough = chf(\"roughness\");
@@ -3299,8 +3407,10 @@ vex_updatenmls	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
 vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
-folder1	[ 0	locks=0	autoscope=0 ]	(	1	1	)
-amp	[ 0	locks=0	autoscope=0 ]	(	[ amp	1 ] 	)
+bindname1	[ 0	locks=0 ]	(	__attr	)
+bindparm1	[ 0	locks=0 ]	(	attr	)
+folder1	[ 0	locks=0 ]	(	0	0	)
+amp	[ 0	locks=0 ]	(	[ ampx	1 ] 	[ ampy	1 ] 	[ ampz	1 ] 	)
 roughness	[ 0	locks=0	autoscope=0 ]	(	[ roughness	0.5 ] 	)
 octaves	[ 0	locks=0	autoscope=0 ]	(	[ octaves	1 ] 	)
 freq	[ 0	locks=0	autoscope=0 ]	(	[ freqx	1 ] 	[ freqy	1 ] 	[ freqz	1 ] 	[ freqw	1 ] 	)
@@ -3308,8 +3418,6 @@ offset	[ 0	locks=0	autoscope=0 ]	(	[ offsetx	0 ] 	[ offsety	0 ] 	[ offsetz	0 ] 	
 uniform	[ 0	locks=0	autoscope=0 ]	(	[ uniform	0 ] 	)
 time_scale	[ 0	locks=0	autoscope=0 ]	(	[ time_scale	1 ] 	)
 time_varying	[ 0	locks=0	autoscope=0 ]	(	[ time_varying	1 ] 	)
-bindname1	[ 0	locks=0 ]	(	__attr	)
-bindparm1	[ 0	locks=0 ]	(	attr	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -3354,7 +3462,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1550443863
+  modify 1554929150
   author Henry@LAPPY586
   access 0777
 }
@@ -3525,8 +3633,9 @@ Content-Type: text/plain
     parm {
         name    "amp"
         label   "Amp"
-        type    float
-        default { "0" }
+        type    vector
+        size    3
+        default { "0" "0" "0" }
         range   { 0 1 }
     }
     parm {
@@ -3599,13 +3708,6 @@ Content-Type: text/plain
       righttype = extend
       flags = 0
       segment { length = 0 expr = ch(\"../Perlin/grouptype\") }
-    }
-    channel amp {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
     }
     channel freqx {
       lefttype = extend
@@ -3709,6 +3811,24 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = ch(\"../Distortz\") }
     }
+    channel ampx {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../ampx\") }
+    }
+    channel ampy {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../ampy\") }
+    }
+    channel ampz {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../ampz\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -3728,7 +3848,7 @@ vector4 freq = chp(\"freq\");
 vector4 offset = chp(\"offset\");
 vector distort = chv(\"Distort\");
 
-float amp = chf(\"amp\");
+vector amp = chv(\"amp\");
 
 int oct = chi(\"octaves\");
 float rough = chf(\"roughness\");
@@ -3777,8 +3897,10 @@ vex_updatenmls	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
 vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
-folder1	[ 0	locks=0	autoscope=0 ]	(	1	1	)
-amp	[ 0	locks=0	autoscope=0 ]	(	[ amp	1 ] 	)
+bindname1	[ 0	locks=0 ]	(	__attr	)
+bindparm1	[ 0	locks=0 ]	(	attr	)
+folder1	[ 0	locks=0	autoscope=0 ]	(	0	0	)
+amp	[ 0	locks=0 ]	(	[ ampx	1 ] 	[ ampy	1 ] 	[ ampz	1 ] 	)
 roughness	[ 0	locks=0	autoscope=0 ]	(	[ roughness	0.5 ] 	)
 octaves	[ 0	locks=0	autoscope=0 ]	(	[ octaves	1 ] 	)
 freq	[ 0	locks=0	autoscope=0 ]	(	[ freqx	1 ] 	[ freqy	1 ] 	[ freqz	1 ] 	[ freqw	1 ] 	)
@@ -3787,8 +3909,6 @@ uniform	[ 0	locks=0	autoscope=0 ]	(	[ uniform	0 ] 	)
 Distort	[ 0	locks=0	autoscope=0 ]	(	[ Distortx	0 ] 	[ Distorty	0 ] 	[ Distortz	0 ] 	)
 time_scale	[ 0	locks=0	autoscope=0 ]	(	[ time_scale	1 ] 	)
 time_varying	[ 0	locks=0	autoscope=0 ]	(	[ time_varying	1 ] 	)
-bindname1	[ 0	locks=0 ]	(	__attr	)
-bindparm1	[ 0	locks=0 ]	(	attr	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -3833,7 +3953,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1550443863
+  modify 1554929180
   author Henry@LAPPY586
   access 0777
 }
@@ -4004,8 +4124,9 @@ Content-Type: text/plain
     parm {
         name    "amp"
         label   "Amp"
-        type    float
-        default { "0" }
+        type    vector
+        size    3
+        default { "0" "0" "0" }
         range   { 0 1 }
     }
     parm {
@@ -4070,13 +4191,6 @@ Content-Type: text/plain
       righttype = extend
       flags = 0
       segment { length = 0 expr = ch(\"../Perlin/grouptype\") }
-    }
-    channel amp {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
     }
     channel freqx {
       lefttype = extend
@@ -4162,6 +4276,27 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../time_scale\") }
     }
+    channel ampx {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../ampx\") }
+    }
+    channel ampy {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../ampy\") }
+    }
+    channel ampz {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../ampz\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -4179,7 +4314,7 @@ vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
 snippet	[ 0	locks=0	autoscope=0 ]	(	"vector4 pos = @P;
 vector4 freq = chp(\"freq\");
 vector4 offset = chp(\"offset\");
-float amp = chf(\"amp\");
+vector amp = chv(\"amp\");
 
 int oct = chi(\"octaves\");
 float rough = chf(\"roughness\");
@@ -4231,8 +4366,10 @@ vex_updatenmls	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
 vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
-folder1	[ 0	locks=0	autoscope=0 ]	(	1	1	)
-amp	[ 0	locks=0	autoscope=0 ]	(	[ amp	1 ] 	)
+bindname1	[ 0	locks=0 ]	(	__attr	)
+bindparm1	[ 0	locks=0 ]	(	attr	)
+folder1	[ 0	locks=0 ]	(	0	0	)
+amp	[ 0	locks=0 ]	(	[ ampx	1 ] 	[ ampy	1 ] 	[ ampz	1 ] 	)
 roughness	[ 0	locks=0	autoscope=0 ]	(	[ roughness	0.5 ] 	)
 octaves	[ 0	locks=0	autoscope=0 ]	(	[ octaves	1 ] 	)
 freq	[ 0	locks=0	autoscope=0 ]	(	[ freqx	1 ] 	[ freqy	1 ] 	[ freqz	1 ] 	[ freqw	1 ] 	)
@@ -4240,8 +4377,6 @@ offset	[ 0	locks=0	autoscope=0 ]	(	[ offsetx	0 ] 	[ offsety	0 ] 	[ offsetz	0 ] 	
 uniform	[ 0	locks=0	autoscope=0 ]	(	[ uniform	0 ] 	)
 time_scale	[ 0	locks=0	autoscope=0 ]	(	[ time_scale	1 ] 	)
 time_varying	[ 0	locks=0	autoscope=0 ]	(	[ time_varying	1 ] 	)
-bindname1	[ 0	locks=0 ]	(	__attr	)
-bindparm1	[ 0	locks=0 ]	(	attr	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -4286,7 +4421,7 @@ inputs
 stat
 {
   create 1524060464
-  modify 1550443863
+  modify 1554925271
   author Henry@LAPPY586
   access 0777
 }
@@ -4517,8 +4652,8 @@ vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
 vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
 folder1	[ 0	locks=0	autoscope=0 ]	(	0	0	)
-use_rest	[ 0	locks=0	autoscope=0 ]	(	[ use_rest	0 ] 	)
-has_rest	[ 0	locks=0	autoscope=0 ]	(	[ has_rest	1 ] 	)
+use_rest	[ 0	locks=0	autoscope=0 ]	(	[ use_rest	1 ] 	)
+has_rest	[ 0	locks=0	autoscope=0 ]	(	[ has_rest	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -4563,7 +4698,7 @@ inputs
 stat
 {
   create 1549075027
-  modify 1550443863
+  modify 1554925271
   author Henry@LAPPY586
   access 0777
 }
@@ -4641,7 +4776,7 @@ inputs
 stat
 {
   create 1549515796
-  modify 1550443863
+  modify 1554925271
   author Henry@LAPPY586
   access 0777
 }
@@ -4945,7 +5080,7 @@ inputs
 stat
 {
   create 1550294119
-  modify 1550443863
+  modify 1554925271
   author Henry@LAPPY586
   access 0777
 }
@@ -5267,7 +5402,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.173"
 	}
 }
 
@@ -5318,7 +5453,7 @@ inputs
 stat
 {
   create 1549075032
-  modify 1550443863
+  modify 1554925271
   author Henry@LAPPY586
   access 0777
 }
@@ -5356,7 +5491,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.173"
 	}
 }
 
@@ -5415,7 +5550,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.173"
 	}
 }
 
@@ -5514,7 +5649,7 @@ inputs
 stat
 {
   create 1550294318
-  modify 1550443863
+  modify 1554925271
   author Henry@LAPPY586
   access 0777
 }
@@ -5545,7 +5680,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.173"
 	}
 }
 
@@ -5582,7 +5717,7 @@ inputs
 stat
 {
   create 1550294550
-  modify 1550443863
+  modify 1554925271
   author Henry@LAPPY586
   access 0777
 }
@@ -5620,7 +5755,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.173"
 	}
 }
 
@@ -5655,7 +5790,7 @@ inputs
 stat
 {
   create 1550294976
-  modify 1550443863
+  modify 1554925271
   author Henry@LAPPY586
   access 0777
 }
@@ -5686,7 +5821,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.173"
 	}
 }
 
