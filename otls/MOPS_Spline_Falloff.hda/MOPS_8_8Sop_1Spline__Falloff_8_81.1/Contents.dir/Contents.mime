@@ -32,7 +32,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -13.1102 1.23734
+position -6.83934 -0.881967
 connectornextid 0
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -46,8 +46,8 @@ inputs
 }
 stat
 {
-  create 1551418855
-  modify 1551418863
+  create 1555033227
+  modify 1555033376
   author Henry@LAPPY586
   access 0777
 }
@@ -106,7 +106,7 @@ inputs
 stat
 {
   create 1520238981
-  modify 1551418855
+  modify 1555033227
   author Mo@Mo-PC
   access 0777
 }
@@ -186,7 +186,7 @@ inputs
 stat
 {
   create 1520238994
-  modify 1551418855
+  modify 1555033227
   author Mo@Mo-PC
   access 0777
 }
@@ -271,7 +271,7 @@ inputs
 stat
 {
   create 1520239056
-  modify 1551418855
+  modify 1555033227
   author Mo@Mo-PC
   access 0777
 }
@@ -556,7 +556,7 @@ inputs
 stat
 {
   create 1520239092
-  modify 1551418855
+  modify 1555033227
   author Mo@Mo-PC
   access 0777
 }
@@ -902,7 +902,7 @@ inputs
 stat
 {
   create 1520239111
-  modify 1551418855
+  modify 1555033227
   author Mo@Mo-PC
   access 0777
 }
@@ -980,7 +980,7 @@ inputs
 stat
 {
   create 1520239857
-  modify 1551418855
+  modify 1555033227
   author Mo@Mo-PC
   access 0777
 }
@@ -1235,7 +1235,7 @@ inputs
 stat
 {
   create 1523234729
-  modify 1551418855
+  modify 1555033227
   author henry@GlaDOS
   access 0777
 }
@@ -1355,7 +1355,7 @@ inputs
 stat
 {
   create 1523247855
-  modify 1551418855
+  modify 1555033227
   author henry@GlaDOS
   access 0777
 }
@@ -1561,7 +1561,7 @@ inputs
 stat
 {
   create 1536024126
-  modify 1551418855
+  modify 1555033227
   author Henry@LAPPY586
   access 0777
 }
@@ -1802,8 +1802,8 @@ Content-Type: text/plain
 
 {
 version 0.8
-do_preview	[ 0	locks=0 ]	(	[ do_preview	1 ] 	)
-do_sprite	[ 0	locks=0 ]	(	[ do_sprite	1 ] 	)
+do_preview	[ 0	locks=0 ]	(	[ do_preview	0 ] 	)
+do_sprite	[ 0	locks=0 ]	(	[ do_sprite	0 ] 	)
 spritemap	[ 0	locks=0 ]	(	sphere_matte.pic	)
 spritescale	[ 0	locks=0 ]	(	[ spritescale	1 ] 	)
 override_scale	[ 0	locks=0 ]	(	[ override_scale	0 ] 	)
@@ -1868,7 +1868,7 @@ inputs
 stat
 {
   create 1550362245
-  modify 1551418855
+  modify 1555033227
   author Henry@LAPPY586
   access 0777
 }
@@ -1946,7 +1946,7 @@ inputs
 stat
 {
   create 1550362253
-  modify 1551418855
+  modify 1555033368
   author Henry@LAPPY586
   access 0777
 }
@@ -1972,13 +1972,6 @@ Content-Type: text/plain
       default = 1
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../use_rest\") }
-    }
-    channel amp {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
     }
     channel freqx {
       lefttype = extend
@@ -2104,6 +2097,27 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../time_scale\") }
     }
+    channel ampx {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../ampx\") }
+    }
+    channel ampy {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../ampy\") }
+    }
+    channel ampz {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../ampz\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2123,7 +2137,7 @@ folder0	[ 0	locks=0 ]	(	0	0	0	)
 input	[ 0	locks=0 ]	(	[ input	0 ] 	)
 use_rest	[ 0	locks=0 ]	(	[ use_rest	1 ] 	)
 sepparm2	[ 0	locks=0 ]	(	)
-amp	[ 0	locks=0 ]	(	[ amp	1 ] 	)
+amp	[ 0	locks=0 ]	(	[ ampx	1 ] 	[ ampy	1 ] 	[ ampz	1 ] 	)
 freq	[ 0	locks=0 ]	(	[ freqx	1 ] 	[ freqy	1 ] 	[ freqz	1 ] 	[ freqw	1 ] 	)
 uniform	[ 0	locks=0 ]	(	[ uniform	0 ] 	)
 roughness	[ 0	locks=0 ]	(	[ roughness	0.5 ] 	)
@@ -2131,7 +2145,7 @@ octaves	[ 0	locks=0 ]	(	[ octaves	1 ] 	)
 offset	[ 0	locks=0 ]	(	[ offsetx	0 ] 	[ offsety	0 ] 	[ offsetz	0 ] 	[ offsetw	0 ] 	)
 tile_size	[ 0	locks=0 ]	(	[ tile_sizex	1 ] 	[ tile_sizey	1 ] 	[ tile_sizez	1 ] 	)
 Distort	[ 0	locks=0 ]	(	[ Distortx	0 ] 	[ Distorty	0 ] 	[ Distortz	0 ] 	)
-time_varying	[ 0	locks=0 ]	(	[ time_varying	1 ] 	)
+time_varying	[ 0	locks=0 ]	(	[ time_varying	0 ] 	)
 time_scale	[ 0	locks=0 ]	(	[ time_scale	1 ] 	)
 input_rangev	[ 0	locks=0 ]	(	-1	1	)
 output_rangev	[ 0	locks=0 ]	(	-1	1	)
@@ -2181,7 +2195,7 @@ inputs
 stat
 {
   create 1550362262
-  modify 1551418855
+  modify 1555033227
   author Henry@LAPPY586
   access 0777
 }
@@ -2285,7 +2299,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.498"
+		"value":"17.5.173"
 	}
 }
 
@@ -2346,7 +2360,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.498"
+		"value":"17.5.173"
 	}
 }
 
@@ -2383,7 +2397,7 @@ inputs
 stat
 {
   create 1520238964
-  modify 1551418855
+  modify 1555033227
   author Mo@Mo-PC
   access 0777
 }
@@ -2411,7 +2425,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	1 ] 	)
+input	[ 0	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2421,7 +2435,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.498"
+		"value":"17.5.173"
 	}
 }
 
@@ -2456,7 +2470,7 @@ inputs
 stat
 {
   create 1520238968
-  modify 1551418855
+  modify 1555033227
   author Mo@Mo-PC
   access 0777
 }
@@ -2614,7 +2628,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.498"
+		"value":"17.5.173"
 	}
 }
 
@@ -2653,7 +2667,7 @@ inputs
 stat
 {
   create 1520239135
-  modify 1551418855
+  modify 1555033227
   author Mo@Mo-PC
   access 0777
 }
@@ -2691,7 +2705,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.498"
+		"value":"17.5.173"
 	}
 }
 
@@ -2816,7 +2830,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.498"
+		"value":"17.5.173"
 	}
 }
 
@@ -2876,7 +2890,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.498"
+		"value":"17.5.173"
 	}
 }
 
@@ -2938,7 +2952,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.498"
+		"value":"17.5.173"
 	}
 }
 
@@ -2997,7 +3011,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.498"
+		"value":"17.5.173"
 	}
 }
 
@@ -3034,7 +3048,7 @@ inputs
 stat
 {
   create 1523234394
-  modify 1551418855
+  modify 1555033227
   author henry@GlaDOS
   access 0777
 }
@@ -3072,7 +3086,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.498"
+		"value":"17.5.173"
 	}
 }
 
@@ -3152,7 +3166,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.498"
+		"value":"17.5.173"
 	}
 }
 
@@ -3189,7 +3203,7 @@ inputs
 stat
 {
   create 1523247567
-  modify 1551418855
+  modify 1555033227
   author henry@GlaDOS
   access 0777
 }
@@ -3217,7 +3231,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	1 ] 	)
+input	[ 0	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -3227,7 +3241,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.498"
+		"value":"17.5.173"
 	}
 }
 
