@@ -32,7 +32,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -6.23115 -1.1918
+position -10.8024 -0.885023
 connectornextid 0
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -46,8 +46,8 @@ inputs
 }
 stat
 {
-  create 1555030777
-  modify 1555030873
+  create 1551418774
+  modify 1551418781
   author Henry@LAPPY586
   access 0777
 }
@@ -181,7 +181,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1555030777
+  modify 1551418775
   author Henry@LAPPY586
   access 0777
 }
@@ -383,7 +383,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1555030777
+  modify 1551418775
   author Henry@LAPPY586
   access 0777
 }
@@ -501,7 +501,7 @@ inputs
 stat
 {
   create 1524060464
-  modify 1555030777
+  modify 1551418775
   author Henry@LAPPY586
   access 0777
 }
@@ -779,7 +779,7 @@ inputs
 stat
 {
   create 1524060464
-  modify 1555030777
+  modify 1551418775
   author Henry@LAPPY586
   access 0777
 }
@@ -857,7 +857,7 @@ inputs
 stat
 {
   create 1536023491
-  modify 1555030777
+  modify 1551418775
   author Henry@LAPPY586
   access 0777
 }
@@ -1098,8 +1098,8 @@ Content-Type: text/plain
 
 {
 version 0.8
-do_preview	[ 0	locks=0 ]	(	[ do_preview	0 ] 	)
-do_sprite	[ 0	locks=0 ]	(	[ do_sprite	0 ] 	)
+do_preview	[ 0	locks=0 ]	(	[ do_preview	1 ] 	)
+do_sprite	[ 0	locks=0 ]	(	[ do_sprite	1 ] 	)
 spritemap	[ 0	locks=0 ]	(	sphere_matte.pic	)
 spritescale	[ 0	locks=0 ]	(	[ spritescale	1 ] 	)
 override_scale	[ 0	locks=0 ]	(	[ override_scale	0 ] 	)
@@ -1166,7 +1166,7 @@ inputs
 stat
 {
   create 1550356490
-  modify 1555030777
+  modify 1551418775
   author Henry@LAPPY586
   access 0777
 }
@@ -1245,7 +1245,7 @@ inputs
 stat
 {
   create 1550356506
-  modify 1555030831
+  modify 1551418775
   author Henry@LAPPY586
   access 0777
 }
@@ -1264,6 +1264,13 @@ Content-Type: text/plain
       righttype = extend
       flags = 0
       segment { length = 0 expr = ch(\"../input2\") }
+    }
+    channel amp {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
     }
     channel freqx {
       lefttype = extend
@@ -1389,27 +1396,6 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../time_scale\") }
     }
-    channel ampx {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../ampx\") }
-    }
-    channel ampy {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../ampy\") }
-    }
-    channel ampz {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../ampz\") }
-    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1426,10 +1412,10 @@ attrname	[ 0	locks=0 ]	(	mops_falloff	)
 attrnamev	[ 0	locks=0 ]	(	mops_falloff	)
 sepparm	[ 0	locks=0 ]	(	)
 folder0	[ 0	locks=0 ]	(	0	0	0	)
-input	[ 0	locks=0 ]	(	[ input	0 ] 	)
+input	[ 0	locks=0 ]	(	[ input	8 ] 	)
 use_rest	[ 0	locks=0 ]	(	"off"	)
 sepparm2	[ 0	locks=0 ]	(	)
-amp	[ 0	locks=0 ]	(	[ ampx	1 ] 	[ ampy	1 ] 	[ ampz	1 ] 	)
+amp	[ 0	locks=0 ]	(	[ amp	1 ] 	)
 freq	[ 0	locks=0 ]	(	[ freqx	1 ] 	[ freqy	1 ] 	[ freqz	1 ] 	[ freqw	0 ] 	)
 uniform	[ 0	locks=0 ]	(	[ uniform	0 ] 	)
 roughness	[ 0	locks=0 ]	(	[ roughness	0.5 ] 	)
@@ -1437,7 +1423,7 @@ octaves	[ 0	locks=0 ]	(	[ octaves	1 ] 	)
 offset	[ 0	locks=0 ]	(	[ offsetx	0 ] 	[ offsety	0 ] 	[ offsetz	0 ] 	[ offsetw	0 ] 	)
 tile_size	[ 0	locks=0 ]	(	[ tile_sizex	2 ] 	[ tile_sizey	1.3999999999999999 ] 	[ tile_sizez	1.3999999999999999 ] 	)
 Distort	[ 0	locks=0 ]	(	[ Distortx	0.20000000000000001 ] 	[ Distorty	0.20000000000000001 ] 	[ Distortz	0.20000000000000001 ] 	)
-time_varying	[ 0	locks=0 ]	(	[ time_varying	0 ] 	)
+time_varying	[ 0	locks=0 ]	(	[ time_varying	1 ] 	)
 time_scale	[ 0	locks=0 ]	(	[ time_scale	1 ] 	)
 input_rangev	[ 0	locks=0 ]	(	-1	1	)
 output_rangev	[ 0	locks=0 ]	(	-1	1	)
@@ -1511,7 +1497,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.173"
+		"value":"17.0.498"
 	}
 }
 
@@ -1572,7 +1558,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.173"
+		"value":"17.0.498"
 	}
 }
 
@@ -1609,7 +1595,7 @@ inputs
 stat
 {
   create 1524060464
-  modify 1555030777
+  modify 1551418775
   author Henry@LAPPY586
   access 0777
 }
@@ -1637,7 +1623,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0	autoscope=0 ]	(	[ input	1 ] 	)
+input	[ 0	locks=0	autoscope=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1647,7 +1633,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.173"
+		"value":"17.0.498"
 	}
 }
 
@@ -1725,7 +1711,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.173"
+		"value":"17.0.498"
 	}
 }
 
@@ -1760,7 +1746,7 @@ inputs
 stat
 {
   create 1524060464
-  modify 1555030777
+  modify 1551418775
   author Henry@LAPPY586
   access 0777
 }
@@ -1793,7 +1779,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.173"
+		"value":"17.0.498"
 	}
 }
 
@@ -1854,7 +1840,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.173"
+		"value":"17.0.498"
 	}
 }
 
@@ -1915,7 +1901,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.173"
+		"value":"17.0.498"
 	}
 }
 

@@ -347,18 +347,15 @@
                 type    ordinal
                 default { "0" }
                 menu {
-                    "0"     "Perlin"
-                    "1"     "Simplex"
-                    "2"     "Worley (F2-F1)"
-                    "3"     "Worley (F1)"
-                    "4"     "Worley (F2)"
-                    "5"     "Mosaic"
-                    "6"     "Simplex Folded"
-                    "7"     "Simplex Warped"
-                    "8"     "Mix Minima"
-                    "9"     "Curl"
-                    "10"    "Alligator"
-                    "11"    "Sparse Convolution"
+                    "0" "Perlin"
+                    "1" "Simplex"
+                    "2" "Worley (F2-F1)"
+                    "3" "Worley (F1)"
+                    "4" "Worley (F2)"
+                    "5" "Mosaic"
+                    "6" "Simplex Folded"
+                    "7" "Simplex Warped"
+                    "8" "Mix Minima"
                 }
                 range   { 0! 10 }
                 parmtag { "autoscope" "0000000000000000" }
@@ -374,9 +371,8 @@
             parm {
                 name    "amp"
                 label   "Amplitude"
-                type    vector
-                size    3
-                default { "1" "1" "1" }
+                type    float
+                default { "1" }
                 range   { 0 1 }
                 parmtag { "autoscope" "0000000000000000" }
             }
