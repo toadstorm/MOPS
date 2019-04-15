@@ -23,7 +23,7 @@
     group {
         name    "folder0"
         label   "Compute Source Orient"
-        disablewhentab "{ compute_orient 0 }"
+        disablewhentab "{ compute_orient == 0 }"
 
         parm {
             name    "compute_N_up"
@@ -107,6 +107,7 @@
                 "0" "Primitive Number"
                 "1" "Piece Attribute"
                 "2" "Clustering"
+                "3" "Primitive Groups"
             }
         }
         parm {
@@ -115,6 +116,14 @@
             type    string
             default { "name" }
             disablewhen "{ piece_method != 1 }"
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "namefromgroupmask"
+            label   "Group Mask"
+            type    string
+            default { "*" }
+            disablewhen "{ piece_method != 3 }"
             parmtag { "autoscope" "0000000000000000" }
         }
         parm {

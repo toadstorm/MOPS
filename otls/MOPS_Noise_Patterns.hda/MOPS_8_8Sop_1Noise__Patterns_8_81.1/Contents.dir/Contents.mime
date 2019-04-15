@@ -32,9 +32,9 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.319672 0.054918
+position -7.2999 -6.37784
 connectornextid 0
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
@@ -46,8 +46,8 @@ inputs
 }
 stat
 {
-  create 1555306861
-  modify 1555307389
+  create 1555004905
+  modify 1555007440
   author Henry@LAPPY586
   access 0777
 }
@@ -130,7 +130,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1555307394
+  modify 1555007460
   author Henry@LAPPY586
   access 0777
 }
@@ -464,21 +464,21 @@ Content-Type: text/plain
       righttype = extend
       default = 1
       flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+      segment { length = 0 value = 1 1 expr = ch(\"../ampx\") }
     }
     channel ampy {
       lefttype = extend
       righttype = extend
       default = 1
       flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+      segment { length = 0 value = 1 1 expr = ch(\"../ampy\") }
     }
     channel ampz {
       lefttype = extend
       righttype = extend
       default = 1
       flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+      segment { length = 0 value = 1 1 expr = ch(\"../ampz\") }
     }
   }
 
@@ -497,7 +497,7 @@ vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
 snippet	[ 0	locks=0	autoscope=0 ]	(	"vector4 pos = @P;
 vector4 freq = chp(\"freq\");
 vector4 offset = chp(\"offset\");
-float amp = chf(\"amp\");
+vector amp = chv(\"amp\");
 
 int oct = chi(\"octaves\");
 float rough = chf(\"roughness\");
@@ -538,7 +538,7 @@ vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
 vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
 folder1	[ 0	locks=0 ]	(	0	0	)
-amp	[ 0	locks=0	autoscope=0 ]	(	[ ampx	1 ] 	[ ampy	1 ] 	[ ampz	1 ] 	)
+amp	[ 8	locks=0	autoscope=0 ]	(	[ ampx	1 ] 	[ ampy	1 ] 	[ ampz	1 ] 	)
 roughness	[ 0	locks=0	autoscope=0 ]	(	[ roughness	0.5 ] 	)
 octaves	[ 0	locks=0	autoscope=0 ]	(	[ octaves	1 ] 	)
 freq	[ 0	locks=0	autoscope=0 ]	(	[ freqx	1 ] 	[ freqy	1 ] 	[ freqz	1 ] 	[ freqw	1 ] 	)
@@ -592,7 +592,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1555307394
+  modify 1555004905
   author Henry@LAPPY586
   access 0777
 }
@@ -927,21 +927,21 @@ Content-Type: text/plain
       righttype = extend
       default = 1
       flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+      segment { length = 0 value = 1 1 expr = ch(\"../ampx\") }
     }
     channel ampy {
       lefttype = extend
       righttype = extend
       default = 1
       flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+      segment { length = 0 value = 1 1 expr = ch(\"../ampy\") }
     }
     channel ampz {
       lefttype = extend
       righttype = extend
       default = 1
       flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+      segment { length = 0 value = 1 1 expr = ch(\"../ampz\") }
     }
   }
 
@@ -960,7 +960,7 @@ vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
 snippet	[ 0	locks=0	autoscope=0 ]	(	"vector4 pos = @P;
 vector4 freq = chp(\"freq\");
 vector4 offset = chp(\"offset\");
-float amp = chf(\"amp\");
+vector amp = chv(\"amp\");
 
 int oct = chi(\"octaves\");
 float rough = chf(\"roughness\");
@@ -1056,7 +1056,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1555307394
+  modify 1555004905
   author Henry@LAPPY586
   access 0777
 }
@@ -1391,21 +1391,21 @@ Content-Type: text/plain
       righttype = extend
       default = 1
       flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+      segment { length = 0 value = 1 1 expr = ch(\"../ampx\") }
     }
     channel ampy {
       lefttype = extend
       righttype = extend
       default = 1
       flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+      segment { length = 0 value = 1 1 expr = ch(\"../ampy\") }
     }
     channel ampz {
       lefttype = extend
       righttype = extend
       default = 1
       flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+      segment { length = 0 value = 1 1 expr = ch(\"../ampz\") }
     }
   }
 
@@ -1424,7 +1424,7 @@ vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
 snippet	[ 0	locks=0	autoscope=0 ]	(	"vector4 pos = @P;
 vector4 freq = chp(\"freq\");
 vector4 offset = chp(\"offset\");
-float amp = chf(\"amp\");
+vector amp = chv(\"amp\");
 
 int oct = chi(\"octaves\");
 float rough = chf(\"roughness\");
@@ -1525,7 +1525,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1555307394
+  modify 1555004905
   author Henry@LAPPY586
   access 0777
 }
@@ -1860,21 +1860,21 @@ Content-Type: text/plain
       righttype = extend
       default = 1
       flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+      segment { length = 0 value = 1 1 expr = ch(\"../ampx\") }
     }
     channel ampy {
       lefttype = extend
       righttype = extend
       default = 1
       flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+      segment { length = 0 value = 1 1 expr = ch(\"../ampy\") }
     }
     channel ampz {
       lefttype = extend
       righttype = extend
       default = 1
       flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+      segment { length = 0 value = 1 1 expr = ch(\"../ampz\") }
     }
   }
 
@@ -1893,7 +1893,7 @@ vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
 snippet	[ 0	locks=0	autoscope=0 ]	(	"vector4 pos = @P;
 vector4 freq = chp(\"freq\");
 vector4 offset = chp(\"offset\");
-float amp = chf(\"amp\");
+vector amp = chv(\"amp\");
 
 int oct = chi(\"octaves\");
 float rough = chf(\"roughness\");
@@ -1995,7 +1995,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1555307394
+  modify 1555004905
   author Henry@LAPPY586
   access 0777
 }
@@ -2329,21 +2329,21 @@ Content-Type: text/plain
       righttype = extend
       default = 1
       flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+      segment { length = 0 value = 1 1 expr = ch(\"../ampx\") }
     }
     channel ampy {
       lefttype = extend
       righttype = extend
       default = 1
       flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+      segment { length = 0 value = 1 1 expr = ch(\"../ampy\") }
     }
     channel ampz {
       lefttype = extend
       righttype = extend
       default = 1
       flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+      segment { length = 0 value = 1 1 expr = ch(\"../ampz\") }
     }
   }
 
@@ -2362,7 +2362,7 @@ vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
 snippet	[ 0	locks=0	autoscope=0 ]	(	"vector4 pos = @P;
 vector4 freq = chp(\"freq\");
 vector4 offset = chp(\"offset\");
-float amp = chf(\"amp\");
+vector amp = chv(\"amp\");
 
 int oct = chi(\"octaves\");
 float rough = chf(\"roughness\");
@@ -2464,7 +2464,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1555307394
+  modify 1555004905
   author Henry@LAPPY586
   access 0777
 }
@@ -2827,21 +2827,21 @@ Content-Type: text/plain
       righttype = extend
       default = 1
       flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+      segment { length = 0 value = 1 1 expr = ch(\"../ampx\") }
     }
     channel ampy {
       lefttype = extend
       righttype = extend
       default = 1
       flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+      segment { length = 0 value = 1 1 expr = ch(\"../ampy\") }
     }
     channel ampz {
       lefttype = extend
       righttype = extend
       default = 1
       flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+      segment { length = 0 value = 1 1 expr = ch(\"../ampz\") }
     }
   }
 
@@ -2860,7 +2860,7 @@ vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
 snippet	[ 0	locks=0	autoscope=0 ]	(	"vector4 pos = @P;
 vector4 freq = chp(\"freq\");
 vector4 offset = chp(\"offset\");
-float amp = chf(\"amp\");
+vector amp = chv(\"amp\");
 
 vector tile = chv(\"tile_size\");
 
@@ -2966,7 +2966,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1555307394
+  modify 1555004905
   author Henry@LAPPY586
   access 0777
 }
@@ -3294,21 +3294,21 @@ Content-Type: text/plain
       righttype = extend
       default = 1
       flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+      segment { length = 0 value = 1 1 expr = ch(\"../ampx\") }
     }
     channel ampy {
       lefttype = extend
       righttype = extend
       default = 1
       flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+      segment { length = 0 value = 1 1 expr = ch(\"../ampy\") }
     }
     channel ampz {
       lefttype = extend
       righttype = extend
       default = 1
       flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+      segment { length = 0 value = 1 1 expr = ch(\"../ampz\") }
     }
   }
 
@@ -3327,7 +3327,7 @@ vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
 snippet	[ 0	locks=0	autoscope=0 ]	(	"vector4 pos = @P;
 vector4 freq = chp(\"freq\");
 vector4 offset = chp(\"offset\");
-float amp = chf(\"amp\");
+vector amp = chv(\"amp\");
 
 int oct = chi(\"octaves\");
 float rough = chf(\"roughness\");
@@ -3427,7 +3427,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1555307394
+  modify 1555004905
   author Henry@LAPPY586
   access 0777
 }
@@ -3779,23 +3779,20 @@ Content-Type: text/plain
     channel ampx {
       lefttype = extend
       righttype = extend
-      default = 1
       flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+      segment { length = 0 expr = ch(\"../ampx\") }
     }
     channel ampy {
       lefttype = extend
       righttype = extend
-      default = 1
       flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+      segment { length = 0 expr = ch(\"../ampy\") }
     }
     channel ampz {
       lefttype = extend
       righttype = extend
-      default = 1
       flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+      segment { length = 0 expr = ch(\"../ampz\") }
     }
   }
 
@@ -3816,7 +3813,7 @@ vector4 freq = chp(\"freq\");
 vector4 offset = chp(\"offset\");
 vector distort = chv(\"Distort\");
 
-float amp = chf(\"amp\");
+vector amp = chv(\"amp\");
 
 int oct = chi(\"octaves\");
 float rough = chf(\"roughness\");
@@ -3917,7 +3914,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1555307394
+  modify 1555004905
   author Henry@LAPPY586
   access 0777
 }
@@ -4245,21 +4242,21 @@ Content-Type: text/plain
       righttype = extend
       default = 1
       flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+      segment { length = 0 value = 1 1 expr = ch(\"../ampx\") }
     }
     channel ampy {
       lefttype = extend
       righttype = extend
       default = 1
       flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+      segment { length = 0 value = 1 1 expr = ch(\"../ampy\") }
     }
     channel ampz {
       lefttype = extend
       righttype = extend
       default = 1
       flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+      segment { length = 0 value = 1 1 expr = ch(\"../ampz\") }
     }
   }
 
@@ -4278,7 +4275,7 @@ vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
 snippet	[ 0	locks=0	autoscope=0 ]	(	"vector4 pos = @P;
 vector4 freq = chp(\"freq\");
 vector4 offset = chp(\"offset\");
-float amp = chf(\"amp\");
+vector amp = chv(\"amp\");
 
 int oct = chi(\"octaves\");
 float rough = chf(\"roughness\");
@@ -4381,7 +4378,7 @@ inputs
 stat
 {
   create 1524060464
-  modify 1555306861
+  modify 1555004905
   author Henry@LAPPY586
   access 0777
 }
@@ -4658,7 +4655,7 @@ inputs
 stat
 {
   create 1549075027
-  modify 1555306861
+  modify 1555004905
   author Henry@LAPPY586
   access 0777
 }
@@ -4736,7 +4733,7 @@ inputs
 stat
 {
   create 1549515796
-  modify 1555306861
+  modify 1555004905
   author Henry@LAPPY586
   access 0777
 }
@@ -5040,7 +5037,7 @@ inputs
 stat
 {
   create 1550294119
-  modify 1555306861
+  modify 1555004905
   author Henry@LAPPY586
   access 0777
 }
@@ -5336,7 +5333,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1555307394
+  modify 1555004905
   author Henry@LAPPY586
   access 0777
 }
@@ -5670,21 +5667,21 @@ Content-Type: text/plain
       righttype = extend
       default = 1
       flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+      segment { length = 0 value = 1 1 expr = ch(\"../ampx\") }
     }
     channel ampy {
       lefttype = extend
       righttype = extend
       default = 1
       flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+      segment { length = 0 value = 1 1 expr = ch(\"../ampy\") }
     }
     channel ampz {
       lefttype = extend
       righttype = extend
       default = 1
       flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+      segment { length = 0 value = 1 1 expr = ch(\"../ampz\") }
     }
   }
 
@@ -5703,7 +5700,7 @@ vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
 snippet	[ 0	locks=0	autoscope=0 ]	(	"vector4 pos = @P;
 vector4 freq = chp(\"freq\");
 vector4 offset = chp(\"offset\");
-float amp = chf(\"amp\");
+vector amp = chv(\"amp\");
 
 int oct = chi(\"octaves\");
 float rough = chf(\"roughness\");
@@ -5798,7 +5795,7 @@ inputs
 stat
 {
   create 1554935939
-  modify 1555306861
+  modify 1555004905
   author Henry@LAPPY586
   access 0777
 }
@@ -5876,7 +5873,7 @@ inputs
 stat
 {
   create 1554935960
-  modify 1555306861
+  modify 1555004905
   author Henry@LAPPY586
   access 0777
 }
@@ -6137,7 +6134,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1555307394
+  modify 1555004905
   author Henry@LAPPY586
   access 0777
 }
@@ -6471,21 +6468,21 @@ Content-Type: text/plain
       righttype = extend
       default = 1
       flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+      segment { length = 0 value = 1 1 expr = ch(\"../ampx\") }
     }
     channel ampy {
       lefttype = extend
       righttype = extend
       default = 1
       flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+      segment { length = 0 value = 1 1 expr = ch(\"../ampy\") }
     }
     channel ampz {
       lefttype = extend
       righttype = extend
       default = 1
       flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+      segment { length = 0 value = 1 1 expr = ch(\"../ampz\") }
     }
   }
 
@@ -6504,7 +6501,7 @@ vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
 snippet	[ 0	locks=0	autoscope=0 ]	(	"vector4 pos = @P;
 vector4 freq = chp(\"freq\");
 vector4 offset = chp(\"offset\");
-float amp = chf(\"amp\");
+vector amp = chv(\"amp\");
 
 int oct = chi(\"octaves\");
 float rough = chf(\"roughness\");
@@ -6599,7 +6596,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1555307394
+  modify 1555004905
   author Henry@LAPPY586
   access 0777
 }
@@ -6933,21 +6930,21 @@ Content-Type: text/plain
       righttype = extend
       default = 1
       flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+      segment { length = 0 value = 1 1 expr = ch(\"../ampx\") }
     }
     channel ampy {
       lefttype = extend
       righttype = extend
       default = 1
       flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+      segment { length = 0 value = 1 1 expr = ch(\"../ampy\") }
     }
     channel ampz {
       lefttype = extend
       righttype = extend
       default = 1
       flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+      segment { length = 0 value = 1 1 expr = ch(\"../ampz\") }
     }
   }
 
@@ -6966,7 +6963,7 @@ vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
 snippet	[ 0	locks=0	autoscope=0 ]	(	"vector4 pos = @P;
 vector4 freq = chp(\"freq\");
 vector4 offset = chp(\"offset\");
-float amp = chf(\"amp\");
+vector amp = chv(\"amp\");
 
 int oct = chi(\"octaves\");
 float rough = chf(\"roughness\");
@@ -7144,7 +7141,7 @@ inputs
 stat
 {
   create 1549075032
-  modify 1555306861
+  modify 1555004905
   author Henry@LAPPY586
   access 0777
 }
@@ -7340,7 +7337,7 @@ inputs
 stat
 {
   create 1550294318
-  modify 1555306861
+  modify 1555004905
   author Henry@LAPPY586
   access 0777
 }
@@ -7408,7 +7405,7 @@ inputs
 stat
 {
   create 1550294550
-  modify 1555306861
+  modify 1555004905
   author Henry@LAPPY586
   access 0777
 }
@@ -7481,7 +7478,7 @@ inputs
 stat
 {
   create 1550294976
-  modify 1555306861
+  modify 1555004905
   author Henry@LAPPY586
   access 0777
 }
@@ -7613,7 +7610,7 @@ inputs
 stat
 {
   create 1554935927
-  modify 1555306861
+  modify 1555004905
   author Henry@LAPPY586
   access 0777
 }

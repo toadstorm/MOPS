@@ -1,8 +1,8 @@
-# Dialog script for MOPS::Noise_Patterns::1.0 automatically generated
+# Dialog script for MOPS::Noise_Patterns::1.1 automatically generated
 
 {
-    name	MOPS::Noise_Patterns::1.0
-    script	MOPS::Noise_Patterns::1.0
+    name	MOPS::Noise_Patterns::1.1
+    script	MOPS::Noise_Patterns::1.1
     label	"MOPs Noise Patterns"
 
     help {
@@ -129,8 +129,9 @@
         parm {
             name    "amp"
             label   "Amplitude"
-            type    float
-            default { "1" }
+            type    vector
+            size    3
+            default { "1" "1" "1" }
             range   { 0 1 }
             parmtag { "autoscope" "0000000000000000" }
         }
