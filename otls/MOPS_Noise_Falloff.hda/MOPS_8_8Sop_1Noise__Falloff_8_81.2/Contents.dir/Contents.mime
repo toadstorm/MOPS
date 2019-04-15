@@ -32,7 +32,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.09016 -0.617213
+position -3.61475 0.415574
 connectornextid 0
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -46,8 +46,8 @@ inputs
 }
 stat
 {
-  create 1555042865
-  modify 1555043049
+  create 1555306889
+  modify 1555306908
   author Henry@LAPPY586
   access 0777
 }
@@ -172,7 +172,7 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	MOPs_Noise_Patterns 1 1 "input1"
+0 	MOPs_Noise_Patterns 0 1 "input1"
 }
 inputs
 {
@@ -181,7 +181,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1555042867
+  modify 1555306906
   author Henry@LAPPY586
   access 0777
 }
@@ -383,7 +383,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1555042867
+  modify 1555306890
   author Henry@LAPPY586
   access 0777
 }
@@ -501,7 +501,7 @@ inputs
 stat
 {
   create 1524060464
-  modify 1555042867
+  modify 1555306890
   author Henry@LAPPY586
   access 0777
 }
@@ -779,7 +779,7 @@ inputs
 stat
 {
   create 1524060464
-  modify 1555042867
+  modify 1555306890
   author Henry@LAPPY586
   access 0777
 }
@@ -857,7 +857,7 @@ inputs
 stat
 {
   create 1536023491
-  modify 1555042867
+  modify 1555306890
   author Henry@LAPPY586
   access 0777
 }
@@ -1166,7 +1166,7 @@ inputs
 stat
 {
   create 1550356490
-  modify 1555042867
+  modify 1555306890
   author Henry@LAPPY586
   access 0777
 }
@@ -1218,7 +1218,7 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot/MOPs_Noise_Patterns.init"
 Content-Type: text/plain
 
-type = MOPS::Noise_Patterns::1.0
+type = MOPS::Noise_Patterns::1.1
 matchesdef = 1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1232,11 +1232,11 @@ connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-1 "output1"
+0 "output1"
 }
 inputsNamed3
 {
-0 	apply_transform 1 1 "input1"
+1 	apply_transform 1 1 "input1"
 }
 inputs
 {
@@ -1244,8 +1244,8 @@ inputs
 }
 stat
 {
-  create 1550356506
-  modify 1555043043
+  create 1555306906
+  modify 1555307043
   author Henry@LAPPY586
   access 0777
 }
@@ -1265,31 +1265,45 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = ch(\"../input2\") }
     }
+    channel ampx {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../ampx\") }
+    }
+    channel ampy {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../ampy\") }
+    }
+    channel ampz {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../ampz\") }
+    }
     channel freqx {
       lefttype = extend
       righttype = extend
-      default = 1
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../freqx\") }
     }
     channel freqy {
       lefttype = extend
       righttype = extend
-      default = 1
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../freqy\") }
     }
     channel freqz {
       lefttype = extend
       righttype = extend
-      default = 1
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../freqz\") }
     }
     channel freqw {
       lefttype = extend
       righttype = extend
-      default = 1
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../freqw\") }
     }
@@ -1302,14 +1316,12 @@ Content-Type: text/plain
     channel roughness {
       lefttype = extend
       righttype = extend
-      default = 0.5
       flags = 0
       segment { length = 0 value = 0.5 0.5 expr = ch(\"../roughness\") }
     }
     channel octaves {
       lefttype = extend
       righttype = extend
-      default = 1
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../octaves\") }
     }
@@ -1340,21 +1352,18 @@ Content-Type: text/plain
     channel tile_sizex {
       lefttype = extend
       righttype = extend
-      default = 1
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../tile_sizex\") }
     }
     channel tile_sizey {
       lefttype = extend
       righttype = extend
-      default = 1
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../tile_sizey\") }
     }
     channel tile_sizez {
       lefttype = extend
       righttype = extend
-      default = 1
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../tile_sizez\") }
     }
@@ -1385,30 +1394,8 @@ Content-Type: text/plain
     channel time_scale {
       lefttype = extend
       righttype = extend
-      default = 1
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../time_scale\") }
-    }
-    channel ampx {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../ampx\") }
-    }
-    channel ampy {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../ampy\") }
-    }
-    channel ampz {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../ampz\") }
     }
   }
 
@@ -1418,31 +1405,31 @@ Content-Type: text/plain
 
 {
 version 0.8
-group	[ 0	locks=0 ]	(	""	)
-grouptype	[ 0	locks=0 ]	(	"guess"	)
+group	[ 0	locks=0	autoscope=0 ]	(	""	)
+grouptype	[ 0	locks=0	autoscope=0 ]	(	"guess"	)
 sepparm3	[ 0	locks=0 ]	(	)
-signature	[ 0	locks=0 ]	(	"0"	)
-attrname	[ 0	locks=0 ]	(	mops_falloff	)
-attrnamev	[ 0	locks=0 ]	(	mops_falloff	)
+signature	[ 0	locks=0	autoscope=0 ]	(	"0"	)
+attrname	[ 0	locks=0	autoscope=0 ]	(	mops_falloff	)
+attrnamev	[ 0	locks=0	autoscope=0 ]	(	mops_falloff	)
 sepparm	[ 0	locks=0 ]	(	)
-folder0	[ 0	locks=0 ]	(	0	0	0	)
-input	[ 0	locks=0 ]	(	[ input	0 ] 	)
-use_rest	[ 0	locks=0 ]	(	"off"	)
+folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+input	[ 0	locks=0	autoscope=0 ]	(	[ input	0 ] 	)
+use_rest	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 sepparm2	[ 0	locks=0 ]	(	)
-amp	[ 0	locks=0 ]	(	[ ampx	1 ] 	[ ampy	1 ] 	[ ampz	1 ] 	)
-freq	[ 0	locks=0 ]	(	[ freqx	1 ] 	[ freqy	1 ] 	[ freqz	1 ] 	[ freqw	0 ] 	)
-uniform	[ 0	locks=0 ]	(	[ uniform	0 ] 	)
-roughness	[ 0	locks=0 ]	(	[ roughness	0.5 ] 	)
-octaves	[ 0	locks=0 ]	(	[ octaves	1 ] 	)
-offset	[ 0	locks=0 ]	(	[ offsetx	0 ] 	[ offsety	0 ] 	[ offsetz	0 ] 	[ offsetw	0 ] 	)
-tile_size	[ 0	locks=0 ]	(	[ tile_sizex	2 ] 	[ tile_sizey	1.3999999999999999 ] 	[ tile_sizez	1.3999999999999999 ] 	)
-Distort	[ 0	locks=0 ]	(	[ Distortx	0.20000000000000001 ] 	[ Distorty	0.20000000000000001 ] 	[ Distortz	0.20000000000000001 ] 	)
-time_varying	[ 0	locks=0 ]	(	[ time_varying	0 ] 	)
-time_scale	[ 0	locks=0 ]	(	[ time_scale	1 ] 	)
-input_rangev	[ 0	locks=0 ]	(	-1	1	)
-output_rangev	[ 0	locks=0 ]	(	-1	1	)
-input_range	[ 0	locks=0 ]	(	0	1	)
-output_range	[ 0	locks=0 ]	(	0	1	)
+amp	[ 0	locks=0	autoscope=0 ]	(	[ ampx	1 ] 	[ ampy	1 ] 	[ ampz	1 ] 	)
+freq	[ 0	locks=0	autoscope=0 ]	(	[ freqx	1 ] 	[ freqy	1 ] 	[ freqz	1 ] 	[ freqw	0 ] 	)
+uniform	[ 0	locks=0	autoscope=0 ]	(	[ uniform	0 ] 	)
+roughness	[ 0	locks=0	autoscope=0 ]	(	[ roughness	0.5 ] 	)
+octaves	[ 0	locks=0	autoscope=0 ]	(	[ octaves	1 ] 	)
+offset	[ 0	locks=0	autoscope=0 ]	(	[ offsetx	0 ] 	[ offsety	0 ] 	[ offsetz	0 ] 	[ offsetw	0 ] 	)
+tile_size	[ 0	locks=0	autoscope=0 ]	(	[ tile_sizex	2 ] 	[ tile_sizey	1.3999999999999999 ] 	[ tile_sizez	1.3999999999999999 ] 	)
+Distort	[ 0	locks=0	autoscope=0 ]	(	[ Distortx	0.20000000000000001 ] 	[ Distorty	0.20000000000000001 ] 	[ Distortz	0.20000000000000001 ] 	)
+time_varying	[ 0	locks=0	autoscope=0 ]	(	[ time_varying	0 ] 	)
+time_scale	[ 0	locks=0	autoscope=0 ]	(	[ time_scale	1 ] 	)
+input_rangev	[ 0	locks=0	autoscope=0 ]	(	-1	1	)
+output_rangev	[ 0	locks=0	autoscope=0 ]	(	-1	1	)
+input_range	[ 0	locks=0	autoscope=0 ]	(	0	1	)
+output_range	[ 0	locks=0	autoscope=0 ]	(	0	1	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1609,7 +1596,7 @@ inputs
 stat
 {
   create 1524060464
-  modify 1555042867
+  modify 1555306890
   author Henry@LAPPY586
   access 0777
 }
@@ -1760,7 +1747,7 @@ inputs
 stat
 {
   create 1524060464
-  modify 1555042867
+  modify 1555306890
   author Henry@LAPPY586
   access 0777
 }
