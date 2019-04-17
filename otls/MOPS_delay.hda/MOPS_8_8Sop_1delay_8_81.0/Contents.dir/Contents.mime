@@ -32,24 +32,24 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.94628 -2.62934
+position -1.15895 -7.36718
 connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
 inputsNamed3
 {
-0 	MOPs_Color_Modifier 1 1 "input1"
+0 	MOPs_Randomize 1 1 "input1"
 }
 inputs
 {
-0 	MOPs_Color_Modifier 0 1
+0 	MOPs_Randomize 0 1
 }
 stat
 {
-  create 1551936854
-  modify 1551940775
+  create 1555389532
+  modify 1555479862
   author Henry@LAPPY586
   access 0777
 }
@@ -134,7 +134,7 @@ inputs
 stat
 {
   create 1524695187
-  modify 1531969254
+  modify 1555480760
   author Henry@LAPPY586
   access 0777
 }
@@ -162,7 +162,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.173"
 	}
 }
 
@@ -190,10 +190,11 @@ Content-Type: text/plain
 sopflags sopflags = 
 comment ""
 position -1.80011 -2.46805
-connectornextid 4
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+connectornextid 5
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
+4 "output1"
 }
 inputsNamed3
 {
@@ -212,7 +213,7 @@ inputs
 stat
 {
   create 1524695187
-  modify 1543604861
+  modify 1555480744
   author Henry@LAPPY586
   access 0777
 }
@@ -236,10 +237,14 @@ vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
 snippet	[ 0	locks=0	autoscope=0 ]	(	"//initial catmul_rom interp math provided by Matt Ebb
 
 vector catmul_interp(int ptnum; string attrib; float t){
-    vector val_0 = point(0, attrib, ptnum);
-    vector val_1 = point(1, attrib, ptnum);
-    vector val_2 = point(2, attrib, ptnum);
-    vector val_3 = point(3, attrib, ptnum);  
+    int matchpt_0 = idtopoint(0, ptnum);
+    int matchpt_1 = idtopoint(1, ptnum);
+    int matchpt_2 = idtopoint(2, ptnum);
+    int matchpt_3 = idtopoint(3, ptnum);
+    vector val_0 = point(0, attrib, matchpt_0);
+    vector val_1 = point(1, attrib, matchpt_1);
+    vector val_2 = point(2, attrib, matchpt_2);
+    vector val_3 = point(3, attrib, matchpt_3);  
     vector OUT = 0.5 *( (2 * val_1) +
         (-val_0 + val_2) * t +
         (2*val_0 - 5*val_1 + 4*val_2 - val_3) * t*t +
@@ -247,10 +252,14 @@ vector catmul_interp(int ptnum; string attrib; float t){
     return OUT;    
 }
 float catmul_interp(int ptnum; string attrib; float t){
-    float val_0 = point(0, attrib, ptnum);
-    float val_1 = point(1, attrib, ptnum);
-    float val_2 = point(2, attrib, ptnum);
-    float val_3 = point(3, attrib, ptnum);  
+    int matchpt_0 = idtopoint(0, ptnum);
+    int matchpt_1 = idtopoint(1, ptnum);
+    int matchpt_2 = idtopoint(2, ptnum);
+    int matchpt_3 = idtopoint(3, ptnum);
+    float val_0 = point(0, attrib, matchpt_0);
+    float val_1 = point(1, attrib, matchpt_1);
+    float val_2 = point(2, attrib, matchpt_2);
+    float val_3 = point(3, attrib, matchpt_3);  
     float OUT = 0.5 *( (2 * val_1) +
         (-val_0 + val_2) * t +
         (2*val_0 - 5*val_1 + 4*val_2 - val_3) * t*t +
@@ -260,10 +269,14 @@ float catmul_interp(int ptnum; string attrib; float t){
 }
 
 matrix3 catmul_interp(int ptnum; string attrib; float t){
-    matrix3 val_0 = point(0, attrib, ptnum);
-    matrix3 val_1 = point(1, attrib, ptnum);
-    matrix3 val_2 = point(2, attrib, ptnum);
-    matrix3 val_3 = point(3, attrib, ptnum);  
+    int matchpt_0 = idtopoint(0, ptnum);
+    int matchpt_1 = idtopoint(1, ptnum);
+    int matchpt_2 = idtopoint(2, ptnum);
+    int matchpt_3 = idtopoint(3, ptnum);
+    matrix3 val_0 = point(0, attrib, matchpt_0);
+    matrix3 val_1 = point(1, attrib, matchpt_1);
+    matrix3 val_2 = point(2, attrib, matchpt_2);
+    matrix3 val_3 = point(3, attrib, matchpt_3);  
     matrix3 OUT = 0.5 *( (2 * val_1) +
         (-val_0 + val_2) * t +
         (2*val_0 - 5*val_1 + 4*val_2 - val_3) * t*t +
@@ -273,10 +286,14 @@ matrix3 catmul_interp(int ptnum; string attrib; float t){
 }
 
 vector4 catmul_interp(int ptnum; string attrib; float t){
-    vector4 val_0 = point(0, attrib, ptnum);
-    vector4 val_1 = point(1, attrib, ptnum);
-    vector4 val_2 = point(2, attrib, ptnum);
-    vector4 val_3 = point(3, attrib, ptnum);  
+    int matchpt_0 = idtopoint(0, ptnum);
+    int matchpt_1 = idtopoint(1, ptnum);
+    int matchpt_2 = idtopoint(2, ptnum);
+    int matchpt_3 = idtopoint(3, ptnum);
+    vector4 val_0 = point(0, attrib, matchpt_0);
+    vector4 val_1 = point(1, attrib, matchpt_1);
+    vector4 val_2 = point(2, attrib, matchpt_2);
+    vector4 val_3 = point(3, attrib, matchpt_3);  
     vector4 OUT = 0.5 *( (2 * val_1) +
         (-val_0 + val_2) * t +
         (2*val_0 - 5*val_1 + 4*val_2 - val_3) * t*t +
@@ -288,14 +305,15 @@ vector4 catmul_interp(int ptnum; string attrib; float t){
 
 float t = frac(@Frame);
 
+int matchpt = i@id;
 
-v@P = catmul_interp(@ptnum, \"P\", t);
-@mops_falloff = catmul_interp(@ptnum, \"mops_falloff\", t);
-if(haspointattrib(0, \"Cd\")) v@Cd = catmul_interp(@ptnum, \"Cd\", t);
+v@P = catmul_interp(matchpt, \"P\", t);
+@mops_falloff = catmul_interp(matchpt, \"mops_falloff\", t);
+if(haspointattrib(0, \"Cd\")) v@Cd = catmul_interp(matchpt, \"Cd\", t);
 
-vector pivot = catmul_interp(@ptnum, \"pivot\", t);
-vector4 orient = catmul_interp(@ptnum, \"orient\", t);
-vector scale = catmul_interp(@ptnum, \"scale\", t);
+vector pivot = catmul_interp(matchpt, \"pivot\", t);
+vector4 orient = catmul_interp(matchpt, \"orient\", t);
+vector scale = catmul_interp(matchpt, \"scale\", t);
 
 matrix3 s = ident();
 scale(s, scale);
@@ -303,8 +321,8 @@ scale(s, scale);
 matrix3 m = qconvert(orient);
 m *= s;
 
-setprimintrinsic(0, \"pivot\", @id, pivot);
-setprimintrinsic(0, \"transform\", @id, m);
+setprimintrinsic(0, \"pivot\", @ptnum, pivot);
+setprimintrinsic(0, \"transform\", @ptnum, m);
 "	)
 exportlist	[ 0	locks=0	autoscope=0 ]	(	*	)
 vex_strict	[ 0	locks=0	autoscope=0 ]	(	"off"	)
@@ -525,7 +543,7 @@ inputs
 stat
 {
   create 1524695187
-  modify 1543604861
+  modify 1555480142
   author Henry@LAPPY586
   access 0777
 }
@@ -902,7 +920,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.173"
 	}
 }
 
@@ -1964,7 +1982,7 @@ inputs
 stat
 {
   create 1524695187
-  modify 1524695219
+  modify 1555480124
   author Henry@LAPPY586
   access 0777
 }
@@ -2023,7 +2041,7 @@ Content-Type: text/plain
 {
 version 0.8
 method	[ 0	locks=0	autoscope=0 ]	(	"byframe"	)
-frame	[ 0	locks=0	autoscope=0 ]	(	[ frame	104 ] 	)
+frame	[ 8	locks=0	autoscope=0 ]	(	[ frame	0 ] 	)
 integerframe	[ 0	locks=0	autoscope=0 ]	(	"on"	)
 time	[ 0	locks=0	autoscope=0 ]	(	[ time	0 ] 	)
 rangeclamp	[ 0	locks=0	autoscope=0 ]	(	"both"	)
@@ -2038,7 +2056,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.173"
 	}
 }
 
@@ -2073,7 +2091,7 @@ inputs
 stat
 {
   create 1524695187
-  modify 1524695219
+  modify 1555480128
   author Henry@LAPPY586
   access 0777
 }
@@ -2132,7 +2150,7 @@ Content-Type: text/plain
 {
 version 0.8
 method	[ 0	locks=0	autoscope=0 ]	(	"byframe"	)
-frame	[ 0	locks=0	autoscope=0 ]	(	[ frame	106 ] 	)
+frame	[ 8	locks=0	autoscope=0 ]	(	[ frame	2 ] 	)
 integerframe	[ 0	locks=0	autoscope=0 ]	(	"on"	)
 time	[ 0	locks=0	autoscope=0 ]	(	[ time	0 ] 	)
 rangeclamp	[ 0	locks=0	autoscope=0 ]	(	"both"	)
@@ -2147,7 +2165,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.173"
 	}
 }
 
@@ -2182,7 +2200,7 @@ inputs
 stat
 {
   create 1524695187
-  modify 1524695219
+  modify 1555480151
   author Henry@LAPPY586
   access 0777
 }
@@ -2241,7 +2259,7 @@ Content-Type: text/plain
 {
 version 0.8
 method	[ 0	locks=0	autoscope=0 ]	(	"byframe"	)
-frame	[ 0	locks=0	autoscope=0 ]	(	[ frame	107 ] 	)
+frame	[ 8	locks=0	autoscope=0 ]	(	[ frame	3 ] 	)
 integerframe	[ 0	locks=0	autoscope=0 ]	(	"on"	)
 time	[ 0	locks=0	autoscope=0 ]	(	[ time	0 ] 	)
 rangeclamp	[ 0	locks=0	autoscope=0 ]	(	"both"	)
@@ -2256,7 +2274,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.173"
 	}
 }
 
@@ -2291,7 +2309,7 @@ inputs
 stat
 {
   create 1524695187
-  modify 1524695219
+  modify 1555480126
   author Henry@LAPPY586
   access 0777
 }
@@ -2350,7 +2368,7 @@ Content-Type: text/plain
 {
 version 0.8
 method	[ 0	locks=0	autoscope=0 ]	(	"byframe"	)
-frame	[ 0	locks=0	autoscope=0 ]	(	[ frame	105 ] 	)
+frame	[ 8	locks=0	autoscope=0 ]	(	[ frame	1 ] 	)
 integerframe	[ 0	locks=0	autoscope=0 ]	(	"on"	)
 time	[ 0	locks=0	autoscope=0 ]	(	[ time	0 ] 	)
 rangeclamp	[ 0	locks=0	autoscope=0 ]	(	"both"	)
@@ -2365,7 +2383,66 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.173"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Interpolation/output0.init"
+Content-Type: text/plain
+
+type = output
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Interpolation/output0.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -1.79711 -4.27239
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+}
+inputsNamed3
+{
+0 	Catmul_Rom_Interpolation 4 1 "input1"
+}
+inputs
+{
+0 	Catmul_Rom_Interpolation 0 1
+}
+stat
+{
+  create 1555480152
+  modify 1555480407
+  author Henry@LAPPY586
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Interpolation/output0.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+outputidx	[ 0	locks=0 ]	(	0	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Interpolation/output0.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.173"
 	}
 }
 
@@ -2373,12 +2450,13 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot/Interpolation.order"
 Content-Type: text/plain
 
-5
+6
 timeshift1
 timeshift2
 timeshift3
 timeshift5
 Catmul_Rom_Interpolation
+output0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/Interpolation.net"
@@ -2415,7 +2493,7 @@ inputs
 stat
 {
   create 1324348265
-  modify 1543604861
+  modify 1555480751
   author jlait@andorra.sidefx.com
   access 0777
 }
@@ -2486,7 +2564,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.173"
 	}
 }
 
@@ -2565,7 +2643,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.173"
 	}
 }
 
@@ -2644,7 +2722,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.173"
 	}
 }
 
@@ -2723,7 +2801,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.173"
 	}
 }
 
@@ -2802,7 +2880,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.173"
 	}
 }
 
@@ -2863,7 +2941,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.173"
 	}
 }
 
@@ -2922,7 +3000,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.173"
 	}
 }
 
@@ -3021,7 +3099,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.173"
 	}
 }
 
@@ -3099,7 +3177,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.173"
 	}
 }
 
@@ -3202,7 +3280,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.173"
 	}
 }
 
@@ -3236,7 +3314,7 @@ inputs
 stat
 {
   create 1524695187
-  modify 1531969827
+  modify 1555480760
   author Henry@LAPPY586
   access 0777
 }
@@ -3261,7 +3339,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.173"
 	}
 }
 
@@ -3329,7 +3407,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.173"
 	}
 }
 
@@ -3423,7 +3501,7 @@ Content-Type: text/plain
 {
 version 0.8
 method	[ 0	locks=0	autoscope=0 ]	(	"byframe"	)
-frame	[ 0	locks=0	autoscope=0 ]	(	[ frame	107 ] 	)
+frame	[ 0	locks=0	autoscope=0 ]	(	[ frame	3 ] 	)
 integerframe	[ 0	locks=0	autoscope=0 ]	(	"on"	)
 time	[ 0	locks=0	autoscope=0 ]	(	[ time	1.875 ] 	)
 rangeclamp	[ 0	locks=0	autoscope=0 ]	(	"none"	)
@@ -3438,7 +3516,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.173"
 	}
 }
 
@@ -3532,7 +3610,7 @@ Content-Type: text/plain
 {
 version 0.8
 method	[ 0	locks=0	autoscope=0 ]	(	"byframe"	)
-frame	[ 0	locks=0	autoscope=0 ]	(	[ frame	107 ] 	)
+frame	[ 0	locks=0	autoscope=0 ]	(	[ frame	3 ] 	)
 integerframe	[ 0	locks=0	autoscope=0 ]	(	"on"	)
 time	[ 0	locks=0	autoscope=0 ]	(	[ time	1.875 ] 	)
 rangeclamp	[ 0	locks=0	autoscope=0 ]	(	"none"	)
@@ -3547,7 +3625,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.173"
 	}
 }
 
@@ -3619,6 +3697,7 @@ rmanconversions	[ 0	locks=0	autoscope=0 ]	(	5	)
 ridefault	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 updatevar	[ 0	locks=0	autoscope=0 ]	(	"on"	)
 overwrite	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+encodenames	[ 0	locks=0 ]	(	"off"	)
 frompt0	[ 0	locks=0	autoscope=0 ]	(	""	)
 topt0	[ 0	locks=0	autoscope=0 ]	(	""	)
 frompt1	[ 0	locks=0	autoscope=0 ]	(	""	)
@@ -3688,7 +3767,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.173"
 	}
 }
 
@@ -3756,7 +3835,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.173"
 	}
 }
 
@@ -3901,7 +3980,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.173"
 	}
 }
 
@@ -3975,7 +4054,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.173"
 	}
 }
 
