@@ -1,0 +1,174 @@
+# Dialog script for MOPS::Apply_Attributes::1.2 automatically generated
+
+{
+    name	MOPS::Apply_Attributes::1.2
+    script	MOPS::Apply_Attributes::1.2
+    label	"MOPs Apply Attributes"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Packed Primitives"
+    inputlabel	2	"Template Points"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+
+    parm {
+        name    "group"
+        label   "Group"
+        type    string
+        default { "" }
+        menutoggle {
+            [ "opmenu -l apply_attributes1 group" ]
+        }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_action" "import soputils\nkwargs['geometrytype'] = kwargs['node'].parmTuple('grouptype')\nkwargs['inputindex'] = 0\nsoputils.selectGroupParm(kwargs)" }
+        parmtag { "script_action_help" "Select geometry from an available viewport." }
+        parmtag { "script_action_icon" "BUTTONS_reselect" }
+    }
+    parm {
+        name    "grouptype"
+        label   "Group Type"
+        type    ordinal
+        default { "guess" }
+        menu {
+            "guess"     "Guess from Group"
+            "vertices"  "Vertices"
+            "edges"     "Edges"
+            "points"    "Points"
+            "prims"     "Primitives"
+        }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "do_translate"
+        label   "Do Translate"
+        type    toggle
+        default { "1" }
+        range   { 0 10 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "do_rotate"
+        label   "Do Rotate"
+        type    toggle
+        default { "1" }
+        range   { 0 10 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "do_scale"
+        label   "Do Scale"
+        type    toggle
+        default { "1" }
+        range   { 0 10 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "do_falloff"
+        label   "Do Falloff"
+        type    toggle
+        default { "1" }
+        range   { 0 10 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "do_pivots"
+        label   "Do Pivots"
+        type    toggle
+        default { "1" }
+        range   { 0! 10 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "ignore_no_falloff"
+        label   "Ignore Zero Falloff Prims"
+        type    toggle
+        default { "0" }
+    }
+    parm {
+        name    "rotate_mode"
+        label   "Rotate Mode"
+        type    integer
+        default { "0" }
+        menu {
+            "0" "Add"
+            "1" "Set"
+        }
+        range   { 0 10 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "scale_mode"
+        label   "Scale Mode"
+        type    integer
+        default { "0" }
+        menu {
+            "0" "Multiply"
+            "1" "Replace"
+        }
+        range   { 0 10 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "rotate_order"
+        label   "Rotate Order"
+        type    integer
+        default { "0" }
+        menu {
+            "0" "XYZ"
+            "1" "XZY"
+            "2" "YXZ"
+            "3" "YZX"
+            "4" "ZXY"
+            "5" "ZYX"
+        }
+        range   { 0 10 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "local_space"
+        label   "Local Space"
+        type    toggle
+        default { "1" }
+        range   { 0 10 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "do_make_id"
+        label   "Create Id Attr If Missing"
+        type    toggle
+        default { "1" }
+        range   { 0! 10 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "do_copy_attrs"
+        label   "Copy Attributes"
+        type    toggle
+        default { "0" }
+        range   { 0! 10 }
+        parmtag { "autoscope" "1000000000000000" }
+    }
+    parm {
+        name    "attribname"
+        label   "Attributes To Copy"
+        type    string
+        default { "" }
+        disablewhen "{ do_copy_attrs == 0 }"
+        menutoggle {
+            [ "opmenu -l attribcopy1 attribname" ]
+        }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "sop_input" "2else1" }
+    }
+    parm {
+        name    "do_orient"
+        label   "Output Orient Attribute"
+        type    toggle
+        default { "0" }
+    }
+}
