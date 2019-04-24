@@ -149,7 +149,7 @@ def extract_update(zip_file):
     # the extracted item contains another folder, we want the contents
     actual_path = os.path.join(extract_path, os.listdir(extract_path)[0])
     distutils.dir_util.copy_tree(actual_path, install_path)
-	return install_path
+    return install_path
     
 
 # environment auto-update
@@ -336,8 +336,8 @@ class MOPsUpdateWindow(QtWidgets.QDialog):
             if(self.update_env.isChecked()):
                 do_analytics = self.do_analytics.isChecked()
                 update_houdini_env(HOUDINI_ENV, do_analytics)
-			# compress HDAs
-			mops_tools.collapse_hdas(os.path.join(install_path, 'otls'))
+            # compress HDAs
+            mops_tools.collapse_hdas(os.path.join(install_path, 'otls'))
             # notify user
             msg = '{} release {} installed. Please restart Houdini to see changes.'.format(self.branch.upper(), release)
             if self.update_env.isChecked():
