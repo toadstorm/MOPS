@@ -42,6 +42,46 @@
             parmtag { "autoscope" "0000000000000000" }
         }
         parm {
+            name    "connect_method"
+            label   "Connection Method"
+            type    ordinal
+            default { "0" }
+            menu {
+                "0" "Find Nearest"
+                "1" "Start/End Groups"
+            }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "startgroup"
+            label   "Start Group"
+            type    string
+            default { "start" }
+            disablewhen "{ connect_method == 0 }"
+            menutoggle {
+                [ "opmenu -l blast2 group" ]
+            }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_action" "import soputils\nkwargs['geometrytype'] = kwargs['node'].parmTuple('grouptype')\nkwargs['inputindex'] = 0\nsoputils.selectGroupParm(kwargs)" }
+            parmtag { "script_action_help" "Select geometry from an available viewport.\nShift-click to turn on Select Groups." }
+            parmtag { "script_action_icon" "BUTTONS_reselect" }
+        }
+        parm {
+            name    "endgroup"
+            label   "Ends Group"
+            type    string
+            default { "end" }
+            disablewhen "{ connect_method == 0 }"
+            menutoggle {
+                [ "opmenu -l blast3 group" ]
+            }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_action" "import soputils\nkwargs['geometrytype'] = kwargs['node'].parmTuple('grouptype')\nkwargs['inputindex'] = 0\nsoputils.selectGroupParm(kwargs)" }
+            parmtag { "script_action_help" "Select geometry from an available viewport.\nShift-click to turn on Select Groups." }
+            parmtag { "script_action_icon" "BUTTONS_reselect" }
+        }
+        parm {
             name    "searchradius"
             label   "Search Radius"
             type    float
@@ -50,18 +90,19 @@
             parmtag { "autoscope" "0000000000000000" }
         }
         parm {
-            name    "uniformradius"
-            label   "Assume Uniform Scale"
-            type    toggle
-            default { "1" }
-            range   { 0 10 }
-            parmtag { "autoscope" "0000000000000000" }
-        }
-        parm {
             name    "maxsearchpoints"
             label   "Max Connections"
             type    integer
             default { "10" }
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "uniformradius"
+            label   "Assume Uniform Scale"
+            type    toggle
+            default { "1" }
+            disablewhen "{ connect_method 1 }"
             range   { 0 10 }
             parmtag { "autoscope" "0000000000000000" }
         }
