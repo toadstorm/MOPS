@@ -11,6 +11,8 @@ import shutil
 import traceback
 from PySide2 import QtWidgets
 
+import mops_tools
+
 # github URL
 MOPS_URL = 'https://api.github.com/repos/toadstorm/MOPS'
 # branches (only filters the filenames of the .ZIP files attached as assets for each release!)
@@ -127,7 +129,7 @@ def extract_update(zip_file):
     """
     Unzip the downloaded file and copy it to the appropriate install directory.
     :param zipfile: the downloaded zip file location on disk.
-    :return: None
+    :return: the install directory.
     """
     # the destination is based on the users' local MOPS install directory.
     # hopefully they followed the install instructions...
@@ -147,6 +149,7 @@ def extract_update(zip_file):
     # the extracted item contains another folder, we want the contents
     actual_path = os.path.join(extract_path, os.listdir(extract_path)[0])
     distutils.dir_util.copy_tree(actual_path, install_path)
+	return install_path
     
 
 # environment auto-update
@@ -328,11 +331,13 @@ class MOPsUpdateWindow(QtWidgets.QDialog):
             release = self.build
             url = get_download_path(release)
             dl = download_url(url)
-            extract_update(dl)
+            install_path = extract_update(dl)
             update_info(self.branch, self.build)
             if(self.update_env.isChecked()):
                 do_analytics = self.do_analytics.isChecked()
                 update_houdini_env(HOUDINI_ENV, do_analytics)
+			# compress HDAs
+			mops_tools.collapse_hdas(os.path.join(install_path, 'otls'))
             # notify user
             msg = '{} release {} installed. Please restart Houdini to see changes.'.format(self.branch.upper(), release)
             if self.update_env.isChecked():
