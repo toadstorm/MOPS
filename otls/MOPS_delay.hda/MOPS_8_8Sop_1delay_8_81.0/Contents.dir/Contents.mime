@@ -32,24 +32,25 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.15895 -7.36718
-connectornextid 1
+position -3.03107 -2.33865
+connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
+1 "output1"
 }
 inputsNamed3
 {
-0 	MOPs_Randomize 1 1 "input1"
+0 	MOPs_Shape_Falloff 1 1 "input1"
 }
 inputs
 {
-0 	MOPs_Randomize 0 1
+0 	MOPs_Shape_Falloff 0 1
 }
 stat
 {
-  create 1555389532
-  modify 1555479862
+  create 1531965306
+  modify 1556862201
   author Henry@LAPPY586
   access 0777
 }
@@ -1478,7 +1479,7 @@ inputs
 stat
 {
   create 1531965466
-  modify 1543604861
+  modify 1556862268
   author Henry@LAPPY586
   access 0777
 }
@@ -1701,10 +1702,10 @@ vex_numcount	[ 0	locks=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
 snippet	[ 0	locks=0 ]	(	"float max_delay = ch(\"delay\");
 float index;
-
+string type = primintrinsic(0, \"typename\", @ptnum);
 int do_sequence_delay = chi(\"do_sequence_delay\");
 
-if(i@__ispackedsequence) {
+if(type == \"PackedDiskSequence\") {
     index = primintrinsic(0, \"index\", @ptnum);
     if(do_sequence_delay) {
         // convert delay to indices
@@ -1712,11 +1713,12 @@ if(i@__ispackedsequence) {
         index -= (max_delay * @mops_falloff);
     }
     
-} else if(i@__isabc) {
+} else if(type == \"AlembicRef\") {
     index = primintrinsic(0, \"abcframe\", @ptnum);
     if(do_sequence_delay) {
         index -= (max_delay * @mops_falloff);
     }
+    i@__isabc = 1;
 
 }
 f@__index = index;"	)
@@ -1890,7 +1892,7 @@ inputs
 stat
 {
   create 1531969324
-  modify 1543604861
+  modify 1556861998
   author Henry@LAPPY586
   access 0777
 }
@@ -1912,10 +1914,11 @@ class	[ 0	locks=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
 snippet	[ 0	locks=0 ]	(	"float index = @__index;
-if(i@__ispackedsequence) {
+string type = primintrinsic(0, \"typename\", @ptnum);
+if(type == \"PackedDiskSequence\") {
     setprimintrinsic(0, \"index\", @ptnum, index, \"set\");
     
-} else if(i@__isabc) {
+} else if(type == \"AlembicRef\") {
     setprimintrinsic(0, \"abcframe\", @ptnum, index, \"set\");
     string wrap = point(0, \"mops_abc_wrap\", @ptnum);
     if(wrap == \"strict\") {
@@ -2493,7 +2496,7 @@ inputs
 stat
 {
   create 1324348265
-  modify 1555480751
+  modify 1556862338
   author jlait@andorra.sidefx.com
   access 0777
 }
@@ -4089,7 +4092,7 @@ inputs
 stat
 {
   create 1531969827
-  modify 1531969833
+  modify 1556862284
   author Henry@LAPPY586
   access 0777
 }
@@ -4104,7 +4107,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-ptdel	[ 0	locks=0 ]	(	__index	)
+ptdel	[ 0	locks=0 ]	(	"__index __isabc"	)
 vtxdel	[ 0	locks=0 ]	(	""	)
 primdel	[ 0	locks=0 ]	(	""	)
 dtldel	[ 0	locks=0 ]	(	""	)
