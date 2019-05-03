@@ -32,26 +32,24 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.57438 -1.32355
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+position -1.62494 1.99988
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
 inputsNamed3
 {
-0 	MOPs_Instancer 0 1 "input1"
-1 	transform1 1 1 "input2"
+0 	MOPs_Transform_Modifier 1 1 "input1"
 }
 inputs
 {
-0 	MOPs_Instancer 0 1
-1 	transform1 0 1
+0 	MOPs_Transform_Modifier 0 1
 }
 stat
 {
-  create 1551854842
-  modify 1551855314
+  create 1556862940
+  modify 1556862966
   author Henry@LAPPY586
   access 0777
 }
@@ -112,7 +110,7 @@ inputs
 stat
 {
   create 1523778096
-  modify 1551854842
+  modify 1556862968
   author henry@GlaDOS
   access 0777
 }
@@ -389,7 +387,7 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot/Apply_Attributes1.init"
 Content-Type: text/plain
 
-type = MOPS::Apply_Attributes::1.0
+type = MOPS::Apply_Attributes::1.2
 matchesdef = 1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -403,12 +401,12 @@ connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-2 "output1"
+0 "output1"
 }
 inputsNamed3
 {
-0 	IN_MOPS 1 1 "input1"
-1 	switch_aim_method 1 1 "input2"
+1 	IN_MOPS 1 1 "input1"
+2 	switch_aim_method 1 1 "input2"
 }
 inputs
 {
@@ -417,9 +415,9 @@ inputs
 }
 stat
 {
-  create 1523778301
-  modify 1551855015
-  author henry@GlaDOS
+  create 1556862964
+  modify 1556863009
+  author Henry@LAPPY586
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -435,7 +433,6 @@ Content-Type: text/plain
     channel group {
       lefttype = extend
       righttype = extend
-      defaultString = \"\"
       flags = 0
       segment { length = 0 expr = chs(\"../group\") }
     }
@@ -453,20 +450,22 @@ Content-Type: text/plain
 
 {
 version 0.8
-group	[ 0	locks=0 ]	(	[ group	"" ] 	)
-grouptype	[ 0	locks=0 ]	(	[ grouptype	0 ] 	)
-do_translate	[ 0	locks=0 ]	(	"off"	)
-do_rotate	[ 0	locks=0 ]	(	"on"	)
-do_scale	[ 0	locks=0 ]	(	"off"	)
-do_falloff	[ 0	locks=0 ]	(	"on"	)
-ignore_no_falloff	[ 0	locks=0 ]	(	"off"	)
-rotate_mode	[ 0	locks=0 ]	(	1	)
-scale_mode	[ 0	locks=0 ]	(	0	)
-rotate_order	[ 0	locks=0 ]	(	0	)
-local_space	[ 0	locks=0 ]	(	"on"	)
-do_make_id	[ 0	locks=0 ]	(	"on"	)
-do_copy_attrs	[ 0	locks=0 ]	(	"off"	)
-attribname	[ 0	locks=0 ]	(	""	)
+group	[ 0	locks=0	autoscope=0 ]	(	[ group	"" ] 	)
+grouptype	[ 0	locks=0	autoscope=0 ]	(	[ grouptype	0 ] 	)
+do_translate	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+do_rotate	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+do_scale	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+do_falloff	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+do_pivots	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+ignore_no_falloff	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+rotate_mode	[ 0	locks=0	autoscope=0 ]	(	1	)
+scale_mode	[ 0	locks=0	autoscope=0 ]	(	0	)
+rotate_order	[ 0	locks=0	autoscope=0 ]	(	0	)
+local_space	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+do_make_id	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+do_copy_attrs	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+attribname	[ 0	locks=0	autoscope=0 ]	(	""	)
+do_orient	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -573,7 +572,7 @@ inputs
 stat
 {
   create 1523780303
-  modify 1551854842
+  modify 1556862968
   author henry@GlaDOS
   access 0777
 }
@@ -882,7 +881,7 @@ inputs
 stat
 {
   create 1525057897
-  modify 1551855176
+  modify 1556862941
   author henry@GlaDOS
   access 0777
 }
@@ -1188,7 +1187,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.173"
 	}
 }
 
@@ -1256,7 +1255,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.173"
 	}
 }
 
@@ -1291,7 +1290,7 @@ inputs
 stat
 {
   create 1523778074
-  modify 1551854842
+  modify 1556862941
   author henry@GlaDOS
   access 0777
 }
@@ -1335,7 +1334,7 @@ group	[ 0	locks=0 ]	(	""	)
 grouptype	[ 0	locks=0 ]	(	"guess"	)
 xOrd	[ 0	locks=0 ]	(	"srt"	)
 rOrd	[ 0	locks=0 ]	(	"xyz"	)
-t	[ 0	locks=0	autoscope=4 ]	(	[ tx	2.2999999999999998 ] 	[ ty	0.59999999999999998 ] 	[ tz	0.5 ] 	)
+t	[ 0	locks=0	autoscope=4 ]	(	[ tx	0 ] 	[ ty	0 ] 	[ tz	0 ] 	)
 r	[ 0	locks=0 ]	(	0	0	0	)
 s	[ 0	locks=0 ]	(	1	1	1	)
 shear	[ 0	locks=0 ]	(	0	0	0	)
@@ -1368,7 +1367,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.173"
 	}
 }
 
@@ -1429,7 +1428,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.173"
 	}
 }
 
@@ -1454,7 +1453,7 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	Apply_Attributes1 2 1 "input1"
+0 	Apply_Attributes1 0 1 "input1"
 }
 inputs
 {
@@ -1463,7 +1462,7 @@ inputs
 stat
 {
   create 1523779784
-  modify 1551855121
+  modify 1556862964
   author henry@GlaDOS
   access 0777
 }
@@ -1488,7 +1487,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.173"
 	}
 }
 
@@ -1527,7 +1526,7 @@ inputs
 stat
 {
   create 1523780233
-  modify 1551854842
+  modify 1556862941
   author henry@GlaDOS
   access 0777
 }
@@ -1555,7 +1554,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	1 ] 	)
+input	[ 0	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1565,7 +1564,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.173"
 	}
 }
 
@@ -1626,7 +1625,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.173"
 	}
 }
 
@@ -1687,7 +1686,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.173"
 	}
 }
 
@@ -1748,7 +1747,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.173"
 	}
 }
 
@@ -1785,7 +1784,7 @@ inputs
 stat
 {
   create 1525058140
-  modify 1551854842
+  modify 1556862941
   author henry@GlaDOS
   access 0777
 }
@@ -1813,7 +1812,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1823,7 +1822,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.173"
 	}
 }
 
@@ -1882,7 +1881,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.173"
 	}
 }
 

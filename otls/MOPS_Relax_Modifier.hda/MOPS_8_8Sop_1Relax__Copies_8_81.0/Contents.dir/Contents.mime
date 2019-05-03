@@ -32,24 +32,22 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -2.82231 -2.19132
-connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+position -0.285094 1.6596
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
 inputsNamed3
 {
-0 	MOPs_Color_Modifier 1 1 "input1"
 }
 inputs
 {
-0 	MOPs_Color_Modifier 0 1
 }
 stat
 {
-  create 1552178403
-  modify 1552199968
+  create 1556863103
+  modify 1556863112
   author Henry@LAPPY586
   access 0777
 }
@@ -107,7 +105,7 @@ inputs
 stat
 {
   create 1520101624
-  modify 1552178403
+  modify 1556863103
   author Mo@Mo-PC
   access 0777
 }
@@ -374,7 +372,7 @@ inputs
 stat
 {
   create 1520102212
-  modify 1552189609
+  modify 1556863103
   author Mo@Mo-PC
   access 0777
 }
@@ -454,7 +452,7 @@ inputs
 stat
 {
   create 1520102212
-  modify 1552178403
+  modify 1556863103
   author Mo@Mo-PC
   access 0777
 }
@@ -566,7 +564,7 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot/MOPs_Apply_Attributes.init"
 Content-Type: text/plain
 
-type = MOPS::Apply_Attributes::1.1
+type = MOPS::Apply_Attributes::1.2
 matchesdef = 1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -580,12 +578,12 @@ connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-2 "output1"
+0 "output1"
 }
 inputsNamed3
 {
-0 	merge1 1 1 "input1"
-1 	pointwrangle1 1 1 "input2"
+1 	merge1 1 1 "input1"
+2 	pointwrangle1 1 1 "input2"
 }
 inputs
 {
@@ -594,8 +592,8 @@ inputs
 }
 stat
 {
-  create 1552195429
-  modify 1552199783
+  create 1556863110
+  modify 1556863150
   author Henry@LAPPY586
   access 0777
 }
@@ -610,20 +608,22 @@ Content-Type: text/plain
 
 {
 version 0.8
-group	[ 0	locks=0 ]	(	""	)
-grouptype	[ 0	locks=0 ]	(	"guess"	)
-do_translate	[ 0	locks=0 ]	(	"off"	)
-do_rotate	[ 0	locks=0 ]	(	"on"	)
-do_scale	[ 0	locks=0 ]	(	"off"	)
-do_falloff	[ 0	locks=0 ]	(	"off"	)
-ignore_no_falloff	[ 0	locks=0 ]	(	"off"	)
-rotate_mode	[ 0	locks=0 ]	(	1	)
-scale_mode	[ 0	locks=0 ]	(	0	)
-rotate_order	[ 0	locks=0 ]	(	0	)
-local_space	[ 0	locks=0 ]	(	"on"	)
-do_make_id	[ 0	locks=0 ]	(	"on"	)
-do_copy_attrs	[ 0	locks=0 ]	(	"off"	)
-attribname	[ 0	locks=0 ]	(	""	)
+group	[ 0	locks=0	autoscope=0 ]	(	""	)
+grouptype	[ 0	locks=0	autoscope=0 ]	(	"guess"	)
+do_translate	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+do_rotate	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+do_scale	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+do_falloff	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+do_pivots	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+ignore_no_falloff	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+rotate_mode	[ 0	locks=0	autoscope=0 ]	(	1	)
+scale_mode	[ 0	locks=0	autoscope=0 ]	(	0	)
+rotate_order	[ 0	locks=0	autoscope=0 ]	(	0	)
+local_space	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+do_make_id	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+do_copy_attrs	[ 0	locks=0	autoscope=1 ]	(	"off"	)
+attribname	[ 0	locks=0	autoscope=0 ]	(	""	)
+do_orient	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -670,7 +670,7 @@ inputs
 stat
 {
   create 1552199412
-  modify 1552199784
+  modify 1556863103
   author Henry@LAPPY586
   access 0777
 }
@@ -1039,7 +1039,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.173"
 	}
 }
 
@@ -1100,7 +1100,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.173"
 	}
 }
 
@@ -1137,7 +1137,7 @@ inputs
 stat
 {
   create 1520102031
-  modify 1552189609
+  modify 1556863103
   author Mo@Mo-PC
   access 0777
 }
@@ -1209,7 +1209,7 @@ version 0.8
 group	[ 0	locks=0 ]	(	""	)
 influencegroup	[ 0	locks=0 ]	(	""	)
 surfacegroup	[ 0	locks=0 ]	(	""	)
-maxiterations	[ 0	locks=0 ]	(	[ maxiterations	53 ] 	)
+maxiterations	[ 0	locks=0 ]	(	[ maxiterations	128 ] 	)
 radius	[ 0	locks=0 ]	(	[ radius	1 ] 	)
 useradiusattrib	[ 0	locks=0 ]	(	"on"	)
 radiusattrib	[ 0	locks=0 ]	(	mops_pscale	)
@@ -1231,7 +1231,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.173"
 	}
 }
 
@@ -1268,7 +1268,7 @@ inputs
 stat
 {
   create 1520767584
-  modify 1552189609
+  modify 1556863103
   author Mo@Mo-PC
   access 0777
 }
@@ -1306,7 +1306,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.173"
 	}
 }
 
@@ -1339,7 +1339,7 @@ inputs
 stat
 {
   create 1521202953
-  modify 1552178403
+  modify 1556863103
   author Mo@Mo-PC
   access 0777
 }
@@ -1387,7 +1387,7 @@ pivot	[ 0	locks=0 ]	(	"centroid"	)
 viewportlod	[ 0	locks=0 ]	(	"full"	)
 addpath	[ 0	locks=0 ]	(	"on"	)
 enable1	[ 0	locks=0 ]	(	"on"	)
-objpath1	[ 0	locks=0 ]	(	[ objpath1	/obj/geo1/group1 ] 	)
+objpath1	[ 0	locks=0 ]	(	[ objpath1	"" ] 	)
 group1	[ 0	locks=0 ]	(	""	)
 expand1	[ 0	locks=0 ]	(	"off"	)
 }
@@ -1399,7 +1399,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.173"
 	}
 }
 
@@ -1458,7 +1458,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.173"
 	}
 }
 
@@ -1495,7 +1495,7 @@ inputs
 stat
 {
   create 1521203444
-  modify 1552178403
+  modify 1556863103
   author Mo@Mo-PC
   access 0777
 }
@@ -1523,7 +1523,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	1 ] 	)
+input	[ 0	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1533,7 +1533,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.173"
 	}
 }
 
@@ -1569,7 +1569,7 @@ inputs
 stat
 {
   create 1529386842
-  modify 1552178403
+  modify 1556863103
   author Henry@LAPPY586
   access 0777
 }
@@ -1678,7 +1678,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.173"
 	}
 }
 
@@ -1738,7 +1738,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.173"
 	}
 }
 
@@ -1771,7 +1771,7 @@ inputs
 stat
 {
   create 1529386888
-  modify 1552178403
+  modify 1556863103
   author Henry@LAPPY586
   access 0777
 }
@@ -1817,7 +1817,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.173"
 	}
 }
 
@@ -1844,7 +1844,7 @@ outputsNamed3
 inputsNamed3
 {
 0 	merge1 1 1 "input1"
-2 	MOPs_Apply_Attributes 2 1 "input2"
+2 	MOPs_Apply_Attributes 0 1 "input2"
 }
 inputs
 {
@@ -1854,7 +1854,7 @@ inputs
 stat
 {
   create 1552195386
-  modify 1552199957
+  modify 1556863110
   author Henry@LAPPY586
   access 0777
 }
@@ -1892,7 +1892,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.173"
 	}
 }
 
