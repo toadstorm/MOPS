@@ -283,6 +283,22 @@
                 parmtag { "autoscope" "0000000000000000" }
             }
             parm {
+                name    "do_scale_attr"
+                label   "Scale by Point Attribute"
+                type    toggle
+                default { "0" }
+                range   { 0 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "scale_attr"
+                label   "Scale Attr"
+                type    string
+                default { "pscale" }
+                disablewhen "{ do_scale_attr == 0 }"
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
                 name    "scale_ramp"
                 label   "Scale Ramp"
                 type    ramp_flt

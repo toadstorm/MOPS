@@ -32,28 +32,26 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -2.33338 -0.569493
-connectornextid 4
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+position -3.15574 -5.73708
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-2 "output1"
-3 "output2"
 }
 inputsNamed3
 {
-0 	reverse1 1 1 "input1"
-1 	merge1 1 1 "input2"
+0 	circle1 0 1 "input1"
+1 	attribpromote2 1 1 "input2"
 }
 inputs
 {
-0 	reverse1 0 1
-1 	merge1 0 1
+0 	circle1 0 1
+1 	attribpromote2 0 1
 }
 stat
 {
-  create 1551250850
-  modify 1551417852
+  create 1557415605
+  modify 1557418886
   author Henry@LAPPY586
   access 0777
 }
@@ -112,7 +110,7 @@ inputs
 stat
 {
   create 1520241490
-  modify 1551417864
+  modify 1557415605
   author Mo@Mo-PC
   access 0777
 }
@@ -192,7 +190,7 @@ inputs
 stat
 {
   create 1521214296
-  modify 1551417864
+  modify 1557415605
   author Mo@Mo-PC
   access 0777
 }
@@ -273,7 +271,7 @@ inputs
 stat
 {
   create 1521282571
-  modify 1551417864
+  modify 1557415605
   author Mo@Mo-PC
   access 0777
 }
@@ -360,7 +358,7 @@ inputs
 stat
 {
   create 1551251070
-  modify 1551417864
+  modify 1557415605
   author Henry@LAPPY586
   access 0777
 }
@@ -534,7 +532,7 @@ inputs
 stat
 {
   create 1551251510
-  modify 1551417864
+  modify 1557415605
   author Henry@LAPPY586
   access 0777
 }
@@ -616,7 +614,7 @@ inputs
 stat
 {
   create 1551251678
-  modify 1551417864
+  modify 1557418841
   author Henry@LAPPY586
   access 0777
 }
@@ -807,6 +805,19 @@ Content-Type: text/plain
         default { "2" }
         range   { 1! 10 }
     }
+    parm {
+        name    "do_scale_attr"
+        label   "Do Scale Attr"
+        type    integer
+        default { "0" }
+        range   { 0 10 }
+    }
+    parm {
+        name    "scale_attr"
+        label   "Scale Attr"
+        type    string
+        default { "" }
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/define_scale.chn"
@@ -866,6 +877,19 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 2 2 expr = ch(\"../scale_ramp\") }
     }
+    channel do_scale_attr {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../do_scale_attr\") }
+    }
+    channel scale_attr {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../scale_attr\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -880,8 +904,13 @@ grouptype	[ 0	locks=0 ]	(	"guess"	)
 class	[ 0	locks=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
-snippet	[ 0	locks=0 ]	(	"@pscale = chramp(\"scale_ramp\", f@mops_curveu) * ch(\"scale_mult\");
-//v@mops_uv = set(f@mops_curveu, 0, 0);"	)
+snippet	[ 0	locks=0 ]	(	"float scale_attr = 1;
+if(chi(\"do_scale_attr\")) {
+    string attr = chs(\"scale_attr\");
+    scale_attr = point(0, attr, @ptnum);
+}
+@pscale = chramp(\"scale_ramp\", f@mops_curveu) * ch(\"scale_mult\") * scale_attr;
+"	)
 exportlist	[ 0	locks=0 ]	(	*	)
 vex_strict	[ 0	locks=0 ]	(	"off"	)
 autobind	[ 0	locks=0 ]	(	"on"	)
@@ -901,8 +930,10 @@ scale_ramp1pos	[ 0	locks=0 ]	(	[ scale_ramp1pos	0 ] 	)
 scale_ramp1value	[ 0	locks=0 ]	(	[ scale_ramp1value	1 ] 	)
 scale_ramp1interp	[ 0	locks=0 ]	(	[ scale_ramp1interp	1 ] 	)
 scale_ramp2pos	[ 0	locks=0 ]	(	[ scale_ramp2pos	1 ] 	)
-scale_ramp2value	[ 0	locks=0 ]	(	[ scale_ramp2value	1 ] 	)
+scale_ramp2value	[ 0	locks=0 ]	(	[ scale_ramp2value	0.13333334028720856 ] 	)
 scale_ramp2interp	[ 0	locks=0 ]	(	[ scale_ramp2interp	1 ] 	)
+do_scale_attr	[ 0	locks=0 ]	(	[ do_scale_attr	1 ] 	)
+scale_attr	[ 0	locks=0 ]	(	[ scale_attr	pscale ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -947,7 +978,7 @@ inputs
 stat
 {
   create 1551332008
-  modify 1551417864
+  modify 1557415605
   author Henry@LAPPY586
   access 0777
 }
@@ -1218,7 +1249,7 @@ inputs
 stat
 {
   create 1551335731
-  modify 1551417874
+  modify 1557415605
   author Henry@LAPPY586
   access 0777
 }
@@ -1497,7 +1528,7 @@ inputs
 stat
 {
   create 1551416703
-  modify 1551417864
+  modify 1557415605
   author Henry@LAPPY586
   access 0777
 }
@@ -1575,7 +1606,7 @@ inputs
 stat
 {
   create 1551416836
-  modify 1551417864
+  modify 1557415605
   author Henry@LAPPY586
   access 0777
 }
@@ -1654,7 +1685,7 @@ inputs
 stat
 {
   create 1551417157
-  modify 1551417877
+  modify 1557415605
   author Henry@LAPPY586
   access 0777
 }
@@ -1758,7 +1789,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.173"
 	}
 }
 
@@ -1819,7 +1850,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.173"
 	}
 }
 
@@ -1951,7 +1982,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.173"
 	}
 }
 
@@ -1986,7 +2017,7 @@ inputs
 stat
 {
   create 1520241446
-  modify 1551417864
+  modify 1557415605
   author Mo@Mo-PC
   access 0777
 }
@@ -2088,7 +2119,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.173"
 	}
 }
 
@@ -2125,7 +2156,7 @@ inputs
 stat
 {
   create 1520241454
-  modify 1551417864
+  modify 1557415605
   author Mo@Mo-PC
   access 0777
 }
@@ -2164,7 +2195,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.173"
 	}
 }
 
@@ -2246,7 +2277,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.173"
 	}
 }
 
@@ -2316,7 +2347,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.173"
 	}
 }
 
@@ -2377,7 +2408,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.173"
 	}
 }
 
@@ -2412,7 +2443,7 @@ inputs
 stat
 {
   create 1521213908
-  modify 1551417864
+  modify 1557415605
   author Mo@Mo-PC
   access 0777
 }
@@ -2489,7 +2520,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.173"
 	}
 }
 
@@ -2557,7 +2588,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.173"
 	}
 }
 
@@ -2618,7 +2649,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.173"
 	}
 }
 
@@ -2679,7 +2710,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.173"
 	}
 }
 
@@ -2714,7 +2745,7 @@ inputs
 stat
 {
   create 1521282649
-  modify 1551417864
+  modify 1557415605
   author Mo@Mo-PC
   access 0777
 }
@@ -2769,7 +2800,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.173"
 	}
 }
 
@@ -2851,7 +2882,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.173"
 	}
 }
 
@@ -2912,7 +2943,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.173"
 	}
 }
 
@@ -2973,7 +3004,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.173"
 	}
 }
 
@@ -3051,7 +3082,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.173"
 	}
 }
 
@@ -3103,9 +3134,16 @@ Content-Type: text/plain
 version 0.8
 group	[ 0	locks=0 ]	(	""	)
 grouptype	[ 0	locks=0 ]	(	"guess"	)
+overridenormal	[ 0	locks=0 ]	(	"off"	)
+normalattrib	[ 0	locks=0 ]	(	N	)
+construct	[ 0	locks=0 ]	(	0	)
+docompute	[ 0	locks=0 ]	(	"on"	)
 type	[ 0	locks=0 ]	(	"typevertex"	)
 cuspangle	[ 0	locks=0 ]	(	60	)
 method	[ 0	locks=0 ]	(	1	)
+modify	[ 0	locks=0 ]	(	0	)
+normalize	[ 0	locks=0 ]	(	"off"	)
+reverse	[ 0	locks=0 ]	(	"off"	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -3115,7 +3153,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.173"
 	}
 }
 
@@ -3213,7 +3251,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.173"
 	}
 }
 
@@ -3278,7 +3316,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.173"
 	}
 }
 
@@ -3315,7 +3353,7 @@ inputs
 stat
 {
   create 1523129261
-  modify 1551417864
+  modify 1557415605
   author Mo@Mo-PC
   access 0777
 }
@@ -3354,7 +3392,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.173"
 	}
 }
 
@@ -3405,6 +3443,7 @@ Content-Type: text/plain
 {
 version 0.8
 deletions	[ 0	locks=0 ]	(	1	)
+removegrp	[ 0	locks=0 ]	(	"off"	)
 enable1	[ 0	locks=0 ]	(	"on"	)
 grouptype1	[ 0	locks=0 ]	(	"any"	)
 group1	[ 0	locks=0 ]	(	"mops_end_caps cap_edges Backbone"	)
@@ -3417,7 +3456,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.173"
 	}
 }
 
@@ -3515,7 +3554,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.173"
 	}
 }
 
@@ -3592,7 +3631,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.173"
 	}
 }
 
@@ -3629,7 +3668,7 @@ inputs
 stat
 {
   create 1551250892
-  modify 1551417874
+  modify 1557415605
   author Henry@LAPPY586
   access 0777
 }
@@ -3667,7 +3706,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.173"
 	}
 }
 
@@ -3702,7 +3741,7 @@ inputs
 stat
 {
   create 1551250895
-  modify 1551417874
+  modify 1557415605
   author Henry@LAPPY586
   access 0777
 }
@@ -3803,7 +3842,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.173"
 	}
 }
 
@@ -3886,7 +3925,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.173"
 	}
 }
 
@@ -4009,7 +4048,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.173"
 	}
 }
 
@@ -4091,7 +4130,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.173"
 	}
 }
 
@@ -4157,7 +4196,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.173"
 	}
 }
 
@@ -4225,7 +4264,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.173"
 	}
 }
 
@@ -4288,7 +4327,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.173"
 	}
 }
 
@@ -4325,7 +4364,7 @@ inputs
 stat
 {
   create 1551332383
-  modify 1551417864
+  modify 1557415605
   author Henry@LAPPY586
   access 0777
 }
@@ -4364,7 +4403,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.173"
 	}
 }
 
@@ -4461,7 +4500,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.173"
 	}
 }
 
@@ -4523,7 +4562,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.173"
 	}
 }
 
@@ -4558,7 +4597,7 @@ inputs
 stat
 {
   create 1551333361
-  modify 1551417889
+  modify 1557415605
   author Henry@LAPPY586
   access 0777
 }
@@ -4599,7 +4638,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.173"
 	}
 }
 
@@ -4634,7 +4673,7 @@ inputs
 stat
 {
   create 1551333361
-  modify 1551417891
+  modify 1557415605
   author Henry@LAPPY586
   access 0777
 }
@@ -4663,7 +4702,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.173"
 	}
 }
 
@@ -4698,7 +4737,7 @@ inputs
 stat
 {
   create 1551333411
-  modify 1551417864
+  modify 1557415605
   author Henry@LAPPY586
   access 0777
 }
@@ -4727,7 +4766,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.173"
 	}
 }
 
@@ -4795,7 +4834,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.173"
 	}
 }
 
@@ -4858,7 +4897,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.173"
 	}
 }
 
@@ -4926,7 +4965,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.173"
 	}
 }
 
@@ -4992,7 +5031,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.173"
 	}
 }
 
@@ -5058,7 +5097,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.173"
 	}
 }
 
@@ -5095,7 +5134,7 @@ inputs
 stat
 {
   create 1551415396
-  modify 1551417864
+  modify 1557415605
   author Henry@LAPPY586
   access 0777
 }
@@ -5134,7 +5173,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.173"
 	}
 }
 
@@ -5232,7 +5271,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.173"
 	}
 }
 
@@ -5355,7 +5394,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.173"
 	}
 }
 
@@ -5487,7 +5526,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.173"
 	}
 }
 
@@ -5555,7 +5594,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.173"
 	}
 }
 
@@ -5619,7 +5658,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.173"
 	}
 }
 
@@ -5654,7 +5693,7 @@ inputs
 stat
 {
   create 1551417770
-  modify 1551417894
+  modify 1557415605
   author Henry@LAPPY586
   access 0777
 }
@@ -5682,7 +5721,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.173"
 	}
 }
 
@@ -5717,7 +5756,7 @@ inputs
 stat
 {
   create 1551417806
-  modify 1551417894
+  modify 1557415605
   author Henry@LAPPY586
   access 0777
 }
@@ -5745,7 +5784,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.173"
 	}
 }
 
