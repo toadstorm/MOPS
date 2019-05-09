@@ -645,6 +645,16 @@
             parmtag { "autoscope" "0000000000000000" }
         }
         parm {
+            name    "transfer_attributes"
+            label   "Transfer Attributes"
+            type    string
+            default { "" }
+            menutoggle {
+                [ "opmenu -l pack1 transfer_attributes" ]
+            }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
             name    "sepparm2"
             label   "Separator"
             type    separator
