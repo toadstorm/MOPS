@@ -1,0 +1,61 @@
+= MOPs Reorient =
+#icon: opdef:.?mops_TD_tools_05.svg
+
+""" Changes the orientation frame of MOPs packed primitives without actually rotating the primitives. """
+
+MOPs Reorient can be used to change the local orientation frame of MOPs primitives without moving them, so that primitives can be transformed around axes other than those they were originally defined with.
+This SOP creates the p@mops_orient attribute, which is a pre-transform recognized by MOPs Apply Attributes and MOPs Transform Modifier.
+
+== Overview ==
+
+@inputs
+
+Packed Primitives:
+    The input packed primitives to reorient.
+    
+Reference Geo:
+    A mesh or set of points with the orientation you want to transfer to your packed primitives.
+    
+@parameters
+
+Orient Source:
+    #id: mode
+    The method by which you want to reorient the packed primitives. You can either use a point attribute on the primitives, or you can transfer an attribute from geometry plugged into the second input.
+
+== Point Attribute ==
+
+Attribute Type:
+    #id: inlineattrtype
+    The type of attribute to use to define the new orientation. This can either be a quaternion (a vector4 attribute, typically `orient`), or it can be a pair of vectors (typically `N` and `up`).
+    
+Orient Attribute:
+    #id: inlinequaternion
+    The name of the vector4 (quaternion) attribute to read from the packed points. The default `orient` can be easily generated using MOPs Orient Mesh, or via MOPs Extract Attributes on packed primitives.
+    
+Normal Attribute:
+    #id: inlinen
+    The name of the "normal" attribute to read from the packed points. This is the "forward" axis, typically aligned with +Z.
+    
+Up Attribute:
+    #id: inlineup
+    The name of the "up" attribute to read from the packed points. This is the "up" axis, typically aligned with +Y.
+    
+== Reference Geometry ==
+
+Attribute Type:
+    #id: referenceattrtype
+    The type of attribute to use to define the new orientation. This can either be a quaternion (a vector4 attribute, typically `orient`), or it can be a pair of vectors (typically `N` and `up`). You can use the MOPs Orient Mesh SOP to easily generate these attributes on your reference geometry.
+    
+Orient Attribute:
+    #id: referencequaternion
+    The name of the vector4 (quaternion) attribute to read from the reference geometry. The default `orient` can be easily generated using MOPs Orient Mesh, or via MOPs Extract Attributes on packed primitives.
+    
+Normal Attribute:
+    #id: referencen
+    The name of the "normal" attribute to read from the reference geometry. This is the "forward" axis, typically aligned with +Z.
+    
+Up Attribute:
+    #id: referenceup
+    The name of the "up" attribute to read from the reference geometry. This is the "up" axis, typically aligned with +Y.
+    
+See the Attribute Transfer SOP for documentation on the Attribute Transfer parameters.

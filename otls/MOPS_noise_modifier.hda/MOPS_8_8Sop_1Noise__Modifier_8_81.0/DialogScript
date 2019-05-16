@@ -291,6 +291,21 @@
             type    string
             default { "Cd id mops_falloff" }
         }
+        parm {
+            name    "do_curveu"
+            label   "Generate Curve UV Attribute"
+            type    toggle
+            default { "0" }
+        }
+        parm {
+            name    "curveu_name"
+            label   "Curve UV Attribute Name"
+            type    string
+            default { "curveu" }
+            disablewhen "{ do_curveu 0 }"
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
     }
 
     group {
