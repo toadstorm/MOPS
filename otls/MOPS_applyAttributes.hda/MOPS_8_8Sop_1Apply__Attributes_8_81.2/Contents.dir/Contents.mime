@@ -32,27 +32,27 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -5.03108 -42.9167
+position -3.13514 2.91562
 connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 0 "output1"
 }
 inputsNamed3
 {
-1 	enable_material_overrides 1 1 "input1"
-2 	define_local_user_transforms 1 1 "input2"
+1 	pivot 0 1 "input1"
+2 	compute_translate 1 1 "input2"
 }
 inputs
 {
-0 	enable_material_overrides 0 1
-1 	define_local_user_transforms 0 1
+0 	pivot 0 1
+1 	compute_translate 0 1
 }
 stat
 {
-  create 1556862708
-  modify 1556862830
+  create 1556862854
+  modify 1557969220
   author Henry@LAPPY586
   access 0777
 }
@@ -79,31 +79,6 @@ Content-Type: text/plain
 2
 0 -3.8925895869542444 10.955584752644103 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
 1 2.4675132493824119 8.3959520341379275 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/__stickynote1.postitinit"
-Content-Type: text/plain
-
-type = postitnote
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/__stickynote1.postitdef"
-Content-Type: text/plain
-
-text "after applying attributes, resolve pivot differences via v@__dpivot"
-position -6.01752 1.79997
-size 3.83956 2.5
-flags = minimize off
-stat
-{
-  create 1555455427
-  modify 1555455440
-  author Henry@LAPPY586
-  access 0777
-}
-color UT_Color RGB 1 0.969 0.522 
-end
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/apply_attributes1.init"
@@ -138,7 +113,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1556862709
+  modify 1557972986
   author Henry@LAPPY586
   access 0777
 }
@@ -384,7 +359,10 @@ Content-Type: text/plain
 
 	 length = 0 accel = 0.33333333333333331 0.33333333333333331 expr = "groupmask = hou.pwd().evalParm('../group')
 do_ignore_no_falloff = hou.pwd().evalParm(\"../ignore_no_falloff\")
+do_falloff = hou.pwd().evalParm('../do_falloff')
 outmask = groupmask
+if not do_falloff:
+    return outmask
 if do_ignore_no_falloff:
     if outmask:
         outmask += \" ^!@mops_falloff>0\"
@@ -470,7 +448,7 @@ Content-Type: text/plain
 {
 version 0.8
 folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
-group	[ 0	locks=0	autoscope=1 ]	(	[ group	"" ] 	)
+group	[ 0	locks=0	autoscope=1 ]	(	[ group	@mops_falloff>0 ] 	)
 grouptype	[ 0	locks=0	autoscope=0 ]	(	[ grouptype	0 ] 	)
 class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
@@ -600,9 +578,12 @@ if(chi(\"bind_orient\")) {
     p@orient = orient;
 }
 
-// generate output matrix.
-matrix3 out = ident();
+// generate output matrix. use the inverse of mops_orient axes at first (default is ident)
+matrix3 out = invert(qconvert(mops_orient));
 scale(out, scale);
+// now rotate this matrix by mops_orient.
+out *= qconvert(mops_orient);
+
 matrix3 rot = qconvert(orient);
 out = out * rot;
 setprimintrinsic(0, \"transform\", @ptnum, out, \"set\");
@@ -624,9 +605,9 @@ do_translate	[ 0	locks=0	autoscope=0 ]	(	[ do_translate	1 ] 	)
 do_rotate	[ 0	locks=0	autoscope=0 ]	(	[ do_rotate	1 ] 	)
 do_scale	[ 0	locks=0	autoscope=0 ]	(	[ do_scale	1 ] 	)
 do_weight	[ 0	locks=0	autoscope=0 ]	(	[ do_weight	1 ] 	)
-rotate_mode	[ 0	locks=0	autoscope=0 ]	(	[ rotate_mode	1 ] 	)
+rotate_mode	[ 0	locks=0	autoscope=0 ]	(	[ rotate_mode	0 ] 	)
 scale_mode	[ 0	locks=0	autoscope=0 ]	(	[ scale_mode	0 ] 	)
-local_space	[ 0	locks=0	autoscope=0 ]	(	[ local_space	0 ] 	)
+local_space	[ 0	locks=0	autoscope=0 ]	(	[ local_space	1 ] 	)
 rotate_order	[ 0	locks=0	autoscope=0 ]	(	[ rotate_order	0 ] 	)
 bind_orient	[ 0	locks=0 ]	(	[ bind_orient	0 ] 	)
 }
@@ -673,7 +654,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1556862709
+  modify 1557538243
   author Henry@LAPPY586
   access 0777
 }
@@ -755,7 +736,7 @@ inputs
 stat
 {
   create 1555437557
-  modify 1556862709
+  modify 1557538754
   author Henry@LAPPY586
   access 0777
 }
@@ -785,7 +766,10 @@ if(haspointattrib(0, \"mops_falloff\")) {
     falloff = point(0, \"mops_falloff\", @ptnum);
 }
 // get pivot of matching point
-vector pivot2 = point(1, \"pivot\", matchpt);
+vector pivot2 = primintrinsic(1, \"pivot\", matchpt);
+if(haspointattrib(1, \"pivot\")) {
+    pivot2 = point(1, \"pivot\", matchpt);
+}
 vector pivot = primintrinsic(0, \"pivot\", @ptnum);
 pivot2 = lerp(pivot, pivot2, falloff);
 setprimintrinsic(1, \"pivot\", @ptnum, pivot2, \"set\");"	)
@@ -847,7 +831,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1556862709
+  modify 1557538243
   author Henry@LAPPY586
   access 0777
 }
@@ -897,7 +881,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.173"
+		"value":"17.5.229"
 	}
 }
 
@@ -959,7 +943,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.173"
+		"value":"17.5.229"
 	}
 }
 
@@ -996,7 +980,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1556862709
+  modify 1557538243
   author Henry@LAPPY586
   access 0777
 }
@@ -1034,7 +1018,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.173"
+		"value":"17.5.229"
 	}
 }
 
@@ -1095,7 +1079,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.173"
+		"value":"17.5.229"
 	}
 }
 
@@ -1129,7 +1113,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1556862779
+  modify 1557538763
   author Henry@LAPPY586
   access 0777
 }
@@ -1154,7 +1138,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.173"
+		"value":"17.5.229"
 	}
 }
 
@@ -1255,7 +1239,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1556862709
+  modify 1557538243
   author Henry@LAPPY586
   access 0777
 }
@@ -1293,7 +1277,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.173"
+		"value":"17.5.229"
 	}
 }
 
@@ -1330,7 +1314,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1556862709
+  modify 1557538289
   author Henry@LAPPY586
   access 0777
 }
@@ -1358,7 +1342,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0	autoscope=0 ]	(	[ input	0 ] 	)
+input	[ 0	locks=0	autoscope=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1368,7 +1352,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.173"
+		"value":"17.5.229"
 	}
 }
 
@@ -1429,7 +1413,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.173"
+		"value":"17.5.229"
 	}
 }
 
@@ -1466,7 +1450,7 @@ inputs
 stat
 {
   create 1555459453
-  modify 1556862709
+  modify 1557538763
   author Henry@LAPPY586
   access 0777
 }
@@ -1505,7 +1489,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.173"
+		"value":"17.5.229"
 	}
 }
 
@@ -1542,7 +1526,7 @@ inputs
 stat
 {
   create 1556862778
-  modify 1556862827
+  modify 1557538243
   author Henry@LAPPY586
   access 0777
 }
@@ -1580,7 +1564,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.173"
+		"value":"17.5.229"
 	}
 }
 
