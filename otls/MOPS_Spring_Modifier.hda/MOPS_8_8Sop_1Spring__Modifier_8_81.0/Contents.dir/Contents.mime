@@ -32,7 +32,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.69205 -2.51755
+position 9.30561 -3.62985
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -41,16 +41,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	MOPs_Transform_Modifier 1 1 "input1"
+0 	MOPs_Transform_Modifier1 1 1 "input1"
 }
 inputs
 {
-0 	MOPs_Transform_Modifier 0 1
+0 	MOPs_Transform_Modifier1 0 1
 }
 stat
 {
   create 1557762544
-  modify 1557809806
+  modify 1558584050
   author Henry@LAPPY586
   access 0777
 }
@@ -266,7 +266,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.229"
 	}
 }
 
@@ -1240,7 +1240,7 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot/MOPs_Apply_Attributes.init"
 Content-Type: text/plain
 
-type = MOPS::Apply_Attributes::1.0
+type = MOPS::Apply_Attributes::1.2
 matchesdef = 1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1250,7 +1250,7 @@ Content-Type: text/plain
 sopflags sopflags = 
 comment ""
 position 3.12209 2.47798
-connectornextid 1
+connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
@@ -1258,7 +1258,7 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	MOPs_Extract_Attributes 1 1 "input1"
+1 	MOPs_Extract_Attributes 1 1 "input1"
 2 	spring_solver 1 1 "input2"
 }
 inputs
@@ -1268,9 +1268,9 @@ inputs
 }
 stat
 {
-  create 1539668025
-  modify 1552367029
-  author henry@GlaDOS
+  create 1558584048
+  modify 1558584096
+  author Henry@LAPPY586
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -1286,21 +1286,18 @@ Content-Type: text/plain
     channel do_translate {
       lefttype = extend
       righttype = extend
-      default = 1
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../do_pos\") }
     }
     channel do_rotate {
       lefttype = extend
       righttype = extend
-      default = 1
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../do_rot\") }
     }
     channel do_scale {
       lefttype = extend
       righttype = extend
-      default = 1
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../do_scale\") }
     }
@@ -1312,20 +1309,22 @@ Content-Type: text/plain
 
 {
 version 0.8
-group	[ 0	locks=0 ]	(	""	)
-grouptype	[ 0	locks=0 ]	(	"guess"	)
-do_translate	[ 0	locks=0 ]	(	[ do_translate	1 ] 	)
-do_rotate	[ 0	locks=0 ]	(	[ do_rotate	1 ] 	)
-do_scale	[ 0	locks=0 ]	(	[ do_scale	1 ] 	)
-do_falloff	[ 0	locks=0 ]	(	"off"	)
-ignore_no_falloff	[ 0	locks=0 ]	(	"off"	)
-rotate_mode	[ 0	locks=0 ]	(	1	)
-scale_mode	[ 0	locks=0 ]	(	1	)
-rotate_order	[ 0	locks=0 ]	(	0	)
-local_space	[ 0	locks=0 ]	(	"on"	)
-do_make_id	[ 0	locks=0 ]	(	"on"	)
-do_copy_attrs	[ 0	locks=0 ]	(	"off"	)
-attribname	[ 0	locks=0 ]	(	""	)
+group	[ 0	locks=0	autoscope=0 ]	(	""	)
+grouptype	[ 0	locks=0	autoscope=0 ]	(	"guess"	)
+do_translate	[ 0	locks=0	autoscope=0 ]	(	[ do_translate	1 ] 	)
+do_rotate	[ 0	locks=0	autoscope=0 ]	(	[ do_rotate	1 ] 	)
+do_scale	[ 0	locks=0	autoscope=0 ]	(	[ do_scale	1 ] 	)
+do_falloff	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+do_pivots	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+ignore_no_falloff	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+rotate_mode	[ 0	locks=0	autoscope=0 ]	(	1	)
+scale_mode	[ 0	locks=0	autoscope=0 ]	(	1	)
+rotate_order	[ 0	locks=0	autoscope=0 ]	(	0	)
+local_space	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+do_make_id	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+do_copy_attrs	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+attribname	[ 0	locks=0	autoscope=0 ]	(	""	)
+do_orient	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1386,6 +1385,7 @@ Content-Type: text/plain
 {
 version 0.8
 do_pivot	[ 0	locks=0 ]	(	"on"	)
+do_full_transform	[ 0	locks=0 ]	(	"off"	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1428,7 +1428,7 @@ inputs
 stat
 {
   create 1324348265
-  modify 1557811121
+  modify 1558584088
   author jlait@andorra.sidefx.com
   access 0777
 }
@@ -1499,7 +1499,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.229"
 	}
 }
 
@@ -1578,7 +1578,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.229"
 	}
 }
 
@@ -1657,7 +1657,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.229"
 	}
 }
 
@@ -1736,7 +1736,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.229"
 	}
 }
 
@@ -1815,7 +1815,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.229"
 	}
 }
 
@@ -1890,7 +1890,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.229"
 	}
 }
 
@@ -1949,7 +1949,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.229"
 	}
 }
 
@@ -2031,7 +2031,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.229"
 	}
 }
 
@@ -2220,7 +2220,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.229"
 	}
 }
 
@@ -2310,7 +2310,7 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	MOPs_Apply_Attributes 1 1 "input1"
+0 	MOPs_Apply_Attributes 0 1 "input1"
 2 	(__dot2) "" 1 "input2"
 }
 inputs
@@ -2321,7 +2321,7 @@ inputs
 stat
 {
   create 1533876282
-  modify 1540481181
+  modify 1558584049
   author Henry@LAPPY586
   access 0777
 }
@@ -2358,7 +2358,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.229"
 	}
 }
 
@@ -2417,7 +2417,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.229"
 	}
 }
 
@@ -2492,7 +2492,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.229"
 	}
 }
 
@@ -2567,7 +2567,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.229"
 	}
 }
 
@@ -2641,7 +2641,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.229"
 	}
 }
 

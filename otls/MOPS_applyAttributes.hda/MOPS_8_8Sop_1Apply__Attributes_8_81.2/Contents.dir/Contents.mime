@@ -32,26 +32,27 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -4.50689 -2.84646
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+position -3.13514 2.91562
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
+0 "output1"
 }
 inputsNamed3
 {
-0 	MOPs_Convert 1 1 "input1"
-1 	MOPs_Extract_Attributes 1 1 "input2"
+1 	pivot 0 1 "input1"
+2 	compute_translate 1 1 "input2"
 }
 inputs
 {
-0 	MOPs_Convert 0 1
-1 	MOPs_Extract_Attributes 0 1
+0 	pivot 0 1
+1 	compute_translate 0 1
 }
 stat
 {
-  create 1558497796
-  modify 1558498262
+  create 1556862854
+  modify 1558633658
   author Henry@LAPPY586
   access 0777
 }
@@ -447,7 +448,7 @@ Content-Type: text/plain
 {
 version 0.8
 folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
-group	[ 0	locks=0	autoscope=1 ]	(	[ group	"" ] 	)
+group	[ 0	locks=0	autoscope=1 ]	(	[ group	@mops_falloff>0 ] 	)
 grouptype	[ 0	locks=0	autoscope=0 ]	(	[ grouptype	0 ] 	)
 class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
@@ -604,7 +605,7 @@ do_translate	[ 0	locks=0	autoscope=0 ]	(	[ do_translate	1 ] 	)
 do_rotate	[ 0	locks=0	autoscope=0 ]	(	[ do_rotate	1 ] 	)
 do_scale	[ 0	locks=0	autoscope=0 ]	(	[ do_scale	1 ] 	)
 do_weight	[ 0	locks=0	autoscope=0 ]	(	[ do_weight	1 ] 	)
-rotate_mode	[ 0	locks=0	autoscope=0 ]	(	[ rotate_mode	1 ] 	)
+rotate_mode	[ 0	locks=0	autoscope=0 ]	(	[ rotate_mode	0 ] 	)
 scale_mode	[ 0	locks=0	autoscope=0 ]	(	[ scale_mode	0 ] 	)
 local_space	[ 0	locks=0	autoscope=0 ]	(	[ local_space	1 ] 	)
 rotate_order	[ 0	locks=0	autoscope=0 ]	(	[ rotate_order	0 ] 	)
@@ -735,7 +736,7 @@ inputs
 stat
 {
   create 1555437557
-  modify 1558498030
+  modify 1558634026
   author Henry@LAPPY586
   access 0777
 }
@@ -765,8 +766,8 @@ if(haspointattrib(0, \"mops_falloff\")) {
     falloff = point(0, \"mops_falloff\", @ptnum);
 }
 // get pivot of matching point
-//vector pivot2 = primintrinsic(1, \"pivot\", matchpt);
-vector pivot2 = {0,0,0};
+vector pivot2 = primintrinsic(1, \"pivot\", matchpt);
+//vector pivot2 = {0,0,0};
 if(haspointattrib(1, \"pivot\")) {
     pivot2 = point(1, \"pivot\", matchpt);
 }
@@ -1479,7 +1480,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	0 ] 	)
+input	[ 0	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
