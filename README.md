@@ -36,9 +36,10 @@ QLIB="/path/to/qlib"
 HOUDINI_PATH=$HOUDINI_PATH;$QLIB;$MOPS;&
 ```
 
+*Note:* On Linux and OSX, use `:` instead of `;` to separate your paths. 
+
 It's important that your HOUDINI_PATH always ends in ;&. You can append any other paths you like,
 but the last path should be `&`. This will ensure that Houdini's built-in operators work normally.
-On Linux and OSX, use : instead of ; to separate your paths. 
 
 ### Usage basics:
 
