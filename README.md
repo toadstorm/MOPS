@@ -30,9 +30,9 @@ Finally, add `$MOPS` to your HOUDINI_PATH:
 
 If you already have a HOUDINI_PATH defined, you can simply append $MOPS to that existing HOUDINI_PATH. For example, if you're using both MOPs and QLib:
 
-`MOPS="/path/to/MOPS"
-QLIB="/path/to/qlib"
-HOUDINI_PATH=$HOUDINI_PATH;$QLIB;$MOPS;&`
+`MOPS="/path/to/MOPS"`
+`QLIB="/path/to/qlib"`
+`HOUDINI_PATH=$HOUDINI_PATH;$QLIB;$MOPS;&`
 
 It's important that your HOUDINI_PATH always ends in ;&. You can append any other paths you like,
 but the last path should be `&`. This will ensure that Houdini's built-in operators work normally.
