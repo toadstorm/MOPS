@@ -13,29 +13,30 @@ MOPs is based on an internal framework of nodes that convert point attributes to
 
 **INSTALLATION PROCEDURE HAS BEEN SIMPLIFIED FROM PREVIOUS RELEASES. PLEASE READ CAREFULLY.**
 
-Option 1:
+**Option 1 (users who are familiar with Git)**:
 Navigate to the folder you want to contain MOPs, and from BASH / Git BASH type:
 `git clone https://github.com/toadstorm/MOPS.git`
 
-Option 2:
-Download the desired release directly from the [releases page](https://github.com/toadstorm/MOPS/releases) and extract it to the desired location.
+**Option 2 (what's Git?)**:
+Download the desired release directly from the [releases page](https://github.com/toadstorm/MOPS/releases) and extract it to your hard drive or network share.
 
-Next, edit your houdini.env file and create a variable called MOPS that points to the new folder:
-`MOPS = "/path/to/MOPS"`
+**Configuring your Environment**
+Next, you need to add the MOPS root directory to your Houdini environment file. For more information about the Houdini environment file, see [this help link](https://www.sidefx.com/docs/houdini/basics/config_env.html#setting-environment-variables).
+Edit your houdini.env file and create a variable called MOPS that points to the new folder you just extracted MOPs to. The folder you point to should be the one that contains "otls", "scripts", and "toolbar":
+`MOPS="/path/to/MOPS"`
 
 Finally, add `$MOPS` to your HOUDINI_PATH:
-`HOUDINI_PATH = $MOPS;&`
+`HOUDINI_PATH=$HOUDINI_PATH;$MOPS;&`
+
+If you already have a HOUDINI_PATH defined, you can simply append $MOPS to that existing HOUDINI_PATH. For example, if you're using both MOPs and QLib:
+
+`MOPS="/path/to/MOPS"
+QLIB="/path/to/qlib"
+HOUDINI_PATH=$HOUDINI_PATH;$QLIB;$MOPS;&`
 
 It's important that your HOUDINI_PATH always ends in ;&. You can append any other paths you like,
 but the last path should be `&`. This will ensure that Houdini's built-in operators work normally.
 On Linux and OSX, use : instead of ; to separate your paths. 
-
-If you want to use the old installation procedure, set the following environment keys in houdini.env:
-```
-HOUDINI_OTLSCAN_PATH = $MOPS/otls;@/otls 
-HOUDINI_TOOLBAR_PATH = $MOPS/toolbar;@/toolbar
-HOUDINI_SCRIPT_PATH = $MOPS/scripts;@/scripts
-```
 
 ### Usage basics:
 
