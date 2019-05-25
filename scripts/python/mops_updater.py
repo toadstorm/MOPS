@@ -26,7 +26,7 @@ else:
     HOU_TEMP_PATH_STR = HOU_TEMP_PATH
 
 # local record of branch/version
-MOPS_SETTINGS = os.path.join(os.getenv("HOUDINI_USER_PREF_DIR"), "mops.json")
+MOPS_SETTINGS = os.path.join(os.getenv("HOUDINI_USER_PREF_DIR"), "mops_version.json")
 HOUDINI_ENV = os.path.join(os.getenv("HOUDINI_USER_PREF_DIR"), "houdini.env")
 DEFAULT_SETTINGS = {'branch': "N/A", 'release': "N/A"}
 
