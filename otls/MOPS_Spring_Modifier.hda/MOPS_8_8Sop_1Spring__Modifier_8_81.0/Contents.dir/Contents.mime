@@ -34,7 +34,7 @@ sopflags sopflags =
 comment ""
 position 9.30561 -3.65046
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 1 "output1"
@@ -50,7 +50,7 @@ inputs
 stat
 {
   create 1557762544
-  modify 1558586463
+  modify 1558765102
   author Henry@LAPPY586
   access 0777
 }
@@ -90,7 +90,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 4.18011 4.26225
+position 4.15005 4.0491
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -108,7 +108,7 @@ inputs
 stat
 {
   create 1523565945
-  modify 1552367006
+  modify 1558671473
   author Mo@Mo-PC
   access 0777
 }
@@ -214,7 +214,7 @@ inputs
 stat
 {
   create 1324348265
-  modify 1557810961
+  modify 1558671508
   author jlait@andorra.sidefx.com
   access 0777
 }
@@ -271,6 +271,31 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/spring_solver/d/s/__stickynote1.postitinit"
+Content-Type: text/plain
+
+type = postitnote
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/spring_solver/d/s/__stickynote1.postitdef"
+Content-Type: text/plain
+
+text "time delta somehow got lost...?"
+position -4.49691 -9.8865
+size 3.91644 2.5
+flags = minimize off
+stat
+{
+  create 1558671422
+  modify 1558671430
+  author Henry@LAPPY586
+  access 0777
+}
+color UT_Color RGB 1 0.969 0.522 
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/spring_solver/d/s/pointwrangle4.init"
 Content-Type: text/plain
 
@@ -301,7 +326,7 @@ inputs
 stat
 {
   create 1523567617
-  modify 1558585402
+  modify 1558668366
   author Mo@Mo-PC
   access 0777
 }
@@ -322,13 +347,9 @@ grouptype	[ 0	locks=0 ]	(	"guess"	)
 class	[ 0	locks=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
-snippet	[ 0	locks=0 ]	(	"v@__mops_r_delta = {0,0,0};
+snippet	[ 0	locks=0 ]	(	"v@__mops_s_delta = {0,0,0};
 v@__mops_vel = {0,0,0};
 v@__mops_rot_delta = {0,0,0};
-matrix3 temp = ident();
-setpointattrib(0, \"__mops_temp\", @ptnum, temp);
-
-
 f@__mops_falloff_delta = 0;
 
 "	)
@@ -379,18 +400,18 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	MOPs_Extract_Attributes1 1 1 "input1"
+0 	switch2 2 1 "input1"
 1 	MOPs_Extract_Attributes 1 1 "input2"
 }
 inputs
 {
-0 	MOPs_Extract_Attributes1 0 1
+0 	switch2 0 1
 1 	MOPs_Extract_Attributes 0 1
 }
 stat
 {
   create 1539667218
-  modify 1558585876
+  modify 1558765180
   author henry@GlaDOS
   access 0777
 }
@@ -696,7 +717,14 @@ grouptype	[ 0	locks=0 ]	(	"guess"	)
 class	[ 0	locks=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
-snippet	[ 0	locks=0 ]	(	"float damp = chf(\"damping_coeff\");
+snippet	[ 0	locks=0 ]	(	"function float rot_dist(vector4 q1, q2) {
+    // return the actual rotation distance between two quaternions,
+    // not including the double cover magic (so that q != -q).
+    float theta = 2 * acos(dot(q1,q2));
+    return theta;
+}
+
+float damp = chf(\"damping_coeff\");
 float mass = chf(\"Mass\");
 float k = chf(\"Spring_Const\")
 
@@ -712,8 +740,19 @@ if(chi(\"do_pos\")) {
     v@P = temppos;
 }
 if(chi(\"do_rot\")) {
+    // due to the poopy nature of quaternions extracted from matrices, 
+    // it's possible that we can flip over 180 degrees between one 
+    // frame and the next even if the visual change is minimal. 
+    // check to see if the inverse of the quaternion is more alike
+    // to the current rotation, and use that if true.
     vector4 restrot = point(1, \"orient\", @ptnum);
+    vector4 fliprot = restrot * -1;
     vector4 temprot = p@orient;
+    float dist = rot_dist(restrot, temprot);
+    float dist2 = rot_dist(fliprot, temprot);
+    if(dist > dist2) {
+        restrot = fliprot;
+    }
     // get the quaternion that would rotate from temppos to restpos.
     // then convert this into an angle/axis vector and compute acceleration.
     vector4 deltaQ = qmultiply(temprot, qinvert(restrot));
@@ -807,7 +846,7 @@ inputs
 stat
 {
   create 1558584909
-  modify 1558585378
+  modify 1558668160
   author Henry@LAPPY586
   access 0777
 }
@@ -828,67 +867,6 @@ do_full_transform	[ 0	locks=0 ]	(	"off"	)
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/spring_solver/d/s/MOPs_Extract_Attributes.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":""
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/spring_solver/d/s/MOPs_Extract_Attributes1.init"
-Content-Type: text/plain
-
-type = MOPS::Extract_Attributes::1.0
-matchesdef = 1
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/spring_solver/d/s/MOPs_Extract_Attributes1.def"
-Content-Type: text/plain
-
-sopflags sopflags = 
-comment ""
-position 0.789536 -5.43503
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass on display off render off highlight off unload off savedata off compress on colordefault on exposed on
-outputsNamed3
-{
-1 "output1"
-}
-inputsNamed3
-{
-0 	switch2 2 1 "input1"
-}
-inputs
-{
-0 	switch2 0 1
-}
-stat
-{
-  create 1558584909
-  modify 1558586052
-  author Henry@LAPPY586
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/spring_solver/d/s/MOPs_Extract_Attributes1.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-do_pivot	[ 0	locks=0 ]	(	"on"	)
-do_full_transform	[ 0	locks=0 ]	(	"off"	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/spring_solver/d/s/MOPs_Extract_Attributes1.userdata"
 Content-Type: text/plain
 
 {
@@ -1305,7 +1283,7 @@ inputs
 stat
 {
   create 1533874785
-  modify 1552192588
+  modify 1558671362
   author Henry@LAPPY586
   access 0777
 }
@@ -1327,10 +1305,11 @@ class	[ 0	locks=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
 snippet	[ 0	locks=0 ]	(	"f@__frame = -1;
-if(i@__isabc) {
+string typename = primintrinsic(0, \"typename\", @ptnum);
+if(typename == \"AlembicRef\") {
    @__frame = primintrinsic(0, \"abcframe\", @ptnum) / @TimeInc;
 }
-else if(i@__ispackedsequence) {
+else if(typename == \"PackedSequence\") {
     @__frame = primintrinsic(0, \"index\", @ptnum);
 }"	)
 exportlist	[ 0	locks=0 ]	(	*	)
@@ -1550,7 +1529,7 @@ inputs
 stat
 {
   create 1324348265
-  modify 1558667802
+  modify 1558765289
   author jlait@andorra.sidefx.com
   access 0777
 }
@@ -1654,7 +1633,7 @@ inputs
 stat
 {
   create 1324348294
-  modify 1552192588
+  modify 1558671521
   author jlait@andorra.sidefx.com
   access 0777
 }
@@ -1671,7 +1650,7 @@ Content-Type: text/plain
 version 0.8
 numobj	[ 0	locks=0 ]	(	1	)
 _separator	[ 0	locks=0 ]	(	)
-xformtype	[ 0	locks=0 ]	(	"object"	)
+xformtype	[ 0	locks=0 ]	(	"local"	)
 xformpath	[ 0	locks=0 ]	(	""	)
 invertxform	[ 0	locks=0 ]	(	"off"	)
 createptgroups	[ 0	locks=0 ]	(	"off"	)
@@ -2046,7 +2025,7 @@ inputs
 stat
 {
   create 1539668613
-  modify 1539751987
+  modify 1558668160
   author henry@GlaDOS
   access 0777
 }
@@ -2079,7 +2058,7 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot/spring_solver/d/s.order"
 Content-Type: text/plain
 
-11
+10
 Prev_Frame
 Input_1
 Input_2
@@ -2090,7 +2069,6 @@ pointwrangle4
 spring_forces
 output1
 MOPs_Extract_Attributes
-MOPs_Extract_Attributes1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/spring_solver/d/s.net"
@@ -2606,7 +2584,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	0 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
