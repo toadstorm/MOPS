@@ -26,7 +26,7 @@ else:
     HOU_TEMP_PATH_STR = HOU_TEMP_PATH
 
 # local record of branch/version
-MOPS_SETTINGS = os.path.join(os.getenv("HOUDINI_USER_PREF_DIR"), "mops.json")
+MOPS_SETTINGS = os.path.join(os.getenv("HOUDINI_USER_PREF_DIR"), "mops_version.json")
 HOUDINI_ENV = os.path.join(os.getenv("HOUDINI_USER_PREF_DIR"), "houdini.env")
 DEFAULT_SETTINGS = {'branch': "N/A", 'release': "N/A"}
 
@@ -257,7 +257,9 @@ class MOPsUpdateWindow(QtWidgets.QDialog):
         build_combo_label = QtWidgets.QLabel('Select Build: ')
         self.build_combo = QtWidgets.QComboBox()
         self.update_env = QtWidgets.QCheckBox('Auto-Update houdini.env')
-        self.update_env.setChecked(True)
+        self.update_env.setChecked(False)
+		# deprecated
+		self.update_env.setVisible(False)
         self.do_analytics = QtWidgets.QCheckBox('Share anonymous MOPs data')
         self.do_analytics.setChecked(False)
         apply_btn = QtWidgets.QPushButton('Apply Update')
