@@ -13,6 +13,7 @@ MOPs is based on an internal framework of nodes that convert point attributes to
 
 **INSTALLATION PROCEDURE HAS BEEN SIMPLIFIED FROM PREVIOUS RELEASES. PLEASE READ CAREFULLY.**
 
+## Step 1: Downloading MOPs
 **Option 1 (users who are familiar with Git)**:
 Navigate to the folder you want to contain MOPs, and from BASH / Git BASH type:
 `git clone https://github.com/toadstorm/MOPS.git`
@@ -20,8 +21,14 @@ Navigate to the folder you want to contain MOPs, and from BASH / Git BASH type:
 **Option 2 (what's Git?)**:
 Download the desired release directly from the [releases page](https://github.com/toadstorm/MOPS/releases) and extract it to your hard drive or network share.
 
-**Configuring your Environment**
-Next, you need to add the MOPS root directory to your Houdini environment file. For more information about the Houdini environment file, see [this help link](https://www.sidefx.com/docs/houdini/basics/config_env.html#setting-environment-variables).
+## Step 2: Configuring your Environment
+
+**Option 1: Plugin (17.5+ only)**
+For those of you running Houdini 17.5 or later, you have an option for a much easier install. 
+Simply create a folder inside your Houdini preferences directory (where the houdini.env typically is) called "packages", and place the MOPS.json file from the MOPs download into that folder. Then edit MOPS.json and change the "path" variable to match the install path.
+
+**Option 2: Edit Houdini.env**
+You need to add the MOPS root directory to your Houdini environment file. For more information about the Houdini environment file, see [this help link](https://www.sidefx.com/docs/houdini/basics/config_env.html#setting-environment-variables).
 Edit your houdini.env file and create a variable called MOPS that points to the new folder you just extracted MOPs to. The folder you point to should be the one that contains "otls", "scripts", and "toolbar":
 `MOPS="/path/to/MOPS"`
 
