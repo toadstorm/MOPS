@@ -38,6 +38,11 @@ Do Falloff:
     
     Apply falloff to the transformations. Falloff in MOPs is defined by the point attribute @mops_falloff, with values typically between 0-1. A falloff of 0 implies no transformation.
 
+Do Pivots:
+    #id: do_pivots
+    
+    Match the pivots from the first input to those of the second input. If the second input has a v@pivot point attribute, this will take precedence over a pivot intrinsic attribute.
+    
 Ignore Zero Falloff Prims:
     #id: ignore_no_falloff
     Objects with a @mops_falloff value of 0.0 will be completely ignored. This can speed up operations with lots of primitives.
