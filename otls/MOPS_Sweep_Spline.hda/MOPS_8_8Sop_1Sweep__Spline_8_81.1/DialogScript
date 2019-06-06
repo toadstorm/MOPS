@@ -283,6 +283,22 @@
                 parmtag { "autoscope" "0000000000000000" }
             }
             parm {
+                name    "do_scale_attr"
+                label   "Scale by Point Attribute"
+                type    toggle
+                default { "0" }
+                range   { 0 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "scale_attr"
+                label   "Scale Attr"
+                type    string
+                default { "pscale" }
+                disablewhen "{ do_scale_attr == 0 }"
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
                 name    "scale_ramp"
                 label   "Scale Ramp"
                 type    ramp_flt
@@ -334,6 +350,40 @@
             range   { -1 1 }
             parmtag { "autoscope" "0000000000000000" }
         }
+        group {
+            name    "folder0"
+            label   "Groups"
+
+            parm {
+                name    "sweepgroupname"
+                label   "Sweep Group"
+                type    string
+                default { "Sweep" }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "capsgroupname"
+                label   "Caps Group"
+                type    string
+                default { "Caps" }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "startcapgroupname"
+                label   "Start Cap Group"
+                type    string
+                default { "capStart" }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "endcapgroupname"
+                label   "End Cap Group"
+                type    string
+                default { "capEnd" }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+        }
+
     }
 
 }

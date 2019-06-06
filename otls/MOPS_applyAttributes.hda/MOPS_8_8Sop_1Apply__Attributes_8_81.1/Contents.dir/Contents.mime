@@ -32,7 +32,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -5.03108 -42.9167
+position -3.13514 2.91562
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -41,18 +41,18 @@ outputsNamed3
 }
 inputsNamed3
 {
-1 	enable_material_overrides 1 1 "input1"
-2 	define_local_user_transforms 1 1 "input2"
+1 	pivot 0 1 "input1"
+2 	transform 1 1 "input2"
 }
 inputs
 {
-0 	enable_material_overrides 0 1
-1 	define_local_user_transforms 0 1
+0 	pivot 0 1
+1 	transform 0 1
 }
 stat
 {
-  create 1547069120
-  modify 1549073673
+  create 1543210695
+  modify 1552447659
   author Henry@LAPPY586
   access 0777
 }
@@ -113,7 +113,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1549073673
+  modify 1552447660
   author Henry@LAPPY586
   access 0777
 }
@@ -337,6 +337,13 @@ Content-Type: text/plain
         default { "0" }
         range   { 0 10 }
     }
+    parm {
+        name    "bind_orient"
+        label   "Bind Orient"
+        type    integer
+        default { "0" }
+        range   { 0 10 }
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/apply_attributes1.chn"
@@ -422,6 +429,13 @@ return outmask" language = python }
       flags = 0
       segment { length = 0 expr = ch(\"../grouptype\") }
     }
+    channel bind_orient {
+      lefttype = extend
+      righttype = extend
+      default = 50
+      flags = 0
+      segment { length = 0 value = 50 50 expr = ch(\"../do_orient\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -431,7 +445,7 @@ Content-Type: text/plain
 {
 version 0.8
 folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
-group	[ 0	locks=0	autoscope=1 ]	(	[ group	"" ] 	)
+group	[ 0	locks=0	autoscope=1 ]	(	[ group	"50 ^!@mops_falloff>0" ] 	)
 grouptype	[ 0	locks=0	autoscope=0 ]	(	[ grouptype	0 ] 	)
 class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
@@ -557,6 +571,9 @@ if(doT) {
 }
 
 p@__out_orient = orient;
+if(chi(\"bind_orient\")) {
+    p@orient = orient;
+}
 
 // generate output matrix.
 matrix3 out = ident();
@@ -577,15 +594,16 @@ vex_updatenmls	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
 vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
-folder1	[ 0	locks=0	autoscope=0 ]	(	0	0	)
+folder1	[ 0	locks=0 ]	(	0	0	)
 do_translate	[ 0	locks=0	autoscope=0 ]	(	[ do_translate	1 ] 	)
 do_rotate	[ 0	locks=0	autoscope=0 ]	(	[ do_rotate	1 ] 	)
 do_scale	[ 0	locks=0	autoscope=0 ]	(	[ do_scale	1 ] 	)
 do_weight	[ 0	locks=0	autoscope=0 ]	(	[ do_weight	1 ] 	)
-rotate_mode	[ 0	locks=0	autoscope=0 ]	(	[ rotate_mode	1 ] 	)
+rotate_mode	[ 0	locks=0	autoscope=0 ]	(	[ rotate_mode	0 ] 	)
 scale_mode	[ 0	locks=0	autoscope=0 ]	(	[ scale_mode	0 ] 	)
-local_space	[ 0	locks=0	autoscope=0 ]	(	[ local_space	0 ] 	)
+local_space	[ 0	locks=0	autoscope=0 ]	(	[ local_space	1 ] 	)
 rotate_order	[ 0	locks=0	autoscope=0 ]	(	[ rotate_order	0 ] 	)
+bind_orient	[ 0	locks=0 ]	(	[ bind_orient	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -630,7 +648,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1549073673
+  modify 1552447653
   author Henry@LAPPY586
   access 0777
 }
@@ -712,7 +730,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1549073673
+  modify 1552447280
   author Henry@LAPPY586
   access 0777
 }
@@ -762,7 +780,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.0.506"
 	}
 }
 
@@ -824,7 +842,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.0.506"
 	}
 }
 
@@ -861,7 +879,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1549073673
+  modify 1552447280
   author Henry@LAPPY586
   access 0777
 }
@@ -899,7 +917,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.0.506"
 	}
 }
 
@@ -960,7 +978,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.0.506"
 	}
 }
 
@@ -977,7 +995,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.50058 -0.731744
+position -0.289297 -1.85521
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -994,7 +1012,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1529379203
+  modify 1552447430
   author Henry@LAPPY586
   access 0777
 }
@@ -1019,7 +1037,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.0.506"
 	}
 }
 
@@ -1036,7 +1054,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.50058 0.268256
+position -0.292747 -0.53161
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1054,7 +1072,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1549075124
+  modify 1552447560
   author Henry@LAPPY586
   access 0777
 }
@@ -1120,7 +1138,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1549073673
+  modify 1552447280
   author Henry@LAPPY586
   access 0777
 }
@@ -1158,7 +1176,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.0.506"
 	}
 }
 
@@ -1195,7 +1213,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1549073673
+  modify 1552447280
   author Henry@LAPPY586
   access 0777
 }
@@ -1223,7 +1241,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0	autoscope=0 ]	(	[ input	0 ] 	)
+input	[ 0	locks=0	autoscope=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1233,7 +1251,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.0.506"
 	}
 }
 
@@ -1294,7 +1312,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.0.506"
 	}
 }
 

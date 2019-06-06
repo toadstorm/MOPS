@@ -32,9 +32,9 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -4.69315 -5.81952
+position 0.319672 0.054918
 connectornextid 0
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
@@ -46,8 +46,8 @@ inputs
 }
 stat
 {
-  create 1550443863
-  modify 1550443886
+  create 1555306861
+  modify 1555307389
   author Henry@LAPPY586
   access 0777
 }
@@ -72,7 +72,7 @@ Content-Disposition: attachment; filename="hdaroot.inp"
 Content-Type: text/plain
 
 1
-0 0.0030000077094882033 7.1095336147486154 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+0 0.003000004243105512 8.7641580403961363 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/__stickynote1.postitinit"
@@ -112,7 +112,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -9.89527 0.74311
+position -9.89785 0.248814
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -130,7 +130,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1550443863
+  modify 1555307394
   author Henry@LAPPY586
   access 0777
 }
@@ -301,8 +301,9 @@ Content-Type: text/plain
     parm {
         name    "amp"
         label   "Amp"
-        type    float
-        default { "0" }
+        type    vector
+        size    3
+        default { "0" "0" "0" }
         range   { 0 1 }
     }
     parm {
@@ -373,13 +374,6 @@ Content-Type: text/plain
       righttype = extend
       flags = 0
       segment { length = 0 expr = ch(\"../grouptype\") }
-    }
-    channel amp {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
     }
     channel freqx {
       lefttype = extend
@@ -465,6 +459,27 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../time_scale\") }
     }
+    channel ampx {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+    }
+    channel ampy {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+    }
+    channel ampz {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -482,7 +497,7 @@ vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
 snippet	[ 0	locks=0	autoscope=0 ]	(	"vector4 pos = @P;
 vector4 freq = chp(\"freq\");
 vector4 offset = chp(\"offset\");
-float amp = ch(\"amp\");
+float amp = chf(\"amp\");
 
 int oct = chi(\"octaves\");
 float rough = chf(\"roughness\");
@@ -490,13 +505,7 @@ float rough = chf(\"roughness\");
 vector val = 0;
 vector maxval = 0;
 
-int dotime = chi(\"time_varying\");
-float tscale = chf(\"time_scale\");
-
-if(dotime > 0){
-    offset += set(0,0,0, @Time * tscale);
-}
-
+offset += p@time_offset;
 
 if(chi(\"uniform\") == 1){
     freq = set(freq.x, freq.x, freq.x);
@@ -528,8 +537,8 @@ vex_updatenmls	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
 vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
-folder1	[ 0	locks=0	autoscope=0 ]	(	1	1	)
-amp	[ 0	locks=0	autoscope=0 ]	(	[ amp	1 ] 	)
+folder1	[ 0	locks=0 ]	(	0	0	)
+amp	[ 0	locks=0	autoscope=0 ]	(	[ ampx	1 ] 	[ ampy	1 ] 	[ ampz	1 ] 	)
 roughness	[ 0	locks=0	autoscope=0 ]	(	[ roughness	0.5 ] 	)
 octaves	[ 0	locks=0	autoscope=0 ]	(	[ octaves	1 ] 	)
 freq	[ 0	locks=0	autoscope=0 ]	(	[ freqx	1 ] 	[ freqy	1 ] 	[ freqz	1 ] 	[ freqw	1 ] 	)
@@ -565,7 +574,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -6.33962 0.74311
+position -6.3422 0.248814
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -583,7 +592,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1550443863
+  modify 1555307394
   author Henry@LAPPY586
   access 0777
 }
@@ -754,8 +763,9 @@ Content-Type: text/plain
     parm {
         name    "amp"
         label   "Amp"
-        type    float
-        default { "0" }
+        type    vector
+        size    3
+        default { "0" "0" "0" }
         range   { 0 1 }
     }
     parm {
@@ -827,13 +837,6 @@ Content-Type: text/plain
       default = 2
       flags = 0
       segment { length = 0 value = 2 2 expr = ch(\"../Perlin/class\") }
-    }
-    channel amp {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
     }
     channel freqx {
       lefttype = extend
@@ -919,6 +922,27 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../time_scale\") }
     }
+    channel ampx {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+    }
+    channel ampy {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+    }
+    channel ampz {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -944,12 +968,7 @@ float rough = chf(\"roughness\");
 vector val = 0;
 vector maxval = 0;
 
-int dotime = chi(\"time_varying\");
-float tscale = chf(\"time_scale\");
-
-if(dotime > 0){
-    offset += set(0,0,0, @Time * tscale);
-}
+offset += p@time_offset;
 
 if(chi(\"uniform\") == 1){
     freq = set(freq.x, freq.x, freq.x);
@@ -982,15 +1001,15 @@ vex_updatenmls	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
 vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
-folder1	[ 0	locks=0	autoscope=0 ]	(	1	1	)
-amp	[ 0	locks=0	autoscope=0 ]	(	[ amp	1 ] 	)
+folder1	[ 0	locks=0 ]	(	0	0	)
+amp	[ 8	locks=0 ]	(	[ ampx	1 ] 	[ ampy	1 ] 	[ ampz	1 ] 	)
 roughness	[ 0	locks=0	autoscope=0 ]	(	[ roughness	0.5 ] 	)
 octaves	[ 0	locks=0	autoscope=0 ]	(	[ octaves	1 ] 	)
 freq	[ 0	locks=0	autoscope=0 ]	(	[ freqx	1 ] 	[ freqy	1 ] 	[ freqz	1 ] 	[ freqw	1 ] 	)
 offset	[ 0	locks=0	autoscope=0 ]	(	[ offsetx	0 ] 	[ offsety	0 ] 	[ offsetz	0 ] 	[ offsetw	0 ] 	)
 uniform	[ 0	locks=0	autoscope=0 ]	(	[ uniform	0 ] 	)
 time_scale	[ 0	locks=0	autoscope=0 ]	(	[ time_scale	1 ] 	)
-time_varying	[ 0	locks=0	autoscope=0 ]	(	[ time_varying	1 ] 	)
+time_varying	[ 0	locks=0	autoscope=0 ]	(	[ time_varying	0 ] 	)
 bindname1	[ 0	locks=0 ]	(	__attr	)
 bindparm1	[ 0	locks=0 ]	(	attr	)
 }
@@ -1019,7 +1038,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -2.92901 0.74311
+position -2.93159 0.248814
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1037,7 +1056,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1550443863
+  modify 1555307394
   author Henry@LAPPY586
   access 0777
 }
@@ -1208,8 +1227,9 @@ Content-Type: text/plain
     parm {
         name    "amp"
         label   "Amp"
-        type    float
-        default { "0" }
+        type    vector
+        size    3
+        default { "0" "0" "0" }
         range   { 0 1 }
     }
     parm {
@@ -1281,13 +1301,6 @@ Content-Type: text/plain
       default = 2
       flags = 0
       segment { length = 0 value = 2 2 expr = ch(\"../Perlin/class\") }
-    }
-    channel amp {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
     }
     channel freqx {
       lefttype = extend
@@ -1373,6 +1386,27 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../time_scale\") }
     }
+    channel ampx {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+    }
+    channel ampy {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+    }
+    channel ampz {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1402,12 +1436,7 @@ vector4 v1, v2;
 int seed;
 vector4 jitter = 1;
 
-int dotime = chi(\"time_varying\");
-float tscale = chf(\"time_scale\");
-
-if(dotime > 0){
-    offset += set(0,0,0, @Time * tscale);
-}
+offset += p@time_offset;
 
 if(chi(\"uniform\") == 1){
     freq = set(freq.x, freq.x, freq.x);
@@ -1441,15 +1470,15 @@ vex_updatenmls	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
 vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
-folder1	[ 0	locks=0	autoscope=0 ]	(	1	1	)
-amp	[ 0	locks=0	autoscope=0 ]	(	[ amp	1 ] 	)
+folder1	[ 0	locks=0 ]	(	0	0	)
+amp	[ 8	locks=0 ]	(	[ ampx	1 ] 	[ ampy	1 ] 	[ ampz	1 ] 	)
 roughness	[ 0	locks=0	autoscope=0 ]	(	[ roughness	0.5 ] 	)
 octaves	[ 0	locks=0	autoscope=0 ]	(	[ octaves	1 ] 	)
 freq	[ 0	locks=0	autoscope=0 ]	(	[ freqx	1 ] 	[ freqy	1 ] 	[ freqz	1 ] 	[ freqw	1 ] 	)
 offset	[ 0	locks=0	autoscope=0 ]	(	[ offsetx	0 ] 	[ offsety	0 ] 	[ offsetz	0 ] 	[ offsetw	0 ] 	)
 uniform	[ 0	locks=0	autoscope=0 ]	(	[ uniform	0 ] 	)
 time_scale	[ 0	locks=0	autoscope=0 ]	(	[ time_scale	1 ] 	)
-time_varying	[ 0	locks=0	autoscope=0 ]	(	[ time_varying	1 ] 	)
+time_varying	[ 0	locks=0	autoscope=0 ]	(	[ time_varying	0 ] 	)
 bindname1	[ 0	locks=0 ]	(	__attr	)
 bindparm1	[ 0	locks=0 ]	(	attr	)
 }
@@ -1478,7 +1507,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.309673 0.74311
+position 0.307091 0.248814
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1496,7 +1525,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1550443863
+  modify 1555307394
   author Henry@LAPPY586
   access 0777
 }
@@ -1667,8 +1696,9 @@ Content-Type: text/plain
     parm {
         name    "amp"
         label   "Amp"
-        type    float
-        default { "0" }
+        type    vector
+        size    3
+        default { "0" "0" "0" }
         range   { 0 1 }
     }
     parm {
@@ -1740,13 +1770,6 @@ Content-Type: text/plain
       default = 2
       flags = 0
       segment { length = 0 value = 2 2 expr = ch(\"../Perlin/class\") }
-    }
-    channel amp {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
     }
     channel freqx {
       lefttype = extend
@@ -1832,6 +1855,27 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../time_scale\") }
     }
+    channel ampx {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+    }
+    channel ampy {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+    }
+    channel ampz {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1861,12 +1905,8 @@ vector4 v1, v2;
 int seed;
 vector4 jitter = 1;
 
-int dotime = chi(\"time_varying\");
-float tscale = chf(\"time_scale\");
+offset += p@time_offset;
 
-if(dotime > 0){
-    offset += set(0,0,0, @Time * tscale);
-}
 
 if(chi(\"uniform\") == 1){
     freq = set(freq.x, freq.x, freq.x);
@@ -1900,15 +1940,15 @@ vex_updatenmls	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
 vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
-folder1	[ 0	locks=0	autoscope=0 ]	(	1	1	)
-amp	[ 0	locks=0	autoscope=0 ]	(	[ amp	1 ] 	)
+folder1	[ 0	locks=0 ]	(	0	0	)
+amp	[ 8	locks=0 ]	(	[ ampx	1 ] 	[ ampy	1 ] 	[ ampz	1 ] 	)
 roughness	[ 0	locks=0	autoscope=0 ]	(	[ roughness	0.5 ] 	)
 octaves	[ 0	locks=0	autoscope=0 ]	(	[ octaves	1 ] 	)
 freq	[ 0	locks=0	autoscope=0 ]	(	[ freqx	1 ] 	[ freqy	1 ] 	[ freqz	1 ] 	[ freqw	1 ] 	)
 offset	[ 0	locks=0	autoscope=0 ]	(	[ offsetx	0 ] 	[ offsety	0 ] 	[ offsetz	0 ] 	[ offsetw	0 ] 	)
 uniform	[ 0	locks=0	autoscope=0 ]	(	[ uniform	0 ] 	)
 time_scale	[ 0	locks=0	autoscope=0 ]	(	[ time_scale	1 ] 	)
-time_varying	[ 0	locks=0	autoscope=0 ]	(	[ time_varying	1 ] 	)
+time_varying	[ 0	locks=0	autoscope=0 ]	(	[ time_varying	0 ] 	)
 bindname1	[ 0	locks=0 ]	(	__attr	)
 bindparm1	[ 0	locks=0 ]	(	attr	)
 }
@@ -1937,7 +1977,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 3.9209 0.74311
+position 3.91832 0.248814
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1955,7 +1995,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1550443863
+  modify 1555307394
   author Henry@LAPPY586
   access 0777
 }
@@ -2126,8 +2166,9 @@ Content-Type: text/plain
     parm {
         name    "amp"
         label   "Amp"
-        type    float
-        default { "0" }
+        type    vector
+        size    3
+        default { "0" "0" "0" }
         range   { 0 1 }
     }
     parm {
@@ -2198,13 +2239,6 @@ Content-Type: text/plain
       default = 2
       flags = 0
       segment { length = 0 value = 2 2 expr = ch(\"../Perlin/class\") }
-    }
-    channel amp {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
     }
     channel freqx {
       lefttype = extend
@@ -2290,6 +2324,27 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../time_scale\") }
     }
+    channel ampx {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+    }
+    channel ampy {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+    }
+    channel ampz {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2319,12 +2374,8 @@ vector4 v1, v2;
 int seed;
 vector4 jitter = 1;
 
-int dotime = chi(\"time_varying\");
-float tscale = chf(\"time_scale\");
+offset += p@time_offset;
 
-if(dotime > 0){
-    offset += set(0,0,0, @Time * tscale);
-}
 
 if(chi(\"uniform\") == 1){
     freq = set(freq.x, freq.x, freq.x);
@@ -2358,15 +2409,15 @@ vex_updatenmls	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
 vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
-folder1	[ 0	locks=0	autoscope=0 ]	(	1	1	)
-amp	[ 0	locks=0	autoscope=0 ]	(	[ amp	1 ] 	)
+folder1	[ 0	locks=0 ]	(	0	0	)
+amp	[ 8	locks=0 ]	(	[ ampx	1 ] 	[ ampy	1 ] 	[ ampz	1 ] 	)
 roughness	[ 0	locks=0	autoscope=0 ]	(	[ roughness	0.5 ] 	)
 octaves	[ 0	locks=0	autoscope=0 ]	(	[ octaves	1 ] 	)
 freq	[ 0	locks=0	autoscope=0 ]	(	[ freqx	1 ] 	[ freqy	1 ] 	[ freqz	1 ] 	[ freqw	1 ] 	)
 offset	[ 0	locks=0	autoscope=0 ]	(	[ offsetx	0 ] 	[ offsety	0 ] 	[ offsetz	0 ] 	[ offsetw	0 ] 	)
 uniform	[ 0	locks=0	autoscope=0 ]	(	[ uniform	0 ] 	)
 time_scale	[ 0	locks=0	autoscope=0 ]	(	[ time_scale	1 ] 	)
-time_varying	[ 0	locks=0	autoscope=0 ]	(	[ time_varying	1 ] 	)
+time_varying	[ 0	locks=0	autoscope=0 ]	(	[ time_varying	0 ] 	)
 bindname1	[ 0	locks=0 ]	(	__attr	)
 bindparm1	[ 0	locks=0 ]	(	attr	)
 }
@@ -2395,7 +2446,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 8.0313 0.72213
+position 8.02872 0.227834
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -2413,7 +2464,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1550443863
+  modify 1555307394
   author Henry@LAPPY586
   access 0777
 }
@@ -2584,8 +2635,9 @@ Content-Type: text/plain
     parm {
         name    "amp"
         label   "Amp"
-        type    float
-        default { "0" }
+        type    vector
+        size    3
+        default { "0" "0" "0" }
         range   { 0 1 }
     }
     parm {
@@ -2664,13 +2716,6 @@ Content-Type: text/plain
       default = 2
       flags = 0
       segment { length = 0 value = 2 2 expr = ch(\"../Perlin/class\") }
-    }
-    channel amp {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
     }
     channel freqx {
       lefttype = extend
@@ -2777,6 +2822,27 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../tile_sizez\") }
     }
+    channel ampx {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+    }
+    channel ampy {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+    }
+    channel ampz {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2801,12 +2867,8 @@ vector tile = chv(\"tile_size\");
 int oct = chi(\"octaves\");
 float rough = chf(\"roughness\");
 
-int dotime = chi(\"time_varying\");
-float tscale = chf(\"time_scale\");
+offset += p@time_offset;
 
-if(dotime > 0){
-    offset += set(0,0,0, @Time * tscale);
-}
 
 if(chi(\"uniform\") == 1){
     freq = set(freq.x, freq.x, freq.x);
@@ -2848,8 +2910,8 @@ vex_updatenmls	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
 vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
-folder1	[ 0	locks=0	autoscope=0 ]	(	1	1	)
-amp	[ 0	locks=0	autoscope=0 ]	(	[ amp	1 ] 	)
+folder1	[ 0	locks=0 ]	(	0	0	)
+amp	[ 8	locks=0 ]	(	[ ampx	1 ] 	[ ampy	1 ] 	[ ampz	1 ] 	)
 roughness	[ 0	locks=0	autoscope=0 ]	(	[ roughness	0.5 ] 	)
 octaves	[ 0	locks=0	autoscope=0 ]	(	[ octaves	1 ] 	)
 freq	[ 0	locks=0	autoscope=0 ]	(	[ freqx	1 ] 	[ freqy	1 ] 	[ freqz	1 ] 	[ freqw	1 ] 	)
@@ -2857,7 +2919,7 @@ offset	[ 0	locks=0	autoscope=0 ]	(	[ offsetx	0 ] 	[ offsety	0 ] 	[ offsetz	0 ] 	
 tile_size	[ 0	locks=0	autoscope=0 ]	(	[ tile_sizex	1 ] 	[ tile_sizey	1 ] 	[ tile_sizez	1 ] 	)
 uniform	[ 0	locks=0	autoscope=0 ]	(	[ uniform	0 ] 	)
 time_scale	[ 0	locks=0	autoscope=0 ]	(	[ time_scale	1 ] 	)
-time_varying	[ 0	locks=0	autoscope=0 ]	(	[ time_varying	1 ] 	)
+time_varying	[ 0	locks=0	autoscope=0 ]	(	[ time_varying	0 ] 	)
 bindname1	[ 0	locks=0 ]	(	__attr	)
 bindparm1	[ 0	locks=0 ]	(	attr	)
 }
@@ -2886,7 +2948,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 11.5679 0.64929
+position 11.5653 0.154994
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -2904,7 +2966,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1550443863
+  modify 1555307394
   author Henry@LAPPY586
   access 0777
 }
@@ -3075,8 +3137,9 @@ Content-Type: text/plain
     parm {
         name    "amp"
         label   "Amp"
-        type    float
-        default { "0" }
+        type    vector
+        size    3
+        default { "0" "0" "0" }
         range   { 0 1 }
     }
     parm {
@@ -3141,13 +3204,6 @@ Content-Type: text/plain
       righttype = extend
       flags = 0
       segment { length = 0 expr = ch(\"../Perlin/grouptype\") }
-    }
-    channel amp {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
     }
     channel freqx {
       lefttype = extend
@@ -3233,6 +3289,27 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../time_scale\") }
     }
+    channel ampx {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+    }
+    channel ampy {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+    }
+    channel ampz {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -3258,12 +3335,8 @@ float rough = chf(\"roughness\");
 vector val = 0;
 vector maxval = 0;
 
-int dotime = chi(\"time_varying\");
-float tscale = chf(\"time_scale\");
+offset += p@time_offset;
 
-if(dotime > 0){
-    offset += set(0,0,0, @Time * tscale);
-}
 
 if(chi(\"uniform\") == 1){
     freq = set(freq.x, freq.x, freq.x);
@@ -3299,15 +3372,15 @@ vex_updatenmls	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
 vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
-folder1	[ 0	locks=0	autoscope=0 ]	(	1	1	)
-amp	[ 0	locks=0	autoscope=0 ]	(	[ amp	1 ] 	)
+folder1	[ 0	locks=0 ]	(	0	0	)
+amp	[ 0	locks=0 ]	(	[ ampx	1 ] 	[ ampy	1 ] 	[ ampz	1 ] 	)
 roughness	[ 0	locks=0	autoscope=0 ]	(	[ roughness	0.5 ] 	)
 octaves	[ 0	locks=0	autoscope=0 ]	(	[ octaves	1 ] 	)
 freq	[ 0	locks=0	autoscope=0 ]	(	[ freqx	1 ] 	[ freqy	1 ] 	[ freqz	1 ] 	[ freqw	1 ] 	)
 offset	[ 0	locks=0	autoscope=0 ]	(	[ offsetx	0 ] 	[ offsety	0 ] 	[ offsetz	0 ] 	[ offsetw	0 ] 	)
 uniform	[ 0	locks=0	autoscope=0 ]	(	[ uniform	0 ] 	)
 time_scale	[ 0	locks=0	autoscope=0 ]	(	[ time_scale	1 ] 	)
-time_varying	[ 0	locks=0	autoscope=0 ]	(	[ time_varying	1 ] 	)
+time_varying	[ 0	locks=0	autoscope=0 ]	(	[ time_varying	0 ] 	)
 bindname1	[ 0	locks=0 ]	(	__attr	)
 bindparm1	[ 0	locks=0 ]	(	attr	)
 }
@@ -3336,7 +3409,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 15.7879 0.64929
+position 15.7853 0.154994
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -3354,7 +3427,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1550443863
+  modify 1555307394
   author Henry@LAPPY586
   access 0777
 }
@@ -3525,8 +3598,9 @@ Content-Type: text/plain
     parm {
         name    "amp"
         label   "Amp"
-        type    float
-        default { "0" }
+        type    vector
+        size    3
+        default { "0" "0" "0" }
         range   { 0 1 }
     }
     parm {
@@ -3599,13 +3673,6 @@ Content-Type: text/plain
       righttype = extend
       flags = 0
       segment { length = 0 expr = ch(\"../Perlin/grouptype\") }
-    }
-    channel amp {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
     }
     channel freqx {
       lefttype = extend
@@ -3709,6 +3776,27 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = ch(\"../Distortz\") }
     }
+    channel ampx {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+    }
+    channel ampy {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+    }
+    channel ampz {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -3736,12 +3824,8 @@ float rough = chf(\"roughness\");
 vector val = 0;
 vector maxval = 0;
 
-int dotime = chi(\"time_varying\");
-float tscale = chf(\"time_scale\");
+offset += p@time_offset;
 
-if(dotime > 0){
-    offset += set(0,0,0, @Time * tscale);
-}
 
 if(chi(\"uniform\") == 1){
     freq = set(freq.x, freq.x, freq.x);
@@ -3777,8 +3861,8 @@ vex_updatenmls	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
 vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
-folder1	[ 0	locks=0	autoscope=0 ]	(	1	1	)
-amp	[ 0	locks=0	autoscope=0 ]	(	[ amp	1 ] 	)
+folder1	[ 0	locks=0	autoscope=0 ]	(	0	0	)
+amp	[ 0	locks=0 ]	(	[ ampx	1 ] 	[ ampy	1 ] 	[ ampz	1 ] 	)
 roughness	[ 0	locks=0	autoscope=0 ]	(	[ roughness	0.5 ] 	)
 octaves	[ 0	locks=0	autoscope=0 ]	(	[ octaves	1 ] 	)
 freq	[ 0	locks=0	autoscope=0 ]	(	[ freqx	1 ] 	[ freqy	1 ] 	[ freqz	1 ] 	[ freqw	1 ] 	)
@@ -3786,7 +3870,7 @@ offset	[ 0	locks=0	autoscope=0 ]	(	[ offsetx	0 ] 	[ offsety	0 ] 	[ offsetz	0 ] 	
 uniform	[ 0	locks=0	autoscope=0 ]	(	[ uniform	0 ] 	)
 Distort	[ 0	locks=0	autoscope=0 ]	(	[ Distortx	0 ] 	[ Distorty	0 ] 	[ Distortz	0 ] 	)
 time_scale	[ 0	locks=0	autoscope=0 ]	(	[ time_scale	1 ] 	)
-time_varying	[ 0	locks=0	autoscope=0 ]	(	[ time_varying	1 ] 	)
+time_varying	[ 0	locks=0	autoscope=0 ]	(	[ time_varying	0 ] 	)
 bindname1	[ 0	locks=0 ]	(	__attr	)
 bindparm1	[ 0	locks=0 ]	(	attr	)
 }
@@ -3815,7 +3899,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 20.8888 0.74422
+position 19.7576 0.154994
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -3833,7 +3917,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1550443863
+  modify 1555307394
   author Henry@LAPPY586
   access 0777
 }
@@ -4004,8 +4088,9 @@ Content-Type: text/plain
     parm {
         name    "amp"
         label   "Amp"
-        type    float
-        default { "0" }
+        type    vector
+        size    3
+        default { "0" "0" "0" }
         range   { 0 1 }
     }
     parm {
@@ -4070,13 +4155,6 @@ Content-Type: text/plain
       righttype = extend
       flags = 0
       segment { length = 0 expr = ch(\"../Perlin/grouptype\") }
-    }
-    channel amp {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
     }
     channel freqx {
       lefttype = extend
@@ -4162,6 +4240,27 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../time_scale\") }
     }
+    channel ampx {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+    }
+    channel ampy {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+    }
+    channel ampz {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -4187,12 +4286,8 @@ float rough = chf(\"roughness\");
 vector val = 0;
 vector maxval = 0;
 
-int dotime = chi(\"time_varying\");
-float tscale = chf(\"time_scale\");
+offset += p@time_offset;
 
-if(dotime > 0){
-    offset += set(0,0,0, @Time * tscale);
-}
 
 if(chi(\"uniform\") == 1){
     freq = set(freq.x, freq.x, freq.x);
@@ -4231,15 +4326,15 @@ vex_updatenmls	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
 vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
-folder1	[ 0	locks=0	autoscope=0 ]	(	1	1	)
-amp	[ 0	locks=0	autoscope=0 ]	(	[ amp	1 ] 	)
+folder1	[ 0	locks=0 ]	(	0	0	)
+amp	[ 0	locks=0 ]	(	[ ampx	1 ] 	[ ampy	1 ] 	[ ampz	1 ] 	)
 roughness	[ 0	locks=0	autoscope=0 ]	(	[ roughness	0.5 ] 	)
 octaves	[ 0	locks=0	autoscope=0 ]	(	[ octaves	1 ] 	)
 freq	[ 0	locks=0	autoscope=0 ]	(	[ freqx	1 ] 	[ freqy	1 ] 	[ freqz	1 ] 	[ freqw	1 ] 	)
 offset	[ 0	locks=0	autoscope=0 ]	(	[ offsetx	0 ] 	[ offsety	0 ] 	[ offsetz	0 ] 	[ offsetw	0 ] 	)
 uniform	[ 0	locks=0	autoscope=0 ]	(	[ uniform	0 ] 	)
 time_scale	[ 0	locks=0	autoscope=0 ]	(	[ time_scale	1 ] 	)
-time_varying	[ 0	locks=0	autoscope=0 ]	(	[ time_varying	1 ] 	)
+time_varying	[ 0	locks=0	autoscope=0 ]	(	[ time_varying	0 ] 	)
 bindname1	[ 0	locks=0 ]	(	__attr	)
 bindparm1	[ 0	locks=0 ]	(	attr	)
 }
@@ -4268,7 +4363,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -9.54306e-17 4.6981
+position -0.00258204 4.2038
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -4277,16 +4372,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-1 	IN_MOPS 1 1 "input1"
+1 	switch_do_time_varying 1 1 "input1"
 }
 inputs
 {
-0 	IN_MOPS 0 1
+0 	switch_do_time_varying 0 1
 }
 stat
 {
   create 1524060464
-  modify 1550443863
+  modify 1555306861
   author Henry@LAPPY586
   access 0777
 }
@@ -4517,7 +4612,7 @@ vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
 vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
 folder1	[ 0	locks=0	autoscope=0 ]	(	0	0	)
-use_rest	[ 0	locks=0	autoscope=0 ]	(	[ use_rest	0 ] 	)
+use_rest	[ 0	locks=0	autoscope=0 ]	(	[ use_rest	1 ] 	)
 has_rest	[ 0	locks=0	autoscope=0 ]	(	[ has_rest	1 ] 	)
 }
 
@@ -4545,7 +4640,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 2.83075 -3.02171
+position 2.82817 -3.51601
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -4563,7 +4658,7 @@ inputs
 stat
 {
   create 1549075027
-  modify 1550443863
+  modify 1555306861
   author Henry@LAPPY586
   access 0777
 }
@@ -4623,7 +4718,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 4.36114 -5.48105
+position 4.35856 -5.97535
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -4641,7 +4736,7 @@ inputs
 stat
 {
   create 1549515796
-  modify 1550443863
+  modify 1555306861
   author Henry@LAPPY586
   access 0777
 }
@@ -4927,7 +5022,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.533 -5.48005
+position 1.53042 -5.97435
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -4945,7 +5040,7 @@ inputs
 stat
 {
   create 1550294119
-  modify 1550443863
+  modify 1555306861
   author Henry@LAPPY586
   access 0777
 }
@@ -5211,6 +5306,1731 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Curl.init"
+Content-Type: text/plain
+
+type = attribwrangle
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Curl.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 23.2434 0.18693
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+1 	rest 0 1 "input1"
+}
+inputs
+{
+0 	rest 0 1
+}
+stat
+{
+  create 1524060463
+  modify 1555307394
+  author Henry@LAPPY586
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Curl.spareparmdef"
+Content-Type: text/plain
+
+    group {
+        name    "folder1"
+        label   "Code"
+
+        parm {
+            name    "group"
+            baseparm
+            label   "Group"
+            export  none
+            bindselector points "Modify Points"
+                "Select the points to affect and press Enter to complete."
+                0 1 0xffffffff 0 grouptype 0
+        }
+        parm {
+            name    "grouptype"
+            baseparm
+            label   "Group Type"
+            export  none
+        }
+        parm {
+            name    "class"
+            baseparm
+            label   "Run Over"
+            export  none
+        }
+        parm {
+            name    "vex_numcount"
+            baseparm
+            label   "Number Count"
+            export  none
+        }
+        parm {
+            name    "vex_threadjobsize"
+            baseparm
+            label   "Thread Job Size"
+            export  none
+        }
+        parm {
+            name    "snippet"
+            baseparm
+            label   "VEXpression"
+            export  all
+        }
+        parm {
+            name    "exportlist"
+            baseparm
+            label   "Attributes to Create"
+            export  none
+        }
+        parm {
+            name    "vex_strict"
+            baseparm
+            label   "Enforce Prototypes"
+            export  none
+        }
+    }
+
+    group {
+        name    "folder1_1"
+        label   "Bindings"
+
+        parm {
+            name    "autobind"
+            baseparm
+            label   "Autobind by Name"
+            export  none
+        }
+        multiparm {
+            name    "bindings"
+            label    "Number of Bindings"
+            baseparm
+            default 0
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "multistartoffset" "1" }
+
+            parm {
+                name    "bindname#"
+                baseparm
+                label   "Attribute Name"
+                export  none
+            }
+            parm {
+                name    "bindparm#"
+                baseparm
+                label   "VEX Parameter"
+                export  none
+            }
+        }
+
+        parm {
+            name    "groupautobind"
+            baseparm
+            label   "Autobind Groups by Name"
+            export  none
+        }
+        multiparm {
+            name    "groupbindings"
+            label    "Group Bindings"
+            baseparm
+            default 0
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "multistartoffset" "1" }
+
+            parm {
+                name    "bindgroupname#"
+                baseparm
+                label   "Group Name"
+                export  none
+            }
+            parm {
+                name    "bindgroupparm#"
+                baseparm
+                label   "VEX Parameter"
+                export  none
+            }
+        }
+
+        parm {
+            name    "vex_cwdpath"
+            baseparm
+            label   "Evaluation Node Path"
+            export  none
+        }
+        parm {
+            name    "vex_outputmask"
+            baseparm
+            label   "Export Parameters"
+            export  none
+        }
+        parm {
+            name    "vex_updatenmls"
+            baseparm
+            label   "Update Normals If Displaced"
+            export  none
+        }
+        parm {
+            name    "vex_matchattrib"
+            baseparm
+            label   "Attribute to Match"
+            export  none
+        }
+        parm {
+            name    "vex_inplace"
+            baseparm
+            label   "Compute Results In Place"
+            export  none
+        }
+        parm {
+            name    "vex_selectiongroup"
+            baseparm
+            label   "Output Selection Group"
+            export  none
+        }
+    }
+
+    parm {
+        name    "amp"
+        label   "Amp"
+        type    vector
+        size    3
+        default { "0" "0" "0" }
+        range   { 0 1 }
+    }
+    parm {
+        name    "roughness"
+        label   "Roughness"
+        type    float
+        default { "0" }
+        range   { 0.0001! 1 }
+    }
+    parm {
+        name    "octaves"
+        label   "Octaves"
+        type    integer
+        default { "0" }
+        range   { 1! 10 }
+    }
+    parm {
+        name    "freq"
+        label   "Freq"
+        type    vector4
+        size    4
+        default { "0" "0" "0" "0" }
+        range   { 0 1 }
+    }
+    parm {
+        name    "offset"
+        label   "Offset"
+        type    vector4
+        size    4
+        default { "0" "0" "0" "0" }
+        range   { 0 1 }
+    }
+    parm {
+        name    "uniform"
+        label   "Uniform"
+        type    toggle
+        default { "0" }
+    }
+    parm {
+        name    "time_scale"
+        label   "Time Scale"
+        type    float
+        default { "0" }
+        range   { 0 1 }
+    }
+    parm {
+        name    "time_varying"
+        label   "Time Varying"
+        type    toggle
+        default { "0" }
+        range   { 0 10 }
+    }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Curl.chn"
+Content-Type: text/plain
+
+{
+    channel group {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../group\") }
+    }
+    channel grouptype {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../grouptype\") }
+    }
+    channel freqx {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../freqx\") }
+    }
+    channel freqy {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../freqy\") }
+    }
+    channel freqz {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../freqz\") }
+    }
+    channel freqw {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../freqw\") }
+    }
+    channel uniform {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../uniform\") }
+    }
+    channel roughness {
+      lefttype = extend
+      righttype = extend
+      default = 0.5
+      flags = 0
+      segment { length = 0 value = 0.5 0.5 expr = ch(\"../roughness\") }
+    }
+    channel octaves {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../octaves\") }
+    }
+    channel offsetx {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../offsetx\") }
+    }
+    channel offsety {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../offsety\") }
+    }
+    channel offsetz {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../offsetz\") }
+    }
+    channel offsetw {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../offsetw\") }
+    }
+    channel time_varying {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../time_varying\") }
+    }
+    channel time_scale {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../time_scale\") }
+    }
+    channel ampx {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+    }
+    channel ampy {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+    }
+    channel ampz {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Curl.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
+group	[ 0	locks=0	autoscope=0 ]	(	[ group	"" ] 	)
+grouptype	[ 0	locks=0	autoscope=0 ]	(	[ grouptype	0 ] 	)
+class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
+vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
+vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
+snippet	[ 0	locks=0	autoscope=0 ]	(	"vector4 pos = @P;
+vector4 freq = chp(\"freq\");
+vector4 offset = chp(\"offset\");
+float amp = chf(\"amp\");
+
+int oct = chi(\"octaves\");
+float rough = chf(\"roughness\");
+
+vector val = 0;
+vector maxval = 0;
+
+offset += p@time_offset;
+
+if(chi(\"uniform\") == 1){
+    freq = set(freq.x, freq.x, freq.x);
+}
+
+for(int i = 0; i < oct; i++){
+    freq *= 2;
+    amp *= rough;
+    maxval += amp;
+    vector4 npos = pos * freq + offset;
+    vector nval = curlxnoise(npos);
+    nval = fit(nval, -1, 1, -1, 1);
+    nval *= amp;
+    val += nval;
+}
+
+val /= maxval;
+
+v@attr = val * amp;"	)
+exportlist	[ 0	locks=0	autoscope=0 ]	(	*	)
+vex_strict	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+autobind	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+bindings	[ 0	locks=0	autoscope=0 ]	(	1	)
+groupautobind	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+groupbindings	[ 0	locks=0	autoscope=0 ]	(	0	)
+vex_cwdpath	[ 0	locks=0	autoscope=0 ]	(	.	)
+vex_outputmask	[ 0	locks=0	autoscope=0 ]	(	*	)
+vex_updatenmls	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
+vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
+folder1	[ 0	locks=0 ]	(	0	0	)
+amp	[ 8	locks=0	autoscope=0 ]	(	[ ampx	1 ] 	[ ampy	1 ] 	[ ampz	1 ] 	)
+roughness	[ 0	locks=0	autoscope=0 ]	(	[ roughness	0.5 ] 	)
+octaves	[ 0	locks=0	autoscope=0 ]	(	[ octaves	1 ] 	)
+freq	[ 0	locks=0	autoscope=0 ]	(	[ freqx	1 ] 	[ freqy	1 ] 	[ freqz	1 ] 	[ freqw	1 ] 	)
+offset	[ 0	locks=0	autoscope=0 ]	(	[ offsetx	0 ] 	[ offsety	0 ] 	[ offsetz	0 ] 	[ offsetw	0 ] 	)
+uniform	[ 0	locks=0	autoscope=0 ]	(	[ uniform	0 ] 	)
+time_scale	[ 0	locks=0	autoscope=0 ]	(	[ time_scale	1 ] 	)
+time_varying	[ 0	locks=0	autoscope=0 ]	(	[ time_varying	0 ] 	)
+bindname1	[ 0	locks=0 ]	(	__attr	)
+bindparm1	[ 0	locks=0 ]	(	attr	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Curl.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointwrangle1.init"
+Content-Type: text/plain
+
+type = attribwrangle
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointwrangle1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 0.003 6.4012
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	IN_MOPS 1 1 "input1"
+}
+inputs
+{
+0 	IN_MOPS 0 1
+}
+stat
+{
+  create 1554935939
+  modify 1555306861
+  author Henry@LAPPY586
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointwrangle1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+folder0	[ 0	locks=0 ]	(	0	0	)
+group	[ 0	locks=0 ]	(	""	)
+grouptype	[ 0	locks=0 ]	(	"guess"	)
+class	[ 0	locks=0 ]	(	"point"	)
+vex_numcount	[ 0	locks=0 ]	(	10	)
+vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
+snippet	[ 0	locks=0 ]	(	"p@time_offset = set(0,0,0,0);"	)
+exportlist	[ 0	locks=0 ]	(	*	)
+vex_strict	[ 0	locks=0 ]	(	"off"	)
+autobind	[ 0	locks=0 ]	(	"on"	)
+bindings	[ 0	locks=0 ]	(	0	)
+groupautobind	[ 0	locks=0 ]	(	"on"	)
+groupbindings	[ 0	locks=0 ]	(	0	)
+vex_cwdpath	[ 0	locks=0 ]	(	.	)
+vex_outputmask	[ 0	locks=0 ]	(	*	)
+vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
+vex_matchattrib	[ 0	locks=0 ]	(	id	)
+vex_inplace	[ 0	locks=0 ]	(	"off"	)
+vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointwrangle1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointwrangle2.init"
+Content-Type: text/plain
+
+type = attribwrangle
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointwrangle2.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 3.19759 5.74642
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	pointwrangle1 1 1 "input1"
+}
+inputs
+{
+0 	pointwrangle1 0 1
+}
+stat
+{
+  create 1554935960
+  modify 1555306861
+  author Henry@LAPPY586
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointwrangle2.spareparmdef"
+Content-Type: text/plain
+
+    group {
+        name    "folder1"
+        label   "Code"
+
+        parm {
+            name    "group"
+            baseparm
+            label   "Group"
+            export  none
+            bindselector points "Modify Points"
+                "Select the points to affect and press Enter to complete."
+                0 1 0xffffffff 0 grouptype 0
+        }
+        parm {
+            name    "grouptype"
+            baseparm
+            label   "Group Type"
+            export  none
+        }
+        parm {
+            name    "class"
+            baseparm
+            label   "Run Over"
+            export  none
+        }
+        parm {
+            name    "vex_numcount"
+            baseparm
+            label   "Number Count"
+            export  none
+        }
+        parm {
+            name    "vex_threadjobsize"
+            baseparm
+            label   "Thread Job Size"
+            export  none
+        }
+        parm {
+            name    "snippet"
+            baseparm
+            label   "VEXpression"
+            export  all
+        }
+        parm {
+            name    "exportlist"
+            baseparm
+            label   "Attributes to Create"
+            export  none
+        }
+        parm {
+            name    "vex_strict"
+            baseparm
+            label   "Enforce Prototypes"
+            export  none
+        }
+    }
+
+    group {
+        name    "folder1_1"
+        label   "Bindings"
+
+        parm {
+            name    "autobind"
+            baseparm
+            label   "Autobind by Name"
+            export  none
+        }
+        multiparm {
+            name    "bindings"
+            label    "Number of Bindings"
+            baseparm
+            default 0
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "multistartoffset" "1" }
+
+            parm {
+                name    "bindname#"
+                baseparm
+                label   "Attribute Name"
+                export  none
+            }
+            parm {
+                name    "bindparm#"
+                baseparm
+                label   "VEX Parameter"
+                export  none
+            }
+        }
+
+        parm {
+            name    "groupautobind"
+            baseparm
+            label   "Autobind Groups by Name"
+            export  none
+        }
+        multiparm {
+            name    "groupbindings"
+            label    "Group Bindings"
+            baseparm
+            default 0
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "multistartoffset" "1" }
+
+            parm {
+                name    "bindgroupname#"
+                baseparm
+                label   "Group Name"
+                export  none
+            }
+            parm {
+                name    "bindgroupparm#"
+                baseparm
+                label   "VEX Parameter"
+                export  none
+            }
+        }
+
+        parm {
+            name    "vex_cwdpath"
+            baseparm
+            label   "Evaluation Node Path"
+            export  none
+        }
+        parm {
+            name    "vex_outputmask"
+            baseparm
+            label   "Export Parameters"
+            export  none
+        }
+        parm {
+            name    "vex_updatenmls"
+            baseparm
+            label   "Update Normals If Displaced"
+            export  none
+        }
+        parm {
+            name    "vex_matchattrib"
+            baseparm
+            label   "Attribute to Match"
+            export  none
+        }
+        parm {
+            name    "vex_inplace"
+            baseparm
+            label   "Compute Results In Place"
+            export  none
+        }
+        parm {
+            name    "vex_selectiongroup"
+            baseparm
+            label   "Output Selection Group"
+            export  none
+        }
+    }
+
+    parm {
+        name    "timescale"
+        label   "Timescale"
+        type    float
+        default { "0" }
+        range   { 0 1 }
+    }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointwrangle2.chn"
+Content-Type: text/plain
+
+{
+    channel timescale {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../time_scale\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointwrangle2.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+folder0	[ 0	locks=0 ]	(	0	0	)
+group	[ 0	locks=0 ]	(	""	)
+grouptype	[ 0	locks=0 ]	(	"guess"	)
+class	[ 0	locks=0 ]	(	"point"	)
+vex_numcount	[ 0	locks=0 ]	(	10	)
+vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
+snippet	[ 0	locks=0 ]	(	"p@time_offset = set(0,0,0,@Time * ch(\"timescale\"));"	)
+exportlist	[ 0	locks=0 ]	(	*	)
+vex_strict	[ 0	locks=0 ]	(	"off"	)
+autobind	[ 0	locks=0 ]	(	"on"	)
+bindings	[ 0	locks=0 ]	(	0	)
+groupautobind	[ 0	locks=0 ]	(	"on"	)
+groupbindings	[ 0	locks=0 ]	(	0	)
+vex_cwdpath	[ 0	locks=0 ]	(	.	)
+vex_outputmask	[ 0	locks=0 ]	(	*	)
+vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
+vex_matchattrib	[ 0	locks=0 ]	(	id	)
+vex_inplace	[ 0	locks=0 ]	(	"off"	)
+vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+folder1	[ 0	locks=0 ]	(	0	0	)
+timescale	[ 0	locks=0 ]	(	[ timescale	1 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointwrangle2.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Alligator.init"
+Content-Type: text/plain
+
+type = attribwrangle
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Alligator.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 26.322 0.18693
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+1 	rest 0 1 "input1"
+}
+inputs
+{
+0 	rest 0 1
+}
+stat
+{
+  create 1524060463
+  modify 1555307394
+  author Henry@LAPPY586
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Alligator.spareparmdef"
+Content-Type: text/plain
+
+    group {
+        name    "folder1"
+        label   "Code"
+
+        parm {
+            name    "group"
+            baseparm
+            label   "Group"
+            export  none
+            bindselector points "Modify Points"
+                "Select the points to affect and press Enter to complete."
+                0 1 0xffffffff 0 grouptype 0
+        }
+        parm {
+            name    "grouptype"
+            baseparm
+            label   "Group Type"
+            export  none
+        }
+        parm {
+            name    "class"
+            baseparm
+            label   "Run Over"
+            export  none
+        }
+        parm {
+            name    "vex_numcount"
+            baseparm
+            label   "Number Count"
+            export  none
+        }
+        parm {
+            name    "vex_threadjobsize"
+            baseparm
+            label   "Thread Job Size"
+            export  none
+        }
+        parm {
+            name    "snippet"
+            baseparm
+            label   "VEXpression"
+            export  all
+        }
+        parm {
+            name    "exportlist"
+            baseparm
+            label   "Attributes to Create"
+            export  none
+        }
+        parm {
+            name    "vex_strict"
+            baseparm
+            label   "Enforce Prototypes"
+            export  none
+        }
+    }
+
+    group {
+        name    "folder1_1"
+        label   "Bindings"
+
+        parm {
+            name    "autobind"
+            baseparm
+            label   "Autobind by Name"
+            export  none
+        }
+        multiparm {
+            name    "bindings"
+            label    "Number of Bindings"
+            baseparm
+            default 0
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "multistartoffset" "1" }
+
+            parm {
+                name    "bindname#"
+                baseparm
+                label   "Attribute Name"
+                export  none
+            }
+            parm {
+                name    "bindparm#"
+                baseparm
+                label   "VEX Parameter"
+                export  none
+            }
+        }
+
+        parm {
+            name    "groupautobind"
+            baseparm
+            label   "Autobind Groups by Name"
+            export  none
+        }
+        multiparm {
+            name    "groupbindings"
+            label    "Group Bindings"
+            baseparm
+            default 0
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "multistartoffset" "1" }
+
+            parm {
+                name    "bindgroupname#"
+                baseparm
+                label   "Group Name"
+                export  none
+            }
+            parm {
+                name    "bindgroupparm#"
+                baseparm
+                label   "VEX Parameter"
+                export  none
+            }
+        }
+
+        parm {
+            name    "vex_cwdpath"
+            baseparm
+            label   "Evaluation Node Path"
+            export  none
+        }
+        parm {
+            name    "vex_outputmask"
+            baseparm
+            label   "Export Parameters"
+            export  none
+        }
+        parm {
+            name    "vex_updatenmls"
+            baseparm
+            label   "Update Normals If Displaced"
+            export  none
+        }
+        parm {
+            name    "vex_matchattrib"
+            baseparm
+            label   "Attribute to Match"
+            export  none
+        }
+        parm {
+            name    "vex_inplace"
+            baseparm
+            label   "Compute Results In Place"
+            export  none
+        }
+        parm {
+            name    "vex_selectiongroup"
+            baseparm
+            label   "Output Selection Group"
+            export  none
+        }
+    }
+
+    parm {
+        name    "amp"
+        label   "Amp"
+        type    vector
+        size    3
+        default { "0" "0" "0" }
+        range   { 0 1 }
+    }
+    parm {
+        name    "roughness"
+        label   "Roughness"
+        type    float
+        default { "0" }
+        range   { 0.0001! 1 }
+    }
+    parm {
+        name    "octaves"
+        label   "Octaves"
+        type    integer
+        default { "0" }
+        range   { 1! 10 }
+    }
+    parm {
+        name    "freq"
+        label   "Freq"
+        type    vector4
+        size    4
+        default { "0" "0" "0" "0" }
+        range   { 0 1 }
+    }
+    parm {
+        name    "offset"
+        label   "Offset"
+        type    vector4
+        size    4
+        default { "0" "0" "0" "0" }
+        range   { 0 1 }
+    }
+    parm {
+        name    "uniform"
+        label   "Uniform"
+        type    toggle
+        default { "0" }
+    }
+    parm {
+        name    "time_scale"
+        label   "Time Scale"
+        type    float
+        default { "0" }
+        range   { 0 1 }
+    }
+    parm {
+        name    "time_varying"
+        label   "Time Varying"
+        type    toggle
+        default { "0" }
+        range   { 0 10 }
+    }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Alligator.chn"
+Content-Type: text/plain
+
+{
+    channel group {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../group\") }
+    }
+    channel grouptype {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../grouptype\") }
+    }
+    channel freqx {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../freqx\") }
+    }
+    channel freqy {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../freqy\") }
+    }
+    channel freqz {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../freqz\") }
+    }
+    channel freqw {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../freqw\") }
+    }
+    channel uniform {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../uniform\") }
+    }
+    channel roughness {
+      lefttype = extend
+      righttype = extend
+      default = 0.5
+      flags = 0
+      segment { length = 0 value = 0.5 0.5 expr = ch(\"../roughness\") }
+    }
+    channel octaves {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../octaves\") }
+    }
+    channel offsetx {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../offsetx\") }
+    }
+    channel offsety {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../offsety\") }
+    }
+    channel offsetz {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../offsetz\") }
+    }
+    channel offsetw {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../offsetw\") }
+    }
+    channel time_varying {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../time_varying\") }
+    }
+    channel time_scale {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../time_scale\") }
+    }
+    channel ampx {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+    }
+    channel ampy {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+    }
+    channel ampz {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Alligator.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
+group	[ 0	locks=0	autoscope=0 ]	(	[ group	"" ] 	)
+grouptype	[ 0	locks=0	autoscope=0 ]	(	[ grouptype	0 ] 	)
+class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
+vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
+vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
+snippet	[ 0	locks=0	autoscope=0 ]	(	"vector4 pos = @P;
+vector4 freq = chp(\"freq\");
+vector4 offset = chp(\"offset\");
+float amp = chf(\"amp\");
+
+int oct = chi(\"octaves\");
+float rough = chf(\"roughness\");
+
+vector val = 0;
+vector maxval = 0;
+
+offset += p@time_offset;
+
+if(chi(\"uniform\") == 1){
+    freq = set(freq.x, freq.x, freq.x);
+}
+
+for(int i = 0; i < oct; i++){
+    freq *= 2;
+    amp *= rough;
+    maxval += amp;
+    vector4 npos = pos * freq + offset;
+    vector nval = anoise(npos);
+    nval = fit(nval, -1, 1, -1, 1);
+    nval *= amp;
+    val += nval;
+}
+
+val /= maxval;
+
+v@attr = val * amp;"	)
+exportlist	[ 0	locks=0	autoscope=0 ]	(	*	)
+vex_strict	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+autobind	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+bindings	[ 0	locks=0	autoscope=0 ]	(	1	)
+groupautobind	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+groupbindings	[ 0	locks=0	autoscope=0 ]	(	0	)
+vex_cwdpath	[ 0	locks=0	autoscope=0 ]	(	.	)
+vex_outputmask	[ 0	locks=0	autoscope=0 ]	(	*	)
+vex_updatenmls	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
+vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
+folder1	[ 0	locks=0 ]	(	0	0	)
+amp	[ 8	locks=0	autoscope=0 ]	(	[ ampx	1 ] 	[ ampy	1 ] 	[ ampz	1 ] 	)
+roughness	[ 8	locks=0	autoscope=0 ]	(	[ roughness	0.5 ] 	)
+octaves	[ 8	locks=0	autoscope=0 ]	(	[ octaves	1 ] 	)
+freq	[ 8	locks=0	autoscope=0 ]	(	[ freqx	1 ] 	[ freqy	1 ] 	[ freqz	1 ] 	[ freqw	1 ] 	)
+offset	[ 8	locks=0	autoscope=0 ]	(	[ offsetx	0 ] 	[ offsety	0 ] 	[ offsetz	0 ] 	[ offsetw	0 ] 	)
+uniform	[ 0	locks=0	autoscope=0 ]	(	[ uniform	0 ] 	)
+time_scale	[ 0	locks=0	autoscope=0 ]	(	[ time_scale	1 ] 	)
+time_varying	[ 0	locks=0	autoscope=0 ]	(	[ time_varying	0 ] 	)
+bindname1	[ 0	locks=0 ]	(	__attr	)
+bindparm1	[ 0	locks=0 ]	(	attr	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Alligator.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Sparse_Convolution.init"
+Content-Type: text/plain
+
+type = attribwrangle
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Sparse_Convolution.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 28.9221 0.0946457
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+1 	rest 0 1 "input1"
+}
+inputs
+{
+0 	rest 0 1
+}
+stat
+{
+  create 1524060463
+  modify 1555307394
+  author Henry@LAPPY586
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Sparse_Convolution.spareparmdef"
+Content-Type: text/plain
+
+    group {
+        name    "folder1"
+        label   "Code"
+
+        parm {
+            name    "group"
+            baseparm
+            label   "Group"
+            export  none
+            bindselector points "Modify Points"
+                "Select the points to affect and press Enter to complete."
+                0 1 0xffffffff 0 grouptype 0
+        }
+        parm {
+            name    "grouptype"
+            baseparm
+            label   "Group Type"
+            export  none
+        }
+        parm {
+            name    "class"
+            baseparm
+            label   "Run Over"
+            export  none
+        }
+        parm {
+            name    "vex_numcount"
+            baseparm
+            label   "Number Count"
+            export  none
+        }
+        parm {
+            name    "vex_threadjobsize"
+            baseparm
+            label   "Thread Job Size"
+            export  none
+        }
+        parm {
+            name    "snippet"
+            baseparm
+            label   "VEXpression"
+            export  all
+        }
+        parm {
+            name    "exportlist"
+            baseparm
+            label   "Attributes to Create"
+            export  none
+        }
+        parm {
+            name    "vex_strict"
+            baseparm
+            label   "Enforce Prototypes"
+            export  none
+        }
+    }
+
+    group {
+        name    "folder1_1"
+        label   "Bindings"
+
+        parm {
+            name    "autobind"
+            baseparm
+            label   "Autobind by Name"
+            export  none
+        }
+        multiparm {
+            name    "bindings"
+            label    "Number of Bindings"
+            baseparm
+            default 0
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "multistartoffset" "1" }
+
+            parm {
+                name    "bindname#"
+                baseparm
+                label   "Attribute Name"
+                export  none
+            }
+            parm {
+                name    "bindparm#"
+                baseparm
+                label   "VEX Parameter"
+                export  none
+            }
+        }
+
+        parm {
+            name    "groupautobind"
+            baseparm
+            label   "Autobind Groups by Name"
+            export  none
+        }
+        multiparm {
+            name    "groupbindings"
+            label    "Group Bindings"
+            baseparm
+            default 0
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "multistartoffset" "1" }
+
+            parm {
+                name    "bindgroupname#"
+                baseparm
+                label   "Group Name"
+                export  none
+            }
+            parm {
+                name    "bindgroupparm#"
+                baseparm
+                label   "VEX Parameter"
+                export  none
+            }
+        }
+
+        parm {
+            name    "vex_cwdpath"
+            baseparm
+            label   "Evaluation Node Path"
+            export  none
+        }
+        parm {
+            name    "vex_outputmask"
+            baseparm
+            label   "Export Parameters"
+            export  none
+        }
+        parm {
+            name    "vex_updatenmls"
+            baseparm
+            label   "Update Normals If Displaced"
+            export  none
+        }
+        parm {
+            name    "vex_matchattrib"
+            baseparm
+            label   "Attribute to Match"
+            export  none
+        }
+        parm {
+            name    "vex_inplace"
+            baseparm
+            label   "Compute Results In Place"
+            export  none
+        }
+        parm {
+            name    "vex_selectiongroup"
+            baseparm
+            label   "Output Selection Group"
+            export  none
+        }
+    }
+
+    parm {
+        name    "amp"
+        label   "Amp"
+        type    vector
+        size    3
+        default { "0" "0" "0" }
+        range   { 0 1 }
+    }
+    parm {
+        name    "roughness"
+        label   "Roughness"
+        type    float
+        default { "0" }
+        range   { 0.0001! 1 }
+    }
+    parm {
+        name    "octaves"
+        label   "Octaves"
+        type    integer
+        default { "0" }
+        range   { 1! 10 }
+    }
+    parm {
+        name    "freq"
+        label   "Freq"
+        type    vector4
+        size    4
+        default { "0" "0" "0" "0" }
+        range   { 0 1 }
+    }
+    parm {
+        name    "offset"
+        label   "Offset"
+        type    vector4
+        size    4
+        default { "0" "0" "0" "0" }
+        range   { 0 1 }
+    }
+    parm {
+        name    "uniform"
+        label   "Uniform"
+        type    toggle
+        default { "0" }
+    }
+    parm {
+        name    "time_scale"
+        label   "Time Scale"
+        type    float
+        default { "0" }
+        range   { 0 1 }
+    }
+    parm {
+        name    "time_varying"
+        label   "Time Varying"
+        type    toggle
+        default { "0" }
+        range   { 0 10 }
+    }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Sparse_Convolution.chn"
+Content-Type: text/plain
+
+{
+    channel group {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../group\") }
+    }
+    channel grouptype {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../grouptype\") }
+    }
+    channel freqx {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../freqx\") }
+    }
+    channel freqy {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../freqy\") }
+    }
+    channel freqz {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../freqz\") }
+    }
+    channel freqw {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../freqw\") }
+    }
+    channel uniform {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../uniform\") }
+    }
+    channel roughness {
+      lefttype = extend
+      righttype = extend
+      default = 0.5
+      flags = 0
+      segment { length = 0 value = 0.5 0.5 expr = ch(\"../roughness\") }
+    }
+    channel octaves {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../octaves\") }
+    }
+    channel offsetx {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../offsetx\") }
+    }
+    channel offsety {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../offsety\") }
+    }
+    channel offsetz {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../offsetz\") }
+    }
+    channel offsetw {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../offsetw\") }
+    }
+    channel time_varying {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../time_varying\") }
+    }
+    channel time_scale {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../time_scale\") }
+    }
+    channel ampx {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+    }
+    channel ampy {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+    }
+    channel ampz {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Sparse_Convolution.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
+group	[ 0	locks=0	autoscope=0 ]	(	[ group	"" ] 	)
+grouptype	[ 0	locks=0	autoscope=0 ]	(	[ grouptype	0 ] 	)
+class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
+vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
+vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
+snippet	[ 0	locks=0	autoscope=0 ]	(	"vector4 pos = @P;
+vector4 freq = chp(\"freq\");
+vector4 offset = chp(\"offset\");
+float amp = chf(\"amp\");
+
+int oct = chi(\"octaves\");
+float rough = chf(\"roughness\");
+
+vector val = 0;
+vector maxval = 0;
+
+offset += p@time_offset;
+
+if(chi(\"uniform\") == 1){
+    freq = set(freq.x, freq.x, freq.x);
+}
+
+for(int i = 0; i < oct; i++){
+    freq *= 2;
+    amp *= rough;
+    maxval += amp;
+    vector4 npos = pos * freq + offset;
+    vector nval = snoise(npos);
+    nval = fit(nval, -1, 1, -1, 1);
+    nval *= amp;
+    val += nval;
+}
+
+val /= maxval;
+
+v@attr = val * amp;"	)
+exportlist	[ 0	locks=0	autoscope=0 ]	(	*	)
+vex_strict	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+autobind	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+bindings	[ 0	locks=0	autoscope=0 ]	(	1	)
+groupautobind	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+groupbindings	[ 0	locks=0	autoscope=0 ]	(	0	)
+vex_cwdpath	[ 0	locks=0	autoscope=0 ]	(	.	)
+vex_outputmask	[ 0	locks=0	autoscope=0 ]	(	*	)
+vex_updatenmls	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
+vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
+folder1	[ 0	locks=0 ]	(	0	0	)
+amp	[ 8	locks=0	autoscope=0 ]	(	[ ampx	1 ] 	[ ampy	1 ] 	[ ampz	1 ] 	)
+roughness	[ 8	locks=0	autoscope=0 ]	(	[ roughness	0.5 ] 	)
+octaves	[ 8	locks=0	autoscope=0 ]	(	[ octaves	1 ] 	)
+freq	[ 8	locks=0	autoscope=0 ]	(	[ freqx	1 ] 	[ freqy	1 ] 	[ freqz	1 ] 	[ freqw	1 ] 	)
+offset	[ 8	locks=0	autoscope=0 ]	(	[ offsetx	0 ] 	[ offsety	0 ] 	[ offsetz	0 ] 	[ offsetw	0 ] 	)
+uniform	[ 0	locks=0	autoscope=0 ]	(	[ uniform	0 ] 	)
+time_scale	[ 0	locks=0	autoscope=0 ]	(	[ time_scale	1 ] 	)
+time_varying	[ 0	locks=0	autoscope=0 ]	(	[ time_varying	0 ] 	)
+bindname1	[ 0	locks=0 ]	(	__attr	)
+bindparm1	[ 0	locks=0 ]	(	attr	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Sparse_Convolution.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/IN_MOPS.init"
 Content-Type: text/plain
 
@@ -5223,7 +7043,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.003 5.87918
+position 0.003 7.5338
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -5241,7 +7061,7 @@ inputs
 stat
 {
   create 1549074632
-  modify 1549517251
+  modify 1554935924
   author Henry@LAPPY586
   access 0777
 }
@@ -5267,7 +7087,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.173"
 	}
 }
 
@@ -5284,8 +7104,8 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 2.83375 -1.81493
-connectornextid 10
+position 2.83117 -2.30923
+connectornextid 13
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
@@ -5302,6 +7122,9 @@ inputsNamed3
 6 	Simplex_Folded 0 1 "input7"
 7 	simplex_warped 0 1 "input8"
 8 	mix_min 0 1 "input9"
+10 	Curl 0 1 "input10"
+11 	Alligator 0 1 "input11"
+12 	Sparse_Convolution 0 1 "input12"
 }
 inputs
 {
@@ -5314,11 +7137,14 @@ inputs
 6 	Simplex_Folded 0 1
 7 	simplex_warped 0 1
 8 	mix_min 0 1
+9 	Curl 0 1
+10 	Alligator 0 1
+11 	Sparse_Convolution 0 1
 }
 stat
 {
   create 1549075032
-  modify 1550443863
+  modify 1555306861
   author Henry@LAPPY586
   access 0777
 }
@@ -5356,7 +7182,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.173"
 	}
 }
 
@@ -5373,7 +7199,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 2.66528 -9.37806
+position 2.6627 -9.87236
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -5390,7 +7216,7 @@ inputs
 stat
 {
   create 1549075045
-  modify 1550295067
+  modify 1554935939
   author Henry@LAPPY586
   access 0777
 }
@@ -5415,7 +7241,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.173"
 	}
 }
 
@@ -5432,7 +7258,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 2.8303 -4.02459
+position 2.82772 -4.51889
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -5450,7 +7276,7 @@ inputs
 stat
 {
   create 1549075065
-  modify 1549680561
+  modify 1554936225
   author Henry@LAPPY586
   access 0777
 }
@@ -5465,7 +7291,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-ptdel	[ 0	locks=0 ]	(	__P	)
+ptdel	[ 0	locks=0 ]	(	"__P time_offset"	)
 vtxdel	[ 0	locks=0 ]	(	""	)
 primdel	[ 0	locks=0 ]	(	""	)
 dtldel	[ 0	locks=0 ]	(	""	)
@@ -5496,7 +7322,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.42758 -6.19723
+position 1.425 -6.69153
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -5514,7 +7340,7 @@ inputs
 stat
 {
   create 1550294318
-  modify 1550443863
+  modify 1555306861
   author Henry@LAPPY586
   access 0777
 }
@@ -5545,7 +7371,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.173"
 	}
 }
 
@@ -5562,7 +7388,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 2.66528 -8.25723
+position 2.6627 -8.75153
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -5582,7 +7408,7 @@ inputs
 stat
 {
   create 1550294550
-  modify 1550443863
+  modify 1555306861
   author Henry@LAPPY586
   access 0777
 }
@@ -5610,7 +7436,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	1 ] 	)
+input	[ 0	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -5620,7 +7446,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.173"
 	}
 }
 
@@ -5637,7 +7463,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 4.21601 -6.19723
+position 4.21343 -6.69153
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -5655,7 +7481,7 @@ inputs
 stat
 {
   create 1550294976
-  modify 1550443863
+  modify 1555306861
   author Henry@LAPPY586
   access 0777
 }
@@ -5686,7 +7512,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.173"
 	}
 }
 
@@ -5703,7 +7529,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.42758 -6.95285
+position 1.425 -7.44715
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -5721,7 +7547,7 @@ inputs
 stat
 {
   create 1550295067
-  modify 1550295074
+  modify 1554935939
   author Henry@LAPPY586
   access 0777
 }
@@ -5755,10 +7581,85 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch_do_time_varying.init"
+Content-Type: text/plain
+
+type = switch
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch_do_time_varying.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 0.00299999 5.3033
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	pointwrangle1 1 1 "input1"
+2 	pointwrangle2 1 1 "input2"
+}
+inputs
+{
+0 	pointwrangle1 0 1
+1 	pointwrangle2 0 1
+}
+stat
+{
+  create 1554935927
+  modify 1555306861
+  author Henry@LAPPY586
+  access 0777
+}
+color UT_Color RGB 0.8 1 0.7 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch_do_time_varying.chn"
+Content-Type: text/plain
+
+{
+    channel input {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../time_varying\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch_do_time_varying.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch_do_time_varying.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.173"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.order"
 Content-Type: text/plain
 
-21
+27
 Perlin
 Simplex
 Worley_f2-f1
@@ -5780,6 +7681,12 @@ attribswap1
 switch_noise_signature
 attribswap2
 attribdelete2
+Curl
+switch_do_time_varying
+pointwrangle1
+pointwrangle2
+Alligator
+Sparse_Convolution
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"

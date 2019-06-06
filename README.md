@@ -13,29 +13,40 @@ MOPs is based on an internal framework of nodes that convert point attributes to
 
 **INSTALLATION PROCEDURE HAS BEEN SIMPLIFIED FROM PREVIOUS RELEASES. PLEASE READ CAREFULLY.**
 
-Option 1:
+## Step 1: Downloading MOPs
+**Option 1 (users who are familiar with Git)**:
 Navigate to the folder you want to contain MOPs, and from BASH / Git BASH type:
 `git clone https://github.com/toadstorm/MOPS.git`
 
-Option 2:
-Download the desired release directly from the [releases page](https://github.com/toadstorm/MOPS/releases) and extract it to the desired location.
+**Option 2 (what's Git?)**:
+Download the desired release directly from the [releases page](https://github.com/toadstorm/MOPS/releases) and extract it to your hard drive or network share.
 
-Next, edit your houdini.env file and create a variable called MOPS that points to the new folder:
-`MOPS = "/path/to/MOPS"`
+## Step 2: Configuring your Environment
+
+**Option 1: Plugin (17.5+ only)**
+For those of you running Houdini 17.5 or later, you have an option for a much easier install. 
+Simply create a folder inside your Houdini preferences directory (where the houdini.env typically is) called "packages", and place the MOPS.json file from the MOPs download into that folder. Then edit MOPS.json and change the "path" variable to match the install path.
+
+**Option 2: Edit Houdini.env**
+You need to add the MOPS root directory to your Houdini environment file. For more information about the Houdini environment file, see [this help link](https://www.sidefx.com/docs/houdini/basics/config_env.html#setting-environment-variables).
+Edit your houdini.env file and create a variable called MOPS that points to the new folder you just extracted MOPs to. The folder you point to should be the one that contains "otls", "scripts", and "toolbar":
+`MOPS="/path/to/MOPS"`
 
 Finally, add `$MOPS` to your HOUDINI_PATH:
-`HOUDINI_PATH = $MOPS;&`
+`HOUDINI_PATH=$HOUDINI_PATH;$MOPS;&`
+
+If you already have a HOUDINI_PATH defined, you can simply append $MOPS to that existing HOUDINI_PATH. For example, if you're using both MOPs and QLib:
+
+```
+MOPS="/path/to/MOPS"
+QLIB="/path/to/qlib"
+HOUDINI_PATH=$HOUDINI_PATH;$QLIB;$MOPS;&
+```
+
+*Note:* On Linux and OSX, use `:` instead of `;` to separate your paths. 
 
 It's important that your HOUDINI_PATH always ends in ;&. You can append any other paths you like,
 but the last path should be `&`. This will ensure that Houdini's built-in operators work normally.
-On Linux and OSX, use : instead of ; to separate your paths. 
-
-If you want to use the old installation procedure, set the following environment keys in houdini.env:
-```
-HOUDINI_OTLSCAN_PATH = $MOPS/otls;@/otls 
-HOUDINI_TOOLBAR_PATH = $MOPS/toolbar;@/toolbar
-HOUDINI_SCRIPT_PATH = $MOPS/scripts;@/scripts
-```
 
 ### Usage basics:
 
@@ -62,7 +73,7 @@ Reserved point attributes include:
 * p@mops_orient: An orientation offset to allow for changes of the local rotation frames without actually rotating the object.
 * v@euler: Created internally by the Transform Modifier. If detected, the Apply Attributes SOP will apply these rotations to the incoming points instead of using p@orient. This is to prevent flipping when animating rotations beyond 180 degrees on a given axis.
 
-MOPs is developed and maintained by Moritz Schwind and Henry Foster. Additional contributions by Adam Swaab, Jake Rice, Ian Farnsworth, Kevin Weber, and Luca Scheller. 
+MOPs is developed and maintained by Henry Foster. Additional contributions by Moritz Schwind, Adam Swaab, Jake Rice, Ian Farnsworth, Kevin Weber, Matt Tillman, and Luca Scheller. 
 
 ### Notice:
 This software is provided AS-IS, with absolutely no warranty of any kind, express or otherwise. We disclaim any liability for damages resulting from using this software.

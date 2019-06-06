@@ -645,6 +645,17 @@
             parmtag { "autoscope" "0000000000000000" }
         }
         parm {
+            name    "transfer_attributes"
+            label   "Transfer Attributes"
+            type    string
+            invisible
+            default { "" }
+            menutoggle {
+                [ "opmenu -l pack1 transfer_attributes" ]
+            }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
             name    "sepparm2"
             label   "Separator"
             type    separator
@@ -1543,14 +1554,14 @@
                     type    toggle
                     nolabel
                     joinnext
-                    default { "on" }
+                    default { "off" }
                     parmtag { "autoscope" "0000000000000000" }
                 }
                 parm {
                     name    "domainu1"
                     label   "First U"
                     type    float
-                    default { "0.25" }
+                    default { "0" }
                     range   { 0! 1! }
                     parmtag { "autoscope" "0000000000000000" }
                 }
@@ -1560,14 +1571,14 @@
                     type    toggle
                     nolabel
                     joinnext
-                    default { "off" }
+                    default { "on" }
                     parmtag { "autoscope" "0000000000000000" }
                 }
                 parm {
                     name    "domainu2"
                     label   "Second U"
                     type    float
-                    default { "0.75" }
+                    default { "1" }
                     range   { 0! 1! }
                     parmtag { "autoscope" "0000000000000000" }
                 }
@@ -1589,7 +1600,7 @@
 
             group {
                 name    "folder4_2"
-                label   "Twist Options"
+                label   "Orient Options"
                 tabbreak
                 hidewhentab "{ do_orient_curve == 0 }"
 
@@ -1609,6 +1620,24 @@
                     range   { 1! 10 }
                     parmtag { "autoscope" "0000000000000000" }
                     parmtag { "rampfloatdefault" "1pos ( 0 ) 1value ( 0 ) 1interp ( linear ) 2pos ( 1 ) 2value ( 1 ) 2interp ( linear )" }
+                }
+                parm {
+                    name    "custom_first_tangent"
+                    label   "Custom First Tangent"
+                    type    toggle
+                    default { "off" }
+                    range   { 0 1 }
+                    parmtag { "autoscope" "0000000000000000" }
+                }
+                parm {
+                    name    "First_Tangent"
+                    label   "First Tangent"
+                    type    vector
+                    size    3
+                    default { "0" "1" "0" }
+                    disablewhen "{ custom_first_tangent != 1 }"
+                    range   { 0 1 }
+                    parmtag { "autoscope" "0000000000000000" }
                 }
             }
 

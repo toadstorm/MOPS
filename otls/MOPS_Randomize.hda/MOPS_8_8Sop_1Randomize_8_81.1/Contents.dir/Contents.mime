@@ -32,24 +32,22 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -17.2644 4.05381
-connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+position 0.310393 1.55327
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
 inputsNamed3
 {
-0 	MOPs_Instancer 0 1 "input1"
 }
 inputs
 {
-0 	MOPs_Instancer 0 1
 }
 stat
 {
-  create 1552026612
-  modify 1552026724
+  create 1556863082
+  modify 1556863092
   author Henry@LAPPY586
   access 0777
 }
@@ -80,7 +78,7 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot/Apply_Attributes1.init"
 Content-Type: text/plain
 
-type = MOPS::Apply_Attributes::1.0
+type = MOPS::Apply_Attributes::1.2
 matchesdef = 1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -94,12 +92,12 @@ connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-2 "output1"
+0 "output1"
 }
 inputsNamed3
 {
-0 	MOPS_IN 0 1 "input1"
-1 	switch_do_pscale 0 1 "input2"
+1 	MOPS_IN 0 1 "input1"
+2 	switch_do_pscale 0 1 "input2"
 }
 inputs
 {
@@ -108,8 +106,8 @@ inputs
 }
 stat
 {
-  create 1528499331
-  modify 1552026613
+  create 1556863090
+  modify 1556863154
   author Henry@LAPPY586
   access 0777
 }
@@ -129,6 +127,24 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = chs(\"../group\") }
     }
+    channel grouptype {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../grouptype\") }
+    }
+    channel do_rotate {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../switch_do_orient/input\") }
+    }
+    channel do_falloff {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../do_falloff2\") }
+    }
     channel rotate_mode {
       lefttype = extend
       righttype = extend
@@ -141,30 +157,17 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = ch(\"../scale_mode\") }
     }
-    channel local_space {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../local_space\") }
-    }
     channel rotate_order {
       lefttype = extend
       righttype = extend
       flags = 0
       segment { length = 0 expr = ch(\"../order\") }
     }
-    channel grouptype {
+    channel local_space {
       lefttype = extend
       righttype = extend
       flags = 0
-      segment { length = 0 expr = ch(\"../grouptype\") }
-    }
-    channel do_falloff {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../do_falloff2\") }
+      segment { length = 0 value = 1 1 expr = ch(\"../local_space\") }
     }
   }
 
@@ -175,19 +178,21 @@ Content-Type: text/plain
 {
 version 0.8
 group	[ 0	locks=0	autoscope=0 ]	(	[ group	"" ] 	)
-grouptype	[ 0	locks=0 ]	(	[ grouptype	0 ] 	)
+grouptype	[ 0	locks=0	autoscope=0 ]	(	[ grouptype	0 ] 	)
 do_translate	[ 0	locks=0	autoscope=0 ]	(	"on"	)
-do_rotate	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+do_rotate	[ 0	locks=0	autoscope=0 ]	(	[ do_rotate	0 ] 	)
 do_scale	[ 0	locks=0	autoscope=0 ]	(	"on"	)
 do_falloff	[ 0	locks=0	autoscope=0 ]	(	[ do_falloff	1 ] 	)
+do_pivots	[ 0	locks=0	autoscope=0 ]	(	"on"	)
 ignore_no_falloff	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 rotate_mode	[ 0	locks=0	autoscope=0 ]	(	[ rotate_mode	0 ] 	)
 scale_mode	[ 0	locks=0	autoscope=0 ]	(	[ scale_mode	0 ] 	)
 rotate_order	[ 0	locks=0	autoscope=0 ]	(	[ rotate_order	0 ] 	)
 local_space	[ 0	locks=0	autoscope=0 ]	(	[ local_space	1 ] 	)
 do_make_id	[ 0	locks=0	autoscope=0 ]	(	"on"	)
-do_copy_attrs	[ 0	locks=0 ]	(	"off"	)
+do_copy_attrs	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 attribname	[ 0	locks=0	autoscope=0 ]	(	""	)
+do_orient	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -231,7 +236,7 @@ inputs
 stat
 {
   create 1528499331
-  modify 1552026613
+  modify 1556863083
   author Henry@LAPPY586
   access 0777
 }
@@ -418,7 +423,7 @@ inputs
 stat
 {
   create 1528499331
-  modify 1552026613
+  modify 1556863083
   author Henry@LAPPY586
   access 0777
 }
@@ -599,7 +604,7 @@ inputs
 stat
 {
   create 1528499331
-  modify 1552026613
+  modify 1556863083
   author Henry@LAPPY586
   access 0777
 }
@@ -688,7 +693,7 @@ visualize	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 nvisualizepts	[ 0	locks=0	autoscope=0 ]	(	10000	)
 usefractionattrib	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 fractionattrib	[ 0	locks=0	autoscope=0 ]	(	fraction	)
-seed	[ 0	locks=0	autoscope=0 ]	(	[ seed	0 ] 	)
+seed	[ 0	locks=0	autoscope=0 ]	(	[ seed	0.68000000000000005 ] 	)
 useseedattrib	[ 0	locks=0	autoscope=0 ]	(	"on"	)
 seedattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
 ramp1pos	[ 0	locks=0	autoscope=0 ]	(	0	)
@@ -747,7 +752,7 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	Apply_Attributes1 2 1 "input1"
+0 	Apply_Attributes1 0 1 "input1"
 }
 inputs
 {
@@ -756,7 +761,7 @@ inputs
 stat
 {
   create 1528499331
-  modify 1552026613
+  modify 1556863090
   author Henry@LAPPY586
   access 0777
 }
@@ -917,7 +922,7 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	Apply_Attributes1 2 1 "input1"
+0 	Apply_Attributes1 0 1 "input1"
 1 	attribrandomize4 1 1 "input2"
 }
 inputs
@@ -928,7 +933,7 @@ inputs
 stat
 {
   create 1528499331
-  modify 1552026735
+  modify 1556863093
   author Henry@LAPPY586
   access 0777
 }
@@ -980,9 +985,9 @@ input	[ 0	locks=0	autoscope=0 ]	(	[ input	8 ] 	)
 strength	[ 0	locks=0	autoscope=0 ]	(	[ strength	1 ] 	)
 switchclamp	[ 0	locks=0	autoscope=0 ]	(	[ switchclamp	0 ] 	)
 sepparm	[ 0	locks=0 ]	(	)
-do_preview	[ 0	locks=0	autoscope=0 ]	(	[ do_preview	1 ] 	)
+do_preview	[ 0	locks=0	autoscope=0 ]	(	[ do_preview	0 ] 	)
 folder0	[ 0	locks=0 ]	(	0	)
-do_sprite	[ 0	locks=0 ]	(	"off"	)
+do_sprite	[ 0	locks=0 ]	(	"on"	)
 spritescale	[ 0	locks=0 ]	(	1	)
 override_scale	[ 0	locks=0 ]	(	"off"	)
 ramp_preset	[ 0	locks=0 ]	(	"heatmap"	)
@@ -1046,7 +1051,7 @@ inputs
 stat
 {
   create 1528499331
-  modify 1552026613
+  modify 1556863083
   author Henry@LAPPY586
   access 0777
 }
@@ -1368,7 +1373,7 @@ inputs
 stat
 {
   create 1528936208
-  modify 1552026613
+  modify 1556863083
   author Henry@LAPPY586
   access 0777
 }
@@ -1448,7 +1453,7 @@ inputs
 stat
 {
   create 1536946673
-  modify 1552026613
+  modify 1556863083
   author Henry@LAPPY586
   access 0777
 }
@@ -1816,7 +1821,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.173"
 	}
 }
 
@@ -1853,7 +1858,7 @@ inputs
 stat
 {
   create 1528499331
-  modify 1552026613
+  modify 1556863083
   author Henry@LAPPY586
   access 0777
 }
@@ -1891,7 +1896,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.173"
 	}
 }
 
@@ -1928,7 +1933,7 @@ inputs
 stat
 {
   create 1528499331
-  modify 1552026613
+  modify 1556863083
   author Henry@LAPPY586
   access 0777
 }
@@ -1956,7 +1961,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0	autoscope=0 ]	(	[ input	1 ] 	)
+input	[ 0	locks=0	autoscope=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1966,7 +1971,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.173"
 	}
 }
 
@@ -2003,7 +2008,7 @@ inputs
 stat
 {
   create 1528499331
-  modify 1552026613
+  modify 1556863083
   author Henry@LAPPY586
   access 0777
 }
@@ -2041,7 +2046,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.173"
 	}
 }
 
@@ -2100,7 +2105,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.173"
 	}
 }
 
@@ -2137,7 +2142,7 @@ inputs
 stat
 {
   create 1528499331
-  modify 1552026613
+  modify 1556863083
   author Henry@LAPPY586
   access 0777
 }
@@ -2165,7 +2170,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0	autoscope=0 ]	(	[ input	1 ] 	)
+input	[ 0	locks=0	autoscope=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2175,7 +2180,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.173"
 	}
 }
 
@@ -2201,7 +2206,7 @@ outputsNamed3
 }
 inputsNamed3
 {
-1 	Apply_Attributes1 2 1 "input1"
+1 	Apply_Attributes1 0 1 "input1"
 2 	Combine_Falloffs1 2 1 "input2"
 }
 inputs
@@ -2212,7 +2217,7 @@ inputs
 stat
 {
   create 1528499331
-  modify 1552026613
+  modify 1556863090
   author Henry@LAPPY586
   access 0777
 }
@@ -2240,7 +2245,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0	autoscope=0 ]	(	[ input	1 ] 	)
+input	[ 0	locks=0	autoscope=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2250,7 +2255,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.173"
 	}
 }
 
@@ -2287,7 +2292,7 @@ inputs
 stat
 {
   create 1541964861
-  modify 1552026613
+  modify 1556863083
   author henry_foster@mvp-production2-mac03.local
   access 0777
 }
@@ -2315,7 +2320,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2325,7 +2330,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.173"
 	}
 }
 
@@ -2387,7 +2392,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.506"
+		"value":"17.5.173"
 	}
 }
 

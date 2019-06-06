@@ -1,0 +1,35 @@
+= MOPs Align =
+
+#icon: opdef:.?mops_modifier_02.svg
+
+"""Aligns packed primitives and/or their pivots."""
+
+MOPs Align can modify the positions and pivots of packed primitives to align them based on their underlying bounding boxes.
+This means you can have them all scale up from their lowest point in Y, for example, without having to manually set the pivots of
+each of the instances in the MOPs Instancer.
+
+== Overview ==
+
+@inputs
+
+Packed Primitives:
+    The packed primitives to transform.
+    
+@parameters
+
+== General ==
+
+Use Falloff:
+    #id: do_falloff
+    
+    Enable the `mops_falloff` attribute. This means that any adjustments you make to pivots or positions will be influenced by the falloff value.
+
+Pivots Only:
+    #id: pivots_only
+    If enabled, the pivots of the packed primitives will be adjusted without modifying their positions in space.
+    
+Align To:
+    #id: mode
+    Choose the bounding box axis to align primitives to.
+    
+    
