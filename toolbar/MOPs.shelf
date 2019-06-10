@@ -45,6 +45,7 @@ prompt = toolutils.selectionPrompt(hou.sopNodeTypeCategory())
 scene_viewer = toolutils.sceneViewer()
 sel = scene_viewer.selectObjects(prompt)
 INSTANCE_DICT = dict()
+nodes_to_align = list()
 
 # collect instance paths
 for i in sel:
@@ -94,6 +95,7 @@ instances_container = hou.node('/obj/MOPS_INSTANCES')
 if instances_container is None:
     instances_container = hou.node('/obj').createNode('subnet', 'MOPS_INSTANCES')
     instances_container.setDisplayFlag(False)
+nodes_to_align.append(instances_container)
 
 # generate instance object containers
 for network in INSTANCE_DICT:
@@ -112,6 +114,7 @@ for network in INSTANCE_DICT:
             # set material if one exists
             if v['material'] is not None:
                 instanced_node.parm('shop_materialpath').set(v['material'])
+        nodes_to_align.append(instanced_node)
     
 for i in sel:
     # append output null to MOPS network(s)
@@ -129,6 +132,7 @@ for i in sel:
         instancer.parm('ptinstance').set('fast')
         instancer.node('add').destroy()
         hou.node('/obj').layoutChildren([instancer])
+    nodes_to_align.append(instancer)
     
     # merge in mops output and convert to points
     merge = instancer.node('merge_in_MOPS')
@@ -164,7 +168,7 @@ for i in sel:
     instancer.layoutChildren()    
     i.setDisplayFlag(False)
     instances_container.layoutChildren()
-    hou.node('/obj').layoutChildren()]]></script>
+    hou.node('/obj').layoutChildren(nodes_to_align)]]></script>
   </tool>
 
   <tool name="MOPS_Update" label="MOPs Updater" icon="opdef:MOPS::Sop/Instancer::1.1?mops_update.svg">
