@@ -114,7 +114,7 @@ for network in INSTANCE_DICT:
             # set material if one exists
             if v['material'] is not None:
                 instanced_node.parm('shop_materialpath').set(v['material'])
-        nodes_to_align.append(instanced_node)
+        # nodes_to_align.append(instanced_node)
     
 for i in sel:
     # append output null to MOPS network(s)
