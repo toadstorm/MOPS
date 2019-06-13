@@ -32,27 +32,27 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.63175 0.0513842
+position -15.098 -6.0368
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-0 "output1"
+2 "output1"
 }
 inputsNamed3
 {
-1 	IN_MOPS 1 1 "input1"
-2 	switch_aim_method 1 1 "input2"
+0 	MOPs_Plain_Falloff 1 1 "input1"
+1 	MOPs_Extract_Attributes 1 1 "input2"
 }
 inputs
 {
-0 	IN_MOPS 0 1
-1 	switch_aim_method 0 1
+0 	MOPs_Plain_Falloff 0 1
+1 	MOPs_Extract_Attributes 0 1
 }
 stat
 {
-  create 1556862964
-  modify 1560126606
+  create 1559884512
+  modify 1560416143
   author Henry@LAPPY586
   access 0777
 }
@@ -79,6 +79,31 @@ Content-Type: text/plain
 2
 0 -3.8925895869542444 10.955584752644103 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
 1 2.4675132493824119 8.3959520341379275 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/__stickynote1.postitinit"
+Content-Type: text/plain
+
+type = postitnote
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/__stickynote1.postitdef"
+Content-Type: text/plain
+
+text "please work"
+position -6.19131 1.58799
+size 2.5 2.5
+flags = minimize off
+stat
+{
+  create 1560416104
+  modify 1560416108
+  author Henry@LAPPY586
+  access 0777
+}
+color UT_Color RGB 1 0.969 0.522 
+end
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/apply_attributes1.init"
@@ -113,7 +138,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1560126682
+  modify 1560415260
   author Henry@LAPPY586
   access 0777
 }
@@ -448,8 +473,8 @@ Content-Type: text/plain
 {
 version 0.8
 folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
-group	[ 0	locks=0	autoscope=1 ]	(	[ group	"" ] 	)
-grouptype	[ 0	locks=0	autoscope=0 ]	(	[ grouptype	0 ] 	)
+group	[ 0	locks=0	autoscope=1 ]	(	[ group	704 ] 	)
+grouptype	[ 0	locks=0	autoscope=0 ]	(	[ grouptype	3 ] 	)
 class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
@@ -571,7 +596,7 @@ if(doR) {
     } else {
         // set rotation directly
         if(!haspointattrib(1, \"euler\")) {   
-            orient2 = slerp(quaternion(ident()), orient2, weight);
+            orient2 = slerp(orient, orient2, weight);
         }
         orient = qmultiply(orient2, qinvert(mops_orient));
     }
@@ -609,12 +634,12 @@ vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
 vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
 folder1	[ 0	locks=0 ]	(	0	0	)
-do_translate	[ 0	locks=0	autoscope=0 ]	(	[ do_translate	0 ] 	)
+do_translate	[ 0	locks=0	autoscope=0 ]	(	[ do_translate	1 ] 	)
 do_rotate	[ 0	locks=0	autoscope=0 ]	(	[ do_rotate	1 ] 	)
-do_scale	[ 0	locks=0	autoscope=0 ]	(	[ do_scale	0 ] 	)
+do_scale	[ 0	locks=0	autoscope=0 ]	(	[ do_scale	1 ] 	)
 do_weight	[ 0	locks=0	autoscope=0 ]	(	[ do_weight	1 ] 	)
 rotate_mode	[ 0	locks=0	autoscope=0 ]	(	[ rotate_mode	1 ] 	)
-scale_mode	[ 0	locks=0	autoscope=0 ]	(	[ scale_mode	0 ] 	)
+scale_mode	[ 0	locks=0	autoscope=0 ]	(	[ scale_mode	1 ] 	)
 local_space	[ 0	locks=0	autoscope=0 ]	(	[ local_space	1 ] 	)
 rotate_order	[ 0	locks=0	autoscope=0 ]	(	[ rotate_order	0 ] 	)
 bind_orient	[ 0	locks=0 ]	(	[ bind_orient	0 ] 	)
@@ -891,7 +916,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.173"
+		"value":"17.5.229"
 	}
 }
 
@@ -953,7 +978,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.173"
+		"value":"17.5.229"
 	}
 }
 
@@ -1028,7 +1053,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.173"
+		"value":"17.5.229"
 	}
 }
 
@@ -1089,7 +1114,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.173"
+		"value":"17.5.229"
 	}
 }
 
@@ -1148,7 +1173,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.173"
+		"value":"17.5.229"
 	}
 }
 
@@ -1287,7 +1312,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.173"
+		"value":"17.5.229"
 	}
 }
 
@@ -1362,7 +1387,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.173"
+		"value":"17.5.229"
 	}
 }
 
@@ -1423,7 +1448,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.173"
+		"value":"17.5.229"
 	}
 }
 
@@ -1489,7 +1514,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	0 ] 	)
+input	[ 0	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1499,7 +1524,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.173"
+		"value":"17.5.229"
 	}
 }
 
@@ -1574,7 +1599,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.173"
+		"value":"17.5.229"
 	}
 }
 
