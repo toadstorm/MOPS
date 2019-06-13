@@ -32,25 +32,25 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -3.56557 -1.02705
+position 2.15553 13.0439
 connectornextid 2
-flags =  lock off model off template on footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-1 "output1"
+0 "output1"
 }
 inputsNamed3
 {
-0 	alembic1 0 1 "input1"
+1 	set_alembic_attrs 1 1 "input1"
 }
 inputs
 {
-0 	alembic1 0 1
+0 	set_alembic_attrs 0 1
 }
 stat
 {
-  create 1558497459
-  modify 1558498241
+  create 1524695187
+  modify 1531969240
   author Henry@LAPPY586
   access 0777
 }
@@ -78,14 +78,14 @@ Content-Type: text/plain
 0 0.45149802048909649 8.5727528346627828 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/do_extraction.init"
+Content-Disposition: attachment; filename="hdaroot/do_extraction1.init"
 Content-Type: text/plain
 
 type = attribwrangle
 matchesdef = 1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/do_extraction.def"
+Content-Disposition: attachment; filename="hdaroot/do_extraction1.def"
 Content-Type: text/plain
 
 sopflags sopflags = 
@@ -108,7 +108,7 @@ inputs
 stat
 {
   create 1524695134
-  modify 1558497762
+  modify 1560465584
   author Henry@LAPPY586
   access 0777
 }
@@ -118,7 +118,7 @@ exprlanguage hscript
 end
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/do_extraction.spareparmdef"
+Content-Disposition: attachment; filename="hdaroot/do_extraction1.spareparmdef"
 Content-Type: text/plain
 
     group {
@@ -285,7 +285,7 @@ Content-Type: text/plain
     }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/do_extraction.chn"
+Content-Disposition: attachment; filename="hdaroot/do_extraction1.chn"
 Content-Type: text/plain
 
 {
@@ -298,7 +298,7 @@ Content-Type: text/plain
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/do_extraction.parm"
+Content-Disposition: attachment; filename="hdaroot/do_extraction1.parm"
 Content-Type: text/plain
 
 {
@@ -329,7 +329,7 @@ if(!haspointattrib(0, \"orient\")) {
     v@up = m * {0,1,0};
 }
 
-if(type == \"PackedGeometry\" || type == \"PackedFragment\" || type == \"PackedSequence\" || type == \"AlembicRef\") {
+if(type == \"PackedGeometry\" || type == \"PackedFragment\" || type == \"PackedDiskSequence\" || type == \"AlembicRef\") {
     // extract as normal
     // if full transform extraction is enabled, get that instead of transform
     matrix3 m = primintrinsic(0, \"transform\", @ptnum);
@@ -346,9 +346,8 @@ if(type == \"PackedGeometry\" || type == \"PackedFragment\" || type == \"PackedS
     p@orient = orient;    
     v@scale = scale;
     // also get N and up
-    vector vecs[] = set(m);
-    @N = normalize(vecs[2]);
-    v@up = normalize(vecs[1]);
+    @N = normalize(m * {0,0,1});
+    v@up = normalize(m * {0,1,0});
 } else {
     // passthrough
     
@@ -367,11 +366,11 @@ vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
 vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
 folder1	[ 0	locks=0 ]	(	0	0	)
-do_full_transform	[ 0	locks=0 ]	(	[ do_full_transform	1 ] 	)
+do_full_transform	[ 0	locks=0 ]	(	[ do_full_transform	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/do_extraction.userdata"
+Content-Disposition: attachment; filename="hdaroot/do_extraction1.userdata"
 Content-Type: text/plain
 
 {
@@ -919,11 +918,11 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	do_extraction 1 1 "input1"
+0 	do_extraction1 1 1 "input1"
 }
 inputs
 {
-0 	do_extraction 0 1
+0 	do_extraction1 0 1
 }
 stat
 {
@@ -1406,11 +1405,11 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	do_extraction 1 1 "input1"
+0 	do_extraction1 1 1 "input1"
 }
 inputs
 {
-0 	do_extraction 0 1
+0 	do_extraction1 0 1
 }
 stat
 {
@@ -1453,7 +1452,7 @@ Content-Disposition: attachment; filename="hdaroot.order"
 Content-Type: text/plain
 
 10
-do_extraction
+do_extraction1
 apply_attributes1
 switch_has_N
 attribpromote1
