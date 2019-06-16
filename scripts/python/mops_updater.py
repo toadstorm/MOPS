@@ -258,8 +258,8 @@ class MOPsUpdateWindow(QtWidgets.QDialog):
         self.build_combo = QtWidgets.QComboBox()
         self.update_env = QtWidgets.QCheckBox('Auto-Update houdini.env')
         self.update_env.setChecked(False)
-		# deprecated
-		self.update_env.setVisible(False)
+        # deprecated
+        self.update_env.setVisible(False)
         self.do_analytics = QtWidgets.QCheckBox('Share anonymous MOPs data')
         self.do_analytics.setChecked(False)
         apply_btn = QtWidgets.QPushButton('Apply Update')
