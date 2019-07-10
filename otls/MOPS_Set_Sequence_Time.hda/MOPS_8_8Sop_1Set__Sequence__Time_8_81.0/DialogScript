@@ -44,6 +44,12 @@
         parmtag { "autoscope" "0000000000000000" }
     }
     parm {
+        name    "sepparm"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
         name    "indextype"
         label   "Index Type"
         type    ordinal
@@ -106,5 +112,22 @@
         }
         range   { 0 10 }
         parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "do_abc_range"
+        label   "Set Alembic Range"
+        type    toggle
+        default { "0" }
+        range   { 0! 120 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "new_abc_range"
+        label   "New Alembic Range"
+        type    intvector2
+        size    2
+        default { "1" "24" }
+        disablewhen "{ do_abc_range == 0 }"
+        range   { -1 1 }
     }
 }

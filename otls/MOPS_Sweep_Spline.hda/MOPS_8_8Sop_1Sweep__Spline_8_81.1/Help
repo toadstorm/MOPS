@@ -4,129 +4,97 @@
 
 """Sweeps a crossection along a backbone to create geometry."""
 
-This node creates a sweep spline using a cross section (closed polygon) and a backbone (polyline).
+This node creates a sweep spline using a cross section (closed polygon) and a backbone (polyline). The swept geometry will automatically be given vertex UVs.
 
 == Overview ==
 
 @inputs
 
 Crosssection:
-    Cross section of resulting sweep.
+    Cross section of resulting sweep. This should be a closed polygon or a polyline for flat ribbons.
     
 Backbone:
     Path to sweep cross section along.
     
 @parameters
 
-== General ==
+== Cross-Section ==
 
-Show Backbone:
-    #id: docalcnorm
-
-    Recalculates the geometry's input normals before converting geo to instances.
+Resample:
+    #id: do_xsection_resample
+    Resamples the cross-section geometry. See the Resample SOP for information on specific parameters.
     
-Resample Backbone:
-    #id: preservefalloff
+== Backbone ==
 
-    Preserves falloff values that exist on the input geometry's primitives (f@mops_falloff).
-
-== Sweep Controls ==
-"""Controls the appearance of the resulting geometry."""
-
-== Spline Start & End ==
-"""Controls where geometry starts and ends (relative to backbone)."""
-
-Start:
+Resample:
+    #id: do_backbone_resample
+    Resamples the backbone curve. See the Resample SOP for information on specific parameters.
+    
+Orient Curve:
+    #id: do_backbone_orient
+    Reorients the backbone. This can also be used to "twist" the curve so that the swept geometry twists over its length. 
+    
+    NOTE: If you reorient a curve that animates over time, the orientation is not guaranteed to be stable!
+    
+Carve Start:
     #id: domainu1
-
-    Start of sweep.
+    Cuts off the beginning of the curve. See the Carve SOP for details.
     
-End:
+Carve End:
     #id: domainu2
-
-    End of sweep.
-
-== Twist ==
-"""Rotates cross section while sweeping along backbone."""
+    Cuts off the end of the curve. See the Carve SOP for details.
     
-Ramp Twist:
-    #id: ramp_twist
-
-    Ramp to control cross section's rotation.
+    NOTE: If your swept geometry seems to "loop back" from the end of the curve back to the start, try enabling Carve End and leaving it at the default 1.
     
-Rotation Min:
-    #id: destmin
+=== Orient Tab ===
 
-    Rotation at beginning of spline (degrees).
+See [MOPs Orient Curve|Node:/sop/MOPS--Orient_Curve-1.0] for details.
+
+=== Scale Tab ===
+
+Scale Mult:
+    #id: scale_mult
+    A global scale multiplier on the cross-sections. This control is on the backbone section because it directly interacts with the other controls here.
     
-Rotation Max:
-    #id: destmax
-
-    Rotation at end of spline (degrees).
+Scale by Point Attribute:
+    #id: do_scale_attr
+    Multiply the global cross-section scale by a point attribute on the backbone (default `pscale`).
     
-Rotation Offset:
-    #id: input2
-
-    Offset of rotation at beginning of spline (degrees).
+Scale Attr:
+    #id: scale_attr
+    The point attribute on the backbone to scale the cross-sections by.
     
-== Scale ==
-"""Scales cross section while sweeping along backbone."""
+Scale Ramp:
+    #id: scale_ramp
+    A ramp to multiply the cross-section scale by, along the length of the backbone.
     
-Ramp Scale:
-    #id: scale
+== Output ==
 
-    Ramp to control cross section's scale.
+Reverse Surface:
+    #id: do_reverse
+    Reverses the swept surface. If the output appears tinted blue, try toggling this.
     
-Rotation Min:
-    #id: destmin2
-
-    Scale at beginning of spline.
+Create Caps:
+    #id: do_caps
+    Add caps to the swept surface. Only useful if the cross-section geometry is a closed polygon.
     
-Rotation Max:
-    #id: destmax2
-
-    Scale at end of spline.
+Use Existing Backbone UVs:
+    #id: do_custom_uv
+    If enabled, use a defined point attribute on the backbone to define the UVs. This can be useful if your backbone length animates over time.
+    This attribute can be a vector or float, but only the first component of a vector attribute is used.
     
-Rotation Offset:
-    #id: input3
-
-    Offset of Scale at beginning of spline.  
+UV Attribute:
+    #id: uv_attr_name
+    If Use Existing Backbone UVs is enabled, this is the point attribute to use for the backbone UVs.
     
-== Extend Spline ==
-"""Extends backbone past its beginngin/end by using spline's tangent."""
-
-Extend Spline:
-    #id: switchextend
-
-    Enable spline extension.
+UV Scale:
+    #id: uv_scale
+    A scaling factor applied to the swept UVs, in the U and V directions respectively.
     
-Elongate Spline:
-    #id: domainu2
+Cap UV Scale:
+    #id: uv_cap_scale
+    A scaling factor applied to the UVs of the caps, if generated.
+  
+=== Groups Tab ===
 
-    Length of segments to add.
-    
-== Keep Pscale & Orient ==
-"""Allows to keep Pscale & Orient if those attributes exist on input backbone."""
-
-Keep Pscale Attribute:
-    #id: keeppscale
-
-    Keep Pscale.
-    
-Keep Orient Attribute:
-    #id: keeporient
-
-    Keep orient.
-                    
-@related
-
-* [Node:sop/MOPs_Combine_Falloffs]
-* [Node:sop/MOPs_Object_Falloff]
-* [Node:sop/MOPs_Plain_Falloff]
-* [Node:sop/MOPs_Remap_Falloff]
-* [Node:sop/MOPs_Shape_Falloff]
-* [Node:sop/MOPs_Spline_Falloff]
-* [Node:sop/MOPs_Texture_Falloff]
-* [Node:sop/MOPs_Index_From_Attribute]
-* [Node:sop/MOPs_Transform_Falloffs]
-* [Node:sop/resample]
+These define the names of the groups generated by MOPs Sweep Spline.

@@ -648,7 +648,6 @@
             name    "transfer_attributes"
             label   "Transfer Attributes"
             type    string
-            invisible
             default { "" }
             menutoggle {
                 [ "opmenu -l pack1 transfer_attributes" ]
@@ -711,7 +710,7 @@
                 default { "default.bgeo" }
                 hidewhen "{ instancetype# == 0 }"
                 parmtag { "filechooser_mode" "read" }
-                parmtag { "filechooser_pattern" "*.bgeo;*.bgeo.sc;*.abc" }
+                parmtag { "filechooser_pattern" "*.*" }
             }
             parm {
                 name    "cycletype#"

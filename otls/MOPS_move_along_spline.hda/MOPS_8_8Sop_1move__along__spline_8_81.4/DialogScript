@@ -510,6 +510,14 @@
                 default { "mops_trails" }
                 parmtag { "autoscope" "0000000000000000" }
             }
+            parm {
+                name    "trails_end"
+                label   "Trails End Frame"
+                type    float
+                default { [ "$RFEND" hscript-expr ] }
+                range   { 0 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
         }
 
         group {

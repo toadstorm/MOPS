@@ -332,6 +332,25 @@
             parmtag { "autoscope" "0000000000000000" }
         }
         parm {
+            name    "do_custom_uv"
+            label   "Use Existing Backbone UVs"
+            type    toggle
+            default { "0" }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "uv_attr_name"
+            label   "UV Attribute"
+            type    string
+            default { "uv" }
+            disablewhen "{ do_custom_uv == 0 }"
+            menutoggle {
+                [ "opmenu -l attribpromote8 inname" ]
+            }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
             name    "uv_scale"
             label   "Uv Scale"
             type    vector2
