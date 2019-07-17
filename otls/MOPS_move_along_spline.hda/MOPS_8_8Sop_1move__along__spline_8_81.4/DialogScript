@@ -285,6 +285,24 @@
                 parmtag { "autoscope" "0000000000000000" }
             }
             parm {
+                name    "custom_first_tangent"
+                label   "Custom First Tangent"
+                type    toggle
+                default { "off" }
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "First_Tangent"
+                label   "First Tangent"
+                type    vector
+                size    3
+                default { "0" "1" "0" }
+                disablewhen "{ custom_first_tangent != 1 }"
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
                 name    "twist_amount"
                 label   "Twist Amount"
                 type    float
@@ -394,6 +412,13 @@
             default { "0" }
             range   { 0 10 }
             parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "do_rotate_falloff"
+            label   "Falloff Affects Rotation"
+            type    toggle
+            default { "1" }
+            disablewhen "{ do_falloff == 0 }"
         }
         parm {
             name    "goal_type"
