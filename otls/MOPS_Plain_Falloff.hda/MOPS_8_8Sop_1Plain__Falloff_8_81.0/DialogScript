@@ -85,6 +85,14 @@
         default { "" }
     }
     parm {
+        name    "Falloff_Value"
+        label   "Falloff Value"
+        type    float
+        default { "1" }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
         name    "do_preview"
         label   "Preview Falloff"
         type    toggle
@@ -152,13 +160,5 @@
         label   "Separator"
         type    separator
         default { "" }
-    }
-    parm {
-        name    "Falloff_Value"
-        label   "Falloff Value"
-        type    float
-        default { "1" }
-        range   { 0 1 }
-        parmtag { "autoscope" "0000000000000000" }
     }
 }
