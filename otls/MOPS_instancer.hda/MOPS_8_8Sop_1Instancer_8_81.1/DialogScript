@@ -848,7 +848,7 @@
             label   "Number of Points"
             type    integer
             default { "10" }
-            disablewhen "{ distro_type == 3 }"
+            disablewhen "{ num_points_enabled 0 }"
             range   { 0 10000 }
             parmtag { "autoscope" "0000000000000000" }
         }
@@ -894,6 +894,7 @@
             label   "Copy Attributes"
             type    toggle
             default { "off" }
+            disablewhen "{ distro_type == 0 } { distro_type == 1 } { distro_type == 2 } { distro_type == 3 } { distro_type == 6 }"
             parmtag { "autoscope" "0000000000000000" }
         }
         parm {
@@ -908,7 +909,7 @@
             parmtag { "autoscope" "0000000000000000" }
             parmtag { "sop_input" "2else1" }
         }
-        groupsimple {
+        group {
             name    "folder0"
             label   "Linear"
             hidewhentab "{ distro_type != 0 }"
@@ -932,7 +933,7 @@
             }
         }
 
-        groupsimple {
+        group {
             name    "folder0_1"
             label   "Radial"
             hidewhentab "{ distro_type != 1 }"
@@ -1002,7 +1003,7 @@
             }
         }
 
-        groupsimple {
+        group {
             name    "folder0_2"
             label   "Spherical"
             hidewhentab "{ distro_type != 2 }"
@@ -1115,7 +1116,7 @@
             }
         }
 
-        groupsimple {
+        group {
             name    "folder0_3"
             label   "Grid"
             hidewhentab "{ distro_type != 3 }"
@@ -1197,7 +1198,7 @@
 
         }
 
-        groupsimple {
+        group {
             name    "folder0_4"
             label   "Mesh"
             hidewhentab "{ distro_type != 4 }"
@@ -1207,6 +1208,15 @@
                 label   "Convert to Polygons"
                 type    toggle
                 default { "1" }
+                range   { 0! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "floodMesh"
+                label   "Flood Mesh"
+                type    toggle
+                default { "0" }
+                hidewhen "{ mesh_distroMethod == 0 }"
                 range   { 0! 10 }
                 parmtag { "autoscope" "0000000000000000" }
             }
@@ -1255,6 +1265,7 @@
                 nolabel
                 joinnext
                 default { "off" }
+                disablewhen "{ mesh_distroMethod != 0 }"
                 parmtag { "autoscope" "0000000000000000" }
             }
             parm {
@@ -1284,15 +1295,6 @@
                 default { "1" }
                 hidewhen "{ mesh_distroMethod != 0 }"
                 range   { 0! 2 }
-                parmtag { "autoscope" "0000000000000000" }
-            }
-            parm {
-                name    "floodMesh"
-                label   "Flood Mesh"
-                type    toggle
-                default { "0" }
-                hidewhen "{ mesh_distroMethod == 0 }"
-                range   { 0! 10 }
                 parmtag { "autoscope" "0000000000000000" }
             }
             parm {
@@ -1356,52 +1358,54 @@
                 range   { -10 10 }
                 parmtag { "autoscope" "0000000000000000" }
             }
-            groupsimple {
-                name    "folder2"
-                label   "Mesh Alignment"
+        }
 
-                parm {
-                    name    "do_mesh_orient"
-                    label   "Orient Copies to Surface"
-                    type    toggle
-                    default { "1" }
-                }
-                parm {
-                    name    "mesh_scatter_do_cusp_faces"
-                    label   "Cusp Faces"
-                    type    toggle
-                    default { "1" }
-                    hidewhen "{ mesh_distroMethod != 0 }"
-                    range   { 0! 10 }
-                    parmtag { "autoscope" "0000000000000000" }
-                }
-                parm {
-                    name    "do_compute_normal"
-                    label   "Compute Normal"
-                    type    toggle
-                    default { "1" }
-                    range   { 0! 10 }
-                    parmtag { "autoscope" "0000000000000000" }
-                }
-                parm {
-                    name    "overwrite_mesh_up"
-                    label   "Override Up Vector"
-                    type    toggle
-                    default { "0" }
-                    range   { 0! 10 }
-                    parmtag { "autoscope" "0000000000000000" }
-                }
-                parm {
-                    name    "up_vector"
-                    label   "Default Up Vector"
-                    type    vector
-                    size    3
-                    default { "0" "1" "0" }
-                    range   { 0 1 }
-                    parmtag { "autoscope" "0000000000000000" }
-                }
+        group {
+            name    "folder2"
+            label   "Mesh Alignment"
+            tabbreak
+            hidewhentab "{ distro_type != 4 }"
+
+            parm {
+                name    "do_mesh_orient"
+                label   "Orient Copies to Surface"
+                type    toggle
+                default { "1" }
             }
-
+            parm {
+                name    "mesh_scatter_do_cusp_faces"
+                label   "Cusp Faces"
+                type    toggle
+                default { "1" }
+                hidewhen "{ mesh_distroMethod != 0 }"
+                range   { 0! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "do_compute_normal"
+                label   "Compute Normal"
+                type    toggle
+                default { "1" }
+                range   { 0! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "overwrite_mesh_up"
+                label   "Override Up Vector"
+                type    toggle
+                default { "0" }
+                range   { 0! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "up_vector"
+                label   "Default Up Vector"
+                type    vector
+                size    3
+                default { "0" "1" "0" }
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
         }
 
         group {
@@ -1459,6 +1463,48 @@
                 range   { 0 1 }
                 parmtag { "autoscope" "0000000000000000" }
             }
+            group {
+                name    "folder4_2"
+                label   "Orient Options"
+                hidewhentab "{ do_orient_curve == 0 }"
+
+                parm {
+                    name    "twist_amount"
+                    label   "Twist Amount"
+                    type    float
+                    default { "0" }
+                    range   { 0 360 }
+                    parmtag { "autoscope" "0000000000000000" }
+                }
+                parm {
+                    name    "twist_ramp"
+                    label   "Twist Ramp"
+                    type    ramp_flt
+                    default { "2" }
+                    range   { 1! 10 }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "rampfloatdefault" "1pos ( 0 ) 1value ( 0 ) 1interp ( linear ) 2pos ( 1 ) 2value ( 1 ) 2interp ( linear )" }
+                }
+                parm {
+                    name    "custom_first_tangent"
+                    label   "Custom First Tangent"
+                    type    toggle
+                    default { "off" }
+                    range   { 0 1 }
+                    parmtag { "autoscope" "0000000000000000" }
+                }
+                parm {
+                    name    "First_Tangent"
+                    label   "First Tangent"
+                    type    vector
+                    size    3
+                    default { "0" "1" "0" }
+                    disablewhen "{ custom_first_tangent != 1 }"
+                    range   { 0 1 }
+                    parmtag { "autoscope" "0000000000000000" }
+                }
+            }
+
             group {
                 name    "folder4"
                 label   "Resample Options"
@@ -1545,6 +1591,7 @@
             group {
                 name    "folder4_1"
                 label   "Slice Options"
+                tabbreak
                 hidewhentab "{ do_curve_slice == 0 }"
 
                 parm {
@@ -1597,54 +1644,12 @@
                 }
             }
 
-            group {
-                name    "folder4_2"
-                label   "Orient Options"
-                tabbreak
-                hidewhentab "{ do_orient_curve == 0 }"
-
-                parm {
-                    name    "twist_amount"
-                    label   "Twist Amount"
-                    type    float
-                    default { "0" }
-                    range   { 0 360 }
-                    parmtag { "autoscope" "0000000000000000" }
-                }
-                parm {
-                    name    "twist_ramp"
-                    label   "Twist Ramp"
-                    type    ramp_flt
-                    default { "2" }
-                    range   { 1! 10 }
-                    parmtag { "autoscope" "0000000000000000" }
-                    parmtag { "rampfloatdefault" "1pos ( 0 ) 1value ( 0 ) 1interp ( linear ) 2pos ( 1 ) 2value ( 1 ) 2interp ( linear )" }
-                }
-                parm {
-                    name    "custom_first_tangent"
-                    label   "Custom First Tangent"
-                    type    toggle
-                    default { "off" }
-                    range   { 0 1 }
-                    parmtag { "autoscope" "0000000000000000" }
-                }
-                parm {
-                    name    "First_Tangent"
-                    label   "First Tangent"
-                    type    vector
-                    size    3
-                    default { "0" "1" "0" }
-                    disablewhen "{ custom_first_tangent != 1 }"
-                    range   { 0 1 }
-                    parmtag { "autoscope" "0000000000000000" }
-                }
-            }
-
         }
 
         group {
             name    "folder6"
             label   "Honeycomb"
+            tabbreak
             hidewhentab "{ distro_type != 6 }"
 
             parm {
@@ -1951,4 +1956,13 @@
         }
     }
 
+    parm {
+        name    "num_points_enabled"
+        label   "Manual Point Number Enabled"
+        type    integer
+        invisible
+        default { "(ch(\"distro_type\") != 3) && (!ch(\"floodMesh\"))" }
+        range   { 0 10 }
+        parmtag { "autoselect" "0000000000000000" }
+    }
 }

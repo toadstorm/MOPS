@@ -31,6 +31,14 @@ Display As:
 Enable Material Overrides:
     #id: do_material_overrides
     Enable the Material Override parameters for the Instance Objects.
+    
+Quick Add Objects:
+    #id: quick_add
+    Select objects here, or drag nodes into this parameter, to instantly add them to the Instance Objects list.
+    
+Scale:
+    #id: quick_scale
+    The default scale for Quick Add Objects.
        
 Instance Objects:
     #id: instanceobjects
@@ -216,11 +224,20 @@ Mesh Distribution Method:
     * Voxels: Convert the input mesh into a fog volume, and place one clone at the center of each voxel.
     * Edge Centers: Place one clone at the relative center of each edge of the input mesh.
     
+    ==== Points ====
+    
+    Template Point Group:
+        #id: The group of points to consider as template points.
+    
     ==== Scatter ====
     
     Scatter Seed:
         #id: seed
         The random seed to use for scatter points on the Input Mesh.
+        
+    Density Attribute:
+        #id: densityattrib
+        The attribute on the template mesh to decide the likelihood of points scattering there. See Scatter SOP for details.
         
     Relax Iterations:
         #id: relaxiterations
