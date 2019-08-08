@@ -81,6 +81,17 @@
         parmtag { "autoscope" "0000000000000000" }
     }
     parm {
+        name    "falloff_attr"
+        label   "Falloff Attribute"
+        type    string
+        default { "mops_falloff" }
+        disablewhen "{ input 0 }"
+        menureplace {
+            [ "opmenu -l attribswap1 srcattribs1" ]
+        }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
         name    "maxiterations"
         label   "Max Iterations"
         type    integer

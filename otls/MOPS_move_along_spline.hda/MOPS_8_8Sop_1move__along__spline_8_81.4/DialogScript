@@ -414,6 +414,17 @@
             parmtag { "autoscope" "0000000000000000" }
         }
         parm {
+            name    "falloff_attr"
+            label   "Falloff Attribute"
+            type    string
+            default { "mops_falloff" }
+            disablewhen "{ do_falloff 0 }"
+            menureplace {
+                [ "opmenu -l attribswap1 srcattribs1" ]
+            }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
             name    "do_rotate_falloff"
             label   "Falloff Affects Rotation"
             type    toggle
@@ -509,7 +520,7 @@
                 label   "Acceleration Ramp"
                 type    ramp_flt
                 default { "2" }
-                hidewhen "{ mode 1 }"
+                hidewhen "{ mode == 1 }"
                 range   { 1! 10 }
                 parmtag { "autoscope" "0000000000000000" }
                 parmtag { "rampfloatdefault" "1pos ( 0 ) 1value ( 0 ) 1interp ( linear ) 2pos ( 1 ) 2value ( 1 ) 2interp ( linear )" }

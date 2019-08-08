@@ -32,27 +32,24 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -9.6204 -0.721439
-connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+position -11.8261 -1.74388
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-2 "output1"
 }
 inputsNamed3
 {
-0 	MOPs_Randomize 1 1 "input1"
-1 	SPLINE 1 1 "input2"
+0 	pointwrangle1 1 1 "input1"
 }
 inputs
 {
-0 	MOPs_Randomize 0 1
-1 	SPLINE 0 1
+0 	pointwrangle1 0 1
 }
 stat
 {
-  create 1543088957
-  modify 1563749094
+  create 1565235466
+  modify 1565235606
   author Henry@LAPPY586
   access 0777
 }
@@ -138,7 +135,7 @@ inputs
 stat
 {
   create 1542751057
-  modify 1563388037
+  modify 1565235467
   author Henry@LAPPY586
   access 0777
 }
@@ -443,7 +440,7 @@ inputs
 stat
 {
   create 1542751296
-  modify 1563388037
+  modify 1565235467
   author Henry@LAPPY586
   access 0777
 }
@@ -778,7 +775,7 @@ inputs
 stat
 {
   create 1542753142
-  modify 1563747953
+  modify 1565235467
   author Henry@LAPPY586
   access 0777
 }
@@ -1103,6 +1100,25 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../post_twist_ramp1interp\") }
     }
+    channel acceleration_ramp1pos {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../acceleration_ramp_simple1pos\") }
+    }
+    channel acceleration_ramp1value {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../acceleration_ramp_simple1value\") }
+    }
+    channel acceleration_ramp1interp {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../acceleration_ramp_simple1interp\") }
+    }
     channel offset_ramp2pos {
       lefttype = extend
       righttype = extend
@@ -1140,6 +1156,25 @@ Content-Type: text/plain
       default = 1
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../post_twist_ramp2interp\") }
+    }
+    channel acceleration_ramp2pos {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../acceleration_ramp_simple2pos\") }
+    }
+    channel acceleration_ramp2value {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../acceleration_ramp_simple2value\") }
+    }
+    channel acceleration_ramp2interp {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../acceleration_ramp_simple2interp\") }
     }
     channel travel {
       lefttype = extend
@@ -1228,44 +1263,6 @@ Content-Type: text/plain
       default = 2
       flags = 0
       segment { length = 0 value = 2 2 expr = ch(\"../acceleration_ramp_simple\") }
-    }
-    channel acceleration_ramp1pos {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../acceleration_ramp_simple1pos\") }
-    }
-    channel acceleration_ramp1value {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../acceleration_ramp_simple1value\") }
-    }
-    channel acceleration_ramp1interp {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../acceleration_ramp_simple1interp\") }
-    }
-    channel acceleration_ramp2pos {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../acceleration_ramp_simple2pos\") }
-    }
-    channel acceleration_ramp2value {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../acceleration_ramp_simple2value\") }
-    }
-    channel acceleration_ramp2interp {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../acceleration_ramp_simple2interp\") }
     }
   }
 
@@ -1384,7 +1381,7 @@ vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 travel	[ 8	locks=0 ]	(	[ travel	0 ] 	)
-maintain_offset	[ 0	locks=0 ]	(	[ maintain_offset	1 ] 	)
+maintain_offset	[ 0	locks=0 ]	(	[ maintain_offset	0 ] 	)
 wrap	[ 0	locks=0 ]	(	[ wrap	1 ] 	)
 invert_tangent	[ 0	locks=0 ]	(	"off"	)
 random_shift	[ 0	locks=0 ]	(	[ random_shift	0 ] 	)
@@ -1399,23 +1396,23 @@ offset_ramp	[ 0	locks=0 ]	(	[ offset_ramp	2 ] 	)
 offset_ramp1pos	[ 0	locks=0 ]	(	[ offset_ramp1pos	0 ] 	)
 offset_ramp1value	[ 0	locks=0 ]	(	[ offset_ramp1value	1 ] 	)
 offset_ramp1interp	[ 0	locks=0 ]	(	[ offset_ramp1interp	1 ] 	)
-offset_ramp2pos	[ 0	locks=0 ]	(	[ offset_ramp2pos	1 ] 	)
-offset_ramp2value	[ 0	locks=0 ]	(	[ offset_ramp2value	1 ] 	)
-offset_ramp2interp	[ 0	locks=0 ]	(	[ offset_ramp2interp	1 ] 	)
 do_falloff	[ 0	locks=0 ]	(	[ do_falloff	0 ] 	)
-twist_amount	[ 0	locks=0 ]	(	[ twist_amount	180 ] 	)
+twist_amount	[ 0	locks=0 ]	(	[ twist_amount	0 ] 	)
 twist_ramp	[ 0	locks=0 ]	(	[ twist_ramp	2 ] 	)
 twist_ramp1pos	[ 0	locks=0 ]	(	[ twist_ramp1pos	0 ] 	)
 twist_ramp1value	[ 0	locks=0 ]	(	[ twist_ramp1value	0 ] 	)
 twist_ramp1interp	[ 0	locks=0 ]	(	[ twist_ramp1interp	1 ] 	)
-twist_ramp2pos	[ 0	locks=0 ]	(	[ twist_ramp2pos	1 ] 	)
-twist_ramp2value	[ 0	locks=0 ]	(	[ twist_ramp2value	1 ] 	)
-twist_ramp2interp	[ 0	locks=0 ]	(	[ twist_ramp2interp	1 ] 	)
 goal_type	[ 0	locks=0 ]	(	[ goal_type	0 ] 	)
 acceleration_ramp	[ 0	locks=0 ]	(	[ acceleration_ramp	2 ] 	)
 acceleration_ramp1pos	[ 0	locks=0 ]	(	[ acceleration_ramp1pos	0 ] 	)
 acceleration_ramp1value	[ 0	locks=0 ]	(	[ acceleration_ramp1value	0 ] 	)
 acceleration_ramp1interp	[ 0	locks=0 ]	(	[ acceleration_ramp1interp	1 ] 	)
+offset_ramp2pos	[ 0	locks=0 ]	(	[ offset_ramp2pos	1 ] 	)
+offset_ramp2value	[ 0	locks=0 ]	(	[ offset_ramp2value	1 ] 	)
+offset_ramp2interp	[ 0	locks=0 ]	(	[ offset_ramp2interp	1 ] 	)
+twist_ramp2pos	[ 0	locks=0 ]	(	[ twist_ramp2pos	1 ] 	)
+twist_ramp2value	[ 0	locks=0 ]	(	[ twist_ramp2value	1 ] 	)
+twist_ramp2interp	[ 0	locks=0 ]	(	[ twist_ramp2interp	1 ] 	)
 acceleration_ramp2pos	[ 0	locks=0 ]	(	[ acceleration_ramp2pos	1 ] 	)
 acceleration_ramp2value	[ 0	locks=0 ]	(	[ acceleration_ramp2value	1 ] 	)
 acceleration_ramp2interp	[ 0	locks=0 ]	(	[ acceleration_ramp2interp	1 ] 	)
@@ -1465,7 +1462,7 @@ inputs
 stat
 {
   create 1556863040
-  modify 1563389231
+  modify 1565235467
   author Henry@LAPPY586
   access 0777
 }
@@ -1553,7 +1550,7 @@ inputs
 stat
 {
   create 1542837100
-  modify 1563388231
+  modify 1565235467
   author Henry@LAPPY586
   access 0777
 }
@@ -1727,7 +1724,7 @@ inputs
 stat
 {
   create 1542849253
-  modify 1563388037
+  modify 1565235467
   author Henry@LAPPY586
   access 0777
 }
@@ -1812,7 +1809,7 @@ inputs
 stat
 {
   create 1542940107
-  modify 1563388037
+  modify 1565235467
   author Henry@LAPPY586
   access 0777
 }
@@ -2226,7 +2223,7 @@ inputs
 stat
 {
   create 1543010707
-  modify 1563388037
+  modify 1565235467
   author Henry@LAPPY586
   access 0777
 }
@@ -2309,7 +2306,7 @@ inputs
 stat
 {
   create 1543025427
-  modify 1563388037
+  modify 1565235467
   author Henry@LAPPY586
   access 0777
 }
@@ -2484,7 +2481,7 @@ inputs
 stat
 {
   create 1543025898
-  modify 1563388037
+  modify 1565235467
   author Henry@LAPPY586
   access 0777
 }
@@ -3158,7 +3155,7 @@ inputs
 stat
 {
   create 1543036768
-  modify 1563388037
+  modify 1565235467
   author Henry@LAPPY586
   access 0777
 }
@@ -3406,7 +3403,7 @@ inputs
 stat
 {
   create 1543038368
-  modify 1563388037
+  modify 1565235467
   author Henry@LAPPY586
   access 0777
 }
@@ -3487,7 +3484,7 @@ inputs
 stat
 {
   create 1543038949
-  modify 1563388037
+  modify 1565235467
   author Henry@LAPPY586
   access 0777
 }
@@ -3565,7 +3562,7 @@ inputs
 stat
 {
   create 1543040132
-  modify 1563388037
+  modify 1565235467
   author Henry@LAPPY586
   access 0777
 }
@@ -4007,7 +4004,7 @@ inputs
 stat
 {
   create 1558836540
-  modify 1563388037
+  modify 1565235467
   author Henry@LAPPY586
   access 0777
 }
@@ -4089,7 +4086,7 @@ inputs
 stat
 {
   create 1563388607
-  modify 1563389423
+  modify 1565235467
   author Henry@LAPPY586
   access 0777
 }
@@ -4308,7 +4305,7 @@ inputs
 stat
 {
   create 1542750726
-  modify 1563388037
+  modify 1565235467
   author Henry@LAPPY586
   access 0777
 }
@@ -4336,7 +4333,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	1 ] 	)
+input	[ 0	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -4381,7 +4378,7 @@ inputs
 stat
 {
   create 1542750742
-  modify 1563388037
+  modify 1565235467
   author Henry@LAPPY586
   access 0777
 }
@@ -4531,7 +4528,7 @@ inputs
 stat
 {
   create 1542750786
-  modify 1563388037
+  modify 1565235467
   author Henry@LAPPY586
   access 0777
 }
@@ -4665,7 +4662,7 @@ inputs
 stat
 {
   create 1542751469
-  modify 1563388037
+  modify 1565235467
   author Henry@LAPPY586
   access 0777
 }
@@ -4826,16 +4823,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	merge1 1 1 "input1"
+0 	attribswap2 1 1 "input1"
 }
 inputs
 {
-0 	merge1 0 1
+0 	attribswap2 0 1
 }
 stat
 {
   create 1542769838
-  modify 1563389150
+  modify 1565235535
   author Henry@LAPPY586
   access 0777
 }
@@ -5183,7 +5180,7 @@ inputs
 stat
 {
   create 1542940068
-  modify 1563388037
+  modify 1565235467
   author Henry@LAPPY586
   access 0777
 }
@@ -5321,7 +5318,7 @@ inputs
 stat
 {
   create 1542942166
-  modify 1563388037
+  modify 1565235467
   author Henry@LAPPY586
   access 0777
 }
@@ -5429,7 +5426,7 @@ inputs
 stat
 {
   create 1324348265
-  modify 1563747873
+  modify 1565235467
   author nobody@nowhere.sidefx.com
   access 0777
 }
@@ -5533,7 +5530,7 @@ inputs
 stat
 {
   create 1324348294
-  modify 1563388037
+  modify 1565235467
   author nobody@nowhere.sidefx.com
   access 0777
 }
@@ -5612,7 +5609,7 @@ inputs
 stat
 {
   create 1324348294
-  modify 1563388037
+  modify 1565235467
   author nobody@nowhere.sidefx.com
   access 0777
 }
@@ -5691,7 +5688,7 @@ inputs
 stat
 {
   create 1324348294
-  modify 1563388037
+  modify 1565235467
   author nobody@nowhere.sidefx.com
   access 0777
 }
@@ -5770,7 +5767,7 @@ inputs
 stat
 {
   create 1324348294
-  modify 1563388037
+  modify 1565235467
   author nobody@nowhere.sidefx.com
   access 0777
 }
@@ -6109,7 +6106,7 @@ inputs
 stat
 {
   create 1543036720
-  modify 1563388037
+  modify 1565235467
   author Henry@LAPPY586
   access 0777
 }
@@ -6270,7 +6267,7 @@ inputs
 stat
 {
   create 1543025695
-  modify 1563389238
+  modify 1565235467
   author Henry@LAPPY586
   access 0777
 }
@@ -6506,7 +6503,7 @@ inputs
 stat
 {
   create 1543037778
-  modify 1563388037
+  modify 1565235467
   author Henry@LAPPY586
   access 0777
 }
@@ -6696,7 +6693,7 @@ inputs
 stat
 {
   create 1543038086
-  modify 1563388607
+  modify 1565235467
   author Henry@LAPPY586
   access 0777
 }
@@ -7444,7 +7441,7 @@ inputs
 stat
 {
   create 1543040599
-  modify 1563388037
+  modify 1565235467
   author Henry@LAPPY586
   access 0777
 }
@@ -7514,16 +7511,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	in_mops 1 1 "input1"
+0 	attribswap1 1 1 "input1"
 }
 inputs
 {
-0 	in_mops 0 1
+0 	attribswap1 0 1
 }
 stat
 {
   create 1543044120
-  modify 1563388037
+  modify 1565235498
   author Henry@LAPPY586
   access 0777
 }
@@ -7662,7 +7659,7 @@ inputs
 stat
 {
   create 1543085443
-  modify 1563388607
+  modify 1565235467
   author Henry@LAPPY586
   access 0777
 }
@@ -7691,7 +7688,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -7800,7 +7797,7 @@ inputs
 stat
 {
   create 1542942166
-  modify 1563388037
+  modify 1565235467
   author Henry@LAPPY586
   access 0777
 }
@@ -7910,7 +7907,7 @@ inputs
 stat
 {
   create 1542942166
-  modify 1563388037
+  modify 1565235467
   author Henry@LAPPY586
   access 0777
 }
@@ -8022,7 +8019,7 @@ inputs
 stat
 {
   create 1563388569
-  modify 1563388850
+  modify 1565235467
   author Henry@LAPPY586
   access 0777
 }
@@ -8065,6 +8062,152 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribswap1.init"
+Content-Type: text/plain
+
+type = attribswap
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribswap1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -22.9703 3.66537
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	in_mops 1 1 "input1"
+}
+inputs
+{
+0 	in_mops 0 1
+}
+stat
+{
+  create 1565235498
+  modify 1565235572
+  author Henry@LAPPY586
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribswap1.chn"
+Content-Type: text/plain
+
+{
+    channel srcattribs1 {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"mops_falloff\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../falloff_attr\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribswap1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+numswaps	[ 0	locks=0 ]	(	1	)
+enable1	[ 0	locks=0 ]	(	"on"	)
+method1	[ 0	locks=0 ]	(	"swap"	)
+class1	[ 0	locks=0 ]	(	"point"	)
+srcattribs1	[ 0	locks=0 ]	(	[ srcattribs1	mops_falloff ] 	)
+dstattribs1	[ 0	locks=0 ]	(	mops_falloff	)
+typeinfo1	[ 0	locks=0 ]	(	"dest"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribswap1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.229"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribswap2.init"
+Content-Type: text/plain
+
+type = attribswap
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribswap2.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -17.9161 -32.2808
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	merge1 1 1 "input1"
+}
+inputs
+{
+0 	merge1 0 1
+}
+stat
+{
+  create 1565235535
+  modify 1565235568
+  author Henry@LAPPY586
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribswap2.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+numswaps	[ 0	locks=0 ]	(	1	)
+enable1	[ 0	locks=0 ]	(	"on"	)
+method1	[ 0	locks=0 ]	(	"swap"	)
+class1	[ 0	locks=0 ]	(	"point"	)
+srcattribs1	[ 0	locks=0 ]	(	mops_falloff	)
+dstattribs1	[ 0	locks=0 ]	(	`chs(\"../attribswap1/srcattribs1\")`	)
+typeinfo1	[ 0	locks=0 ]	(	"dest"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribswap2.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.229"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/__dot1.networkdotinit"
 Content-Type: text/plain
 
@@ -8081,7 +8224,7 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot.order"
 Content-Type: text/plain
 
-55
+57
 in_mops
 in_splines
 switch_do_resample
@@ -8137,6 +8280,8 @@ visualize1
 attribwrangle1
 switch_falloff_rotation
 rotation_falloff
+attribswap1
+attribswap2
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"

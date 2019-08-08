@@ -21,7 +21,6 @@ Packed Primitives:
 
 Use Falloff:
     #id: do_falloff
-    
     Enable the `mops_falloff` attribute. This means that any adjustments you make to pivots or positions will be influenced by the falloff value.
 
 Pivots Only:
@@ -30,6 +29,16 @@ Pivots Only:
     
 Align To:
     #id: mode
-    Choose the bounding box axis to align primitives to.
+    Choose the bounding box axis to align primitives to. There are two special modes:
+    * Custom Offset: Add an offset to the existing pivots.
+    * Custom Pivot: Apply a single pivot globally to all primitives.
+    
+Pivot Offset:
+    #id: pivot_offset
+    Available only in "Custom Offset" mode. The offset to add to all pivots.
+    
+New Pivot:
+    #id: pivot_absolute
+    Available only in "Custom Pivot" mode. The new pivot to apply to all primitives.
     
     
