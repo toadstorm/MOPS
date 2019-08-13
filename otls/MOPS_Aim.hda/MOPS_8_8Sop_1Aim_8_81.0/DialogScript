@@ -60,6 +60,22 @@
         parmtag { "autoscope" "0000000000000000" }
     }
     parm {
+        name    "do_falloff"
+        label   "Do Falloff"
+        type    toggle
+        default { "on" }
+        range   { 0 10 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "falloff_attribute"
+        label   "Falloff Attribute"
+        type    string
+        default { "mops_falloff" }
+        disablewhen "{ do_falloff == 0 }"
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
         name    "use_up_attr"
         label   "Use Up Attribute"
         type    toggle

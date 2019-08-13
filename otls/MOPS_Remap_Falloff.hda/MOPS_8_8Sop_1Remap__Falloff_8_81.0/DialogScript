@@ -50,6 +50,16 @@
         default { "" }
     }
     parm {
+        name    "falloff_attr"
+        label   "Falloff Attribute"
+        type    string
+        default { "mops_falloff" }
+        menureplace {
+            [ "opmenu -l attribswap1 srcattribs1" ]
+        }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
         name    "do_preview"
         label   "Preview Falloff"
         type    toggle

@@ -57,6 +57,17 @@
         default { "1" }
     }
     parm {
+        name    "falloff_attr"
+        label   "Falloff Attribute"
+        type    string
+        default { "mops_falloff" }
+        disablewhen "{ use_falloff 0 }"
+        menureplace {
+            [ "opmenu -l attribswap1 srcattribs1" ]
+        }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
         name    "do_sequence_delay"
         label   "Do Sequence Delay"
         type    toggle
