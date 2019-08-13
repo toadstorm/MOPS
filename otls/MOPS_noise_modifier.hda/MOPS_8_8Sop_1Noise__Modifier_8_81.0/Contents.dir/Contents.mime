@@ -32,7 +32,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -9.31783 -2.4301
+position -4.15681 0.0237083
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -40,16 +40,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	pointwrangle1 1 1 "input1"
+0 	MOPs_Instancer 0 1 "input1"
 }
 inputs
 {
-0 	pointwrangle1 0 1
+0 	MOPs_Instancer 0 1
 }
 stat
 {
-  create 1565235634
-  modify 1565235700
+  create 1565325304
+  modify 1565666974
   author Henry@LAPPY586
   access 0777
 }
@@ -163,7 +163,7 @@ inputs
 stat
 {
   create 1556862920
-  modify 1565235649
+  modify 1565665739
   author Henry@LAPPY586
   access 0777
 }
@@ -183,6 +183,12 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../orientclones\") }
     }
+    channel do_scale {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../compute_transform_scalar/do_scale\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -194,8 +200,8 @@ version 0.8
 group	[ 0	locks=0	autoscope=0 ]	(	__mops_orig	)
 grouptype	[ 0	locks=0	autoscope=0 ]	(	"guess"	)
 do_translate	[ 0	locks=0	autoscope=0 ]	(	"on"	)
-do_rotate	[ 0	locks=0	autoscope=0 ]	(	[ do_rotate	1 ] 	)
-do_scale	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+do_rotate	[ 0	locks=0	autoscope=0 ]	(	[ do_rotate	0 ] 	)
+do_scale	[ 8	locks=0	autoscope=0 ]	(	[ do_scale	0 ] 	)
 do_falloff	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 do_pivots	[ 0	locks=0	autoscope=0 ]	(	"on"	)
 ignore_no_falloff	[ 0	locks=0	autoscope=0 ]	(	"off"	)
@@ -233,7 +239,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -8.91134 6.89356
+position -8.24144 6.70216
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -251,7 +257,7 @@ inputs
 stat
 {
   create 1546923011
-  modify 1565235649
+  modify 1565665809
   author Henry@LAPPY586
   access 0777
 }
@@ -312,7 +318,7 @@ inputs
 stat
 {
   create 1546924805
-  modify 1565235649
+  modify 1565325304
   author Henry@LAPPY586
   access 0777
 }
@@ -394,7 +400,7 @@ inputs
 stat
 {
   create 1555308188
-  modify 1565235649
+  modify 1565325304
   author Henry@LAPPY586
   access 0777
 }
@@ -597,7 +603,7 @@ signature	[ 0	locks=0	autoscope=0 ]	(	[ signature	1 ] 	)
 attrname	[ 0	locks=0	autoscope=0 ]	(	__offset	)
 attrnamev	[ 0	locks=0	autoscope=0 ]	(	__offset	)
 sepparm	[ 0	locks=0 ]	(	)
-folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+folder0	[ 0	locks=0	autoscope=0 ]	(	1	1	1	)
 input	[ 0	locks=0	autoscope=0 ]	(	[ input	9 ] 	)
 use_rest	[ 0	locks=0	autoscope=0 ]	(	[ use_rest	0 ] 	)
 sepparm2	[ 0	locks=0 ]	(	)
@@ -609,7 +615,7 @@ octaves	[ 0	locks=0	autoscope=0 ]	(	[ octaves	1 ] 	)
 offset	[ 0	locks=0	autoscope=0 ]	(	[ offsetx	0 ] 	[ offsety	0 ] 	[ offsetz	0 ] 	[ offsetw	0 ] 	)
 tile_size	[ 0	locks=0	autoscope=0 ]	(	[ tile_sizex	1 ] 	[ tile_sizey	1 ] 	[ tile_sizez	1 ] 	)
 Distort	[ 0	locks=0	autoscope=0 ]	(	[ Distortx	0 ] 	[ Distorty	0 ] 	[ Distortz	0 ] 	)
-time_varying	[ 0	locks=0	autoscope=0 ]	(	[ time_varying	0 ] 	)
+time_varying	[ 0	locks=0	autoscope=0 ]	(	[ time_varying	1 ] 	)
 time_scale	[ 0	locks=0	autoscope=0 ]	(	[ time_scale	1 ] 	)
 input_rangev	[ 0	locks=0	autoscope=0 ]	(	[ input_rangevx	-1 ] 	[ input_rangevy	1 ] 	)
 output_rangev	[ 0	locks=0	autoscope=0 ]	(	[ output_rangevx	-1 ] 	[ output_rangevy	1 ] 	)
@@ -659,7 +665,7 @@ inputs
 stat
 {
   create 1554928384
-  modify 1565235649
+  modify 1565666420
   author Henry@LAPPY586
   access 0777
 }
@@ -681,7 +687,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector points "Modify Points"
+            bindselector uvselect "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -841,6 +847,41 @@ Content-Type: text/plain
         default { "0" }
         range   { 0 1 }
     }
+    parm {
+        name    "do_scale"
+        label   "Do Scale"
+        type    integer
+        default { "0" }
+        range   { 0 10 }
+    }
+    parm {
+        name    "oldmin"
+        label   "Oldmin"
+        type    float
+        default { "0" }
+        range   { 0 1 }
+    }
+    parm {
+        name    "oldmax"
+        label   "Oldmax"
+        type    float
+        default { "0" }
+        range   { 0 1 }
+    }
+    parm {
+        name    "min"
+        label   "Min"
+        type    float
+        default { "0" }
+        range   { 0 1 }
+    }
+    parm {
+        name    "max"
+        label   "Max"
+        type    float
+        default { "0" }
+        range   { 0 1 }
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/compute_transform_scalar.chn"
@@ -867,6 +908,37 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = chs(\"../forwardaxis\") }
     }
+    channel do_scale {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../do_scale\") }
+    }
+    channel oldmax {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../MOPs_Noise_Patterns/input_rangevy\") }
+    }
+    channel oldmin {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../MOPs_Noise_Patterns/input_rangevx\") }
+    }
+    channel min {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../scale_rangex\") }
+    }
+    channel max {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../scale_rangey\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -891,6 +963,12 @@ if(!chi(\"do_falloff\")) {
     falloff = 1;
 }
 vector disp = v@axis * f@__offset * falloff * scale;
+
+if(chi(\"do_scale\")) {
+    float pscale = fit(length(disp), ch(\"oldmin\"), ch(\"oldmax\"), ch(\"min\"), ch(\"max\"));
+    f@pscale = lerp(1, pscale, scale);
+    v@scale = 1;
+}
 @P += disp;"	)
 exportlist	[ 0	locks=0 ]	(	*	)
 vex_strict	[ 0	locks=0 ]	(	"off"	)
@@ -904,11 +982,16 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
-folder1	[ 0	locks=0 ]	(	1	1	)
+bindname1	[ 0	locks=0 ]	(	[ bindname1	up ] 	)
+bindparm1	[ 0	locks=0 ]	(	axis	)
+folder1	[ 0	locks=0 ]	(	0	0	)
 do_falloff	[ 0	locks=0 ]	(	[ do_falloff	1 ] 	)
 scale	[ 0	locks=0 ]	(	[ scale	1 ] 	)
-bindname1	[ 0	locks=0 ]	(	[ bindname1	N ] 	)
-bindparm1	[ 0	locks=0 ]	(	axis	)
+do_scale	[ 0	locks=0 ]	(	[ do_scale	0 ] 	)
+oldmin	[ 0	locks=0 ]	(	[ oldmin	-1 ] 	)
+oldmax	[ 0	locks=0 ]	(	[ oldmax	1 ] 	)
+min	[ 0	locks=0 ]	(	[ min	1 ] 	)
+max	[ 0	locks=0 ]	(	[ max	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -953,7 +1036,7 @@ inputs
 stat
 {
   create 1554928384
-  modify 1565235649
+  modify 1565666439
   author Henry@LAPPY586
   access 0777
 }
@@ -975,7 +1058,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector points "Modify Points"
+            bindselector uvselect "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -1135,6 +1218,41 @@ Content-Type: text/plain
         default { "0" }
         range   { 0 10 }
     }
+    parm {
+        name    "do_scale"
+        label   "Do Scale"
+        type    integer
+        default { "0" }
+        range   { 0 10 }
+    }
+    parm {
+        name    "oldmin"
+        label   "Oldmin"
+        type    float
+        default { "0" }
+        range   { 0 1 }
+    }
+    parm {
+        name    "oldmax"
+        label   "Oldmax"
+        type    float
+        default { "0" }
+        range   { 0 1 }
+    }
+    parm {
+        name    "min"
+        label   "Min"
+        type    float
+        default { "0" }
+        range   { 0 1 }
+    }
+    parm {
+        name    "max"
+        label   "Max"
+        type    float
+        default { "0" }
+        range   { 0 1 }
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/compute_transform_vector.chn"
@@ -1154,6 +1272,38 @@ Content-Type: text/plain
       default = 1
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../scale\") }
+    }
+    channel do_scale {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../compute_transform_scalar/do_scale\") }
+    }
+    channel oldmin {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../MOPs_Noise_Patterns/input_rangevx\") }
+    }
+    channel oldmax {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../MOPs_Noise_Patterns/input_rangevy\") }
+    }
+    channel min {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../scale_rangex\") }
+    }
+    channel max {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../scale_rangey\") }
     }
   }
 
@@ -1189,7 +1339,13 @@ matrix3 delta = dihedral(v@N, outN);
 vector out_up = normalize(delta * v@up);
 vector4 orig_orient = quaternion(maketransform(v@N, v@up));
 vector4 out_orient = quaternion(maketransform(outN, out_up));
-p@orient = slerp(orig_orient, out_orient, scale * falloff);"	)
+p@orient = slerp(orig_orient, out_orient, scale * falloff);
+
+if(chi(\"do_scale\")) {
+    float pscale = fit(length(disp), ch(\"oldmin\"), ch(\"oldmax\"), ch(\"min\"), ch(\"max\"));
+    f@pscale = lerp(1, pscale, scale);
+    v@scale = 1;
+}"	)
 exportlist	[ 0	locks=0 ]	(	*	)
 vex_strict	[ 0	locks=0 ]	(	"off"	)
 autobind	[ 0	locks=0 ]	(	"on"	)
@@ -1205,6 +1361,11 @@ vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 scale	[ 0	locks=0 ]	(	[ scale	1 ] 	)
 do_falloff	[ 0	locks=0 ]	(	[ do_falloff	1 ] 	)
+do_scale	[ 0	locks=0 ]	(	[ do_scale	0 ] 	)
+oldmin	[ 0	locks=0 ]	(	[ oldmin	-1 ] 	)
+oldmax	[ 0	locks=0 ]	(	[ oldmax	1 ] 	)
+min	[ 0	locks=0 ]	(	[ min	1 ] 	)
+max	[ 0	locks=0 ]	(	[ max	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1249,7 +1410,7 @@ inputs
 stat
 {
   create 1546815258
-  modify 1565235649
+  modify 1565325304
   author Henry@LAPPY586
   access 0777
 }
@@ -1467,7 +1628,7 @@ inputs
 stat
 {
   create 1546816119
-  modify 1565235634
+  modify 1565325304
   author Henry@LAPPY586
   access 0777
 }
@@ -1489,7 +1650,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector points "Modify Points"
+            bindselector uvselect "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -1855,7 +2016,7 @@ inputs
 stat
 {
   create 1554928384
-  modify 1565235634
+  modify 1565325304
   author Henry@LAPPY586
   access 0777
 }
@@ -1877,7 +2038,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector points "Modify Points"
+            bindselector uvselect "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -2173,7 +2334,7 @@ inputs
 stat
 {
   create 1554928384
-  modify 1565235634
+  modify 1565325304
   author Henry@LAPPY586
   access 0777
 }
@@ -2195,7 +2356,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector points "Modify Points"
+            bindselector uvselect "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -2511,7 +2672,7 @@ inputs
 stat
 {
   create 1555736090
-  modify 1565235634
+  modify 1565325304
   author Henry@LAPPY586
   access 0777
 }
@@ -2794,7 +2955,7 @@ inputs
 stat
 {
   create 1557519690
-  modify 1565235649
+  modify 1565325304
   author Henry@LAPPY586
   access 0777
 }
@@ -2949,7 +3110,7 @@ inputs
 stat
 {
   create 1523127556
-  modify 1565235649
+  modify 1565325304
   author Mo@Mo-PC
   access 0777
 }
@@ -3172,7 +3333,7 @@ inputs
 stat
 {
   create 1546818553
-  modify 1565235649
+  modify 1565325304
   author Henry@LAPPY586
   access 0777
 }
@@ -3286,7 +3447,7 @@ inputs
 stat
 {
   create 1546818578
-  modify 1565235649
+  modify 1565325304
   author Henry@LAPPY586
   access 0777
 }
@@ -3362,7 +3523,7 @@ inputs
 stat
 {
   create 1546819340
-  modify 1565235649
+  modify 1565325304
   author Henry@LAPPY586
   access 0777
 }
@@ -3703,7 +3864,7 @@ inputs
 stat
 {
   create 1546923929
-  modify 1565235649
+  modify 1565325304
   author Henry@LAPPY586
   access 0777
 }
@@ -3777,7 +3938,7 @@ inputs
 stat
 {
   create 1546925005
-  modify 1565235649
+  modify 1565325304
   author Henry@LAPPY586
   access 0777
 }
@@ -3850,7 +4011,7 @@ inputs
 stat
 {
   create 1546925057
-  modify 1565235649
+  modify 1565325304
   author Henry@LAPPY586
   access 0777
 }
@@ -3920,7 +4081,7 @@ inputs
 stat
 {
   create 1546925167
-  modify 1565235649
+  modify 1565325304
   author Henry@LAPPY586
   access 0777
 }
@@ -3993,7 +4154,7 @@ inputs
 stat
 {
   create 1546925176
-  modify 1565235649
+  modify 1565325304
   author Henry@LAPPY586
   access 0777
 }
@@ -4123,7 +4284,7 @@ inputs
 stat
 {
   create 1554924824
-  modify 1565235649
+  modify 1565325304
   author Henry@LAPPY586
   access 0777
 }
@@ -4260,7 +4421,7 @@ inputs
 stat
 {
   create 1554929951
-  modify 1565235649
+  modify 1565325304
   author Henry@LAPPY586
   access 0777
 }
@@ -4335,7 +4496,7 @@ inputs
 stat
 {
   create 1554930775
-  modify 1565235649
+  modify 1565325304
   author Henry@LAPPY586
   access 0777
 }
@@ -4406,7 +4567,7 @@ inputs
 stat
 {
   create 1324348265
-  modify 1565235634
+  modify 1565325304
   author nobody@nowhere.sidefx.com
   access 0777
 }
@@ -4510,7 +4671,7 @@ inputs
 stat
 {
   create 1324348294
-  modify 1565235634
+  modify 1565325304
   author nobody@nowhere.sidefx.com
   access 0777
 }
@@ -4589,7 +4750,7 @@ inputs
 stat
 {
   create 1324348294
-  modify 1565235634
+  modify 1565325304
   author nobody@nowhere.sidefx.com
   access 0777
 }
@@ -4668,7 +4829,7 @@ inputs
 stat
 {
   create 1324348294
-  modify 1565235634
+  modify 1565325304
   author nobody@nowhere.sidefx.com
   access 0777
 }
@@ -4747,7 +4908,7 @@ inputs
 stat
 {
   create 1324348294
-  modify 1565235634
+  modify 1565325304
   author nobody@nowhere.sidefx.com
   access 0777
 }
@@ -4889,7 +5050,7 @@ inputs
 stat
 {
   create 1546995483
-  modify 1565235634
+  modify 1565325304
   author Henry@LAPPY586
   access 0777
 }
@@ -4977,7 +5138,7 @@ inputs
 stat
 {
   create 1554929951
-  modify 1565235634
+  modify 1565325304
   author Henry@LAPPY586
   access 0777
 }
@@ -5076,7 +5237,7 @@ inputs
 stat
 {
   create 1546819340
-  modify 1565235649
+  modify 1565325304
   author Henry@LAPPY586
   access 0777
 }
@@ -5283,7 +5444,7 @@ inputs
 stat
 {
   create 1565235649
-  modify 1565235693
+  modify 1565325304
   author Henry@LAPPY586
   access 0777
 }
@@ -5316,7 +5477,7 @@ numswaps	[ 0	locks=0 ]	(	1	)
 enable1	[ 0	locks=0 ]	(	"on"	)
 method1	[ 0	locks=0 ]	(	"swap"	)
 class1	[ 0	locks=0 ]	(	"point"	)
-srcattribs1	[ 0	locks=0 ]	(	[ srcattribs1	butt ] 	)
+srcattribs1	[ 0	locks=0 ]	(	[ srcattribs1	mops_falloff ] 	)
 dstattribs1	[ 0	locks=0 ]	(	mops_falloff	)
 typeinfo1	[ 0	locks=0 ]	(	"dest"	)
 }
@@ -5363,7 +5524,7 @@ inputs
 stat
 {
   create 1565235679
-  modify 1565235689
+  modify 1565325304
   author Henry@LAPPY586
   access 0777
 }

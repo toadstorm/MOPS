@@ -44,6 +44,12 @@
         parmtag { "autoscope" "0000000000000000" }
     }
     parm {
+        name    "sepparm"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
         name    "noisemode"
         label   "Mode"
         type    ordinal
@@ -75,6 +81,23 @@
         disablewhen "{ noisemode == 0 }"
         range   { 0 1 }
         parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "do_scale"
+        label   "Affect Scale"
+        type    toggle
+        default { "0" }
+        range   { 0 10 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "scale_range"
+        label   "Scale Range"
+        type    vector2
+        size    2
+        default { "1" "0" }
+        disablewhen "{ do_scale == 0 }"
+        range   { -1 1 }
     }
     parm {
         name    "do_falloff"

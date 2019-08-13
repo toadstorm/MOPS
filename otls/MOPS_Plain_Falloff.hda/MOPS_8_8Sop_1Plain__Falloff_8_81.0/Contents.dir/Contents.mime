@@ -32,12 +32,11 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -4.64661 5.66534
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+position -0.0114665 0.920321
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-1 "output1"
 }
 inputsNamed3
 {
@@ -49,8 +48,8 @@ inputs
 }
 stat
 {
-  create 1563388052
-  modify 1563389541
+  create 1565318102
+  modify 1565318245
   author Henry@LAPPY586
   access 0777
 }
@@ -99,16 +98,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	IN 0 1 "input1"
+0 	attribswap1 1 1 "input1"
 }
 inputs
 {
-0 	IN 0 1
+0 	attribswap1 0 1
 }
 stat
 {
   create 1520763177
-  modify 1563388053
+  modify 1565318120
   author Mo@Mo-PC
   access 0777
 }
@@ -323,7 +322,7 @@ vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 folder1	[ 0	locks=0 ]	(	0	0	)
-Falloff_Value	[ 0	locks=0 ]	(	[ Falloff_Value	1 ] 	)
+Falloff_Value	[ 0	locks=0 ]	(	[ Falloff_Value	0.42499999999999999 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -359,18 +358,18 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	IN 0 1 "input1"
+0 	attribswap1 1 1 "input1"
 1 	pointwrangle1 1 1 "input2"
 }
 inputs
 {
-0 	IN 0 1
+0 	attribswap1 0 1
 1 	pointwrangle1 0 1
 }
 stat
 {
   create 1522551176
-  modify 1563388053
+  modify 1565318119
   author henry@GlaDOS
   access 0777
 }
@@ -496,7 +495,7 @@ inputs
 stat
 {
   create 1536023094
-  modify 1563388053
+  modify 1565318102
   author Henry@LAPPY586
   access 0777
 }
@@ -674,7 +673,7 @@ inputs
 stat
 {
   create 1521374085
-  modify 1563388053
+  modify 1565318102
   author Mo@Mo-PC
   access 0777
 }
@@ -729,7 +728,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -3.46637e-09 -2.17674
+position -3.46637e-09 -2.58331
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -737,16 +736,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	MOPs_Preview_Falloff 1 1 "input1"
+0 	attribswap2 1 1 "input1"
 }
 inputs
 {
-0 	MOPs_Preview_Falloff 0 1
+0 	attribswap2 0 1
 }
 stat
 {
   create 1522551236
-  modify 1536023715
+  modify 1565318160
   author henry@GlaDOS
   access 0777
 }
@@ -776,16 +775,164 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribswap1.init"
+Content-Type: text/plain
+
+type = attribswap
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribswap1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -0.00345 4.30323
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	IN 0 1 "input1"
+}
+inputs
+{
+0 	IN 0 1
+}
+stat
+{
+  create 1565318119
+  modify 1565318157
+  author Henry@LAPPY586
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribswap1.chn"
+Content-Type: text/plain
+
+{
+    channel srcattribs1 {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"mops_falloff\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../falloff_attr\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribswap1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+numswaps	[ 0	locks=0 ]	(	1	)
+enable1	[ 0	locks=0 ]	(	"on"	)
+method1	[ 0	locks=0 ]	(	"swap"	)
+class1	[ 0	locks=0 ]	(	"point"	)
+srcattribs1	[ 0	locks=0 ]	(	[ srcattribs1	butt ] 	)
+dstattribs1	[ 0	locks=0 ]	(	mops_falloff	)
+typeinfo1	[ 0	locks=0 ]	(	"dest"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribswap1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.229"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribswap2.init"
+Content-Type: text/plain
+
+type = attribswap
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribswap2.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -3.46637e-09 -1.58331
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	MOPs_Preview_Falloff 1 1 "input1"
+}
+inputs
+{
+0 	MOPs_Preview_Falloff 0 1
+}
+stat
+{
+  create 1565318159
+  modify 1565318181
+  author Henry@LAPPY586
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribswap2.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+numswaps	[ 0	locks=0 ]	(	1	)
+enable1	[ 0	locks=0 ]	(	"on"	)
+method1	[ 0	locks=0 ]	(	"swap"	)
+class1	[ 0	locks=0 ]	(	"point"	)
+srcattribs1	[ 0	locks=0 ]	(	mops_falloff	)
+dstattribs1	[ 0	locks=0 ]	(	`chs(\"../attribswap1/srcattribs1\")`	)
+typeinfo1	[ 0	locks=0 ]	(	"dest"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribswap2.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.229"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.order"
 Content-Type: text/plain
 
-6
+8
 pointwrangle1
 IN
 switch1
 Combine_Falloffs1
 OUT
 MOPs_Preview_Falloff
+attribswap1
+attribswap2
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"
