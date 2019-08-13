@@ -32,7 +32,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -5.75634 -1.14081
+position -4.74266 -3.38812
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -41,16 +41,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	pointwrangle1 1 1 "input1"
+0 	MOPs_Transform_Modifier2 1 1 "input1"
 }
 inputs
 {
-0 	pointwrangle1 0 1
+0 	MOPs_Transform_Modifier2 0 1
 }
 stat
 {
-  create 1565231936
-  modify 1565234528
+  create 1565668266
+  modify 1565671786
   author Henry@LAPPY586
   access 0777
 }
@@ -75,7 +75,7 @@ Content-Disposition: attachment; filename="hdaroot.inp"
 Content-Type: text/plain
 
 1
-0 0 6 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+0 -1.7843088270355674 6.4618211081739112 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/align_pivots.init"
@@ -110,7 +110,7 @@ inputs
 stat
 {
   create 1555384760
-  modify 1565234499
+  modify 1565671825
   author Henry@LAPPY586
   access 0777
 }
@@ -451,6 +451,8 @@ string attr = chs(\"falloff_attribute\");
 if(haspointattrib(0, attr) && chi(\"do_falloff\")) {
     falloff = point(0, attr, @ptnum);
 }
+// get orientation for correcting pivots
+vector4 orient = point(1, \"orient\", @ptnum);
 // get bounds
 float bounds[] = primintrinsic(0, \"packedbounds\", @ptnum);
 // get xform matrix to compute scale
@@ -468,13 +470,10 @@ if(mode == 6) {
     pivot += chv(\"pivot_offset\");
 } else if(mode == 7) {
     // the pivot needs to be adjusted for scale in this case.
-    int matchpt = @ptnum;
-    if( (haspointattrib(0, \"id\")) && (haspointattrib(1, \"id\")) ) {
-        matchpt = idtopoint(1, point(0,\"id\",@ptnum));
-    }
-    // scale = point(1, \"scale\", matchpt);
-    pivot = (-@P / scale) + chv(\"pivot_absolute\");
-    
+    // we also need to account for the current orientation when adjusting.
+    pivot = qrotate(qinvert(orient), (-@P / scale)) + chv(\"pivot_absolute\");
+} else if(mode == 8) {
+    pivot = chv(\"pivot_absolute\");
 } else {
     pivot[index] = bounds[mode];
 }
@@ -488,6 +487,11 @@ vector out_pivot = lerp(old_pivot, pivot, falloff);
 setprimintrinsic(0, \"pivot\", @ptnum, out_pivot, \"set\");
 // realign P if asked
 vector delta = pivot - old_pivot;
+// transform delta by local orientation
+//if(mode != 7 ) {
+    delta = qrotate(orient, delta);
+//}
+v@delta = delta;
 int pivots_only = chi(\"pivots_only\") || mode == 7;
 vector pivots_mod = set(pivots_only, pivots_only, pivots_only);
 @P += (delta * pivots_mod * scale * falloff);"	)
@@ -508,7 +512,7 @@ mode	[ 0	locks=0 ]	(	[ mode	7 ] 	)
 do_falloff	[ 0	locks=0 ]	(	[ do_falloff	1 ] 	)
 pivots_only	[ 0	locks=0 ]	(	[ pivots_only	1 ] 	)
 falloff_attribute	[ 0	locks=0 ]	(	[ falloff_attribute	mops_falloff ] 	)
-pivot_offset	[ 0	locks=0 ]	(	[ pivot_offsetx	0 ] 	[ pivot_offsety	0 ] 	[ pivot_offsetz	0 ] 	)
+pivot_offset	[ 0	locks=0 ]	(	[ pivot_offsetx	0.5 ] 	[ pivot_offsety	0 ] 	[ pivot_offsetz	0 ] 	)
 pivot_absolute	[ 0	locks=0 ]	(	[ pivot_absolutex	0 ] 	[ pivot_absolutey	0 ] 	[ pivot_absolutez	0 ] 	)
 do_vexpression	[ 0	locks=0 ]	(	[ do_vexpression	0 ] 	)
 vexpression	[ 0	locks=0 ]	(	[ vexpression	"// pivot = {0,0,0};" ] 	)
@@ -538,7 +542,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.744289 4.0432
+position 0.429411 4.12717
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -556,7 +560,7 @@ inputs
 stat
 {
   create 1565233152
-  modify 1565233157
+  modify 1565669084
   author Henry@LAPPY586
   access 0777
 }
@@ -599,9 +603,9 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.310923 4.8307
+position -1.90631 5.01963
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template on footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 1 "output1"
@@ -617,7 +621,7 @@ inputs
 stat
 {
   create 1555386448
-  modify 1555386621
+  modify 1565670860
   author Henry@LAPPY586
   access 0777
 }
@@ -677,7 +681,7 @@ inputs
 stat
 {
   create 1555387829
-  modify 1565232152
+  modify 1565671105
   author Henry@LAPPY586
   access 0777
 }

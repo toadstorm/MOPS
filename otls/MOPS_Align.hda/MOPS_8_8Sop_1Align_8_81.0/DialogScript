@@ -78,7 +78,8 @@
             "4" "-Z"
             "5" "+Z"
             "6" "Custom Offset"
-            "7" "Custom Pivot"
+            "7" "Custom Pivot (World)"
+            "8" "Custom Pivot (Local)"
         }
         range   { 0 10 }
         parmtag { "autoscope" "0000000000000000" }
@@ -126,7 +127,7 @@
         label   "VEXpression"
         type    string
         default { "// pivot = {0,0,0};" }
-        disablewhen "{ do_vexpression 0 }"
+        disablewhen "{ do_vexpression == 0 }"
         parmtag { "autoscope" "0000000000000000" }
         parmtag { "editor" "1" }
         parmtag { "editorlang" "vex" }
