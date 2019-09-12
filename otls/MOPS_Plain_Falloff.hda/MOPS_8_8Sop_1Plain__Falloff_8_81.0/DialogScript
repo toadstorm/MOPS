@@ -44,6 +44,16 @@
         parmtag { "autoscope" "0000000000000000" }
     }
     parm {
+        name    "falloff_attr"
+        label   "Falloff Attribute"
+        type    string
+        default { "mops_falloff" }
+        menureplace {
+            [ "opmenu -l attribswap1 srcattribs1" ]
+        }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
         name    "input"
         label   "Blend Mode"
         type    ordinal
@@ -83,6 +93,14 @@
         label   "Separator"
         type    separator
         default { "" }
+    }
+    parm {
+        name    "Falloff_Value"
+        label   "Falloff Value"
+        type    float
+        default { "1" }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
     }
     parm {
         name    "do_preview"
@@ -152,13 +170,5 @@
         label   "Separator"
         type    separator
         default { "" }
-    }
-    parm {
-        name    "Falloff_Value"
-        label   "Falloff Value"
-        type    float
-        default { "1" }
-        range   { 0 1 }
-        parmtag { "autoscope" "0000000000000000" }
     }
 }

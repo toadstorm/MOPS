@@ -58,11 +58,11 @@
         parmtag { "autoscope" "0000000000000000" }
     }
     parm {
-        name    "pivots_only"
-        label   "Pivots Only (Do Not Move)"
-        type    toggle
-        default { "1" }
-        range   { 0 10 }
+        name    "falloff_attribute"
+        label   "Falloff Attribute"
+        type    string
+        default { "mops_falloff" }
+        disablewhen "{ do_falloff == 0 }"
         parmtag { "autoscope" "0000000000000000" }
     }
     parm {
@@ -77,8 +77,59 @@
             "3" "+Y"
             "4" "-Z"
             "5" "+Z"
+            "6" "Custom Offset"
+            "7" "Custom Pivot (World)"
+            "8" "Custom Pivot (Local)"
         }
         range   { 0 10 }
         parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "pivots_only"
+        label   "Pivots Only (Do Not Move)"
+        type    toggle
+        default { "1" }
+        disablewhen "{ mode == 7 }"
+        range   { 0 10 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "pivot_offset"
+        label   "Pivot Offset"
+        type    vector
+        size    3
+        default { "0" "0" "0" }
+        hidewhen "{ mode != 6 }"
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "pivot_absolute"
+        label   "New Pivot"
+        type    vector
+        size    3
+        default { "0" "0" "0" }
+        hidewhen "{ mode != 7 }"
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "do_vexpression"
+        label   "Use VEXpression"
+        type    toggle
+        default { "off" }
+        disablewhen "{ mode < 6 }"
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "vexpression"
+        label   "VEXpression"
+        type    string
+        default { "// pivot = {0,0,0};" }
+        disablewhen "{ do_vexpression == 0 }"
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "editor" "1" }
+        parmtag { "editorlang" "vex" }
     }
 }

@@ -1,0 +1,52 @@
+import re
+
+def onInstancePathChanged(kwargs):
+    node = kwargs['node']
+    parm = kwargs['parm']
+    
+    """ 
+    get updated instance path, if it's an OBJ and not a SOP,
+    see if there's a material applied to that OBJ.
+    if there is, we're going to apply that as the override
+    material for this layer. 
+    """
+    
+    newPath = hou.node(parm.eval()).path()
+    relPath = node.relativePathTo(hou.node(newPath))
+    assigned = False
+    # get number of modified multiparm
+    test = re.match('^.+?(\d+)$', parm.name())
+    num = -1
+    if test:
+        num = test.groups()[0]
+        override_parm = node.parm('instance_material'+num)
+                    
+    if hou.node(newPath) is not None and override_parm:
+        newType = hou.node(newPath).type().name()
+        if newType == 'geo':
+            # get this object's material assignment
+            mat = hou.node(newPath).parm('shop_materialpath').eval()
+            if mat:
+                # apply as override to instance_material#
+                override_expr = '`chsop("{}/shop_materialpath")`'.format(newPath)
+                override_parm.set(override_expr, follow_parm_reference=True)
+                assigned = True
+    if not assigned:
+        override_parm.revertToDefaults()
+            
+def do_quick_select(kwargs):
+    """ Fires when Quick Add parm is modified. Add all object paths to the multiparm list. """
+    me = kwargs['node']
+    paths = me.evalParm('quick_add').split()
+    me.parm('quick_add').set("")
+    scale = me.evalParm('quick_scale')
+    if paths:
+        for i in paths:
+            index = me.parm('instanceobjects').evalAsInt()
+            # get path relative to instancer
+            relpath = me.relativePathTo(hou.node(i))
+            me.parm('instanceobjects').insertMultiParmInstance(index)
+            me.parm('instancepath'+str(index+1)).set(relpath)
+            me.parm('instance_pscale'+str(index+1)).set(scale)
+    
+        

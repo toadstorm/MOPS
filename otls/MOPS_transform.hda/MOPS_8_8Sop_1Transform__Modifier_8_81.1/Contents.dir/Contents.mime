@@ -32,24 +32,22 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -5.54918 -4.1418
-connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+position 4.74234 -2.46559
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
 inputsNamed3
 {
-0 	pointwrangle1 1 1 "input1"
 }
 inputs
 {
-0 	pointwrangle1 0 1
 }
 stat
 {
-  create 1558834364
-  modify 1558834897
+  create 1565237156
+  modify 1565237595
   author Henry@LAPPY586
   access 0777
 }
@@ -107,7 +105,7 @@ inputs
 stat
 {
   create 1524060453
-  modify 1558834364
+  modify 1565237581
   author Henry@LAPPY586
   access 0777
 }
@@ -501,7 +499,7 @@ vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 uniform_scale	[ 0	locks=0	autoscope=0 ]	(	[ uniform_scale	1 ] 	)
-translate	[ 0	locks=0	autoscope=0 ]	(	[ translatex	0 ] 	[ translatey	0 ] 	[ translatez	0 ] 	)
+translate	[ 0	locks=0	autoscope=0 ]	(	[ translatex	0 ] 	[ translatey	0.20000000000000001 ] 	[ translatez	0 ] 	)
 rotate	[ 0	locks=0	autoscope=0 ]	(	[ rotatex	0 ] 	[ rotatey	0 ] 	[ rotatez	0 ] 	)
 scale	[ 0	locks=0	autoscope=0 ]	(	[ scalex	1 ] 	[ scaley	1 ] 	[ scalez	1 ] 	)
 local	[ 0	locks=0	autoscope=0 ]	(	[ local	1 ] 	)
@@ -528,7 +526,7 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot/Apply_Attributes1.init"
 Content-Type: text/plain
 
-type = MOPS::Apply_Attributes::1.2
+type = MOPS::Apply_Attributes::1.3
 matchesdef = 1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -539,7 +537,7 @@ sopflags sopflags =
 comment ""
 position -3.13514 2.91562
 connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 0 "output1"
@@ -556,8 +554,8 @@ inputs
 }
 stat
 {
-  create 1556862854
-  modify 1558834942
+  create 1565237577
+  modify 1565237647
   author Henry@LAPPY586
   access 0777
 }
@@ -619,6 +617,13 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../compute_translate/local\") }
     }
+    channel falloff_attribute {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"mops_falloff\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../falloff_attribute\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -629,20 +634,22 @@ Content-Type: text/plain
 version 0.8
 group	[ 0	locks=0	autoscope=0 ]	(	[ group	"" ] 	)
 grouptype	[ 0	locks=0	autoscope=0 ]	(	[ grouptype	0 ] 	)
-do_translate	[ 0	locks=0 ]	(	"on"	)
-do_rotate	[ 0	locks=0 ]	(	"on"	)
-do_scale	[ 0	locks=0 ]	(	"on"	)
+sepparm	[ 0	locks=0 ]	(	)
+do_translate	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+do_rotate	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+do_scale	[ 0	locks=0	autoscope=0 ]	(	"on"	)
 do_falloff	[ 0	locks=0	autoscope=0 ]	(	[ do_falloff	1 ] 	)
-do_pivots	[ 0	locks=0 ]	(	"off"	)
+falloff_attribute	[ 0	locks=0	autoscope=0 ]	(	[ falloff_attribute	mops_falloff ] 	)
+do_pivots	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 ignore_no_falloff	[ 0	locks=0	autoscope=0 ]	(	[ ignore_no_falloff	1 ] 	)
 rotate_mode	[ 0	locks=0	autoscope=0 ]	(	[ rotate_mode	0 ] 	)
-scale_mode	[ 0	locks=0	autoscope=0 ]	(	[ scale_mode	0 ] 	)
 rotate_order	[ 0	locks=0	autoscope=0 ]	(	[ rotate_order	0 ] 	)
+scale_mode	[ 0	locks=0	autoscope=0 ]	(	[ scale_mode	0 ] 	)
 local_space	[ 0	locks=0	autoscope=0 ]	(	[ local_space	1 ] 	)
-do_make_id	[ 0	locks=0 ]	(	"on"	)
-do_copy_attrs	[ 0	locks=0 ]	(	"off"	)
-attribname	[ 0	locks=0 ]	(	""	)
-do_orient	[ 0	locks=0 ]	(	"off"	)
+do_copy_attrs	[ 0	locks=0	autoscope=1 ]	(	"off"	)
+attribname	[ 0	locks=0	autoscope=0 ]	(	""	)
+do_make_id	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+do_orient	[ 0	locks=0	autoscope=0 ]	(	"on"	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -687,7 +694,7 @@ inputs
 stat
 {
   create 1524060453
-  modify 1558834364
+  modify 1565237581
   author Henry@LAPPY586
   access 0777
 }
@@ -996,7 +1003,7 @@ inputs
 stat
 {
   create 1524060453
-  modify 1558834364
+  modify 1565237582
   author Henry@LAPPY586
   access 0777
 }
@@ -1280,7 +1287,7 @@ inputs
 stat
 {
   create 1524060453
-  modify 1556862854
+  modify 1565237577
   author Henry@LAPPY586
   access 0777
 }
@@ -1325,7 +1332,7 @@ sopflags sopflags =
 comment ""
 position -3.13514 -0.572196
 connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
@@ -1340,7 +1347,7 @@ inputs
 stat
 {
   create 1524060453
-  modify 1557538256
+  modify 1562093173
   author Henry@LAPPY586
   access 0777
 }
@@ -1402,7 +1409,7 @@ inputs
 stat
 {
   create 1524060453
-  modify 1556862854
+  modify 1565237577
   author Henry@LAPPY586
   access 0777
 }

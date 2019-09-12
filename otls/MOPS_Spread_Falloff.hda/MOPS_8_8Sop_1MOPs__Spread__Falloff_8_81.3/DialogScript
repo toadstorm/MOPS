@@ -44,6 +44,50 @@
         parmtag { "autoscope" "0000000000000000" }
     }
     parm {
+        name    "falloff_attr"
+        label   "Falloff Attribute"
+        type    string
+        default { "mops_falloff" }
+        menureplace {
+            [ "opmenu -l attribswap1 srcattribs1" ]
+        }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "input2"
+        label   "Blend Mode"
+        type    ordinal
+        default { "8" }
+        menu {
+            "0" "Add"
+            "1" "Subtract"
+            "2" "Multiply"
+            "3" "Divide"
+            "4" "Screen"
+            "5" "Overlay"
+            "6" "Max"
+            "7" "Min"
+            "8" "Set"
+        }
+        range   { 0! 10 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "strength"
+        label   "Blend Strength"
+        type    float
+        default { "1" }
+        range   { 0! 1! }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "switchclamp"
+        label   "Clamp"
+        type    toggle
+        default { "off" }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
         name    "sepparm"
         label   "Separator"
         type    separator

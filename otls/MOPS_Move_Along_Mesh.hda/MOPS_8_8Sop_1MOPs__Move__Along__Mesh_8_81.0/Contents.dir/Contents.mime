@@ -32,22 +32,24 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.540302 1.31933
-connectornextid 0
+position -8.65527 -0.773719
+connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
 inputsNamed3
 {
+0 	pointwrangle1 1 1 "input1"
 }
 inputs
 {
+0 	pointwrangle1 0 1
 }
 stat
 {
-  create 1556863004
-  modify 1556863015
+  create 1565235096
+  modify 1565235407
   author Henry@LAPPY586
   access 0777
 }
@@ -72,7 +74,7 @@ Content-Disposition: attachment; filename="hdaroot.inp"
 Content-Type: text/plain
 
 2
-0 4.0381200204890968 7.9557854821244369 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+0 4.038120011175871 9.3602786133167299 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
 1 7.2671683246351346 14.780338534708655 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -135,7 +137,7 @@ inputs
 stat
 {
   create 1525233984
-  modify 1556863004
+  modify 1565235096
   author Henry@LAPPY586
   access 0777
 }
@@ -407,7 +409,7 @@ inputs
 stat
 {
   create 1556863013
-  modify 1556863055
+  modify 1565235096
   author Henry@LAPPY586
   access 0777
 }
@@ -495,7 +497,7 @@ inputs
 stat
 {
   create 1509162597
-  modify 1556863004
+  modify 1565235096
   author Henry@LAPPY586
   access 0777
 }
@@ -746,7 +748,7 @@ inputs
 stat
 {
   create 1525236156
-  modify 1556863004
+  modify 1565235096
   author Henry@LAPPY586
   access 0777
 }
@@ -828,7 +830,7 @@ inputs
 stat
 {
   create 1525913498
-  modify 1556863004
+  modify 1565235096
   author Henry@LAPPY586
   access 0777
 }
@@ -1090,7 +1092,7 @@ inputs
 stat
 {
   create 1525928326
-  modify 1556863004
+  modify 1565235096
   author Henry@LAPPY586
   access 0777
 }
@@ -1173,7 +1175,7 @@ inputs
 stat
 {
   create 1526159737
-  modify 1556863004
+  modify 1565235096
   author Henry@LAPPY586
   access 0777
 }
@@ -1318,7 +1320,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.173"
+		"value":"17.5.229"
 	}
 }
 
@@ -1359,7 +1361,7 @@ inputs
 stat
 {
   create 1526159756
-  modify 1556863004
+  modify 1565235379
   author Henry@LAPPY586
   access 0777
 }
@@ -1575,6 +1577,13 @@ Content-Type: text/plain
         default { "0" }
         range   { 0 1 }
     }
+    parm {
+        name    "do_falloff"
+        label   "Do Falloff"
+        type    integer
+        default { "0" }
+        range   { 0 10 }
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/solver1/d/s/move_along_surface.chn"
@@ -1626,6 +1635,12 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = ch(\"../../../../seed2\") }
     }
+    channel do_falloff {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../../../do_falloff\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1643,10 +1658,18 @@ vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
 snippet	[ 0	locks=0	autoscope=1 ]	(	"vector dir = v@up;
 float speed = ch(\"speed\");
 float rand_speed = fit01(rand(@ptnum+ch(\"seed\")), -ch(\"random_speed\"), ch(\"random_speed\"));
+float falloff = 1;
+int do_falloff = chi(\"do_falloff\");
+if(do_falloff) {
+    if(haspointattrib(0, \"mops_falloff\")) {
+        falloff = point(0, \"mops_falloff\", @ptnum);
+    }
+}
 
 speed += rand_speed;
 
 `ifs(ch(\"do_vexpression\"), chs(\"vexpression\"), \"\")`
+
 
 
 // push along forward vector
@@ -1687,6 +1710,7 @@ vexpression	[ 0	locks=0 ]	(	[ vexpression	"// dir = v@up;
 aim_weight	[ 0	locks=0 ]	(	[ aim_weight	0.10000000000000001 ] 	)
 seed	[ 0	locks=0 ]	(	[ seed	0 ] 	)
 random_speed	[ 0	locks=0 ]	(	[ random_speed	0 ] 	)
+do_falloff	[ 0	locks=0 ]	(	[ do_falloff	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1728,7 +1752,7 @@ inputs
 stat
 {
   create 1526185878
-  modify 1556863004
+  modify 1565235096
   author Henry@LAPPY586
   access 0777
 }
@@ -2009,6 +2033,7 @@ Content-Type: text/plain
 {
 version 0.8
 do_pivot	[ 0	locks=0 ]	(	"on"	)
+do_full_transform	[ 0	locks=0 ]	(	"off"	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2055,7 +2080,7 @@ inputs
 stat
 {
   create 1526188252
-  modify 1556863004
+  modify 1565235096
   author Henry@LAPPY586
   access 0777
 }
@@ -2322,7 +2347,7 @@ inputs
 stat
 {
   create 1324348265
-  modify 1556863004
+  modify 1565235096
   author jlait@andorra.sidefx.com
   access 0777
 }
@@ -2393,7 +2418,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.173"
+		"value":"17.5.229"
 	}
 }
 
@@ -2426,7 +2451,7 @@ inputs
 stat
 {
   create 1324348294
-  modify 1556863004
+  modify 1565235096
   author jlait@andorra.sidefx.com
   access 0777
 }
@@ -2472,7 +2497,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.173"
+		"value":"17.5.229"
 	}
 }
 
@@ -2505,7 +2530,7 @@ inputs
 stat
 {
   create 1324348294
-  modify 1556863004
+  modify 1565235096
   author jlait@andorra.sidefx.com
   access 0777
 }
@@ -2551,7 +2576,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.173"
+		"value":"17.5.229"
 	}
 }
 
@@ -2584,7 +2609,7 @@ inputs
 stat
 {
   create 1324348294
-  modify 1556863004
+  modify 1565235096
   author jlait@andorra.sidefx.com
   access 0777
 }
@@ -2630,7 +2655,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.173"
+		"value":"17.5.229"
 	}
 }
 
@@ -2663,7 +2688,7 @@ inputs
 stat
 {
   create 1324348294
-  modify 1556863004
+  modify 1565235096
   author jlait@andorra.sidefx.com
   access 0777
 }
@@ -2709,7 +2734,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.173"
+		"value":"17.5.229"
 	}
 }
 
@@ -2746,7 +2771,7 @@ inputs
 stat
 {
   create 1526432650
-  modify 1556863004
+  modify 1565235096
   author Henry@LAPPY586
   access 0777
 }
@@ -2821,7 +2846,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.173"
+		"value":"17.5.229"
 	}
 }
 
@@ -2858,7 +2883,7 @@ inputs
 stat
 {
   create 1526532625
-  modify 1556863004
+  modify 1565235096
   author Henry@LAPPY586
   access 0777
 }
@@ -2896,7 +2921,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.173"
+		"value":"17.5.229"
 	}
 }
 
@@ -2955,7 +2980,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.173"
+		"value":"17.5.229"
 	}
 }
 
@@ -3038,7 +3063,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.173"
+		"value":"17.5.229"
 	}
 }
 
@@ -3064,16 +3089,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	(0) "" 1 "input1"
+0 	attribswap1 1 1 "input1"
 }
 inputs
 {
-0 	(0) 0 1
+0 	attribswap1 0 1
 }
 stat
 {
   create 1525233757
-  modify 1526254288
+  modify 1565235125
   author Henry@LAPPY586
   access 0777
 }
@@ -3099,7 +3124,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.173"
+		"value":"17.5.229"
 	}
 }
 
@@ -3138,7 +3163,7 @@ inputs
 stat
 {
   create 1525233817
-  modify 1556863004
+  modify 1565235096
   author Henry@LAPPY586
   access 0777
 }
@@ -3176,7 +3201,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.173"
+		"value":"17.5.229"
 	}
 }
 
@@ -3211,7 +3236,7 @@ inputs
 stat
 {
   create 1525233933
-  modify 1556863004
+  modify 1565235096
   author Henry@LAPPY586
   access 0777
 }
@@ -3333,7 +3358,7 @@ areaattrib	[ 0	locks=0 ]	(	area	)
 indepvoxel	[ 0	locks=0 ]	(	"off"	)
 useareaforvolumes	[ 0	locks=0 ]	(	"off"	)
 forcetotal	[ 0	locks=0 ]	(	"on"	)
-npts	[ 8	locks=0 ]	(	[ npts	0 ] 	)
+npts	[ 8	locks=0 ]	(	[ npts	100 ] 	)
 usedensitytexture	[ 0	locks=0 ]	(	[ usedensitytexture	0 ] 	)
 densitytexture	[ 0	locks=0 ]	(	[ densitytexture	default.pic ] 	)
 primcountattrib	[ 0	locks=0 ]	(	count	)
@@ -3370,7 +3395,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.173"
+		"value":"17.5.229"
 	}
 }
 
@@ -3407,7 +3432,7 @@ inputs
 stat
 {
   create 1525234422
-  modify 1556863004
+  modify 1565235096
   author Henry@LAPPY586
   access 0777
 }
@@ -3444,7 +3469,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.173"
+		"value":"17.5.229"
 	}
 }
 
@@ -3479,7 +3504,7 @@ inputs
 stat
 {
   create 1525234454
-  modify 1556863004
+  modify 1565235096
   author Henry@LAPPY586
   access 0777
 }
@@ -3554,7 +3579,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.173"
+		"value":"17.5.229"
 	}
 }
 
@@ -3591,7 +3616,7 @@ inputs
 stat
 {
   create 1520115798
-  modify 1556863004
+  modify 1565235096
   author Henry@LAPPY586
   access 0777
 }
@@ -3630,7 +3655,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.173"
+		"value":"17.5.229"
 	}
 }
 
@@ -3667,7 +3692,7 @@ inputs
 stat
 {
   create 1525235972
-  modify 1556863004
+  modify 1565235096
   author Henry@LAPPY586
   access 0777
 }
@@ -3834,7 +3859,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.173"
+		"value":"17.5.229"
 	}
 }
 
@@ -3871,7 +3896,7 @@ inputs
 stat
 {
   create 1525235991
-  modify 1556863004
+  modify 1565235096
   author Henry@LAPPY586
   access 0777
 }
@@ -3909,7 +3934,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.173"
+		"value":"17.5.229"
 	}
 }
 
@@ -3926,7 +3951,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 4.65984 -21.8581
+position 4.55117 -23.8504
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -3934,16 +3959,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	Apply_Attributes1 0 1 "input1"
+0 	attribswap2 1 1 "input1"
 }
 inputs
 {
-0 	Apply_Attributes1 0 1
+0 	attribswap2 0 1
 }
 stat
 {
   create 1525237553
-  modify 1556863013
+  modify 1565235394
   author Henry@LAPPY586
   access 0777
 }
@@ -3968,7 +3993,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.173"
+		"value":"17.5.229"
 	}
 }
 
@@ -4029,7 +4054,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.173"
+		"value":"17.5.229"
 	}
 }
 
@@ -4066,7 +4091,7 @@ inputs
 stat
 {
   create 1525914305
-  modify 1556863004
+  modify 1565235096
   author Henry@LAPPY586
   access 0777
 }
@@ -4104,7 +4129,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.173"
+		"value":"17.5.229"
 	}
 }
 
@@ -4165,7 +4190,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.173"
+		"value":"17.5.229"
 	}
 }
 
@@ -4238,7 +4263,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.173"
+		"value":"17.5.229"
 	}
 }
 
@@ -4299,7 +4324,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.173"
+		"value":"17.5.229"
 	}
 }
 
@@ -4333,7 +4358,7 @@ inputs
 stat
 {
   create 1526190989
-  modify 1556863004
+  modify 1565235096
   author Henry@LAPPY586
   access 0777
 }
@@ -4408,7 +4433,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.173"
+		"value":"17.5.229"
 	}
 }
 
@@ -4445,7 +4470,7 @@ inputs
 stat
 {
   create 1526253199
-  modify 1556863004
+  modify 1565235096
   author Henry@LAPPY586
   access 0777
 }
@@ -4483,7 +4508,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.173"
+		"value":"17.5.229"
 	}
 }
 
@@ -4520,7 +4545,7 @@ inputs
 stat
 {
   create 1526253723
-  modify 1556863004
+  modify 1565235096
   author Henry@LAPPY586
   access 0777
 }
@@ -4558,7 +4583,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.173"
+		"value":"17.5.229"
 	}
 }
 
@@ -4595,7 +4620,7 @@ inputs
 stat
 {
   create 1525234422
-  modify 1556863004
+  modify 1565235096
   author Henry@LAPPY586
   access 0777
 }
@@ -4632,7 +4657,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.173"
+		"value":"17.5.229"
 	}
 }
 
@@ -4731,7 +4756,7 @@ inputs
 stat
 {
   create 1526533213
-  modify 1556863004
+  modify 1565235096
   author Henry@LAPPY586
   access 0777
 }
@@ -4870,7 +4895,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.173"
+		"value":"17.5.229"
 	}
 }
 
@@ -4932,7 +4957,153 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.173"
+		"value":"17.5.229"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribswap1.init"
+Content-Type: text/plain
+
+type = attribswap
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribswap1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 4.03812 8.29368
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	(0) "" 1 "input1"
+}
+inputs
+{
+0 	(0) 0 1
+}
+stat
+{
+  create 1565235125
+  modify 1565235380
+  author Henry@LAPPY586
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribswap1.chn"
+Content-Type: text/plain
+
+{
+    channel srcattribs1 {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"mops_falloff\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../falloff_attr\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribswap1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+numswaps	[ 0	locks=0 ]	(	1	)
+enable1	[ 0	locks=0 ]	(	"on"	)
+method1	[ 0	locks=0 ]	(	"swap"	)
+class1	[ 0	locks=0 ]	(	"point"	)
+srcattribs1	[ 0	locks=0 ]	(	[ srcattribs1	mops_falloff ] 	)
+dstattribs1	[ 0	locks=0 ]	(	mops_falloff	)
+typeinfo1	[ 0	locks=0 ]	(	"dest"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribswap1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.229"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribswap2.init"
+Content-Type: text/plain
+
+type = attribswap
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribswap2.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 4.65639 -22.1235
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	Apply_Attributes1 0 1 "input1"
+}
+inputs
+{
+0 	Apply_Attributes1 0 1
+}
+stat
+{
+  create 1565235125
+  modify 1565235408
+  author Henry@LAPPY586
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribswap2.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+numswaps	[ 0	locks=0 ]	(	1	)
+enable1	[ 0	locks=0 ]	(	"on"	)
+method1	[ 0	locks=0 ]	(	"swap"	)
+class1	[ 0	locks=0 ]	(	"point"	)
+srcattribs1	[ 0	locks=0 ]	(	mops_falloff	)
+dstattribs1	[ 0	locks=0 ]	(	`chs(\"../attribswap1/srcattribs1\")`	)
+typeinfo1	[ 0	locks=0 ]	(	"dest"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribswap2.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.229"
 	}
 }
 
@@ -4979,7 +5150,7 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot.order"
 Content-Type: text/plain
 
-31
+33
 nearest_point_on_mesh
 Apply_Attributes1
 create_orient
@@ -5011,6 +5182,8 @@ attribinterpolate_no_move
 attribdelete1
 sort1
 enumerate1
+attribswap1
+attribswap2
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"

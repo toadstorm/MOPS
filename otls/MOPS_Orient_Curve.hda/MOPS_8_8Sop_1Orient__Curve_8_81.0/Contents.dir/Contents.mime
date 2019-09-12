@@ -32,7 +32,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -2.47521 -4.61281
+position 0.778689 -4.048
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -41,16 +41,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	blast1 1 1 "input1"
+0 	subnet1 2 1 "input1"
 }
 inputs
 {
-0 	blast1 0 1
+0 	subnet1 1 1
 }
 stat
 {
-  create 1547335664
-  modify 1547336141
+  create 1562628317
+  modify 1562629035
   author Henry@LAPPY586
   access 0777
 }
@@ -90,7 +90,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.0103755 0.761054
+position -0.0103755 -0.238946
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -108,7 +108,7 @@ inputs
 stat
 {
   create 1521086744
-  modify 1547335998
+  modify 1562628734
   author Henry@LAPPY586
   access 0777
 }
@@ -417,7 +417,7 @@ vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 invert	[ 0	locks=0 ]	(	[ invert	0 ] 	)
-twist_amount	[ 0	locks=0 ]	(	[ twist_amount	0 ] 	)
+twist_amount	[ 0	locks=0 ]	(	[ twist_amount	360 ] 	)
 twist_ramp	[ 0	locks=0 ]	(	[ twist_ramp	2 ] 	)
 twist_ramp1pos	[ 0	locks=0 ]	(	[ twist_ramp1pos	0 ] 	)
 twist_ramp1value	[ 0	locks=0 ]	(	[ twist_ramp1value	0 ] 	)
@@ -451,7 +451,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.0115255 1.85795
+position -0.0115255 0.85795
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -469,7 +469,7 @@ inputs
 stat
 {
   create 1524271534
-  modify 1547335995
+  modify 1562628734
   author Henry@LAPPY586
   access 0777
 }
@@ -531,8 +531,8 @@ Content-Type: text/plain
 version 0.8
 group	[ 0	locks=0 ]	(	[ group	"" ] 	)
 grouptype	[ 0	locks=0 ]	(	[ grouptype	0 ] 	)
-custom_first_tangent	[ 0	locks=0 ]	(	[ custom_first_tangent	1 ] 	)
-First_Tangent	[ 0	locks=0 ]	(	[ First_Tangentx	1 ] 	[ First_Tangenty	0 ] 	[ First_Tangentz	0 ] 	)
+custom_first_tangent	[ 0	locks=0 ]	(	[ custom_first_tangent	0 ] 	)
+First_Tangent	[ 0	locks=0 ]	(	[ First_Tangentx	0 ] 	[ First_Tangenty	1 ] 	[ First_Tangentz	0 ] 	)
 Transported_Normal_Name	[ 0	locks=0 ]	(	mops_PT_normal	)
 Transported_Tangent_Name	[ 0	locks=0 ]	(	mops_PT_tangent	)
 Transported_Bitangent_Name	[ 0	locks=0 ]	(	mops_PT_binormal	)
@@ -540,6 +540,186 @@ Transported_Bitangent_Name	[ 0	locks=0 ]	(	mops_PT_binormal	)
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/MOPs_Parallel_Transport1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/visualize1.init"
+Content-Type: text/plain
+
+type = visualize
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/visualize1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 4.00888 3.45824
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
+outputsNamed3
+{
+}
+inputsNamed3
+{
+0 	uvtexture1 1 1 "input1"
+}
+inputs
+{
+0 	uvtexture1 0 1
+}
+stat
+{
+  create 1562628604
+  modify 1562628804
+  author Henry@LAPPY586
+  access 0777
+}
+color UT_Color RGB 0 0.4 1 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/visualize1.spareparmdef"
+Content-Type: text/plain
+
+    parm {
+        name    "setvisualizers"
+        baseparm
+        label   "Update Visualizers"
+        export  none
+    }
+    parm {
+        name    "clearvisualizers"
+        baseparm
+        label   "Clear Incoming Visualizers"
+        export  none
+    }
+    parm {
+        name    "wireframe"
+        baseparm
+        label   "Wireframe"
+        export  none
+    }
+    parm {
+        name    "lit"
+        baseparm
+        label   "Lighting"
+        export  none
+    }
+    parm {
+        name    "showpoints"
+        baseparm
+        label   "Show Points"
+        export  none
+    }
+    parm {
+        name    "setcuspangle"
+        baseparm
+        label   "Set Cusp Angle"
+        nolabel
+        joinnext
+        export  none
+    }
+    parm {
+        name    "cuspangle"
+        baseparm
+        label   "Cusp Angle"
+        export  none
+    }
+    parm {
+        name    "node_vis_enabled"
+        label   "Visualization Enabled"
+        type    toggle
+        invisible
+        default { "1" }
+    }
+    multiparm {
+        name    "num_visualizers"
+        label    "Visualizers"
+        invisible
+        default 0
+        parmtag { "multistartoffset" "0" }
+
+        parm {
+            name    "vis_active#"
+            label   "Active #"
+            type    toggle
+            invisible
+            default { "0" }
+        }
+        parm {
+            name    "vis_data#"
+            label   "Raw Data #"
+            type    string
+            invisible
+            nolabel
+            default { "" }
+            parmtag { "editor" "1" }
+        }
+    }
+
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/visualize1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+setvisualizers	[ 0	locks=0 ]	(	"on"	)
+clearvisualizers	[ 0	locks=0 ]	(	"off"	)
+wireframe	[ 0	locks=0 ]	(	"nochange"	)
+lit	[ 0	locks=0 ]	(	"nochange"	)
+showpoints	[ 0	locks=0 ]	(	"nochange"	)
+setcuspangle	[ 0	locks=0 ]	(	"off"	)
+cuspangle	[ 0	locks=0 ]	(	60	)
+node_vis_enabled	[ 0	locks=0 ]	(	"on"	)
+num_visualizers	[ 0	locks=0 ]	(	1	)
+vis_active0	[ 0	locks=0 ]	(	"on"	)
+vis_data0	[ 0	locks=0 ]	(	"{
+	\"flags\":{
+		\"type\":\"int\",
+		\"value\":27
+	},
+	\"icon\":{
+		\"type\":\"string\",
+		\"value\":\"VIEW_visualization_color\"
+	},
+	\"label\":{
+		\"type\":\"string\",
+		\"value\":\"Color 1\"
+	},
+	\"name\":{
+		\"type\":\"string\",
+		\"value\":\"vis_color_1\"
+	},
+	\"parameters\":{
+		\"type\":\"string\",
+		\"value\":\"{\\nversion 0.8\\ncolortype\\t[ 0\\tlocks=0 ]\\t(\\t\\\"attribasis\\\"\\t)\\nclass\\t[ 0\\tlocks=0 ]\\t(\\t\\\"auto\\\"\\t)\\nattrib\\t[ 0\\tlocks=0 ]\\t(\\t__curveu\\t)\\nuvattrib\\t[ 0\\tlocks=0 ]\\t(\\tuv\\t)\\ndistortiontype\\t[ 0\\tlocks=0 ]\\t(\\t\\\"global\\\"\\t)\\nrangesection\\t[ 0\\tlocks=0 ]\\t(\\t0\\t)\\nrangespec\\t[ 0\\tlocks=0 ]\\t(\\t\\\"auto\\\"\\t)\\nminscalar\\t[ 0\\tlocks=0 ]\\t(\\t0\\t)\\nmaxscalar\\t[ 0\\tlocks=0 ]\\t(\\t1\\t)\\ncenterscalar\\t[ 0\\tlocks=0 ]\\t(\\t0\\t)\\nwidthscalar\\t[ 0\\tlocks=0 ]\\t(\\t2\\t)\\nclamptype\\t[ 0\\tlocks=0 ]\\t(\\t\\\"edge\\\"\\t)\\nconstcolor\\t[ 0\\tlocks=0 ]\\t(\\t1\\t0\\t0\\t1\\t)\\nusethreevtxcolor\\t[ 0\\tlocks=0 ]\\t(\\t\\\"on\\\"\\t)\\ncolorthreevtx\\t[ 0\\tlocks=0 ]\\t(\\t1\\t1\\t0\\t)\\nusefourvtxcolor\\t[ 0\\tlocks=0 ]\\t(\\t\\\"on\\\"\\t)\\ncolorfourvtx\\t[ 0\\tlocks=0 ]\\t(\\t0.5\\t0.69999999999999996\\t1\\t)\\nusenvtxcolor\\t[ 0\\tlocks=0 ]\\t(\\t\\\"on\\\"\\t)\\ncolornvtx\\t[ 0\\tlocks=0 ]\\t(\\t1\\t0\\t0\\t)\\ntreatasscalar\\t[ 0\\tlocks=0 ]\\t(\\t\\\"off\\\"\\t)\\nusing\\t[ 0\\tlocks=0 ]\\t(\\t\\\"comp\\\"\\t)\\ncomponent\\t[ 0\\tlocks=0 ]\\t(\\t0\\t)\\nrefvec\\t[ 0\\tlocks=0 ]\\t(\\t0\\t1\\t0\\t)\\nrandseed\\t[ 0\\tlocks=0 ]\\t(\\t0\\t)\\nvalsep\\t[ 0\\tlocks=0 ]\\t(\\t1\\t)\\nrampsection\\t[ 0\\tlocks=0 ]\\t(\\t0\\t)\\ncolorramppreset\\t[ 0\\tlocks=0 ]\\t(\\t0\\t)\\ncolorramp\\t[ 0\\tlocks=0 ]\\t(\\t3\\t)\\ncolorramp1pos\\t[ 0\\tlocks=0 ]\\t(\\t0\\t)\\ncolorramp1c\\t[ 0\\tlocks=0 ]\\t(\\t0\\t0\\t1\\t)\\ncolorramp1interp\\t[ 0\\tlocks=0 ]\\t(\\t\\\"linear\\\"\\t)\\ncolorramp2pos\\t[ 0\\tlocks=0 ]\\t(\\t0.5\\t)\\ncolorramp2c\\t[ 0\\tlocks=0 ]\\t(\\t1\\t1\\t1\\t)\\ncolorramp2interp\\t[ 0\\tlocks=0 ]\\t(\\t\\\"linear\\\"\\t)\\ncolorramp3pos\\t[ 0\\tlocks=0 ]\\t(\\t1\\t)\\ncolorramp3c\\t[ 0\\tlocks=0 ]\\t(\\t1\\t0\\t0\\t)\\ncolorramp3interp\\t[ 0\\tlocks=0 ]\\t(\\t\\\"linear\\\"\\t)\\n}\\n\"},
+	
+	\"scope\":{
+		\"type\":\"int\",
+		\"value\":2
+	},
+	\"type\":{
+		\"type\":\"string\",
+		\"value\":\"vis_color\"
+	}
+}
+"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/visualize1.userdata"
 Content-Type: text/plain
 
 {
@@ -562,7 +742,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.0115255 2.7453
+position -0.0115255 1.7453
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -571,16 +751,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	attribcopy1 1 1 "input1"
+0 	uvtexture1 1 1 "input1"
 }
 inputs
 {
-0 	attribcopy1 0 1
+0 	uvtexture1 0 1
 }
 stat
 {
   create 1524271565
-  modify 1547335979
+  modify 1562628735
   author Henry@LAPPY586
   access 0777
 }
@@ -605,6 +785,8 @@ tangentuon	[ 0	locks=0 ]	(	"on"	)
 tangentu	[ 0	locks=0 ]	(	tangentu	)
 tangentvon	[ 0	locks=0 ]	(	"off"	)
 tangentv	[ 0	locks=0 ]	(	tangentv	)
+signson	[ 0	locks=0 ]	(	"off"	)
+signs	[ 0	locks=0 ]	(	signs	)
 ortho	[ 0	locks=0 ]	(	"off"	)
 lefthanded	[ 0	locks=0 ]	(	"off"	)
 }
@@ -616,7 +798,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.229"
 	}
 }
 
@@ -633,7 +815,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.0108255 -3.00651
+position -0.0108255 -4.00651
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -650,7 +832,7 @@ inputs
 stat
 {
   create 1542837660
-  modify 1547335802
+  modify 1562628804
   author Henry@LAPPY586
   access 0777
 }
@@ -675,164 +857,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/resample1.init"
-Content-Type: text/plain
-
-type = resample
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/resample1.def"
-Content-Type: text/plain
-
-sopflags sopflags = 
-comment ""
-position 1.02927 4.6037
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
-outputsNamed3
-{
-1 "output1"
-}
-inputsNamed3
-{
-0 	null1 1 1 "input1"
-}
-inputs
-{
-0 	null1 0 1
-}
-stat
-{
-  create 1542838504
-  modify 1547336014
-  author Henry@LAPPY586
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/resample1.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-group	[ 0	locks=0 ]	(	""	)
-lod	[ 0	locks=0 ]	(	1	)
-edge	[ 0	locks=0 ]	(	"off"	)
-method	[ 0	locks=0 ]	(	"dist"	)
-measure	[ 0	locks=0 ]	(	"arc"	)
-dolength	[ 0	locks=0 ]	(	"off"	)
-length	[ 0	locks=0 ]	(	0.10000000000000001	)
-dosegs	[ 0	locks=0 ]	(	"off"	)
-segs	[ 0	locks=0 ]	(	10	)
-useattribs	[ 0	locks=0 ]	(	"on"	)
-allequal	[ 0	locks=0 ]	(	"on"	)
-last	[ 0	locks=0 ]	(	"off"	)
-randomshift	[ 0	locks=0 ]	(	"off"	)
-onlypoints	[ 0	locks=0 ]	(	"off"	)
-treatpolysas	[ 0	locks=0 ]	(	"straight"	)
-outputsubdpoly	[ 0	locks=0 ]	(	"off"	)
-doptdistattr	[ 0	locks=0 ]	(	"off"	)
-ptdistattr	[ 0	locks=0 ]	(	ptdist	)
-dotangentattr	[ 0	locks=0 ]	(	"off"	)
-tangentattr	[ 0	locks=0 ]	(	tangentu	)
-docurveuattr	[ 0	locks=0 ]	(	"on"	)
-curveuattr	[ 0	locks=0 ]	(	__curveu	)
-docurvenumattr	[ 0	locks=0 ]	(	"off"	)
-curvenumattr	[ 0	locks=0 ]	(	curvenum	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/resample1.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"17.0.416"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribcopy1.init"
-Content-Type: text/plain
-
-type = attribcopy
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribcopy1.def"
-Content-Type: text/plain
-
-sopflags sopflags = 
-comment ""
-position -0.0115255 3.7453
-connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
-outputsNamed3
-{
-1 "output1"
-}
-inputsNamed3
-{
-0 	null1 1 1 "input1"
-2 	resample1 1 1 "input2"
-}
-inputs
-{
-0 	null1 0 1
-1 	resample1 0 1
-}
-stat
-{
-  create 1542838509
-  modify 1547336002
-  author Henry@LAPPY586
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribcopy1.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-srcgroup	[ 0	locks=0 ]	(	""	)
-srcgrouptype	[ 0	locks=0 ]	(	"points"	)
-destgroup	[ 0	locks=0 ]	(	""	)
-destgrouptype	[ 0	locks=0 ]	(	"points"	)
-matchbyattribute	[ 0	locks=0 ]	(	"off"	)
-attributetomatch	[ 0	locks=0 ]	(	piece	)
-attrib	[ 0	locks=0 ]	(	"otherattrib"	)
-attribname	[ 0	locks=0 ]	(	__curveu	)
-copyp	[ 0	locks=0 ]	(	"on"	)
-usenewname	[ 0	locks=0 ]	(	"off"	)
-newname	[ 0	locks=0 ]	(	""	)
-class	[ 0	locks=0 ]	(	"guess"	)
-copyvariable	[ 0	locks=0 ]	(	"on"	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribcopy1.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.229"
 	}
 }
 
@@ -849,7 +874,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 3.16296 -0.652542
+position 3.16296 -1.65254
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -867,7 +892,7 @@ inputs
 stat
 {
   create 1542839307
-  modify 1544074720
+  modify 1562628734
   author Henry@LAPPY586
   access 0777
 }
@@ -913,7 +938,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.0108255 -1.73891
+position -0.0108255 -2.73891
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -933,7 +958,7 @@ inputs
 stat
 {
   create 1542848909
-  modify 1547335664
+  modify 1562628734
   author Henry@LAPPY586
   access 0777
 }
@@ -962,7 +987,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	0 ] 	)
+input	[ 0	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -972,7 +997,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.229"
 	}
 }
 
@@ -1033,7 +1058,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.229"
 	}
 }
 
@@ -1063,7 +1088,7 @@ inputsNamed3
 }
 inputs
 {
-0 	(0) 0 1
+0 	(0) 1 1
 }
 stat
 {
@@ -1102,20 +1127,89 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/uvtexture1.init"
+Content-Type: text/plain
+
+type = texture
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/uvtexture1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -0.00807546 4.18364
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	null1 1 1 "input1"
+}
+inputs
+{
+0 	null1 0 1
+}
+stat
+{
+  create 1562628726
+  modify 1562628798
+  author Henry@LAPPY586
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/uvtexture1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+uvattrib	[ 0	locks=0 ]	(	__curveu	)
+group	[ 0	locks=0 ]	(	""	)
+type	[ 0	locks=0 ]	(	"sarclen"	)
+axis	[ 0	locks=0 ]	(	"y"	)
+campath	[ 0	locks=0 ]	(	""	)
+coord	[ 0	locks=0 ]	(	"point"	)
+s	[ 0	locks=0 ]	(	1	1	1	)
+offset	[ 0	locks=0 ]	(	0	0	0	)
+angle	[ 0	locks=0 ]	(	0	)
+fixseams	[ 0	locks=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/uvtexture1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.229"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.order"
 Content-Type: text/plain
 
 10
 polyframe2
 output1
-resample1
-attribcopy1
 attribdelete1
 generate_orient
 switch_remove_temp_attrs
 null1
 MOPs_Parallel_Transport1
 attribdelete2
+visualize1
+uvtexture1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"

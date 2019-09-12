@@ -32,7 +32,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.45294 0.380294
+position -1.78252 3.50733
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -47,9 +47,9 @@ inputs
 }
 stat
 {
-  create 1531964143
-  modify 1560464553
-  author Henry@LAPPY586
+  create 1566493741
+  modify 1566824107
+  author Tomcio@DESKTOP-OS710LN
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -248,7 +248,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector points "Modify Points"
+            bindselector uvselect "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -512,7 +512,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector points "Modify Points"
+            bindselector uvselect "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -812,7 +812,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector points "Modify Points"
+            bindselector uvselect "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -1080,7 +1080,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector points "Modify Points"
+            bindselector uvselect "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -1464,7 +1464,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector points "Modify Points"
+            bindselector uvselect "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -1714,7 +1714,7 @@ inputs
 stat
 {
   create 1509161781
-  modify 1558834015
+  modify 1566839181
   author Henry@LAPPY586
   access 0777
 }
@@ -1735,11 +1735,16 @@ grouptype	[ 0	locks=0 ]	(	"guess"	)
 class	[ 0	locks=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
-snippet	[ 0	locks=0 ]	(	"@N = {0,0,1};
+snippet	[ 0	locks=0 ]	(	"// set default orientations
+@N = {0,0,1};
 v@up = {0,1,0};
 
 matrix3 m = maketransform(@N, @up);
-p@orient = quaternion(m);"	)
+p@orient = quaternion(m);
+
+// center at origin
+vector center = getbbox_center(0);
+@P -= center;"	)
 exportlist	[ 0	locks=0 ]	(	*	)
 vex_strict	[ 0	locks=0 ]	(	"off"	)
 autobind	[ 0	locks=0 ]	(	"on"	)
@@ -1818,7 +1823,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector points "Modify Points"
+            bindselector uvselect "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -2090,10 +2095,10 @@ vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 folder1	[ 0	locks=0 ]	(	0	0	)
-grid_x	[ 0	locks=0 ]	(	[ grid_x	20 ] 	)
-grid_y	[ 0	locks=0 ]	(	[ grid_y	1 ] 	)
-grid_z	[ 0	locks=0 ]	(	[ grid_z	20 ] 	)
-distance	[ 0	locks=0 ]	(	[ distancex	0.14999999999999999 ] 	[ distancey	0.14999999999999999 ] 	[ distancez	0.14999999999999999 ] 	)
+grid_x	[ 0	locks=0 ]	(	[ grid_x	3 ] 	)
+grid_y	[ 0	locks=0 ]	(	[ grid_y	3 ] 	)
+grid_z	[ 0	locks=0 ]	(	[ grid_z	3 ] 	)
+distance	[ 0	locks=0 ]	(	[ distancex	0.10000000000000001 ] 	[ distancey	0.10000000000000001 ] 	[ distancez	0.10000000000000001 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2160,7 +2165,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector points "Modify Points"
+            bindselector uvselect "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -2433,7 +2438,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector points "Modify Points"
+            bindselector uvselect "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -2801,7 +2806,7 @@ version 0.8
 group	[ 0	locks=0 ]	(	""	)
 keepgeo	[ 0	locks=0 ]	(	"off"	)
 folder1	[ 0	locks=0 ]	(	1	1	1	1	)
-nptsperpt	[ 8	locks=0 ]	(	[ nptsperpt	400 ] 	)
+nptsperpt	[ 8	locks=0 ]	(	[ nptsperpt	27000 ] 	)
 genfromattrib	[ 0	locks=0 ]	(	"off"	)
 attrib	[ 0	locks=0 ]	(	""	)
 shape	[ 0	locks=0 ]	(	"point"	)
@@ -2896,7 +2901,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector points "Modify Points"
+            bindselector uvselect "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -3206,7 +3211,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector points "Modify Points"
+            bindselector uvselect "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -3485,7 +3490,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector points "Modify Points"
+            bindselector uvselect "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -3763,7 +3768,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector points "Modify Points"
+            bindselector uvselect "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -4204,7 +4209,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector points "Modify Points"
+            bindselector uvselect "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -4484,12 +4489,12 @@ vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 folder1	[ 0	locks=0 ]	(	0	0	)
-sizex	[ 0	locks=0 ]	(	[ sizex	2 ] 	)
-sizey	[ 0	locks=0 ]	(	[ sizey	0 ] 	)
-sizez	[ 0	locks=0 ]	(	[ sizez	2 ] 	)
-stepx	[ 0	locks=0 ]	(	[ stepx	0.22 ] 	)
-stepy	[ 0	locks=0 ]	(	[ stepy	0.22 ] 	)
-stepz	[ 0	locks=0 ]	(	[ stepz	0.22 ] 	)
+sizex	[ 0	locks=0 ]	(	[ sizex	3 ] 	)
+sizey	[ 0	locks=0 ]	(	[ sizey	3 ] 	)
+sizez	[ 0	locks=0 ]	(	[ sizez	3 ] 	)
+stepx	[ 0	locks=0 ]	(	[ stepx	0.10000000000000001 ] 	)
+stepy	[ 0	locks=0 ]	(	[ stepy	0.10000000000000001 ] 	)
+stepz	[ 0	locks=0 ]	(	[ stepz	0.10000000000000001 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -5066,7 +5071,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector points "Modify Points"
+            bindselector uvselect "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -6285,7 +6290,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector points "Modify Points"
+            bindselector uvselect "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -6617,7 +6622,7 @@ inputs
 stat
 {
   create 1530946005
-  modify 1560463667
+  modify 1561594774
   author Henry@LAPPY586
   access 0777
 }
@@ -7099,7 +7104,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector points "Modify Points"
+            bindselector uvselect "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -7359,7 +7364,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector points "Modify Points"
+            bindselector uvselect "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -7695,7 +7700,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector points "Modify Points"
+            bindselector uvselect "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -7960,7 +7965,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector points "Modify Points"
+            bindselector uvselect "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -8318,7 +8323,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector points "Modify Points"
+            bindselector uvselect "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -10460,7 +10465,7 @@ sopflags sopflags =
 comment ""
 position 10.2105 -9.10465
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 1 "output1"
@@ -10476,7 +10481,7 @@ inputs
 stat
 {
   create 1508908717
-  modify 1527988094
+  modify 1566839105
   author Henry@LAPPY586
   access 0777
 }
@@ -11469,7 +11474,7 @@ sopflags sopflags =
 comment ""
 position -1.34926 -60.9945
 connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
@@ -11484,7 +11489,7 @@ inputs
 stat
 {
   create 1510816622
-  modify 1560463667
+  modify 1566839105
   author Henry@LAPPY586
   access 0777
 }
@@ -13435,7 +13440,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	1 ] 	)
+input	[ 0	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -14526,7 +14531,7 @@ inputs
 stat
 {
   create 1522969308
-  modify 1560465853
+  modify 1566839190
   author Wolf_User@admin-hp
   access 0777
 }
@@ -16387,7 +16392,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-ptsort	[ 0	locks=0 ]	(	[ ptsort	0 ] 	)
+ptsort	[ 0	locks=0 ]	(	[ ptsort	2 ] 	)
 pointseed	[ 0	locks=0 ]	(	[ pointseed	0 ] 	)
 pointoffset	[ 0	locks=0 ]	(	[ pointoffset	0 ] 	)
 pointprox	[ 0	locks=0 ]	(	[ pointproxx	0 ] 	[ pointproxy	0 ] 	[ pointproxz	0 ] 	)
@@ -17890,7 +17895,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -17965,7 +17970,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -18008,7 +18013,7 @@ inputs
 stat
 {
   create 1530848881
-  modify 1558834015
+  modify 1561594557
   author Henry@LAPPY586
   access 0777
 }
@@ -18026,7 +18031,7 @@ Content-Type: text/plain
       lefttype = extend
       righttype = extend
       flags = 0
-      segment { length = 0 expr = $FF-1 }
+      segment { length = 0 expr = $FF-ch(\"f1\") }
     }
     channel viewportlod {
       lefttype = extend
@@ -18070,7 +18075,7 @@ mkpath	[ 0	locks=0 ]	(	"on"	)
 cachesize	[ 0	locks=0 ]	(	0	)
 prefetch	[ 0	locks=0 ]	(	"off"	)
 f	[ 0	locks=0 ]	(	[ f1	1 ] 	[ f2	48 ] 	)
-index	[ 8	locks=0 ]	(	[ index	54 ] 	)
+index	[ 0	locks=0 ]	(	[ index	0 ] 	)
 wrap	[ 0	locks=0 ]	(	"cycle"	)
 retry	[ 0	locks=0 ]	(	0	)
 }

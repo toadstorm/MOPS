@@ -285,6 +285,24 @@
                 parmtag { "autoscope" "0000000000000000" }
             }
             parm {
+                name    "custom_first_tangent"
+                label   "Custom First Tangent"
+                type    toggle
+                default { "off" }
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "First_Tangent"
+                label   "First Tangent"
+                type    vector
+                size    3
+                default { "0" "1" "0" }
+                disablewhen "{ custom_first_tangent != 1 }"
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
                 name    "twist_amount"
                 label   "Twist Amount"
                 type    float
@@ -396,6 +414,24 @@
             parmtag { "autoscope" "0000000000000000" }
         }
         parm {
+            name    "falloff_attr"
+            label   "Falloff Attribute"
+            type    string
+            default { "mops_falloff" }
+            disablewhen "{ do_falloff 0 }"
+            menureplace {
+                [ "opmenu -l attribswap1 srcattribs1" ]
+            }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "do_rotate_falloff"
+            label   "Falloff Affects Rotation"
+            type    toggle
+            default { "1" }
+            disablewhen "{ do_falloff == 0 }"
+        }
+        parm {
             name    "goal_type"
             label   "Goal Type"
             type    ordinal
@@ -468,7 +504,6 @@
         group {
             name    "folder1_4_1"
             label   "Acceleration"
-            hidewhentab "{ mode != 1 }"
 
             parm {
                 name    "acceleration_ramp"
@@ -479,6 +514,16 @@
                 range   { 1! 10 }
                 parmtag { "autoscope" "0000000000000000" }
                 parmtag { "rampfloatdefault" "1pos ( 0 ) 1value ( 1 ) 1interp ( linear ) 2pos ( 1 ) 2value ( 1 ) 2interp ( linear )" }
+            }
+            parm {
+                name    "acceleration_ramp_simple"
+                label   "Acceleration Ramp"
+                type    ramp_flt
+                default { "2" }
+                hidewhen "{ mode == 1 }"
+                range   { 1! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "rampfloatdefault" "1pos ( 0 ) 1value ( 0 ) 1interp ( linear ) 2pos ( 1 ) 2value ( 1 ) 2interp ( linear )" }
             }
         }
 
@@ -508,6 +553,14 @@
                 label   "Trail Group Name"
                 type    string
                 default { "mops_trails" }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "trails_end"
+                label   "Trails End Frame"
+                type    float
+                default { [ "$RFEND" hscript-expr ] }
+                range   { 0 10 }
                 parmtag { "autoscope" "0000000000000000" }
             }
         }

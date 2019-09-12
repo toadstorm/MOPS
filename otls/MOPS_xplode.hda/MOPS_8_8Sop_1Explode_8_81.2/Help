@@ -1,0 +1,87 @@
+= MOPs Explode =
+
+#icon: opdef:.?mops_misc_05.svg
+
+"""Splits polygon primitives into individual MOPs packed primitives."""
+
+MOPs Explode breaks a polygon mesh apart into MOPs primitives, so that each primitive/face can be moved individually. 
+You can optionally use a primitive attribute or K-means clustering to create grouped "chunks" instead of breaking apart every face.
+
+This operator works in three steps: first, an orientation frame is computed on the source object. Next, the object is split into MOPs primitives
+based on either the primitive numbers, a primitive attribute, or K-means clustering (via the Cluster SOP). Finally, the orientation from
+the original mesh points is transferred onto the MOPs primitives as the p@mops_orient attribute, which makes the generated pieces
+follow the orientation of the source mesh as much as possible.
+
+== Overview ==
+
+@inputs
+
+Geometry:
+    Plug in geometry that should be converted to instances in here.
+
+@parameters
+
+== General ==
+
+Compute Source Orient:
+    #id: compute_orient
+    Compute the orientation frame of the input mesh. If your mesh doesn't already have a p@orient attribute, this should be enabled.
+    
+== Compute Source Orient ==
+    
+Compute N/Up:
+    #id: compute_N_up
+    Compute normal and up vectors on the input mesh, to be used in creating the orientation frame.
+    
+Style:
+    #id: style
+    The method by which the initial N and up vectors are computed. See the Polyframe SOP for details.
+    
+Attribute Name:
+    #id: attribname
+    If Style is set to "Texture UV", the vector point attribute to read to determine the directionality of the tangent and bitangent vectors.
+    
+Custom Up Vector:
+    #id: custom_up_vector
+    If enabled, use this up vector instead of the one computed via the above parameters.
+    
+Invert Normal:
+    #id: invert_N
+    Invert the computed normal.
+    
+Invert Up:
+    #id: invert_up
+    Invert the computed up vector.
+    
+==  Define Pieces ==
+
+Method:
+    #id: piece_method
+    The method by which pieces are split up.
+        * Primitive Number: each primitive becomes its own MOPs packed primitive.
+        * Piece Attribute: The primitive attribute to use to differentiate pieces. Each unique attribute value gets its own MOPs primitive.
+        * Clustering: Use K-means clustering to naturally group primitives into chunks. See the Cluster SOP for details.
+Piece Attribute:
+    #id: piece_attribute
+    The attribute to use for determining pieces if the Method is set to Piece Attribute. This can be an integer or string attribute.
+    
+Id Offset:
+    #id: id_offset
+    The starting value for generated piece i@id attributes.
+    
+Name Prefix:
+    #id: name_prefix
+    The prefix to use as the basis for the s@name attribute of each piece. This can be used to ensure packed primitives from multiple
+    streams all have unique names.
+    
+Visualize Pieces:
+    #id: do_viz_pieces
+    Apply a color attribute to the pieces before packing in order to better differentiate the generated pieces.
+    
+Visualization Seed:
+    #id: viz_seed
+    The seed to use for generating random colors.
+    
+== Transfer Orient ==
+
+See the Attribute Transfer SOP for details.

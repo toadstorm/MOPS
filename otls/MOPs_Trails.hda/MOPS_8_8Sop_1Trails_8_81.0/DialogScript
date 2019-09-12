@@ -1,0 +1,468 @@
+# Dialog script for MOPS::Trails::1.0 automatically generated
+
+{
+    name	MOPS::Trails::1.0
+    script	MOPS::Trails::1.0
+    label	"MOPs Trails"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Input Points"
+    inputlabel	2	"Sub-Network Input #2"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+    outputlabel	1	Trails
+    outputlabel	2	Trails
+
+    group {
+        name    "folder2"
+        label   "General"
+
+        parm {
+            name    "resimulate"
+            label   "Reset Simulation"
+            type    button
+            default { "0" }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "startframe"
+            label   "Start Frame"
+            type    integer
+            default { "$RFSTART" }
+            range   { 1 240 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "frame"
+            label   "End Frame"
+            type    integer
+            default { [ "$RFEND" hscript-expr ] }
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "tol3d"
+            label   "Snap Distance"
+            type    float
+            default { "0.001" }
+            range   { 0.001 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "attrname"
+            label   "Trail Attribute"
+            type    string
+            default { "id" }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "do_resample"
+            label   "Resample Trails"
+            type    toggle
+            default { "0" }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "do_orient"
+            label   "Orient Trails"
+            type    toggle
+            default { "0" }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        group {
+            name    "folder2_1"
+            label   "Simulation"
+
+            parm {
+                name    "substep"
+                label   "Sub Steps"
+                type    integer
+                default { "1" }
+                range   { 1! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "cacheenabled"
+                label   "Cache Simulation"
+                type    toggle
+                default { "on" }
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "cachetodisk"
+                label   "Allow Caching To Disk"
+                type    toggle
+                default { "off" }
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "cachemaxsize"
+                label   "Cache Memory (MB)"
+                type    integer
+                default { "5000" }
+                range   { 0! 1000 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+        }
+
+        group {
+            name    "folder2_1_1"
+            label   "Resample"
+            disablewhentab "{ do_resample == 0 }"
+
+            parm {
+                name    "edge"
+                label   "Resample by Polygon Edge"
+                type    toggle
+                default { "off" }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "method"
+                label   "Method"
+                type    ordinal
+                default { "dist" }
+                menu {
+                    "dist"  "Even Length Segments"
+                    "x"     "Even X Segments"
+                    "y"     "Even Y Segments"
+                    "z"     "Even Z Segments"
+                }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "measure"
+                label   "Measure"
+                type    ordinal
+                default { "arc" }
+                menu {
+                    "arc"   "Along Arc"
+                    "chord" "Along Chord"
+                }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "dolength"
+                label   "Maximum Segment Length"
+                type    toggle
+                default { "on" }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "length"
+                label   "Length"
+                type    float
+                default { "0.1" }
+                disablewhen "{ dolength == 0 }"
+                range   { 0! 5 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "units" "m1" }
+            }
+            parm {
+                name    "dosegs"
+                label   "Maximum Segments"
+                type    toggle
+                default { "off" }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "segs"
+                label   "Segments"
+                type    integer
+                default { "10" }
+                disablewhen "{ dosegs == 0 }"
+                range   { 1! 50 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "allequal"
+                label   "Even Last Segment Same Length"
+                type    toggle
+                default { "on" }
+                disablewhen "{ dolength == 0 } { edge == 1 } { measure != arc } { method != dist }"
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "last"
+                label   "Maintain Last Vertex"
+                type    toggle
+                default { "off" }
+                disablewhen "{ dolength == 0 } { edge == 1 } { dolength == 1 edge == 0 measure == arc method == dist allequal == 1 }"
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "randomshift"
+                label   "Randomize First Segment Length"
+                type    toggle
+                default { "off" }
+                disablewhen "{ dolength == 0 } { edge == 1 } { dolength == 1 edge == 0 measure == arc method == dist allequal == 1 }"
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "treatpolysas"
+                label   "Treat Polygons As"
+                type    ordinal
+                default { "straight" }
+                menu {
+                    "straight"  "Straight Edges"
+                    "subd"      "Subdivision Curves"
+                    "interp"    "Interpolating Curves"
+                }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "outputsubdpoly"
+                label   "Output as Polygon Curves to be Subdivided Later"
+                type    toggle
+                default { "off" }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+        }
+
+        group {
+            name    "folder2_1_2"
+            label   "Orient"
+            disablewhentab "{ do_orient == 0 }"
+
+            parm {
+                name    "invert"
+                label   "Invert Normal"
+                type    toggle
+                default { "off" }
+                range   { 0 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "custom_first_tangent"
+                label   "Custom First Tangent"
+                type    toggle
+                default { "off" }
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "First_Tangent"
+                label   "First Tangent"
+                type    vector
+                size    3
+                default { "0" "1" "0" }
+                disablewhen "{ custom_first_tangent != 1 }"
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "remove_temp"
+                label   "Remove Temporary Attrs"
+                type    toggle
+                default { "on" }
+                range   { 0! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "twist_amount"
+                label   "Twist Amount"
+                type    float
+                default { "0" }
+                range   { -360 360 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "twist_ramp"
+                label   "Twist Ramp"
+                type    ramp_flt
+                default { "2" }
+                range   { 1! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "rampfloatdefault" "1pos ( 0 ) 1value ( 0 ) 1interp ( linear ) 2pos ( 1 ) 2value ( 1 ) 2interp ( linear )" }
+            }
+        }
+
+    }
+
+    group {
+        name    "folder2_1"
+        label   "Output"
+
+        parm {
+            name    "groupname"
+            label   "Trails Group Name"
+            type    string
+            default { "trails" }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "do_uv"
+            label   "Create Trail UVs"
+            type    toggle
+            default { "1" }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "uvattrib"
+            label   "UV Attribute"
+            type    string
+            default { "uv" }
+            disablewhen "{ do_uv == 0 }"
+            menureplace {
+                [ "opmenu -l uvtexture1 uvattrib" ]
+            }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "sidefx::attrib_access" "write" }
+        }
+        parm {
+            name    "clip_mode"
+            label   "Clipping Mode"
+            type    ordinal
+            default { "0" }
+            menu {
+                "0" "None"
+                "1" "Duration"
+                "2" "Length"
+            }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "randomize_length"
+            label   "Randomize Length"
+            type    toggle
+            default { "0" }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        group {
+            name    "folder3"
+            label   "Clip by Duration"
+            hidewhentab "{ clip_mode != 1 }"
+
+            parm {
+                name    "max_duration"
+                label   "Max Duration (Frames)"
+                type    float
+                default { "48" }
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "do_falloff"
+                label   "Do Falloff"
+                type    toggle
+                default { "off" }
+                range   { 0 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "do_vexpression"
+                label   "Do VEXpression"
+                type    toggle
+                default { "off" }
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "vexpression"
+                label   "VEXpression"
+                type    string
+                default { "// falloff = 1;\n// duration = 48;" }
+                disablewhen "{ do_vexpression == 0 }"
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "editor" "1" }
+                parmtag { "editorlang" "vex" }
+            }
+        }
+
+        group {
+            name    "folder3_1"
+            label   "Clip by Length"
+            hidewhentab "{ clip_mode != 2 }"
+
+            parm {
+                name    "max_length"
+                label   "Max Length"
+                type    float
+                default { "2" }
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "do_falloff2"
+                label   "Do Falloff"
+                type    toggle
+                default { "off" }
+                range   { 0 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "do_vexpression2"
+                label   "Do VEXpression"
+                type    toggle
+                default { "off" }
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "vexpression2"
+                label   "VEXpression"
+                type    string
+                default { "// falloff = 1.0;\n// length = 1.0;" }
+                disablewhen "{ do_vexpression2 == 0 }"
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "editor" "1" }
+                parmtag { "editorlang" "vex" }
+            }
+        }
+
+        group {
+            name    "folder3_2"
+            label   "Randomize Length"
+            hidewhentab "{ randomize_length == 0 }"
+
+            parm {
+                name    "random_range"
+                label   "Random Range"
+                type    vector2
+                size    2
+                default { "0.5" "1" }
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "seed"
+                label   "Seed"
+                type    integer
+                default { "0" }
+                range   { 0 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "do_vexpression3"
+                label   "Do Vexpression"
+                type    toggle
+                default { "0" }
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "vexpression3"
+                label   "VEXpression"
+                type    string
+                default { "// clip = 0.5;" }
+                disablewhen "{ do_vexpression3 == 0 }"
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "editor" "1" }
+                parmtag { "editorlang" "vex" }
+            }
+        }
+
+    }
+
+}

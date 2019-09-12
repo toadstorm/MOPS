@@ -126,6 +126,10 @@ Do Falloff:
     #id: do_falloff
     The mops_falloff attribute will act as a multiplier against the Goal U (Simple Mode) or the Speed (Solver Mode) of each instance.
     
+Falloff Affects Rotation:
+    #id: do_rotate_falloff
+    If enabled, the mops_falloff attribute will affect how much of the curve's orientation affects each copy's orientation as it moves along the curve.
+    
 Goal Type:
     #id: goal_type
     The way in which to interpret the Goal parameter. The default, Goal U, reads the Goal as a parameterized value between 0 and 1, representing the start and end of the curve. The alternate mode, Arc Length, reads the Goal value as a total distance traveled along the arc length of the spline.
@@ -172,6 +176,10 @@ Create Trails:
 Trail Group Name:
     #id: trailgroup
     The name to use for the output trail primitive group.
+    
+Trails End Frame:
+    #id: trails_end
+    The end frame to use when computing trails. The trails simulation is run in its entirety and then clipped afterwards, to make the trails more stable. Choose the last frame of actual animation to better optimize the simulation.
     
 === VEXpressions ===
 
