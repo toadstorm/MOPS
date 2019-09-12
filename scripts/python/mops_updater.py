@@ -148,6 +148,22 @@ def extract_update(zip_file):
     zip.extractall(extract_path)
     # the extracted item contains another folder, we want the contents
     actual_path = os.path.join(extract_path, os.listdir(extract_path)[0])
+    # before we copy everything over, remove the old HDAs to prevent distutils from freaking out.
+    if os.path.exists(install_path):
+        otls_path = os.path.join(install_path, 'otls')
+        if os.path.exists(otls_path):
+            otls = [os.path.join(otls_path, f) for f in os.listdir(otls_path) if os.path.splitext(f)[-1] == '.hda']
+            if otls:
+                for otl in otls:
+                    try:
+                        if not os.path.isdir(otl):
+                            os.remove(otl)
+                        else:
+                            shutil.rmtree(otl)
+                    except:
+                        print("unable to remove old HDA file: {}".format(otl))
+                        print(traceback.format_exc())
+
     distutils.dir_util.copy_tree(actual_path, install_path)
     return install_path
     
