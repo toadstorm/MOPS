@@ -32,27 +32,22 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -3.13514 2.91562
-connectornextid 3
+position 0.434426 -3.56803
+connectornextid 0
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-0 "output1"
 }
 inputsNamed3
 {
-1 	pivot 0 1 "input1"
-2 	compute_translate 1 1 "input2"
 }
 inputs
 {
-0 	pivot 0 1
-1 	compute_translate 0 1
 }
 stat
 {
-  create 1565237577
-  modify 1568414045
+  create 1568414553
+  modify 1568414558
   author Henry@LAPPY586
   access 0777
 }
@@ -138,7 +133,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1568414163
+  modify 1568414563
   author Henry@LAPPY586
   access 0777
 }
@@ -487,7 +482,7 @@ Content-Type: text/plain
 {
 version 0.8
 folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
-group	[ 0	locks=0	autoscope=1 ]	(	[ group	@butts>0 ] 	)
+group	[ 0	locks=0	autoscope=1 ]	(	[ group	"" ] 	)
 grouptype	[ 0	locks=0	autoscope=0 ]	(	[ grouptype	0 ] 	)
 class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
@@ -513,7 +508,7 @@ vector scale2 = point(1, \"scale\", matchpt);
 float pscale2 = point(1, \"pscale\", matchpt);
 float weight = 1.0;
 if( haspointattrib(0, falloff)) {
-    printf(\"\\nattr name: \" + falloff);
+    // printf(\"\\nattr name: \" + falloff);
     weight = point(0, falloff, @ptnum);
 }
     
@@ -650,7 +645,7 @@ vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
 vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
 folder1	[ 0	locks=0 ]	(	0	0	)
-do_translate	[ 0	locks=0	autoscope=0 ]	(	[ do_translate	10 ] 	)
+do_translate	[ 0	locks=0	autoscope=0 ]	(	[ do_translate	1 ] 	)
 do_rotate	[ 0	locks=0	autoscope=0 ]	(	[ do_rotate	1 ] 	)
 do_scale	[ 0	locks=0	autoscope=0 ]	(	[ do_scale	1 ] 	)
 do_weight	[ 0	locks=0	autoscope=0 ]	(	[ do_weight	1 ] 	)
@@ -658,8 +653,8 @@ rotate_mode	[ 0	locks=0	autoscope=0 ]	(	[ rotate_mode	0 ] 	)
 scale_mode	[ 0	locks=0	autoscope=0 ]	(	[ scale_mode	0 ] 	)
 local_space	[ 0	locks=0	autoscope=0 ]	(	[ local_space	1 ] 	)
 rotate_order	[ 0	locks=0	autoscope=0 ]	(	[ rotate_order	0 ] 	)
-bind_orient	[ 0	locks=0 ]	(	[ bind_orient	1 ] 	)
-falloff_attribute	[ 0	locks=0 ]	(	[ falloff_attribute	butts ] 	)
+bind_orient	[ 0	locks=0 ]	(	[ bind_orient	0 ] 	)
+falloff_attribute	[ 0	locks=0 ]	(	[ falloff_attribute	mops_falloff ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -704,7 +699,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1568414029
+  modify 1568414553
   author Henry@LAPPY586
   access 0777
 }
@@ -786,7 +781,7 @@ inputs
 stat
 {
   create 1555437557
-  modify 1568412867
+  modify 1568414553
   author Henry@LAPPY586
   access 0777
 }
@@ -883,7 +878,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1568412867
+  modify 1568414553
   author Henry@LAPPY586
   access 0777
 }
@@ -1032,7 +1027,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1568412867
+  modify 1568414553
   author Henry@LAPPY586
   access 0777
 }
@@ -1291,7 +1286,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1568412867
+  modify 1568414553
   author Henry@LAPPY586
   access 0777
 }
@@ -1366,7 +1361,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1568414029
+  modify 1568414553
   author Henry@LAPPY586
   access 0777
 }
@@ -1502,7 +1497,7 @@ inputs
 stat
 {
   create 1555459453
-  modify 1568413193
+  modify 1568414553
   author Henry@LAPPY586
   access 0777
 }
@@ -1531,7 +1526,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	0 ] 	)
+input	[ 0	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1578,7 +1573,7 @@ inputs
 stat
 {
   create 1556862778
-  modify 1568412867
+  modify 1568414553
   author Henry@LAPPY586
   access 0777
 }
