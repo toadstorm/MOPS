@@ -8,6 +8,7 @@
   <toolshelf name="MOPs_Tools" label="MOPs Tools">
     <memberTool name="MOPs_distribute_on_spline"/>
     <memberTool name="MOPs_snap_centroid_to_spline"/>
+    <memberTool name="MOPs_Pivot"/>
   </toolshelf>
 
   <tool name="MOPs_snap_centroid_to_spline" label="MOPs Move Along Spline (Snap Group)" icon="opdef:MOPS::Sop/move_along_spline::1.4?mops_modifier_02.svg">
@@ -40,5 +41,18 @@ node.parm('attach_attr').set("")]]></script>
 node = soptoolutils.genericTool(kwargs, 'MOPS::move_along_spline::1.4', force_filter=True)
 node.parm('attach_mode').set(2)
 node.parm('curve_select_mode').set(1)]]></script>
+  </tool>
+
+  <tool name="MOPs_Pivot" label="MOPs Pivot" icon="opdef:MOPS::Sop/Align::1.0?mops_modifier_02.svg">
+	<toolMenuContext name="network">
+		<contextNetType>SOP</contextNetType>
+	</toolMenuContext>
+    <toolSubmenu>MOPs/Modifiers</toolSubmenu>
+    <script scriptType="python"><![CDATA[import soptoolutils
+
+# generate a MOPs Move Along Spline modifier, enable Snap to Centroid,
+# set the starting attachment position to 0, and set Offset to 1.
+
+node = soptoolutils.genericTool(kwargs, "MOPS::Align::1.0", force_filter=True)]]></script>
   </tool>
 </shelfDocument>

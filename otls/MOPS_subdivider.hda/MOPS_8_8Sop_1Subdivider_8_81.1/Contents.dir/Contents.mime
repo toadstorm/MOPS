@@ -32,11 +32,12 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.68526 -2.88414
-connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+position -2.99247 1.5422
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
+1 "output1"
 }
 inputsNamed3
 {
@@ -48,8 +49,8 @@ inputs
 }
 stat
 {
-  create 1565237107
-  modify 1565237456
+  create 1567547266
+  modify 1567547974
   author Henry@LAPPY586
   access 0777
 }
@@ -107,7 +108,7 @@ inputs
 stat
 {
   create 1520024902
-  modify 1565237319
+  modify 1567547266
   author Mo@Mo-PC
   access 0777
 }
@@ -370,7 +371,7 @@ inputs
 stat
 {
   create 1519066723
-  modify 1565237319
+  modify 1567547951
   author Mo@Mo-PC
   access 0777
 }
@@ -566,6 +567,31 @@ Content-Type: text/plain
         default { "0" }
         range   { 0 1 }
     }
+    parm {
+        name    "doprimgroup"
+        label   "Doprimgroup"
+        type    integer
+        default { "0" }
+        range   { 0 10 }
+    }
+    parm {
+        name    "primgroup"
+        label   "Primgroup"
+        type    string
+        default { "" }
+    }
+    parm {
+        name    "primgroup2"
+        label   "Primgroup2"
+        type    string
+        default { "" }
+    }
+    parm {
+        name    "primgroup3"
+        label   "Primgroup3"
+        type    string
+        default { "" }
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/primitivewrangle20.chn"
@@ -591,6 +617,34 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 3 3 expr = ch(\"../IN/extexp\") }
     }
+    channel doprimgroup {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../doprimgroups\") }
+    }
+    channel primgroup {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"front\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../frontgroup\") }
+    }
+    channel primgroup2 {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"inside\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../insidegroup\") }
+    }
+    channel primgroup3 {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"outside\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../outsidegroup\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -609,6 +663,10 @@ snippet	[ 0	locks=0 ]	(	"if(f@area > chf(\"areathreshold\")){
 
 int usefalloff = 0;
 float weight;
+int doprimgroup = chi(\"doprimgroup\");
+string primgroup = chs(\"primgroup\");
+string primgroup2 = chs(\"primgroup2\");
+string primgroup3 = chs(\"primgroup3\");
 
 if(hasprimattrib(0, \"mops_falloff\")){
     usefalloff = 1;
@@ -650,6 +708,9 @@ if(f@mops_falloff >= 0.0){
         int newprim = addprim(0, \"poly\", p1, p2, p3);
         if(usefalloff == 1)
             setprimattrib(0, \"mops_falloff\", newprim, f@mops_falloff - 1);
+        if(doprimgroup) {
+                setprimgroup(0, primgroup3, newprim, 1, \"set\");
+        }
     }
     
     for(int i = 0; i < npts; i++){
@@ -660,12 +721,18 @@ if(f@mops_falloff >= 0.0){
         int newprim = addprim(0, \"poly\", p1, p2, p3);
         if(usefalloff == 1)
             setprimattrib(0, \"mops_falloff\", newprim, f@mops_falloff - 1);
+        if(doprimgroup) {
+                setprimgroup(0, primgroup2, newprim, 1, \"set\");
+        }
     }
     
     //if(weight != 0 || weight != 1){
         int newprim = addprim(0, \"poly\", addpts);
         if(usefalloff == 1)
             setprimattrib(0, \"mops_falloff\", newprim, f@mops_falloff - 1);
+            if(doprimgroup) {
+                setprimgroup(0, primgroup, newprim, 1, \"set\");
+            }
     //}
     
     removeprim(0, @primnum, 0);
@@ -689,6 +756,10 @@ weight	[ 0	locks=0 ]	(	1	)
 extrude_depth	[ 0	locks=0 ]	(	[ extrude_depth	0.5 ] 	)
 areathreshold	[ 0	locks=0 ]	(	[ areathreshold	0.001 ] 	)
 extrusion_falloff_Exponent	[ 0	locks=0 ]	(	[ extrusion_falloff_Exponent	3 ] 	)
+doprimgroup	[ 0	locks=0 ]	(	[ doprimgroup	0 ] 	)
+primgroup	[ 0	locks=0 ]	(	[ primgroup	front ] 	)
+primgroup2	[ 0	locks=0 ]	(	[ primgroup2	inside ] 	)
+primgroup3	[ 0	locks=0 ]	(	[ primgroup3	outside ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -733,7 +804,7 @@ inputs
 stat
 {
   create 1519075100
-  modify 1565237315
+  modify 1567547266
   author Mo@Mo-PC
   access 0777
 }
@@ -946,7 +1017,7 @@ inputs
 stat
 {
   create 1519071540
-  modify 1565237319
+  modify 1567547266
   author Mo@Mo-PC
   access 0777
 }
@@ -1036,7 +1107,7 @@ inputs
 stat
 {
   create 1519071540
-  modify 1565237454
+  modify 1567552765
   author Mo@Mo-PC
   access 0777
 }
@@ -1098,7 +1169,7 @@ inputs
 stat
 {
   create 1519072998
-  modify 1565237454
+  modify 1567552765
   author Mo@Mo-PC
   access 0777
 }
@@ -1496,7 +1567,7 @@ inputs
 stat
 {
   create 1520080050
-  modify 1565237319
+  modify 1567547266
   author Mo@Mo-PC
   access 0777
 }
@@ -1569,7 +1640,7 @@ inputs
 stat
 {
   create 1565237319
-  modify 1565237457
+  modify 1567547266
   author Henry@LAPPY586
   access 0777
 }
@@ -1649,7 +1720,7 @@ inputs
 stat
 {
   create 1565237374
-  modify 1565237497
+  modify 1567547266
   author Henry@LAPPY586
   access 0777
 }

@@ -1,0 +1,7 @@
+def updateRadius(kwargs):
+    me = kwargs['node']
+    n = me.node('./edit1')
+    p = n.parm('visualizefalloff')
+    p.set(0)
+    p.set(1)
+    n.cook(force=True)
