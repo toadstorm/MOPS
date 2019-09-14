@@ -32,25 +32,25 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -14.6687 -1.38079
+position -3.94262 -1.97787
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-0 "output1"
+1 "output1"
 }
 inputsNamed3
 {
-1 	grid1 0 1 "input1"
+0 	MOPs_Instancer 0 1 "input1"
 }
 inputs
 {
-0 	grid1 0 1
+0 	MOPs_Instancer 0 1
 }
 stat
 {
-  create 1568163033
-  modify 1568176051
+  create 1568440291
+  modify 1568441465
   author Henry@LAPPY586
   access 0777
 }
@@ -133,7 +133,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1568175434
+  modify 1568440385
   author Henry@LAPPY586
   access 0777
 }
@@ -501,6 +501,7 @@ snippet	[ 0	locks=0	autoscope=0 ]	(	"vector4 pos = @P;
 vector4 freq = chp(\"freq\");
 vector4 offset = chp(\"offset\");
 vector amp = chv(\"amp\");
+vector orig_amp = amp;
 
 int oct = chi(\"octaves\");
 float rough = chf(\"roughness\");
@@ -526,7 +527,7 @@ for(int i = 0; i < oct; i++){
 
 val /= maxval;
 
-v@attr = val;"	)
+v@attr = val * orig_amp;"	)
 exportlist	[ 0	locks=0	autoscope=0 ]	(	*	)
 vex_strict	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 autobind	[ 0	locks=0	autoscope=0 ]	(	"on"	)
@@ -543,7 +544,7 @@ folder1	[ 0	locks=0 ]	(	0	0	)
 amp	[ 8	locks=0	autoscope=0 ]	(	[ ampx	1 ] 	[ ampy	1 ] 	[ ampz	1 ] 	)
 roughness	[ 0	locks=0	autoscope=0 ]	(	[ roughness	0.5 ] 	)
 octaves	[ 0	locks=0	autoscope=0 ]	(	[ octaves	1 ] 	)
-freq	[ 0	locks=0	autoscope=0 ]	(	[ freqx	0.5 ] 	[ freqy	0.5 ] 	[ freqz	0.5 ] 	[ freqw	1 ] 	)
+freq	[ 0	locks=0	autoscope=0 ]	(	[ freqx	1 ] 	[ freqy	1 ] 	[ freqz	1 ] 	[ freqw	1 ] 	)
 offset	[ 0	locks=0	autoscope=0 ]	(	[ offsetx	0 ] 	[ offsety	0 ] 	[ offsetz	0 ] 	[ offsetw	0 ] 	)
 uniform	[ 0	locks=0	autoscope=0 ]	(	[ uniform	0 ] 	)
 time_scale	[ 0	locks=0	autoscope=0 ]	(	[ time_scale	1 ] 	)
@@ -594,7 +595,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1568175418
+  modify 1568440437
   author Henry@LAPPY586
   access 0777
 }
@@ -963,7 +964,7 @@ snippet	[ 0	locks=0	autoscope=0 ]	(	"vector4 pos = @P;
 vector4 freq = chp(\"freq\");
 vector4 offset = chp(\"offset\");
 vector amp = chv(\"amp\");
-
+vector orig_amp = amp;
 int oct = chi(\"octaves\");
 float rough = chf(\"roughness\");
 
@@ -988,7 +989,7 @@ for(int i = 0; i < oct; i++){
 
 val /= maxval;
 
-v@attr = val;"	)
+v@attr = val * orig_amp;"	)
 exportlist	[ 0	locks=0	autoscope=0 ]	(	*	)
 vex_strict	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 autobind	[ 0	locks=0	autoscope=0 ]	(	"on"	)
@@ -1005,7 +1006,7 @@ folder1	[ 0	locks=0 ]	(	0	0	)
 amp	[ 8	locks=0 ]	(	[ ampx	1 ] 	[ ampy	1 ] 	[ ampz	1 ] 	)
 roughness	[ 0	locks=0	autoscope=0 ]	(	[ roughness	0.5 ] 	)
 octaves	[ 0	locks=0	autoscope=0 ]	(	[ octaves	1 ] 	)
-freq	[ 0	locks=0	autoscope=0 ]	(	[ freqx	0.5 ] 	[ freqy	0.5 ] 	[ freqz	0.5 ] 	[ freqw	1 ] 	)
+freq	[ 0	locks=0	autoscope=0 ]	(	[ freqx	1 ] 	[ freqy	1 ] 	[ freqz	1 ] 	[ freqw	1 ] 	)
 offset	[ 0	locks=0	autoscope=0 ]	(	[ offsetx	0 ] 	[ offsety	0 ] 	[ offsetz	0 ] 	[ offsetw	0 ] 	)
 uniform	[ 0	locks=0	autoscope=0 ]	(	[ uniform	0 ] 	)
 time_scale	[ 0	locks=0	autoscope=0 ]	(	[ time_scale	1 ] 	)
@@ -1056,7 +1057,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1568175408
+  modify 1568440496
   author Henry@LAPPY586
   access 0777
 }
@@ -1425,6 +1426,7 @@ snippet	[ 0	locks=0	autoscope=0 ]	(	"vector4 pos = @P;
 vector4 freq = chp(\"freq\");
 vector4 offset = chp(\"offset\");
 vector amp = chv(\"amp\");
+vector orig_amp = amp;
 
 int oct = chi(\"octaves\");
 float rough = chf(\"roughness\");
@@ -1458,7 +1460,7 @@ for(int i = 0; i < oct; i++){
 
 val /= maxval;
 
-v@attr = vector(val);"	)
+v@attr = vector(val) * orig_amp;"	)
 exportlist	[ 0	locks=0	autoscope=0 ]	(	*	)
 vex_strict	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 autobind	[ 0	locks=0	autoscope=0 ]	(	"on"	)
@@ -1475,7 +1477,7 @@ folder1	[ 0	locks=0 ]	(	0	0	)
 amp	[ 8	locks=0 ]	(	[ ampx	1 ] 	[ ampy	1 ] 	[ ampz	1 ] 	)
 roughness	[ 0	locks=0	autoscope=0 ]	(	[ roughness	0.5 ] 	)
 octaves	[ 0	locks=0	autoscope=0 ]	(	[ octaves	1 ] 	)
-freq	[ 0	locks=0	autoscope=0 ]	(	[ freqx	0.5 ] 	[ freqy	0.5 ] 	[ freqz	0.5 ] 	[ freqw	1 ] 	)
+freq	[ 0	locks=0	autoscope=0 ]	(	[ freqx	1 ] 	[ freqy	1 ] 	[ freqz	1 ] 	[ freqw	1 ] 	)
 offset	[ 0	locks=0	autoscope=0 ]	(	[ offsetx	0 ] 	[ offsety	0 ] 	[ offsetz	0 ] 	[ offsetw	0 ] 	)
 uniform	[ 0	locks=0	autoscope=0 ]	(	[ uniform	0 ] 	)
 time_scale	[ 0	locks=0	autoscope=0 ]	(	[ time_scale	1 ] 	)
@@ -1526,7 +1528,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1568175400
+  modify 1568440530
   author Henry@LAPPY586
   access 0777
 }
@@ -1895,6 +1897,7 @@ snippet	[ 0	locks=0	autoscope=0 ]	(	"vector4 pos = @P;
 vector4 freq = chp(\"freq\");
 vector4 offset = chp(\"offset\");
 vector amp = chv(\"amp\");
+vector orig_amp = amp;
 
 int oct = chi(\"octaves\");
 float rough = chf(\"roughness\");
@@ -1928,7 +1931,7 @@ for(int i = 0; i < oct; i++){
 
 val /= maxval;
 
-v@attr = vector(val);"	)
+v@attr = vector(val) * orig_amp;"	)
 exportlist	[ 0	locks=0	autoscope=0 ]	(	*	)
 vex_strict	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 autobind	[ 0	locks=0	autoscope=0 ]	(	"on"	)
@@ -1945,7 +1948,7 @@ folder1	[ 0	locks=0 ]	(	0	0	)
 amp	[ 8	locks=0 ]	(	[ ampx	1 ] 	[ ampy	1 ] 	[ ampz	1 ] 	)
 roughness	[ 0	locks=0	autoscope=0 ]	(	[ roughness	0.5 ] 	)
 octaves	[ 0	locks=0	autoscope=0 ]	(	[ octaves	1 ] 	)
-freq	[ 0	locks=0	autoscope=0 ]	(	[ freqx	0.5 ] 	[ freqy	0.5 ] 	[ freqz	0.5 ] 	[ freqw	1 ] 	)
+freq	[ 0	locks=0	autoscope=0 ]	(	[ freqx	1 ] 	[ freqy	1 ] 	[ freqz	1 ] 	[ freqw	1 ] 	)
 offset	[ 0	locks=0	autoscope=0 ]	(	[ offsetx	0 ] 	[ offsety	0 ] 	[ offsetz	0 ] 	[ offsetw	0 ] 	)
 uniform	[ 0	locks=0	autoscope=0 ]	(	[ uniform	0 ] 	)
 time_scale	[ 0	locks=0	autoscope=0 ]	(	[ time_scale	1 ] 	)
@@ -1996,7 +1999,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1568175384
+  modify 1568440616
   author Henry@LAPPY586
   access 0777
 }
@@ -2364,6 +2367,7 @@ snippet	[ 0	locks=0	autoscope=0 ]	(	"vector4 pos = @P;
 vector4 freq = chp(\"freq\");
 vector4 offset = chp(\"offset\");
 vector amp = chv(\"amp\");
+vector orig_amp = amp;
 
 int oct = chi(\"octaves\");
 float rough = chf(\"roughness\");
@@ -2397,7 +2401,7 @@ for(int i = 0; i < oct; i++){
 
 val /= maxval;
 
-v@attr = vector(val);"	)
+v@attr = vector(val) * orig_amp;"	)
 exportlist	[ 0	locks=0	autoscope=0 ]	(	*	)
 vex_strict	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 autobind	[ 0	locks=0	autoscope=0 ]	(	"on"	)
@@ -2414,7 +2418,7 @@ folder1	[ 0	locks=0 ]	(	0	0	)
 amp	[ 8	locks=0 ]	(	[ ampx	1 ] 	[ ampy	1 ] 	[ ampz	1 ] 	)
 roughness	[ 0	locks=0	autoscope=0 ]	(	[ roughness	0.5 ] 	)
 octaves	[ 0	locks=0	autoscope=0 ]	(	[ octaves	1 ] 	)
-freq	[ 0	locks=0	autoscope=0 ]	(	[ freqx	0.5 ] 	[ freqy	0.5 ] 	[ freqz	0.5 ] 	[ freqw	1 ] 	)
+freq	[ 0	locks=0	autoscope=0 ]	(	[ freqx	1 ] 	[ freqy	1 ] 	[ freqz	1 ] 	[ freqw	1 ] 	)
 offset	[ 0	locks=0	autoscope=0 ]	(	[ offsetx	0 ] 	[ offsety	0 ] 	[ offsetz	0 ] 	[ offsetw	0 ] 	)
 uniform	[ 0	locks=0	autoscope=0 ]	(	[ uniform	0 ] 	)
 time_scale	[ 0	locks=0	autoscope=0 ]	(	[ time_scale	1 ] 	)
@@ -2465,7 +2469,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1568175085
+  modify 1568440650
   author Henry@LAPPY586
   access 0777
 }
@@ -2862,6 +2866,7 @@ snippet	[ 0	locks=0	autoscope=0 ]	(	"vector4 pos = @P;
 vector4 freq = chp(\"freq\");
 vector4 offset = chp(\"offset\");
 vector amp = chv(\"amp\");
+vector orig_amp = amp;
 
 vector tile = chv(\"tile_size\");
 
@@ -2898,7 +2903,7 @@ for(int i = 0; i < oct; i++){
 
 val /= maxval;
 
-v@attr = val;"	)
+v@attr = val * orig_amp;"	)
 exportlist	[ 0	locks=0	autoscope=0 ]	(	*	)
 vex_strict	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 autobind	[ 0	locks=0	autoscope=0 ]	(	"on"	)
@@ -2915,7 +2920,7 @@ folder1	[ 0	locks=0 ]	(	0	0	)
 amp	[ 8	locks=0 ]	(	[ ampx	1 ] 	[ ampy	1 ] 	[ ampz	1 ] 	)
 roughness	[ 0	locks=0	autoscope=0 ]	(	[ roughness	0.5 ] 	)
 octaves	[ 0	locks=0	autoscope=0 ]	(	[ octaves	1 ] 	)
-freq	[ 0	locks=0	autoscope=0 ]	(	[ freqx	0.5 ] 	[ freqy	0.5 ] 	[ freqz	0.5 ] 	[ freqw	1 ] 	)
+freq	[ 0	locks=0	autoscope=0 ]	(	[ freqx	1 ] 	[ freqy	1 ] 	[ freqz	1 ] 	[ freqw	1 ] 	)
 offset	[ 0	locks=0	autoscope=0 ]	(	[ offsetx	0 ] 	[ offsety	0 ] 	[ offsetz	0 ] 	[ offsetw	0 ] 	)
 tile_size	[ 0	locks=0	autoscope=0 ]	(	[ tile_sizex	1 ] 	[ tile_sizey	1 ] 	[ tile_sizez	1 ] 	)
 uniform	[ 0	locks=0	autoscope=0 ]	(	[ uniform	0 ] 	)
@@ -2967,7 +2972,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1568175365
+  modify 1568440708
   author Henry@LAPPY586
   access 0777
 }
@@ -3329,6 +3334,7 @@ snippet	[ 0	locks=0	autoscope=0 ]	(	"vector4 pos = @P;
 vector4 freq = chp(\"freq\");
 vector4 offset = chp(\"offset\");
 vector amp = chv(\"amp\");
+vector orig_amp = amp;
 
 int oct = chi(\"octaves\");
 float rough = chf(\"roughness\");
@@ -3361,7 +3367,7 @@ val /= maxval;
 //val -= .5;
 val = abs(val);
 
-v@attr = val;"	)
+v@attr = val * orig_amp;"	)
 exportlist	[ 0	locks=0	autoscope=0 ]	(	*	)
 vex_strict	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 autobind	[ 0	locks=0	autoscope=0 ]	(	"on"	)
@@ -3378,7 +3384,7 @@ folder1	[ 0	locks=0 ]	(	0	0	)
 amp	[ 0	locks=0 ]	(	[ ampx	1 ] 	[ ampy	1 ] 	[ ampz	1 ] 	)
 roughness	[ 0	locks=0	autoscope=0 ]	(	[ roughness	0.5 ] 	)
 octaves	[ 0	locks=0	autoscope=0 ]	(	[ octaves	1 ] 	)
-freq	[ 0	locks=0	autoscope=0 ]	(	[ freqx	0.5 ] 	[ freqy	0.5 ] 	[ freqz	0.5 ] 	[ freqw	1 ] 	)
+freq	[ 0	locks=0	autoscope=0 ]	(	[ freqx	1 ] 	[ freqy	1 ] 	[ freqz	1 ] 	[ freqw	1 ] 	)
 offset	[ 0	locks=0	autoscope=0 ]	(	[ offsetx	0 ] 	[ offsety	0 ] 	[ offsetz	0 ] 	[ offsetw	0 ] 	)
 uniform	[ 0	locks=0	autoscope=0 ]	(	[ uniform	0 ] 	)
 time_scale	[ 0	locks=0	autoscope=0 ]	(	[ time_scale	1 ] 	)
@@ -3429,7 +3435,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1568175536
+  modify 1568440763
   author Henry@LAPPY586
   access 0777
 }
@@ -3814,8 +3820,8 @@ snippet	[ 0	locks=0	autoscope=0 ]	(	"vector4 pos = @P;
 vector4 freq = chp(\"freq\");
 vector4 offset = chp(\"offset\");
 vector distort = chv(\"Distort\");
-
 vector amp = chv(\"amp\");
+vector orig_amp = amp;
 
 int oct = chi(\"octaves\");
 float rough = chf(\"roughness\");
@@ -3847,7 +3853,7 @@ for(int i = 0; i < oct; i++){
 
 val /= maxval;
 
-v@attr = val;"	)
+v@attr = val * orig_amp;"	)
 exportlist	[ 0	locks=0	autoscope=0 ]	(	*	)
 vex_strict	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 autobind	[ 0	locks=0	autoscope=0 ]	(	"on"	)
@@ -3864,7 +3870,7 @@ folder1	[ 0	locks=0	autoscope=0 ]	(	0	0	)
 amp	[ 0	locks=0 ]	(	[ ampx	1 ] 	[ ampy	1 ] 	[ ampz	1 ] 	)
 roughness	[ 0	locks=0	autoscope=0 ]	(	[ roughness	0.5 ] 	)
 octaves	[ 0	locks=0	autoscope=0 ]	(	[ octaves	1 ] 	)
-freq	[ 0	locks=0	autoscope=0 ]	(	[ freqx	0.5 ] 	[ freqy	0.5 ] 	[ freqz	0.5 ] 	[ freqw	1 ] 	)
+freq	[ 0	locks=0	autoscope=0 ]	(	[ freqx	1 ] 	[ freqy	1 ] 	[ freqz	1 ] 	[ freqw	1 ] 	)
 offset	[ 0	locks=0	autoscope=0 ]	(	[ offsetx	0 ] 	[ offsety	0 ] 	[ offsetz	0 ] 	[ offsetw	0 ] 	)
 uniform	[ 0	locks=0	autoscope=0 ]	(	[ uniform	0 ] 	)
 Distort	[ 0	locks=0	autoscope=0 ]	(	[ Distortx	1 ] 	[ Distorty	1 ] 	[ Distortz	1 ] 	)
@@ -3916,7 +3922,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1568175687
+  modify 1568440814
   author Henry@LAPPY586
   access 0777
 }
@@ -4278,6 +4284,7 @@ snippet	[ 0	locks=0	autoscope=0 ]	(	"vector4 pos = @P;
 vector4 freq = chp(\"freq\");
 vector4 offset = chp(\"offset\");
 vector amp = chv(\"amp\");
+vector orig_amp = amp;
 
 int oct = chi(\"octaves\");
 float rough = chf(\"roughness\");
@@ -4311,7 +4318,7 @@ for(int i = 0; i < oct; i++){
 
 val /= maxval;
 
-v@attr = val;"	)
+v@attr = val * orig_amp;"	)
 exportlist	[ 0	locks=0	autoscope=0 ]	(	*	)
 vex_strict	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 autobind	[ 0	locks=0	autoscope=0 ]	(	"on"	)
@@ -4328,7 +4335,7 @@ folder1	[ 0	locks=0 ]	(	0	0	)
 amp	[ 0	locks=0 ]	(	[ ampx	1 ] 	[ ampy	1 ] 	[ ampz	1 ] 	)
 roughness	[ 0	locks=0	autoscope=0 ]	(	[ roughness	0.5 ] 	)
 octaves	[ 0	locks=0	autoscope=0 ]	(	[ octaves	1 ] 	)
-freq	[ 0	locks=0	autoscope=0 ]	(	[ freqx	0.5 ] 	[ freqy	0.5 ] 	[ freqz	0.5 ] 	[ freqw	1 ] 	)
+freq	[ 0	locks=0	autoscope=0 ]	(	[ freqx	1 ] 	[ freqy	1 ] 	[ freqz	1 ] 	[ freqw	1 ] 	)
 offset	[ 0	locks=0	autoscope=0 ]	(	[ offsetx	0 ] 	[ offsety	0 ] 	[ offsetz	0 ] 	[ offsetw	0 ] 	)
 uniform	[ 0	locks=0	autoscope=0 ]	(	[ uniform	0 ] 	)
 time_scale	[ 0	locks=0	autoscope=0 ]	(	[ time_scale	1 ] 	)
@@ -4379,7 +4386,7 @@ inputs
 stat
 {
   create 1524060464
-  modify 1568163034
+  modify 1568440291
   author Henry@LAPPY586
   access 0777
 }
@@ -4611,7 +4618,7 @@ vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
 folder1	[ 0	locks=0	autoscope=0 ]	(	0	0	)
 use_rest	[ 0	locks=0	autoscope=0 ]	(	[ use_rest	1 ] 	)
-has_rest	[ 0	locks=0	autoscope=0 ]	(	[ has_rest	0 ] 	)
+has_rest	[ 0	locks=0	autoscope=0 ]	(	[ has_rest	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -4656,7 +4663,7 @@ inputs
 stat
 {
   create 1549075027
-  modify 1568163034
+  modify 1568440291
   author Henry@LAPPY586
   access 0777
 }
@@ -4734,7 +4741,7 @@ inputs
 stat
 {
   create 1549515796
-  modify 1568163034
+  modify 1568440291
   author Henry@LAPPY586
   access 0777
 }
@@ -5038,7 +5045,7 @@ inputs
 stat
 {
   create 1550294119
-  modify 1568163034
+  modify 1568440291
   author Henry@LAPPY586
   access 0777
 }
@@ -5334,7 +5341,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1568175756
+  modify 1568440911
   author Henry@LAPPY586
   access 0777
 }
@@ -5702,6 +5709,7 @@ snippet	[ 0	locks=0	autoscope=0 ]	(	"vector4 pos = @P;
 vector4 freq = chp(\"freq\");
 vector4 offset = chp(\"offset\");
 vector amp = chv(\"amp\");
+vector orig_amp = amp;
 
 int oct = chi(\"octaves\");
 float rough = chf(\"roughness\");
@@ -5728,7 +5736,7 @@ for(int i = 0; i < oct; i++){
 
 val /= maxval;
 
-v@attr = val;"	)
+v@attr = val * orig_amp;"	)
 exportlist	[ 0	locks=0	autoscope=0 ]	(	*	)
 vex_strict	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 autobind	[ 0	locks=0	autoscope=0 ]	(	"on"	)
@@ -5745,7 +5753,7 @@ folder1	[ 0	locks=0 ]	(	0	0	)
 amp	[ 8	locks=0	autoscope=0 ]	(	[ ampx	1 ] 	[ ampy	1 ] 	[ ampz	1 ] 	)
 roughness	[ 0	locks=0	autoscope=0 ]	(	[ roughness	0.5 ] 	)
 octaves	[ 0	locks=0	autoscope=0 ]	(	[ octaves	1 ] 	)
-freq	[ 0	locks=0	autoscope=0 ]	(	[ freqx	0.5 ] 	[ freqy	0.5 ] 	[ freqz	0.5 ] 	[ freqw	1 ] 	)
+freq	[ 0	locks=0	autoscope=0 ]	(	[ freqx	1 ] 	[ freqy	1 ] 	[ freqz	1 ] 	[ freqw	1 ] 	)
 offset	[ 0	locks=0	autoscope=0 ]	(	[ offsetx	0 ] 	[ offsety	0 ] 	[ offsetz	0 ] 	[ offsetw	0 ] 	)
 uniform	[ 0	locks=0	autoscope=0 ]	(	[ uniform	0 ] 	)
 time_scale	[ 0	locks=0	autoscope=0 ]	(	[ time_scale	1 ] 	)
@@ -5796,7 +5804,7 @@ inputs
 stat
 {
   create 1554935939
-  modify 1568163034
+  modify 1568440291
   author Henry@LAPPY586
   access 0777
 }
@@ -5874,7 +5882,7 @@ inputs
 stat
 {
   create 1554935960
-  modify 1568163034
+  modify 1568440291
   author Henry@LAPPY586
   access 0777
 }
@@ -6135,7 +6143,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1568175878
+  modify 1568441059
   author Henry@LAPPY586
   access 0777
 }
@@ -6503,6 +6511,7 @@ snippet	[ 0	locks=0	autoscope=0 ]	(	"vector4 pos = @P;
 vector4 freq = chp(\"freq\");
 vector4 offset = chp(\"offset\");
 vector amp = chv(\"amp\");
+vector orig_amp = amp;
 
 int oct = chi(\"octaves\");
 float rough = chf(\"roughness\");
@@ -6529,7 +6538,7 @@ for(int i = 0; i < oct; i++){
 
 val /= maxval;
 
-v@attr = val;"	)
+v@attr = val * orig_amp;"	)
 exportlist	[ 0	locks=0	autoscope=0 ]	(	*	)
 vex_strict	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 autobind	[ 0	locks=0	autoscope=0 ]	(	"on"	)
@@ -6546,7 +6555,7 @@ folder1	[ 0	locks=0 ]	(	0	0	)
 amp	[ 8	locks=0	autoscope=0 ]	(	[ ampx	1 ] 	[ ampy	1 ] 	[ ampz	1 ] 	)
 roughness	[ 8	locks=0	autoscope=0 ]	(	[ roughness	0.5 ] 	)
 octaves	[ 8	locks=0	autoscope=0 ]	(	[ octaves	1 ] 	)
-freq	[ 8	locks=0	autoscope=0 ]	(	[ freqx	0.5 ] 	[ freqy	0.5 ] 	[ freqz	0.5 ] 	[ freqw	1 ] 	)
+freq	[ 8	locks=0	autoscope=0 ]	(	[ freqx	1 ] 	[ freqy	1 ] 	[ freqz	1 ] 	[ freqw	1 ] 	)
 offset	[ 8	locks=0	autoscope=0 ]	(	[ offsetx	0 ] 	[ offsety	0 ] 	[ offsetz	0 ] 	[ offsetw	0 ] 	)
 uniform	[ 0	locks=0	autoscope=0 ]	(	[ uniform	0 ] 	)
 time_scale	[ 0	locks=0	autoscope=0 ]	(	[ time_scale	1 ] 	)
@@ -6597,7 +6606,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1568176015
+  modify 1568441091
   author Henry@LAPPY586
   access 0777
 }
@@ -6965,6 +6974,7 @@ snippet	[ 0	locks=0	autoscope=0 ]	(	"vector4 pos = @P;
 vector4 freq = chp(\"freq\");
 vector4 offset = chp(\"offset\");
 vector amp = chv(\"amp\");
+vector orig_amp = amp;
 
 int oct = chi(\"octaves\");
 float rough = chf(\"roughness\");
@@ -6992,7 +7002,7 @@ for(int i = 0; i < oct; i++){
 
 val /= maxval;
 
-v@attr = val;"	)
+v@attr = val * orig_amp;"	)
 exportlist	[ 0	locks=0	autoscope=0 ]	(	*	)
 vex_strict	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 autobind	[ 0	locks=0	autoscope=0 ]	(	"on"	)
@@ -7009,7 +7019,7 @@ folder1	[ 0	locks=0 ]	(	0	0	)
 amp	[ 8	locks=0	autoscope=0 ]	(	[ ampx	1 ] 	[ ampy	1 ] 	[ ampz	1 ] 	)
 roughness	[ 8	locks=0	autoscope=0 ]	(	[ roughness	0.5 ] 	)
 octaves	[ 8	locks=0	autoscope=0 ]	(	[ octaves	1 ] 	)
-freq	[ 8	locks=0	autoscope=0 ]	(	[ freqx	0.5 ] 	[ freqy	0.5 ] 	[ freqz	0.5 ] 	[ freqw	1 ] 	)
+freq	[ 8	locks=0	autoscope=0 ]	(	[ freqx	1 ] 	[ freqy	1 ] 	[ freqz	1 ] 	[ freqw	1 ] 	)
 offset	[ 8	locks=0	autoscope=0 ]	(	[ offsetx	0 ] 	[ offsety	0 ] 	[ offsetz	0 ] 	[ offsetw	0 ] 	)
 uniform	[ 0	locks=0	autoscope=0 ]	(	[ uniform	0 ] 	)
 time_scale	[ 0	locks=0	autoscope=0 ]	(	[ time_scale	1 ] 	)
@@ -7143,7 +7153,7 @@ inputs
 stat
 {
   create 1549075032
-  modify 1568163034
+  modify 1568440291
   author Henry@LAPPY586
   access 0777
 }
@@ -7339,7 +7349,7 @@ inputs
 stat
 {
   create 1550294318
-  modify 1568163034
+  modify 1568440291
   author Henry@LAPPY586
   access 0777
 }
@@ -7407,7 +7417,7 @@ inputs
 stat
 {
   create 1550294550
-  modify 1568163034
+  modify 1568440291
   author Henry@LAPPY586
   access 0777
 }
@@ -7480,7 +7490,7 @@ inputs
 stat
 {
   create 1550294976
-  modify 1568163034
+  modify 1568440291
   author Henry@LAPPY586
   access 0777
 }
@@ -7612,7 +7622,7 @@ inputs
 stat
 {
   create 1554935927
-  modify 1568163034
+  modify 1568440291
   author Henry@LAPPY586
   access 0777
 }
