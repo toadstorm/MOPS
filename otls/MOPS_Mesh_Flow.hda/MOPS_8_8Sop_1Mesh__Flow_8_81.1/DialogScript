@@ -168,16 +168,31 @@
             range   { 0! 10 }
             parmtag { "autoscope" "0000000000000000" }
         }
-        parm {
-            name    "up_vector"
+        groupsimple {
+            name    "folder3"
             label   "Up Vector"
-            type    vector
-            size    3
-            default { "0" "1" "0" }
-            disablewhen "{ do_up == 0 }"
-            range   { 0 1 }
-            parmtag { "autoscope" "0000000000000000" }
+            disablewhentab "{ do_up == 0 }"
+
+            parm {
+                name    "auto_up"
+                label   "Auto Up"
+                type    toggle
+                default { "1" }
+                range   { 0 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "up_vector"
+                label   "Up Vector"
+                type    vector
+                size    3
+                default { "0" "1" "0" }
+                disablewhen "{ auto_up 1 }"
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
         }
+
     }
 
     parm {
