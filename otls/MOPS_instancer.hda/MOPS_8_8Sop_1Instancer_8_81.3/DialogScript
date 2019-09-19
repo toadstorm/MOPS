@@ -2107,8 +2107,16 @@
                 label   "Orient"
 
                 parm {
+                    name    "do_facet_mesh"
+                    label   "Facet Input Mesh"
+                    type    toggle
+                    default { "0" }
+                    range   { 0! 10 }
+                    parmtag { "autoscope" "0000000000000000" }
+                }
+                parm {
                     name    "do_orient_mesh"
-                    label   "Orient Mesh"
+                    label   "Reorient Mesh"
                     type    toggle
                     default { "0" }
                     range   { 0! 10 }
@@ -2328,7 +2336,7 @@
                         groupsimple {
                             name    "folder4"
                             label   "Up Vector"
-                            disablewhentab "{ do_up 0 }"
+                            disablewhentab "{ do_up == 0 }"
 
                             parm {
                                 name    "auto_up"
@@ -2344,7 +2352,7 @@
                                 type    vector
                                 size    3
                                 default { "0" "1" "0" }
-                                disablewhen "{ auto_up 1 }"
+                                disablewhen "{ auto_up == 1 }"
                                 range   { 0 1 }
                                 parmtag { "autoscope" "0000000000000000" }
                             }
