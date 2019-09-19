@@ -50,7 +50,7 @@ inputs
 stat
 {
   create 1567988090
-  modify 1568869185
+  modify 1568869522
   author Henry@LAPPY586
   access 0777
 }
@@ -11900,7 +11900,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 73.3245 -24.1963
+position 73.3245 -23.8233
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -11918,7 +11918,7 @@ inputs
 stat
 {
   create 1509148564
-  modify 1568868007
+  modify 1568869457
   author Henry@LAPPY586
   access 0777
 }
@@ -12012,7 +12012,7 @@ inputs
 stat
 {
   create 1557416320
-  modify 1568868007
+  modify 1568869484
   author Henry@LAPPY586
   access 0777
 }
@@ -12229,7 +12229,8 @@ vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
 snippet	[ 0	locks=0 ]	(	"string name_prefix = chs(\"name_prefix\");
 int name_start = chi(\"name_start\");
 
-s@name = sprintf(\"%s%d\", name_prefix, name_start + i@id);"	)
+s@name = sprintf(\"%s%d\", name_prefix, name_start + i@id);
+v@rest = @P;"	)
 exportlist	[ 0	locks=0 ]	(	*	)
 vex_strict	[ 0	locks=0 ]	(	"off"	)
 autobind	[ 0	locks=0 ]	(	"on"	)
@@ -20362,7 +20363,7 @@ inputs
 stat
 {
   create 1522969308
-  modify 1568869143
+  modify 1568869503
   author Wolf_User@admin-hp
   access 0777
 }
@@ -28843,7 +28844,7 @@ inputs
 stat
 {
   create 1567744824
-  modify 1568869172
+  modify 1568869504
   author Henry@LAPPY586
   access 0777
 }
@@ -30129,7 +30130,7 @@ inputs
 stat
 {
   create 1567746994
-  modify 1568869172
+  modify 1568869504
   author Henry@LAPPY586
   access 0777
 }
@@ -30268,7 +30269,7 @@ inputs
 stat
 {
   create 1521092176
-  modify 1568868007
+  modify 1568869515
   author Henry@LAPPY586
   access 0777
 }
@@ -30283,7 +30284,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-ptdel	[ 0	locks=0 ]	(	"__probability orient scale pscale N up pivot"	)
+ptdel	[ 0	locks=0 ]	(	"__probability orient scale pscale N up pivot __templateid"	)
 vtxdel	[ 0	locks=0 ]	(	""	)
 primdel	[ 0	locks=0 ]	(	""	)
 dtldel	[ 0	locks=0 ]	(	""	)
