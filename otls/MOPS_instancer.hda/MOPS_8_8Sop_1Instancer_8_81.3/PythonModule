@@ -21,30 +21,42 @@ def swap_multi_parms(node, index1, index2):
 
             # print('storing parameter: {}'.format(p + str(index1)))
             if parmtype == 'single':
-                index1_values[p] = node.parm(p + str(index1)).eval()
-                index2_values[p] = node.parm(p + str(index2)).eval()
+                index1_values[p] = node.parm(p + str(index1)).rawValue()
+                index2_values[p] = node.parm(p + str(index2)).rawValue()
             elif parmtype == 'vector2':
                 for comp in ['1', '2']:
-                    index1_values[p + comp] = node.parm(p + str(index1) + comp).eval()
-                    index2_values[p + comp] = node.parm(p + str(index2) + comp).eval()
+                    index1_values[p + comp] = node.parm(p + str(index1) + comp).rawValue()
+                    index2_values[p + comp] = node.parm(p + str(index2) + comp).rawValue()
             elif parmtype == 'vector3':
                 for comp in ['x', 'y', 'z']:
-                    index1_values[p + comp] = node.parm(p + str(index1) + comp).eval()
-                    index2_values[p + comp] = node.parm(p + str(index2) + comp).eval()
+                    index1_values[p + comp] = node.parm(p + str(index1) + comp).rawValue()
+                    index2_values[p + comp] = node.parm(p + str(index2) + comp).rawValue()
     # now swap.
     for parmtype in INSTANCER_PARMS:
         for p in INSTANCER_PARMS[parmtype]:
             if parmtype == 'single':
-                node.parm(p + str(index1)).set(index2_values[p])
-                node.parm(p + str(index2)).set(index1_values[p])
+                try:
+                    node.parm(p + str(index1)).set(index2_values[p])
+                    node.parm(p + str(index2)).set(index1_values[p])
+                except:
+                    node.parm(p + str(index1)).setExpression(index2_values[p])
+                    node.parm(p + str(index2)).setExpression(index1_values[p])
             elif parmtype == 'vector2':
                 for comp in ['1', '2']:
-                    node.parm(p + str(index1) + comp).set(index2_values[p + comp])
-                    node.parm(p + str(index2) + comp).set(index1_values[p + comp])
+                    try:
+                        node.parm(p + str(index1) + comp).set(index2_values[p + comp])
+                        node.parm(p + str(index2) + comp).set(index1_values[p + comp])
+                    except:
+                        node.parm(p + str(index1) + comp).setExpression(index2_values[p + comp])
+                        node.parm(p + str(index2) + comp).setExpression(index1_values[p + comp])
             elif parmtype == 'vector3':
                 for comp in ['x', 'y', 'z']:
-                    node.parm(p + str(index1) + comp).set(index2_values[p + comp])
-                    node.parm(p + str(index2) + comp).set(index1_values[p + comp])
+                    try:
+                        node.parm(p + str(index1) + comp).set(index2_values[p + comp])
+                        node.parm(p + str(index2) + comp).set(index1_values[p + comp])
+                    except:
+                        node.parm(p + str(index1) + comp).setExpression(index2_values[p + comp])
+                        node.parm(p + str(index2) + comp).setExpression(index1_values[p + comp])
 
 
 def onInstancePathChanged(kwargs):
@@ -122,11 +134,22 @@ def on_input_changed(kwargs):
     inputs = get_valid_inputs(me)
     if len(input_indexes) < len(inputs):
         # make a new multiparm entry
-        me.parm('instanceobjects').insertMultiParmInstance(multiparm_count)
         new_input = me.inputs()[int(kwargs['input_index'])]
-        new_path = me.relativePathTo(new_input)
-        me.parm('instancepath'+str(multiparm_count+1)).set(new_path)
-        # me.parm('instancepath'+str(multiparm_count+1)).disable(True)
+        me.parm('instanceobjects').insertMultiParmInstance(multiparm_count)
+        # set attributes depending on input type (sop or file)
+        seq_type = is_input_sequence(new_input)
+        if seq_type:
+            path = None
+            if seq_type == 'file':
+                path = new_input.parm('file')
+            elif seq_type == 'alembic':
+                path = new_input.parm('fileName')
+            me.parm('instancetype'+str(multiparm_count+1)).set(1)
+            me.parm('instancefilepath'+str(multiparm_count+1)).setFromParm(path)
+        else:
+            new_path = me.relativePathTo(new_input)
+            me.parm('instancetype'+str(multiparm_count+1)).set(0)
+            me.parm('instancepath'+str(multiparm_count+1)).set(new_path)
         me.parm('inputindex'+str(multiparm_count+1)).set(int(kwargs['input_index']))
 
     elif len(input_indexes) > len(inputs):
@@ -143,22 +166,46 @@ def on_input_changed(kwargs):
         for x in range(1, multiparm_count+1):
             parmindex = me.parm('inputindex'+str(x)).eval()
             parmpath = me.parm('instancepath'+str(x)).eval()
+            parmfilepath = me.parm('instancefilepath'+str(x)).eval()
+            parminstancetype = me.parm('instancetype'+str(x)).eval()
             if parmindex != -1:
                 # check index vs actual input.
-                parmfullpath = me.node(parmpath).path()
-                inputfullpath = me.inputs()[parmindex].path()
+                parmfullpath = None
+                inputfullpath = None
+                if(parminstancetype == 0):
+                    parmfullpath = me.node(parmpath).path()
+                    inputfullpath = me.inputs()[parmindex].path()
+                else:
+                    # this is a File or Alembic
+                    parmfullpath = parmfilepath
+                    inputtype = me.inputs()[parmindex].type().name()
+                    if inputtype == 'file':
+                        inputfullpath = me.inputs()[parmindex].parm('file').rawValue()
+                    elif inputtype == 'alembic':
+                        inputfullpath = me.inputs()[parmindex].parm('fileName').rawValue()
                 if parmfullpath != inputfullpath:
                     swap_indexes.append(x)
                     if len(swap_indexes) == 2:
+                        # print("swapping indexes")
                         swap_multi_parms(me, swap_indexes[0], swap_indexes[1])
                         break
         # if only one index was mismatched, just update the multiparm.
         if len(swap_indexes) == 1:
             input = me.inputs()[int(kwargs['input_index'])]
-            relativepath = me.relativePathTo(input)
-            me.parm('instancepath'+str(swap_indexes[0])).set(relativepath)
-
-    # lock_input_indexes(me)
+            # check input type and set parms as needed
+            seq_type = is_input_sequence(input)
+            if seq_type:
+                path = None
+                if seq_type == 'file':
+                    path = input.parm('file')
+                elif seq_type == 'alembic':
+                    path = input.parm('fileName')
+                me.parm('instancetype'+str(swap_indexes[0])).set(1)
+                me.parm('instancefilepath'+str(swap_indexes[0])).setFromParm(path)
+            else:
+                relativepath = me.relativePathTo(input)
+                me.parm('instancetype'+str(swap_indexes[0])).set(0)
+                me.parm('instancepath'+str(swap_indexes[0])).set(relativepath)
     me.parm('input_event').set(0)
 
 def on_multiparm_changed(kwargs):
@@ -180,5 +227,20 @@ def on_multiparm_changed(kwargs):
         if x not in input_indexes:
             me.setInput(x, None)
 
-    # lock_input_indexes(me)
     me.parm('multiparm_event').set(0)
+
+def is_input_sequence(node):
+    """ returns True if the incoming node is an Alembic or File SOP. """
+    nodetype = node.type().name()
+    if nodetype in ('file', 'alembic'):
+        return nodetype
+    return False
+
+def on_instancetype_changed(kwargs):
+    """ if inputindex of this same parm's index is not -1, disconnect. """
+    parmname = kwargs['parm'].name()
+    regex = "(\d+)$"
+    num = re.match(regex, parmname).group(0)
+    inputindex = kwargs['node'].parm('inputindex'+num).eval()
+    if inputindex != -1:
+        kwargs['node'].setInput(inputindex, None)
