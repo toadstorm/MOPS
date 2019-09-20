@@ -1,6 +1,10 @@
 me = kwargs['node']
 me.setName('MOPs_Audio_Falloff', True)
 
+# automatically create the first band to prevent errors.
+me.parm('bands').set(1)
+me.hdaModule().createBands(kwargs)
+
 # send anonymous statistics if enabled.
 # see README.md for more information.
 try:

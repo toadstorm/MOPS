@@ -1,0 +1,309 @@
+= MOPs Instancer =
+
+#icon: opdef:.?mops_cloner_03.svg
+
+"""Copies objects to various patterns, or onto a curve or mesh."""
+
+The MOPs Instancer generates MOPs packed primitives and distributes them in various ways. Each distribution type has its own set of parameters.
+Any number of objects can be input into the Instancer; the Index Attribute and Indexing Mode parameters determine which of the input objects is copied to each point.
+The objects that are generated are standard Houdini Packed Primitives, with a few extra attributes added for use with the rest of the MOPs system. 
+
+@parameters
+
+== Instancing ==
+
+Indexing Mode:
+    #id: index_mode
+    The method by which indexes are generated, to determine which input object is copied to each point. This creates the i@mops_index point attribute.
+    
+Index Random Seed:
+    #id: index_seed
+    When using the Random indexing mode, the random seed used to determine i@mops_index.
+    
+Index Attribute:
+    #id: index_attr
+    When using the Input Mesh distribution method, you can provide an integer point attribute from the Input Mesh that will be used to create i@mops_index. Hint: You can use a MOPs Index From Attribute SOP to create this attribute on your Input Mesh.
+
+Display As:
+    #id: viewportlod
+    The display method to use when showing the instanced primitives in the viewport.
+    
+Enable Material Overrides:
+    #id: do_material_overrides
+    Enable the Material Override parameters for the Instance Objects.
+    
+Quick Add Objects:
+    #id: quick_add
+    Select objects here, or drag nodes into this parameter, to instantly add them to the Instance Objects list.
+    
+Scale:
+    #id: quick_scale
+    The default scale for Quick Add Objects.
+       
+Instance Objects:
+    #id: instanceobjects
+    A multiparm list of objects to generate with the Instancer.
+    
+    === Instance Objects ===
+    
+    Instance Type:
+        #id: instancetype#
+        The type of object to instance; either a SOP or Object, or a File (.bgeo or .abc).
+    
+    Path:
+        #id: instancepath#
+        The path to the SOP or object to instance.
+        
+    File Path:
+        #id: instancefilepath#
+        The path to the .bgeo or .abc file to instance. Bgeo files will be loaded as a Packed Disk Sequence.
+        
+    Cycle Method:
+        #id: cycletype#
+        The method used to cycle file sequences or Alembics.
+        
+    Frame Range:
+        #id: frange#
+        The starting and ending frame of the sequence.
+        
+    Frame Select:
+        #id: frameselect#
+        The method by which to choose the frame to load for each instance. There are two modes available:
+        
+        * Frame Number: You can directly set a frame number (such as @Frame) via the Frame Number attribute.
+        * Attribute: You can use a point attribute from the Template Object (if you are using Mesh or Curve instancing modes), specified via the Frame Attribute.
+    
+    Probability:
+        #id: instance_probability#
+        The weighted probability of each instance type. Lower numbers are less likely to appear in the Random Indexing mode.
+    
+    Material Override:
+        #id: instance_material#
+        The material to apply to the instances under this path. Only active if "Enable Material Overrides" is enabled; otherwise the material already applied to the SOP or object is used.
+        
+== Distribution ==
+
+Number of Points:
+    #id: npoints
+    The number of instances to generate. If "Flood Mesh" is enabled, this parameter may be overridden by the number of points on the Input Mesh.
+
+Distribution Type:
+    #id: distro_type
+    
+    The distribution method to use for positioning and orienting objects. There are several modes available:
+    
+    * Linear: Arrange the instances in a straight line.
+    * Radial: Arrange the instances in a circle or spiral pattern.
+    * Spherical: Arrange the instances in a spherical pattern.
+    * Grid: Arrange the instances in a 2D grid or 3D matrix pattern.
+    * Mesh: Arrange the instances using a mesh.
+    * Curve: Arrange the instances along a NURBS or polyline curve.
+    * Honeycomb: Arrange the instances in a hexagonal pattern.
+
+Template Object:
+    #id: inputMesh
+    The object to distribute Instances on.
+    
+Template Group:
+    #id: inputMeshGroup
+    Distribute Instances only on this group of the Template Object.
+    
+Copy Attributes:
+    #id: attribname
+    Instances will inherit these point attributes from the Template Object.
+    
+=== Distribution Types ===
+    
+    
+==== Linear ==== 
+
+Distance:
+    #id: linear_distance
+    The total length of the line to copy objects along.
+    
+Offset: 
+    #id: linear_offset
+    Apply an offset transformation to the clones along the line, like a marquee.
+    
+==== Radial ====
+
+Orientation:
+    #id: radial_orient
+    The orientation of the circle to clone on.
+    
+Arc Angles:
+    #id: beginradial_rangle endradial_angle
+    The starting and ending angles of an open arc.
+    
+Radius:
+    #id: radial_radiusx radial_radiusy
+    The u and v radius of the circle or ellipse.
+    
+Uniform Scale:
+    #id: radial_scale
+    A scalar on the radius of the circle.
+    
+Distance:
+    #id: radial_distance
+    The distance to separate the start and end of the arc, normal to the orientation plane.
+    
+Divisions:
+    #id: radial_divisions
+    The number of points along the arc. Higher numbers make smoother arcs.
+    
+Align:
+    #id: radial_align
+    Align copies to the arc.
+    
+==== Spherical ====
+    
+Radius:
+    #id: sphere_radius
+    The radius of the sphere.
+    
+Seed:
+    #id: sphere_seed
+    The random seed used for distributing spherical instances.
+    
+Cone Angle:
+    #id: sphere_cone
+    The angle over which to distribute instances, relative to the Cone Direction vector. A value of 90 degrees would distribute instances in a hemisphere around the Cone Direction. The default value of 180 distributes around a complete sphere.
+    
+Cone Direction:
+    #id: sphere_cone_direction 
+    The axis around which the instances are distributed, depending on the Cone Angle.
+    
+Fill Sphere:
+    #id: do_sphere_fill
+    If enabled, clones are generated within the volume of the sphere as well as on the surface.
+    
+Align:
+    #id: sphere_align
+    Align clones to the surface of the sphere.
+    
+==== Grid ====
+
+Distribution Type:
+    #id: grid_distrib_type
+    The method by which to generate instances on the grid. Fixed Size determines a total size for the grid, and the parameters then adjust the density of the instances. Fixed Number determines a specific number of instances along each axis, and the parameters adjust the distance between them.
+
+Size:
+    #id: grid_size
+    (Fixed Size) The total size of the grid.
+    
+Step:
+    #id: grid_step
+    (Fixed Size) The distance between instances along each axis.
+    
+Grid X, Grid Y, Grid Z:
+    #id: gridx gridy gridz 
+    (Fixed Number) The number of clones to generate along each axis.
+    
+Distance:
+    #id: grid_distancex grid_distancey grid_distancez
+    (Fixed Number) The total length of each axis.
+   
+==== Mesh ====
+
+Input Mesh:
+    #id: inputMesh
+    The mesh to copy clones to. This can be any unpacked SOP.
+    
+Convert to Polygons:
+    #id: do_convert_to_polygons
+    Convert the input mesh to polygons before cloning.
+    
+Mesh Distribution Method:
+    #id: mesh_distroMethod
+    
+    The method by which to distribute clones onto the Input Mesh. There are several options:
+    
+    * Scatter: Scatter clones randomly across the input mesh.
+    * Points: Place one clone at each point of the input mesh.
+    * Prim Centers: Place one clone at the centroid of each primitive (face) of the input mesh.
+    * Voxels: Convert the input mesh into a fog volume, and place one clone at the center of each voxel.
+    * Edge Centers: Place one clone at the relative center of each edge of the input mesh.
+    
+    ==== Points ====
+    
+    Template Point Group:
+        #id: The group of points to consider as template points.
+    
+    ==== Scatter ====
+    
+    Scatter Seed:
+        #id: seed
+        The random seed to use for scatter points on the Input Mesh.
+        
+    Density Attribute:
+        #id: densityattrib
+        The attribute on the template mesh to decide the likelihood of points scattering there. See Scatter SOP for details.
+        
+    Relax Iterations:
+        #id: relaxiterations
+        
+        See the Scatter SOP for details.
+        
+    Scale Radii By:
+        #id: scaleradiiby
+        
+        See the Scatter SOP for details.
+        
+    ==== Voxels ====
+    
+    Voxel Size:
+        #id: mesh_voxelsize
+        The size of the voxel grid to create from the Input Mesh. A clone will be placed at each voxel's center.
+        
+Flood Mesh:
+    #id: floodMesh
+    When using distribution methods other than Scatter, this option always creates enough clones to fill the source points.
+    
+Push Along Normal:
+    #id: mesh_peak_dist
+    Push the clones outwards along the surface normals of the Input Mesh.
+    
+==== Mesh Alignment ====
+
+Orient Copies to Surface:
+    #id: do_mesh_orient
+    Align the copies to the surface of the Input Mesh.
+ 
+Cusp Faces:
+    #id mesh_scatter_do_cusp_faces
+    Split the faces of the Input Mesh apart so that their surface normals are hardened. This makes clones align strictly to the faces they are scattered onto, rather than smoothly blending their orientation with neighboring faces.
+        
+Compute Normal:
+    #id: do_compute_normal
+    Automatically compute the surface normals from the Input Mesh.
+    
+Override Up Vector:
+    #id: overwrite_mesh_up
+    Override any incoming up vector attribute from the Input Mesh.
+    
+Default Up Vector:
+    #id: up_vector
+    The up vector used along with the surface normals to orient each clone.
+          
+== Sorting ==
+
+These options enable sorting (setting the point number and i@id attribute) of the instances according to various methods. See the [Sort SOP|Node:sop/sort] for details.
+    
+Name Prefix:
+    #id: name_prefix
+    The prefix to add to each instance's name attribute. This can be useful for ensuring that multiple MOPs streams don't have clashing names in a Packed RBD simulation, for example.
+
+Name Start Number:
+    #id: name_start
+    The starting number for each piece's name attribute.
+    
+ID Start Number:
+    #id: id_offset
+    The starting number to use as the id for each instance.
+    
+@related
+
+* [MOPs Index From Attribute|Node:sop/MOPS--indexFromAttribute-1.0]
+* [MOPs Falloff From Attribute|Node:sop/MOPS--Falloff_From_Attribute-1.0]
+* [MOPs Apply Attributes|Node:sop/MOPS--applyAttributes-1.0]
+* [MOPs Extract Attributes|Node:sop/MOPS--extractAttributes-1.0]

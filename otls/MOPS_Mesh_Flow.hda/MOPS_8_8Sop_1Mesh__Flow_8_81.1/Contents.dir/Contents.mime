@@ -32,7 +32,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -2.12341 -1.87984
+position 109.633 18.2679
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -41,16 +41,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	primitivewrangle1 1 1 "input1"
+0 	mesh_error 1 1 "input1"
 }
 inputs
 {
-0 	primitivewrangle1 0 1
+0 	mesh_error 0 1
 }
 stat
 {
-  create 1558762161
-  modify 1558762260
+  create 1568523996
+  modify 1568919861
   author Henry@LAPPY586
   access 0777
 }
@@ -108,7 +108,7 @@ inputs
 stat
 {
   create 1526617897
-  modify 1558762161
+  modify 1568869275
   author Henry@LAPPY586
   access 0777
 }
@@ -546,7 +546,7 @@ inputs
 stat
 {
   create 1526618124
-  modify 1558762161
+  modify 1568869275
   author Henry@LAPPY586
   access 0777
 }
@@ -627,7 +627,7 @@ inputs
 stat
 {
   create 1526618368
-  modify 1558762162
+  modify 1568869276
   author Henry@LAPPY586
   access 0777
 }
@@ -3941,7 +3941,7 @@ inputs
 stat
 {
   create 1529781411
-  modify 1558762161
+  modify 1568919728
   author henry@GlaDOS
   access 0777
 }
@@ -4117,6 +4117,13 @@ Content-Type: text/plain
         default { "0" "0" "0" }
         range   { 0 1 }
     }
+    parm {
+        name    "auto_up"
+        label   "Auto Up"
+        type    integer
+        default { "0" }
+        range   { 0 10 }
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/make_up.chn"
@@ -4142,6 +4149,13 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = ch(\"../up_vectorz\") }
     }
+    channel auto_up {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../auto_up\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -4156,7 +4170,12 @@ grouptype	[ 0	locks=0 ]	(	"guess"	)
 class	[ 0	locks=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
-snippet	[ 0	locks=0 ]	(	"v@up = chv(\"up_vector\");"	)
+snippet	[ 0	locks=0 ]	(	"if(chi(\"auto_up\")) {
+    matrix3 m = dihedral(v@N, {0,0,1});
+    v@up = m * {0,1,0};
+} else {
+    v@up = chv(\"up_vector\");
+}"	)
 exportlist	[ 0	locks=0 ]	(	*	)
 vex_strict	[ 0	locks=0 ]	(	"off"	)
 autobind	[ 0	locks=0 ]	(	"on"	)
@@ -4171,6 +4190,7 @@ vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 up_vector	[ 0	locks=0 ]	(	[ up_vectorx	0 ] 	[ up_vectory	1 ] 	[ up_vectorz	0 ] 	)
+auto_up	[ 0	locks=0 ]	(	[ auto_up	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -4215,7 +4235,7 @@ inputs
 stat
 {
   create 1529782497
-  modify 1558762161
+  modify 1568869275
   author henry@GlaDOS
   access 0777
 }
@@ -4494,7 +4514,7 @@ inputs
 stat
 {
   create 1548356239
-  modify 1558762161
+  modify 1568869275
   author Henry@LAPPY586
   access 0777
 }
@@ -4594,7 +4614,7 @@ inputs
 stat
 {
   create 1548356267
-  modify 1558762322
+  modify 1568869275
   author Henry@LAPPY586
   access 0777
 }
@@ -4831,7 +4851,7 @@ inputs
 stat
 {
   create 1526619587
-  modify 1558762161
+  modify 1568869275
   author Henry@LAPPY586
   access 0777
 }
@@ -4904,7 +4924,7 @@ inputs
 stat
 {
   create 1529781023
-  modify 1558762161
+  modify 1568869275
   author henry@GlaDOS
   access 0777
 }
@@ -5068,7 +5088,7 @@ inputs
 stat
 {
   create 1529781118
-  modify 1558762161
+  modify 1568869275
   author henry@GlaDOS
   access 0777
 }
@@ -5533,7 +5553,7 @@ inputs
 stat
 {
   create 1529781399
-  modify 1558762161
+  modify 1568869275
   author henry@GlaDOS
   access 0777
 }
@@ -5608,7 +5628,7 @@ inputs
 stat
 {
   create 1531533595
-  modify 1558762161
+  modify 1568869275
   author Henry@LAPPY586
   access 0777
 }
@@ -5684,7 +5704,7 @@ inputs
 stat
 {
   create 1531533642
-  modify 1558762161
+  modify 1568869275
   author Henry@LAPPY586
   access 0777
 }
@@ -5760,7 +5780,7 @@ inputs
 stat
 {
   create 1548356363
-  modify 1558762161
+  modify 1568869275
   author Henry@LAPPY586
   access 0777
 }

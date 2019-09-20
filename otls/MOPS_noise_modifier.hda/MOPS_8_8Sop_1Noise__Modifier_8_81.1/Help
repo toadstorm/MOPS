@@ -1,0 +1,88 @@
+= MOPs Noise Modifier =
+
+#icon: opdef:.?mops_modifier_02.svg
+
+"""Moves instances according multiple types of noise fields."""
+
+This node is a replacement for the MOPs Curl Noise modifier. MOPs Noise Modifier can push objects along a curl noise field, but it can
+also use many other types of noise fields as well. Objects can be pushed along in their local space (based on their N or up vectors), or
+they can be pushed in world space, depending on the Noise Signature.
+
+== Overview ==
+
+@inputs
+
+Packed Primitives:
+    Plug in MOPs instances in here.
+
+@parameters
+
+== General ==
+
+Mode:
+    #id: noisemode
+    Select how instances will be moved through noise field.
+    - Simple: Simply move instances in the direction of the noise.
+    - Advect: Advect instances through the noise field over time (hit play to see effect).
+    
+Effect Scale:
+    #id: scale
+    A global multiplier on the strength of the effect.
+    
+Orient Instances:
+    #id: orientclones
+    Orient instances according to their motion through the noise field.
+    
+Aim Weight:
+    #id: aim_weight
+    Available in Advect Mode only. The bias between the previous timestep's orientation and the current timestep's. Lower numbers make instances turn towards the direction of motion more slowly. A value of 1.0 implies that all objects will immediately turn towards their direction of motion each frame. This can cause jittery motion, so use with caution.
+    
+Do Falloff:
+    #id: do_falloff
+    Scale each primitive's motion by the `mops_falloff` attribute.
+    
+Output Trails:
+    #id: do_trails
+    Generate trails from the path of each object. Only available in Advect mode.
+    
+== Noise Properties ==
+
+Noise Signature:
+    #id: signature
+    The type of noise to generate. Scalar noise is a single value; vector noise is three values (x,y,z).
+    
+Forward Axis:
+    #id: forwardaxis
+    If the "Noise Signature" is set to "Float", the axis in which to move instances. Defaults to Normal (+Z).
+    
+See [MOPs Noise Patterns|Node:sop/MOPS--Noise_Patterns-1.1] for help on other parameters in this section.
+
+== Trail Settings ==
+
+Trails are only available in Advect Mode.
+
+Polyline Trails:
+    #id: do_polylines
+    If enabled, trails will be generated as polylines (not points).
+    
+Group Name:
+    #id: groupname
+    The group to place the trails in.
+    
+Inherit Attributes:
+    #id: trail_attrs
+    A list of point attributes to inherit from the source packed primitives / points.
+    
+Generate Curve UV Attribute:
+    #id: do_curveu
+    If enabled, an attribute will be generated on the trails corresponding to the parametric value of each point along the curve (0-1).
+    
+Curve UV Attribute Name:
+    #id: curveu_name
+    The name of the Curve UV attribute to generate.
+    
+== Solver Settings ==
+
+Update Attributes:
+    #id: attribname
+    Advect mode only. A list of attributes to update as the simulation runs.

@@ -58,4 +58,36 @@
         }
         parmtag { "autoscope" "0000000000000000" }
     }
+    parm {
+        name    "doprimgroups"
+        label   "Output Groups"
+        type    toggle
+        default { "0" }
+        range   { 0 10 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "frontgroup"
+        label   "Front Group"
+        type    string
+        default { "front" }
+        disablewhen "{ doprimgroups 0 }"
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "insidegroup"
+        label   "Inside Group"
+        type    string
+        default { "inside" }
+        disablewhen "{ doprimgroups 0 }"
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "outsidegroup"
+        label   "Outside Group"
+        type    string
+        default { "outside" }
+        disablewhen "{ doprimgroups 0 }"
+        parmtag { "autoscope" "0000000000000000" }
+    }
 }

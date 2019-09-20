@@ -1,0 +1,88 @@
+= MOPs Noise Patterns = 
+
+#icon: opdef:.?mops_TD_tools_05.svg
+
+"""Generates scalar or vector values based on various noise functions."""
+
+MOPs Noise Patterns generates either a scalar (float) attribute or a vector attribute based on a variety of noise functions.
+This node is the basis for the noise functions used by the MOPs Noise Modifier and the MOPs Noise Falloff nodes, among others.
+
+== Overview ==
+
+@inputs
+
+Input Points:
+    The points (or packed primitives) you want to add the noise attribute to.
+    
+@parameters
+    
+== General Settings ==
+
+Noise Signature:
+    #id: signature
+    The type of noise to generate: scalar or vector noise.
+    
+Output Attribute:
+    #id: attrname
+    The name of the attribute you want to generate. Scalar noise defaults to `mops_falloff`. Vector noise defaults to `offset`.
+
+== Noise Settings ==
+
+Noise Type:
+    #id: input
+    The noise function to use. 
+    - Perlin: Perlin Noise
+    - Simplex: Simplex Noise. A bit faster Than Perlin, similar appearance.
+    - Worley (f2-f1): Looks a bit like cellular structures
+    - Worley(f1): Another Cellular Structure
+    - Worley (f2): And another Cellular Structure
+    - Mosaic: Noise Tiles
+    - Folded: Absolute Values of Simplex Noise
+    - Mix Minima: Layers 3 simplex noises and uses the min value.
+    - Curl: Makes nice smoke-like motion. Best in Vector mode.
+    - Sparse Convolution: Similar to Worley noise, but with a metaball-like smooth falloff.
+    - Alligator: Also similar to Worley noise. Makes a very rough bumpy texture.
+    
+Use Rest Attribute:
+    #id: use_rest
+    If enabled and a `v@rest` point attribute is present, this attribute will be used for sampling noise values instead of the position `v@P`. This prevents texture "swimming" during motion.
+    
+Amplitude:
+    #id: amp
+    The strength of the noise (per-axis if vector).
+    
+Frequency:
+    #id: freq
+    The frequency of the noise (per-axis if vector). Low frequencies imply large patterns.
+
+Uniform:
+    #id: uniform
+    This locks Frequency, Tile Size and Distortion to using only the X (first) component of the parameter.
+    
+Roughness:
+    #id: roughness
+    The relative strength of each successive octave of noise. Higher values will result in a noisier appearance.
+    
+Octaves:
+    #id: octaves
+    The number of iterations of noise to multiply against each other. Higher values imply more detail, and possibly more visible roughness.
+    
+Offset:
+    #id: offset
+    An offset to the noise lookup position. These values can be animated to simulate flowing patterns.
+    
+Tile Size:
+    #id: tile_size
+    Mosaic Noise only. The size of the tiles making up the noise pattern.
+    
+Distort:
+    #id: Distort
+    Warped Simplex only. The strength of the warping effect.
+    
+Time Varying:
+    #id: time_varying
+    Not supported by all noise types. This automatically evolves some noise functions over time, so you don't have to animate the Offset parameter.
+    
+Time Scale:
+    #id: time_scale
+    The speed of the noise animation, if Time Varying is enabled.
