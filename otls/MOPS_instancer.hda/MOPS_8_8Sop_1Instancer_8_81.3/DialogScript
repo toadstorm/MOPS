@@ -714,6 +714,7 @@
                 label   "Instance Type"
                 type    ordinal
                 default { "0" }
+                disablewhen "{ inputindex# > -1 }"
                 menu {
                     "0" "SOP or Object"
                     "1" "File"
@@ -737,6 +738,7 @@
                 label   "File Path"
                 type    file
                 default { "default.bgeo" }
+                disablewhen "{ inputindex# > -1 }"
                 hidewhen "{ instancetype# == 0 }"
                 parmtag { "filechooser_mode" "read" }
                 parmtag { "filechooser_pattern" "*.*" }

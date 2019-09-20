@@ -32,28 +32,31 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -5.56749 -4.02439
-connectornextid 3
+position -1.04363 1.14403
+connectornextid 4
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
+11 "output1"
 }
 inputsNamed3
 {
-0 	file1 0 1 "input1"
-1 	testgeometry_pighead2 0 1 "input2"
-2 	alembic1 0 1 "input3"
+3 	circle1 0 1 "input1"
+0 	platonic1 0 1 "input2"
+2 	box1 0 1 "input3"
+1 	file1 0 1 "input4"
 }
 inputs
 {
-0 	file1 0 1
-1 	testgeometry_pighead2 0 1
-2 	alembic1 0 1
+0 	circle1 0 1
+1 	platonic1 0 1
+2 	box1 0 1
+3 	file1 0 1
 }
 stat
 {
-  create 1568869274
-  modify 1568959082
+  create 1567988090
+  modify 1568960498
   author Henry@LAPPY586
   access 0777
 }
@@ -3247,7 +3250,7 @@ version 0.8
 group	[ 0	locks=0 ]	(	""	)
 keepgeo	[ 0	locks=0 ]	(	"off"	)
 folder1	[ 0	locks=0 ]	(	0	0	0	0	)
-nptsperpt	[ 8	locks=0 ]	(	[ nptsperpt	25 ] 	)
+nptsperpt	[ 8	locks=0 ]	(	[ nptsperpt	36 ] 	)
 genfromattrib	[ 0	locks=0 ]	(	"off"	)
 attrib	[ 0	locks=0 ]	(	""	)
 shape	[ 0	locks=0 ]	(	"point"	)
@@ -14790,7 +14793,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	6 ] 	)
+input	[ 8	locks=0 ]	(	[ input	3 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -17708,7 +17711,7 @@ pivot	[ 0	locks=0 ]	(	"centroid"	)
 viewportlod	[ 0	locks=0 ]	(	"full"	)
 addpath	[ 0	locks=0 ]	(	"on"	)
 enable1	[ 0	locks=0 ]	(	"on"	)
-objpath1	[ 8	locks=0 ]	(	[ objpath1	/obj/geo1/box2 ] 	)
+objpath1	[ 8	locks=0 ]	(	[ objpath1	/obj/geo1/null2 ] 	)
 group1	[ 0	locks=0 ]	(	[ group1	"" ] 	)
 expand1	[ 0	locks=0 ]	(	"off"	)
 }
@@ -20372,7 +20375,7 @@ inputs
 stat
 {
   create 1522969308
-  modify 1568958244
+  modify 1568959485
   author Wolf_User@admin-hp
   access 0777
 }
@@ -23736,7 +23739,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -23811,7 +23814,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -27465,7 +27468,7 @@ pivot	[ 0	locks=0 ]	(	"centroid"	)
 viewportlod	[ 0	locks=0 ]	(	"full"	)
 addpath	[ 0	locks=0 ]	(	"on"	)
 enable1	[ 0	locks=0 ]	(	"on"	)
-objpath1	[ 0	locks=0 ]	(	[ objpath1	/obj/geo1/box2 ] 	)
+objpath1	[ 0	locks=0 ]	(	[ objpath1	/obj/geo1/null2 ] 	)
 group1	[ 0	locks=0 ]	(	[ group1	"" ] 	)
 expand1	[ 0	locks=0 ]	(	"off"	)
 }
@@ -28572,7 +28575,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	6 ] 	)
+input	[ 0	locks=0 ]	(	[ input	3 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -28853,7 +28856,7 @@ inputs
 stat
 {
   create 1567744824
-  modify 1568958400
+  modify 1568959498
   author Henry@LAPPY586
   access 0777
 }
@@ -29280,7 +29283,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 spare_input0	[ 0	locks=0 ]	(	../foreach_begin1_metadata1	)
 }
 
@@ -29376,7 +29379,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 spare_input0	[ 0	locks=0 ]	(	../foreach_begin1_metadata1	)
 }
 
@@ -30139,7 +30142,7 @@ inputs
 stat
 {
   create 1567746994
-  modify 1568958400
+  modify 1568959498
   author Henry@LAPPY586
   access 0777
 }
@@ -30372,7 +30375,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	8 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -35865,10 +35868,10 @@ grouptype	[ 0	locks=0 ]	(	"guess"	)
 xOrd	[ 0	locks=0 ]	(	"srt"	)
 rOrd	[ 0	locks=0 ]	(	"xyz"	)
 t	[ 0	locks=0 ]	(	[ tx	0 ] 	[ ty	0 ] 	[ tz	0 ] 	)
-r	[ 0	locks=0 ]	(	[ rx	90 ] 	[ ry	0 ] 	[ rz	0 ] 	)
+r	[ 0	locks=0 ]	(	[ rx	0 ] 	[ ry	0 ] 	[ rz	0 ] 	)
 s	[ 0	locks=0 ]	(	[ sx	1 ] 	[ sy	1 ] 	[ sz	1 ] 	)
 shear	[ 0	locks=0 ]	(	0	0	0	)
-scale	[ 0	locks=0 ]	(	[ scale	0.54000000000000004 ] 	)
+scale	[ 0	locks=0 ]	(	[ scale	0.20000000000000001 ] 	)
 parmgroup_pivotxform	[ 0	locks=0 ]	(	0	)
 p	[ 0	locks=0 ]	(	0	0	0	)
 pr	[ 0	locks=0 ]	(	0	0	0	)
@@ -36249,10 +36252,10 @@ grouptype	[ 0	locks=0 ]	(	[ grouptype	0 ] 	)
 xOrd	[ 0	locks=0 ]	(	[ xOrd	0 ] 	)
 rOrd	[ 0	locks=0 ]	(	[ rOrd	0 ] 	)
 t	[ 0	locks=0 ]	(	[ tx	0 ] 	[ ty	0 ] 	[ tz	0 ] 	)
-r	[ 0	locks=0 ]	(	[ rx	90 ] 	[ ry	0 ] 	[ rz	0 ] 	)
+r	[ 0	locks=0 ]	(	[ rx	0 ] 	[ ry	0 ] 	[ rz	0 ] 	)
 s	[ 0	locks=0 ]	(	[ sx	1 ] 	[ sy	1 ] 	[ sz	1 ] 	)
 shear	[ 0	locks=0 ]	(	[ shear1	0 ] 	[ shear2	0 ] 	[ shear3	0 ] 	)
-scale	[ 0	locks=0 ]	(	[ scale	0.54000000000000004 ] 	)
+scale	[ 0	locks=0 ]	(	[ scale	0.20000000000000001 ] 	)
 parmgroup_pivotxform	[ 0	locks=0 ]	(	0	)
 p	[ 0	locks=0 ]	(	[ px	0 ] 	[ py	0 ] 	[ pz	0 ] 	)
 pr	[ 0	locks=0 ]	(	[ prx	0 ] 	[ pry	0 ] 	[ prz	0 ] 	)
