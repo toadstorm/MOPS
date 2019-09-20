@@ -582,7 +582,16 @@
             range   { 0 10000 }
             parmtag { "autoscope" "0000000000000000" }
         }
-        groupcollapsible {
+        parm {
+            name    "quick_add"
+            label   "Quick Add Objects"
+            type    oplist
+            default { "" }
+            parmtag { "oprelative" "/" }
+            parmtag { "script_callback" "hou.phm().do_quick_select(kwargs)" }
+            parmtag { "script_callback_language" "python" }
+        }
+        group {
             name    "folder2"
             label   "Global Options"
 
@@ -656,35 +665,43 @@
             }
         }
 
-        parm {
-            name    "sepparm3"
-            label   "Separator"
-            type    separator
-            default { "" }
+        group {
+            name    "folder2_1"
+            label   "Global Transform"
+
+            parm {
+                name    "global_translate"
+                label   "Translate"
+                type    vector
+                size    3
+                default { "0" "0" "0" }
+                range   { -1 1 }
+            }
+            parm {
+                name    "global_rotate"
+                label   "Rotate"
+                type    vector
+                size    3
+                default { "0" "0" "0" }
+                range   { -1 1 }
+            }
+            parm {
+                name    "global_scale"
+                label   "Scale"
+                type    vector
+                size    3
+                default { "1" "1" "1" }
+                range   { -1 1 }
+            }
+            parm {
+                name    "global_pscale"
+                label   "Uniform Scale"
+                type    float
+                default { "1" }
+                range   { 0 10 }
+            }
         }
-        parm {
-            name    "quick_add"
-            label   "Quick Add Objects"
-            type    oplist
-            joinnext
-            default { "" }
-            parmtag { "oprelative" "/" }
-            parmtag { "script_callback" "hou.phm().do_quick_select(kwargs)" }
-            parmtag { "script_callback_language" "python" }
-        }
-        parm {
-            name    "quick_scale"
-            label   "Scale"
-            type    float
-            default { "0.1" }
-            range   { 0 10 }
-        }
-        parm {
-            name    "sepparm4"
-            label   "Separator"
-            type    separator
-            default { "" }
-        }
+
         multiparm {
             name    "instanceobjects"
             label    "Instance Objects"

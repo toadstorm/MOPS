@@ -49,7 +49,7 @@ inputs
 stat
 {
   create 1568869274
-  modify 1568920040
+  modify 1568948878
   author Henry@LAPPY586
   access 0777
 }
@@ -12651,262 +12651,6 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/path_attr.init"
-Content-Type: text/plain
-
-type = attribwrangle
-matchesdef = 1
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/path_attr.def"
-Content-Type: text/plain
-
-sopflags sopflags = 
-comment ""
-position 67.3556 -22.1403
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass on display off render off highlight off unload off savedata off compress on colordefault on exposed on
-outputsNamed3
-{
-1 "output1"
-}
-inputsNamed3
-{
-0 	file3 0 1 "input1"
-}
-inputs
-{
-0 	file3 0 1
-}
-stat
-{
-  create 1567748368
-  modify 1568694065
-  author Henry@LAPPY586
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/path_attr.spareparmdef"
-Content-Type: text/plain
-
-    group {
-        name    "folder1"
-        label   "Code"
-
-        parm {
-            name    "group"
-            baseparm
-            label   "Group"
-            export  none
-            bindselector points "Modify Points"
-                "Select the points to affect and press Enter to complete."
-                0 1 0xffffffff 0 grouptype 0
-        }
-        parm {
-            name    "grouptype"
-            baseparm
-            label   "Group Type"
-            export  none
-        }
-        parm {
-            name    "class"
-            baseparm
-            label   "Run Over"
-            export  none
-        }
-        parm {
-            name    "vex_numcount"
-            baseparm
-            label   "Number Count"
-            export  none
-        }
-        parm {
-            name    "vex_threadjobsize"
-            baseparm
-            label   "Thread Job Size"
-            export  none
-        }
-        parm {
-            name    "snippet"
-            baseparm
-            label   "VEXpression"
-            export  all
-        }
-        parm {
-            name    "exportlist"
-            baseparm
-            label   "Attributes to Create"
-            export  none
-        }
-        parm {
-            name    "vex_strict"
-            baseparm
-            label   "Enforce Prototypes"
-            export  none
-        }
-    }
-
-    group {
-        name    "folder1_1"
-        label   "Bindings"
-
-        parm {
-            name    "autobind"
-            baseparm
-            label   "Autobind by Name"
-            export  none
-        }
-        multiparm {
-            name    "bindings"
-            label    "Number of Bindings"
-            baseparm
-            default 0
-            parmtag { "autoscope" "0000000000000000" }
-            parmtag { "multistartoffset" "1" }
-
-            parm {
-                name    "bindname#"
-                baseparm
-                label   "Attribute Name"
-                export  none
-            }
-            parm {
-                name    "bindparm#"
-                baseparm
-                label   "VEX Parameter"
-                export  none
-            }
-        }
-
-        parm {
-            name    "groupautobind"
-            baseparm
-            label   "Autobind Groups by Name"
-            export  none
-        }
-        multiparm {
-            name    "groupbindings"
-            label    "Group Bindings"
-            baseparm
-            default 0
-            parmtag { "autoscope" "0000000000000000" }
-            parmtag { "multistartoffset" "1" }
-
-            parm {
-                name    "bindgroupname#"
-                baseparm
-                label   "Group Name"
-                export  none
-            }
-            parm {
-                name    "bindgroupparm#"
-                baseparm
-                label   "VEX Parameter"
-                export  none
-            }
-        }
-
-        parm {
-            name    "vex_cwdpath"
-            baseparm
-            label   "Evaluation Node Path"
-            export  none
-        }
-        parm {
-            name    "vex_outputmask"
-            baseparm
-            label   "Export Parameters"
-            export  none
-        }
-        parm {
-            name    "vex_updatenmls"
-            baseparm
-            label   "Update Normals If Displaced"
-            export  none
-        }
-        parm {
-            name    "vex_matchattrib"
-            baseparm
-            label   "Attribute to Match"
-            export  none
-        }
-        parm {
-            name    "vex_inplace"
-            baseparm
-            label   "Compute Results In Place"
-            export  none
-        }
-        parm {
-            name    "vex_selectiongroup"
-            baseparm
-            label   "Output Selection Group"
-            export  none
-        }
-    }
-
-    parm {
-        name    "spare_input0"
-        label   "Spare Input 0"
-        type    oppath
-        default { "" }
-        help    "Refer to this in expressions as -1, such as: npoint(-1)"
-        parmtag { "opfilter" "!!SOP!!" }
-        parmtag { "oprelative" "." }
-    }
-    parm {
-        name    "path"
-        label   "Path"
-        type    string
-        default { "" }
-    }
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/path_attr.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-folder0	[ 0	locks=0 ]	(	0	0	)
-group	[ 0	locks=0 ]	(	""	)
-grouptype	[ 0	locks=0 ]	(	"guess"	)
-class	[ 0	locks=0 ]	(	"primitive"	)
-vex_numcount	[ 0	locks=0 ]	(	10	)
-vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
-snippet	[ 0	locks=0 ]	(	"s@path = chs(\"path\");"	)
-exportlist	[ 0	locks=0 ]	(	*	)
-vex_strict	[ 0	locks=0 ]	(	"off"	)
-autobind	[ 0	locks=0 ]	(	"on"	)
-bindings	[ 0	locks=0 ]	(	0	)
-groupautobind	[ 0	locks=0 ]	(	"on"	)
-groupbindings	[ 0	locks=0 ]	(	0	)
-vex_cwdpath	[ 0	locks=0 ]	(	.	)
-vex_outputmask	[ 0	locks=0 ]	(	*	)
-vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
-vex_matchattrib	[ 0	locks=0 ]	(	id	)
-vex_inplace	[ 0	locks=0 ]	(	"off"	)
-vex_selectiongroup	[ 0	locks=0 ]	(	""	)
-folder1	[ 0	locks=0 ]	(	0	0	)
-spare_input0	[ 0	locks=0 ]	(	../foreach_begin1_metadata1	)
-path	[ 0	locks=0 ]	(	"op:`chsop(\"../instancepath\" + (detail(-1, \"iteration\", 0)+1))`"	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/path_attr.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":""
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/define_sourceprim_uv.init"
 Content-Type: text/plain
 
@@ -20694,7 +20438,7 @@ inputs
 stat
 {
   create 1522969308
-  modify 1568920014
+  modify 1568947822
   author Wolf_User@admin-hp
   access 0777
 }
@@ -29175,7 +28919,7 @@ inputs
 stat
 {
   create 1567744824
-  modify 1568920014
+  modify 1568948878
   author Henry@LAPPY586
   access 0777
 }
@@ -29323,7 +29067,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 67.3586 -21.2673
+position 67.3586 -20.2693
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -29339,7 +29083,7 @@ inputs
 stat
 {
   create 1567744114
-  modify 1568693952
+  modify 1568947581
   author Henry@LAPPY586
   access 0777
 }
@@ -30461,7 +30205,7 @@ inputs
 stat
 {
   create 1567746994
-  modify 1568920014
+  modify 1568948878
   author Henry@LAPPY586
   access 0777
 }
@@ -31577,7 +31321,7 @@ inputs
 stat
 {
   create 1568520276
-  modify 1568920126
+  modify 1568920127
   author Henry@LAPPY586
   access 0777
 }
@@ -31919,7 +31663,7 @@ areaattrib	[ 0	locks=0 ]	(	[ areaattrib	area ] 	)
 indepvoxel	[ 0	locks=0 ]	(	[ indepvoxel	0 ] 	)
 useareaforvolumes	[ 0	locks=0 ]	(	[ useareaforvolumes	0 ] 	)
 forcetotal	[ 0	locks=0 ]	(	[ forcetotal	1 ] 	)
-npts	[ 0	locks=0 ]	(	[ npts	1000 ] 	)
+npts	[ 0	locks=0 ]	(	[ npts	22963 ] 	)
 usedensitytexture	[ 0	locks=0 ]	(	[ usedensitytexture	0 ] 	)
 densitytexture	[ 0	locks=0 ]	(	[ densitytexture	default.pic ] 	)
 primcountattrib	[ 0	locks=0 ]	(	[ primcountattrib	count ] 	)
@@ -31929,7 +31673,7 @@ seed	[ 0	locks=0 ]	(	[ seed	0 ] 	)
 overrideprimseed	[ 0	locks=0 ]	(	[ overrideprimseed	0 ] 	)
 primseedattrib	[ 0	locks=0 ]	(	[ primseedattrib	primid ] 	)
 randomizeorder	[ 0	locks=0 ]	(	[ randomizeorder	1 ] 	)
-relaxpoints	[ 0	locks=0 ]	(	[ relaxpoints	1 ] 	)
+relaxpoints	[ 0	locks=0 ]	(	[ relaxpoints	0 ] 	)
 relaxiterations	[ 0	locks=0 ]	(	[ relaxiterations	10 ] 	)
 scaleradiiby	[ 0	locks=0 ]	(	[ scaleradiiby	1 ] 	)
 usemaxradius	[ 0	locks=0 ]	(	[ usemaxradius	1 ] 	)
@@ -33965,16 +33709,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	path_attr 1 1 "input1"
+0 	transform8 1 1 "input1"
 }
 inputs
 {
-0 	path_attr 0 1
+0 	transform8 0 1
 }
 stat
 {
   create 1560463831
-  modify 1568694121
+  modify 1568947590
   author Henry@LAPPY586
   access 0777
 }
@@ -36134,6 +35878,164 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/transform8.init"
+Content-Type: text/plain
+
+type = xform
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/transform8.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 67.3586 -21.2693
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	file3 0 1 "input1"
+}
+inputs
+{
+0 	file3 0 1
+}
+stat
+{
+  create 1568947590
+  modify 1568947674
+  author Henry@LAPPY586
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/transform8.chn"
+Content-Type: text/plain
+
+{
+    channel tx {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../global_translatex\") }
+    }
+    channel ty {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../global_translatey\") }
+    }
+    channel tz {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../global_translatez\") }
+    }
+    channel rx {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../global_rotatex\") }
+    }
+    channel ry {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../global_rotatey\") }
+    }
+    channel rz {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../global_rotatez\") }
+    }
+    channel sx {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../global_scalex\") }
+    }
+    channel sy {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../global_scaley\") }
+    }
+    channel sz {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../global_scalez\") }
+    }
+    channel scale {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../global_pscale\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/transform8.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+group	[ 0	locks=0 ]	(	""	)
+grouptype	[ 0	locks=0 ]	(	"guess"	)
+xOrd	[ 0	locks=0 ]	(	"srt"	)
+rOrd	[ 0	locks=0 ]	(	"xyz"	)
+t	[ 0	locks=0 ]	(	[ tx	0 ] 	[ ty	0 ] 	[ tz	0 ] 	)
+r	[ 0	locks=0 ]	(	[ rx	0 ] 	[ ry	0 ] 	[ rz	0 ] 	)
+s	[ 0	locks=0 ]	(	[ sx	1 ] 	[ sy	1 ] 	[ sz	1 ] 	)
+shear	[ 0	locks=0 ]	(	0	0	0	)
+scale	[ 0	locks=0 ]	(	[ scale	1 ] 	)
+parmgroup_pivotxform	[ 0	locks=0 ]	(	0	)
+p	[ 0	locks=0 ]	(	0	0	0	)
+pr	[ 0	locks=0 ]	(	0	0	0	)
+parmgroup_prexform	[ 0	locks=0 ]	(	0	)
+prexform_xOrd	[ 0	locks=0 ]	(	"srt"	)
+prexform_rOrd	[ 0	locks=0 ]	(	"xyz"	)
+prexform_t	[ 0	locks=0 ]	(	0	0	0	)
+prexform_r	[ 0	locks=0 ]	(	0	0	0	)
+prexform_s	[ 0	locks=0 ]	(	1	1	1	)
+prexform_shear	[ 0	locks=0 ]	(	0	0	0	)
+movecentroid	[ 0	locks=0 ]	(	0	)
+attribs	[ 0	locks=0 ]	(	*	)
+updatenmls	[ 0	locks=0 ]	(	"off"	)
+updateaffectednmls	[ 0	locks=0 ]	(	"on"	)
+vlength	[ 0	locks=0 ]	(	"on"	)
+invertxform	[ 0	locks=0 ]	(	"off"	)
+addattrib	[ 0	locks=0 ]	(	"off"	)
+outputattrib	[ 0	locks=0 ]	(	xform	)
+outputmerge	[ 0	locks=0 ]	(	"post"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/transform8.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.229"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.order"
 Content-Type: text/plain
 
@@ -36378,7 +36280,6 @@ create_temp_sequence_groups
 set_alembic_attrs1
 switch_has_abc1
 groupdelete2
-path_attr
 define_sourceprim_uv
 switch_time_dependent
 MOPs_Apply_Attributes
@@ -36461,6 +36362,7 @@ switch_auto_compute_N
 normal2
 recreate_orient1
 attribdelete9
+transform8
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"

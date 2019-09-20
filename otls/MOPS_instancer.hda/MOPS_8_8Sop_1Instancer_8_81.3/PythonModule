@@ -87,7 +87,7 @@ def do_quick_select(kwargs):
     me = kwargs['node']
     paths = me.evalParm('quick_add').split()
     me.parm('quick_add').set("")
-    scale = me.evalParm('quick_scale')
+    # scale = me.evalParm('quick_scale')
     if paths:
         for i in paths:
             index = me.parm('instanceobjects').evalAsInt()
@@ -95,7 +95,7 @@ def do_quick_select(kwargs):
             relpath = me.relativePathTo(hou.node(i))
             me.parm('instanceobjects').insertMultiParmInstance(index)
             me.parm('instancepath' + str(index + 1)).set(relpath)
-            me.parm('instance_pscale' + str(index + 1)).set(scale)
+            # me.parm('instance_pscale' + str(index + 1)).set(scale)
 
 def get_input_indexes(node):
     """ Get the indexes of any multiparm entries that represent inputs. """
