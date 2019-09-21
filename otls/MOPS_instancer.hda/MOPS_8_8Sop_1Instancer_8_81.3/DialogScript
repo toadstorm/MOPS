@@ -1214,6 +1214,18 @@
                     default { "" }
                 }
                 parm {
+                    name    "radial_align_type"
+                    label   "Align Type"
+                    type    integer
+                    default { "0" }
+                    menu {
+                        "0" "To Center"
+                        "1" "Along Perimeter"
+                    }
+                    range   { 0! 10 }
+                    parmtag { "autoscope" "0000000000000000" }
+                }
+                parm {
                     name    "distro_radial_invert"
                     label   "Invert Normal"
                     type    toggle

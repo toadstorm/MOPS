@@ -51,13 +51,19 @@
     }
     parm {
         name    "falloff_attr"
-        label   "Falloff Attribute"
+        label   "Input Attribute"
         type    string
         default { "mops_falloff" }
         menureplace {
             [ "opmenu -l attribswap1 srcattribs1" ]
         }
         parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "output_attr"
+        label   "Output Attribute"
+        type    string
+        default { "mops_falloff" }
     }
     parm {
         name    "do_preview"
