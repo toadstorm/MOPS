@@ -50,7 +50,7 @@ inputs
 stat
 {
   create 1569376795
-  modify 1569454021
+  modify 1569454313
   author Henry@LAPPY586
   access 0777
 }
@@ -11054,7 +11054,7 @@ inputs
 stat
 {
   create 1567744824
-  modify 1569391295
+  modify 1569454006
   author Henry@LAPPY586
   access 0777
 }
@@ -12340,7 +12340,7 @@ inputs
 stat
 {
   create 1567746994
-  modify 1569391295
+  modify 1569454006
   author Henry@LAPPY586
   access 0777
 }
@@ -12461,7 +12461,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 72.6704 -60.0879
+position 76.3241 -57.4733
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -12470,16 +12470,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	switch_points_only 1 1 "input1"
+0 	(__dot1) "" 1 "input1"
 }
 inputs
 {
-0 	switch_points_only 0 1
+0 	(__dot1) 0 1
 }
 stat
 {
   create 1521092176
-  modify 1569453867
+  modify 1569454298
   author Henry@LAPPY586
   access 0777
 }
@@ -12494,7 +12494,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-ptdel	[ 0	locks=0 ]	(	"__probability orient scale pscale N up pivot __templateid __sourceprim __sourceprimuv"	)
+ptdel	[ 0	locks=0 ]	(	"__probability __templateid __sourceprim __sourceprimuv"	)
 vtxdel	[ 0	locks=0 ]	(	""	)
 primdel	[ 0	locks=0 ]	(	""	)
 dtldel	[ 0	locks=0 ]	(	""	)
@@ -12609,16 +12609,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	attribdelete6 1 1 "input1"
+0 	switch_points_only 1 1 "input1"
 }
 inputs
 {
-0 	attribdelete6 0 1
+0 	switch_points_only 0 1
 }
 stat
 {
   create 1567748193
-  modify 1569453859
+  modify 1569454289
   author Henry@LAPPY586
   access 0777
 }
@@ -18237,18 +18237,18 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	switch_time_dependent 1 1 "input1"
-2 	(__dot1) "" 1 "input2"
+0 	attribdelete10 1 1 "input1"
+2 	attribdelete6 1 1 "input2"
 }
 inputs
 {
-0 	switch_time_dependent 0 1
-1 	(__dot1) 0 1
+0 	attribdelete10 0 1
+1 	attribdelete6 0 1
 }
 stat
 {
   create 1569453856
-  modify 1569453969
+  modify 1569454290
   author Henry@LAPPY586
   access 0777
 }
@@ -18277,7 +18277,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	1 ] 	)
+input	[ 0	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -18370,6 +18370,70 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribdelete10.init"
+Content-Type: text/plain
+
+type = attribdelete
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribdelete10.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 72.4661 -56.8071
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	switch_time_dependent 1 1 "input1"
+}
+inputs
+{
+0 	switch_time_dependent 0 1
+}
+stat
+{
+  create 1521092176
+  modify 1569454285
+  author Henry@LAPPY586
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribdelete10.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+ptdel	[ 0	locks=0 ]	(	"__probability orient scale pscale N up pivot __templateid __sourceprim __sourceprimuv"	)
+vtxdel	[ 0	locks=0 ]	(	""	)
+primdel	[ 0	locks=0 ]	(	""	)
+dtldel	[ 0	locks=0 ]	(	""	)
+updatevar	[ 0	locks=0 ]	(	"on"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribdelete10.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/__dot1.networkdotinit"
 Content-Type: text/plain
 
@@ -18386,7 +18450,7 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot.order"
 Content-Type: text/plain
 
-165
+166
 globals
 output1
 distribution_linear1
@@ -18552,6 +18616,7 @@ compile_end3
 compile_begin3
 switch_points_only
 add1
+attribdelete10
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"
