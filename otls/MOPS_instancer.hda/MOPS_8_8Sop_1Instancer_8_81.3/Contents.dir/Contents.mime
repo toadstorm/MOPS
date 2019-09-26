@@ -32,9 +32,9 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.24887 -6.91066
+position -2.6676 -10.2206
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 1 "output1"
@@ -49,8 +49,8 @@ inputs
 }
 stat
 {
-  create 1569376795
-  modify 1569455975
+  create 1569455881
+  modify 1569470295
   author Henry@LAPPY586
   access 0777
 }
@@ -3238,7 +3238,7 @@ vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 folder1	[ 0	locks=0 ]	(	0	0	)
-mode	[ 0	locks=0 ]	(	[ mode	2 ] 	)
+mode	[ 0	locks=0 ]	(	[ mode	0 ] 	)
 seed	[ 0	locks=0 ]	(	1	)
 index_attr	[ 0	locks=0 ]	(	[ index_attr	mops_index ] 	)
 }
@@ -3816,7 +3816,7 @@ inputs
 stat
 {
   create 1557416320
-  modify 1569391227
+  modify 1569470287
   author Henry@LAPPY586
   access 0777
 }
@@ -4034,7 +4034,8 @@ snippet	[ 0	locks=0 ]	(	"string name_prefix = chs(\"name_prefix\");
 int name_start = chi(\"name_start\");
 
 s@name = sprintf(\"%s%d\", name_prefix, name_start + i@id);
-v@rest = @P;"	)
+v@rest = @P;
+"	)
 exportlist	[ 0	locks=0 ]	(	*	)
 vex_strict	[ 0	locks=0 ]	(	"off"	)
 autobind	[ 0	locks=0 ]	(	"on"	)
@@ -4563,7 +4564,7 @@ inputs
 stat
 {
   create 1568260314
-  modify 1569455626
+  modify 1569469453
   author Henry@LAPPY586
   access 0777
 }
@@ -7183,6 +7184,85 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointwrangle1.init"
+Content-Type: text/plain
+
+type = attribwrangle
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointwrangle1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 74.7037 -33.1016
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	define_name_attr 1 1 "input1"
+}
+inputs
+{
+0 	define_name_attr 0 1
+}
+stat
+{
+  create 1569470295
+  modify 1569470306
+  author Henry@LAPPY586
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointwrangle1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+folder0	[ 0	locks=0 ]	(	0	0	)
+group	[ 0	locks=0 ]	(	""	)
+grouptype	[ 0	locks=0 ]	(	"guess"	)
+class	[ 0	locks=0 ]	(	"point"	)
+vex_numcount	[ 0	locks=0 ]	(	10	)
+vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
+snippet	[ 0	locks=0 ]	(	"f@mops_falloff = 1;
+"	)
+exportlist	[ 0	locks=0 ]	(	*	)
+vex_strict	[ 0	locks=0 ]	(	"off"	)
+autobind	[ 0	locks=0 ]	(	"on"	)
+bindings	[ 0	locks=0 ]	(	0	)
+groupautobind	[ 0	locks=0 ]	(	"on"	)
+groupbindings	[ 0	locks=0 ]	(	0	)
+vex_cwdpath	[ 0	locks=0 ]	(	.	)
+vex_outputmask	[ 0	locks=0 ]	(	*	)
+vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
+vex_matchattrib	[ 0	locks=0 ]	(	id	)
+vex_inplace	[ 0	locks=0 ]	(	"off"	)
+vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointwrangle1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/globals.init"
 Content-Type: text/plain
 
@@ -9666,7 +9746,7 @@ pivot	[ 0	locks=0 ]	(	"centroid"	)
 viewportlod	[ 0	locks=0 ]	(	"full"	)
 addpath	[ 0	locks=0 ]	(	"on"	)
 enable1	[ 0	locks=0 ]	(	"on"	)
-objpath1	[ 0	locks=0 ]	(	[ objpath1	/obj/geo1/convert1 ] 	)
+objpath1	[ 0	locks=0 ]	(	[ objpath1	"" ] 	)
 group1	[ 0	locks=0 ]	(	[ group1	"" ] 	)
 expand1	[ 0	locks=0 ]	(	"off"	)
 }
@@ -10773,7 +10853,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	6 ] 	)
+input	[ 0	locks=0 ]	(	[ input	3 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -10911,7 +10991,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	0 ] 	)
+input	[ 0	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -18430,7 +18510,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -18457,7 +18537,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 74.5696 -33.0696
+position 75.4183 -34.3176
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -18465,16 +18545,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	define_name_attr 1 1 "input1"
+0 	pointwrangle1 1 1 "input1"
 }
 inputs
 {
-0 	define_name_attr 0 1
+0 	pointwrangle1 0 1
 }
 stat
 {
   create 1569455723
-  modify 1569455925
+  modify 1569470295
   author Henry@LAPPY586
   access 0777
 }
@@ -18664,7 +18744,7 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot.order"
 Content-Type: text/plain
 
-169
+170
 globals
 output1
 distribution_linear1
@@ -18834,6 +18914,7 @@ switch_points_only_not_mesh
 POINT_CONFIG
 object_merge1
 attribdelete6
+pointwrangle1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"

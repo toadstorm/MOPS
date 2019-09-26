@@ -197,6 +197,14 @@
         name    "do_orient"
         label   "Output Orient Attribute"
         type    toggle
-        default { "0" }
+        default { "1" }
+    }
+    parm {
+        name    "do_output_scale"
+        label   "Output Scale Attribute"
+        type    toggle
+        default { "1" }
+        range   { 0! 10 }
+        parmtag { "autoscope" "0000000000000000" }
     }
 }
