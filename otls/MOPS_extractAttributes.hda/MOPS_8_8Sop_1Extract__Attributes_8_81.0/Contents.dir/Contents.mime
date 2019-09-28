@@ -32,25 +32,24 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 2.15553 13.0439
-connectornextid 2
+position -3.48125 -3.1553
+connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-0 "output1"
 }
 inputsNamed3
 {
-1 	set_alembic_attrs 1 1 "input1"
+0 	MOPs_Randomize 1 1 "input1"
 }
 inputs
 {
-0 	set_alembic_attrs 0 1
+0 	MOPs_Randomize 0 1
 }
 stat
 {
-  create 1524695187
-  modify 1531969240
+  create 1569628339
+  modify 1569712184
   author Henry@LAPPY586
   access 0777
 }
@@ -108,7 +107,7 @@ inputs
 stat
 {
   create 1524695134
-  modify 1560465584
+  modify 1569712167
   author Henry@LAPPY586
   access 0777
 }
@@ -344,14 +343,17 @@ if(type == \"PackedGeometry\" || type == \"PackedFragment\" || type == \"PackedD
     vector scale = cracktransform(0,0,2,{0,0,0},m);
     vector4 orient = quaternion(m);
     p@orient = orient;    
-    v@scale = scale;
     // also get N and up
     @N = normalize(m * {0,0,1});
     v@up = normalize(m * {0,1,0});
-} else {
-    // passthrough
-    
-}
+    // if scale is uniform, write to pscale and leave scale at 1.
+    f@pscale = 1;
+    if(scale.x == scale.y && scale.x == scale.z) {
+        f@pscale = scale.x;
+        scale = 1;
+    }
+    v@scale = scale;
+} 
 "	)
 exportlist	[ 0	locks=0	autoscope=0 ]	(	*	)
 vex_strict	[ 0	locks=0	autoscope=0 ]	(	"off"	)
