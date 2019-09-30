@@ -32,7 +32,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.0678302 -8.17585
+position -0.100434 -7.39336
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -40,18 +40,18 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	pointwrangle2 1 1 "input1"
+0 	rest1 1 1 "input1"
 1 	pointwrangle1 0 1 "input2"
 }
 inputs
 {
-0 	pointwrangle2 0 1
+0 	rest1 0 1
 1 	pointwrangle1 0 1
 }
 stat
 {
   create 1569803708
-  modify 1569804939
+  modify 1569808316
   author Henry@LAPPY586
   access 0777
 }
@@ -4327,6 +4327,86 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointwrangle1.init"
+Content-Type: text/plain
+
+type = attribwrangle
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointwrangle1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -22.9669 4.83629
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	in_mops 1 1 "input1"
+}
+inputs
+{
+0 	in_mops 0 1
+}
+stat
+{
+  create 1569808316
+  modify 1569808369
+  author Henry@LAPPY586
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointwrangle1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+folder0	[ 0	locks=0 ]	(	0	0	)
+group	[ 0	locks=0 ]	(	""	)
+grouptype	[ 0	locks=0 ]	(	"guess"	)
+class	[ 0	locks=0 ]	(	"point"	)
+vex_numcount	[ 0	locks=0 ]	(	10	)
+vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
+snippet	[ 0	locks=0 ]	(	"if(!haspointattrib(0, \"id\")) {
+    error(\"Incoming packed primitives do not have an i@id point attribute!\");
+}"	)
+exportlist	[ 0	locks=0 ]	(	*	)
+vex_strict	[ 0	locks=0 ]	(	"off"	)
+autobind	[ 0	locks=0 ]	(	"on"	)
+bindings	[ 0	locks=0 ]	(	0	)
+groupautobind	[ 0	locks=0 ]	(	"on"	)
+groupbindings	[ 0	locks=0 ]	(	0	)
+vex_cwdpath	[ 0	locks=0 ]	(	.	)
+vex_outputmask	[ 0	locks=0 ]	(	*	)
+vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
+vex_matchattrib	[ 0	locks=0 ]	(	id	)
+vex_inplace	[ 0	locks=0 ]	(	"off"	)
+vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointwrangle1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/in_mops.init"
 Content-Type: text/plain
 
@@ -4339,7 +4419,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -22.7445 4.83839
+position -22.7445 5.96889
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -4357,7 +4437,7 @@ inputs
 stat
 {
   create 1542750695
-  modify 1543044114
+  modify 1569808309
   author Henry@LAPPY586
   access 0777
 }
@@ -8424,16 +8504,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	in_mops 1 1 "input1"
+0 	pointwrangle1 1 1 "input1"
 }
 inputs
 {
-0 	in_mops 0 1
+0 	pointwrangle1 0 1
 }
 stat
 {
   create 1565235498
-  modify 1569803708
+  modify 1569808316
   author Henry@LAPPY586
   access 0777
 }
@@ -8807,7 +8887,7 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot.order"
 Content-Type: text/plain
 
-60
+61
 in_mops
 in_splines
 switch_do_resample
@@ -8868,6 +8948,7 @@ attribswap2
 update_attrs
 do_update_attrs
 merge_in_before_timeshift
+pointwrangle1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"
