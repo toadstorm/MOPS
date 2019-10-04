@@ -40,6 +40,7 @@ If you modify your instance object paths or indexes, you will likely need to del
 7.) set s@instance attribute to point to generated containers
 """
 import toolutils
+import re
 
 prompt = toolutils.selectionPrompt(hou.sopNodeTypeCategory())
 scene_viewer = toolutils.sceneViewer()
@@ -105,17 +106,26 @@ for network in INSTANCE_DICT:
     nodes_to_align.append(instances_container)
 
     for i, v in INSTANCE_DICT[network]['paths'].iteritems():
-        name = i.replace('/', '_')
+        # name = i.replace('/', '_')
+        name = re.sub('[^\w_ ]', '_', i)
         instanced_node = instances_container.node(name)
         if instanced_node is None:
             instanced_node = instances_container.createNode('geo', name)
             if instanced_node.node('file1') is not None:
                 instanced_node.node('file1').destroy()
-            merge = instanced_node.createNode('object_merge')
-            merge.parm('xformtype').set('local')
-            merge.parm('objpath1').set(i)
-            merge.setRenderFlag(True)
-            merge.setDisplayFlag(True)
+            load_node = None
+            if i.endswith(".abc"):
+                load_node = instanced_node.createNode('alembic')
+                load_node.parm('fileName').set(i)
+            else:
+                load_node = instanced_node.createNode('file')
+                load_node.parm('file').set(i)
+            
+            #merge = instanced_node.createNode('object_merge')
+            #merge.parm('xformtype').set('local')
+            #merge.parm('objpath1').set(i)
+            load_node.setRenderFlag(True)
+            load_node.setDisplayFlag(True)
             # set material if one exists
             if v['material'] is not None:
                 instanced_node.parm('shop_materialpath').set(v['material'])
@@ -166,7 +176,8 @@ for i in sel:
     instances_container = hou.node('/obj/{}_MOPS_INSTANCES'.format(i.name()))
     instance_snippet = ""
     for k, v in INSTANCE_DICT[i.path()]['paths'].iteritems():
-        container = instances_container.node(k.replace('/', '_'))
+        name = re.sub('[^\w_ ]', '_', k)
+        container = instances_container.node(name)
         instance_snippet += 'if(i@mops_index == {}) s@instance = "{}";\n'.format(v['index'], container.path())
     setInstance.parm('snippet').set(instance_snippet)
 
