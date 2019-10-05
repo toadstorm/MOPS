@@ -32,24 +32,25 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -6.92791 -3.28195
-connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+position -3.2377 -0.240164
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
+1 "output1"
 }
 inputsNamed3
 {
-0 	pointwrangle1 1 1 "input1"
+0 	MOPs_Instancer 1 1 "input1"
 }
 inputs
 {
-0 	pointwrangle1 0 1
+0 	MOPs_Instancer 0 1
 }
 stat
 {
-  create 1565235749
-  modify 1565235920
+  create 1569628353
+  modify 1569710768
   author Henry@LAPPY586
   access 0777
 }
@@ -80,7 +81,7 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot/Apply_Attributes1.init"
 Content-Type: text/plain
 
-type = MOPS::Apply_Attributes::1.2
+type = MOPS::Apply_Attributes::1.4
 matchesdef = 1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -108,8 +109,8 @@ inputs
 }
 stat
 {
-  create 1556863090
-  modify 1565235750
+  create 1569472199
+  modify 1569710759
   author Henry@LAPPY586
   access 0777
 }
@@ -181,20 +182,25 @@ Content-Type: text/plain
 version 0.8
 group	[ 0	locks=0	autoscope=0 ]	(	[ group	"" ] 	)
 grouptype	[ 0	locks=0	autoscope=0 ]	(	[ grouptype	0 ] 	)
-do_translate	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+sepparm	[ 0	locks=0 ]	(	)
+do_translate	[ 0	locks=0 ]	(	"on"	)
 do_rotate	[ 0	locks=0	autoscope=0 ]	(	[ do_rotate	0 ] 	)
-do_scale	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+do_scale	[ 0	locks=0 ]	(	"on"	)
+do_pivots	[ 0	locks=0 ]	(	"on"	)
+sepparm3	[ 0	locks=0 ]	(	)
 do_falloff	[ 0	locks=0	autoscope=0 ]	(	[ do_falloff	1 ] 	)
-do_pivots	[ 0	locks=0	autoscope=0 ]	(	"on"	)
-ignore_no_falloff	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+falloff_attribute	[ 0	locks=0 ]	(	mops_falloff	)
+ignore_no_falloff	[ 0	locks=0 ]	(	"off"	)
+sepparm2	[ 0	locks=0 ]	(	)
 rotate_mode	[ 0	locks=0	autoscope=0 ]	(	[ rotate_mode	0 ] 	)
-scale_mode	[ 0	locks=0	autoscope=0 ]	(	[ scale_mode	0 ] 	)
 rotate_order	[ 0	locks=0	autoscope=0 ]	(	[ rotate_order	0 ] 	)
+scale_mode	[ 0	locks=0	autoscope=0 ]	(	[ scale_mode	0 ] 	)
 local_space	[ 0	locks=0	autoscope=0 ]	(	[ local_space	1 ] 	)
-do_make_id	[ 0	locks=0	autoscope=0 ]	(	"on"	)
 do_copy_attrs	[ 0	locks=0	autoscope=0 ]	(	"off"	)
-attribname	[ 0	locks=0	autoscope=0 ]	(	""	)
-do_orient	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+attribname	[ 0	locks=0 ]	(	""	)
+do_make_id	[ 0	locks=0 ]	(	"on"	)
+do_orient	[ 0	locks=0 ]	(	"on"	)
+do_output_scale	[ 0	locks=0 ]	(	"on"	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -238,7 +244,7 @@ inputs
 stat
 {
   create 1528499331
-  modify 1565235750
+  modify 1569628353
   author Henry@LAPPY586
   access 0777
 }
@@ -425,7 +431,7 @@ inputs
 stat
 {
   create 1528499331
-  modify 1565235750
+  modify 1569628353
   author Henry@LAPPY586
   access 0777
 }
@@ -606,7 +612,7 @@ inputs
 stat
 {
   create 1528499331
-  modify 1565235750
+  modify 1569628353
   author Henry@LAPPY586
   access 0777
 }
@@ -660,7 +666,7 @@ constvalue	[ 0	locks=0	autoscope=0 ]	(	0	0	0	0	)
 valuea	[ 0	locks=0	autoscope=0 ]	(	0	0	0	0	)
 valueb	[ 0	locks=0	autoscope=0 ]	(	1	1	1	1	)
 probvalueb	[ 0	locks=0	autoscope=0 ]	(	0.5	)
-min	[ 0	locks=0	autoscope=0 ]	(	[ minx	0 ] 	0	0	0	)
+min	[ 0	locks=0	autoscope=0 ]	(	[ minx	0.087999999999999995 ] 	0	0	0	)
 max	[ 0	locks=0	autoscope=0 ]	(	[ maxx	1 ] 	1	1	1	)
 mindiscrete	[ 0	locks=0	autoscope=0 ]	(	0	0	0	0	)
 maxdiscrete	[ 0	locks=0	autoscope=0 ]	(	9	9	9	9	)
@@ -695,7 +701,7 @@ visualize	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 nvisualizepts	[ 0	locks=0	autoscope=0 ]	(	10000	)
 usefractionattrib	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 fractionattrib	[ 0	locks=0	autoscope=0 ]	(	fraction	)
-seed	[ 0	locks=0	autoscope=0 ]	(	[ seed	0.68000000000000005 ] 	)
+seed	[ 0	locks=0	autoscope=0 ]	(	[ seed	0 ] 	)
 useseedattrib	[ 0	locks=0	autoscope=0 ]	(	"on"	)
 seedattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
 ramp1pos	[ 0	locks=0	autoscope=0 ]	(	0	)
@@ -763,7 +769,7 @@ inputs
 stat
 {
   create 1528499331
-  modify 1565235750
+  modify 1569628353
   author Henry@LAPPY586
   access 0777
 }
@@ -935,7 +941,7 @@ inputs
 stat
 {
   create 1528499331
-  modify 1565235750
+  modify 1569628353
   author Henry@LAPPY586
   access 0777
 }
@@ -983,6 +989,7 @@ Content-Type: text/plain
 version 0.8
 group	[ 0	locks=0	autoscope=0 ]	(	`chs(\"../Apply_Attributes1/group\")`	)
 grouptype	[ 0	locks=0 ]	(	"guess"	)
+falloff_attr	[ 0	locks=0 ]	(	mops_falloff	)
 input	[ 0	locks=0	autoscope=0 ]	(	[ input	8 ] 	)
 strength	[ 0	locks=0	autoscope=0 ]	(	[ strength	1 ] 	)
 switchclamp	[ 0	locks=0	autoscope=0 ]	(	[ switchclamp	0 ] 	)
@@ -1053,7 +1060,7 @@ inputs
 stat
 {
   create 1528499331
-  modify 1565235750
+  modify 1569628353
   author Henry@LAPPY586
   access 0777
 }
@@ -1375,7 +1382,7 @@ inputs
 stat
 {
   create 1528936208
-  modify 1565235750
+  modify 1569628353
   author Henry@LAPPY586
   access 0777
 }
@@ -1455,7 +1462,7 @@ inputs
 stat
 {
   create 1536946673
-  modify 1565235750
+  modify 1569628353
   author Henry@LAPPY586
   access 0777
 }
@@ -1860,7 +1867,7 @@ inputs
 stat
 {
   create 1528499331
-  modify 1565235750
+  modify 1569628353
   author Henry@LAPPY586
   access 0777
 }
@@ -1888,7 +1895,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0	autoscope=0 ]	(	[ input	1 ] 	)
+input	[ 0	locks=0	autoscope=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1935,7 +1942,7 @@ inputs
 stat
 {
   create 1528499331
-  modify 1565235750
+  modify 1569628353
   author Henry@LAPPY586
   access 0777
 }
@@ -2010,7 +2017,7 @@ inputs
 stat
 {
   create 1528499331
-  modify 1565235750
+  modify 1569628353
   author Henry@LAPPY586
   access 0777
 }
@@ -2144,7 +2151,7 @@ inputs
 stat
 {
   create 1528499331
-  modify 1565235750
+  modify 1569628353
   author Henry@LAPPY586
   access 0777
 }
@@ -2219,7 +2226,7 @@ inputs
 stat
 {
   create 1528499331
-  modify 1565235750
+  modify 1569628353
   author Henry@LAPPY586
   access 0777
 }
@@ -2294,7 +2301,7 @@ inputs
 stat
 {
   create 1541964861
-  modify 1565235750
+  modify 1569628353
   author henry_foster@mvp-production2-mac03.local
   access 0777
 }
@@ -2429,7 +2436,7 @@ inputs
 stat
 {
   create 1565235763
-  modify 1565235886
+  modify 1569628353
   author Henry@LAPPY586
   access 0777
 }
@@ -2462,7 +2469,7 @@ numswaps	[ 0	locks=0 ]	(	1	)
 enable1	[ 0	locks=0 ]	(	"on"	)
 method1	[ 0	locks=0 ]	(	"swap"	)
 class1	[ 0	locks=0 ]	(	"point"	)
-srcattribs1	[ 0	locks=0 ]	(	[ srcattribs1	butt ] 	)
+srcattribs1	[ 0	locks=0 ]	(	[ srcattribs1	mops_falloff ] 	)
 dstattribs1	[ 0	locks=0 ]	(	mops_falloff	)
 typeinfo1	[ 0	locks=0 ]	(	"dest"	)
 }
@@ -2509,7 +2516,7 @@ inputs
 stat
 {
   create 1565235814
-  modify 1565235883
+  modify 1569628353
   author Henry@LAPPY586
   access 0777
 }

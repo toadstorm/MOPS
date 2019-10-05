@@ -596,6 +596,20 @@
             label   "Global Options"
 
             parm {
+                name    "points_only"
+                label   "Points Only (No Instances)"
+                type    toggle
+                default { "0" }
+                range   { 0! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "sepparm3"
+                label   "Separator"
+                type    separator
+                default { "" }
+            }
+            parm {
                 name    "viewportlod"
                 label   "Display As"
                 type    ordinal
@@ -1212,6 +1226,18 @@
                     label   "Separator"
                     type    separator
                     default { "" }
+                }
+                parm {
+                    name    "radial_align_type"
+                    label   "Align Type"
+                    type    integer
+                    default { "0" }
+                    menu {
+                        "0" "To Center"
+                        "1" "Along Perimeter"
+                    }
+                    range   { 0! 10 }
+                    parmtag { "autoscope" "0000000000000000" }
                 }
                 parm {
                     name    "distro_radial_invert"

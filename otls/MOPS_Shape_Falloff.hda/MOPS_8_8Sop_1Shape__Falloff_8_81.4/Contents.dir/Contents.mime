@@ -32,22 +32,24 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -8.85091 -0.535619
-connectornextid 0
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+position -17.5068 7.25098
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
 inputsNamed3
 {
+0 	MOPs_Instancer1 1 1 "input1"
 }
 inputs
 {
+0 	MOPs_Instancer1 0 1
 }
 stat
 {
-  create 1568176407
-  modify 1568176593
+  create 1570162305
+  modify 1570312862
   author Henry@LAPPY586
   access 0777
 }
@@ -108,7 +110,7 @@ inputs
 stat
 {
   create 1524060597
-  modify 1568176408
+  modify 1570162307
   author Henry@LAPPY586
   access 0777
 }
@@ -198,7 +200,7 @@ inputs
 stat
 {
   create 1524060597
-  modify 1568176408
+  modify 1570162307
   author Henry@LAPPY586
   access 0777
 }
@@ -342,7 +344,7 @@ inputs
 stat
 {
   create 1524060597
-  modify 1568176408
+  modify 1570162307
   author Henry@LAPPY586
   access 0777
 }
@@ -421,7 +423,7 @@ inputs
 stat
 {
   create 1524060597
-  modify 1568176408
+  modify 1570162307
   author Henry@LAPPY586
   access 0777
 }
@@ -546,6 +548,7 @@ group	[ 0	locks=0	autoscope=0 ]	(	[ group	"" ] 	)
 grouptype	[ 0	locks=0 ]	(	"guess"	)
 sepparm	[ 0	locks=0 ]	(	)
 falloff_attr	[ 0	locks=0 ]	(	mops_falloff	)
+output_attr	[ 0	locks=0 ]	(	mops_falloff	)
 do_preview	[ 0	locks=0 ]	(	"off"	)
 folder0	[ 0	locks=0 ]	(	0	)
 do_sprite	[ 0	locks=0 ]	(	"on"	)
@@ -630,7 +633,7 @@ inputs
 stat
 {
   create 1524060597
-  modify 1568176408
+  modify 1570162307
   author Henry@LAPPY586
   access 0777
 }
@@ -652,7 +655,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector points "Modify Points"
+            bindselector uvselect "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -916,7 +919,7 @@ inputs
 stat
 {
   create 1524060597
-  modify 1568176408
+  modify 1570162307
   author Henry@LAPPY586
   access 0777
 }
@@ -938,7 +941,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector points "Modify Points"
+            bindselector uvselect "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -1224,7 +1227,7 @@ inputs
 stat
 {
   create 1524060597
-  modify 1568176408
+  modify 1570162307
   author Henry@LAPPY586
   access 0777
 }
@@ -1246,7 +1249,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector points "Modify Points"
+            bindselector uvselect "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -1528,7 +1531,7 @@ inputs
 stat
 {
   create 1524060597
-  modify 1568176408
+  modify 1570162307
   author Henry@LAPPY586
   access 0777
 }
@@ -1629,7 +1632,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 13.4576 -0.4524
+position 13.1124 -0.4534
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1649,7 +1652,7 @@ inputs
 stat
 {
   create 1524060597
-  modify 1568176408
+  modify 1570162904
   author Henry@LAPPY586
   access 0777
 }
@@ -1671,7 +1674,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector points "Modify Points"
+            bindselector uvselect "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -1910,8 +1913,8 @@ vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
 vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
 folder1	[ 0	locks=0	autoscope=0 ]	(	0	0	)
-falloff	[ 0	locks=0	autoscope=0 ]	(	[ falloff	0.5 ] 	)
-size	[ 0	locks=0	autoscope=0 ]	(	[ sizex	1 ] 	[ sizey	1 ] 	[ sizez	0 ] 	)
+falloff	[ 0	locks=0	autoscope=0 ]	(	[ falloff	0.32400000000000001 ] 	)
+size	[ 0	locks=0	autoscope=0 ]	(	[ sizex	0.80000000000000004 ] 	[ sizey	0.80000000000000004 ] 	[ sizez	-0.20000000000000001 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1956,7 +1959,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1568176408
+  modify 1570162307
   author Henry@LAPPY586
   access 0777
 }
@@ -2034,7 +2037,7 @@ inputs
 stat
 {
   create 1536023588
-  modify 1568176408
+  modify 1570162307
   author Henry@LAPPY586
   access 0777
 }
@@ -2278,7 +2281,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-do_preview	[ 0	locks=0 ]	(	[ do_preview	0 ] 	)
+do_preview	[ 0	locks=0 ]	(	[ do_preview	1 ] 	)
 do_sprite	[ 0	locks=0 ]	(	[ do_sprite	0 ] 	)
 spritemap	[ 0	locks=0 ]	(	[ spritemap	sphere_matte.pic ] 	)
 spritescale	[ 0	locks=0 ]	(	[ spritescale	1 ] 	)
@@ -2344,7 +2347,7 @@ inputs
 stat
 {
   create 1568176415
-  modify 1568176555
+  modify 1570162307
   author Henry@LAPPY586
   access 0777
 }
@@ -2579,7 +2582,7 @@ inputs
 stat
 {
   create 1550446177
-  modify 1568176408
+  modify 1570162307
   author Henry@LAPPY586
   access 0777
 }
@@ -2657,7 +2660,7 @@ inputs
 stat
 {
   create 1550446187
-  modify 1568176415
+  modify 1570162307
   author Henry@LAPPY586
   access 0777
 }
@@ -2695,6 +2698,670 @@ vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/pointwrangle2.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/falloff_fan.init"
+Content-Type: text/plain
+
+type = attribwrangle
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/falloff_fan.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 16.8646 -0.4524
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+2 "output1"
+}
+inputsNamed3
+{
+0 	do_noise 0 1 "input1"
+1 	XFORM_MATRIX 0 1 "input2"
+}
+inputs
+{
+0 	do_noise 0 1
+1 	XFORM_MATRIX 0 1
+}
+stat
+{
+  create 1570162863
+  modify 1570314259
+  author Henry@LAPPY586
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/falloff_fan.spareparmdef"
+Content-Type: text/plain
+
+    group {
+        name    "folder1"
+        label   "Code"
+
+        parm {
+            name    "group"
+            baseparm
+            label   "Group"
+            export  none
+            bindselector uvselect "Modify Points"
+                "Select the points to affect and press Enter to complete."
+                0 1 0xffffffff 0 grouptype 0
+        }
+        parm {
+            name    "grouptype"
+            baseparm
+            label   "Group Type"
+            export  none
+        }
+        parm {
+            name    "class"
+            baseparm
+            label   "Run Over"
+            export  none
+        }
+        parm {
+            name    "vex_numcount"
+            baseparm
+            label   "Number Count"
+            export  none
+        }
+        parm {
+            name    "vex_threadjobsize"
+            baseparm
+            label   "Thread Job Size"
+            export  none
+        }
+        parm {
+            name    "snippet"
+            baseparm
+            label   "VEXpression"
+            export  all
+        }
+        parm {
+            name    "exportlist"
+            baseparm
+            label   "Attributes to Create"
+            export  none
+        }
+        parm {
+            name    "vex_strict"
+            baseparm
+            label   "Enforce Prototypes"
+            export  none
+        }
+    }
+
+    group {
+        name    "folder1_1"
+        label   "Bindings"
+
+        parm {
+            name    "autobind"
+            baseparm
+            label   "Autobind by Name"
+            export  none
+        }
+        multiparm {
+            name    "bindings"
+            label    "Number of Bindings"
+            baseparm
+            default 0
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "multistartoffset" "1" }
+
+            parm {
+                name    "bindname#"
+                baseparm
+                label   "Attribute Name"
+                export  none
+            }
+            parm {
+                name    "bindparm#"
+                baseparm
+                label   "VEX Parameter"
+                export  none
+            }
+        }
+
+        parm {
+            name    "groupautobind"
+            baseparm
+            label   "Autobind Groups by Name"
+            export  none
+        }
+        multiparm {
+            name    "groupbindings"
+            label    "Group Bindings"
+            baseparm
+            default 0
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "multistartoffset" "1" }
+
+            parm {
+                name    "bindgroupname#"
+                baseparm
+                label   "Group Name"
+                export  none
+            }
+            parm {
+                name    "bindgroupparm#"
+                baseparm
+                label   "VEX Parameter"
+                export  none
+            }
+        }
+
+        parm {
+            name    "vex_cwdpath"
+            baseparm
+            label   "Evaluation Node Path"
+            export  none
+        }
+        parm {
+            name    "vex_outputmask"
+            baseparm
+            label   "Export Parameters"
+            export  none
+        }
+        parm {
+            name    "vex_updatenmls"
+            baseparm
+            label   "Update Normals If Displaced"
+            export  none
+        }
+        parm {
+            name    "vex_matchattrib"
+            baseparm
+            label   "Attribute to Match"
+            export  none
+        }
+        parm {
+            name    "vex_inplace"
+            baseparm
+            label   "Compute Results In Place"
+            export  none
+        }
+        parm {
+            name    "vex_selectiongroup"
+            baseparm
+            label   "Output Selection Group"
+            export  none
+        }
+    }
+
+    parm {
+        name    "falloff"
+        label   "Falloff"
+        type    float
+        default { "0" }
+        range   { 0 90 }
+    }
+    parm {
+        name    "angle_range"
+        label   "Angle Range"
+        type    vector2
+        size    2
+        default { "0" "0" }
+        range   { 0 1 }
+    }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/falloff_fan.chn"
+Content-Type: text/plain
+
+{
+    channel angle_rangex {
+      lefttype = extend
+      righttype = extend
+      default = 21
+      flags = 0
+      segment { length = 0 value = 21 21 expr = ch(\"../angle_rangex\") }
+    }
+    channel angle_rangey {
+      lefttype = extend
+      righttype = extend
+      default = 50
+      flags = 0
+      segment { length = 0 value = 50 50 expr = ch(\"../angle_rangey\") }
+    }
+    channel falloff {
+      lefttype = extend
+      righttype = extend
+      default = 30
+      flags = 0
+      segment { length = 0 value = 30 30 expr = ch(\"../falloff\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/falloff_fan.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+folder0	[ 0	locks=0 ]	(	0	0	)
+group	[ 0	locks=0 ]	(	""	)
+grouptype	[ 0	locks=0 ]	(	"guess"	)
+class	[ 0	locks=0 ]	(	"point"	)
+vex_numcount	[ 0	locks=0 ]	(	10	)
+vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
+snippet	[ 0	locks=0 ]	(	"function float angle_dist(float a; float b) {
+    // assuming a 0-360 angle range, return the apparent angular distance between a and b
+    a = (a + 360) % 360;
+    b = (b + 360) % 360;
+    if(abs(a - b) > 180) {
+        b += 360;
+    }
+    return abs(a-b);
+}
+
+function int angle_in_bounds(float angle; float a; float b) {
+    int invert = 0;
+    angle = (angle + 360) % 360;
+    a = (a + 360) % 360;
+    b = (b + 360) % 360;
+    float min = a;
+    float max = b;
+    if(b < a) {
+        min = b;
+        max = a;
+        invert = 1;
+    }
+    if(angle > min && angle < max) {
+        return !invert;
+    }
+    return invert;
+}
+
+// get attrs
+vector2 angle_range = chu(\"angle_range\");
+float max_angle = angle_range.y;
+float min_angle = angle_range.x;
+
+float falloff = ch(\"falloff\");
+// clamp falloff to minimum to prevent stupid math problems
+falloff = max(falloff, 0.0001);
+matrix xform = primintrinsic(1, \"packedfulltransform\", 0);
+
+// transform position into lookup space
+vector pp = invert(xform) * @P;
+float angle = degrees(atan2(pp.x, pp.z));
+float weight = 0;
+
+angle = (angle + 360) % 360;
+
+float min_dist = angle_dist(angle, min_angle);
+float max_dist = angle_dist(angle, max_angle);
+
+float weight_min = fit(min_dist, 0, falloff, 1, 0); 
+float weight_max = fit(max_dist, 0, falloff, 1, 0);
+weight = ((weight_min+weight_max));
+if(angle_in_bounds(angle, min_angle, max_angle)) {
+    weight = 1;
+}
+@mops_falloff = weight;
+
+
+"	)
+exportlist	[ 0	locks=0 ]	(	*	)
+vex_strict	[ 0	locks=0 ]	(	"off"	)
+autobind	[ 0	locks=0 ]	(	"on"	)
+bindings	[ 0	locks=0 ]	(	0	)
+groupautobind	[ 0	locks=0 ]	(	"on"	)
+groupbindings	[ 0	locks=0 ]	(	0	)
+vex_cwdpath	[ 0	locks=0 ]	(	.	)
+vex_outputmask	[ 0	locks=0 ]	(	*	)
+vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
+vex_matchattrib	[ 0	locks=0 ]	(	id	)
+vex_inplace	[ 0	locks=0 ]	(	"off"	)
+vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+folder1	[ 0	locks=0 ]	(	0	0	)
+falloff	[ 8	locks=0 ]	(	[ falloff	0 ] 	)
+angle_range	[ 0	locks=0 ]	(	[ angle_rangex	-45 ] 	[ angle_rangey	45 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/falloff_fan.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/jr_method.init"
+Content-Type: text/plain
+
+type = attribwrangle
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/jr_method.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 19.5516 -0.4524
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+2 "output1"
+}
+inputsNamed3
+{
+0 	do_noise 0 1 "input1"
+1 	XFORM_MATRIX 0 1 "input2"
+}
+inputs
+{
+0 	do_noise 0 1
+1 	XFORM_MATRIX 0 1
+}
+stat
+{
+  create 1570310604
+  modify 1570312429
+  author Henry@LAPPY586
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/jr_method.spareparmdef"
+Content-Type: text/plain
+
+    group {
+        name    "folder1"
+        label   "Code"
+
+        parm {
+            name    "group"
+            baseparm
+            label   "Group"
+            export  none
+            bindselector uvselect "Modify Points"
+                "Select the points to affect and press Enter to complete."
+                0 1 0xffffffff 0 grouptype 0
+        }
+        parm {
+            name    "grouptype"
+            baseparm
+            label   "Group Type"
+            export  none
+        }
+        parm {
+            name    "class"
+            baseparm
+            label   "Run Over"
+            export  none
+        }
+        parm {
+            name    "vex_numcount"
+            baseparm
+            label   "Number Count"
+            export  none
+        }
+        parm {
+            name    "vex_threadjobsize"
+            baseparm
+            label   "Thread Job Size"
+            export  none
+        }
+        parm {
+            name    "snippet"
+            baseparm
+            label   "VEXpression"
+            export  all
+        }
+        parm {
+            name    "exportlist"
+            baseparm
+            label   "Attributes to Create"
+            export  none
+        }
+        parm {
+            name    "vex_strict"
+            baseparm
+            label   "Enforce Prototypes"
+            export  none
+        }
+    }
+
+    group {
+        name    "folder1_1"
+        label   "Bindings"
+
+        parm {
+            name    "autobind"
+            baseparm
+            label   "Autobind by Name"
+            export  none
+        }
+        multiparm {
+            name    "bindings"
+            label    "Number of Bindings"
+            baseparm
+            default 0
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "multistartoffset" "1" }
+
+            parm {
+                name    "bindname#"
+                baseparm
+                label   "Attribute Name"
+                export  none
+            }
+            parm {
+                name    "bindparm#"
+                baseparm
+                label   "VEX Parameter"
+                export  none
+            }
+        }
+
+        parm {
+            name    "groupautobind"
+            baseparm
+            label   "Autobind Groups by Name"
+            export  none
+        }
+        multiparm {
+            name    "groupbindings"
+            label    "Group Bindings"
+            baseparm
+            default 0
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "multistartoffset" "1" }
+
+            parm {
+                name    "bindgroupname#"
+                baseparm
+                label   "Group Name"
+                export  none
+            }
+            parm {
+                name    "bindgroupparm#"
+                baseparm
+                label   "VEX Parameter"
+                export  none
+            }
+        }
+
+        parm {
+            name    "vex_cwdpath"
+            baseparm
+            label   "Evaluation Node Path"
+            export  none
+        }
+        parm {
+            name    "vex_outputmask"
+            baseparm
+            label   "Export Parameters"
+            export  none
+        }
+        parm {
+            name    "vex_updatenmls"
+            baseparm
+            label   "Update Normals If Displaced"
+            export  none
+        }
+        parm {
+            name    "vex_matchattrib"
+            baseparm
+            label   "Attribute to Match"
+            export  none
+        }
+        parm {
+            name    "vex_inplace"
+            baseparm
+            label   "Compute Results In Place"
+            export  none
+        }
+        parm {
+            name    "vex_selectiongroup"
+            baseparm
+            label   "Output Selection Group"
+            export  none
+        }
+    }
+
+    parm {
+        name    "falloff"
+        label   "Falloff"
+        type    float
+        default { "0" }
+        range   { 0 1 }
+    }
+    parm {
+        name    "angle_range"
+        label   "Angle Range"
+        type    vector2
+        size    2
+        default { "0" "0" }
+        range   { 0 1 }
+    }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/jr_method.chn"
+Content-Type: text/plain
+
+{
+    channel falloff {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../falloff_fan/falloff\")*-1 }
+    }
+    channel angle_rangex {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../falloff_fan/angle_rangex\") }
+    }
+    channel angle_rangey {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../falloff_fan/angle_rangey\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/jr_method.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+folder0	[ 0	locks=0 ]	(	0	0	)
+group	[ 0	locks=0 ]	(	""	)
+grouptype	[ 0	locks=0 ]	(	"guess"	)
+class	[ 0	locks=0 ]	(	"point"	)
+vex_numcount	[ 0	locks=0 ]	(	10	)
+vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
+snippet	[ 0	locks=0 ]	(	"// get attrs
+vector2 angle_range = chu(\"angle_range\");
+float max_angle = angle_range.y;
+float min_angle = angle_range.x;
+
+float falloff = ch(\"falloff\");
+// clamp falloff to minimum to prevent stupid math problems
+falloff = max(falloff, 0.0001);
+matrix xform = primintrinsic(1, \"packedfulltransform\", 0);
+
+// transform position into lookup space
+vector pp =  @P;
+float angle = (degrees(atan2(pp.x, pp.z)));
+float weight = 1;
+
+int inverted = 0;
+if(min_angle % 360 > max_angle % 360){
+    angle -= min_angle;
+    max_angle += -min_angle;
+    min_angle += -min_angle;
+}
+min_angle = min_angle % 360;
+max_angle = max_angle % 360;
+
+angle = angle % 360;
+ 
+float avg_angle = avg(max_angle, min_angle);
+
+float min_falloff_maxval =  min(min_angle + falloff, avg_angle);
+float min_falloff = fit(angle, min_angle, min_falloff_maxval, 0, 1);
+
+float max_falloff_maxval = max(max_angle - falloff, avg_angle);
+float max_falloff = fit(angle, max_angle, max_falloff_maxval, 0, 1);
+if(angle_range.x != angle_range.y){
+    @mops_falloff = min_falloff;
+    @mops_falloff *= max_falloff;
+}else{
+    @mops_falloff = 0;
+}"	)
+exportlist	[ 0	locks=0 ]	(	*	)
+vex_strict	[ 0	locks=0 ]	(	"off"	)
+autobind	[ 0	locks=0 ]	(	"on"	)
+bindings	[ 0	locks=0 ]	(	0	)
+groupautobind	[ 0	locks=0 ]	(	"on"	)
+groupbindings	[ 0	locks=0 ]	(	0	)
+vex_cwdpath	[ 0	locks=0 ]	(	.	)
+vex_outputmask	[ 0	locks=0 ]	(	*	)
+vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
+vex_matchattrib	[ 0	locks=0 ]	(	id	)
+vex_inplace	[ 0	locks=0 ]	(	"off"	)
+vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+folder1	[ 0	locks=0 ]	(	0	0	)
+falloff	[ 8	locks=0 ]	(	[ falloff	36.200000000000003 ] 	)
+angle_range	[ 8	locks=0 ]	(	[ angle_rangex	-45 ] 	[ angle_rangey	45 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/jr_method.userdata"
 Content-Type: text/plain
 
 {
@@ -3179,7 +3846,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1568176408
+  modify 1570162307
   author Henry@LAPPY586
   access 0777
 }
@@ -3330,7 +3997,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1568176408
+  modify 1570162307
   author Henry@LAPPY586
   access 0777
 }
@@ -3457,7 +4124,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1568176408
+  modify 1570162307
   author Henry@LAPPY586
   access 0777
 }
@@ -3521,7 +4188,7 @@ Content-Type: text/plain
 sopflags sopflags = 
 comment ""
 position -3.35644 -3.66314
-connectornextid 6
+connectornextid 7
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
@@ -3534,6 +4201,7 @@ inputsNamed3
 3 	falloff_box 0 1 "input3"
 4 	falloff_torus 0 1 "input4"
 5 	falloff_cylinder 0 1 "input5"
+6 	switch1 1 1 "input6"
 }
 inputs
 {
@@ -3542,11 +4210,12 @@ inputs
 2 	falloff_box 0 1
 3 	falloff_torus 0 1
 4 	falloff_cylinder 0 1
+5 	switch1 0 1
 }
 stat
 {
   create 1524060598
-  modify 1568176408
+  modify 1570312315
   author Henry@LAPPY586
   access 0777
 }
@@ -3574,7 +4243,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0	autoscope=0 ]	(	[ input	0 ] 	)
+input	[ 0	locks=0	autoscope=0 ]	(	[ input	5 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -3603,7 +4272,7 @@ sopflags sopflags =
 comment ""
 position -4.49467 -13.2221
 connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
@@ -3618,7 +4287,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1565324257
+  modify 1570236282
   author Henry@LAPPY586
   access 0777
 }
@@ -3676,7 +4345,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1568176408
+  modify 1570162307
   author Henry@LAPPY586
   access 0777
 }
@@ -3762,7 +4431,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1568176408
+  modify 1570162307
   author Henry@LAPPY586
   access 0777
 }
@@ -3955,7 +4624,7 @@ Content-Type: text/plain
 sopflags sopflags = 
 comment ""
 position -22.5418 -3.92691
-connectornextid 6
+connectornextid 7
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
@@ -3968,6 +4637,7 @@ inputsNamed3
 3 	guide_box 0 1 "input3"
 4 	guide_torus 0 1 "input4"
 5 	guide_cylinder 0 1 "input5"
+6 	guide_fan 1 1 "input6"
 }
 inputs
 {
@@ -3976,11 +4646,12 @@ inputs
 2 	guide_box 0 1
 3 	guide_torus 0 1
 4 	guide_cylinder 0 1
+5 	guide_fan 0 1
 }
 stat
 {
   create 1524060598
-  modify 1568176408
+  modify 1570167608
   author Henry@LAPPY586
   access 0777
 }
@@ -4008,7 +4679,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0	autoscope=0 ]	(	[ input	0 ] 	)
+input	[ 0	locks=0	autoscope=0 ]	(	[ input	5 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -4051,7 +4722,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1568176408
+  modify 1570162307
   author Henry@LAPPY586
   access 0777
 }
@@ -4340,7 +5011,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1568176408
+  modify 1570162307
   author Henry@LAPPY586
   access 0777
 }
@@ -4437,7 +5108,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1524060606
+  modify 1570167592
   author Henry@LAPPY586
   access 0777
 }
@@ -4496,7 +5167,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1568176408
+  modify 1570162307
   author Henry@LAPPY586
   access 0777
 }
@@ -4636,7 +5307,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -14.1397 3.84406
+position -15.3765 4.07416
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -4652,7 +5323,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1568176408
+  modify 1570162469
   author Henry@LAPPY586
   access 0777
 }
@@ -4700,9 +5371,9 @@ consolidatepts	[ 0	locks=0	autoscope=0 ]	(	"on"	)
 vertexnormals	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 t	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
 r	[ 0	locks=0 ]	(	0	0	0	)
-rad	[ 0	locks=0	autoscope=0 ]	(	[ rad1	1 ] 	[ rad2	1 ] 	)
+rad	[ 0	locks=0	autoscope=0 ]	(	[ rad1	0.80000000000000004 ] 	[ rad2	0.80000000000000004 ] 	)
 radscale	[ 0	locks=0	autoscope=0 ]	(	1	)
-height	[ 0	locks=0	autoscope=0 ]	(	[ height	1 ] 	)
+height	[ 0	locks=0	autoscope=0 ]	(	[ height	0.80000000000000004 ] 	)
 rows	[ 0	locks=0	autoscope=0 ]	(	2	)
 cols	[ 0	locks=0	autoscope=0 ]	(	12	)
 orderu	[ 0	locks=0	autoscope=0 ]	(	4	)
@@ -4734,7 +5405,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -13.5596 2.10988
+position -14.7964 2.33998
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -4754,7 +5425,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1529384826
+  modify 1570162469
   author Henry@LAPPY586
   access 0777
 }
@@ -4795,7 +5466,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -13.5584 0.891717
+position -14.7952 1.12182
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -4813,7 +5484,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1524060606
+  modify 1570167451
   author Henry@LAPPY586
   access 0777
 }
@@ -4856,7 +5527,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -12.3397 3.28733
+position -13.5765 3.51743
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -4872,7 +5543,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1568176408
+  modify 1570162469
   author Henry@LAPPY586
   access 0777
 }
@@ -4920,9 +5591,9 @@ consolidatepts	[ 0	locks=0	autoscope=0 ]	(	"on"	)
 vertexnormals	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 t	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
 r	[ 0	locks=0 ]	(	0	0	0	)
-rad	[ 0	locks=0	autoscope=0 ]	(	[ rad1	0.5 ] 	[ rad2	0.5 ] 	)
+rad	[ 0	locks=0	autoscope=0 ]	(	[ rad1	0.54079999999999995 ] 	[ rad2	0.54079999999999995 ] 	)
 radscale	[ 0	locks=0	autoscope=0 ]	(	1	)
-height	[ 0	locks=0	autoscope=0 ]	(	[ height	0 ] 	)
+height	[ 0	locks=0	autoscope=0 ]	(	[ height	0.28159999999999996 ] 	)
 rows	[ 0	locks=0	autoscope=0 ]	(	2	)
 cols	[ 0	locks=0	autoscope=0 ]	(	12	)
 orderu	[ 0	locks=0	autoscope=0 ]	(	4	)
@@ -4974,7 +5645,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1568176408
+  modify 1570162307
   author Henry@LAPPY586
   access 0777
 }
@@ -5049,7 +5720,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1568176408
+  modify 1570162307
   author Henry@LAPPY586
   access 0777
 }
@@ -5186,7 +5857,7 @@ inputs
 stat
 {
   create 1565319729
-  modify 1568176408
+  modify 1570162307
   author Henry@LAPPY586
   access 0777
 }
@@ -5266,7 +5937,7 @@ inputs
 stat
 {
   create 1565319729
-  modify 1568176408
+  modify 1570162307
   author Henry@LAPPY586
   access 0777
 }
@@ -5302,10 +5973,235 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/circle1.init"
+Content-Type: text/plain
+
+type = circle
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/circle1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -10.0752 3.18912
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create 1570167447
+  modify 1570167759
+  author Henry@LAPPY586
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/circle1.chn"
+Content-Type: text/plain
+
+{
+    channel beginangle {
+      lefttype = extend
+      righttype = extend
+      default = -45
+      flags = 0
+      segment { length = 0 value = -45 -45 expr = ch(\"../falloff_fan/angle_rangex\") }
+    }
+    channel endangle {
+      lefttype = extend
+      righttype = extend
+      default = 45
+      flags = 0
+      segment { length = 0 value = 45 45 expr = ch(\"../falloff_fan/angle_rangey\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/circle1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+type	[ 0	locks=0 ]	(	"poly"	)
+orient	[ 0	locks=0 ]	(	"zx"	)
+rad	[ 0	locks=0 ]	(	1	1	)
+t	[ 0	locks=0 ]	(	0	0	0	)
+r	[ 0	locks=0 ]	(	0	-90	0	)
+scale	[ 0	locks=0 ]	(	1	)
+order	[ 0	locks=0 ]	(	4	)
+divs	[ 0	locks=0 ]	(	50	)
+arc	[ 0	locks=0 ]	(	"slicedarc"	)
+angle	[ 8	locks=0 ]	(	[ beginangle	-45 ] 	[ endangle	45 ] 	)
+imperfect	[ 0	locks=0 ]	(	"on"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/circle1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.229"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/guide_fan.init"
+Content-Type: text/plain
+
+type = null
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/guide_fan.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -10.2133 1.12682
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	circle1 0 1 "input1"
+}
+inputs
+{
+0 	circle1 0 1
+}
+stat
+{
+  create 1570167600
+  modify 1570167697
+  author Henry@LAPPY586
+  access 0777
+}
+color UT_Color RGB 0.6 0.7 0.77 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/guide_fan.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+copyinput	[ 0	locks=0 ]	(	"on"	)
+cacheinput	[ 0	locks=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/guide_fan.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.229"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch1.init"
+Content-Type: text/plain
+
+type = switch
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 14.9346 -1.5503
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	falloff_fan 2 1 "input1"
+2 	jr_method 2 1 "input2"
+}
+inputs
+{
+0 	falloff_fan 0 1
+1 	jr_method 0 1
+}
+stat
+{
+  create 1570312315
+  modify 1570312469
+  author Henry@LAPPY586
+  access 0777
+}
+color UT_Color RGB 0.8 1 0.7 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch1.chn"
+Content-Type: text/plain
+
+{
+    channel input {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../falloff\")<0 }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.229"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.order"
 Content-Type: text/plain
 
-50
+55
 falloff_linear
 do_local_transform
 transform_guide
@@ -5356,6 +6252,11 @@ pointwrangle1
 pointwrangle2
 attribswap1
 attribswap2
+falloff_fan
+circle1
+guide_fan
+jr_method
+switch1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"
