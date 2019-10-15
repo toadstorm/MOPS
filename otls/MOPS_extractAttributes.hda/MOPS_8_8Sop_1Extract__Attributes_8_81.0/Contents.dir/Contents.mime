@@ -32,24 +32,22 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -3.48125 -3.1553
-connectornextid 1
+position -2.96779 3.96003
+connectornextid 0
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
 inputsNamed3
 {
-0 	MOPs_Randomize 1 1 "input1"
 }
 inputs
 {
-0 	MOPs_Randomize 0 1
 }
 stat
 {
-  create 1569628339
-  modify 1569712184
+  create 1571098233
+  modify 1571098237
   author Henry@LAPPY586
   access 0777
 }
@@ -107,7 +105,7 @@ inputs
 stat
 {
   create 1524695134
-  modify 1569712167
+  modify 1571098679
   author Henry@LAPPY586
   access 0777
 }
@@ -308,7 +306,8 @@ grouptype	[ 0	locks=0	autoscope=0 ]	(	"guess"	)
 class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
-snippet	[ 0	locks=0	autoscope=0 ]	(	"string type = primintrinsic(0, \"typename\", @ptnum);
+snippet	[ 0	locks=0	autoscope=0 ]	(	"float epsilon = 0.000001;
+string type = primintrinsic(0, \"typename\", @ptnum);
 // defaults
 if(!haspointattrib(0, \"scale\")) {
     v@scale = 1;
@@ -348,7 +347,7 @@ if(type == \"PackedGeometry\" || type == \"PackedFragment\" || type == \"PackedD
     v@up = normalize(m * {0,1,0});
     // if scale is uniform, write to pscale and leave scale at 1.
     f@pscale = 1;
-    if(scale.x == scale.y && scale.x == scale.z) {
+    if(abs(scale.x-scale.y) < epsilon && abs(scale.y-scale.z) < epsilon) {
         f@pscale = scale.x;
         scale = 1;
     }
@@ -411,7 +410,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1558497459
+  modify 1571098233
   author Henry@LAPPY586
   access 0777
 }
@@ -929,7 +928,7 @@ inputs
 stat
 {
   create 1550365158
-  modify 1558497459
+  modify 1571098233
   author Henry@LAPPY586
   access 0777
 }
@@ -1009,7 +1008,7 @@ inputs
 stat
 {
   create 1542257157
-  modify 1558497459
+  modify 1571098233
   author Henry@LAPPY586
   access 0777
 }
@@ -1343,7 +1342,7 @@ inputs
 stat
 {
   create 1550365152
-  modify 1558497459
+  modify 1571098233
   author Henry@LAPPY586
   access 0777
 }
