@@ -51,7 +51,7 @@ inputs
 stat
 {
   create 1572233259
-  modify 1572240275
+  modify 1572241161
   author Henry@LAPPY586
   access 0777
 }
@@ -1299,7 +1299,7 @@ inputs
 stat
 {
   create 1571370981
-  modify 1572239920
+  modify 1572241057
   author Henry@LAPPY586
   access 0777
 }
@@ -1648,6 +1648,8 @@ forward = m * forward;
 // project vector onto surface at current location
 forward = normalize(forward - dot(forward, v@__meshN)*v@__meshN);
 // advect
+float rand = fit01(rand(i@id + seed), -rand_speed, rand_speed);
+speed += rand;
 forward = forward * speed * falloff;
 @P += forward;
 
@@ -2552,7 +2554,7 @@ inputs
 stat
 {
   create 1324348265
-  modify 1572241308
+  modify 1572241515
   author nobody@nowhere.sidefx.com
   access 0777
 }
@@ -3378,7 +3380,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	1 ] 	)
+input	[ 0	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
