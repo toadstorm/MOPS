@@ -417,7 +417,6 @@
                 label   "Rand Speed"
                 type    float
                 default { "0" }
-                disablewhen "{ rand_speed == 0 }"
                 range   { 0 1 }
                 parmtag { "autoscope" "0000000000000000" }
             }
@@ -426,6 +425,7 @@
                 label   "Seed"
                 type    float
                 default { "0" }
+                disablewhen "{ rand_speed 0 }"
                 range   { 0 1 }
                 parmtag { "autoscope" "0000000000000000" }
             }
@@ -484,9 +484,8 @@
         }
 
         group {
-            name    "folder4"
+            name    "folder3_1"
             label   "Relax"
-            tabbreak
 
             parm {
                 name    "do_relax"
@@ -499,7 +498,7 @@
             groupsimple {
                 name    "folder5"
                 label   "Relax Options"
-                disablewhentab "{ do_relax 0 }"
+                disablewhentab "{ do_relax == 0 }"
 
                 parm {
                     name    "group2"
