@@ -32,22 +32,25 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -8.41534 -1.8746
-connectornextid 0
+position 3.52256 -1.27728
+connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
+1 "output1"
 }
 inputsNamed3
 {
+0 	MOPs_Shape_Falloff 1 1 "input1"
 }
 inputs
 {
+0 	MOPs_Shape_Falloff 0 1
 }
 stat
 {
-  create 1568176587
-  modify 1568176591
+  create 1571097785
+  modify 1571098957
   author Henry@LAPPY586
   access 0777
 }
@@ -107,7 +110,7 @@ inputs
 stat
 {
   create 1555384760
-  modify 1568176587
+  modify 1571100600
   author Henry@LAPPY586
   access 0777
 }
@@ -468,7 +471,7 @@ if(mode == 6) {
 } else if(mode == 7) {
     // the pivot needs to be adjusted for scale in this case.
     // we also need to account for the current orientation when adjusting.
-    pivot = qrotate(qinvert(orient), (-@P / scale)) + (chv(\"pivot_absolute\") / scale);
+    pivot = qrotate(qinvert(orient), (-@P / scale)+old_pivot) + (chv(\"pivot_absolute\") / scale);
 } else if(mode == 8) {
     pivot = chv(\"pivot_absolute\");
 } else {
@@ -510,7 +513,7 @@ do_falloff	[ 0	locks=0 ]	(	[ do_falloff	0 ] 	)
 pivots_only	[ 0	locks=0 ]	(	[ pivots_only	1 ] 	)
 falloff_attribute	[ 0	locks=0 ]	(	[ falloff_attribute	mops_falloff ] 	)
 pivot_offset	[ 0	locks=0 ]	(	[ pivot_offsetx	0 ] 	[ pivot_offsety	0 ] 	[ pivot_offsetz	0 ] 	)
-pivot_absolute	[ 0	locks=0 ]	(	[ pivot_absolutex	-0.050000000000000003 ] 	[ pivot_absolutey	-0.050000000000000003 ] 	[ pivot_absolutez	-0.050000000000000003 ] 	)
+pivot_absolute	[ 0	locks=0 ]	(	[ pivot_absolutex	0 ] 	[ pivot_absolutey	0 ] 	[ pivot_absolutez	0 ] 	)
 do_vexpression	[ 0	locks=0 ]	(	[ do_vexpression	0 ] 	)
 vexpression	[ 0	locks=0 ]	(	[ vexpression	"// pivot = {0,0,0};" ] 	)
 }
@@ -557,7 +560,7 @@ inputs
 stat
 {
   create 1565233152
-  modify 1565669084
+  modify 1571098773
   author Henry@LAPPY586
   access 0777
 }

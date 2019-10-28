@@ -1,0 +1,127 @@
+= MOPs Move Along Mesh =   
+
+#icon: opdef:.?mops_modifier_02.svg
+
+"""Moves MOPs primitives along a polygon mesh surface."""
+
+MOPs Move Along Mesh attaches the input packed primitives onto a template surface, based on proximity to the surface or a random scatter,
+and then optionally slides the primitives over the surface of the mesh. This operator uses the v@up attribute (or the equivalent vector derived
+from the p@orient attribute or intrinsic transform matrix) as the "forward" direction for each primitive. The primitives are reprojected
+onto the mesh at each timestep.
+
+If your template mesh doesn't already have a defined orientation on its points (via N/up or an orient attribute), consider using MOPs Orient Mesh
+to generate an orientation frame on your mesh before using Move Along Mesh.
+
+== Overview ==
+
+@inputs
+
+Packed Primitives:
+    The input packed primitives to slide over a surface.
+    
+Mesh to Attach to:
+    The polygon surface to slide primitives over. The mesh must have defined v@N and v@up attributes. Consider using MOPs Orient Mesh to create them if they don't exist.
+    
+@parameters
+
+== General ==
+
+Group:
+    #id: group_all
+    The group of primitives to slide over the surface.
+    
+== Source Mesh == 
+
+Compute Normal/Up:
+    #id: do_polyframe
+    Compute a basic N and up vector for the input mesh points. Consider using MOPs Orient Mesh for better control over the input vectors.
+    
+Reference Frame:
+    #id: ref_frame
+    The frame to use to determine the initial attributes of the source mesh (P, N, up). These attributes will be interpolated to the final position of the input mesh per-frame.
+    
+== Attach ==
+
+Attach Mode:
+    #id: attach_mode
+    The method by which to initially attach the packed primitives to the mesh. Scatter mode randomly scatters the primitives onto the mesh. Nearest Surface snaps the primitives to the nearest possible point on the mesh surface, with an optional ray projection. Match Point snaps the primitives to the matching point number on the polygon mesh.
+       
+Other options in this tab depend on the Attach Mode chosen:
+
+=== Scatter ===
+
+    See the Scatter SOP for more details.
+ 
+=== Nearest Surface ===
+
+Search Distance:
+    #id: attach_max_dist
+    The maximum distance from any packed primitive to search for a surface point on the mesh to attach to.
+    
+Project Onto Surface:
+    #id: attach_ray
+    Project the primitives along a vector before searching for the nearest surface point.
+    See the help for Ray SOP for details on projection options.
+    
+=== Sort ===
+
+    See the Sort SOP for more details.
+    
+== Animate ==
+
+Align To Surface:
+    #id: do_rotate
+    Align the packed primitives to the surface normal / up vectors of the mesh.
+
+Enable Move:
+    #id: do_move
+    Move the primitives over the surface over time. Disabling this simply attaches the points to the surface without sliding.
+    
+Speed:
+    #id: speed
+    The movement speed of the primitives, in world units. This speed is multiplied against each primitive's @mops_falloff attribute value.
+    
+Randomize Speed:
+    #id: random_speed
+    A random amount to add or subtract to each primitive's speed. 
+    
+Random Seed:
+    #id: seed2
+    The seed used to randomize speed values.
+    
+Aim Weight:
+    #id: aim_weight
+    The amount to blend in the template mesh's orientation with each instance's orientation, per timestep. Higher values will make the instances
+    snap to match the mesh's orientation quickly. Lower values have a smoother effect.
+    
+Search Distance:
+    #id: maxdist
+    Each timestep, the primitives are reprojected onto the nearest point of the mesh surface after moving. This is the maximum distance to search for a surface point. It should always be higher than the movement speed for predictable results.
+    
+Enable Relax:
+    #id: do_relax
+    Enable point relaxation of the primitives between timesteps. This forces the primitives apart, to prevent bunching and overlapping, but can result in jittery movement.
+    
+Points to Relax:
+    #id: group2
+    The point group of the packed primitives to relax. Leave this blank to relax everything.
+    
+Influencing Points:
+    #id: influencegroup
+    The points that will affect any Points to Relax that have radii overlapping the radii of these points.
+    
+Max Iterations:
+    #id: maxiterations
+    This is the maximum number of times that the Points to Relax will be moved away from the Influencing Points.
+    
+Point Radius Scale:
+    #id: radius
+    A multiplier on the point scale of each packed primitive.
+    
+Pscale Axis:
+    #id: scale_axis
+    The local axis of the packed primitive to use when computing the point scale of each packed primitive. 
+    
+Use VEXpression:
+    #id: do_vexpression
+    Enabling this allows the user to modify the behavior of this node using VEX. Certain parameters specific to this node can be modified per-point using VEX snippets.
