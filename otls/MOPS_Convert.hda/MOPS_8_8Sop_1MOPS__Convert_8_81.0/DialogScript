@@ -33,6 +33,12 @@
         parmtag { "autoscope" "0000000000000000" }
     }
     parm {
+        name    "sepparm"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
         name    "use_name"
         label   "Use Existing Name Attr"
         type    toggle
@@ -49,6 +55,14 @@
         parmtag { "autoscope" "0000000000000000" }
     }
     parm {
+        name    "use_id"
+        label   "Use Existing Id Attr"
+        type    toggle
+        default { "0" }
+        range   { 0! 10 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
         name    "startindex"
         label   "Start Number"
         type    integer
@@ -56,12 +70,10 @@
         range   { 0! 100 }
     }
     parm {
-        name    "use_id"
-        label   "Use Existing Id Attr"
-        type    toggle
-        default { "0" }
-        range   { 0! 10 }
-        parmtag { "autoscope" "0000000000000000" }
+        name    "sepparm2"
+        label   "Separator"
+        type    separator
+        default { "" }
     }
     parm {
         name    "packedfragments"

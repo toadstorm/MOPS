@@ -26,10 +26,10 @@ Preview Falloff:
     #id: do_preview
     Enable display of the falloff values in the viewport.
     
-Falloff Type:
-    #id: falloff_type
-    The primitive shape to use for generating the falloff.
-
+Falloff Attribute:
+    #id: falloff_attr
+    The point attribute to use as the falloff attribute.
+    
 Blend Mode:
     #id: blend_mode
     The blend mode for combining the effects of this operator with any previous falloff value. See [MOPs Combine Falloffs|Node:sop/MOPS--Combine_Falloffs-1.0] for details.
@@ -43,6 +43,12 @@ Clamp:
     Clamp the resulting Falloff value to a 0-1 range.
     
 == Shape ==
+
+Falloff Type:
+    #id: falloff_type
+    The primitive shape to use for generating the falloff.
+    
+=== Transform ===
 
 These controls act as a transform on the primitive shape. You can use a [MOPs Transform Modifier|Node:sop/MOPS--Transform_Modifier-1.0] for an additional transform, plugged into the second input.
 

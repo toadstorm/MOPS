@@ -18,10 +18,10 @@ Packed Primitives:
 
 == General ==
 
-Preview Falloff:
-    #id: do_preview
-    Enable display of the falloff values in the viewport.
-
+Falloff Attribute:
+    #id: falloff_attr
+    The point attribute to use as the falloff attribute.
+    
 Blend Mode:
     #id: input
     The blend mode for combining the effects of this operator with any previous falloff value. See [MOPs Combine Falloffs|Node:sop/MOPS--Combine_Falloffs-1.0] for details.
@@ -33,6 +33,10 @@ Blend Strength:
 Clamp:
     #id: switchclamp
     Clamp the resulting Falloff value to a 0-1 range.
+    
+Preview Falloff:
+    #id: do_preview
+    Enable display of the falloff values in the viewport.
     
 == Texture ==
 

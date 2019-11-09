@@ -21,6 +21,10 @@ Falloff Transforms:
 
 == General Settings ==
 
+Falloff Attribute:
+    #id: falloff_attr
+    The point attribute to use as the falloff attribute.
+
 Preview Falloff:
     #id: preview
     Enable display of the falloff values in the viewport.
@@ -51,6 +55,9 @@ Mode:
     - Mosaic: Noise Tiles
     - Folded: Absolute Values of Simplex Noise
     - Mix Minima: Layers 3 simplex noises and uses the min value.
+    - Curl: The curl of a Perlin noise field. Here for completeness, but not particularly useful as a scalar value.
+    - Sparse Convolution: Similar to Worley noise, but with a metaball-like smooth falloff.
+    - Alligator: Also similar to Worley noise. Makes a very rough bumpy texture.
 
 Use Rest:
     #id: use_rest

@@ -27,6 +27,14 @@ Compute Source Orient:
     #id: compute_orient
     Compute the orientation frame of the input mesh. If your mesh doesn't already have a p@orient attribute, this should be enabled.
     
+Generate Vertex Normals:
+    #id: do_vertex_normals
+    Create vertex normals on the input geometry before breaking apart into fragments.
+    
+Cusp Angle:
+    #id: cuspangle
+    Any neighboring vertices of a vertex with normals less than this value will be averaged with the given vertex, creating a "soft" look. Lower angles create a more faceted look.
+    
 == Compute Source Orient ==
     
 Compute N/Up:
@@ -45,7 +53,7 @@ Custom Up Vector:
     #id: custom_up_vector
     If enabled, use this up vector instead of the one computed via the above parameters.
     
-Invert Normal:
+Invert N:
     #id: invert_N
     Invert the computed normal.
     
@@ -61,13 +69,18 @@ Method:
         * Primitive Number: each primitive becomes its own MOPs packed primitive.
         * Piece Attribute: The primitive attribute to use to differentiate pieces. Each unique attribute value gets its own MOPs primitive.
         * Clustering: Use K-means clustering to naturally group primitives into chunks. See the Cluster SOP for details.
+        * Primitive Groups: Each unique group within the Group Mask defines a single piece.
 Piece Attribute:
     #id: piece_attribute
     The attribute to use for determining pieces if the Method is set to Piece Attribute. This can be an integer or string attribute.
     
-Id Offset:
+Group Mask:
+    #id: namefromgroupmask
+    A list of groups to include when determining pieces in Primitive Groups mode.
+    
+Id Start Number:
     #id: id_offset
-    The starting value for generated piece i@id attributes.
+    The starting value for generated piece i@id attributes and s@name attributes.
     
 Name Prefix:
     #id: name_prefix
@@ -82,6 +95,8 @@ Visualization Seed:
     #id: viz_seed
     The seed to use for generating random colors.
     
-== Transfer Orient ==
+== Output Orient ==
+
+There are two methods to determine the orientation of the generated pieces: using the average orientation (N/up/orient) of each cluster, or transferring the orientation of the original mesh to the individual pieces. For information on the parameters for Attribute Transfer mode, see the Attribute Transfer SOP.
 
 See the Attribute Transfer SOP for details.
