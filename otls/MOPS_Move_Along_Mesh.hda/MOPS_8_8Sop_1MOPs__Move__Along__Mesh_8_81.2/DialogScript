@@ -425,7 +425,7 @@
                 label   "Seed"
                 type    float
                 default { "0" }
-                disablewhen "{ rand_speed 0 }"
+                disablewhen "{ rand_speed == 0 }"
                 range   { 0 1 }
                 parmtag { "autoscope" "0000000000000000" }
             }

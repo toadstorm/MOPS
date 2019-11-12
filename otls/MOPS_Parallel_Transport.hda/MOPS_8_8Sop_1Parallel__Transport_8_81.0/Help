@@ -4,8 +4,11 @@
 
 """Transports an orthogonal frame along a spline."""
 
-This is an implementation of Entagma's Parallel Transport.
-http://www.entagma.com/td-fundamentals-parallel-transport/
+This is an implementation of the Parallel Transport algorithm. It computes an orientation frame on a curve that is much less likely to flip or otherwise have discontinuities than the Polyframe SOP.
+For more information, see this [Entagma video|http://www.entagma.com/td-fundamentals-parallel-transport/].
+
+TIP:
+    This node is used internally by the [MOPs Orient Curve|Node:sop/MOPS--Orient_Curve-1.0] SOP, which is probably what you're looking for.
 
 == Overview ==
 

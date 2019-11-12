@@ -32,9 +32,9 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 2.3106 -0.200465
+position -68.4235 73.8713
 connectornextid 0
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
@@ -46,8 +46,8 @@ inputs
 }
 stat
 {
-  create 1567556344
-  modify 1567556351
+  create 1573270228
+  modify 1573270276
   author Henry@LAPPY586
   access 0777
 }
@@ -105,7 +105,7 @@ inputs
 stat
 {
   create 1527119029
-  modify 1567556344
+  modify 1573270228
   author Henry@LAPPY586
   access 0777
 }
@@ -127,7 +127,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector points "Modify Points"
+            bindselector uvselect "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -389,7 +389,7 @@ inputs
 stat
 {
   create 1527124869
-  modify 1567556344
+  modify 1573270228
   author Henry@LAPPY586
   access 0777
 }
@@ -411,7 +411,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector points "Modify Points"
+            bindselector uvselect "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -655,7 +655,7 @@ inputs
 stat
 {
   create 1527127477
-  modify 1567556344
+  modify 1573270228
   author Henry@LAPPY586
   access 0777
 }
@@ -677,7 +677,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector points "Modify Points"
+            bindselector uvselect "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -903,7 +903,7 @@ inputs
 stat
 {
   create 1527133419
-  modify 1567556344
+  modify 1573270228
   author Henry@LAPPY586
   access 0777
 }
@@ -981,6 +981,7 @@ group	[ 0	locks=0 ]	(	`chs(\"../Combine_Falloffs1/group\")`	)
 grouptype	[ 8	locks=0 ]	(	[ grouptype	0 ] 	)
 sepparm	[ 0	locks=0 ]	(	)
 falloff_attr	[ 0	locks=0 ]	(	mops_falloff	)
+output_attr	[ 0	locks=0 ]	(	mops_falloff	)
 do_preview	[ 0	locks=0 ]	(	"off"	)
 folder0	[ 0	locks=0 ]	(	0	)
 do_sprite	[ 0	locks=0 ]	(	"on"	)
@@ -1065,7 +1066,7 @@ inputs
 stat
 {
   create 1527134483
-  modify 1567556344
+  modify 1573270228
   author Henry@LAPPY586
   access 0777
 }
@@ -1193,7 +1194,7 @@ inputs
 stat
 {
   create 1536029968
-  modify 1567556344
+  modify 1573270228
   author Henry@LAPPY586
   access 0777
 }
@@ -1641,7 +1642,7 @@ inputs
 stat
 {
   create 1527115230
-  modify 1567556344
+  modify 1573270228
   author Henry@LAPPY586
   access 0777
 }
@@ -1874,7 +1875,7 @@ inputs
 stat
 {
   create 1527118656
-  modify 1567555911
+  modify 1573270228
   author Henry@LAPPY586
   access 0777
 }
@@ -1934,10 +1935,10 @@ Content-Disposition: attachment; filename="hdaroot/audio/BANDS.inp"
 Content-Type: text/plain
 
 4
-0 -7.1430389999999999 8.2566041346468939 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
-1 12.624961000000001 0.72660400000000003 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
-2 12.624961000000001 1.856104 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
-3 14.884161000000001 1.1784040179529192 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+0 0.76416099999999998 5.2446039999999998 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+1 4.7177609999999994 0.72660400000000003 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+2 4.7177609999999994 1.856104 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+3 6.9769609999999993 1.1784040179529192 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/audio/BANDS/MERGE_BANDS.init"
@@ -1952,7 +1953,7 @@ Content-Type: text/plain
 
 comment ""
 position 0.764161 1.8561
-connectornextid 0
+connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on audio off export off
 outputsNamed3
 {
@@ -1960,14 +1961,16 @@ outputsNamed3
 }
 inputsNamed3
 {
+0 	pass1 1 1 "input1"
 }
 inputs
 {
+0 	pass1 0 1
 }
 stat
 {
   create 1527118701
-  modify 1567555911
+  modify 1573270375
   author Henry@LAPPY586
   access 0777
 }
@@ -2048,7 +2051,7 @@ inputs
 stat
 {
   create 1527118714
-  modify 1567556344
+  modify 1573270228
   author Henry@LAPPY586
   access 0777
 }
@@ -2124,7 +2127,7 @@ Content-Disposition: attachment; filename="hdaroot/audio/BANDS/IN.def"
 Content-Type: text/plain
 
 comment ""
-position -7.14304 7.1271
+position 0.764161 4.1151
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on audio off export off
 outputsNamed3
@@ -2142,7 +2145,7 @@ inputs
 stat
 {
   create 1527130753
-  modify 1567556344
+  modify 1573270375
   author Henry@LAPPY586
   access 0777
 }
@@ -2193,13 +2196,153 @@ Content-Type: text/plain
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/audio/BANDS/pass1.init"
+Content-Type: text/plain
+
+type = pass
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/audio/BANDS/pass1.def"
+Content-Type: text/plain
+
+comment ""
+position 0.764161 2.9856
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on audio off export off
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	IN 1 1 "input1"
+}
+inputs
+{
+0 	IN 0 1
+}
+stat
+{
+  create 1573270228
+  modify 1573270375
+  author Henry@LAPPY586
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/audio/BANDS/pass1.chn"
+Content-Type: text/plain
+
+{
+    channel filter {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { options = {	 untie  iv ov is os ia oa }
+
+	 length = 0 expr = ch(\"../../../filter1\") }
+    }
+    channel cutofflow {
+      lefttype = extend
+      righttype = extend
+      default = 1000
+      flags = 0
+      segment { options = {	 untie  iv ov is os ia oa }
+
+	 length = 0 expr = ch(\"../../../cutofflow1\") }
+    }
+    channel cutoffhigh {
+      lefttype = extend
+      righttype = extend
+      default = 2000
+      flags = 0
+      segment { options = {	 untie  iv ov is os ia oa }
+
+	 length = 0 expr = ch(\"../../../cutoffhigh1\") }
+    }
+    channel gain {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { options = {	 untie  iv ov is os ia oa }
+
+	 length = 0 expr = ch(\"../../../gain1\") }
+    }
+    channel rolloff {
+      lefttype = extend
+      righttype = extend
+      default = 2
+      flags = 0
+      segment { options = {	 untie  iv ov is os ia oa }
+
+	 length = 0 expr = ch(\"../../../rolloff1\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/audio/BANDS/pass1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+stdswitcher	[ 0	locks=0 ]	(	0	0	0	)
+filter	[ 0	locks=0 ]	(	[ filter	0 ] 	)
+cutofflow	[ 0	locks=0 ]	(	[ cutofflow	1000 ] 	)
+cutoffhigh	[ 0	locks=0 ]	(	[ cutoffhigh	2000 ] 	)
+gain	[ 0	locks=0 ]	(	[ gain	0 ] 	)
+rolloff	[ 0	locks=0 ]	(	[ rolloff	2 ] 	)
+filterphase	[ 0	locks=0 ]	(	"off"	)
+chunk	[ 0	locks=0 ]	(	"2048"	)
+overlap	[ 0	locks=0 ]	(	0.10000000000000001	)
+discard	[ 0	locks=0 ]	(	0.10000000000000001	)
+scope	[ 0	locks=0 ]	(	*	)
+srselect	[ 0	locks=0 ]	(	"max"	)
+units	[ 0	locks=0 ]	(	"seconds"	)
+timeslice	[ 0	locks=0 ]	(	"off"	)
+unload	[ 0	locks=0 ]	(	"off"	)
+export	[ 0	locks=0 ]	(	../../..	)
+gcolor	[ 0	locks=0 ]	(	0	0.89999997615814209	0.44999998807907104	)
+gcolorstep	[ 0	locks=0 ]	(	0.050000000000000003	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/audio/BANDS/pass1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.229"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/audio/BANDS/pass1.chop"
+Content-Type: text/plain
+
+5
+2
+0
+0
+1
+0
+0
+0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/audio/BANDS.order"
 Content-Type: text/plain
 
-3
+4
 MERGE_BANDS
 OUT
 IN
+pass1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/audio/BANDS.net"
@@ -2316,7 +2459,7 @@ inputs
 stat
 {
   create 1527125854
-  modify 1567556344
+  modify 1573270228
   author Henry@LAPPY586
   access 0777
 }
@@ -2388,7 +2531,7 @@ version 0.8
 stdswitcher	[ 0	locks=0 ]	(	0	0	)
 method	[ 0	locks=0 ]	(	[ method	0 ] 	)
 bounds	[ 0	locks=0 ]	(	[ bounds	1 ] 	)
-width	[ 0	locks=0 ]	(	[ width	30 ] 	)
+width	[ 0	locks=0 ]	(	[ width	2 ] 	)
 interp	[ 0	locks=0 ]	(	[ interp	1 ] 	)
 norm	[ 0	locks=0 ]	(	[ norm	0 ] 	)
 resample	[ 0	locks=0 ]	(	[ resample	1 ] 	)
@@ -2457,7 +2600,7 @@ inputs
 stat
 {
   create 1527133238
-  modify 1567556344
+  modify 1573270228
   author Henry@LAPPY586
   access 0777
 }
@@ -2539,7 +2682,7 @@ inputs
 stat
 {
   create 1527133254
-  modify 1567556344
+  modify 1573270228
   author Henry@LAPPY586
   access 0777
 }
@@ -2631,7 +2774,7 @@ inputs
 stat
 {
   create 1527133507
-  modify 1567556344
+  modify 1573270228
   author Henry@LAPPY586
   access 0777
 }
@@ -2754,7 +2897,7 @@ inputs
 stat
 {
   create 1527133607
-  modify 1567556344
+  modify 1573270228
   author Henry@LAPPY586
   access 0777
 }
@@ -2834,7 +2977,7 @@ inputs
 stat
 {
   create 1527556983
-  modify 1567556344
+  modify 1573270228
   author Henry@LAPPY586
   access 0777
 }
@@ -2962,7 +3105,7 @@ inputs
 stat
 {
   create 1527556988
-  modify 1567556344
+  modify 1573270228
   author Henry@LAPPY586
   access 0777
 }
@@ -3059,7 +3202,7 @@ inputs
 stat
 {
   create 1527557165
-  modify 1567556344
+  modify 1573270228
   author Henry@LAPPY586
   access 0777
 }
@@ -3154,7 +3297,7 @@ inputs
 stat
 {
   create 1527985918
-  modify 1567556344
+  modify 1573270228
   author henry@GlaDOS
   access 0777
 }
@@ -3243,7 +3386,7 @@ inputs
 stat
 {
   create 1529113730
-  modify 1567556344
+  modify 1573270228
   author Henry@LAPPY586
   access 0777
 }
@@ -3338,7 +3481,7 @@ inputs
 stat
 {
   create 1529113737
-  modify 1567556344
+  modify 1573270228
   author Henry@LAPPY586
   access 0777
 }
@@ -3553,7 +3696,7 @@ inputs
 stat
 {
   create 1536032692
-  modify 1567556344
+  modify 1573270228
   author Henry@LAPPY586
   access 0777
 }
@@ -3648,7 +3791,7 @@ inputs
 stat
 {
   create 1536032699
-  modify 1567556344
+  modify 1573270228
   author Henry@LAPPY586
   access 0777
 }
@@ -3787,7 +3930,7 @@ inputs
 stat
 {
   create 1536033084
-  modify 1567556344
+  modify 1573270228
   author Henry@LAPPY586
   access 0777
 }
@@ -3882,7 +4025,7 @@ inputs
 stat
 {
   create 1536033098
-  modify 1567556344
+  modify 1573270228
   author Henry@LAPPY586
   access 0777
 }
@@ -4080,7 +4223,7 @@ inputs
 stat
 {
   create 1527125024
-  modify 1567556344
+  modify 1573270228
   author Henry@LAPPY586
   access 0777
 }
@@ -4283,7 +4426,7 @@ inputs
 stat
 {
   create 1565317985
-  modify 1567556344
+  modify 1573270228
   author Henry@LAPPY586
   access 0777
 }
@@ -4363,7 +4506,7 @@ inputs
 stat
 {
   create 1565317985
-  modify 1567556344
+  modify 1573270228
   author Henry@LAPPY586
   access 0777
 }

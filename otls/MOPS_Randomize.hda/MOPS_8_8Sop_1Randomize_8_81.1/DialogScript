@@ -56,7 +56,7 @@
         label   "Falloff Attribute"
         type    string
         default { "mops_falloff" }
-        disablewhen "{ do_falloff2 0 }"
+        disablewhen "{ do_falloff2 == 0 }"
         menureplace {
             [ "opmenu -l attribswap1 srcattribs1" ]
         }
