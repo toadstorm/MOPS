@@ -3,7 +3,7 @@
 
 """Generates an index attribute for the Instancer."""
 
-The MOPs Instancer node uses the point attribute i@mops_index to determine which input object to copy to each template point. Index From Attribute generates i@mops_index from any existing point attribute, such as @mops_falloff.
+The MOPs Instancer node can use the point attribute i@mops_index to determine which input object to copy to each template point. Index From Attribute generates i@mops_index from any existing point attribute, such as @mops_falloff.
 
 == Overview ==
 
@@ -26,6 +26,10 @@ Attribute Range:
     
     The minimum and maximum values of the Attribute Name to generate values from.
     
+Index Datatype:
+    #id: index_type
+    The attribute type (integer or float) to generate. Typically you want the i@mops_index attribute to write an integer attribute.
+    
 Index Steps:
     #id: steps
     
@@ -35,6 +39,10 @@ Index Start:
     #id: start
     
     The starting number of the generated indices.
+    
+Output Range:
+    #id: output_range
+    If the Index Datatype is Float, the range of values to generate from the input attribute.
     
 @related
 

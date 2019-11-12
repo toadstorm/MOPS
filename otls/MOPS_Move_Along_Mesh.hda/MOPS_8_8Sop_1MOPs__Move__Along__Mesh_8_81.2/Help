@@ -5,12 +5,12 @@
 """Moves MOPs primitives along a polygon mesh surface."""
 
 MOPs Move Along Mesh attaches the input packed primitives onto a template surface, based on proximity to the surface or a random scatter,
-and then optionally slides the primitives over the surface of the mesh. This operator uses the v@up attribute (or the equivalent vector derived
-from the p@orient attribute or intrinsic transform matrix) as the "forward" direction for each primitive. The primitives are reprojected
-onto the mesh at each timestep.
+and then optionally slides the primitives over the surface of the mesh. Primitives by default will slide in the local "up" direction of the mesh.
 
 If your template mesh doesn't already have a defined orientation on its points (via N/up or an orient attribute), consider using MOPs Orient Mesh
 to generate an orientation frame on your mesh before using Move Along Mesh.
+
+MOPs Move Along Mesh has two "phases" of operation: first, the "Attach" phase, which determines the initial attachment coordinates for the input packed primitives or points, and then the "Animate" phase which determines how the attachment coordinates will change over time. If you just want objects to stick to a mesh, deforming or not, you can skip the "Animate" phase entirely.
 
 == Overview ==
 
@@ -30,98 +30,90 @@ Group:
     #id: group_all
     The group of primitives to slide over the surface.
     
-== Source Mesh == 
-
-Compute Normal/Up:
-    #id: do_polyframe
-    Compute a basic N and up vector for the input mesh points. Consider using MOPs Orient Mesh for better control over the input vectors.
-    
-Reference Frame:
-    #id: ref_frame
-    The frame to use to determine the initial attributes of the source mesh (P, N, up). These attributes will be interpolated to the final position of the input mesh per-frame.
-    
 == Attach ==
-
-Attach Mode:
+    
+Attach Mode:    
     #id: attach_mode
-    The method by which to initially attach the packed primitives to the mesh. Scatter mode randomly scatters the primitives onto the mesh. Nearest Surface snaps the primitives to the nearest possible point on the mesh surface, with an optional ray projection. Match Point snaps the primitives to the matching point number on the polygon mesh.
-       
-Other options in this tab depend on the Attach Mode chosen:
+    The method by which the initial attachment coordinates are defined. Attachment happens at the "Attach Time" parameter's specified frame. There are three possible modes:
+    * Nearest Surface: The nearest coordinate on the target mesh to each packed primitive or point is used as the attach point.
+    * Scatter: Coordinates are randomly determined on the target mesh, using the Scatter SOP.
+    * Attributes: Point attributes on the input packed primitives or points are used to determine the primitive number to attach to, and the parametric UV coordinates on that primitive. Note that parametric UVs are not the same as texture UVs. See the [documentation|https://www.sidefx.com/docs/houdini/model/primitive_spaces.html] on parametric UVs.
+    
+Attach Time:
+    #id: ref_frame
+    The frame to use as the "rest" frame for the attachment phase. The initial attachment position and orientation will be derived based on the mesh's shape at this frame.
+    
+Maintain Offset:
+    #id: pos_offset
+    How much to maintain each packed primitive's current position from the "attach" point on the target mesh. A value of 1 means that the packed primitive will not move from its original position at the Attach Time. This offset vector is interpolated as the mesh deforms or the packed primitive moves, keeping its distance from the mesh.
+    
+Maintain Orient Offset:
+    #id: orient_offset
+    How much to maintain each packed primitive's current orientation as compared to that of the "attach" point on the target mesh. A value of 1 means that the packed primitive will not change its orientation at the Attach Time. This offset quaternion is interpolated as the mesh deforms or the packed primitive moves.
 
-=== Scatter ===
-
-    See the Scatter SOP for more details.
- 
+Visualize Offset:
+    #id: visualize_offset
+    Display the Maintain Offset vector in the viewport. This can be a useful guide for debugging object motion if they're not moving as you'd expect.
+    
 === Nearest Surface ===
 
 Search Distance:
-    #id: attach_max_dist
-    The maximum distance from any packed primitive to search for a surface point on the mesh to attach to.
+    #id: max_distance
+    In Nearest Surface mode, the maximum distance from each packed primitive or point to search for a position on the target mesh. Higher distances can take longer to compute, especially with many points.
     
-Project Onto Surface:
-    #id: attach_ray
-    Project the primitives along a vector before searching for the nearest surface point.
-    See the help for Ray SOP for details on projection options.
-    
-=== Sort ===
+=== Scatter ===
 
-    See the Sort SOP for more details.
+See the Scatter SOP for details.
+
+=== Attributes ===
+    
+Prim Number Attribute:
+    #id: srcattribs1
+    In Attributes mode, the integer point attribute that defines what primitive on the mesh each packed primitive or point should be attached to.
+    
+Prim UV Attribute:
+    #id: srcattribs2
+    In Attribute mode, the vector point attribute that defines the parametric UV coordinates on the mesh primitive that each packed primitive or point should be attached to.
     
 == Animate ==
 
-Align To Surface:
-    #id: do_rotate
-    Align the packed primitives to the surface normal / up vectors of the mesh.
+Enable Simulation:
+    #id: do_simulation
+    If enabled, the attached packed primitives will animate over the surface.
+    
+=== Options ===
 
-Enable Move:
-    #id: do_move
-    Move the primitives over the surface over time. Disabling this simply attaches the points to the surface without sliding.
+Forward Vector:
+    #id: forward_vector
+    The direction packed primitives should move in, according to the mesh's local orientation. If you orient the mesh using MOPs Orient Mesh, the default value corresponds to the yellow vector visualization on that SOP.
     
 Speed:
     #id: speed
-    The movement speed of the primitives, in world units. This speed is multiplied against each primitive's @mops_falloff attribute value.
+    The distance each primitive should move each timestep. If Falloff is enabled, this distance is scaled by each primitive's falloff attribute value.
     
-Randomize Speed:
-    #id: random_speed
-    A random amount to add or subtract to each primitive's speed. 
+Rand Speed:
+    #id: rand_speed
+    If greater than zero, a random value from -N to +N to add to the Speed value for each primitive.
     
-Random Seed:
+Seed:
     #id: seed2
-    The seed used to randomize speed values.
+    The random seed to use for picking the Rand Speed.
     
-Aim Weight:
-    #id: aim_weight
-    The amount to blend in the template mesh's orientation with each instance's orientation, per timestep. Higher values will make the instances
-    snap to match the mesh's orientation quickly. Lower values have a smoother effect.
+Enable Falloff:
+    #id: do_falloff
+    If enabled, scale Speed by the falloff attribute value.
     
-Search Distance:
-    #id: maxdist
-    Each timestep, the primitives are reprojected onto the nearest point of the mesh surface after moving. This is the maximum distance to search for a surface point. It should always be higher than the movement speed for predictable results.
+Falloff Attribute:
+    #id: srcattribs3
+    The point attribute to use as the falloff attribute.
     
-Enable Relax:
-    #id: do_relax
-    Enable point relaxation of the primitives between timesteps. This forces the primitives apart, to prevent bunching and overlapping, but can result in jittery movement.
+Blend In Orient:
+    #id: blend_in_orient
+    The percentage of the orientation of the mesh to blend into the packed primitive orientation at each timestep. This makes the packed primitives naturally turn in to follow their direction of motion along the mesh. A value of zero means that their orientation will not change during animation.
     
-Points to Relax:
-    #id: group2
-    The point group of the packed primitives to relax. Leave this blank to relax everything.
+Project Distance:
+    #id: project_distance
+    After each primitive moves, the point representing it is "reprojected" back onto the mesh in order to keep it fully attached, and the position and orientation are updated based on this reprojection. This parameter controls the maximum distance that each primitive will search to find the nearest point on the mesh. Higher values can take more time to compute.
     
-Influencing Points:
-    #id: influencegroup
-    The points that will affect any Points to Relax that have radii overlapping the radii of these points.
-    
-Max Iterations:
-    #id: maxiterations
-    This is the maximum number of times that the Points to Relax will be moved away from the Influencing Points.
-    
-Point Radius Scale:
-    #id: radius
-    A multiplier on the point scale of each packed primitive.
-    
-Pscale Axis:
-    #id: scale_axis
-    The local axis of the packed primitive to use when computing the point scale of each packed primitive. 
-    
-Use VEXpression:
-    #id: do_vexpression
-    Enabling this allows the user to modify the behavior of this node using VEX. Certain parameters specific to this node can be modified per-point using VEX snippets.
+    TIP:
+        This value needs to be larger than the maximum possible Speed value of any given point, or there's a chance this step will fail.

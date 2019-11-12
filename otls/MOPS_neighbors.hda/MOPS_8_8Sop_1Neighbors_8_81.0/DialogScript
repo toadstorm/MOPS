@@ -102,7 +102,7 @@
             label   "Assume Uniform Scale"
             type    toggle
             default { "1" }
-            disablewhen "{ connect_method 1 }"
+            disablewhen "{ connect_method == 1 }"
             range   { 0 10 }
             parmtag { "autoscope" "0000000000000000" }
         }
