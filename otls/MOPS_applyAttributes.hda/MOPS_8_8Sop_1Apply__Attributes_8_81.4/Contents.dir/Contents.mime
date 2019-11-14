@@ -32,22 +32,27 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 2.09836 1.35
-connectornextid 0
+position -0.0708374 -10.8034
+connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
+0 "output1"
 }
 inputsNamed3
 {
+1 	MOPS_IN 0 1 "input1"
+2 	switch_do_pscale 0 1 "input2"
 }
 inputs
 {
+0 	MOPS_IN 0 1
+1 	switch_do_pscale 0 1
 }
 stat
 {
-  create 1573532186
-  modify 1573532191
+  create 1569472199
+  modify 1573757271
   author Henry@LAPPY586
   access 0777
 }
@@ -133,7 +138,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1573532186
+  modify 1573757918
   author Henry@LAPPY586
   access 0777
 }
@@ -521,10 +526,6 @@ matrix3 m = primintrinsic(0, \"transform\", @ptnum);
 vector pos = 0;
 vector scale = cracktransform(0,0,2,{0,0,0},m);
 float pscale = 1;
-if(abs(scale.x-scale.y) < epsilon && abs(scale.y-scale.z) < epsilon) {
-    pscale = scale.x;
-    scale = {1,1,1};
-}
 vector4 orient = quaternion(m);
 
 string type = primintrinsic(0, \"typename\", @ptnum);
@@ -537,7 +538,7 @@ if((type != \"PackedGeometry\") && (type != \"PackedFragment\") && (type != \"Pa
         scale = point(0, \"scale\", @ptnum);
     }
     if(haspointattrib(0, \"pscale\")) {
-        pscale *= point(0, \"pscale\", @ptnum);
+        pscale = point(0, \"pscale\", @ptnum);
     }
     if(haspointattrib(0, \"orient\")) {
         orient = point(0, \"orient\", @ptnum);
@@ -553,6 +554,12 @@ if((type != \"PackedGeometry\") && (type != \"PackedFragment\") && (type != \"Pa
             orient = quaternion(maketransform(N, up));
         }
     }
+}
+
+// simplify pscale vs scale
+if(abs(scale.x-scale.y) < epsilon && abs(scale.y-scale.z) < epsilon) {
+    pscale = scale.x;
+    scale = {1,1,1};
 }
 
 if(doWeight == 0) {
@@ -589,7 +596,7 @@ if(haspointattrib(1, \"euler\")) {
 }
 
 // scale, rotate, translate
-f@__pscale1 = pscale;
+
 f@__pscale2 = pscale2;
 v@__scale1 = scale;
 if(doS) {
@@ -674,8 +681,8 @@ do_translate	[ 0	locks=0	autoscope=0 ]	(	[ do_translate	1 ] 	)
 do_rotate	[ 0	locks=0	autoscope=0 ]	(	[ do_rotate	1 ] 	)
 do_scale	[ 0	locks=0	autoscope=0 ]	(	[ do_scale	1 ] 	)
 do_weight	[ 0	locks=0	autoscope=0 ]	(	[ do_weight	1 ] 	)
-rotate_mode	[ 0	locks=0	autoscope=0 ]	(	[ rotate_mode	1 ] 	)
-scale_mode	[ 0	locks=0	autoscope=0 ]	(	[ scale_mode	1 ] 	)
+rotate_mode	[ 0	locks=0	autoscope=0 ]	(	[ rotate_mode	0 ] 	)
+scale_mode	[ 0	locks=0	autoscope=0 ]	(	[ scale_mode	0 ] 	)
 local_space	[ 0	locks=0	autoscope=0 ]	(	[ local_space	1 ] 	)
 rotate_order	[ 0	locks=0	autoscope=0 ]	(	[ rotate_order	0 ] 	)
 falloff_attribute	[ 0	locks=0 ]	(	[ falloff_attribute	mops_falloff ] 	)
@@ -723,7 +730,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1573532186
+  modify 1573757271
   author Henry@LAPPY586
   access 0777
 }
@@ -805,7 +812,7 @@ inputs
 stat
 {
   create 1555437557
-  modify 1573532186
+  modify 1573757271
   author Henry@LAPPY586
   access 0777
 }
@@ -900,7 +907,7 @@ inputs
 stat
 {
   create 1569084024
-  modify 1573532186
+  modify 1573757271
   author Henry@LAPPY586
   access 0777
 }
@@ -986,7 +993,7 @@ inputs
 stat
 {
   create 1569470799
-  modify 1573532186
+  modify 1573757271
   author Henry@LAPPY586
   access 0777
 }
@@ -1067,7 +1074,7 @@ inputs
 stat
 {
   create 1569470908
-  modify 1573532186
+  modify 1573757271
   author Henry@LAPPY586
   access 0777
 }
@@ -1210,7 +1217,7 @@ inputs
 stat
 {
   create 1524695134
-  modify 1573532186
+  modify 1573757271
   author Henry@LAPPY586
   access 0777
 }
@@ -1515,7 +1522,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1573532186
+  modify 1573757271
   author Henry@LAPPY586
   access 0777
 }
@@ -2033,7 +2040,7 @@ inputs
 stat
 {
   create 1550365158
-  modify 1573532186
+  modify 1573757271
   author Henry@LAPPY586
   access 0777
 }
@@ -2113,7 +2120,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1573532186
+  modify 1573757271
   author Henry@LAPPY586
   access 0777
 }
@@ -2262,7 +2269,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1573532186
+  modify 1573757271
   author Henry@LAPPY586
   access 0777
 }
@@ -2521,7 +2528,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1573532186
+  modify 1573757271
   author Henry@LAPPY586
   access 0777
 }
@@ -2596,7 +2603,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1573532186
+  modify 1573757271
   author Henry@LAPPY586
   access 0777
 }
@@ -2732,7 +2739,7 @@ inputs
 stat
 {
   create 1555459453
-  modify 1573532186
+  modify 1573757271
   author Henry@LAPPY586
   access 0777
 }
@@ -2808,7 +2815,7 @@ inputs
 stat
 {
   create 1556862778
-  modify 1573532186
+  modify 1573757271
   author Henry@LAPPY586
   access 0777
 }
@@ -2883,7 +2890,7 @@ inputs
 stat
 {
   create 1569084092
-  modify 1573532186
+  modify 1573757271
   author Henry@LAPPY586
   access 0777
 }
@@ -2958,7 +2965,7 @@ inputs
 stat
 {
   create 1569468433
-  modify 1573532186
+  modify 1573757271
   author Henry@LAPPY586
   access 0777
 }
@@ -3233,7 +3240,7 @@ inputs
 stat
 {
   create 1569470856
-  modify 1573532186
+  modify 1573757271
   author Henry@LAPPY586
   access 0777
 }
@@ -3438,7 +3445,7 @@ inputs
 stat
 {
   create 1542257157
-  modify 1573532186
+  modify 1573757271
   author Henry@LAPPY586
   access 0777
 }
@@ -3772,7 +3779,7 @@ inputs
 stat
 {
   create 1550365152
-  modify 1573532186
+  modify 1573757271
   author Henry@LAPPY586
   access 0777
 }
