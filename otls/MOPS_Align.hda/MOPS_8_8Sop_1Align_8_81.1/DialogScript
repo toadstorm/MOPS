@@ -1,8 +1,8 @@
-# Dialog script for MOPS::Align::1.0 automatically generated
+# Dialog script for MOPS::Align::1.1 automatically generated
 
 {
-    name	MOPS::Align::1.0
-    script	MOPS::Align::1.0
+    name	MOPS::Align::1.1
+    script	MOPS::Align::1.1
     label	"MOPs Align"
 
     help {
@@ -78,9 +78,10 @@
             "3" "+Y"
             "4" "-Z"
             "5" "+Z"
-            "6" "Custom Offset"
-            "7" "Custom Pivot (World)"
-            "8" "Custom Pivot (Local)"
+            "6" "Centroid"
+            "7" "Custom Offset"
+            "8" "Custom Pivot (World)"
+            "9" "Custom Pivot (Local)"
         }
         range   { 0 10 }
         parmtag { "autoscope" "0000000000000000" }
@@ -100,7 +101,7 @@
         type    vector
         size    3
         default { "0" "0" "0" }
-        hidewhen "{ mode != 6 }"
+        hidewhen "{ mode != 7 }"
         range   { 0 1 }
         parmtag { "autoscope" "0000000000000000" }
     }
@@ -110,7 +111,7 @@
         type    vector
         size    3
         default { "0" "0" "0" }
-        hidewhen "{ mode < 7 }"
+        hidewhen "{ mode < 8 }"
         range   { 0 1 }
         parmtag { "autoscope" "0000000000000000" }
     }
@@ -129,7 +130,7 @@
         type    string
         default { "// pivot = {0,0,0};" }
         disablewhen "{ do_vexpression == 0 }"
-        hidewhen "{ mode < 7 }"
+        hidewhen "{ mode < 8 }"
         parmtag { "autoscope" "0000000000000000" }
         parmtag { "editor" "1" }
         parmtag { "editorlang" "vex" }
@@ -140,7 +141,7 @@
         type    string
         default { "// offset = {0,0,0};" }
         disablewhen "{ do_vexpression == 0 }"
-        hidewhen "{ mode != 6 }"
+        hidewhen "{ mode != 7 }"
         parmtag { "autoscope" "0000000000000000" }
         parmtag { "editor" "1" }
         parmtag { "editorlang" "vex" }
