@@ -19,6 +19,7 @@
         label   "Group"
         type    string
         default { "" }
+        hidewhen "{ mode < 7 }"
         menutoggle {
             [ "opmenu -l align_pivots group" ]
         }
@@ -128,8 +129,28 @@
         type    string
         default { "// pivot = {0,0,0};" }
         disablewhen "{ do_vexpression == 0 }"
+        hidewhen "{ mode < 7 }"
         parmtag { "autoscope" "0000000000000000" }
         parmtag { "editor" "1" }
         parmtag { "editorlang" "vex" }
+    }
+    parm {
+        name    "offset_vexpression"
+        label   "VEXpression"
+        type    string
+        default { "// offset = {0,0,0};" }
+        disablewhen "{ do_vexpression == 0 }"
+        hidewhen "{ mode != 6 }"
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "editor" "1" }
+        parmtag { "editorlang" "vex" }
+    }
+    parm {
+        name    "show_offset"
+        label   "Label"
+        type    integer
+        invisible
+        default { "0" }
+        range   { 0 10 }
     }
 }
