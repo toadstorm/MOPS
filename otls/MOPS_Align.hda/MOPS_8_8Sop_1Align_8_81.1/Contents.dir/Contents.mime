@@ -23,7 +23,7 @@ Sop
 Content-Disposition: attachment; filename="hdaroot.init"
 Content-Type: text/plain
 
-type = MOPS::Align::1.0
+type = MOPS::Align::1.1
 matchesdef = 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -34,7 +34,7 @@ sopflags sopflags =
 comment ""
 position -8.47694 -31.5893
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 0 "output1"
@@ -49,8 +49,8 @@ inputs
 }
 stat
 {
-  create 1573797045
-  modify 1573797085
+  create 1573797212
+  modify 1573798715
   author Henry@LAPPY586
   access 0777
 }
@@ -110,7 +110,7 @@ inputs
 stat
 {
   create 1555384760
-  modify 1573797086
+  modify 1573798827
   author Henry@LAPPY586
   access 0777
 }
@@ -481,15 +481,23 @@ int index = floor(mode / 2);
 // if in custom pivot mode, just add the custom value
 // to the existing pivot.
 if(mode == 6) {
+    // centroid
+    vector offset = @P - getbbox_center(0, sprintf(\"%s\", @ptnum));
+    pivot -= offset;
+} else if(mode == 7) {
+    // local offset
     vector offset = chv(\"pivot_offset\");
-    // enable vexpression
     `ifs(ch(\"do_vexpression\"), chs(\"offset_vexpression\"), \"\")`
     pivot += offset;
-} else if(mode == 7) {
+} else if(mode == 8) {
+    // world pivot
     // the pivot needs to be adjusted for scale in this case.
     // we also need to account for the current orientation when adjusting.
     pivot = qrotate(qinvert(orient), (-@P / scale)+old_pivot) + (chv(\"pivot_absolute\") / scale);
-} else if(mode == 8) {
+} else if(mode == 9) {
+    // local pivot
+    // this doesn't account for orientation, meaning the pivot will be
+    // an offset described in local space for each prim (probably bad!)
     pivot = chv(\"pivot_absolute\");
 } else {
     pivot[index] = bounds[mode];
@@ -504,11 +512,9 @@ setprimintrinsic(0, \"pivot\", @ptnum, out_pivot, \"set\");
 // realign P if asked
 vector delta = pivot - old_pivot;
 // transform delta by local orientation
-//if(mode != 7 ) {
-    delta = qrotate(orient, delta);
-//}
-// v@delta = delta;
-int pivots_only = chi(\"pivots_only\") || mode == 7;
+delta = qrotate(orient, delta);
+v@delta = delta;
+int pivots_only = chi(\"pivots_only\") || mode == 8;
 vector pivots_mod = set(pivots_only, pivots_only, pivots_only);
 @P += (delta * pivots_mod * scale * falloff);"	)
 exportlist	[ 0	locks=0 ]	(	*	)
@@ -524,7 +530,7 @@ vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 folder1	[ 0	locks=0 ]	(	0	0	)
-mode	[ 0	locks=0 ]	(	[ mode	7 ] 	)
+mode	[ 0	locks=0 ]	(	[ mode	6 ] 	)
 do_falloff	[ 0	locks=0 ]	(	[ do_falloff	0 ] 	)
 pivots_only	[ 0	locks=0 ]	(	[ pivots_only	1 ] 	)
 falloff_attribute	[ 0	locks=0 ]	(	[ falloff_attribute	mops_falloff ] 	)
@@ -622,7 +628,7 @@ sopflags sopflags =
 comment ""
 position -1.90631 5.01963
 connectornextid 2
-flags =  lock off model off template on footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 1 "output1"
@@ -638,7 +644,7 @@ inputs
 stat
 {
   create 1555386448
-  modify 1565670860
+  modify 1573797478
   author Henry@LAPPY586
   access 0777
 }
@@ -698,7 +704,7 @@ inputs
 stat
 {
   create 1555387829
-  modify 1565671105
+  modify 1573797478
   author Henry@LAPPY586
   access 0777
 }
