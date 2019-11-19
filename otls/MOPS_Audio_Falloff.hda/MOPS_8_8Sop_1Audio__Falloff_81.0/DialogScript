@@ -349,61 +349,105 @@
         name    "stdswitcher2_2"
         label   "Bands"
 
-        multiswitcher {
-            name    "bands"
-            label    "Bands"
-            parmtag { "script_callback" "hou.pwd().hdaModule().createBands(kwargs)" }
-            parmtag { "script_callback_language" "python" }
+        group {
+            name    "folder3"
+            label   "Frequencies"
 
-            parm {
-                name    "preview#"
-                label   "Preview Band"
-                type    button
-                default { "0" }
-                parmtag { "script_callback" "hou.pwd().hdaModule().previewFiltered(kwargs)" }
+            multiswitcher {
+                name    "bands"
+                label    "Bands"
+                parmtag { "script_callback" "hou.pwd().hdaModule().createBands(kwargs)" }
                 parmtag { "script_callback_language" "python" }
-            }
-            parm {
-                name    "filter#"
-                label   "Filter"
-                type    ordinal
-                default { "0" }
-                menu {
-                    "0" "Low Pass"
-                    "1" "High Pass"
-                    "2" "Band Pass"
-                    "3" "Band Stop"
+
+                parm {
+                    name    "preview#"
+                    label   "Preview Band"
+                    type    button
+                    default { "0" }
+                    parmtag { "script_callback" "hou.pwd().hdaModule().previewFiltered(kwargs)" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "filter#"
+                    label   "Filter"
+                    type    ordinal
+                    default { "0" }
+                    menu {
+                        "0" "Low Pass"
+                        "1" "High Pass"
+                        "2" "Band Pass"
+                        "3" "Band Stop"
+                    }
+                }
+                parm {
+                    name    "cutofflow#"
+                    label   "Low Cutoff"
+                    type    float
+                    default { "0" }
+                    disablewhen "{ filter# == 0 }"
+                    range   { 0! 2000 }
+                }
+                parm {
+                    name    "cutoffhigh#"
+                    label   "High Cutoff"
+                    type    float
+                    default { "2000" }
+                    disablewhen "{ filter# == 1 }"
+                    range   { 0! 2000 }
+                }
+                parm {
+                    name    "gain#"
+                    label   "Pass Gain (dB)"
+                    type    float
+                    default { "0" }
+                    range   { -10 10 }
+                }
+                parm {
+                    name    "rolloff#"
+                    label   "Rolloff Factor"
+                    type    float
+                    default { "3" }
+                    range   { 0 10 }
                 }
             }
+
+        }
+
+        group {
+            name    "folder2"
+            label   "Band Options"
+
             parm {
-                name    "cutofflow#"
-                label   "Low Cutoff"
-                type    float
+                name    "preview_bands"
+                label   "Preview Bands"
+                type    toggle
                 default { "0" }
-                disablewhen "{ filter# == 0 }"
-                range   { 0! 2000 }
             }
             parm {
-                name    "cutoffhigh#"
-                label   "High Cutoff"
-                type    float
-                default { "2000" }
-                disablewhen "{ filter# == 1 }"
-                range   { 0! 2000 }
-            }
-            parm {
-                name    "gain#"
-                label   "Pass Gain (dB)"
-                type    float
-                default { "0" }
-                range   { -10 10 }
-            }
-            parm {
-                name    "rolloff#"
-                label   "Rolloff Factor"
-                type    float
-                default { "3" }
+                name    "auto_distribute"
+                label   "Auto Distribute"
+                type    toggle
+                default { "1" }
                 range   { 0 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "band_attr"
+                label   "Band Attribute"
+                type    string
+                default { "mops_falloff" }
+                disablewhen "{ auto_distribute == 1 }"
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "distribute_ramp"
+                label   "Band Weighting"
+                type    ramp_flt
+                default { "2" }
+                range   { 1! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "rampfloatdefault" "1pos ( 0 ) 1value ( 0 ) 1interp ( linear ) 2pos ( 1 ) 2value ( 1 ) 2interp ( linear )" }
             }
         }
 
