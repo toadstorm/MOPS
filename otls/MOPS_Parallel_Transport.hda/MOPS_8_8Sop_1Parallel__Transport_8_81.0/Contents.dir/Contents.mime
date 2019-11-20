@@ -32,24 +32,22 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.51639 -2.28934
-connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+position 2.12996 -18.9881
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
 inputsNamed3
 {
-0 	resample1 1 1 "input1"
 }
 inputs
 {
-0 	resample1 0 1
 }
 stat
 {
-  create 1573630084
-  modify 1573630626
+  create 1574219084
+  modify 1574219151
   author Henry@LAPPY586
   access 0777
 }
@@ -724,7 +722,7 @@ inputs
 stat
 {
   create 1573630626
-  modify 1573630654
+  modify 1574219171
   author Henry@LAPPY586
   access 0777
 }
@@ -732,6 +730,26 @@ color UT_Color RGB 0.8 1 0.7
 delscript ""
 exprlanguage hscript
 end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch1.spareparmdef"
+Content-Type: text/plain
+
+    parm {
+        name    "input"
+        baseparm
+        label   "Select Input"
+        export  all
+    }
+    parm {
+        name    "spare_input0"
+        label   "Spare Input 0"
+        type    oppath
+        default { "" }
+        help    "Refer to this in expressions as -1, such as: npoint(-1)"
+        parmtag { "opfilter" "!!SOP!!" }
+        parmtag { "oprelative" "." }
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/switch1.chn"
@@ -742,7 +760,7 @@ Content-Type: text/plain
       lefttype = extend
       righttype = extend
       flags = 0
-      segment { length = 0 expr = "!haspointattrib(\"../IN\", \"N\")" }
+      segment { length = 0 expr = "!haspointattrib(-1, \"N\")" }
     }
   }
 
@@ -753,6 +771,7 @@ Content-Type: text/plain
 {
 version 0.8
 input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+spare_input0	[ 0	locks=0 ]	(	../IN	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
