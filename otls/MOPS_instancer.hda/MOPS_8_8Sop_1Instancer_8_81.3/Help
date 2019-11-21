@@ -127,6 +127,7 @@ Template Group:
 Template Rest Frame:
     #id: template_rest_frame
     When instancing onto an animated mesh, the frame to use as the "rest" (default) frame. Instances will automatically interpolate their positions and orientations on an animated mesh, based on this default state. 
+    If your template mesh has a changing point count, you will probably want to set this to @Frame in order to update the topology from the source.
     
     
 == Distribution Types ==
