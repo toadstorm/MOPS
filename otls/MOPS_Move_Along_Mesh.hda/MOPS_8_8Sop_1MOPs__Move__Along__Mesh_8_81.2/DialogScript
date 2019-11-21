@@ -449,6 +449,17 @@
                 parmtag { "autoscope" "0000000000000000" }
             }
             parm {
+                name    "attribname"
+                label   "Update Attributes"
+                type    string
+                default { "mops_falloff" }
+                menutoggle {
+                    [ "opmenu -l solver2/d/s/attribcopy1 attribname" ]
+                }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "sop_input" "2else1" }
+            }
+            parm {
                 name    "blend_in_orient"
                 label   "Blend In Orient"
                 type    float
