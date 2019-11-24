@@ -32,9 +32,9 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 6.80742 -3.16236
+position 6.80742 -4.09242
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 0 "output1"
@@ -50,7 +50,7 @@ inputs
 stat
 {
   create 1574625307
-  modify 1574625561
+  modify 1574628078
   author Henry@LAPPY586
   access 0777
 }
@@ -110,7 +110,7 @@ inputs
 stat
 {
   create 1555384760
-  modify 1574625645
+  modify 1574627844
   author Henry@LAPPY586
   access 0777
 }
@@ -470,9 +470,10 @@ vector4 orient = point(1, \"orient\", @ptnum);
 // get bounds
 float bounds[] = primintrinsic(0, \"packedbounds\", @ptnum);
 // get xform matrix to compute scale
-matrix3 xform = primintrinsic(0, \"transform\", @ptnum);
-vector scale = cracktransform(0,0,2,{0,0,0},xform);
-vector old_pivot = primintrinsic(0, \"pivot\", @ptnum);
+// matrix3 xform = primintrinsic(0, \"transform\", @ptnum);
+// vector scale = cracktransform(0,0,2,{0,0,0},xform);
+vector scale = point(1, \"scale\", @ptnum) * point(1, \"pscale\", @ptnum);
+vector old_pivot = point(1, \"pivot\", @ptnum);
 // based on user input, align pivots to some part of the bounding box
 int mode = chi(\"mode\"); // -X, +X, -Y, +Y, -Z, +Z
 vector pivot = old_pivot;
@@ -513,10 +514,13 @@ setprimintrinsic(0, \"pivot\", @ptnum, out_pivot, \"set\");
 // realign P if asked
 vector delta = pivot - old_pivot;
 // transform delta by local orientation
-delta = qrotate(orient, delta);
+if(mode != 9) {
+    delta = qrotate(orient, delta);
+}
 v@__delta = delta;
 int pivots_only = chi(\"pivots_only\") || mode == 8;
 vector pivots_mod = set(pivots_only, pivots_only, pivots_only);
+v@pivot = pivot;
 @P += (delta * pivots_mod * scale * falloff);"	)
 exportlist	[ 0	locks=0 ]	(	*	)
 vex_strict	[ 0	locks=0 ]	(	"off"	)
@@ -531,14 +535,14 @@ vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 folder1	[ 0	locks=0 ]	(	0	0	)
-mode	[ 0	locks=0 ]	(	[ mode	8 ] 	)
+mode	[ 0	locks=0 ]	(	[ mode	9 ] 	)
 do_falloff	[ 0	locks=0 ]	(	[ do_falloff	0 ] 	)
 pivots_only	[ 0	locks=0 ]	(	[ pivots_only	1 ] 	)
 falloff_attribute	[ 0	locks=0 ]	(	[ falloff_attribute	mops_falloff ] 	)
 pivot_offset	[ 0	locks=0 ]	(	[ pivot_offsetx	0 ] 	[ pivot_offsety	0 ] 	[ pivot_offsetz	0 ] 	)
 pivot_absolute	[ 0	locks=0 ]	(	[ pivot_absolutex	0 ] 	[ pivot_absolutey	0 ] 	[ pivot_absolutez	0 ] 	)
-do_vexpression	[ 0	locks=0 ]	(	[ do_vexpression	0 ] 	)
-vexpression	[ 0	locks=0 ]	(	[ vexpression	"// pivot = {0,0,0};" ] 	)
+do_vexpression	[ 0	locks=0 ]	(	[ do_vexpression	1 ] 	)
+vexpression	[ 0	locks=0 ]	(	[ vexpression	"pivot = v@mops_pivot;" ] 	)
 offset_vexpression	[ 0	locks=0 ]	(	[ offset_vexpression	"// offset = {0,0,0};" ] 	)
 }
 
