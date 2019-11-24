@@ -32,22 +32,25 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -3.11475 -1.45328
-connectornextid 0
+position -2.38525 -5.08169
+connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
+1 "output1"
 }
 inputsNamed3
 {
+0 	MOPs_Randomize 1 1 "input1"
 }
 inputs
 {
+0 	MOPs_Randomize 0 1
 }
 stat
 {
-  create 1573532068
-  modify 1573532184
+  create 1574619897
+  modify 1574620925
   author Henry@LAPPY586
   access 0777
 }
@@ -105,7 +108,7 @@ inputs
 stat
 {
   create 1524060453
-  modify 1573532068
+  modify 1574620164
   author Henry@LAPPY586
   access 0777
 }
@@ -478,6 +481,7 @@ if(haspointattrib(0, \"mops_orient\")) {
 if(local) {
     // get existing xform, if any.
     vector p = v@P;
+    // if this is not a packed primitive, use the orient attribute if possible.
     matrix3 m = primintrinsic(0, \"transform\", @ptnum);
     vector4 rot = quaternion(m);
     rot = qmultiply(mops_orient, rot);
@@ -498,9 +502,9 @@ vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
 vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
 folder1	[ 0	locks=0 ]	(	0	0	)
-uniform_scale	[ 0	locks=0	autoscope=0 ]	(	[ uniform_scale	0.81000000000000005 ] 	)
+uniform_scale	[ 0	locks=0	autoscope=0 ]	(	[ uniform_scale	1 ] 	)
 translate	[ 0	locks=0	autoscope=0 ]	(	[ translatex	0 ] 	[ translatey	0 ] 	[ translatez	0 ] 	)
-rotate	[ 0	locks=0	autoscope=0 ]	(	[ rotatex	0 ] 	[ rotatey	40 ] 	[ rotatez	0 ] 	)
+rotate	[ 0	locks=0	autoscope=0 ]	(	[ rotatex	0 ] 	[ rotatey	0 ] 	[ rotatez	0 ] 	)
 scale	[ 0	locks=0	autoscope=0 ]	(	[ scalex	1 ] 	[ scaley	1 ] 	[ scalez	1 ] 	)
 local	[ 0	locks=0	autoscope=0 ]	(	[ local	1 ] 	)
 do_vexpression	[ 0	locks=0 ]	(	[ do_vexpression	0 ] 	)
@@ -555,7 +559,7 @@ inputs
 stat
 {
   create 1569469174
-  modify 1573532068
+  modify 1574620909
   author Henry@LAPPY586
   access 0777
 }
@@ -650,7 +654,7 @@ ignore_no_falloff	[ 0	locks=0	autoscope=0 ]	(	[ ignore_no_falloff	1 ] 	)
 do_copy_attrs	[ 0	locks=0 ]	(	"off"	)
 attribname	[ 0	locks=0 ]	(	""	)
 do_make_id	[ 0	locks=0 ]	(	"on"	)
-do_orient	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+do_orient	[ 0	locks=0 ]	(	"on"	)
 do_output_scale	[ 0	locks=0 ]	(	"on"	)
 sepparm3	[ 0	locks=0 ]	(	)
 }
@@ -697,7 +701,7 @@ inputs
 stat
 {
   create 1524060453
-  modify 1573532068
+  modify 1574619897
   author Henry@LAPPY586
   access 0777
 }
@@ -1006,7 +1010,7 @@ inputs
 stat
 {
   create 1524060453
-  modify 1573532068
+  modify 1574619897
   author Henry@LAPPY586
   access 0777
 }
