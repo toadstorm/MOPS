@@ -4,9 +4,10 @@
 
 """Aligns packed primitives and/or their pivots."""
 
-MOPs Align can modify the positions and pivots of packed primitives to align them based on their underlying bounding boxes.
-This means you can have them all scale up from their lowest point in Y, for example, without having to manually set the pivots of
-each of the instances in the MOPs Instancer.
+MOPs Align can modify the positions and pivots of packed primitives to align them based on their underlying bounding boxes. This means you can have them all scale up from their lowest point in Y, for example, without having to manually set the pivots of each of the instances in the MOPs Instancer. You can also set the pivot point manually to any position in space via a channel or a VEXpression, allowing for more complex transformations or FK-like behavior.
+
+TIP:
+    The Custom Pivot (Local) option works best when modifying pivots of Packed Alembic transforms.
 
 == Overview ==
 
@@ -24,7 +25,8 @@ Use Falloff:
     Enable the `mops_falloff` attribute. This means that any adjustments you make to pivots or positions will be influenced by the falloff value.
 
 Falloff Attribute:
-    #id: The name of the point attribute to use as the falloff attribute.
+    #id: falloff_attr 
+    The name of the point attribute to use as the falloff attribute.
     
 Pivots Only:
     #id: pivots_only
