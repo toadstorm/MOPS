@@ -8,6 +8,9 @@ The MOPs Audio Falloff generates @mops_falloff values based on the amplitude of 
 If incoming points already have a @mops_falloff attribute, that value can be mapped to an arbitrary number of "bands" representing user-defined frequency ranges.
 This allows you to have low frequencies affect the falloff value of certain objects, and higher frequencies affect other objects.
 
+:TIP
+    This node by default will split your objects up evenly into "bands" based on the point number and the number of bands you create in the Bands tab. If you want to be more precise in how objects are placed into bands, disable Auto Distribute and choose a point attribute to map with.
+
 == Overview ==
 
 @inputs
@@ -19,14 +22,10 @@ Packed Primitives:
 
 == General ==
 
-Preview Falloff:
-    #id: do_preview
-    Enable display of the falloff values in the viewport.
+Falloff Attribute:
+    #id: falloff_attr
+    The point attribute to use as the falloff attribute.
     
-Falloff Type:
-    #id: falloff_type
-    The primitive shape to use for generating the falloff.
-
 Blend Mode:
     #id: blend_mode
     The blend mode for combining the effects of this operator with any previous falloff value. See [MOPs Combine Falloffs|Node:sop/MOPS--Combine_Falloffs-1.0] for details.
@@ -38,6 +37,10 @@ Blend Strength:
 Clamp:
     #id: switchclamp
     Clamp the resulting Falloff value to a 0-1 range.
+    
+Preview Falloff:
+    #id: do_preview
+    Enable display of the falloff values in the viewport.
     
 == File ==
 
@@ -96,6 +99,23 @@ Pass Gain:
 Rolloff Factor:
     #id: rolloff#
     How the filter drops off at the cutoff frequencies. Low values (less than one) produce more gradual rolloff, and higher values produce sharper filters.
+
+=== Band Options ===
+
+Preview Bands:
+    #id: preview_bands
+    Display the distribution of bands as a color attribute.
+    
+Auto Distribute:
+    #id: auto_distribute 
+    If enabled, automatically distribute the bands evenly based on point number. If disabled, MOPs Audio Falloff will use the Band Attribute to determine the mapping of points or packed primitives to bands.
+    
+Band Attribute:
+    #id: If Auto Distribute is disabled, use this point attribute to map points or packed primitives to bands.
+    
+Band Weighting:
+    #id: distribute_ramp
+    Adjust the weight of the incoming Band Attribute values' mapping to bands.
     
 == Processing ==
 

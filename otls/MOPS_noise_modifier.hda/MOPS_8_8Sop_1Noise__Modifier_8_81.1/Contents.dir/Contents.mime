@@ -32,24 +32,24 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -9.81885 -2.34244
+position 4.01918 -5.88298
 connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
 inputsNamed3
 {
-0 	grid1 0 1 "input1"
+0 	MOPs_Move_Along_Spline 2 1 "input1"
 }
 inputs
 {
-0 	grid1 0 1
+0 	MOPs_Move_Along_Spline 0 1
 }
 stat
 {
-  create 1568176204
-  modify 1568176399
+  create 1569808879
+  modify 1569818136
   author Henry@LAPPY586
   access 0777
 }
@@ -134,7 +134,7 @@ end
 Content-Disposition: attachment; filename="hdaroot/MOPs_Apply_Attributes.init"
 Content-Type: text/plain
 
-type = MOPS::Apply_Attributes::1.2
+type = MOPS::Apply_Attributes::1.4
 matchesdef = 1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -162,8 +162,8 @@ inputs
 }
 stat
 {
-  create 1556862920
-  modify 1568176205
+  create 1569471192
+  modify 1569471295
   author Henry@LAPPY586
   access 0777
 }
@@ -198,21 +198,26 @@ Content-Type: text/plain
 {
 version 0.8
 group	[ 0	locks=0	autoscope=0 ]	(	__mops_orig	)
-grouptype	[ 0	locks=0	autoscope=0 ]	(	"guess"	)
-do_translate	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+grouptype	[ 0	locks=0 ]	(	"guess"	)
+sepparm	[ 0	locks=0 ]	(	)
+folder0	[ 0	locks=0 ]	(	0	0	0	)
+do_translate	[ 0	locks=0 ]	(	"on"	)
 do_rotate	[ 0	locks=0	autoscope=0 ]	(	[ do_rotate	1 ] 	)
-do_scale	[ 8	locks=0	autoscope=0 ]	(	[ do_scale	0 ] 	)
-do_falloff	[ 0	locks=0	autoscope=0 ]	(	"off"	)
-do_pivots	[ 0	locks=0	autoscope=0 ]	(	"on"	)
-ignore_no_falloff	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+do_scale	[ 0	locks=0	autoscope=0 ]	(	[ do_scale	0 ] 	)
+do_pivots	[ 0	locks=0 ]	(	"on"	)
+sepparm2	[ 0	locks=0 ]	(	)
+local_space	[ 0	locks=0 ]	(	"on"	)
 rotate_mode	[ 0	locks=0	autoscope=0 ]	(	1	)
-scale_mode	[ 0	locks=0	autoscope=0 ]	(	0	)
-rotate_order	[ 0	locks=0	autoscope=0 ]	(	0	)
-local_space	[ 0	locks=0	autoscope=0 ]	(	"on"	)
-do_make_id	[ 0	locks=0	autoscope=0 ]	(	"on"	)
-do_copy_attrs	[ 0	locks=0	autoscope=1 ]	(	"off"	)
-attribname	[ 0	locks=0	autoscope=0 ]	(	""	)
-do_orient	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+rotate_order	[ 0	locks=0 ]	(	0	)
+scale_mode	[ 0	locks=0 ]	(	0	)
+do_falloff	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+falloff_attribute	[ 0	locks=0 ]	(	mops_falloff	)
+ignore_no_falloff	[ 0	locks=0 ]	(	"off"	)
+do_copy_attrs	[ 0	locks=0 ]	(	"off"	)
+attribname	[ 0	locks=0 ]	(	""	)
+do_make_id	[ 0	locks=0 ]	(	"on"	)
+do_orient	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+do_output_scale	[ 0	locks=0 ]	(	"on"	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -318,7 +323,7 @@ inputs
 stat
 {
   create 1546924805
-  modify 1568176205
+  modify 1569468322
   author Henry@LAPPY586
   access 0777
 }
@@ -400,7 +405,7 @@ inputs
 stat
 {
   create 1568176217
-  modify 1568176372
+  modify 1569468322
   author Henry@LAPPY586
   access 0777
 }
@@ -604,19 +609,19 @@ attrname	[ 0	locks=0	autoscope=0 ]	(	__offset	)
 attrnamev	[ 0	locks=0	autoscope=0 ]	(	__offset	)
 sepparm	[ 0	locks=0 ]	(	)
 folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
-input	[ 0	locks=0	autoscope=0 ]	(	[ input	9 ] 	)
+input	[ 0	locks=0	autoscope=0 ]	(	[ input	0 ] 	)
 use_rest	[ 0	locks=0	autoscope=0 ]	(	[ use_rest	0 ] 	)
 sepparm2	[ 0	locks=0 ]	(	)
 amp	[ 0	locks=0	autoscope=0 ]	(	[ ampx	1 ] 	[ ampy	1 ] 	[ ampz	1 ] 	)
-freq	[ 0	locks=0	autoscope=0 ]	(	[ freqx	1 ] 	[ freqy	1 ] 	[ freqz	1 ] 	[ freqw	0.10000000000000001 ] 	)
+freq	[ 0	locks=0	autoscope=0 ]	(	[ freqx	1 ] 	[ freqy	1 ] 	[ freqz	1 ] 	[ freqw	1 ] 	)
 uniform	[ 0	locks=0	autoscope=0 ]	(	[ uniform	0 ] 	)
 roughness	[ 0	locks=0	autoscope=0 ]	(	[ roughness	0.5 ] 	)
 octaves	[ 0	locks=0	autoscope=0 ]	(	[ octaves	1 ] 	)
 offset	[ 0	locks=0	autoscope=0 ]	(	[ offsetx	0 ] 	[ offsety	0 ] 	[ offsetz	0 ] 	[ offsetw	0 ] 	)
 tile_size	[ 0	locks=0	autoscope=0 ]	(	[ tile_sizex	1 ] 	[ tile_sizey	1 ] 	[ tile_sizez	1 ] 	)
 Distort	[ 0	locks=0	autoscope=0 ]	(	[ Distortx	0 ] 	[ Distorty	0 ] 	[ Distortz	0 ] 	)
-time_varying	[ 0	locks=0	autoscope=0 ]	(	[ time_varying	1 ] 	)
-time_scale	[ 0	locks=0	autoscope=0 ]	(	[ time_scale	0.249 ] 	)
+time_varying	[ 0	locks=0	autoscope=0 ]	(	[ time_varying	0 ] 	)
+time_scale	[ 0	locks=0	autoscope=0 ]	(	[ time_scale	1 ] 	)
 input_rangev	[ 0	locks=0	autoscope=0 ]	(	[ input_rangevx	-1 ] 	[ input_rangevy	1 ] 	)
 output_rangev	[ 0	locks=0	autoscope=0 ]	(	[ output_rangevx	-1 ] 	[ output_rangevy	1 ] 	)
 input_range	[ 0	locks=0	autoscope=0 ]	(	0	1	)
@@ -665,7 +670,7 @@ inputs
 stat
 {
   create 1554928384
-  modify 1568176222
+  modify 1569468322
   author Henry@LAPPY586
   access 0777
 }
@@ -983,14 +988,14 @@ vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 folder1	[ 0	locks=0 ]	(	0	0	)
-do_falloff	[ 0	locks=0 ]	(	[ do_falloff	1 ] 	)
+do_falloff	[ 0	locks=0 ]	(	[ do_falloff	0 ] 	)
 scale	[ 0	locks=0 ]	(	[ scale	1 ] 	)
 do_scale	[ 0	locks=0 ]	(	[ do_scale	0 ] 	)
 oldmin	[ 0	locks=0 ]	(	[ oldmin	-1 ] 	)
 oldmax	[ 0	locks=0 ]	(	[ oldmax	1 ] 	)
-min	[ 0	locks=0 ]	(	[ min	1 ] 	)
-max	[ 0	locks=0 ]	(	[ max	0 ] 	)
-bindname1	[ 0	locks=0 ]	(	[ bindname1	up ] 	)
+min	[ 0	locks=0 ]	(	[ min	0 ] 	)
+max	[ 0	locks=0 ]	(	[ max	1 ] 	)
+bindname1	[ 0	locks=0 ]	(	[ bindname1	N ] 	)
 bindparm1	[ 0	locks=0 ]	(	axis	)
 }
 
@@ -1036,7 +1041,7 @@ inputs
 stat
 {
   create 1554928384
-  modify 1568176222
+  modify 1569818026
   author Henry@LAPPY586
   access 0777
 }
@@ -1279,19 +1284,6 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = ch(\"../compute_transform_scalar/do_scale\") }
     }
-    channel oldmin {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../MOPs_Noise_Patterns/input_rangevx\") }
-    }
-    channel oldmax {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../MOPs_Noise_Patterns/input_rangevy\") }
-    }
     channel min {
       lefttype = extend
       righttype = extend
@@ -1304,6 +1296,19 @@ Content-Type: text/plain
       righttype = extend
       flags = 0
       segment { length = 0 expr = ch(\"../scale_rangey\") }
+    }
+    channel oldmin {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../scale_range_inputx\") }
+    }
+    channel oldmax {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../scale_range_inputy\") }
     }
   }
 
@@ -1343,6 +1348,7 @@ p@orient = slerp(orig_orient, out_orient, scale * falloff);
 
 if(chi(\"do_scale\")) {
     float pscale = fit(length(disp), ch(\"oldmin\"), ch(\"oldmax\"), ch(\"min\"), ch(\"max\"));
+    f@__test = pscale;
     f@pscale = lerp(1, pscale, scale);
     v@scale = 1;
 }"	)
@@ -1361,11 +1367,11 @@ vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 scale	[ 0	locks=0 ]	(	[ scale	1 ] 	)
 do_falloff	[ 0	locks=0 ]	(	[ do_falloff	1 ] 	)
-do_scale	[ 0	locks=0 ]	(	[ do_scale	0 ] 	)
-oldmin	[ 0	locks=0 ]	(	[ oldmin	-1 ] 	)
-oldmax	[ 0	locks=0 ]	(	[ oldmax	1 ] 	)
-min	[ 0	locks=0 ]	(	[ min	1 ] 	)
-max	[ 0	locks=0 ]	(	[ max	0 ] 	)
+do_scale	[ 8	locks=0 ]	(	[ do_scale	0 ] 	)
+oldmin	[ 8	locks=0 ]	(	[ oldmin	0 ] 	)
+oldmax	[ 8	locks=0 ]	(	[ oldmax	1 ] 	)
+min	[ 0	locks=0 ]	(	[ min	0 ] 	)
+max	[ 0	locks=0 ]	(	[ max	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1410,7 +1416,7 @@ inputs
 stat
 {
   create 1546815258
-  modify 1568176205
+  modify 1569468322
   author Henry@LAPPY586
   access 0777
 }
@@ -1628,7 +1634,7 @@ inputs
 stat
 {
   create 1546816119
-  modify 1568176205
+  modify 1569468322
   author Henry@LAPPY586
   access 0777
 }
@@ -2016,7 +2022,7 @@ inputs
 stat
 {
   create 1554928384
-  modify 1568176205
+  modify 1569468322
   author Henry@LAPPY586
   access 0777
 }
@@ -2334,7 +2340,7 @@ inputs
 stat
 {
   create 1554928384
-  modify 1568176205
+  modify 1569468322
   author Henry@LAPPY586
   access 0777
 }
@@ -2672,7 +2678,7 @@ inputs
 stat
 {
   create 1555736090
-  modify 1568176205
+  modify 1569468322
   author Henry@LAPPY586
   access 0777
 }
@@ -2955,7 +2961,7 @@ inputs
 stat
 {
   create 1557519690
-  modify 1568176205
+  modify 1569468322
   author Henry@LAPPY586
   access 0777
 }
@@ -3110,7 +3116,7 @@ inputs
 stat
 {
   create 1523127556
-  modify 1568176205
+  modify 1569468322
   author Mo@Mo-PC
   access 0777
 }
@@ -3274,7 +3280,7 @@ inputs
 stat
 {
   create 1546818533
-  modify 1565235649
+  modify 1569471192
   author Henry@LAPPY586
   access 0777
 }
@@ -3333,7 +3339,7 @@ inputs
 stat
 {
   create 1546818553
-  modify 1568176205
+  modify 1569468322
   author Henry@LAPPY586
   access 0777
 }
@@ -3447,7 +3453,7 @@ inputs
 stat
 {
   create 1546818578
-  modify 1568176205
+  modify 1569471192
   author Henry@LAPPY586
   access 0777
 }
@@ -3523,7 +3529,7 @@ inputs
 stat
 {
   create 1546819340
-  modify 1568176205
+  modify 1569468322
   author Henry@LAPPY586
   access 0777
 }
@@ -3864,7 +3870,7 @@ inputs
 stat
 {
   create 1546923929
-  modify 1568176205
+  modify 1569468322
   author Henry@LAPPY586
   access 0777
 }
@@ -3938,7 +3944,7 @@ inputs
 stat
 {
   create 1546925005
-  modify 1568176205
+  modify 1569468322
   author Henry@LAPPY586
   access 0777
 }
@@ -4011,7 +4017,7 @@ inputs
 stat
 {
   create 1546925057
-  modify 1568176205
+  modify 1569468322
   author Henry@LAPPY586
   access 0777
 }
@@ -4081,7 +4087,7 @@ inputs
 stat
 {
   create 1546925167
-  modify 1568176205
+  modify 1569468322
   author Henry@LAPPY586
   access 0777
 }
@@ -4154,7 +4160,7 @@ inputs
 stat
 {
   create 1546925176
-  modify 1568176205
+  modify 1569468322
   author Henry@LAPPY586
   access 0777
 }
@@ -4284,7 +4290,7 @@ inputs
 stat
 {
   create 1554924824
-  modify 1568176205
+  modify 1569468322
   author Henry@LAPPY586
   access 0777
 }
@@ -4312,7 +4318,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -4421,7 +4427,7 @@ inputs
 stat
 {
   create 1554929951
-  modify 1568176219
+  modify 1569468322
   author Henry@LAPPY586
   access 0777
 }
@@ -4496,7 +4502,7 @@ inputs
 stat
 {
   create 1554930775
-  modify 1568176205
+  modify 1569468322
   author Henry@LAPPY586
   access 0777
 }
@@ -4567,7 +4573,7 @@ inputs
 stat
 {
   create 1324348265
-  modify 1568176205
+  modify 1569468322
   author nobody@nowhere.sidefx.com
   access 0777
 }
@@ -4671,7 +4677,7 @@ inputs
 stat
 {
   create 1324348294
-  modify 1568176205
+  modify 1569468322
   author nobody@nowhere.sidefx.com
   access 0777
 }
@@ -4750,7 +4756,7 @@ inputs
 stat
 {
   create 1324348294
-  modify 1568176205
+  modify 1569468322
   author nobody@nowhere.sidefx.com
   access 0777
 }
@@ -4829,7 +4835,7 @@ inputs
 stat
 {
   create 1324348294
-  modify 1568176205
+  modify 1569468322
   author nobody@nowhere.sidefx.com
   access 0777
 }
@@ -4908,7 +4914,7 @@ inputs
 stat
 {
   create 1324348294
-  modify 1568176205
+  modify 1569468322
   author nobody@nowhere.sidefx.com
   access 0777
 }
@@ -5050,7 +5056,7 @@ inputs
 stat
 {
   create 1546995483
-  modify 1568176205
+  modify 1569468322
   author Henry@LAPPY586
   access 0777
 }
@@ -5138,7 +5144,7 @@ inputs
 stat
 {
   create 1554929951
-  modify 1568176205
+  modify 1569468322
   author Henry@LAPPY586
   access 0777
 }
@@ -5237,7 +5243,7 @@ inputs
 stat
 {
   create 1546819340
-  modify 1568176205
+  modify 1569468322
   author Henry@LAPPY586
   access 0777
 }
@@ -5444,7 +5450,7 @@ inputs
 stat
 {
   create 1565235649
-  modify 1568176205
+  modify 1569468322
   author Henry@LAPPY586
   access 0777
 }
@@ -5524,7 +5530,7 @@ inputs
 stat
 {
   create 1565235679
-  modify 1568176205
+  modify 1569468322
   author Henry@LAPPY586
   access 0777
 }

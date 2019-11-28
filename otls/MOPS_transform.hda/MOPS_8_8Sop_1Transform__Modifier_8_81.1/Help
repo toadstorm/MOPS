@@ -17,6 +17,10 @@ MOPs Primitives:
 
 == General ==
 
+Ignore Zero Falloff Prims:
+    #id: ignore_no_falloff
+    Ignore any packed primitives with a falloff value of zero. This can make the Transform Modifier more efficient when lots of packed primitives have a falloff value of zero, but can result in unexpected behavior if the falloff attribute hasn't been initialized.
+
 Local Space:
     #id: local
     

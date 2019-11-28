@@ -28,11 +28,17 @@ Mode:
         * Find Neighbors: Given a search radius, store the i[]@mops_neighbors point attribute.
         * Connect to Neighbors: Use the i[]@mops_neighbors attribute to create polylines connecting neighbors.
         
-== Find Neighbors ==
+== Find ==
 
 Reference Frame:
     #id: frame
     The frame in the timeline used to compute neighbors based on position (@P).
+    
+Connection Method:
+    #id: connect_method
+    The method by which neighbors are determined. 
+    * Find Nearest: Search all points within the Search Radius, up to the maximum defined by Max Connections.
+    * Start/End Groups: As above, but only connect points in the Start Group to those in the Ends Group.
     
 Search Radius:
     #id: searchradius

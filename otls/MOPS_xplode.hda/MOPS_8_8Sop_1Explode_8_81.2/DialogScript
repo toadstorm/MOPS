@@ -33,7 +33,7 @@
         label   "Cusp Angle"
         type    float
         default { "60" }
-        disablewhen "{ do_vertex_normals 0 }"
+        disablewhen "{ do_vertex_normals == 0 }"
         range   { 0! 180! }
         parmtag { "autoscope" "0000000000000000" }
     }
@@ -145,7 +145,7 @@
         }
         parm {
             name    "id_offset"
-            label   "Id Offset"
+            label   "Id Start Number"
             type    integer
             default { "0" }
             range   { 0 10 }

@@ -126,7 +126,7 @@
         label   "Falloff Attribute"
         type    string
         default { "mops_falloff" }
-        disablewhen "{ do_weight 0 }"
+        disablewhen "{ do_weight == 0 }"
         parmtag { "autoscope" "0000000000000000" }
     }
     parm {

@@ -15,6 +15,16 @@ This operator generates the following point attributes: p@orient, v@scale, v@N, 
 Input MOPs Primitives:
     The MOPs primitives to extract instancing attributes from.
     
+@parameters
+
+Extract Pivot:
+    #id: do_pivot
+    Enable extraction of the packed primitive's pivot intrinsic as `v@pivot`.
+    
+Extract Full Transform (Abc):
+    #id: do_full_transform
+    Extract the `packedfulltransform` intrinsic rather than the `transform` intrinsic. This is necessary if you're trying to extract the transforms of a packed Alembic from disk rather than regular Houdini packed primitives.
+    
 @related
 
-* [MOPs Apply Attributes|Node:sop/MOPS--Apply_Attributes-1.0]
+* [MOPs Apply Attributes|Node:sop/MOPS--Apply_Attributes-1.4]

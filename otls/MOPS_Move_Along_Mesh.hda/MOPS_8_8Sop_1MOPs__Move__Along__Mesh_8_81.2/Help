@@ -1,0 +1,119 @@
+= MOPs Move Along Mesh =   
+
+#icon: opdef:.?mops_modifier_02.svg
+
+"""Moves MOPs primitives along a polygon mesh surface."""
+
+MOPs Move Along Mesh attaches the input packed primitives onto a template surface, based on proximity to the surface or a random scatter,
+and then optionally slides the primitives over the surface of the mesh. Primitives by default will slide in the local "up" direction of the mesh.
+
+If your template mesh doesn't already have a defined orientation on its points (via N/up or an orient attribute), consider using MOPs Orient Mesh
+to generate an orientation frame on your mesh before using Move Along Mesh.
+
+MOPs Move Along Mesh has two "phases" of operation: first, the "Attach" phase, which determines the initial attachment coordinates for the input packed primitives or points, and then the "Animate" phase which determines how the attachment coordinates will change over time. If you just want objects to stick to a mesh, deforming or not, you can skip the "Animate" phase entirely.
+
+== Overview ==
+
+@inputs
+
+Packed Primitives:
+    The input packed primitives to slide over a surface.
+    
+Mesh to Attach to:
+    The polygon surface to slide primitives over. The mesh must have defined v@N and v@up attributes. Consider using MOPs Orient Mesh to create them if they don't exist.
+    
+@parameters
+
+== General ==
+
+Group:
+    #id: group_all
+    The group of primitives to slide over the surface.
+    
+== Attach ==
+    
+Attach Mode:    
+    #id: attach_mode
+    The method by which the initial attachment coordinates are defined. Attachment happens at the "Attach Time" parameter's specified frame. There are three possible modes:
+    * Nearest Surface: The nearest coordinate on the target mesh to each packed primitive or point is used as the attach point.
+    * Scatter: Coordinates are randomly determined on the target mesh, using the Scatter SOP.
+    * Attributes: Point attributes on the input packed primitives or points are used to determine the primitive number to attach to, and the parametric UV coordinates on that primitive. Note that parametric UVs are not the same as texture UVs. See the [documentation|https://www.sidefx.com/docs/houdini/model/primitive_spaces.html] on parametric UVs.
+    
+Attach Time:
+    #id: ref_frame
+    The frame to use as the "rest" frame for the attachment phase. The initial attachment position and orientation will be derived based on the mesh's shape at this frame.
+    
+Maintain Offset:
+    #id: pos_offset
+    How much to maintain each packed primitive's current position from the "attach" point on the target mesh. A value of 1 means that the packed primitive will not move from its original position at the Attach Time. This offset vector is interpolated as the mesh deforms or the packed primitive moves, keeping its distance from the mesh.
+    
+Maintain Orient Offset:
+    #id: orient_offset
+    How much to maintain each packed primitive's current orientation as compared to that of the "attach" point on the target mesh. A value of 1 means that the packed primitive will not change its orientation at the Attach Time. This offset quaternion is interpolated as the mesh deforms or the packed primitive moves.
+
+Visualize Offset:
+    #id: visualize_offset
+    Display the Maintain Offset vector in the viewport. This can be a useful guide for debugging object motion if they're not moving as you'd expect.
+    
+=== Nearest Surface ===
+
+Search Distance:
+    #id: max_distance
+    In Nearest Surface mode, the maximum distance from each packed primitive or point to search for a position on the target mesh. Higher distances can take longer to compute, especially with many points.
+    
+=== Scatter ===
+
+See the Scatter SOP for details.
+
+=== Attributes ===
+    
+Prim Number Attribute:
+    #id: srcattribs1
+    In Attributes mode, the integer point attribute that defines what primitive on the mesh each packed primitive or point should be attached to.
+    
+Prim UV Attribute:
+    #id: srcattribs2
+    In Attribute mode, the vector point attribute that defines the parametric UV coordinates on the mesh primitive that each packed primitive or point should be attached to.
+    
+== Animate ==
+
+Enable Simulation:
+    #id: do_simulation
+    If enabled, the attached packed primitives will animate over the surface.
+    
+=== Options ===
+
+Forward Vector:
+    #id: forward_vector
+    The direction packed primitives should move in, according to the mesh's local orientation. If you orient the mesh using MOPs Orient Mesh, the default value corresponds to the yellow vector visualization on that SOP.
+    
+Speed:
+    #id: speed
+    The distance each primitive should move each timestep. If Falloff is enabled, this distance is scaled by each primitive's falloff attribute value.
+    
+Rand Speed:
+    #id: rand_speed
+    If greater than zero, a random value from -N to +N to add to the Speed value for each primitive.
+    
+Seed:
+    #id: seed2
+    The random seed to use for picking the Rand Speed.
+    
+Enable Falloff:
+    #id: do_falloff
+    If enabled, scale Speed by the falloff attribute value.
+    
+Falloff Attribute:
+    #id: srcattribs3
+    The point attribute to use as the falloff attribute.
+    
+Blend In Orient:
+    #id: blend_in_orient
+    The percentage of the orientation of the mesh to blend into the packed primitive orientation at each timestep. This makes the packed primitives naturally turn in to follow their direction of motion along the mesh. A value of zero means that their orientation will not change during animation.
+    
+Project Distance:
+    #id: project_distance
+    After each primitive moves, the point representing it is "reprojected" back onto the mesh in order to keep it fully attached, and the position and orientation are updated based on this reprojection. This parameter controls the maximum distance that each primitive will search to find the nearest point on the mesh. Higher values can take more time to compute.
+    
+    TIP:
+        This value needs to be larger than the maximum possible Speed value of any given point, or there's a chance this step will fail.

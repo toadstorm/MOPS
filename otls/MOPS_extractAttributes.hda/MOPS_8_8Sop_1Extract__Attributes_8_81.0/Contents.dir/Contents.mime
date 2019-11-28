@@ -32,25 +32,22 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 2.15553 13.0439
-connectornextid 2
+position 4.5082 -0.0762295
+connectornextid 0
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-0 "output1"
 }
 inputsNamed3
 {
-1 	set_alembic_attrs 1 1 "input1"
 }
 inputs
 {
-0 	set_alembic_attrs 0 1
 }
 stat
 {
-  create 1524695187
-  modify 1531969240
+  create 1573533437
+  modify 1573533441
   author Henry@LAPPY586
   access 0777
 }
@@ -108,7 +105,7 @@ inputs
 stat
 {
   create 1524695134
-  modify 1560465584
+  modify 1573533437
   author Henry@LAPPY586
   access 0777
 }
@@ -309,7 +306,8 @@ grouptype	[ 0	locks=0	autoscope=0 ]	(	"guess"	)
 class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
-snippet	[ 0	locks=0	autoscope=0 ]	(	"string type = primintrinsic(0, \"typename\", @ptnum);
+snippet	[ 0	locks=0	autoscope=0 ]	(	"float epsilon = 0.000001;
+string type = primintrinsic(0, \"typename\", @ptnum);
 // defaults
 if(!haspointattrib(0, \"scale\")) {
     v@scale = 1;
@@ -344,14 +342,17 @@ if(type == \"PackedGeometry\" || type == \"PackedFragment\" || type == \"PackedD
     vector scale = cracktransform(0,0,2,{0,0,0},m);
     vector4 orient = quaternion(m);
     p@orient = orient;    
-    v@scale = scale;
     // also get N and up
     @N = normalize(m * {0,0,1});
     v@up = normalize(m * {0,1,0});
-} else {
-    // passthrough
-    
-}
+    // if scale is uniform, write to pscale and leave scale at 1.
+    f@pscale = 1;
+    if(abs(scale.x-scale.y) < epsilon && abs(scale.y-scale.z) < epsilon) {
+        f@pscale = scale.x;
+        scale = 1;
+    }
+    v@scale = scale;
+} 
 "	)
 exportlist	[ 0	locks=0	autoscope=0 ]	(	*	)
 vex_strict	[ 0	locks=0	autoscope=0 ]	(	"off"	)
@@ -409,7 +410,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1558497459
+  modify 1573533437
   author Henry@LAPPY586
   access 0777
 }
@@ -927,7 +928,7 @@ inputs
 stat
 {
   create 1550365158
-  modify 1558497459
+  modify 1573533437
   author Henry@LAPPY586
   access 0777
 }
@@ -1007,7 +1008,7 @@ inputs
 stat
 {
   create 1542257157
-  modify 1558497459
+  modify 1573533437
   author Henry@LAPPY586
   access 0777
 }
@@ -1341,7 +1342,7 @@ inputs
 stat
 {
   create 1550365152
-  modify 1558497459
+  modify 1573533437
   author Henry@LAPPY586
   access 0777
 }

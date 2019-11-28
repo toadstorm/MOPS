@@ -6,12 +6,16 @@
 
 This node creates a sweep spline using a cross section (closed polygon) and a backbone (polyline). The swept geometry will automatically be given vertex UVs.
 
+TIP:
+        If your cross-section has UVs, they should be aligned to the V (vertical) axis. If you're using the original UVs from the backbone geometry, they should be aligned to the U (horizontal) axis.
+
 == Overview ==
 
 @inputs
 
 Crosssection:
-    Cross section of resulting sweep. This should be a closed polygon or a polyline for flat ribbons.
+    Cross section of resulting sweep. This should be a closed polygon, or a polyline for flat ribbons.
+    
     
 Backbone:
     Path to sweep cross section along.
@@ -35,6 +39,10 @@ Orient Curve:
     Reorients the backbone. This can also be used to "twist" the curve so that the swept geometry twists over its length. 
     
     NOTE: If you reorient a curve that animates over time, the orientation is not guaranteed to be stable!
+    
+Join Curve Ends:
+    #id: do_closed
+    Close the curve into a continuous loop.
     
 Carve Start:
     #id: domainu1

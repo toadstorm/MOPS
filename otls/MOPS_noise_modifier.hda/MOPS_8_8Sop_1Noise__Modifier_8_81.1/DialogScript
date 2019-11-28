@@ -91,11 +91,20 @@
         parmtag { "autoscope" "0000000000000000" }
     }
     parm {
-        name    "scale_range"
-        label   "Scale Range"
+        name    "scale_range_input"
+        label   "Scale In Range"
         type    vector2
         size    2
-        default { "1" "0" }
+        default { "0" "1" }
+        disablewhen "{ do_scale == 0 }"
+        range   { -1 1 }
+    }
+    parm {
+        name    "scale_range"
+        label   "Scale Out Range"
+        type    vector2
+        size    2
+        default { "0" "1" }
         disablewhen "{ do_scale == 0 }"
         range   { -1 1 }
     }
@@ -375,7 +384,7 @@
             name    "startframe"
             label   "Start Frame"
             type    integer
-            default { "1" }
+            default { "$RFSTART" }
             range   { 1 240 }
             parmtag { "autoscope" "0000000000000000" }
         }

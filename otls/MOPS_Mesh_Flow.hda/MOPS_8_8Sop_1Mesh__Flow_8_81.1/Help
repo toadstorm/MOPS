@@ -30,9 +30,14 @@ Create Up:
     #id: do_up
     Create a v@up point attribute on the input mesh.
 
+Auto Up:
+    #id: auto_up
+    If enabled, automatically compute the up vector by calculating the difference between the local N and world N (+Z), then applying that same difference to world up (+Y). This matches the behavior of the Copy SOP when an `up` attribute is undefined.
+    
 Up Vector:
     #id: up_vector
     The up vector to use with the "N and Up" Compute Method if "Create Up" is enabled.
+    
     
 Invert N:
     #id: invert_N
@@ -49,6 +54,10 @@ Cross Up Vector:
 Enable Curl Noise:
     #id: do_curl
     Blend the mesh flow vectors with curl noise.
+    
+Enable Blur:
+    #id: do_blur
+    Blur the resulting N and up vectors after computing them.
    
 == Curl Noise ==
 
@@ -59,3 +68,7 @@ Blend With Original:
 Use Rest Position:
     #id: use_rest
     If the input mesh has a v@rest point attribute, use this attribute to lookup the noise values instead of position (@P).
+    
+== Blur ==
+
+See the Attribute Blur SOP for details.

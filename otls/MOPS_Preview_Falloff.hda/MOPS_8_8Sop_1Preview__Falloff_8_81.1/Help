@@ -1,0 +1,35 @@
+= MOPs Preview Falloff = 
+
+#icon: opdef:.?mops_TD_tools_05.svg
+
+"""Colors points or packed primitives based on their falloff attribute value."""
+
+This node simply applies a ramp to colorize packed primitives or points based on their `@mops_falloff` attribute value.
+Note that packed fragments cannot properly preview falloff due to a viewport limitation; if you want to preview falloff on packed fragments, try enabling Display as Sprites.
+
+@inputs
+
+Input Points or Packed Prims:
+    The points or packed primitives to colorize.
+    
+@parameters
+
+Preview Falloff:
+    #id: do_preview
+    Enable colorization.
+    
+Display as Sprites:
+    #id: do_sprite
+    Display the packed primitives as sprites (flat images) instead of their actual geometry. This is to allow for falloff visualization on packed fragments, which cannot be tinted by a Cd attribute in the viewport.
+
+Sprite Map:
+    #id: spritemap
+    The image to use for sprites, if enabled.
+    
+Sprite Scale:
+    #id: spritescale
+    The scale of the sprite images. The default scale is based on the extracted `@pscale` of the source packed primitives, but this attribute may be inaccurate for many packed primitives. This slider scales down the sprites in the viewport.
+    
+Override Scale:
+    #id: override_scale
+    Instead of guessing at a scale for the sprites, this allows you to set all sprites to a single scale.

@@ -32,25 +32,22 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.0115255 1.85795
-connectornextid 2
+position 2.12996 -18.9881
+connectornextid 0
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-1 "output1"
 }
 inputsNamed3
 {
-0 	polyframe2 1 1 "input1"
 }
 inputs
 {
-0 	polyframe2 0 1
 }
 stat
 {
-  create 1524271534
-  modify 1545245154
+  create 1574219084
+  modify 1574219151
   author Henry@LAPPY586
   access 0777
 }
@@ -75,7 +72,7 @@ Content-Disposition: attachment; filename="hdaroot.inp"
 Content-Type: text/plain
 
 1
-0 0 6 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+0 0.0034500062465667863 7.3182835970575955 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/Parallel_transport.init"
@@ -90,7 +87,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.003 4.03621
+position -0.003 3.44619
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -99,16 +96,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	IN 1 1 "input1"
+0 	switch1 2 1 "input1"
 }
 inputs
 {
-0 	IN 0 1
+0 	switch1 0 1
 }
 stat
 {
   create 1520241526
-  modify 1545245163
+  modify 1573630639
   author Mo@Mo-PC
   access 0777
 }
@@ -382,7 +379,7 @@ Content-Type: text/plain
 {
 version 0.8
 folder0	[ 0	locks=0 ]	(	0	0	)
-group	[ 0	locks=0 ]	(	[ group	"" ] 	)
+group	[ 8	locks=0 ]	(	[ group	"" ] 	)
 grouptype	[ 0	locks=0 ]	(	[ grouptype	0 ] 	)
 class	[ 0	locks=0 ]	(	"primitive"	)
 vex_numcount	[ 0	locks=0 ]	(	10	)
@@ -468,9 +465,9 @@ vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 custom_first_tangent	[ 0	locks=0 ]	(	[ custom_first_tangent	0 ] 	)
 First_Tangent	[ 0	locks=0 ]	(	[ First_Tangentx	0 ] 	[ First_Tangenty	1 ] 	[ First_Tangentz	0 ] 	)
-Transported_Normal_Name	[ 0	locks=0 ]	(	[ Transported_Normal_Name	mops_PT_normal ] 	)
-Transported_Tangent_Name	[ 0	locks=0 ]	(	[ Transported_Tangent_Name	mops_PT_tangent ] 	)
-Transported_Bitangent_Name	[ 0	locks=0 ]	(	[ Transported_Bitangent_Name	mops_PT_binormal ] 	)
+Transported_Normal_Name	[ 0	locks=0 ]	(	[ Transported_Normal_Name	normal ] 	)
+Transported_Tangent_Name	[ 0	locks=0 ]	(	[ Transported_Tangent_Name	tangent ] 	)
+Transported_Bitangent_Name	[ 0	locks=0 ]	(	[ Transported_Bitangent_Name	bitangent ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -497,7 +494,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0 5.2176
+position -0.717837 6.41549
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -515,7 +512,7 @@ inputs
 stat
 {
   create 1520241566
-  modify 1520241591
+  modify 1573630633
   author Mo@Mo-PC
   access 0777
 }
@@ -541,7 +538,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.229"
 	}
 }
 
@@ -558,7 +555,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0 2.59355
+position -1.08384e-16 2.00353
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -575,7 +572,7 @@ inputs
 stat
 {
   create 1520241574
-  modify 1520241591
+  modify 1573630152
   author Mo@Mo-PC
   access 0777
 }
@@ -601,7 +598,190 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.416"
+		"value":"17.5.229"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/polyframe2.init"
+Content-Type: text/plain
+
+type = polyframe
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/polyframe2.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 1.15266 5.37593
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	IN 1 1 "input1"
+}
+inputs
+{
+0 	IN 0 1
+}
+stat
+{
+  create 1524271565
+  modify 1573630634
+  author Henry@LAPPY586
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/polyframe2.chn"
+Content-Type: text/plain
+
+{
+    channel group {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../group\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/polyframe2.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+group	[ 0	locks=0 ]	(	[ group	"" ] 	)
+entity	[ 0	locks=0 ]	(	"primitive"	)
+style	[ 0	locks=0 ]	(	edge2	)
+attribname	[ 0	locks=0 ]	(	""	)
+Non	[ 0	locks=0 ]	(	"on"	)
+N	[ 0	locks=0 ]	(	N	)
+tangentuon	[ 0	locks=0 ]	(	"off"	)
+tangentu	[ 0	locks=0 ]	(	tangentu	)
+tangentvon	[ 0	locks=0 ]	(	"off"	)
+tangentv	[ 0	locks=0 ]	(	tangentv	)
+signson	[ 0	locks=0 ]	(	"off"	)
+signs	[ 0	locks=0 ]	(	signs	)
+ortho	[ 0	locks=0 ]	(	"off"	)
+lefthanded	[ 0	locks=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/polyframe2.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.229"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch1.init"
+Content-Type: text/plain
+
+type = switch
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -0.549576 4.7412
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+2 "output1"
+}
+inputsNamed3
+{
+0 	IN 1 1 "input1"
+1 	polyframe2 1 1 "input2"
+}
+inputs
+{
+0 	IN 0 1
+1 	polyframe2 0 1
+}
+stat
+{
+  create 1573630626
+  modify 1574219171
+  author Henry@LAPPY586
+  access 0777
+}
+color UT_Color RGB 0.8 1 0.7 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch1.spareparmdef"
+Content-Type: text/plain
+
+    parm {
+        name    "input"
+        baseparm
+        label   "Select Input"
+        export  all
+    }
+    parm {
+        name    "spare_input0"
+        label   "Spare Input 0"
+        type    oppath
+        default { "" }
+        help    "Refer to this in expressions as -1, such as: npoint(-1)"
+        parmtag { "opfilter" "!!SOP!!" }
+        parmtag { "oprelative" "." }
+    }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch1.chn"
+Content-Type: text/plain
+
+{
+    channel input {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = "!haspointattrib(-1, \"N\")" }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+spare_input0	[ 0	locks=0 ]	(	../IN	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.229"
 	}
 }
 
@@ -609,10 +789,12 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot.order"
 Content-Type: text/plain
 
-3
+5
 Parallel_transport
 IN
 OUT
+polyframe2
+switch1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"

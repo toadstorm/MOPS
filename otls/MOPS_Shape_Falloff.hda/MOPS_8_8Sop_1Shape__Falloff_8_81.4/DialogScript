@@ -110,60 +110,6 @@
         default { "0" }
         parmtag { "autoscope" "0000000000000000" }
     }
-    groupsimple {
-        name    "folder8"
-        label   "Falloff Preview"
-        hidewhentab "{ do_preview == 0 }"
-
-        parm {
-            name    "do_sprite"
-            label   "Display as Sprites"
-            type    toggle
-            default { "off" }
-            range   { 0! 10 }
-            parmtag { "autoscope" "0000000000000000" }
-        }
-        parm {
-            name    "spritescale"
-            label   "Sprite Scale"
-            type    float
-            default { "1" }
-            range   { 0 10 }
-            parmtag { "autoscope" "0000000000000000" }
-        }
-        parm {
-            name    "override_scale"
-            label   "Override Scale"
-            type    toggle
-            default { "off" }
-            range   { 0 10 }
-            parmtag { "autoscope" "0000000000000000" }
-        }
-        parm {
-            name    "ramp_preset"
-            label   "Preset"
-            type    ordinal
-            default { "heatmap" }
-            menu {
-                "heatmap"   "Heatmap"
-                "blackbody" "Blackbody"
-                "infrared"  "Infrared"
-            }
-            parmtag { "autoscope" "0000000000000000" }
-            parmtag { "script_callback_language" "python" }
-        }
-        parm {
-            name    "falloff_heatmap"
-            label   "Falloff Ramp"
-            type    ramp_rgb
-            default { "5" }
-            range   { 1! 10 }
-            parmtag { "autoscope" "0000000000000000" }
-            parmtag { "rampcolordefault" "1pos ( 0 ) 1c ( 0.036199998110532761 0 0.5429999828338623 ) 1interp ( linear ) 2pos ( 0.27027025818824768 ) 2c ( 0.7369999885559082 0 0 ) 2interp ( linear ) 3pos ( 0.71814674139022827 ) 3c ( 1 0.28333333134651184 0 ) 3interp ( linear ) 4pos ( 0.90154439210891724 ) 4c ( 0.89999997615814209 0.89999997615814209 0 ) 4interp ( linear ) 5pos ( 1 ) 5c ( 1 1 1 ) 5interp ( linear )" }
-            parmtag { "rampshowcontrolsdefault" "0" }
-        }
-    }
-
     parm {
         name    "spritemap"
         label   "Sprite Map"
@@ -191,59 +137,11 @@
                 "2" "Box"
                 "3" "Torus"
                 "4" "Cylinder"
+                "5" "Radial Wipe"
             }
             range   { 0! 10 }
             parmtag { "autoscope" "0000000000000000" }
         }
-        groupsimple {
-            name    "folder0"
-            label   "Transform"
-
-            parm {
-                name    "auto_fit"
-                label   "Auto-Fit"
-                type    button
-                default { "0" }
-                parmtag { "script_callback" "hou.phm().autoFit(kwargs)" }
-                parmtag { "script_callback_language" "python" }
-            }
-            parm {
-                name    "translate"
-                label   "Translate"
-                type    vector
-                size    3
-                default { "0" "0" "0" }
-                range   { 0 1 }
-                parmtag { "autoscope" "0000000000000000" }
-            }
-            parm {
-                name    "rotate"
-                label   "Rotate"
-                type    vector
-                size    3
-                default { "0" "0" "0" }
-                range   { 0 1 }
-                parmtag { "autoscope" "0000000000000000" }
-            }
-            parm {
-                name    "scale"
-                label   "Scale"
-                type    vector
-                size    3
-                default { "1" "1" "1" }
-                range   { 0 1 }
-                parmtag { "autoscope" "0000000000000000" }
-            }
-            parm {
-                name    "uniform_scale"
-                label   "Uniform Scale"
-                type    float
-                default { "1" }
-                range   { 0 1 }
-                parmtag { "autoscope" "0000000000000000" }
-            }
-        }
-
         groupsimple {
             name    "folder2"
             label   "Sphere"
@@ -326,6 +224,79 @@
                 label   "Falloff"
                 type    float
                 default { "0.5" }
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+        }
+
+        groupsimple {
+            name    "folder1"
+            label   "Radial Wipe"
+            hidewhentab "{ falloff_type != 5 }"
+
+            parm {
+                name    "angle_range"
+                label   "Angle Range"
+                type    vector2
+                size    2
+                default { "-45" "45" }
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "falloff"
+                label   "Falloff"
+                type    float
+                default { "0" }
+                range   { -90 90 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+        }
+
+        groupsimple {
+            name    "folder0"
+            label   "Transform"
+
+            parm {
+                name    "auto_fit"
+                label   "Auto-Fit"
+                type    button
+                default { "0" }
+                parmtag { "script_callback" "hou.phm().autoFit(kwargs)" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "translate"
+                label   "Translate"
+                type    vector
+                size    3
+                default { "0" "0" "0" }
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "rotate"
+                label   "Rotate"
+                type    vector
+                size    3
+                default { "0" "0" "0" }
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "scale"
+                label   "Scale"
+                type    vector
+                size    3
+                default { "1" "1" "1" }
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "uniform_scale"
+                label   "Uniform Scale"
+                type    float
+                default { "1" }
                 range   { 0 1 }
                 parmtag { "autoscope" "0000000000000000" }
             }
@@ -551,6 +522,67 @@
             parmtag { "autoscope" "0000000000000000" }
             parmtag { "rampfloatdefault" "1pos ( 0 ) 1value ( 0 ) 1interp ( linear ) 2pos ( 1 ) 2value ( 1 ) 2interp ( linear )" }
         }
+    }
+
+    group {
+        name    "folder6_3"
+        label   "Falloff Preview"
+        hidewhentab "{ do_preview == 0 }"
+
+        parm {
+            name    "do_sprite"
+            label   "Display as Sprites"
+            type    toggle
+            default { "off" }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "spritescale"
+            label   "Sprite Scale"
+            type    float
+            default { "1" }
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "override_scale"
+            label   "Override Scale"
+            type    toggle
+            default { "off" }
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "ramp_preset"
+            label   "Preset"
+            type    ordinal
+            default { "heatmap" }
+            menu {
+                "heatmap"   "Heatmap"
+                "blackbody" "Blackbody"
+                "infrared"  "Infrared"
+            }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "falloff_heatmap"
+            label   "Falloff Ramp"
+            type    ramp_rgb
+            default { "5" }
+            range   { 1! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "rampcolordefault" "1pos ( 0 ) 1c ( 0.036199998110532761 0 0.5429999828338623 ) 1interp ( linear ) 2pos ( 0.27027025818824768 ) 2c ( 0.7369999885559082 0 0 ) 2interp ( linear ) 3pos ( 0.71814674139022827 ) 3c ( 1 0.28333333134651184 0 ) 3interp ( linear ) 4pos ( 0.90154439210891724 ) 4c ( 0.89999997615814209 0.89999997615814209 0 ) 4interp ( linear ) 5pos ( 1 ) 5c ( 1 1 1 ) 5interp ( linear )" }
+            parmtag { "rampshowcontrolsdefault" "0" }
+        }
+    }
+
+    group {
+        name    "folder6_4"
+        label   "Folder Name"
+        invisibletab
+
     }
 
 }

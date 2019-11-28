@@ -32,24 +32,22 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -9.28649 -1.05185
-connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+position -59.6137 71.4069
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
 inputsNamed3
 {
-0 	grid1 0 1 "input1"
 }
 inputs
 {
-0 	grid1 0 1
 }
 stat
 {
-  create 1568176099
-  modify 1568176374
+  create 1573270626
+  modify 1573270778
   author Henry@LAPPY586
   access 0777
 }
@@ -183,7 +181,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1568176106
+  modify 1573270627
   author Henry@LAPPY586
   access 0777
 }
@@ -302,6 +300,7 @@ group	[ 0	locks=0	autoscope=0 ]	(	`chs(\"../Perlin/group\")`	)
 grouptype	[ 0	locks=0 ]	(	"guess"	)
 sepparm	[ 0	locks=0 ]	(	)
 falloff_attr	[ 0	locks=0 ]	(	mops_falloff	)
+output_attr	[ 0	locks=0 ]	(	mops_falloff	)
 do_preview	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 folder0	[ 0	locks=0 ]	(	0	)
 do_sprite	[ 0	locks=0 ]	(	"off"	)
@@ -386,7 +385,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1568176100
+  modify 1573270627
   author Henry@LAPPY586
   access 0777
 }
@@ -505,7 +504,7 @@ inputs
 stat
 {
   create 1524060464
-  modify 1568176100
+  modify 1573270627
   author Henry@LAPPY586
   access 0777
 }
@@ -527,7 +526,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector points "Modify Points"
+            bindselector uvselect "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -738,7 +737,7 @@ vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
 folder1	[ 0	locks=0	autoscope=0 ]	(	0	0	)
 use_rest	[ 0	locks=0	autoscope=0 ]	(	[ use_rest	1 ] 	)
-has_rest	[ 0	locks=0	autoscope=0 ]	(	[ has_rest	0 ] 	)
+has_rest	[ 0	locks=0	autoscope=0 ]	(	[ has_rest	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -783,7 +782,7 @@ inputs
 stat
 {
   create 1524060464
-  modify 1568176100
+  modify 1573270627
   author Henry@LAPPY586
   access 0777
 }
@@ -861,7 +860,7 @@ inputs
 stat
 {
   create 1536023491
-  modify 1568176100
+  modify 1573270627
   author Henry@LAPPY586
   access 0777
 }
@@ -1170,7 +1169,7 @@ inputs
 stat
 {
   create 1550356490
-  modify 1568176100
+  modify 1573270627
   author Henry@LAPPY586
   access 0777
 }
@@ -1249,7 +1248,7 @@ inputs
 stat
 {
   create 1568176106
-  modify 1568176243
+  modify 1573270627
   author Henry@LAPPY586
   access 0777
 }
@@ -1409,31 +1408,31 @@ Content-Type: text/plain
 
 {
 version 0.8
-group	[ 0	locks=0	autoscope=0 ]	(	""	)
-grouptype	[ 0	locks=0	autoscope=0 ]	(	"guess"	)
+group	[ 0	locks=0 ]	(	""	)
+grouptype	[ 0	locks=0 ]	(	"guess"	)
 sepparm3	[ 0	locks=0 ]	(	)
-signature	[ 0	locks=0	autoscope=0 ]	(	"0"	)
-attrname	[ 0	locks=0	autoscope=0 ]	(	mops_falloff	)
+signature	[ 0	locks=0 ]	(	"0"	)
+attrname	[ 0	locks=0 ]	(	mops_falloff	)
 attrnamev	[ 0	locks=0	autoscope=0 ]	(	mops_falloff	)
 sepparm	[ 0	locks=0 ]	(	)
-folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+folder0	[ 0	locks=0 ]	(	0	0	0	)
 input	[ 0	locks=0	autoscope=0 ]	(	[ input	0 ] 	)
 use_rest	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 sepparm2	[ 0	locks=0 ]	(	)
 amp	[ 0	locks=0	autoscope=0 ]	(	[ ampx	1 ] 	[ ampy	1 ] 	[ ampz	1 ] 	)
-freq	[ 0	locks=0	autoscope=0 ]	(	[ freqx	0.5 ] 	[ freqy	0.5 ] 	[ freqz	0.5 ] 	[ freqw	1 ] 	)
+freq	[ 0	locks=0	autoscope=0 ]	(	[ freqx	1 ] 	[ freqy	1 ] 	[ freqz	1 ] 	[ freqw	1 ] 	)
 uniform	[ 0	locks=0	autoscope=0 ]	(	[ uniform	0 ] 	)
-roughness	[ 0	locks=0	autoscope=0 ]	(	[ roughness	0.5 ] 	)
-octaves	[ 0	locks=0	autoscope=0 ]	(	[ octaves	1 ] 	)
+roughness	[ 0	locks=0	autoscope=0 ]	(	[ roughness	0.873 ] 	)
+octaves	[ 0	locks=0	autoscope=0 ]	(	[ octaves	2 ] 	)
 offset	[ 0	locks=0	autoscope=0 ]	(	[ offsetx	0 ] 	[ offsety	0 ] 	[ offsetz	0 ] 	[ offsetw	0 ] 	)
 tile_size	[ 0	locks=0	autoscope=0 ]	(	[ tile_sizex	2 ] 	[ tile_sizey	1.3999999999999999 ] 	[ tile_sizez	1.3999999999999999 ] 	)
 Distort	[ 0	locks=0	autoscope=0 ]	(	[ Distortx	0.20000000000000001 ] 	[ Distorty	0.20000000000000001 ] 	[ Distortz	0.20000000000000001 ] 	)
 time_varying	[ 0	locks=0	autoscope=0 ]	(	[ time_varying	0 ] 	)
 time_scale	[ 0	locks=0	autoscope=0 ]	(	[ time_scale	1 ] 	)
-input_rangev	[ 0	locks=0	autoscope=0 ]	(	-1	1	)
-output_rangev	[ 0	locks=0	autoscope=0 ]	(	-1	1	)
-input_range	[ 0	locks=0	autoscope=0 ]	(	0	1	)
-output_range	[ 0	locks=0	autoscope=0 ]	(	0	1	)
+input_rangev	[ 0	locks=0 ]	(	-1	1	)
+output_rangev	[ 0	locks=0 ]	(	-1	1	)
+input_range	[ 0	locks=0 ]	(	0	1	)
+output_range	[ 0	locks=0 ]	(	0	1	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1600,7 +1599,7 @@ inputs
 stat
 {
   create 1524060464
-  modify 1568176100
+  modify 1573270627
   author Henry@LAPPY586
   access 0777
 }
@@ -1751,7 +1750,7 @@ inputs
 stat
 {
   create 1524060464
-  modify 1568176100
+  modify 1573270627
   author Henry@LAPPY586
   access 0777
 }
@@ -2005,7 +2004,7 @@ inputs
 stat
 {
   create 1565319729
-  modify 1568176100
+  modify 1573270627
   author Henry@LAPPY586
   access 0777
 }
@@ -2085,7 +2084,7 @@ inputs
 stat
 {
   create 1565319729
-  modify 1568176100
+  modify 1573270627
   author Henry@LAPPY586
   access 0777
 }
