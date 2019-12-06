@@ -15,10 +15,40 @@
     inputlabel	4	"Sub-Network Input #4"
 
     parm {
-        name    "group_all"
+        name    "group"
         label   "Group"
         type    string
         default { "" }
+        menutoggle {
+            [ "opmenu -l split1 group" ]
+        }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_action" "import soputils\nkwargs['geometrytype'] = kwargs['node'].parmTuple('grouptype')\nkwargs['inputindex'] = 0\nsoputils.selectGroupParm(kwargs)" }
+        parmtag { "script_action_help" "Select geometry from an available viewport." }
+        parmtag { "script_action_icon" "BUTTONS_reselect" }
+    }
+    parm {
+        name    "group_all"
+        label   "Group"
+        type    string
+        invisible
+        default { "" }
+    }
+    parm {
+        name    "grouptype"
+        label   "Group Type"
+        type    ordinal
+        default { "guess" }
+        menu {
+            "guess"         "Guess from Group"
+            "breakpoints"   "Breakpoints"
+            "edges"         "Edges"
+            "points"        "Points"
+            "prims"         "Primitives"
+        }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
     }
     group {
         name    "folder2_1"
@@ -58,7 +88,7 @@
             hidewhentab "{ attach_mode != 1 }"
 
             parm {
-                name    "group"
+                name    "scatter_group"
                 label   "Group"
                 type    string
                 default { "" }
