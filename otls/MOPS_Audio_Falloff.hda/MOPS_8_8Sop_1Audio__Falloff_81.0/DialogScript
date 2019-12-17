@@ -350,8 +350,47 @@
         label   "Bands"
 
         group {
+            name    "folder3_1"
+            label   "Band Options"
+
+            parm {
+                name    "preview_bands"
+                label   "Preview Bands"
+                type    toggle
+                default { "0" }
+            }
+            parm {
+                name    "auto_distribute"
+                label   "Auto Distribute"
+                type    toggle
+                default { "1" }
+                range   { 0 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "band_attr"
+                label   "Band Attribute"
+                type    string
+                default { "mops_falloff" }
+                disablewhen "{ auto_distribute == 1 }"
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "distribute_ramp"
+                label   "Band Weighting"
+                type    ramp_flt
+                default { "2" }
+                range   { 1! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "rampfloatdefault" "1pos ( 0 ) 1value ( 0 ) 1interp ( linear ) 2pos ( 1 ) 2value ( 1 ) 2interp ( linear )" }
+            }
+        }
+
+        group {
             name    "folder3"
             label   "Frequencies"
+            tabbreak
 
             multiswitcher {
                 name    "bands"
@@ -411,44 +450,6 @@
                 }
             }
 
-        }
-
-        group {
-            name    "folder2"
-            label   "Band Options"
-
-            parm {
-                name    "preview_bands"
-                label   "Preview Bands"
-                type    toggle
-                default { "0" }
-            }
-            parm {
-                name    "auto_distribute"
-                label   "Auto Distribute"
-                type    toggle
-                default { "1" }
-                range   { 0 10 }
-                parmtag { "autoscope" "0000000000000000" }
-            }
-            parm {
-                name    "band_attr"
-                label   "Band Attribute"
-                type    string
-                default { "mops_falloff" }
-                disablewhen "{ auto_distribute == 1 }"
-                range   { 0 1 }
-                parmtag { "autoscope" "0000000000000000" }
-            }
-            parm {
-                name    "distribute_ramp"
-                label   "Band Weighting"
-                type    ramp_flt
-                default { "2" }
-                range   { 1! 10 }
-                parmtag { "autoscope" "0000000000000000" }
-                parmtag { "rampfloatdefault" "1pos ( 0 ) 1value ( 0 ) 1interp ( linear ) 2pos ( 1 ) 2value ( 1 ) 2interp ( linear )" }
-            }
         }
 
     }
