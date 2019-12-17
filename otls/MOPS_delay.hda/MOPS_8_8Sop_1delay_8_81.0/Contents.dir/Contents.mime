@@ -32,22 +32,24 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -2.51832 -1.86157
-connectornextid 0
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+position -2.48361 -6.04344
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
 inputsNamed3
 {
+0 	MOPs_Transform_Modifier 1 1 "input1"
 }
 inputs
 {
+0 	MOPs_Transform_Modifier 0 1
 }
 stat
 {
-  create 1573409938
-  modify 1573410145
+  create 1574363072
+  modify 1574364173
   author Henry@LAPPY586
   access 0777
 }
@@ -116,7 +118,7 @@ sopflags sopflags =
 comment ""
 position 3.19939 -0.157436
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 1 "output1"
@@ -132,7 +134,7 @@ inputs
 stat
 {
   create 1524695187
-  modify 1565234960
+  modify 1574364355
   author Henry@LAPPY586
   access 0777
 }
@@ -211,7 +213,7 @@ inputs
 stat
 {
   create 1524695187
-  modify 1573409938
+  modify 1574364395
   author Henry@LAPPY586
   access 0777
 }
@@ -312,9 +314,11 @@ if(haspointattrib(0, \"Cd\")) v@Cd = catmul_interp(matchpt, \"Cd\", t);
 vector pivot = catmul_interp(matchpt, \"pivot\", t);
 vector4 orient = catmul_interp(matchpt, \"orient\", t);
 vector scale = catmul_interp(matchpt, \"scale\", t);
+float pscale = catmul_interp(matchpt, \"pscale\", t);
 
 matrix3 s = ident();
 scale(s, scale);
+scale(s, pscale);
 
 matrix3 m = qconvert(orient);
 m *= s;
@@ -378,7 +382,7 @@ inputs
 stat
 {
   create 1524695187
-  modify 1573409938
+  modify 1574363072
   author Henry@LAPPY586
   access 0777
 }
@@ -459,7 +463,7 @@ inputs
 stat
 {
   create 1524695187
-  modify 1573409938
+  modify 1574363458
   author Henry@LAPPY586
   access 0777
 }
@@ -541,7 +545,7 @@ inputs
 stat
 {
   create 1524695187
-  modify 1573409938
+  modify 1574364355
   author Henry@LAPPY586
   access 0777
 }
@@ -573,6 +577,7 @@ v@P = primuv(1, \"P\", id, set(u, 0));
 p@orient = primuv(1, \"orient\", id, set(u, 0));
 v@pivot = primuv(1, \"pivot\", id, set(u, 0));
 v@scale = primuv(1, \"scale\", id, set(u, 0));
+f@pscale = primuv(1, \"pscale\", id, set(u, 0));
 
 if(haspointattrib(0, \"Cd\")) v@Cd = primuv(1, \"Cd\", id, set(u, 0));"	)
 exportlist	[ 0	locks=0	autoscope=0 ]	(	*	)
@@ -631,7 +636,7 @@ inputs
 stat
 {
   create 1524695187
-  modify 1565234960
+  modify 1574364206
   author Henry@LAPPY586
   access 0777
 }
@@ -666,7 +671,7 @@ Content-Disposition: attachment; filename="hdaroot/Trail_Motion.init"
 Content-Type: text/plain
 
 type = solver
-matchesdef = 1
+matchesdef = 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/Trail_Motion.def"
@@ -692,7 +697,7 @@ inputs
 stat
 {
   create 1524695187
-  modify 1573409938
+  modify 1574363429
   author Henry@LAPPY586
   access 0777
 }
@@ -845,6 +850,177 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Trail_Motion.inp"
+Content-Type: text/plain
+
+4
+0 -0.68235290050506592 7.0705881118774414 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+1 1.8235294818878174 7.2647056579589844 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+2 5.0235300064086914 6.9176468849182129 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+3 6.3529415130615234 5.9117650985717773 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Trail_Motion/d.init"
+Content-Type: text/plain
+
+type = dopnet
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Trail_Motion/d.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 1.09412 3.87641
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault off exposed on
+outputsNamed3
+{
+4 "output1"
+}
+inputsNamed3
+{
+5 	null1 1 1 "input1"
+6 	null2 1 1 "input2"
+7 	null3 1 1 "input3"
+8 	null4 1 1 "input4"
+}
+inputs
+{
+0 	null1 0 1
+1 	null2 0 1
+2 	null3 0 1
+3 	null4 0 1
+}
+stat
+{
+  create 1324347844
+  modify 1574363072
+  author nobody@nowhere.sidefx.com
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Trail_Motion/d.chn"
+Content-Type: text/plain
+
+{
+    channel timestep {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"timescale\")/(ch(\"substep\")*$FPS) }
+    }
+    channel timeoffset {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = (ch(\"startframe\")-1)/$FPS }
+    }
+    channel substep {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../substep\") }
+    }
+    channel startframe {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../startframe\") }
+    }
+    channel cacheenabled {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../cacheenabled\") }
+    }
+    channel cachetodisk {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../cachetodisk\") }
+    }
+    channel cachemaxsize {
+      lefttype = extend
+      righttype = extend
+      default = 500
+      flags = 0
+      segment { length = 0 value = 500 500 expr = ch(\"../cachemaxsize\") }
+    }
+    channel resimulate {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../resimulate\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Trail_Motion/d.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+isplayer	[ 0	locks=0 ]	(	"off"	)
+playfilesname	[ 0	locks=0 ]	(	$HIP/sim/$HIPNAME.$OS.$SF.sim	)
+stdswitcher	[ 0	locks=0 ]	(	1	1	0	)
+numobj	[ 0	locks=0 ]	(	1	)
+resimulate	[ 0	locks=0 ]	(	[ resimulate	0 ] 	)
+initialstate	[ 0	locks=0 ]	(	""	)
+timestep	[ 0	locks=0 ]	(	[ timestep	0.041666666666666664 ] 	)
+substep	[ 0	locks=0 ]	(	[ substep	1 ] 	)
+timeoffset	[ 0	locks=0 ]	(	[ timeoffset	0 ] 	)
+startframe	[ 0	locks=0 ]	(	[ startframe	1 ] 	)
+timescale	[ 0	locks=0 ]	(	1	)
+maxfeedback	[ 0	locks=0 ]	(	2	)
+autoresim	[ 0	locks=0 ]	(	"on"	)
+datahints	[ 0	locks=0 ]	(	"on"	)
+interpolate	[ 0	locks=0 ]	(	"on"	)
+cacheenabled	[ 0	locks=0 ]	(	[ cacheenabled	1 ] 	)
+compresssims	[ 0	locks=0 ]	(	"off"	)
+cachetodisk	[ 0	locks=0 ]	(	[ cachetodisk	0 ] 	)
+cachetodisknoninteractive	[ 0	locks=0 ]	(	"off"	)
+cachesubsteps	[ 0	locks=0 ]	(	"off"	)
+cachemaxsize	[ 0	locks=0 ]	(	[ cachemaxsize	5000 ] 	)
+timeless	[ 0	locks=0 ]	(	"off"	)
+explicitcache	[ 0	locks=0 ]	(	"off"	)
+explicitcachename	[ 0	locks=0 ]	(	$HIP/cache_${OS}_$SF.sim	)
+explicitcachensteps	[ 0	locks=0 ]	(	0	)
+explicitcachecheckpointspacing	[ 0	locks=0 ]	(	1	)
+enable1	[ 0	locks=0 ]	(	"on"	)
+objname1	[ 0	locks=0 ]	(	*	)
+dataname1	[ 0	locks=0 ]	(	""	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Trail_Motion/d.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.229"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Trail_Motion/d/s.init"
+Content-Type: text/plain
+
+type = sopsolver
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/Trail_Motion/d/s.def"
 Content-Type: text/plain
 
@@ -954,7 +1130,7 @@ inputs
 stat
 {
   create 1524695845
-  modify 1573409938
+  modify 1574363072
   author Henry@LAPPY586
   access 0777
 }
@@ -1214,7 +1390,7 @@ inputs
 stat
 {
   create 1524695901
-  modify 1573409938
+  modify 1574363072
   author Henry@LAPPY586
   access 0777
 }
@@ -1477,7 +1653,7 @@ inputs
 stat
 {
   create 1531965466
-  modify 1573409938
+  modify 1574363400
   author Henry@LAPPY586
   access 0777
 }
@@ -1779,7 +1955,7 @@ inputs
 stat
 {
   create 1531283685
-  modify 1573409938
+  modify 1574363072
   author Henry@LAPPY586
   access 0777
 }
@@ -1890,7 +2066,7 @@ inputs
 stat
 {
   create 1531969324
-  modify 1573409938
+  modify 1574363072
   author Henry@LAPPY586
   access 0777
 }
@@ -2042,7 +2218,7 @@ Content-Type: text/plain
 {
 version 0.8
 method	[ 0	locks=0	autoscope=0 ]	(	"byframe"	)
-frame	[ 8	locks=0	autoscope=0 ]	(	[ frame	0 ] 	)
+frame	[ 8	locks=0	autoscope=0 ]	(	[ frame	193 ] 	)
 integerframe	[ 0	locks=0	autoscope=0 ]	(	"on"	)
 time	[ 0	locks=0	autoscope=0 ]	(	[ time	0 ] 	)
 rangeclamp	[ 0	locks=0	autoscope=0 ]	(	"both"	)
@@ -2151,7 +2327,7 @@ Content-Type: text/plain
 {
 version 0.8
 method	[ 0	locks=0	autoscope=0 ]	(	"byframe"	)
-frame	[ 8	locks=0	autoscope=0 ]	(	[ frame	2 ] 	)
+frame	[ 8	locks=0	autoscope=0 ]	(	[ frame	195 ] 	)
 integerframe	[ 0	locks=0	autoscope=0 ]	(	"on"	)
 time	[ 0	locks=0	autoscope=0 ]	(	[ time	0 ] 	)
 rangeclamp	[ 0	locks=0	autoscope=0 ]	(	"both"	)
@@ -2260,7 +2436,7 @@ Content-Type: text/plain
 {
 version 0.8
 method	[ 0	locks=0	autoscope=0 ]	(	"byframe"	)
-frame	[ 8	locks=0	autoscope=0 ]	(	[ frame	3 ] 	)
+frame	[ 8	locks=0	autoscope=0 ]	(	[ frame	196 ] 	)
 integerframe	[ 0	locks=0	autoscope=0 ]	(	"on"	)
 time	[ 0	locks=0	autoscope=0 ]	(	[ time	0 ] 	)
 rangeclamp	[ 0	locks=0	autoscope=0 ]	(	"both"	)
@@ -2369,7 +2545,7 @@ Content-Type: text/plain
 {
 version 0.8
 method	[ 0	locks=0	autoscope=0 ]	(	"byframe"	)
-frame	[ 8	locks=0	autoscope=0 ]	(	[ frame	1 ] 	)
+frame	[ 8	locks=0	autoscope=0 ]	(	[ frame	194 ] 	)
 integerframe	[ 0	locks=0	autoscope=0 ]	(	"on"	)
 time	[ 0	locks=0	autoscope=0 ]	(	[ time	0 ] 	)
 rangeclamp	[ 0	locks=0	autoscope=0 ]	(	"both"	)
@@ -2466,6 +2642,197 @@ Content-Type: text/plain
 1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Trail_Motion/d/emptyobject1.init"
+Content-Type: text/plain
+
+type = emptyobject
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Trail_Motion/d/emptyobject1.def"
+Content-Type: text/plain
+
+comment ""
+position 1.54108 2.88232
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create 1324348063
+  modify 1342639543
+  author nobody@nowhere.sidefx.com
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Trail_Motion/d/emptyobject1.chn"
+Content-Type: text/plain
+
+{
+    channel activation {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = "$ST == 0" }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Trail_Motion/d/emptyobject1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+activation	[ 8	locks=0 ]	(	[ activation	0 ] 	)
+activationrules	[ 0	locks=0 ]	(	0	)
+objname	[ 0	locks=0 ]	(	obj$OBJ	)
+numobjects	[ 0	locks=0 ]	(	1	)
+solvefirstframe	[ 0	locks=0 ]	(	"off"	)
+allowcaching	[ 0	locks=0 ]	(	"on"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Trail_Motion/d/emptyobject1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.229"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Trail_Motion/d/sopgeo1.init"
+Content-Type: text/plain
+
+type = sopgeo
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Trail_Motion/d/sopgeo1.def"
+Content-Type: text/plain
+
+comment ""
+position 1.88226 1.56468
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	emptyobject1 0 1 "input1"
+}
+inputs
+{
+0 	emptyobject1 0 1
+}
+stat
+{
+  create 1324348102
+  modify 1574363072
+  author nobody@nowhere.sidefx.com
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Trail_Motion/d/sopgeo1.chn"
+Content-Type: text/plain
+
+{
+    channel time {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $T }
+    }
+    channel transformtime {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $T }
+    }
+    channel activation {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = constant() }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Trail_Motion/d/sopgeo1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+parmop_usesoppath	[ 0	locks=0 ]	(	"default"	)
+usesoppath	[ 0	locks=0 ]	(	"on"	)
+parmop_soppath	[ 0	locks=0 ]	(	"default"	)
+soppath	[ 0	locks=0 ]	(	"`ifs(ch(\"../../useinitialsop\"), chsop(\"../../initialsop\"), opinputpath(\"..\", 0))`"	)
+parmop_primgroup	[ 0	locks=0 ]	(	"default"	)
+primgroup	[ 0	locks=0 ]	(	""	)
+parmop_time	[ 0	locks=0 ]	(	"default"	)
+time	[ 0	locks=0 ]	(	[ time	0 ] 	)
+parmop_usetransform	[ 0	locks=0 ]	(	"default"	)
+usetransform	[ 0	locks=0 ]	(	"off"	)
+parmop_transformtime	[ 0	locks=0 ]	(	"default"	)
+transformtime	[ 0	locks=0 ]	(	[ transformtime	0 ] 	)
+parmop_letsopsinterpolate	[ 0	locks=0 ]	(	"default"	)
+letsopsinterpolate	[ 0	locks=0 ]	(	"off"	)
+parmop_positionpath	[ 0	locks=0 ]	(	"default"	)
+positionpath	[ 0	locks=0 ]	(	../Position	)
+parmop_numstamps	[ 0	locks=0 ]	(	"default"	)
+numstamps	[ 0	locks=0 ]	(	0	)
+defaultparmop	[ 0	locks=0 ]	(	"initial"	)
+sharedata	[ 0	locks=0 ]	(	"off"	)
+activation	[ 0	locks=0 ]	(	[ activation	1 ] 	)
+activationrules	[ 0	locks=0 ]	(	0	)
+group	[ 0	locks=0 ]	(	*	)
+dataname	[ 0	locks=0 ]	(	Geometry	)
+uniquedataname	[ 0	locks=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Trail_Motion/d/sopgeo1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.229"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Trail_Motion/d/sopgeo1.net"
+Content-Type: text/plain
+
+1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/Trail_Motion/d/s/Prev_Frame.init"
 Content-Type: text/plain
 
@@ -2494,7 +2861,7 @@ inputs
 stat
 {
   create 1324348265
-  modify 1573409938
+  modify 1574364593
   author jlait@andorra.sidefx.com
   access 0777
 }
@@ -2598,7 +2965,7 @@ inputs
 stat
 {
   create 1324348294
-  modify 1573409938
+  modify 1574363072
   author jlait@andorra.sidefx.com
   access 0777
 }
@@ -2661,7 +3028,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 7.4656 -2.23252
+position 7.57988 -2.84803
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -2677,7 +3044,7 @@ inputs
 stat
 {
   create 1324348294
-  modify 1573409938
+  modify 1574363414
   author jlait@andorra.sidefx.com
   access 0777
 }
@@ -2756,7 +3123,7 @@ inputs
 stat
 {
   create 1324348294
-  modify 1573409938
+  modify 1574363072
   author jlait@andorra.sidefx.com
   access 0777
 }
@@ -2835,7 +3202,7 @@ inputs
 stat
 {
   create 1324348294
-  modify 1573409938
+  modify 1574363072
   author jlait@andorra.sidefx.com
   access 0777
 }
@@ -3027,6 +3394,282 @@ Content-Type: text/plain
 1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Trail_Motion/d.order"
+Content-Type: text/plain
+
+3
+emptyobject1
+sopgeo1
+s
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Trail_Motion/d.net"
+Content-Type: text/plain
+
+1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Trail_Motion/null1.init"
+Content-Type: text/plain
+
+type = null
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Trail_Motion/null1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -0.976468 5.247
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	(0) "" 1 "input1"
+}
+inputs
+{
+0 	(0) 0 1
+}
+stat
+{
+  create 1324413357
+  modify 1324413364
+  author nobody@nowhere.sidefx.com
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Trail_Motion/null1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+copyinput	[ 0	locks=0 ]	(	"on"	)
+cacheinput	[ 0	locks=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Trail_Motion/null1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.229"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Trail_Motion/null2.init"
+Content-Type: text/plain
+
+type = null
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Trail_Motion/null2.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 1.09412 5.89406
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	(1) "" 1 "input1"
+}
+inputs
+{
+0 	(1) 0 1
+}
+stat
+{
+  create 1324413361
+  modify 1324413374
+  author nobody@nowhere.sidefx.com
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Trail_Motion/null2.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+copyinput	[ 0	locks=0 ]	(	"on"	)
+cacheinput	[ 0	locks=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Trail_Motion/null2.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.229"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Trail_Motion/null3.init"
+Content-Type: text/plain
+
+type = null
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Trail_Motion/null3.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 3.70589 5.68229
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	(2) "" 1 "input1"
+}
+inputs
+{
+0 	(2) 0 1
+}
+stat
+{
+  create 1324413371
+  modify 1324413373
+  author nobody@nowhere.sidefx.com
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Trail_Motion/null3.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+copyinput	[ 0	locks=0 ]	(	"on"	)
+cacheinput	[ 0	locks=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Trail_Motion/null3.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.229"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Trail_Motion/null4.init"
+Content-Type: text/plain
+
+type = null
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Trail_Motion/null4.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 5.14118 4.36465
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	(3) "" 1 "input1"
+}
+inputs
+{
+0 	(3) 0 1
+}
+stat
+{
+  create 1324413372
+  modify 1324413375
+  author nobody@nowhere.sidefx.com
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Trail_Motion/null4.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+copyinput	[ 0	locks=0 ]	(	"on"	)
+cacheinput	[ 0	locks=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Trail_Motion/null4.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.229"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Trail_Motion.order"
+Content-Type: text/plain
+
+5
+d
+null1
+null2
+null3
+null4
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Trail_Motion.net"
+Content-Type: text/plain
+
+1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/add1.init"
 Content-Type: text/plain
 
@@ -3057,7 +3700,7 @@ inputs
 stat
 {
   create 1524695187
-  modify 1565234960
+  modify 1574363405
   author Henry@LAPPY586
   access 0777
 }
@@ -3135,7 +3778,7 @@ inputs
 stat
 {
   create 1524695187
-  modify 1565234960
+  modify 1574363445
   author Henry@LAPPY586
   access 0777
 }
@@ -3197,7 +3840,7 @@ sopflags sopflags =
 comment ""
 position 2.15553 8.4779
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
 {
 0 "output1"
@@ -3213,11 +3856,11 @@ inputs
 stat
 {
   create 1524695187
-  modify 1565234960
+  modify 1574364343
   author Henry@LAPPY586
   access 0777
 }
-color UT_Color RGB 0.8 0.8 0.8 
+color UT_Color RGB 1 0 0 
 delscript ""
 exprlanguage hscript
 end
@@ -3257,6 +3900,12 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = $TEND }
     }
+    channel frame {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = @Frame }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -3266,8 +3915,8 @@ Content-Type: text/plain
 {
 version 0.8
 method	[ 0	locks=0	autoscope=0 ]	(	"byframe"	)
-frame	[ 0	locks=0	autoscope=0 ]	(	0	)
-integerframe	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+frame	[ 8	locks=0	autoscope=0 ]	(	[ frame	196 ] 	)
+integerframe	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 time	[ 0	locks=0	autoscope=0 ]	(	[ time	0 ] 	)
 rangeclamp	[ 0	locks=0	autoscope=0 ]	(	"both"	)
 frange	[ 0	locks=0	autoscope=0 ]	(	[ frange1	1 ] 	[ frange2	240 ] 	)
@@ -3300,7 +3949,7 @@ sopflags sopflags =
 comment ""
 position -3.54802 -11.3699
 connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
@@ -3315,7 +3964,7 @@ inputs
 stat
 {
   create 1524695187
-  modify 1565234998
+  modify 1574364348
   author Henry@LAPPY586
   access 0777
 }
@@ -3443,7 +4092,7 @@ inputs
 stat
 {
   create 1524695187
-  modify 1565234960
+  modify 1574363438
   author Henry@LAPPY586
   access 0777
 }
@@ -3502,9 +4151,9 @@ Content-Type: text/plain
 {
 version 0.8
 method	[ 0	locks=0	autoscope=0 ]	(	"byframe"	)
-frame	[ 0	locks=0	autoscope=0 ]	(	[ frame	3 ] 	)
+frame	[ 0	locks=0	autoscope=0 ]	(	[ frame	196 ] 	)
 integerframe	[ 0	locks=0	autoscope=0 ]	(	"on"	)
-time	[ 0	locks=0	autoscope=0 ]	(	[ time	1.875 ] 	)
+time	[ 0	locks=0	autoscope=0 ]	(	[ time	0 ] 	)
 rangeclamp	[ 0	locks=0	autoscope=0 ]	(	"none"	)
 frange	[ 0	locks=0	autoscope=0 ]	(	[ frange1	1 ] 	[ frange2	240 ] 	)
 trange	[ 0	locks=0	autoscope=0 ]	(	[ trange1	0 ] 	[ trange2	0 ] 	)
@@ -3552,7 +4201,7 @@ inputs
 stat
 {
   create 1524695187
-  modify 1565234960
+  modify 1574363453
   author Henry@LAPPY586
   access 0777
 }
@@ -3611,9 +4260,9 @@ Content-Type: text/plain
 {
 version 0.8
 method	[ 0	locks=0	autoscope=0 ]	(	"byframe"	)
-frame	[ 0	locks=0	autoscope=0 ]	(	[ frame	3 ] 	)
+frame	[ 0	locks=0	autoscope=0 ]	(	[ frame	196 ] 	)
 integerframe	[ 0	locks=0	autoscope=0 ]	(	"on"	)
-time	[ 0	locks=0	autoscope=0 ]	(	[ time	1.875 ] 	)
+time	[ 0	locks=0	autoscope=0 ]	(	[ time	6.208333333333333 ] 	)
 rangeclamp	[ 0	locks=0	autoscope=0 ]	(	"none"	)
 frange	[ 0	locks=0	autoscope=0 ]	(	[ frange1	1 ] 	[ frange2	240 ] 	)
 trange	[ 0	locks=0	autoscope=0 ]	(	[ trange1	0 ] 	[ trange2	0 ] 	)
@@ -3661,7 +4310,7 @@ inputs
 stat
 {
   create 1524695187
-  modify 1565234960
+  modify 1574364303
   author Henry@LAPPY586
   access 0777
 }
@@ -3872,7 +4521,7 @@ inputs
 stat
 {
   create 1529386178
-  modify 1573409938
+  modify 1574363072
   author Henry@LAPPY586
   access 0777
 }
@@ -4018,7 +4667,7 @@ inputs
 stat
 {
   create 1531969261
-  modify 1565234960
+  modify 1574364309
   author Henry@LAPPY586
   access 0777
 }
@@ -4154,7 +4803,7 @@ inputs
 stat
 {
   create 1565234960
-  modify 1573409938
+  modify 1574363223
   author Henry@LAPPY586
   access 0777
 }
@@ -4234,7 +4883,7 @@ inputs
 stat
 {
   create 1565234627
-  modify 1573409938
+  modify 1574363072
   author Henry@LAPPY586
   access 0777
 }

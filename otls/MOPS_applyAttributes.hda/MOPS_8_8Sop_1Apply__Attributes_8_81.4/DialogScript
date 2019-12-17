@@ -49,6 +49,19 @@
         type    separator
         default { "" }
     }
+    parm {
+        name    "matchmode"
+        label   "Match By"
+        type    ordinal
+        default { "0" }
+        menu {
+            "0" "id"
+            "1" "name"
+        }
+        range   { 0 10 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
     group {
         name    "folder0"
         label   "Transformation"

@@ -32,7 +32,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 2.10656 -0.371311
+position -3.27049 -0.797541
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -48,8 +48,8 @@ inputs
 }
 stat
 {
-  create 1574142500
-  modify 1574144267
+  create 1576604195
+  modify 1576604772
   author Henry@LAPPY586
   access 0777
 }
@@ -107,7 +107,7 @@ inputs
 stat
 {
   create 1527119029
-  modify 1574144090
+  modify 1576604196
   author Henry@LAPPY586
   access 0777
 }
@@ -325,34 +325,6 @@ Content-Disposition: attachment; filename="hdaroot/define_bands.chn"
 Content-Type: text/plain
 
 {
-    channel bands {
-      lefttype = extend
-      righttype = extend
-      default = 2
-      flags = 0
-      segment { length = 0 value = 2 2 expr = ch(\"../bands\") }
-    }
-    channel auto_distribute {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../auto_distribute\") }
-    }
-    channel bindname1 {
-      lefttype = extend
-      righttype = extend
-      defaultString = \"mops_falloff\"
-      flags = 0
-      segment { length = 0 expr = chs(\"../band_attr\") }
-    }
-    channel distribute_ramp {
-      lefttype = extend
-      righttype = extend
-      default = 2
-      flags = 0
-      segment { length = 0 value = 2 2 expr = ch(\"../distribute_ramp\") }
-    }
     channel distribute_ramp1pos {
       lefttype = extend
       righttype = extend
@@ -390,6 +362,34 @@ Content-Type: text/plain
       default = 1
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../distribute_ramp2interp\") }
+    }
+    channel bands {
+      lefttype = extend
+      righttype = extend
+      default = 2
+      flags = 0
+      segment { length = 0 value = 2 2 expr = ch(\"../bands\") }
+    }
+    channel auto_distribute {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../auto_distribute\") }
+    }
+    channel bindname1 {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"mops_falloff\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../band_attr\") }
+    }
+    channel distribute_ramp {
+      lefttype = extend
+      righttype = extend
+      default = 2
+      flags = 0
+      segment { length = 0 value = 2 2 expr = ch(\"../distribute_ramp\") }
     }
   }
 
@@ -431,8 +431,6 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
-bindname1	[ 0	locks=0 ]	(	[ bindname1	mops_falloff ] 	)
-bindparm1	[ 0	locks=0 ]	(	attribute	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 min	[ 0	locks=0 ]	(	0	)
 max	[ 0	locks=0 ]	(	1	)
@@ -445,6 +443,8 @@ distribute_ramp1interp	[ 0	locks=0 ]	(	[ distribute_ramp1interp	1 ] 	)
 distribute_ramp2pos	[ 0	locks=0 ]	(	[ distribute_ramp2pos	1 ] 	)
 distribute_ramp2value	[ 0	locks=0 ]	(	[ distribute_ramp2value	1 ] 	)
 distribute_ramp2interp	[ 0	locks=0 ]	(	[ distribute_ramp2interp	1 ] 	)
+bindname1	[ 0	locks=0 ]	(	[ bindname1	mops_falloff ] 	)
+bindparm1	[ 0	locks=0 ]	(	attribute	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -487,7 +487,7 @@ inputs
 stat
 {
   create 1527124869
-  modify 1574142501
+  modify 1576604196
   author Henry@LAPPY586
   access 0777
 }
@@ -706,7 +706,7 @@ vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 folder1	[ 0	locks=0 ]	(	0	0	)
-bands	[ 8	locks=0 ]	(	[ bands	1 ] 	)
+bands	[ 8	locks=0 ]	(	[ bands	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -753,7 +753,7 @@ inputs
 stat
 {
   create 1527127477
-  modify 1574143038
+  modify 1576604196
   author Henry@LAPPY586
   access 0777
 }
@@ -1001,7 +1001,7 @@ inputs
 stat
 {
   create 1527133419
-  modify 1574143038
+  modify 1576604196
   author Henry@LAPPY586
   access 0777
 }
@@ -1164,7 +1164,7 @@ inputs
 stat
 {
   create 1527134483
-  modify 1574143038
+  modify 1576604196
   author Henry@LAPPY586
   access 0777
 }
@@ -1292,7 +1292,7 @@ inputs
 stat
 {
   create 1536029968
-  modify 1574143038
+  modify 1576604196
   author Henry@LAPPY586
   access 0777
 }
@@ -1584,7 +1584,7 @@ sopflags sopflags =
 comment ""
 position -2.48044 3.1787
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 1 "output1"
@@ -1600,7 +1600,7 @@ inputs
 stat
 {
   create 1574142951
-  modify 1574143366
+  modify 1576604325
   author Henry@LAPPY586
   access 0777
 }
@@ -1824,7 +1824,7 @@ vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 folder1	[ 0	locks=0 ]	(	0	0	)
-num_bands	[ 8	locks=0 ]	(	[ num_bands	0 ] 	)
+num_bands	[ 8	locks=0 ]	(	[ num_bands	1 ] 	)
 preview_ramp	[ 0	locks=0 ]	(	5	)
 preview_ramp1pos	[ 0	locks=0 ]	(	0	)
 preview_ramp1c	[ 0	locks=0 ]	(	0.20000000298023224	0	1	)
@@ -2025,7 +2025,7 @@ inputs
 stat
 {
   create 1527115230
-  modify 1574142824
+  modify 1576604196
   author Henry@LAPPY586
   access 0777
 }
@@ -2106,7 +2106,7 @@ Content-Type: text/plain
 {
 version 0.8
 stdswitcher	[ 0	locks=0 ]	(	0	0	)
-file	[ 8	locks=0 ]	(	[ file	C:/Users/Henry/Downloads/reelsong_03_v19.wav ] 	)
+file	[ 8	locks=0 ]	(	[ file	"" ] 	)
 reload	[ 0	locks=0 ]	(	[ reload	0 ] 	)
 nameoption	[ 0	locks=0 ]	(	[ nameoption	0 ] 	)
 name	[ 0	locks=0 ]	(	[ name	chan0 ] 	)
@@ -2258,7 +2258,7 @@ inputs
 stat
 {
   create 1527118656
-  modify 1574143755
+  modify 1576604681
   author Henry@LAPPY586
   access 0777
 }
@@ -2351,7 +2351,7 @@ inputs
 stat
 {
   create 1527118701
-  modify 1574143755
+  modify 1576604681
   author Henry@LAPPY586
   access 0777
 }
@@ -2432,7 +2432,7 @@ inputs
 stat
 {
   create 1527118714
-  modify 1574142501
+  modify 1576604196
   author Henry@LAPPY586
   access 0777
 }
@@ -2526,7 +2526,7 @@ inputs
 stat
 {
   create 1527130753
-  modify 1574142501
+  modify 1576604580
   author Henry@LAPPY586
   access 0777
 }
@@ -2700,7 +2700,7 @@ inputs
 stat
 {
   create 1527125854
-  modify 1574142501
+  modify 1576604196
   author Henry@LAPPY586
   access 0777
 }
@@ -2841,7 +2841,7 @@ inputs
 stat
 {
   create 1527133238
-  modify 1574142501
+  modify 1576604196
   author Henry@LAPPY586
   access 0777
 }
@@ -2923,7 +2923,7 @@ inputs
 stat
 {
   create 1527133254
-  modify 1574142501
+  modify 1576604196
   author Henry@LAPPY586
   access 0777
 }
@@ -3015,7 +3015,7 @@ inputs
 stat
 {
   create 1527133507
-  modify 1574142501
+  modify 1576604196
   author Henry@LAPPY586
   access 0777
 }
@@ -3138,7 +3138,7 @@ inputs
 stat
 {
   create 1527133607
-  modify 1574142501
+  modify 1576604196
   author Henry@LAPPY586
   access 0777
 }
@@ -3218,7 +3218,7 @@ inputs
 stat
 {
   create 1527556983
-  modify 1574143369
+  modify 1576604483
   author Henry@LAPPY586
   access 0777
 }
@@ -3346,7 +3346,7 @@ inputs
 stat
 {
   create 1527556988
-  modify 1574142501
+  modify 1576604196
   author Henry@LAPPY586
   access 0777
 }
@@ -3443,7 +3443,7 @@ inputs
 stat
 {
   create 1527557165
-  modify 1574142501
+  modify 1576604196
   author Henry@LAPPY586
   access 0777
 }
@@ -3473,7 +3473,7 @@ Content-Type: text/plain
 version 0.8
 stdswitcher	[ 0	locks=0 ]	(	0	0	)
 indexfirst	[ 0	locks=0 ]	(	"off"	)
-index	[ 0	locks=0 ]	(	[ index	0 ] 	)
+index	[ 0	locks=0 ]	(	[ index	1 ] 	)
 scope	[ 0	locks=0 ]	(	*	)
 srselect	[ 0	locks=0 ]	(	"max"	)
 units	[ 0	locks=0 ]	(	"seconds"	)
@@ -3538,7 +3538,7 @@ inputs
 stat
 {
   create 1527985918
-  modify 1574142501
+  modify 1576604196
   author henry@GlaDOS
   access 0777
 }
@@ -3627,7 +3627,7 @@ inputs
 stat
 {
   create 1529113730
-  modify 1574142501
+  modify 1576604196
   author Henry@LAPPY586
   access 0777
 }
@@ -3722,7 +3722,7 @@ inputs
 stat
 {
   create 1529113737
-  modify 1574142501
+  modify 1576604196
   author Henry@LAPPY586
   access 0777
 }
@@ -3937,7 +3937,7 @@ inputs
 stat
 {
   create 1536032692
-  modify 1574142501
+  modify 1576604196
   author Henry@LAPPY586
   access 0777
 }
@@ -4032,7 +4032,7 @@ inputs
 stat
 {
   create 1536032699
-  modify 1574142501
+  modify 1576604196
   author Henry@LAPPY586
   access 0777
 }
@@ -4171,7 +4171,7 @@ inputs
 stat
 {
   create 1536033084
-  modify 1574142501
+  modify 1576604196
   author Henry@LAPPY586
   access 0777
 }
@@ -4266,7 +4266,7 @@ inputs
 stat
 {
   create 1536033098
-  modify 1574142501
+  modify 1576604196
   author Henry@LAPPY586
   access 0777
 }
@@ -4464,7 +4464,7 @@ inputs
 stat
 {
   create 1527125024
-  modify 1574142501
+  modify 1576604196
   author Henry@LAPPY586
   access 0777
 }
@@ -4592,7 +4592,7 @@ sopflags sopflags =
 comment ""
 position -2.74965 -7.47118
 connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
@@ -4607,7 +4607,7 @@ inputs
 stat
 {
   create 1527134525
-  modify 1574143090
+  modify 1576604325
   author Henry@LAPPY586
   access 0777
 }
@@ -4667,7 +4667,7 @@ inputs
 stat
 {
   create 1565317985
-  modify 1574143428
+  modify 1576604196
   author Henry@LAPPY586
   access 0777
 }
@@ -4747,7 +4747,7 @@ inputs
 stat
 {
   create 1565317985
-  modify 1574143038
+  modify 1576604196
   author Henry@LAPPY586
   access 0777
 }
@@ -4815,7 +4815,7 @@ inputs
 stat
 {
   create 1574142891
-  modify 1574143369
+  modify 1576604483
   author Henry@LAPPY586
   access 0777
 }
@@ -4825,12 +4825,25 @@ exprlanguage hscript
 end
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/do_preview_bands.chn"
+Content-Type: text/plain
+
+{
+    channel input {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../preview_bands\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/do_preview_bands.parm"
 Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	1	)
+input	[ 0	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -4877,7 +4890,7 @@ inputs
 stat
 {
   create 1574143044
-  modify 1574143369
+  modify 1576604196
   author Henry@LAPPY586
   access 0777
 }
@@ -4906,7 +4919,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
