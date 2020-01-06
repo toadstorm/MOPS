@@ -32,24 +32,22 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 6.80742 -5.34997
-connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight on unload off savedata off compress on colordefault on exposed on
+position 1.60004 -0.945118
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
 inputsNamed3
 {
-0 	MOPs_Align 0 1 "input1"
 }
 inputs
 {
-0 	MOPs_Align 0 1
 }
 stat
 {
-  create 1574623969
-  modify 1574627983
+  create 1578185076
+  modify 1578185083
   author Henry@LAPPY586
   access 0777
 }
@@ -115,7 +113,7 @@ inputs
 stat
 {
   create 1524060453
-  modify 1574620164
+  modify 1578185076
   author Henry@LAPPY586
   access 0777
 }
@@ -336,6 +334,12 @@ Content-Type: text/plain
         parmtag { "editor" "1" }
         parmtag { "editorlang" "vex" }
     }
+    parm {
+        name    "vex_precision"
+        baseparm
+        label   "VEX Precision"
+        export  none
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/compute_translate.chn"
@@ -452,7 +456,7 @@ Content-Type: text/plain
 version 0.8
 folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
 group	[ 0	locks=0	autoscope=0 ]	(	`chs(\"../Apply_Attributes1/group\")`	)
-grouptype	[ 8	locks=0	autoscope=0 ]	(	[ grouptype	0 ] 	)
+grouptype	[ 8	locks=0	autoscope=0 ]	(	[ grouptype	4 ] 	)
 class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
@@ -508,6 +512,7 @@ vex_updatenmls	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
 vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 uniform_scale	[ 0	locks=0	autoscope=0 ]	(	[ uniform_scale	1 ] 	)
 translate	[ 0	locks=0	autoscope=0 ]	(	[ translatex	0 ] 	[ translatey	0 ] 	[ translatez	0 ] 	)
@@ -566,7 +571,7 @@ inputs
 stat
 {
   create 1569469174
-  modify 1574620909
+  modify 1578185076
   author Henry@LAPPY586
   access 0777
 }
@@ -642,9 +647,10 @@ Content-Type: text/plain
 
 {
 version 0.8
-group	[ 0	locks=0	autoscope=0 ]	(	[ group	"" ] 	)
-grouptype	[ 0	locks=0	autoscope=0 ]	(	[ grouptype	0 ] 	)
+group	[ 0	locks=0	autoscope=0 ]	(	[ group	"7 11 14 17-18" ] 	)
+grouptype	[ 0	locks=0	autoscope=0 ]	(	[ grouptype	4 ] 	)
 sepparm	[ 0	locks=0 ]	(	)
+matchmode	[ 0	locks=0 ]	(	"0"	)
 folder0	[ 0	locks=0 ]	(	0	0	0	)
 do_translate	[ 0	locks=0 ]	(	"on"	)
 do_rotate	[ 0	locks=0 ]	(	"on"	)
@@ -655,7 +661,7 @@ local_space	[ 0	locks=0	autoscope=0 ]	(	[ local_space	1 ] 	)
 rotate_mode	[ 0	locks=0	autoscope=0 ]	(	[ rotate_mode	0 ] 	)
 rotate_order	[ 0	locks=0	autoscope=0 ]	(	[ rotate_order	0 ] 	)
 scale_mode	[ 0	locks=0	autoscope=0 ]	(	[ scale_mode	0 ] 	)
-do_falloff	[ 0	locks=0	autoscope=0 ]	(	[ do_falloff	0 ] 	)
+do_falloff	[ 0	locks=0	autoscope=0 ]	(	[ do_falloff	1 ] 	)
 falloff_attribute	[ 0	locks=0	autoscope=0 ]	(	[ falloff_attribute	mops_falloff ] 	)
 ignore_no_falloff	[ 0	locks=0	autoscope=0 ]	(	[ ignore_no_falloff	1 ] 	)
 do_copy_attrs	[ 0	locks=0 ]	(	"off"	)
@@ -708,7 +714,7 @@ inputs
 stat
 {
   create 1524060453
-  modify 1574619897
+  modify 1578185076
   author Henry@LAPPY586
   access 0777
 }
@@ -891,6 +897,12 @@ Content-Type: text/plain
         default { "0" "0" "0" }
         range   { 0 1 }
     }
+    parm {
+        name    "vex_precision"
+        baseparm
+        label   "VEX Precision"
+        export  none
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/pivot.chn"
@@ -937,7 +949,7 @@ Content-Type: text/plain
 version 0.8
 folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
 group	[ 0	locks=0	autoscope=0 ]	(	`chs(\"../Apply_Attributes1/group\")`	)
-grouptype	[ 8	locks=0	autoscope=0 ]	(	[ grouptype	0 ] 	)
+grouptype	[ 8	locks=0	autoscope=0 ]	(	[ grouptype	4 ] 	)
 class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
@@ -968,6 +980,7 @@ vex_updatenmls	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
 vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0	autoscope=0 ]	(	0	0	)
 pivot_mode	[ 8	locks=0	autoscope=0 ]	(	[ pivot_mode	0 ] 	)
 pivot	[ 0	locks=0	autoscope=0 ]	(	[ pivotx	0 ] 	[ pivoty	0 ] 	[ pivotz	0 ] 	)
@@ -975,353 +988,6 @@ pivot	[ 0	locks=0	autoscope=0 ]	(	[ pivotx	0 ] 	[ pivoty	0 ] 	[ pivotz	0 ] 	)
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/pivot.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":""
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/reset_pivot.init"
-Content-Type: text/plain
-
-type = attribwrangle
-matchesdef = 1
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/reset_pivot.def"
-Content-Type: text/plain
-
-sopflags sopflags = 
-comment ""
-position -1.14178 1.45344
-connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass on display off render off highlight off unload off savedata off compress on colordefault on exposed on
-outputsNamed3
-{
-0 "output1"
-}
-inputsNamed3
-{
-1 	Apply_Attributes1 0 1 "input1"
-2 	Extract_Attributes2 0 1 "input2"
-}
-inputs
-{
-0 	Apply_Attributes1 0 1
-1 	Extract_Attributes2 0 1
-}
-stat
-{
-  create 1524060453
-  modify 1574619897
-  author Henry@LAPPY586
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/reset_pivot.spareparmdef"
-Content-Type: text/plain
-
-    group {
-        name    "folder1"
-        label   "Code"
-
-        parm {
-            name    "group"
-            baseparm
-            label   "Group"
-            export  none
-            bindselector points "Modify Points"
-                "Select the points to affect and press Enter to complete."
-                0 1 0xffffffff 0 grouptype 0
-        }
-        parm {
-            name    "grouptype"
-            baseparm
-            label   "Group Type"
-            export  none
-        }
-        parm {
-            name    "class"
-            baseparm
-            label   "Run Over"
-            export  none
-        }
-        parm {
-            name    "vex_numcount"
-            baseparm
-            label   "Number Count"
-            export  none
-        }
-        parm {
-            name    "vex_threadjobsize"
-            baseparm
-            label   "Thread Job Size"
-            export  none
-        }
-        parm {
-            name    "snippet"
-            baseparm
-            label   "VEXpression"
-            export  all
-        }
-        parm {
-            name    "exportlist"
-            baseparm
-            label   "Attributes to Create"
-            export  none
-        }
-        parm {
-            name    "vex_strict"
-            baseparm
-            label   "Enforce Prototypes"
-            export  none
-        }
-    }
-
-    group {
-        name    "folder1_1"
-        label   "Bindings"
-
-        parm {
-            name    "autobind"
-            baseparm
-            label   "Autobind by Name"
-            export  none
-        }
-        multiparm {
-            name    "bindings"
-            label    "Number of Bindings"
-            baseparm
-            default 0
-            parmtag { "autoscope" "0000000000000000" }
-            parmtag { "multistartoffset" "1" }
-
-            parm {
-                name    "bindname#"
-                baseparm
-                label   "Attribute Name"
-                export  none
-            }
-            parm {
-                name    "bindparm#"
-                baseparm
-                label   "VEX Parameter"
-                export  none
-            }
-        }
-
-        parm {
-            name    "groupautobind"
-            baseparm
-            label   "Autobind Groups by Name"
-            export  none
-        }
-        multiparm {
-            name    "groupbindings"
-            label    "Group Bindings"
-            baseparm
-            default 0
-            parmtag { "autoscope" "0000000000000000" }
-            parmtag { "multistartoffset" "1" }
-
-            parm {
-                name    "bindgroupname#"
-                baseparm
-                label   "Group Name"
-                export  none
-            }
-            parm {
-                name    "bindgroupparm#"
-                baseparm
-                label   "VEX Parameter"
-                export  none
-            }
-        }
-
-        parm {
-            name    "vex_cwdpath"
-            baseparm
-            label   "Evaluation Node Path"
-            export  none
-        }
-        parm {
-            name    "vex_outputmask"
-            baseparm
-            label   "Export Parameters"
-            export  none
-        }
-        parm {
-            name    "vex_updatenmls"
-            baseparm
-            label   "Update Normals If Displaced"
-            export  none
-        }
-        parm {
-            name    "vex_matchattrib"
-            baseparm
-            label   "Attribute to Match"
-            export  none
-        }
-        parm {
-            name    "vex_inplace"
-            baseparm
-            label   "Compute Results In Place"
-            export  none
-        }
-        parm {
-            name    "vex_selectiongroup"
-            baseparm
-            label   "Output Selection Group"
-            export  none
-        }
-    }
-
-    parm {
-        name    "adjust_pivot"
-        label   "Adjust Pivot"
-        type    vector
-        size    3
-        default { "0" "0" "0" }
-        range   { 0 1 }
-    }
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/reset_pivot.chn"
-Content-Type: text/plain
-
-{
-    channel adjust_pivotx {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../pivot/pivotx\") }
-    }
-    channel adjust_pivoty {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../pivot/pivoty\") }
-    }
-    channel adjust_pivotz {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../pivot/pivotz\") }
-    }
-    channel grouptype {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../Apply_Attributes1/grouptype\") }
-    }
-  }
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/reset_pivot.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
-group	[ 0	locks=0	autoscope=0 ]	(	`chs(\"../Apply_Attributes1/group\")`	)
-grouptype	[ 8	locks=0	autoscope=0 ]	(	[ grouptype	0 ] 	)
-class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
-vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
-vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
-snippet	[ 0	locks=0	autoscope=0 ]	(	"vector adjust_pivot = chv(\"adjust_pivot\");
-vector scale = point(1, \"scale\", @primnum);
-vector pivot = primintrinsic(0, \"pivot\", @primnum);
-pivot -= adjust_pivot;
-@P -= (adjust_pivot * scale);
-setprimintrinsic(0, \"pivot\", @primnum, pivot, \"set\");"	)
-exportlist	[ 0	locks=0	autoscope=0 ]	(	*	)
-vex_strict	[ 0	locks=0	autoscope=0 ]	(	"off"	)
-autobind	[ 0	locks=0	autoscope=0 ]	(	"on"	)
-bindings	[ 0	locks=0	autoscope=0 ]	(	0	)
-groupautobind	[ 0	locks=0	autoscope=0 ]	(	"on"	)
-groupbindings	[ 0	locks=0	autoscope=0 ]	(	0	)
-vex_cwdpath	[ 0	locks=0	autoscope=0 ]	(	.	)
-vex_outputmask	[ 0	locks=0	autoscope=0 ]	(	*	)
-vex_updatenmls	[ 0	locks=0	autoscope=0 ]	(	"off"	)
-vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
-vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
-vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
-folder1	[ 0	locks=0	autoscope=0 ]	(	0	0	)
-adjust_pivot	[ 0	locks=0	autoscope=0 ]	(	[ adjust_pivotx	0 ] 	[ adjust_pivoty	0 ] 	[ adjust_pivotz	0 ] 	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/reset_pivot.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":""
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/Extract_Attributes2.init"
-Content-Type: text/plain
-
-type = MOPS::Extract_Attributes::1.0
-matchesdef = 1
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/Extract_Attributes2.def"
-Content-Type: text/plain
-
-sopflags sopflags = 
-comment ""
-position 0.836871 2.50592
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass on display off render off highlight off unload off savedata off compress on colordefault on exposed on
-outputsNamed3
-{
-0 "output1"
-}
-inputsNamed3
-{
-1 	Apply_Attributes1 0 1 "input1"
-}
-inputs
-{
-0 	Apply_Attributes1 0 1
-}
-stat
-{
-  create 1524060453
-  modify 1569469174
-  author Henry@LAPPY586
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/Extract_Attributes2.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-do_pivot	[ 0	locks=0 ]	(	"on"	)
-do_full_transform	[ 0	locks=0 ]	(	"off"	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/Extract_Attributes2.userdata"
 Content-Type: text/plain
 
 {
@@ -1352,16 +1018,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	switch_reset_pivot 0 1 "input1"
+0 	Apply_Attributes1 0 1 "input1"
 }
 inputs
 {
-0 	switch_reset_pivot 0 1
+0 	Apply_Attributes1 0 1
 }
 stat
 {
   create 1524060453
-  modify 1569470224
+  modify 1575608343
   author Henry@LAPPY586
   access 0777
 }
@@ -1386,69 +1052,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/switch_reset_pivot.init"
-Content-Type: text/plain
-
-type = switch
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/switch_reset_pivot.def"
-Content-Type: text/plain
-
-sopflags sopflags = 
-comment ""
-position -3.13514 0.6558
-connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass on display off render off highlight off unload off savedata off compress on colordefault on exposed on
-outputsNamed3
-{
-0 "output1"
-}
-inputsNamed3
-{
-1 	Apply_Attributes1 0 1 "input1"
-2 	reset_pivot 0 1 "input2"
-}
-inputs
-{
-0 	Apply_Attributes1 0 1
-1 	reset_pivot 0 1
-}
-stat
-{
-  create 1524060453
-  modify 1569469174
-  author Henry@LAPPY586
-  access 0777
-}
-color UT_Color RGB 0.8 1 0.7 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/switch_reset_pivot.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-input	[ 0	locks=0	autoscope=0 ]	(	0	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/switch_reset_pivot.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.287"
 	}
 }
 
@@ -1456,14 +1060,11 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot.order"
 Content-Type: text/plain
 
-7
+4
 compute_translate
 Apply_Attributes1
 pivot
 output1
-switch_reset_pivot
-reset_pivot
-Extract_Attributes2
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"
