@@ -32,7 +32,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 4.5082 -0.0762295
+position 11.5013 -66.2007
 connectornextid 0
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -46,8 +46,8 @@ inputs
 }
 stat
 {
-  create 1573533437
-  modify 1573533441
+  create 1576703718
+  modify 1576703723
   author Henry@LAPPY586
   access 0777
 }
@@ -105,7 +105,7 @@ inputs
 stat
 {
   create 1524695134
-  modify 1573533437
+  modify 1576703718
   author Henry@LAPPY586
   access 0777
 }
@@ -280,6 +280,12 @@ Content-Type: text/plain
         default { "0" }
         range   { 0 10 }
     }
+    parm {
+        name    "vex_precision"
+        baseparm
+        label   "VEX Precision"
+        export  none
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/do_extraction1.chn"
@@ -366,6 +372,7 @@ vex_updatenmls	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
 vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 do_full_transform	[ 0	locks=0 ]	(	[ do_full_transform	0 ] 	)
 }
@@ -410,7 +417,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1573533437
+  modify 1576703718
   author Henry@LAPPY586
   access 0777
 }
@@ -633,6 +640,12 @@ Content-Type: text/plain
         type    integer
         default { "0" }
         range   { 0 10 }
+    }
+    parm {
+        name    "vex_precision"
+        baseparm
+        label   "VEX Precision"
+        export  none
     }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -875,6 +888,7 @@ vex_updatenmls	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
 vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0	autoscope=0 ]	(	0	0	)
 do_translate	[ 0	locks=0	autoscope=0 ]	(	[ do_translate	0 ] 	)
 do_rotate	[ 0	locks=0	autoscope=0 ]	(	[ do_rotate	0 ] 	)
@@ -928,7 +942,7 @@ inputs
 stat
 {
   create 1550365158
-  modify 1573533437
+  modify 1576703718
   author Henry@LAPPY586
   access 0777
 }
@@ -962,6 +976,7 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1008,7 +1023,7 @@ inputs
 stat
 {
   create 1542257157
-  modify 1573533437
+  modify 1576703782
   author Henry@LAPPY586
   access 0777
 }
@@ -1016,6 +1031,26 @@ color UT_Color RGB 0.8 1 0.7
 delscript ""
 exprlanguage hscript
 end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch_has_N.spareparmdef"
+Content-Type: text/plain
+
+    parm {
+        name    "input"
+        baseparm
+        label   "Select Input"
+        export  all
+    }
+    parm {
+        name    "spare_input0"
+        label   "Spare Input 0"
+        type    oppath
+        default { "" }
+        help    "Refer to this in expressions as -1, such as: npoints(-1)"
+        parmtag { "opfilter" "!!SOP!!" }
+        parmtag { "oprelative" "." }
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/switch_has_N.chn"
@@ -1026,7 +1061,7 @@ Content-Type: text/plain
       lefttype = extend
       righttype = extend
       flags = 0
-      segment { length = 0 expr = "haspointattrib(\"../INPUT\", \"N\")" }
+      segment { length = 0 expr = "haspointattrib(-1, \"N\")" }
     }
   }
 
@@ -1037,6 +1072,7 @@ Content-Type: text/plain
 {
 version 0.8
 input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+spare_input0	[ 0	locks=0 ]	(	../INPUT	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1046,7 +1082,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.287"
 	}
 }
 
@@ -1114,7 +1150,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.287"
 	}
 }
 
@@ -1173,6 +1209,7 @@ docompute	[ 0	locks=0 ]	(	"on"	)
 type	[ 0	locks=0 ]	(	"typepoint"	)
 cuspangle	[ 0	locks=0 ]	(	60	)
 method	[ 0	locks=0 ]	(	1	)
+origifzero	[ 0	locks=0 ]	(	"off"	)
 modify	[ 0	locks=0 ]	(	0	)
 normalize	[ 0	locks=0 ]	(	"off"	)
 reverse	[ 0	locks=0 ]	(	"off"	)
@@ -1185,7 +1222,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.287"
 	}
 }
 
@@ -1246,7 +1283,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.287"
 	}
 }
 
@@ -1305,7 +1342,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.287"
 	}
 }
 
@@ -1342,7 +1379,7 @@ inputs
 stat
 {
   create 1550365152
-  modify 1573533437
+  modify 1576703718
   author Henry@LAPPY586
   access 0777
 }
@@ -1380,7 +1417,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.287"
 	}
 }
 

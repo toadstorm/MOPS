@@ -32,22 +32,24 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.360656 -0.0762295
-connectornextid 0
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+position -1.00736 -1.54935
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
 inputsNamed3
 {
+0 	MOPs_Transform_Modifier 1 1 "input1"
 }
 inputs
 {
+0 	MOPs_Transform_Modifier 0 1
 }
 stat
 {
-  create 1573531926
-  modify 1573532052
+  create 1577285406
+  modify 1577286293
   author Henry@LAPPY586
   access 0777
 }
@@ -89,7 +91,7 @@ sopflags sopflags =
 comment ""
 position 4.15005 4.0491
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 1 "output1"
@@ -105,7 +107,7 @@ inputs
 stat
 {
   create 1523565945
-  modify 1573531927
+  modify 1577286169
   author Mo@Mo-PC
   access 0777
 }
@@ -244,6 +246,8 @@ parmop_transformsopoutput	[ 0	locks=0	autoscope=0 ]	(	"default"	)
 transformsopoutput	[ 0	locks=0	autoscope=0 ]	(	"on"	)
 parmop_solveinitframe	[ 0	locks=0	autoscope=0 ]	(	"default"	)
 solveinitframe	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+parmop_numstamps	[ 0	locks=0 ]	(	"default"	)
+numstamps	[ 0	locks=0 ]	(	0	)
 parmop_usetimestep	[ 0	locks=0 ]	(	"default"	)
 usetimestep	[ 0	locks=0 ]	(	"on"	)
 parmop_timescale	[ 0	locks=0 ]	(	"default"	)
@@ -263,7 +267,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.287"
 	}
 }
 
@@ -323,7 +327,7 @@ inputs
 stat
 {
   create 1523567617
-  modify 1573531927
+  modify 1577286019
   author Mo@Mo-PC
   access 0777
 }
@@ -348,8 +352,7 @@ snippet	[ 0	locks=0 ]	(	"v@__mops_s_delta = {0,0,0};
 v@__mops_vel = {0,0,0};
 v@__mops_rot_delta = {0,0,0};
 f@__mops_falloff_delta = 0;
-
-"	)
+f@__mops_pscale_delta = 0;"	)
 exportlist	[ 0	locks=0 ]	(	*	)
 vex_strict	[ 0	locks=0 ]	(	"off"	)
 autobind	[ 0	locks=0 ]	(	"on"	)
@@ -362,6 +365,7 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -408,7 +412,7 @@ inputs
 stat
 {
   create 1539667218
-  modify 1573531927
+  modify 1577286239
   author henry@GlaDOS
   access 0777
 }
@@ -640,6 +644,12 @@ Content-Type: text/plain
         parmtag { "editor" "1" }
         parmtag { "editorlang" "vex" }
     }
+    parm {
+        name    "vex_precision"
+        baseparm
+        label   "VEX Precision"
+        export  none
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/spring_solver/d/s/spring_forces.chn"
@@ -767,6 +777,13 @@ if(chi(\"do_scale\")) {
     v@__mops_s_delta = damp * (v@__mops_s_delta + accel);
     tempscale += v@__mops_s_delta;
     v@scale = tempscale;
+    float restpscale = point(1, \"pscale\", @ptnum);
+    float temppscale = f@pscale;
+    float pscale_force = -k * (temppscale - restpscale);
+    float pscale_accel = pscale_force / mass;
+    f@__mops_pscale_delta = damp * (f@__mops_pscale_delta + pscale_accel);
+    temppscale += f@__mops_pscale_delta;
+    f@pscale = temppscale;
 }
 if(chi(\"do_falloff\")) {
     float restpos = point(1, \"mops_falloff\", @ptnum);
@@ -789,13 +806,14 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
-damping_coeff	[ 8	locks=0 ]	(	[ damping_coeff	0.90000000000000002 ] 	)
-Mass	[ 8	locks=0 ]	(	[ Mass	1 ] 	)
-Spring_Const	[ 8	locks=0 ]	(	[ Spring_Const	0.40000000000000002 ] 	)
-do_pos	[ 0	locks=0 ]	(	[ do_pos	0 ] 	)
+damping_coeff	[ 8	locks=0 ]	(	[ damping_coeff	0.96499999999999997 ] 	)
+Mass	[ 8	locks=0 ]	(	[ Mass	10 ] 	)
+Spring_Const	[ 8	locks=0 ]	(	[ Spring_Const	0.89300000000000002 ] 	)
+do_pos	[ 0	locks=0 ]	(	[ do_pos	1 ] 	)
 do_rot	[ 0	locks=0 ]	(	[ do_rot	1 ] 	)
-do_scale	[ 0	locks=0 ]	(	[ do_scale	0 ] 	)
+do_scale	[ 0	locks=0 ]	(	[ do_scale	1 ] 	)
 do_falloff	[ 0	locks=0 ]	(	[ do_falloff	0 ] 	)
 do_vexpression	[ 0	locks=0 ]	(	[ do_vexpression	0 ] 	)
 vexpression	[ 0	locks=0 ]	(	`chs(\"../../../../vexpression\")`	)
@@ -904,7 +922,7 @@ inputs
 stat
 {
   create 1539666485
-  modify 1573531927
+  modify 1577285407
   author henry@GlaDOS
   access 0777
 }
@@ -1283,7 +1301,7 @@ inputs
 stat
 {
   create 1533874785
-  modify 1573531927
+  modify 1577285407
   author Henry@LAPPY586
   access 0777
 }
@@ -1324,6 +1342,7 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1370,7 +1389,7 @@ inputs
 stat
 {
   create 1569472229
-  modify 1573531927
+  modify 1577286165
   author Henry@LAPPY586
   access 0777
 }
@@ -1413,6 +1432,7 @@ version 0.8
 group	[ 0	locks=0	autoscope=0 ]	(	""	)
 grouptype	[ 0	locks=0	autoscope=0 ]	(	"guess"	)
 sepparm	[ 0	locks=0 ]	(	)
+matchmode	[ 0	locks=0 ]	(	"0"	)
 folder0	[ 0	locks=0 ]	(	0	0	0	)
 do_translate	[ 0	locks=0	autoscope=0 ]	(	[ do_translate	1 ] 	)
 do_rotate	[ 0	locks=0	autoscope=0 ]	(	[ do_rotate	1 ] 	)
@@ -1476,7 +1496,7 @@ inputs
 stat
 {
   create 1539668567
-  modify 1558667766
+  modify 1577286169
   author henry@GlaDOS
   access 0777
 }
@@ -1535,7 +1555,7 @@ inputs
 stat
 {
   create 1324348265
-  modify 1573531927
+  modify 1577287112
   author jlait@andorra.sidefx.com
   access 0777
 }
@@ -1584,6 +1604,8 @@ viewportlod	[ 0	locks=0 ]	(	"full"	)
 importbyname	[ 0	locks=0	autoscope=0 ]	(	"on"	)
 objectnames	[ 0	locks=0 ]	(	"dopobject"	)
 geodatapath	[ 0	locks=0	autoscope=0 ]	(	"`stamps(\"..\", \"DATANAME\", chs(\"../datapath\"))`"	)
+transferattributes	[ 0	locks=0 ]	(	""	)
+transfergroups	[ 0	locks=0 ]	(	""	)
 inverseop	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 doposxform	[ 0	locks=0	autoscope=0 ]	(	[ doposxform	1 ] 	)
 doxform	[ 0	locks=0	autoscope=0 ]	(	[ doxform	1 ] 	)
@@ -1606,7 +1628,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.287"
 	}
 }
 
@@ -1639,7 +1661,7 @@ inputs
 stat
 {
   create 1324348294
-  modify 1573531927
+  modify 1577285407
   author jlait@andorra.sidefx.com
   access 0777
 }
@@ -1685,7 +1707,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.287"
 	}
 }
 
@@ -1718,7 +1740,7 @@ inputs
 stat
 {
   create 1324348294
-  modify 1573531927
+  modify 1577285407
   author jlait@andorra.sidefx.com
   access 0777
 }
@@ -1764,7 +1786,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.287"
 	}
 }
 
@@ -1797,7 +1819,7 @@ inputs
 stat
 {
   create 1324348294
-  modify 1573531927
+  modify 1577285407
   author jlait@andorra.sidefx.com
   access 0777
 }
@@ -1843,7 +1865,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.287"
 	}
 }
 
@@ -1876,7 +1898,7 @@ inputs
 stat
 {
   create 1324348294
-  modify 1573531927
+  modify 1577285407
   author jlait@andorra.sidefx.com
   access 0777
 }
@@ -1922,7 +1944,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.287"
 	}
 }
 
@@ -1959,7 +1981,7 @@ inputs
 stat
 {
   create 1523565981
-  modify 1573531927
+  modify 1577285407
   author Mo@Mo-PC
   access 0777
 }
@@ -1997,7 +2019,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.287"
 	}
 }
 
@@ -2056,7 +2078,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.287"
 	}
 }
 
@@ -2139,7 +2161,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.287"
 	}
 }
 
@@ -2158,7 +2180,7 @@ sopflags sopflags =
 comment ""
 position 3.10937 -0.737763
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 1 "output1"
@@ -2174,7 +2196,7 @@ inputs
 stat
 {
   create 1523609953
-  modify 1558667766
+  modify 1577285428
   author Mo@Mo-PC
   access 0777
 }
@@ -2239,7 +2261,7 @@ inputs
 stat
 {
   create 1533875540
-  modify 1573531927
+  modify 1577285407
   author Henry@LAPPY586
   access 0777
 }
@@ -2328,7 +2350,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.287"
 	}
 }
 
@@ -2466,7 +2488,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.287"
 	}
 }
 
@@ -2500,7 +2522,7 @@ inputs
 stat
 {
   create 1533877671
-  modify 1558585148
+  modify 1577285842
   author Henry@LAPPY586
   access 0777
 }
@@ -2525,7 +2547,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.287"
 	}
 }
 
@@ -2562,7 +2584,7 @@ inputs
 stat
 {
   create 1539666524
-  modify 1573531927
+  modify 1577285407
   author henry@GlaDOS
   access 0777
 }
@@ -2600,7 +2622,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.287"
 	}
 }
 
@@ -2637,7 +2659,7 @@ inputs
 stat
 {
   create 1540481191
-  modify 1573531927
+  modify 1577285407
   author henry@GlaDOS
   access 0777
 }
@@ -2675,7 +2697,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.287"
 	}
 }
 
@@ -2749,7 +2771,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.287"
 	}
 }
 
