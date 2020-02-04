@@ -32,22 +32,24 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.60004 -0.945118
-connectornextid 0
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+position 20.9883 -10.974
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
 inputsNamed3
 {
+0 	MOPs_Orient_Mesh 1 1 "input1"
 }
 inputs
 {
+0 	MOPs_Orient_Mesh 0 1
 }
 stat
 {
-  create 1578185076
-  modify 1578185083
+  create 1580787738
+  modify 1580788009
   author Henry@LAPPY586
   access 0777
 }
@@ -113,7 +115,7 @@ inputs
 stat
 {
   create 1524060453
-  modify 1578185076
+  modify 1580787815
   author Henry@LAPPY586
   access 0777
 }
@@ -456,7 +458,7 @@ Content-Type: text/plain
 version 0.8
 folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
 group	[ 0	locks=0	autoscope=0 ]	(	`chs(\"../Apply_Attributes1/group\")`	)
-grouptype	[ 8	locks=0	autoscope=0 ]	(	[ grouptype	4 ] 	)
+grouptype	[ 8	locks=0	autoscope=0 ]	(	[ grouptype	0 ] 	)
 class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
@@ -495,6 +497,26 @@ if(local) {
     // if this is not a packed primitive, use the orient attribute if possible.
     matrix3 m = primintrinsic(0, \"transform\", @ptnum);
     vector4 rot = quaternion(m);
+    string type = primintrinsic(0, \"typename\", @ptnum);
+    if((type != \"PackedGeometry\") && (type != \"PackedFragment\") && (type != \"PackedDiskSequence\") && (type != \"AlembicRef\")) {
+        // if this is a regular point, just use some basic defaults here.
+        orient = quaternion(ident());
+        if(haspointattrib(0, \"orient\")) {
+            orient = point(0, \"orient\", @ptnum);
+        } else {
+            if(haspointattrib(0, \"N\")) {
+                vector N = point(0, \"N\", @ptnum);
+                vector up = {0,1,0};
+                matrix3 mm = dihedral(N, set(0,0,1));
+                up = mm * up;
+                if(haspointattrib(0, \"up\")) {
+                    up = point(0, \"up\", @ptnum);
+                }
+                orient = quaternion(maketransform(N, up));
+            }
+        }
+        rot = orient;
+    }
     rot = qmultiply(mops_orient, rot);
     translate = qrotate(rot, translate);
 }
@@ -571,7 +593,7 @@ inputs
 stat
 {
   create 1569469174
-  modify 1578185076
+  modify 1580787739
   author Henry@LAPPY586
   access 0777
 }
@@ -647,8 +669,8 @@ Content-Type: text/plain
 
 {
 version 0.8
-group	[ 0	locks=0	autoscope=0 ]	(	[ group	"7 11 14 17-18" ] 	)
-grouptype	[ 0	locks=0	autoscope=0 ]	(	[ grouptype	4 ] 	)
+group	[ 0	locks=0	autoscope=0 ]	(	[ group	"" ] 	)
+grouptype	[ 0	locks=0	autoscope=0 ]	(	[ grouptype	0 ] 	)
 sepparm	[ 0	locks=0 ]	(	)
 matchmode	[ 0	locks=0 ]	(	"0"	)
 folder0	[ 0	locks=0 ]	(	0	0	0	)
@@ -714,7 +736,7 @@ inputs
 stat
 {
   create 1524060453
-  modify 1578185076
+  modify 1580787739
   author Henry@LAPPY586
   access 0777
 }
@@ -949,7 +971,7 @@ Content-Type: text/plain
 version 0.8
 folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
 group	[ 0	locks=0	autoscope=0 ]	(	`chs(\"../Apply_Attributes1/group\")`	)
-grouptype	[ 8	locks=0	autoscope=0 ]	(	[ grouptype	4 ] 	)
+grouptype	[ 8	locks=0	autoscope=0 ]	(	[ grouptype	0 ] 	)
 class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
@@ -1052,7 +1074,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.287"
+		"value":"18.0.348"
 	}
 }
 
