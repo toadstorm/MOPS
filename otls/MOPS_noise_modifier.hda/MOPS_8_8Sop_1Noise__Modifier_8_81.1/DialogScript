@@ -276,6 +276,7 @@
                 label   "Time Varying"
                 type    toggle
                 default { "off" }
+                disablewhen "{ noisetype > 9 }"
                 range   { 0 10 }
                 parmtag { "autoscope" "0000000000000000" }
             }

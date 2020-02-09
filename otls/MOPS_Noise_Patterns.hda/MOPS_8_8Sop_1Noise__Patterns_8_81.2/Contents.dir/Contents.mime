@@ -32,7 +32,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.81685 0.37692
+position 13.7562 -11.9418
 connectornextid 0
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -46,8 +46,8 @@ inputs
 }
 stat
 {
-  create 1571799722
-  modify 1571799742
+  create 1581275912
+  modify 1581275916
   author Henry@LAPPY586
   access 0777
 }
@@ -130,7 +130,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1571799722
+  modify 1581275912
   author Henry@LAPPY586
   access 0777
 }
@@ -152,7 +152,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector uvselect "Modify Points"
+            bindselector points "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -355,6 +355,12 @@ Content-Type: text/plain
         type    toggle
         default { "0" }
         range   { 0 10 }
+    }
+    parm {
+        name    "vex_precision"
+        baseparm
+        label   "VEX Precision"
+        export  none
     }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -537,10 +543,11 @@ vex_updatenmls	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
 vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 amp	[ 8	locks=0	autoscope=0 ]	(	[ ampx	1 ] 	[ ampy	1 ] 	[ ampz	1 ] 	)
 roughness	[ 0	locks=0	autoscope=0 ]	(	[ roughness	0.5 ] 	)
-octaves	[ 0	locks=0	autoscope=0 ]	(	[ octaves	1 ] 	)
+octaves	[ 0	locks=0	autoscope=0 ]	(	[ octaves	2 ] 	)
 freq	[ 0	locks=0	autoscope=0 ]	(	[ freqx	1 ] 	[ freqy	1 ] 	[ freqz	1 ] 	[ freqw	1 ] 	)
 offset	[ 0	locks=0	autoscope=0 ]	(	[ offsetx	0 ] 	[ offsety	0 ] 	[ offsetz	0 ] 	[ offsetw	0 ] 	)
 uniform	[ 0	locks=0	autoscope=0 ]	(	[ uniform	0 ] 	)
@@ -592,7 +599,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1571799722
+  modify 1581275912
   author Henry@LAPPY586
   access 0777
 }
@@ -614,7 +621,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector uvselect "Modify Points"
+            bindselector points "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -818,6 +825,12 @@ Content-Type: text/plain
         type    toggle
         default { "0" }
         range   { 0 10 }
+    }
+    parm {
+        name    "vex_precision"
+        baseparm
+        label   "VEX Precision"
+        export  none
     }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -999,6 +1012,7 @@ vex_updatenmls	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
 vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 amp	[ 8	locks=0 ]	(	[ ampx	1 ] 	[ ampy	1 ] 	[ ampz	1 ] 	)
 roughness	[ 0	locks=0	autoscope=0 ]	(	[ roughness	0.5 ] 	)
@@ -1054,7 +1068,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1571799722
+  modify 1581275912
   author Henry@LAPPY586
   access 0777
 }
@@ -1076,7 +1090,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector uvselect "Modify Points"
+            bindselector points "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -1280,6 +1294,12 @@ Content-Type: text/plain
         type    toggle
         default { "0" }
         range   { 0 10 }
+    }
+    parm {
+        name    "vex_precision"
+        baseparm
+        label   "VEX Precision"
+        export  none
     }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1470,6 +1490,7 @@ vex_updatenmls	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
 vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 amp	[ 8	locks=0 ]	(	[ ampx	1 ] 	[ ampy	1 ] 	[ ampz	1 ] 	)
 roughness	[ 0	locks=0	autoscope=0 ]	(	[ roughness	0.5 ] 	)
@@ -1525,7 +1546,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1571799722
+  modify 1581275912
   author Henry@LAPPY586
   access 0777
 }
@@ -1547,7 +1568,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector uvselect "Modify Points"
+            bindselector points "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -1751,6 +1772,12 @@ Content-Type: text/plain
         type    toggle
         default { "0" }
         range   { 0 10 }
+    }
+    parm {
+        name    "vex_precision"
+        baseparm
+        label   "VEX Precision"
+        export  none
     }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1941,6 +1968,7 @@ vex_updatenmls	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
 vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 amp	[ 8	locks=0 ]	(	[ ampx	1 ] 	[ ampy	1 ] 	[ ampz	1 ] 	)
 roughness	[ 0	locks=0	autoscope=0 ]	(	[ roughness	0.5 ] 	)
@@ -1996,7 +2024,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1571799722
+  modify 1581275912
   author Henry@LAPPY586
   access 0777
 }
@@ -2018,7 +2046,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector uvselect "Modify Points"
+            bindselector points "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -2222,6 +2250,12 @@ Content-Type: text/plain
         default { "0" }
         range   { 0 10 }
     }
+    parm {
+        name    "vex_precision"
+        baseparm
+        label   "VEX Precision"
+        export  none
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/Worley_f2.chn"
@@ -2411,6 +2445,7 @@ vex_updatenmls	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
 vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 amp	[ 8	locks=0 ]	(	[ ampx	1 ] 	[ ampy	1 ] 	[ ampz	1 ] 	)
 roughness	[ 0	locks=0	autoscope=0 ]	(	[ roughness	0.5 ] 	)
@@ -2466,7 +2501,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1571799722
+  modify 1581275912
   author Henry@LAPPY586
   access 0777
 }
@@ -2488,7 +2523,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector uvselect "Modify Points"
+            bindselector points "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -2699,6 +2734,12 @@ Content-Type: text/plain
         type    toggle
         default { "0" }
         range   { 0 10 }
+    }
+    parm {
+        name    "vex_precision"
+        baseparm
+        label   "VEX Precision"
+        export  none
     }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2913,6 +2954,7 @@ vex_updatenmls	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
 vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 amp	[ 8	locks=0 ]	(	[ ampx	1 ] 	[ ampy	1 ] 	[ ampz	1 ] 	)
 roughness	[ 0	locks=0	autoscope=0 ]	(	[ roughness	0.5 ] 	)
@@ -2969,7 +3011,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1571799722
+  modify 1581275912
   author Henry@LAPPY586
   access 0777
 }
@@ -2991,7 +3033,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector uvselect "Modify Points"
+            bindselector points "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -3196,6 +3238,12 @@ Content-Type: text/plain
         default { "0" }
         range   { 0 10 }
     }
+    parm {
+        name    "vex_precision"
+        baseparm
+        label   "VEX Precision"
+        export  none
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/Simplex_Folded.chn"
@@ -3377,6 +3425,7 @@ vex_updatenmls	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
 vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 amp	[ 0	locks=0 ]	(	[ ampx	1 ] 	[ ampy	1 ] 	[ ampz	1 ] 	)
 roughness	[ 0	locks=0	autoscope=0 ]	(	[ roughness	0.5 ] 	)
@@ -3432,7 +3481,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1571799722
+  modify 1581275912
   author Henry@LAPPY586
   access 0777
 }
@@ -3454,7 +3503,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector uvselect "Modify Points"
+            bindselector points "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -3667,6 +3716,12 @@ Content-Type: text/plain
         default { "0" }
         range   { 0 10 }
     }
+    parm {
+        name    "vex_precision"
+        baseparm
+        label   "VEX Precision"
+        export  none
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/simplex_warped.chn"
@@ -3863,6 +3918,7 @@ vex_updatenmls	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
 vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0	autoscope=0 ]	(	0	0	)
 amp	[ 0	locks=0 ]	(	[ ampx	1 ] 	[ ampy	1 ] 	[ ampz	1 ] 	)
 roughness	[ 0	locks=0	autoscope=0 ]	(	[ roughness	0.5 ] 	)
@@ -3919,7 +3975,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1571799722
+  modify 1581275912
   author Henry@LAPPY586
   access 0777
 }
@@ -3941,7 +3997,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector uvselect "Modify Points"
+            bindselector points "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -4145,6 +4201,12 @@ Content-Type: text/plain
         type    toggle
         default { "0" }
         range   { 0 10 }
+    }
+    parm {
+        name    "vex_precision"
+        baseparm
+        label   "VEX Precision"
+        export  none
     }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -4328,6 +4390,7 @@ vex_updatenmls	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
 vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 amp	[ 0	locks=0 ]	(	[ ampx	1 ] 	[ ampy	1 ] 	[ ampz	1 ] 	)
 roughness	[ 0	locks=0	autoscope=0 ]	(	[ roughness	0.5 ] 	)
@@ -4383,7 +4446,7 @@ inputs
 stat
 {
   create 1524060464
-  modify 1571799722
+  modify 1581275912
   author Henry@LAPPY586
   access 0777
 }
@@ -4405,7 +4468,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector uvselect "Modify Points"
+            bindselector points "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -4565,6 +4628,12 @@ Content-Type: text/plain
         default { "0" }
         range   { 0 10 }
     }
+    parm {
+        name    "vex_precision"
+        baseparm
+        label   "VEX Precision"
+        export  none
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/rest.chn"
@@ -4613,6 +4682,7 @@ vex_updatenmls	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
 vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0	autoscope=0 ]	(	0	0	)
 use_rest	[ 0	locks=0	autoscope=0 ]	(	[ use_rest	1 ] 	)
 has_rest	[ 0	locks=0	autoscope=0 ]	(	[ has_rest	1 ] 	)
@@ -4660,7 +4730,7 @@ inputs
 stat
 {
   create 1549075027
-  modify 1571799722
+  modify 1581275912
   author Henry@LAPPY586
   access 0777
 }
@@ -4694,6 +4764,7 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -4738,7 +4809,7 @@ inputs
 stat
 {
   create 1549515796
-  modify 1571799722
+  modify 1581275912
   author Henry@LAPPY586
   access 0777
 }
@@ -4769,7 +4840,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector uvselect "Modify Points"
+            bindselector points "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -4930,6 +5001,12 @@ Content-Type: text/plain
         size    2
         default { "0" "0" }
         range   { 0 1 }
+    }
+    parm {
+        name    "vex_precision"
+        baseparm
+        label   "VEX Precision"
+        export  none
     }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -4993,7 +5070,8 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
-folder1	[ 0	locks=0 ]	(	1	1	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
+folder1	[ 0	locks=0 ]	(	0	0	)
 input_range	[ 8	locks=0 ]	(	[ input_rangex	-1 ] 	[ input_rangey	1 ] 	)
 output_range	[ 8	locks=0 ]	(	[ output_rangex	-1 ] 	[ output_rangey	1 ] 	)
 bindname1	[ 0	locks=0 ]	(	__attr	)
@@ -5042,7 +5120,7 @@ inputs
 stat
 {
   create 1550294119
-  modify 1571799722
+  modify 1581275912
   author Henry@LAPPY586
   access 0777
 }
@@ -5064,7 +5142,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector uvselect "Modify Points"
+            bindselector points "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -5225,6 +5303,12 @@ Content-Type: text/plain
         size    2
         default { "0" "0" }
         range   { 0 1 }
+    }
+    parm {
+        name    "vex_precision"
+        baseparm
+        label   "VEX Precision"
+        export  none
     }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -5289,6 +5373,7 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 input_range	[ 8	locks=0 ]	(	[ input_rangex	0 ] 	[ input_rangey	1 ] 	)
 output_range	[ 8	locks=0 ]	(	[ output_rangex	0 ] 	[ output_rangey	1 ] 	)
@@ -5338,7 +5423,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1571799722
+  modify 1581275912
   author Henry@LAPPY586
   access 0777
 }
@@ -5360,7 +5445,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector uvselect "Modify Points"
+            bindselector points "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -5563,6 +5648,12 @@ Content-Type: text/plain
         type    toggle
         default { "0" }
         range   { 0 10 }
+    }
+    parm {
+        name    "vex_precision"
+        baseparm
+        label   "VEX Precision"
+        export  none
     }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -5746,6 +5837,7 @@ vex_updatenmls	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
 vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 amp	[ 8	locks=0	autoscope=0 ]	(	[ ampx	1 ] 	[ ampy	1 ] 	[ ampz	1 ] 	)
 roughness	[ 0	locks=0	autoscope=0 ]	(	[ roughness	0.5 ] 	)
@@ -5801,7 +5893,7 @@ inputs
 stat
 {
   create 1554935939
-  modify 1571799722
+  modify 1581275912
   author Henry@LAPPY586
   access 0777
 }
@@ -5835,6 +5927,7 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -5879,7 +5972,7 @@ inputs
 stat
 {
   create 1554935960
-  modify 1571799722
+  modify 1581275912
   author Henry@LAPPY586
   access 0777
 }
@@ -5901,7 +5994,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector uvselect "Modify Points"
+            bindselector points "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -6054,6 +6147,12 @@ Content-Type: text/plain
         default { "0" }
         range   { 0 1 }
     }
+    parm {
+        name    "vex_precision"
+        baseparm
+        label   "VEX Precision"
+        export  none
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/pointwrangle2.chn"
@@ -6094,6 +6193,7 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 timescale	[ 0	locks=0 ]	(	[ timescale	1 ] 	)
 }
@@ -6140,7 +6240,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1571799722
+  modify 1581275912
   author Henry@LAPPY586
   access 0777
 }
@@ -6162,7 +6262,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector uvselect "Modify Points"
+            bindselector points "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -6365,6 +6465,12 @@ Content-Type: text/plain
         type    toggle
         default { "0" }
         range   { 0 10 }
+    }
+    parm {
+        name    "vex_precision"
+        baseparm
+        label   "VEX Precision"
+        export  none
     }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -6548,6 +6654,7 @@ vex_updatenmls	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
 vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 amp	[ 8	locks=0	autoscope=0 ]	(	[ ampx	1 ] 	[ ampy	1 ] 	[ ampz	1 ] 	)
 roughness	[ 8	locks=0	autoscope=0 ]	(	[ roughness	0.5 ] 	)
@@ -6603,7 +6710,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1571799722
+  modify 1581275912
   author Henry@LAPPY586
   access 0777
 }
@@ -6625,7 +6732,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector uvselect "Modify Points"
+            bindselector points "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -6828,6 +6935,12 @@ Content-Type: text/plain
         type    toggle
         default { "0" }
         range   { 0 10 }
+    }
+    parm {
+        name    "vex_precision"
+        baseparm
+        label   "VEX Precision"
+        export  none
     }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -7012,6 +7125,7 @@ vex_updatenmls	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
 vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 amp	[ 8	locks=0	autoscope=0 ]	(	[ ampx	1 ] 	[ ampy	1 ] 	[ ampz	1 ] 	)
 roughness	[ 8	locks=0	autoscope=0 ]	(	[ roughness	0.5 ] 	)
@@ -7093,7 +7207,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.348"
 	}
 }
 
@@ -7150,7 +7264,7 @@ inputs
 stat
 {
   create 1549075032
-  modify 1571799722
+  modify 1581275912
   author Henry@LAPPY586
   access 0777
 }
@@ -7188,7 +7302,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.348"
 	}
 }
 
@@ -7247,7 +7361,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.348"
 	}
 }
 
@@ -7346,7 +7460,7 @@ inputs
 stat
 {
   create 1550294318
-  modify 1571799722
+  modify 1581275912
   author Henry@LAPPY586
   access 0777
 }
@@ -7377,7 +7491,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.348"
 	}
 }
 
@@ -7414,7 +7528,7 @@ inputs
 stat
 {
   create 1550294550
-  modify 1571799722
+  modify 1581275912
   author Henry@LAPPY586
   access 0777
 }
@@ -7452,7 +7566,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.348"
 	}
 }
 
@@ -7487,7 +7601,7 @@ inputs
 stat
 {
   create 1550294976
-  modify 1571799722
+  modify 1581275912
   author Henry@LAPPY586
   access 0777
 }
@@ -7518,7 +7632,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.348"
 	}
 }
 
@@ -7619,7 +7733,7 @@ inputs
 stat
 {
   create 1554935927
-  modify 1571799722
+  modify 1581275912
   author Henry@LAPPY586
   access 0777
 }
@@ -7657,7 +7771,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.348"
 	}
 }
 
