@@ -32,7 +32,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 2.04735 0.597122
+position 9.5106 -12.3011
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -41,16 +41,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	MOPs_Instancer 1 1 "input1"
+0 	MOPs_Collision_Geo 0 1 "input1"
 }
 inputs
 {
-0 	MOPs_Instancer 0 1
+0 	MOPs_Collision_Geo 0 1
 }
 stat
 {
-  create 1578457223
-  modify 1578457480
+  create 1581278489
+  modify 1581278542
   author Henry@LAPPY586
   access 0777
 }
@@ -109,7 +109,7 @@ inputs
 stat
 {
   create 1578457255
-  modify 1578457433
+  modify 1581278490
   author Henry@LAPPY586
   access 0777
 }
@@ -264,7 +264,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1578457225
+  modify 1581278490
   author Henry@LAPPY586
   access 0777
 }
@@ -468,7 +468,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1578457225
+  modify 1581278490
   author Henry@LAPPY586
   access 0777
 }
@@ -504,7 +504,7 @@ Content-Type: text/plain
       lefttype = extend
       righttype = extend
       flags = 0
-      segment { length = 0 expr = ch(\"../Perlin/grouptype\") }
+      segment { length = 0 expr = ch(\"../grouptype\") }
     }
   }
 
@@ -514,14 +514,14 @@ Content-Type: text/plain
 
 {
 version 0.8
-group	[ 0	locks=0	autoscope=0 ]	(	`chs(\"../Perlin/group\")`	)
+group	[ 0	locks=0	autoscope=0 ]	(	`chs(\"../group\")`	)
 grouptype	[ 8	locks=0 ]	(	[ grouptype	0 ] 	)
 falloff_attr	[ 0	locks=0 ]	(	mops_falloff	)
 input	[ 0	locks=0	autoscope=0 ]	(	[ input	8 ] 	)
 strength	[ 0	locks=0	autoscope=0 ]	(	[ strength	1 ] 	)
 switchclamp	[ 0	locks=0	autoscope=0 ]	(	[ switchclamp	0 ] 	)
 sepparm	[ 0	locks=0 ]	(	)
-do_preview	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+do_preview	[ 0	locks=0 ]	(	"off"	)
 folder0	[ 0	locks=0 ]	(	0	)
 do_sprite	[ 0	locks=0 ]	(	"on"	)
 spritescale	[ 0	locks=0 ]	(	1	)
@@ -587,7 +587,7 @@ inputs
 stat
 {
   create 1524060464
-  modify 1578457225
+  modify 1581278490
   author Henry@LAPPY586
   access 0777
 }
@@ -872,7 +872,7 @@ inputs
 stat
 {
   create 1524060464
-  modify 1578457225
+  modify 1581278490
   author Henry@LAPPY586
   access 0777
 }
@@ -951,7 +951,7 @@ inputs
 stat
 {
   create 1536023491
-  modify 1578457225
+  modify 1581278490
   author Henry@LAPPY586
   access 0777
 }
@@ -1197,7 +1197,7 @@ do_sprite	[ 0	locks=0 ]	(	[ do_sprite	0 ] 	)
 spritemap	[ 0	locks=0 ]	(	sphere_matte.pic	)
 spritescale	[ 0	locks=0 ]	(	[ spritescale	1 ] 	)
 override_scale	[ 0	locks=0 ]	(	[ override_scale	0 ] 	)
-ramp_preset	[ 0	locks=0 ]	(	[ ramp_preset	0 ] 	)
+ramp_preset	[ 0	locks=0 ]	(	[ ramp_preset	2 ] 	)
 falloff_heatmap	[ 0	locks=0 ]	(	[ falloff_heatmap	5 ] 	)
 falloff_heatmap1pos	[ 0	locks=0 ]	(	[ falloff_heatmap1pos	0 ] 	)
 falloff_heatmap1c	[ 0	locks=0 ]	(	[ falloff_heatmap1cr	0.036199998110532761 ] 	[ falloff_heatmap1cg	0 ] 	[ falloff_heatmap1cb	0.5429999828338623 ] 	)
@@ -1260,7 +1260,7 @@ inputs
 stat
 {
   create 1550356490
-  modify 1578457241
+  modify 1581278490
   author Henry@LAPPY586
   access 0777
 }
@@ -1340,7 +1340,7 @@ inputs
 stat
 {
   create 1568176106
-  modify 1578457225
+  modify 1581278490
   author Henry@LAPPY586
   access 0777
 }
@@ -1508,7 +1508,7 @@ attrname	[ 0	locks=0 ]	(	mops_falloff	)
 attrnamev	[ 0	locks=0	autoscope=0 ]	(	mops_falloff	)
 sepparm	[ 0	locks=0 ]	(	)
 folder0	[ 0	locks=0 ]	(	0	0	0	)
-input	[ 0	locks=0	autoscope=0 ]	(	[ input	0 ] 	)
+input	[ 0	locks=0	autoscope=0 ]	(	[ input	5 ] 	)
 use_rest	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 sepparm2	[ 0	locks=0 ]	(	)
 amp	[ 0	locks=0	autoscope=0 ]	(	[ ampx	1 ] 	[ ampy	1 ] 	[ ampz	1 ] 	)
@@ -1519,7 +1519,7 @@ octaves	[ 0	locks=0	autoscope=0 ]	(	[ octaves	2 ] 	)
 offset	[ 0	locks=0	autoscope=0 ]	(	[ offsetx	0 ] 	[ offsety	0 ] 	[ offsetz	0 ] 	[ offsetw	0 ] 	)
 tile_size	[ 0	locks=0	autoscope=0 ]	(	[ tile_sizex	2 ] 	[ tile_sizey	1.3999999999999999 ] 	[ tile_sizez	1.3999999999999999 ] 	)
 Distort	[ 0	locks=0	autoscope=0 ]	(	[ Distortx	0.20000000000000001 ] 	[ Distorty	0.20000000000000001 ] 	[ Distortz	0.20000000000000001 ] 	)
-time_varying	[ 0	locks=0	autoscope=0 ]	(	[ time_varying	1 ] 	)
+time_varying	[ 0	locks=0	autoscope=0 ]	(	[ time_varying	0 ] 	)
 time_scale	[ 0	locks=0	autoscope=0 ]	(	[ time_scale	1 ] 	)
 input_rangev	[ 0	locks=0 ]	(	-1	1	)
 output_rangev	[ 0	locks=0 ]	(	-1	1	)
@@ -1593,7 +1593,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.287"
+		"value":"18.0.348"
 	}
 }
 
@@ -1654,7 +1654,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.287"
+		"value":"18.0.348"
 	}
 }
 
@@ -1691,7 +1691,7 @@ inputs
 stat
 {
   create 1524060464
-  modify 1578457227
+  modify 1581278490
   author Henry@LAPPY586
   access 0777
 }
@@ -1729,7 +1729,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.287"
+		"value":"18.0.348"
 	}
 }
 
@@ -1807,7 +1807,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.287"
+		"value":"18.0.348"
 	}
 }
 
@@ -1842,7 +1842,7 @@ inputs
 stat
 {
   create 1524060464
-  modify 1578457225
+  modify 1581278490
   author Henry@LAPPY586
   access 0777
 }
@@ -1875,7 +1875,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.287"
+		"value":"18.0.348"
 	}
 }
 
@@ -1936,7 +1936,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.287"
+		"value":"18.0.348"
 	}
 }
 
@@ -1997,7 +1997,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.287"
+		"value":"18.0.348"
 	}
 }
 
@@ -2096,7 +2096,7 @@ inputs
 stat
 {
   create 1565319729
-  modify 1578457225
+  modify 1581278490
   author Henry@LAPPY586
   access 0777
 }
@@ -2141,7 +2141,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.287"
+		"value":"18.0.348"
 	}
 }
 
@@ -2176,7 +2176,7 @@ inputs
 stat
 {
   create 1565319729
-  modify 1578457225
+  modify 1581278490
   author Henry@LAPPY586
   access 0777
 }
@@ -2207,7 +2207,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.287"
+		"value":"18.0.348"
 	}
 }
 

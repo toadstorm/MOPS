@@ -32,22 +32,25 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 2.91803 -0.928689
-connectornextid 0
+position 14.4846 -10.2863
+connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
+1 "output1"
 }
 inputsNamed3
 {
+0 	vellumcloth1 1 1 "input1"
 }
 inputs
 {
+0 	vellumcloth1 0 1
 }
 stat
 {
-  create 1573535166
-  modify 1573535301
+  create 1580754233
+  modify 1580787868
   author Henry@LAPPY586
   access 0777
 }
@@ -105,7 +108,7 @@ inputs
 stat
 {
   create 1526617897
-  modify 1573535166
+  modify 1580754233
   author Henry@LAPPY586
   access 0777
 }
@@ -288,6 +291,12 @@ Content-Type: text/plain
         default { "0" }
         range   { 0 10 }
     }
+    parm {
+        name    "vex_precision"
+        baseparm
+        label   "VEX Precision"
+        export  none
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/cross_up.parm"
@@ -315,6 +324,7 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 up	[ 0	locks=0 ]	(	0	1	0	)
 cross	[ 0	locks=0 ]	(	0	)
@@ -344,7 +354,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.33382 -6.2558
+position 3.7101 -5.28151
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -362,7 +372,7 @@ inputs
 stat
 {
   create 1526617949
-  modify 1529782497
+  modify 1580787879
   author Henry@LAPPY586
   access 0777
 }
@@ -543,7 +553,7 @@ inputs
 stat
 {
   create 1526618124
-  modify 1573535166
+  modify 1580754233
   author Henry@LAPPY586
   access 0777
 }
@@ -580,6 +590,7 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -615,16 +626,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	visualize1 1 1 "input1"
+0 	do_viz 1 1 "input1"
 }
 inputs
 {
-0 	visualize1 0 1
+0 	do_viz 0 1
 }
 stat
 {
   create 1526618368
-  modify 1573535167
+  modify 1580787869
   author Henry@LAPPY586
   access 0777
 }
@@ -1176,6 +1187,12 @@ Content-Type: text/plain
         parmtag { "parmvop" "1" }
         parmtag { "shaderparmcontexts" "cvex" }
     }
+    parm {
+        name    "vex_precision"
+        baseparm
+        label   "VEX Precision"
+        export  none
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/curl_noise.chn"
@@ -1299,6 +1316,7 @@ vop_forcecompile	[ 0	locks=0 ]	(	0	)
 vex_cwdpath	[ 0	locks=0 ]	(	""	)
 vex_outputmask	[ 0	locks=0 ]	(	*	)
 vex_multithread	[ 0	locks=0 ]	(	"on"	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 autobind	[ 0	locks=0 ]	(	"on"	)
 bindings	[ 0	locks=0 ]	(	0	)
 groupautobind	[ 0	locks=0 ]	(	"on"	)
@@ -1353,7 +1371,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.348"
 	}
 }
 
@@ -1660,7 +1678,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.348"
 	}
 }
 
@@ -1734,6 +1752,9 @@ colordef	[ 0	locks=0 ]	(	0	0	0	)
 color4def	[ 0	locks=0 ]	(	0	0	0	0	)
 bsdfdef	[ 0	locks=0 ]	(	""	)
 coshaderdef	[ 0	locks=0 ]	(	""	)
+surfacedef	[ 0	locks=0 ]	(	""	)
+displacementdef	[ 0	locks=0 ]	(	""	)
+atmospheredef	[ 0	locks=0 ]	(	""	)
 floatadef	[ 0	locks=0 ]	(	)
 intadef	[ 0	locks=0 ]	(	)
 vector2adef	[ 0	locks=0 ]	(	)
@@ -1763,7 +1784,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.348"
 	}
 }
 
@@ -1842,6 +1863,9 @@ colordef	[ 0	locks=0 ]	(	0	0	0	)
 color4def	[ 0	locks=0 ]	(	0	0	0	0	)
 bsdfdef	[ 0	locks=0 ]	(	""	)
 coshaderdef	[ 0	locks=0 ]	(	""	)
+surfacedef	[ 0	locks=0 ]	(	""	)
+displacementdef	[ 0	locks=0 ]	(	""	)
+atmospheredef	[ 0	locks=0 ]	(	""	)
 floatadef	[ 0	locks=0 ]	(	)
 intadef	[ 0	locks=0 ]	(	)
 vector2adef	[ 0	locks=0 ]	(	)
@@ -1890,7 +1914,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.348"
 	}
 }
 
@@ -1965,6 +1989,9 @@ colordef	[ 0	locks=0 ]	(	0	0	0	)
 color4def	[ 0	locks=0 ]	(	0	0	0	0	)
 bsdfdef	[ 0	locks=0 ]	(	""	)
 coshaderdef	[ 0	locks=0 ]	(	""	)
+surfacedef	[ 0	locks=0 ]	(	""	)
+displacementdef	[ 0	locks=0 ]	(	""	)
+atmospheredef	[ 0	locks=0 ]	(	""	)
 floatadef	[ 0	locks=0 ]	(	)
 intadef	[ 0	locks=0 ]	(	)
 vector2adef	[ 0	locks=0 ]	(	)
@@ -1994,7 +2021,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.348"
 	}
 }
 
@@ -2073,6 +2100,9 @@ colordef	[ 0	locks=0 ]	(	0	0	0	)
 color4def	[ 0	locks=0 ]	(	0	0	0	0	)
 bsdfdef	[ 0	locks=0 ]	(	""	)
 coshaderdef	[ 0	locks=0 ]	(	""	)
+surfacedef	[ 0	locks=0 ]	(	""	)
+displacementdef	[ 0	locks=0 ]	(	""	)
+atmospheredef	[ 0	locks=0 ]	(	""	)
 floatadef	[ 0	locks=0 ]	(	)
 intadef	[ 0	locks=0 ]	(	)
 vector2adef	[ 0	locks=0 ]	(	)
@@ -2121,7 +2151,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.348"
 	}
 }
 
@@ -2200,6 +2230,9 @@ colordef	[ 0	locks=0 ]	(	0	0	0	)
 color4def	[ 0	locks=0 ]	(	0	0	0	0	)
 bsdfdef	[ 0	locks=0 ]	(	""	)
 coshaderdef	[ 0	locks=0 ]	(	""	)
+surfacedef	[ 0	locks=0 ]	(	""	)
+displacementdef	[ 0	locks=0 ]	(	""	)
+atmospheredef	[ 0	locks=0 ]	(	""	)
 floatadef	[ 0	locks=0 ]	(	)
 intadef	[ 0	locks=0 ]	(	)
 vector2adef	[ 0	locks=0 ]	(	)
@@ -2248,7 +2281,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.348"
 	}
 }
 
@@ -2327,6 +2360,9 @@ colordef	[ 0	locks=0 ]	(	0	0	0	)
 color4def	[ 0	locks=0 ]	(	0	0	0	0	)
 bsdfdef	[ 0	locks=0 ]	(	""	)
 coshaderdef	[ 0	locks=0 ]	(	""	)
+surfacedef	[ 0	locks=0 ]	(	""	)
+displacementdef	[ 0	locks=0 ]	(	""	)
+atmospheredef	[ 0	locks=0 ]	(	""	)
 floatadef	[ 0	locks=0 ]	(	)
 intadef	[ 0	locks=0 ]	(	)
 vector2adef	[ 0	locks=0 ]	(	)
@@ -2375,7 +2411,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.348"
 	}
 }
 
@@ -2454,6 +2490,9 @@ colordef	[ 0	locks=0 ]	(	0	0	0	)
 color4def	[ 0	locks=0 ]	(	0	0	0	0	)
 bsdfdef	[ 0	locks=0 ]	(	""	)
 coshaderdef	[ 0	locks=0 ]	(	""	)
+surfacedef	[ 0	locks=0 ]	(	""	)
+displacementdef	[ 0	locks=0 ]	(	""	)
+atmospheredef	[ 0	locks=0 ]	(	""	)
 floatadef	[ 0	locks=0 ]	(	)
 intadef	[ 0	locks=0 ]	(	)
 vector2adef	[ 0	locks=0 ]	(	)
@@ -2502,7 +2541,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.348"
 	}
 }
 
@@ -2581,6 +2620,9 @@ colordef	[ 0	locks=0 ]	(	0	0	0	)
 color4def	[ 0	locks=0 ]	(	0	0	0	0	)
 bsdfdef	[ 0	locks=0 ]	(	""	)
 coshaderdef	[ 0	locks=0 ]	(	""	)
+surfacedef	[ 0	locks=0 ]	(	""	)
+displacementdef	[ 0	locks=0 ]	(	""	)
+atmospheredef	[ 0	locks=0 ]	(	""	)
 floatadef	[ 0	locks=0 ]	(	)
 intadef	[ 0	locks=0 ]	(	)
 vector2adef	[ 0	locks=0 ]	(	)
@@ -2629,7 +2671,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.348"
 	}
 }
 
@@ -2708,6 +2750,9 @@ colordef	[ 0	locks=0 ]	(	0	0	0	)
 color4def	[ 0	locks=0 ]	(	0	0	0	0	)
 bsdfdef	[ 0	locks=0 ]	(	""	)
 coshaderdef	[ 0	locks=0 ]	(	""	)
+surfacedef	[ 0	locks=0 ]	(	""	)
+displacementdef	[ 0	locks=0 ]	(	""	)
+atmospheredef	[ 0	locks=0 ]	(	""	)
 floatadef	[ 0	locks=0 ]	(	)
 intadef	[ 0	locks=0 ]	(	)
 vector2adef	[ 0	locks=0 ]	(	)
@@ -2756,7 +2801,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.348"
 	}
 }
 
@@ -2835,6 +2880,9 @@ colordef	[ 0	locks=0 ]	(	0	0	0	)
 color4def	[ 0	locks=0 ]	(	0	0	0	0	)
 bsdfdef	[ 0	locks=0 ]	(	""	)
 coshaderdef	[ 0	locks=0 ]	(	""	)
+surfacedef	[ 0	locks=0 ]	(	""	)
+displacementdef	[ 0	locks=0 ]	(	""	)
+atmospheredef	[ 0	locks=0 ]	(	""	)
 floatadef	[ 0	locks=0 ]	(	)
 intadef	[ 0	locks=0 ]	(	)
 vector2adef	[ 0	locks=0 ]	(	)
@@ -2883,7 +2931,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.348"
 	}
 }
 
@@ -2962,6 +3010,9 @@ colordef	[ 0	locks=0 ]	(	0	0	0	)
 color4def	[ 0	locks=0 ]	(	0	0	0	0	)
 bsdfdef	[ 0	locks=0 ]	(	""	)
 coshaderdef	[ 0	locks=0 ]	(	""	)
+surfacedef	[ 0	locks=0 ]	(	""	)
+displacementdef	[ 0	locks=0 ]	(	""	)
+atmospheredef	[ 0	locks=0 ]	(	""	)
 floatadef	[ 0	locks=0 ]	(	)
 intadef	[ 0	locks=0 ]	(	)
 vector2adef	[ 0	locks=0 ]	(	)
@@ -3010,7 +3061,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.348"
 	}
 }
 
@@ -3089,6 +3140,9 @@ colordef	[ 0	locks=0 ]	(	0	0	0	)
 color4def	[ 0	locks=0 ]	(	0	0	0	0	)
 bsdfdef	[ 0	locks=0 ]	(	""	)
 coshaderdef	[ 0	locks=0 ]	(	""	)
+surfacedef	[ 0	locks=0 ]	(	""	)
+displacementdef	[ 0	locks=0 ]	(	""	)
+atmospheredef	[ 0	locks=0 ]	(	""	)
 floatadef	[ 0	locks=0 ]	(	)
 intadef	[ 0	locks=0 ]	(	)
 vector2adef	[ 0	locks=0 ]	(	)
@@ -3137,7 +3191,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.348"
 	}
 }
 
@@ -3216,6 +3270,9 @@ colordef	[ 0	locks=0 ]	(	0	0	0	)
 color4def	[ 0	locks=0 ]	(	0	0	0	0	)
 bsdfdef	[ 0	locks=0 ]	(	""	)
 coshaderdef	[ 0	locks=0 ]	(	""	)
+surfacedef	[ 0	locks=0 ]	(	""	)
+displacementdef	[ 0	locks=0 ]	(	""	)
+atmospheredef	[ 0	locks=0 ]	(	""	)
 floatadef	[ 0	locks=0 ]	(	)
 intadef	[ 0	locks=0 ]	(	)
 vector2adef	[ 0	locks=0 ]	(	)
@@ -3264,7 +3321,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.348"
 	}
 }
 
@@ -3343,6 +3400,9 @@ colordef	[ 0	locks=0 ]	(	0	0	0	)
 color4def	[ 0	locks=0 ]	(	0	0	0	0	)
 bsdfdef	[ 0	locks=0 ]	(	""	)
 coshaderdef	[ 0	locks=0 ]	(	""	)
+surfacedef	[ 0	locks=0 ]	(	""	)
+displacementdef	[ 0	locks=0 ]	(	""	)
+atmospheredef	[ 0	locks=0 ]	(	""	)
 floatadef	[ 0	locks=0 ]	(	)
 intadef	[ 0	locks=0 ]	(	)
 vector2adef	[ 0	locks=0 ]	(	)
@@ -3391,7 +3451,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.348"
 	}
 }
 
@@ -3470,6 +3530,9 @@ colordef	[ 0	locks=0 ]	(	0	0	0	)
 color4def	[ 0	locks=0 ]	(	0	0	0	0	)
 bsdfdef	[ 0	locks=0 ]	(	""	)
 coshaderdef	[ 0	locks=0 ]	(	""	)
+surfacedef	[ 0	locks=0 ]	(	""	)
+displacementdef	[ 0	locks=0 ]	(	""	)
+atmospheredef	[ 0	locks=0 ]	(	""	)
 floatadef	[ 0	locks=0 ]	(	)
 intadef	[ 0	locks=0 ]	(	)
 vector2adef	[ 0	locks=0 ]	(	)
@@ -3518,7 +3581,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.348"
 	}
 }
 
@@ -3747,6 +3810,9 @@ colordef	[ 0	locks=0 ]	(	0	0	0	)
 color4def	[ 0	locks=0 ]	(	0	0	0	0	)
 bsdfdef	[ 0	locks=0 ]	(	""	)
 coshaderdef	[ 0	locks=0 ]	(	""	)
+surfacedef	[ 0	locks=0 ]	(	""	)
+displacementdef	[ 0	locks=0 ]	(	""	)
+atmospheredef	[ 0	locks=0 ]	(	""	)
 floatadef	[ 0	locks=0 ]	(	)
 intadef	[ 0	locks=0 ]	(	)
 vector2adef	[ 0	locks=0 ]	(	)
@@ -3776,7 +3842,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.348"
 	}
 }
 
@@ -3855,6 +3921,9 @@ colordef	[ 0	locks=0 ]	(	0	0	0	)
 color4def	[ 0	locks=0 ]	(	0	0	0	0	)
 bsdfdef	[ 0	locks=0 ]	(	""	)
 coshaderdef	[ 0	locks=0 ]	(	""	)
+surfacedef	[ 0	locks=0 ]	(	""	)
+displacementdef	[ 0	locks=0 ]	(	""	)
+atmospheredef	[ 0	locks=0 ]	(	""	)
 floatadef	[ 0	locks=0 ]	(	)
 intadef	[ 0	locks=0 ]	(	)
 vector2adef	[ 0	locks=0 ]	(	)
@@ -3903,7 +3972,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.348"
 	}
 }
 
@@ -3938,7 +4007,7 @@ inputs
 stat
 {
   create 1529781411
-  modify 1573535166
+  modify 1580754233
   author henry@GlaDOS
   access 0777
 }
@@ -4121,6 +4190,12 @@ Content-Type: text/plain
         default { "0" }
         range   { 0 10 }
     }
+    parm {
+        name    "vex_precision"
+        baseparm
+        label   "VEX Precision"
+        export  none
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/make_up.chn"
@@ -4185,6 +4260,7 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 up_vector	[ 0	locks=0 ]	(	[ up_vectorx	0 ] 	[ up_vectory	1 ] 	[ up_vectorz	0 ] 	)
 auto_up	[ 0	locks=0 ]	(	[ auto_up	1 ] 	)
@@ -4232,7 +4308,7 @@ inputs
 stat
 {
   create 1529782497
-  modify 1573535166
+  modify 1580754233
   author henry@GlaDOS
   access 0777
 }
@@ -4414,6 +4490,12 @@ Content-Type: text/plain
         default { "0" }
         range   { 0 10 }
     }
+    parm {
+        name    "vex_precision"
+        baseparm
+        label   "VEX Precision"
+        export  none
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/inversions.chn"
@@ -4464,6 +4546,7 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 invert_N	[ 0	locks=0 ]	(	[ invert_N	0 ] 	)
 invert_up	[ 0	locks=0 ]	(	[ invert_up	0 ] 	)
@@ -4511,7 +4594,7 @@ inputs
 stat
 {
   create 1548356239
-  modify 1573535166
+  modify 1580754233
   author Henry@LAPPY586
   access 0777
 }
@@ -4611,7 +4694,7 @@ inputs
 stat
 {
   create 1548356267
-  modify 1573535166
+  modify 1580754233
   author Henry@LAPPY586
   access 0777
 }
@@ -4647,6 +4730,7 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -4715,7 +4799,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.348"
 	}
 }
 
@@ -4811,7 +4895,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.348"
 	}
 }
 
@@ -4837,18 +4921,18 @@ outputsNamed3
 }
 inputsNamed3
 {
-1 	visualize1 1 1 "input1"
+1 	do_viz 1 1 "input1"
 2 	curl_noise 2 1 "input2"
 }
 inputs
 {
-0 	visualize1 0 1
+0 	do_viz 0 1
 1 	curl_noise 0 1
 }
 stat
 {
   create 1526619587
-  modify 1573535166
+  modify 1580787868
   author Henry@LAPPY586
   access 0777
 }
@@ -4876,7 +4960,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	1 ] 	)
+input	[ 0	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -4886,7 +4970,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.348"
 	}
 }
 
@@ -4921,7 +5005,7 @@ inputs
 stat
 {
   create 1529781023
-  modify 1573535166
+  modify 1580754233
   author henry@GlaDOS
   access 0777
 }
@@ -5046,7 +5130,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.348"
 	}
 }
 
@@ -5085,7 +5169,7 @@ inputs
 stat
 {
   create 1529781118
-  modify 1573535166
+  modify 1580754233
   author henry@GlaDOS
   access 0777
 }
@@ -5123,7 +5207,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.348"
 	}
 }
 
@@ -5184,7 +5268,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.348"
 	}
 }
 
@@ -5245,7 +5329,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.348"
 	}
 }
 
@@ -5306,7 +5390,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.348"
 	}
 }
 
@@ -5365,6 +5449,7 @@ docompute	[ 0	locks=0 ]	(	"on"	)
 type	[ 0	locks=0 ]	(	"typepoint"	)
 cuspangle	[ 0	locks=0 ]	(	60	)
 method	[ 0	locks=0 ]	(	1	)
+origifzero	[ 0	locks=0 ]	(	"off"	)
 modify	[ 0	locks=0 ]	(	0	)
 normalize	[ 0	locks=0 ]	(	"off"	)
 reverse	[ 0	locks=0 ]	(	"off"	)
@@ -5377,7 +5462,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.348"
 	}
 }
 
@@ -5445,7 +5530,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.348"
 	}
 }
 
@@ -5513,7 +5598,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.348"
 	}
 }
 
@@ -5550,7 +5635,7 @@ inputs
 stat
 {
   create 1529781399
-  modify 1573535166
+  modify 1580754233
   author henry@GlaDOS
   access 0777
 }
@@ -5588,7 +5673,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.348"
 	}
 }
 
@@ -5625,7 +5710,7 @@ inputs
 stat
 {
   create 1531533595
-  modify 1573535166
+  modify 1580754233
   author Henry@LAPPY586
   access 0777
 }
@@ -5664,7 +5749,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.348"
 	}
 }
 
@@ -5701,7 +5786,7 @@ inputs
 stat
 {
   create 1531533642
-  modify 1573535166
+  modify 1580754233
   author Henry@LAPPY586
   access 0777
 }
@@ -5740,7 +5825,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.348"
 	}
 }
 
@@ -5777,7 +5862,7 @@ inputs
 stat
 {
   create 1548356363
-  modify 1573535166
+  modify 1580754233
   author Henry@LAPPY586
   access 0777
 }
@@ -5815,7 +5900,82 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.348"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/do_viz.init"
+Content-Type: text/plain
+
+type = switch
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/do_viz.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 1.33682 -5.91682
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	inversions 1 1 "input1"
+2 	visualize1 1 1 "input2"
+}
+inputs
+{
+0 	inversions 0 1
+1 	visualize1 0 1
+}
+stat
+{
+  create 1580787868
+  modify 1580787920
+  author Henry@LAPPY586
+  access 0777
+}
+color UT_Color RGB 0.8 1 0.7 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/do_viz.chn"
+Content-Type: text/plain
+
+{
+    channel input {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../do_viz\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/do_viz.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+input	[ 0	locks=0 ]	(	[ input	0 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/do_viz.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"18.0.348"
 	}
 }
 
@@ -5823,7 +5983,7 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot.order"
 Content-Type: text/plain
 
-23
+24
 output1
 cross_up
 visualize1
@@ -5847,6 +6007,7 @@ do_up
 attribblur1
 pointwrangle1
 do_blur
+do_viz
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"

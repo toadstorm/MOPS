@@ -11,6 +11,8 @@ import shutil
 import platform
 from PySide2 import QtCore, QtWebEngineWidgets, QtWidgets
 
+import toolutils
+
 REQUESTS_ENABLED = True
 
 try:
@@ -73,7 +75,8 @@ def can_send_anonymous_stats():
 def track_event(category, action, label=None, value=0):
     """ this actually sends the tracking event to google analytics.
         the event includes an anonymous userid and some information about the node/action. """
-
+    # forget this shit, it's slowing everything down
+    return
     userid = str(get_uuid())
 
     data = {
@@ -194,54 +197,27 @@ def expand_hdas(directory):
                 print('Error expanding {}: {}'.format(i, traceback.format_exc()))
 
 
-
-
-
-
-""" WEB SERVER STUFF FOR LAUNCHING FEEDBACK WINDOW """
-
-""" NONE OF THIS SHIT WORKS YET, IGNORE IT UNTIL I CAN UNDERSTAND WHAT'S EVEN HAPPENING """
-
-# Simple HTTPHandler using SimpleHTTPServer Module
-class HTTPHandler(SimpleHTTPRequestHandler):
-    def translate_path(self, path):
-        path = SimpleHTTPRequestHandler.translate_path(self, path)
-        relpath = os.path.relpath(path, os.getcwd())
-        fullpath = os.path.join(self.server.basePath, relpath)
-        return fullpath
-    def log_message(self, format, *args):
-        return
-
-# Simple HTTPServer using BaseHTTPServer Module
-class HTTPServer(BaseHTTPServer):
-    def __init__(self, basePath, serverAddress, requestHandlerClass=HTTPHandler):
-        self.basePath = basePath
-        BaseHTTPServer.__init__(self, serverAddress, requestHandlerClass)
-
-# Target Function for HTTP Thread
-def ThreadProcess():
-    HTTPServer(MOPS_FEEDBACK_ADDRESS, ("", 8000)).serve_forever()
-
-# Starting a new Thread
-def StartThreadWithHTTP():
-    SimpleThread = threading.Thread(name='child procs', target=ThreadProcess)
-    SimpleThread.start()
-
-class MOPS_FeedbackDialog(QtWidgets.QDialog):
-    def __init__(self, parent):
-       super(MOPS_FeedbackDialog, self).__init__(parent)
-       self.setAttribute(QtCore.Qt.WA_DeleteOnClose)
-       # UI Title
-       self.setWindowTitle("Houdini - Marmoset Toolbag Viewer")
-
-       # Constructing UI
-       windowUILayout = QtWidgets.QVBoxLayout()
-
-       self.webViewer = QtWebEngineWidgets.QWebEngineView()
-       self.webViewer.load(QtCore.QUrl("http://localhost:8000"))
-       windowUILayout.addWidget(self.webViewer)
-       self.setLayout(windowUILayout)
-       self.activateWindow()
-
-def send_feedback():
-    webViewer = MOPS_FeedbackDialog(hou.ui.mainQtWindow())
+def viewport_selection(kwargs, groupparm="group", grouptypeparm="grouptype"):
+    me = kwargs['node']
+    # enable active viewport interactive grouping
+    if hou.isUIAvailable():
+        scene_viewer = toolutils.sceneViewer()
+        selection = scene_viewer.currentGeometrySelection()
+        if selection:
+            me.parm('group').set(selection.mergedSelectionString())
+            type = selection.geometryType()
+            if type == hou.geometryType.Points:
+                me.parm('grouptype').set(3)
+            if type == hou.geometryType.Primitives:
+                me.parm('grouptype').set(4)
+				
+def blackbox_definitions(out_folder):
+	# given the selected nodes, create a blackboxed definition for each asset and save to out_folder.
+	nodes = hou.selectedNodes()
+	for node in nodes:
+		definition = node.type().definition()
+		if definition:
+			def_filename = definition.libraryFilePath()
+			out_file = os.path.join(out_folder, os.path.basename(def_filename))
+			print("saving blackboxed file: {}".format(out_file))
+			definition.save(file_name=out_file, template_node=node, compile_contents=True, black_box=True)

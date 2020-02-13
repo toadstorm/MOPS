@@ -261,7 +261,7 @@
             label   "Tile Size"
             type    vector
             size    3
-            default { "2" "1.4" "1.4" }
+            default { "1" "1" "1" }
             disablewhen "{ input2 != 5 }"
             range   { 0 1 }
             parmtag { "autoscope" "0000000000000000" }
@@ -281,6 +281,7 @@
             label   "Time Varying"
             type    toggle
             default { "off" }
+            disablewhen "{ input2 > 9 }"
             range   { 0 10 }
             parmtag { "autoscope" "0000000000000000" }
         }
