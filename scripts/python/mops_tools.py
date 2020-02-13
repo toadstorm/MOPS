@@ -114,6 +114,7 @@ def dislike_node(node):
 
 
 def send_on_create_analytics(node):
+    return
     if can_send_anonymous_stats():
         # only track the event if the node were actually just put down (not as a child of a parent node!)
         n = node.node('..')
