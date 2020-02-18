@@ -966,11 +966,19 @@
             parmtag { "autoscope" "0000000000000000" }
         }
         parm {
+            name    "do_interpolation"
+            label   "Enable Template Interpolation"
+            type    toggle
+            default { "1" }
+            disablewhen "{ distro_type < 5 }"
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
             name    "template_rest_frame"
             label   "Template Rest Frame"
             type    float
             default { [ "$RFSTART" hscript-expr ] }
-            disablewhen "{ distro_type < 5 }"
+            disablewhen "{ do_interpolation == 0 }"
             range   { 0 10 }
             parmtag { "autoscope" "0000000000000000" }
         }
