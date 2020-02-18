@@ -131,9 +131,9 @@ def collapse_hdas(directory):
     :return: None
     """
     if not os.path.exists(directory):
-        raise FileNotFoundError, "Directory does not exist!"
+        raise(FileNotFoundError, "Directory does not exist!")
     if not os.path.isdir(directory):
-        raise FileNotFoundError, "Given path is not a directory!"
+        raise(FileNotFoundError, "Given path is not a directory!")
     for i in os.listdir(directory):
         in_dir = os.path.join(directory, i)
         if os.path.isdir(in_dir) and os.path.splitext(i)[-1] == '.hda':
@@ -152,7 +152,7 @@ def collapse_hdas(directory):
                     proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
                 out, err = proc.communicate()
                 if err:
-                    raise RuntimeError, err
+                    raise(RuntimeError, err)
                 # rename file and remove original
                 shutil.rmtree(in_dir)
                 os.rename(out_hda, in_dir)
@@ -167,9 +167,9 @@ def expand_hdas(directory):
     :return: None
     """
     if not os.path.exists(directory):
-        raise FileNotFoundError, "Directory does not exist!"
+        raise(FileNotFoundError, "Directory does not exist!")
     if not os.path.isdir(directory):
-        raise FileNotFoundError, "Given path is not a directory!"
+        raise(FileNotFoundError, "Given path is not a directory!")
     for i in os.listdir(directory):
         in_hda = os.path.join(directory, i)
         if not os.path.isdir(in_hda) and os.path.splitext(i)[-1] == '.hda':
@@ -189,7 +189,7 @@ def expand_hdas(directory):
                     proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
                 out, err = proc.communicate()
                 if err:
-                    raise RuntimeError, err
+                    raise(RuntimeError, err)
                 # rename file and remove original
                 os.remove(in_hda)
                 os.rename(out_dir, in_hda)
@@ -211,14 +211,14 @@ def viewport_selection(kwargs, groupparm="group", grouptypeparm="grouptype"):
                 me.parm('grouptype').set(3)
             if type == hou.geometryType.Primitives:
                 me.parm('grouptype').set(4)
-				
+
 def blackbox_definitions(out_folder):
-	# given the selected nodes, create a blackboxed definition for each asset and save to out_folder.
-	nodes = hou.selectedNodes()
-	for node in nodes:
-		definition = node.type().definition()
-		if definition:
-			def_filename = definition.libraryFilePath()
-			out_file = os.path.join(out_folder, os.path.basename(def_filename))
-			print("saving blackboxed file: {}".format(out_file))
-			definition.save(file_name=out_file, template_node=node, compile_contents=True, black_box=True)
+    # given the selected nodes, create a blackboxed definition for each asset and save to out_folder.
+    nodes = hou.selectedNodes()
+    for node in nodes:
+        definition = node.type().definition()
+        if definition:
+            def_filename = definition.libraryFilePath()
+            out_file = os.path.join(out_folder, os.path.basename(def_filename))
+            print("saving blackboxed file: {}".format(out_file))
+            definition.save(file_name=out_file, template_node=node, compile_contents=True, black_box=True)
