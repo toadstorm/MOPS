@@ -128,10 +128,14 @@ Template Group:
     #id: inputMeshGroup
     Distribute Instances only on this group of the Template Object.
     
+Enable Template Interpolation:
+    #id: do_interpolation
+    When instancing onto an animated mesh or curves, enable automatic interpolation of the instances' position and orientation to match the template geometry. This makes the Instancer much faster. If your template geometry has a changing point count, you will want to disable this.
+    
 Template Rest Frame:
     #id: template_rest_frame
     When instancing onto an animated mesh, the frame to use as the "rest" (default) frame. Instances will automatically interpolate their positions and orientations on an animated mesh, based on this default state. 
-    If your template mesh has a changing point count, you will probably want to set this to @Frame in order to update the topology from the source.
+    If your template mesh has a changing point count, you will probably want to either disable interpolation entirely, or set this to @Frame in order to update the topology from the source.
     
     
 == Distribution Types ==

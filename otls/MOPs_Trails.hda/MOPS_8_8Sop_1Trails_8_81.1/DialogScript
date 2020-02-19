@@ -289,15 +289,8 @@
 
     group {
         name    "folder2_1"
-        label   "Output"
+        label   "Attributes"
 
-        parm {
-            name    "groupname"
-            label   "Trails Group Name"
-            type    string
-            default { "trails" }
-            parmtag { "autoscope" "0000000000000000" }
-        }
         parm {
             name    "do_uv"
             label   "Create Trail UVs"
@@ -317,6 +310,48 @@
             }
             parmtag { "autoscope" "0000000000000000" }
             parmtag { "sidefx::attrib_access" "write" }
+        }
+        parm {
+            name    "inherit_attrs"
+            label   "Inherit Attributes"
+            type    string
+            default { "* ^id" }
+            menutoggle {
+                [ "opmenu -l -a attribute1 ptkeep" ]
+            }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "do_trail_falloff"
+            label   "Create Trail Falloff"
+            type    toggle
+            default { "1" }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "trail_falloff_attr"
+            label   "Falloff Attribute"
+            type    string
+            default { "mops_falloff" }
+            disablewhen "{ trail_falloff_attr == 0 }"
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+    }
+
+    group {
+        name    "folder2_2"
+        label   "Output"
+
+        parm {
+            name    "groupname"
+            label   "Trails Group Name"
+            type    string
+            default { "trails" }
+            parmtag { "autoscope" "0000000000000000" }
         }
         parm {
             name    "clip_mode"
