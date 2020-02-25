@@ -222,11 +222,21 @@
         hidewhentab "{ signature == 0 }"
 
         parm {
+            name    "do_remap_2D"
+            label   "Enable Remap"
+            type    toggle
+            default { "0" }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
             name    "input_rangev"
             label   "Input Range"
             type    vector2
             size    2
             default { "-1" "1" }
+            disablewhen "{ do_remap_2D 0 }"
             range   { 0 1 }
             parmtag { "autoscope" "0000000000000000" }
         }
@@ -236,6 +246,7 @@
             type    vector2
             size    2
             default { "-1" "1" }
+            disablewhen "{ do_remap_2D 0 }"
             range   { 0 1 }
             parmtag { "autoscope" "0000000000000000" }
         }
@@ -247,11 +258,21 @@
         hidewhentab "{ signature == 1 }"
 
         parm {
+            name    "do_remap_3D"
+            label   "Enable Remap"
+            type    toggle
+            default { "0" }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
             name    "input_range"
             label   "Input Range"
             type    vector2
             size    2
             default { "0" "1" }
+            disablewhen "{ do_remap_3D 0 }"
             range   { 0 1 }
             parmtag { "autoscope" "0000000000000000" }
         }
@@ -261,6 +282,7 @@
             type    vector2
             size    2
             default { "0" "1" }
+            disablewhen "{ do_remap_3D 0 }"
             range   { 0 1 }
             parmtag { "autoscope" "0000000000000000" }
         }

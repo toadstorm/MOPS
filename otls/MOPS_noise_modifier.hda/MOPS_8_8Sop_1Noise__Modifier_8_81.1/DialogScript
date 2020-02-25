@@ -296,11 +296,21 @@
             label   "Remap"
 
             parm {
+                name    "do_remap"
+                label   "Enable Remap"
+                type    toggle
+                default { "off" }
+                range   { 0! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
                 name    "input_rangev"
                 label   "Input Range"
                 type    vector2
                 size    2
                 default { "-1" "1" }
+                disablewhen "{ do_remap 0 }"
                 range   { 0 1 }
                 parmtag { "autoscope" "0000000000000000" }
             }
@@ -310,6 +320,7 @@
                 type    vector2
                 size    2
                 default { "-1" "1" }
+                disablewhen "{ do_remap 0 }"
                 range   { 0 1 }
                 parmtag { "autoscope" "0000000000000000" }
             }
