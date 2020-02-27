@@ -32,26 +32,26 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -16.2878 -5.63813
+position -3.03107 -2.33865
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 1 "output1"
 }
 inputsNamed3
 {
-0 	add1 1 1 "input1"
+0 	MOPs_Shape_Falloff 1 1 "input1"
 }
 inputs
 {
-0 	add1 0 1
+0 	MOPs_Shape_Falloff 0 1
 }
 stat
 {
-  create 1561673426
-  modify 1580171789
-  author jacobr@carpenters.fas.fa.disney.com
+  create 1531965306
+  modify 1582594819
+  author Henry@LAPPY586
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -135,7 +135,7 @@ inputs
 stat
 {
   create 1524695187
-  modify 1580171722
+  modify 1582594181
   author Henry@LAPPY586
   access 0777
 }
@@ -157,7 +157,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector uvselect "Modify Points"
+            bindselector points "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -318,6 +318,12 @@ Content-Type: text/plain
         parmtag { "editor" "1" }
         parmtag { "editorlang" "vex" }
     }
+    parm {
+        name    "vex_precision"
+        baseparm
+        label   "VEX Precision"
+        export  none
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/set_max_age.chn"
@@ -374,9 +380,10 @@ vex_updatenmls	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
 vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 do_vexpression	[ 0	locks=0 ]	(	[ do_vexpression	0 ] 	)
-vexpression	[ 0	locks=0 ]	(	[ vexpression	"delay = 0.5;" ] 	)
+vexpression	[ 0	locks=0 ]	(	[ vexpression	"// delay = 0.5;" ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -457,6 +464,7 @@ vex_updatenmls	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
 vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -501,7 +509,7 @@ inputs
 stat
 {
   create 1524695187
-  modify 1531969240
+  modify 1582594180
   author Henry@LAPPY586
   access 0777
 }
@@ -700,7 +708,7 @@ substep	[ 0	locks=0	autoscope=0 ]	(	[ substep	1 ] 	)
 cacheenabled	[ 0	locks=0	autoscope=0 ]	(	[ cacheenabled	1 ] 	)
 cachetodisk	[ 0	locks=0	autoscope=0 ]	(	[ cachetodisk	0 ] 	)
 cachemaxsize	[ 0	locks=0	autoscope=0 ]	(	[ cachemaxsize	5000 ] 	)
-delay	[ 0	locks=0	autoscope=0 ]	(	[ delay	2 ] 	)
+delay	[ 0	locks=0	autoscope=0 ]	(	[ delay	0.5 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -770,6 +778,8 @@ parmop_transformsopoutput	[ 0	locks=0	autoscope=0 ]	(	"default"	)
 transformsopoutput	[ 0	locks=0	autoscope=0 ]	(	"on"	)
 parmop_solveinitframe	[ 0	locks=0	autoscope=0 ]	(	"default"	)
 solveinitframe	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+parmop_numstamps	[ 0	locks=0 ]	(	"default"	)
+numstamps	[ 0	locks=0 ]	(	0	)
 parmop_usetimestep	[ 0	locks=0 ]	(	"default"	)
 usetimestep	[ 0	locks=0 ]	(	"on"	)
 parmop_timescale	[ 0	locks=0 ]	(	"default"	)
@@ -789,7 +799,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.425"
+		"value":"18.0.348"
 	}
 }
 
@@ -846,7 +856,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector uvselect "Modify Points"
+            bindselector points "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -999,6 +1009,12 @@ Content-Type: text/plain
         default { "0" }
         range   { 0 1 }
     }
+    parm {
+        name    "vex_precision"
+        baseparm
+        label   "VEX Precision"
+        export  none
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/Trail_Motion/d/s/update_age.chn"
@@ -1038,6 +1054,7 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 timestep	[ 8	locks=0 ]	(	[ timestep	0.041666666666666664 ] 	)
 }
@@ -1106,7 +1123,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector uvselect "Modify Points"
+            bindselector points "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -1259,6 +1276,12 @@ Content-Type: text/plain
         default { "0" }
         range   { 0 1 }
     }
+    parm {
+        name    "vex_precision"
+        baseparm
+        label   "VEX Precision"
+        export  none
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/Trail_Motion/d/s/if_greater_than_max_remove_pt.chn"
@@ -1301,6 +1324,7 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 timestep	[ 8	locks=0 ]	(	[ timestep	0.041666666666666664 ] 	)
 }
@@ -1383,6 +1407,7 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1427,7 +1452,7 @@ inputs
 stat
 {
   create 1531965466
-  modify 1543604861
+  modify 1582594791
   author Henry@LAPPY586
   access 0777
 }
@@ -1449,7 +1474,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector uvselect "Modify Points"
+            bindselector points "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -1609,6 +1634,12 @@ Content-Type: text/plain
         default { "0" }
         range   { 0 10 }
     }
+    parm {
+        name    "vex_precision"
+        baseparm
+        label   "VEX Precision"
+        export  none
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/apply_sequence_delay.chn"
@@ -1652,7 +1683,14 @@ snippet	[ 0	locks=0 ]	(	"float max_delay = ch(\"delay\");
 float index;
 
 int do_sequence_delay = chi(\"do_sequence_delay\");
-
+i@__ispackedsequence = 0;
+i@__isabc = 0;
+string typename = primintrinsic(0, \"typename\", @ptnum);
+if(typename == \"AlembicRef\") {
+    i@__isabc = 1;
+} else if(typename == \"PackedDiskSequence\") {
+    i@__ispackedsequence = 1;
+}
 if(i@__ispackedsequence) {
     index = primintrinsic(0, \"index\", @ptnum);
     if(do_sequence_delay) {
@@ -1681,8 +1719,9 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
-delay	[ 0	locks=0 ]	(	[ delay	1 ] 	)
+delay	[ 0	locks=0 ]	(	[ delay	0.5 ] 	)
 do_sequence_delay	[ 0	locks=0 ]	(	[ do_sequence_delay	1 ] 	)
 }
 
@@ -1728,7 +1767,7 @@ inputs
 stat
 {
   create 1531283685
-  modify 1543604861
+  modify 1582594150
   author Henry@LAPPY586
   access 0777
 }
@@ -1795,6 +1834,7 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1839,7 +1879,7 @@ inputs
 stat
 {
   create 1531969324
-  modify 1580167255
+  modify 1582594229
   author Henry@LAPPY586
   access 0777
 }
@@ -1887,6 +1927,7 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1933,7 +1974,7 @@ inputs
 stat
 {
   create 1572554245
-  modify 1580168000
+  modify 1582594185
   author jacobr@carpenters.fas.fa.disney.com
   access 0777
 }
@@ -1967,6 +2008,7 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2013,7 +2055,7 @@ inputs
 stat
 {
   create 1578955634
-  modify 1580170922
+  modify 1582594188
   author jacobr@carpenters.fas.fa.disney.com
   access 0777
 }
@@ -2054,6 +2096,7 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2098,7 +2141,7 @@ inputs
 stat
 {
   create 1580167205
-  modify 1580167985
+  modify 1582594194
   author jacobr@carpenters.fas.fa.disney.com
   access 0777
 }
@@ -2168,7 +2211,7 @@ version 0.8
 folder0	[ 0	locks=0 ]	(	0	)
 evalmode	[ 0	locks=0 ]	(	"time"	)
 frame	[ 0	locks=0 ]	(	[ frame	48 ] 	)
-time	[ 0	locks=0 ]	(	[ time	-0.041666666666666664 ] 	)
+time	[ 0	locks=0 ]	(	[ time	0 ] 	)
 startframe	[ 0	locks=0 ]	(	[ startframe	1 ] 	)
 speed	[ 0	locks=0 ]	(	1	)
 shiftframe	[ 0	locks=0 ]	(	[ shiftframe	1 ] 	)
@@ -2241,7 +2284,7 @@ inputs
 stat
 {
   create 1580167255
-  modify 1580167993
+  modify 1582594221
   author jacobr@carpenters.fas.fa.disney.com
   access 0777
 }
@@ -2262,7 +2305,7 @@ grouptype	[ 0	locks=0 ]	(	"guess"	)
 class	[ 0	locks=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
-snippet	[ 0	locks=0 ]	(	"vector scale = v@scale;
+snippet	[ 0	locks=0 ]	(	"vector scale = v@scale * f@pscale;
 matrix3 s = ident();
 scale(s, scale);
 
@@ -2284,6 +2327,7 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2326,7 +2370,7 @@ inputs
 stat
 {
   create 1324348265
-  modify 1580171871
+  modify 1582594997
   author jlait@andorra.sidefx.com
   access 0777
 }
@@ -2375,6 +2419,8 @@ viewportlod	[ 0	locks=0 ]	(	"full"	)
 importbyname	[ 0	locks=0	autoscope=0 ]	(	"on"	)
 objectnames	[ 0	locks=0 ]	(	"dopobject"	)
 geodatapath	[ 0	locks=0	autoscope=0 ]	(	"`stamps(\"..\", \"DATANAME\", chs(\"../datapath\"))`"	)
+transferattributes	[ 0	locks=0 ]	(	""	)
+transfergroups	[ 0	locks=0 ]	(	""	)
 inverseop	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 doposxform	[ 0	locks=0	autoscope=0 ]	(	[ doposxform	1 ] 	)
 doxform	[ 0	locks=0	autoscope=0 ]	(	[ doxform	1 ] 	)
@@ -2397,7 +2443,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.425"
+		"value":"18.0.348"
 	}
 }
 
@@ -2476,7 +2522,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.425"
+		"value":"18.0.348"
 	}
 }
 
@@ -2555,7 +2601,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.425"
+		"value":"18.0.348"
 	}
 }
 
@@ -2634,7 +2680,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.425"
+		"value":"18.0.348"
 	}
 }
 
@@ -2713,7 +2759,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.425"
+		"value":"18.0.348"
 	}
 }
 
@@ -2774,7 +2820,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.425"
+		"value":"18.0.348"
 	}
 }
 
@@ -2833,7 +2879,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.425"
+		"value":"18.0.348"
 	}
 }
 
@@ -2933,7 +2979,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.425"
+		"value":"18.0.348"
 	}
 }
 
@@ -3011,7 +3057,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.425"
+		"value":"18.0.348"
 	}
 }
 
@@ -3114,7 +3160,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.425"
+		"value":"18.0.348"
 	}
 }
 
@@ -3148,7 +3194,7 @@ inputs
 stat
 {
   create 1524695187
-  modify 1580167255
+  modify 1582594228
   author Henry@LAPPY586
   access 0777
 }
@@ -3173,7 +3219,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.425"
+		"value":"18.0.348"
 	}
 }
 
@@ -3241,7 +3287,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.425"
+		"value":"18.0.348"
 	}
 }
 
@@ -3335,7 +3381,7 @@ Content-Type: text/plain
 {
 version 0.8
 method	[ 0	locks=0	autoscope=0 ]	(	"byframe"	)
-frame	[ 0	locks=0	autoscope=0 ]	(	[ frame	0 ] 	)
+frame	[ 0	locks=0	autoscope=0 ]	(	[ frame	1 ] 	)
 integerframe	[ 0	locks=0	autoscope=0 ]	(	"on"	)
 time	[ 0	locks=0	autoscope=0 ]	(	[ time	0 ] 	)
 rangeclamp	[ 0	locks=0	autoscope=0 ]	(	"none"	)
@@ -3350,7 +3396,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.425"
+		"value":"18.0.348"
 	}
 }
 
@@ -3444,7 +3490,7 @@ Content-Type: text/plain
 {
 version 0.8
 method	[ 0	locks=0	autoscope=0 ]	(	"byframe"	)
-frame	[ 0	locks=0	autoscope=0 ]	(	[ frame	0 ] 	)
+frame	[ 0	locks=0	autoscope=0 ]	(	[ frame	1 ] 	)
 integerframe	[ 0	locks=0	autoscope=0 ]	(	"on"	)
 time	[ 0	locks=0	autoscope=0 ]	(	[ time	1.9583333333333333 ] 	)
 rangeclamp	[ 0	locks=0	autoscope=0 ]	(	"none"	)
@@ -3459,7 +3505,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.425"
+		"value":"18.0.348"
 	}
 }
 
@@ -3601,7 +3647,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.425"
+		"value":"18.0.348"
 	}
 }
 
@@ -3669,7 +3715,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.425"
+		"value":"18.0.348"
 	}
 }
 
@@ -3814,7 +3860,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.425"
+		"value":"18.0.348"
 	}
 }
 
@@ -3851,7 +3897,7 @@ inputs
 stat
 {
   create 1531969261
-  modify 1580167255
+  modify 1582594225
   author Henry@LAPPY586
   access 0777
 }
@@ -3888,7 +3934,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.425"
+		"value":"18.0.348"
 	}
 }
 
@@ -3989,7 +4035,7 @@ inputs
 stat
 {
   create 1578955607
-  modify 1580167984
+  modify 1582594190
   author jacobr@carpenters.fas.fa.disney.com
   access 0777
 }
@@ -4026,7 +4072,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.425"
+		"value":"18.0.348"
 	}
 }
 
