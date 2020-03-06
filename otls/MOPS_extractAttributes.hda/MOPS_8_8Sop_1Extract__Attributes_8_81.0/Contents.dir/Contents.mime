@@ -32,9 +32,9 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -3.87522 -7.13034
+position -2.60377 -6.66825
 connectornextid 2
-flags =  lock off model off template on footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 1 "output1"
@@ -49,9 +49,9 @@ inputs
 }
 stat
 {
-  create 1583474758
-  modify 1583522785
-  author herna@DESKTOP-6E8O9KU
+  create 1555437497
+  modify 1583523673
+  author Henry@LAPPY586
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -108,7 +108,7 @@ inputs
 stat
 {
   create 1524695134
-  modify 1583522373
+  modify 1583523817
   author Henry@LAPPY586
   access 0777
 }
@@ -334,35 +334,7 @@ if(!haspointattrib(0, \"orient\")) {
     matrix3 m = qconvert(p@orient);
     v@N = m * {0,0,1};
     v@up = m * {0,1,0};
-}
-
-if(type == \"PackedGeometry\" || type == \"PackedFragment\" || type == \"PackedDiskSequence\" || type == \"AlembicRef\") {
-    // extract as normal
-    // if full transform extraction is enabled, get that instead of transform
-    matrix3 m = primintrinsic(0, \"transform\", @ptnum);
-    if(chi(\"do_full_transform\")) {
-        matrix m4 = primintrinsic(0, \"packedfulltransform\", @ptnum);
-        m = matrix3(m4);
-    }
-    if(haspointattrib(0, \"mops_orient\")) {
-        matrix3 mops_orient = qconvert(point(0, \"mops_orient\", @ptnum));
-        m = mops_orient * m;
-    }
-    vector scale = cracktransform(0,0,2,{0,0,0},m);
-    vector4 orient = quaternion(m);
-    p@orient = orient;    
-    // also get N and up
-    @N = normalize(m * {0,0,1});
-    v@up = normalize(m * {0,1,0});
-    // if scale is uniform, write to pscale and leave scale at 1.
-    f@pscale = 1;
-    if(abs(scale.x-scale.y) < epsilon && abs(scale.y-scale.z) < epsilon) {
-        f@pscale = scale.x;
-        scale = 1;
-    }
-    v@scale = scale;
-} 
-"	)
+}"	)
 exportlist	[ 0	locks=0	autoscope=0 ]	(	*	)
 vex_strict	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 autobind	[ 0	locks=0	autoscope=0 ]	(	"on"	)
@@ -580,7 +552,7 @@ inputs
 stat
 {
   create 1583522390
-  modify 1583522725
+  modify 1583523894
   author Henry@LAPPY586
   access 0777
 }
@@ -830,7 +802,7 @@ if(type == \"PackedGeometry\" || type == \"PackedFragment\" || type == \"PackedD
     }
     v@scale = scale;
     if(chi(\"do_pivot\")) {
-        v@pivot = primintrinsic(1, \"pivot\", @elemnum);
+        v@pivot = primintrinsic(0, \"pivot\", @elemnum);
     }
 } 
 "	)
