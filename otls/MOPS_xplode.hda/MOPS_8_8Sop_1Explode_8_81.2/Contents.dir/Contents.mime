@@ -32,23 +32,26 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -62.1989 74.4205
-connectornextid 0
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+position -12.1875 -3.52328
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
+1 "output1"
 }
 inputsNamed3
 {
+0 	remesh1 1 1 "input1"
 }
 inputs
 {
+0 	remesh1 0 1
 }
 stat
 {
-  create 1573272243
-  modify 1573272429
-  author Henry@LAPPY586
+  create 1583605184
+  modify 1583613327
+  author herna@DESKTOP-6E8O9KU
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -88,7 +91,7 @@ Content-Type: text/plain
 text "for each cluster, average the prim normal and assign it to each output prim using mops reorient
 
 N is recomputed post-splitting. polyframe doesn't seem to compute good normals on individual faces, so the Normal SOP is used afterwards to correct for this."
-position 3.29182 -11.1194
+position 13.088 -10.3266
 size 5.44284 6.32756
 flags = minimize off
 stat
@@ -156,7 +159,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector uvselect "Modify Points"
+            bindselector points "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -315,6 +318,12 @@ Content-Type: text/plain
         type    string
         default { "" }
     }
+    parm {
+        name    "vex_precision"
+        baseparm
+        label   "VEX Precision"
+        export  none
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/set_name_and_id.chn"
@@ -365,6 +374,7 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 id_offset	[ 0	locks=0 ]	(	[ id_offset	0 ] 	)
 name_prefix	[ 0	locks=0 ]	(	[ name_prefix	piece ] 	)
@@ -570,6 +580,7 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -636,7 +647,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector uvselect "Modify Points"
+            bindselector points "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -797,6 +808,12 @@ Content-Type: text/plain
         default { "0" "0" "0" }
         range   { 0 1 }
     }
+    parm {
+        name    "vex_precision"
+        baseparm
+        label   "VEX Precision"
+        export  none
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/do_custom_up.chn"
@@ -857,6 +874,7 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 do_up	[ 0	locks=0 ]	(	[ do_up	0 ] 	)
 custom_up_vector	[ 0	locks=0 ]	(	[ custom_up_vectorx	0 ] 	[ custom_up_vectory	1 ] 	[ custom_up_vectorz	0 ] 	)
@@ -926,7 +944,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector uvselect "Modify Points"
+            bindselector points "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -1086,6 +1104,12 @@ Content-Type: text/plain
         default { "0" }
         range   { 0 10 }
     }
+    parm {
+        name    "vex_precision"
+        baseparm
+        label   "VEX Precision"
+        export  none
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/compute_orient.chn"
@@ -1139,6 +1163,7 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 invert_N	[ 0	locks=0 ]	(	[ invert_N	0 ] 	)
 invert_up	[ 0	locks=0 ]	(	[ invert_up	0 ] 	)
@@ -1208,7 +1233,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector uvselect "Modify Points"
+            bindselector points "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -1367,6 +1392,12 @@ Content-Type: text/plain
         type    string
         default { "" }
     }
+    parm {
+        name    "vex_precision"
+        baseparm
+        label   "VEX Precision"
+        export  none
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/define_initial_clusters.chn"
@@ -1420,6 +1451,7 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 use_piece_attribute	[ 0	locks=0 ]	(	[ use_piece_attribute	0 ] 	)
 piece_attribute	[ 0	locks=0 ]	(	[ piece_attribute	name ] 	)
@@ -1501,6 +1533,7 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1677,6 +1710,7 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1755,6 +1789,7 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1912,6 +1947,7 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1978,7 +2014,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector uvselect "Modify Points"
+            bindselector points "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -2139,6 +2175,12 @@ Content-Type: text/plain
         default { "0" "0" "0" }
         range   { 0 1 }
     }
+    parm {
+        name    "vex_precision"
+        baseparm
+        label   "VEX Precision"
+        export  none
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/do_custom_up1.chn"
@@ -2199,6 +2241,7 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 do_up	[ 0	locks=0 ]	(	[ do_up	0 ] 	)
 custom_up_vector	[ 0	locks=0 ]	(	[ custom_up_vectorx	0 ] 	[ custom_up_vectory	1 ] 	[ custom_up_vectorz	0 ] 	)
@@ -2268,7 +2311,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector uvselect "Modify Points"
+            bindselector points "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -2428,6 +2471,12 @@ Content-Type: text/plain
         default { "0" }
         range   { 0 10 }
     }
+    parm {
+        name    "vex_precision"
+        baseparm
+        label   "VEX Precision"
+        export  none
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/compute_orient1.chn"
@@ -2481,6 +2530,7 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 invert_N	[ 0	locks=0 ]	(	[ invert_N	0 ] 	)
 invert_up	[ 0	locks=0 ]	(	[ invert_up	0 ] 	)
@@ -2512,7 +2562,7 @@ sopflags sopflags =
 comment ""
 position -2.20264 -34.8682
 connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
@@ -2527,7 +2577,7 @@ inputs
 stat
 {
   create 1563925514
-  modify 1563927193
+  modify 1583612794
   author Henry@LAPPY586
   access 0777
 }
@@ -2754,7 +2804,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -2773,7 +2823,7 @@ sopflags sopflags =
 comment ""
 position 1.23017 -36.5838
 connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
@@ -2788,7 +2838,7 @@ inputs
 stat
 {
   create 1532405563
-  modify 1563925518
+  modify 1583613436
   author Henry@LAPPY586
   access 0777
 }
@@ -2813,7 +2863,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -2848,7 +2898,7 @@ inputs
 stat
 {
   create 1547173777
-  modify 1573272243
+  modify 1583613297
   author Henry@LAPPY586
   access 0777
 }
@@ -2879,7 +2929,7 @@ resetcookpass	[ 0	locks=0 ]	(	0	)
 dosinglepass	[ 0	locks=0 ]	(	"off"	)
 singlepass	[ 0	locks=0 ]	(	0	)
 stopcondition	[ 0	locks=0 ]	(	0	)
-multithread	[ 0	locks=0 ]	(	"off"	)
+multithread	[ 0	locks=0 ]	(	"on"	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2889,7 +2939,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -2953,7 +3003,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -3083,7 +3133,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -3151,7 +3201,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -3213,7 +3263,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -3281,7 +3331,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -3357,7 +3407,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -3451,7 +3501,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -3516,7 +3566,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -3526,7 +3576,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -3561,7 +3611,7 @@ inputs
 stat
 {
   create 1547418531
-  modify 1563913584
+  modify 1583612985
   author Henry@LAPPY586
   access 0777
 }
@@ -3587,7 +3637,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -3662,7 +3712,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -3726,7 +3776,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -3789,7 +3839,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -3857,7 +3907,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -3925,7 +3975,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -4055,7 +4105,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	1 ] 	)
+input	[ 0	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -4065,7 +4115,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -4144,7 +4194,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -4220,7 +4270,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -4284,7 +4334,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -4346,7 +4396,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -4383,7 +4433,7 @@ inputs
 stat
 {
   create 1555048774
-  modify 1573272243
+  modify 1583612798
   author Henry@LAPPY586
   access 0777
 }
@@ -4421,7 +4471,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -4489,7 +4539,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -4557,7 +4607,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -4625,7 +4675,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -4693,7 +4743,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -4761,7 +4811,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -4901,7 +4951,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -4977,7 +5027,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -5071,7 +5121,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -5146,7 +5196,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -5207,7 +5257,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -5266,6 +5316,7 @@ docompute	[ 0	locks=0 ]	(	"on"	)
 type	[ 0	locks=0 ]	(	"typepoint"	)
 cuspangle	[ 0	locks=0 ]	(	60	)
 method	[ 0	locks=0 ]	(	1	)
+origifzero	[ 0	locks=0 ]	(	"off"	)
 modify	[ 0	locks=0 ]	(	0	)
 normalize	[ 0	locks=0 ]	(	"off"	)
 reverse	[ 0	locks=0 ]	(	"off"	)
@@ -5278,7 +5329,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -5353,7 +5404,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -5426,6 +5477,7 @@ docompute	[ 0	locks=0 ]	(	"on"	)
 type	[ 0	locks=0 ]	(	"typevertex"	)
 cuspangle	[ 0	locks=0 ]	(	[ cuspangle	60 ] 	)
 method	[ 0	locks=0 ]	(	1	)
+origifzero	[ 0	locks=0 ]	(	"off"	)
 modify	[ 0	locks=0 ]	(	0	)
 normalize	[ 0	locks=0 ]	(	"off"	)
 reverse	[ 0	locks=0 ]	(	"off"	)
@@ -5438,7 +5490,74 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/extractcentroid1.init"
+Content-Type: text/plain
+
+type = extractcentroid
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/extractcentroid1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 5.15571 -1.66874
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	null1 1 1 "input1"
+}
+inputs
+{
+0 	null1 0 1
+}
+stat
+{
+  create 1583612803
+  modify 1583613436
+  author Henry@LAPPY586
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/extractcentroid1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+partitiontype	[ 0	locks=0 ]	(	"pieces"	)
+pieceattrib	[ 0	locks=0 ]	(	__cluster	)
+class	[ 0	locks=0 ]	(	"prim"	)
+method	[ 0	locks=0 ]	(	"com"	)
+output	[ 0	locks=0 ]	(	"attrib"	)
+centroidattrib	[ 0	locks=0 ]	(	centroid	)
+transferattributes	[ 0	locks=0 ]	(	""	)
+transfergroups	[ 0	locks=0 ]	(	""	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/extractcentroid1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"18.0.391"
 	}
 }
 
@@ -5446,7 +5565,7 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot.order"
 Content-Type: text/plain
 
-53
+54
 IN
 OUT
 set_name_and_id
@@ -5500,6 +5619,7 @@ normal2
 MOPs_Visualize_Frame
 do_vertex_normals
 normal1
+extractcentroid1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"
