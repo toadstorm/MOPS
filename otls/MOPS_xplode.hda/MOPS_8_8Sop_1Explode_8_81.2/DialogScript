@@ -46,6 +46,7 @@
             name    "compute_N_up"
             label   "Compute N/Up"
             type    toggle
+            invisible
             default { "1" }
             range   { 0! 10 }
             parmtag { "autoscope" "0000000000000000" }
@@ -54,6 +55,7 @@
             name    "style"
             label   "Style"
             type    string
+            invisible
             default { "edge2" }
             disablewhen "{ compute_N_up == 0 }"
             menu {
@@ -68,6 +70,7 @@
             name    "attribname"
             label   "Attribute Name"
             type    string
+            invisible
             default { "" }
             disablewhen "{ style != attrib style != texuv }"
             parmtag { "autoscope" "0000000000000000" }
