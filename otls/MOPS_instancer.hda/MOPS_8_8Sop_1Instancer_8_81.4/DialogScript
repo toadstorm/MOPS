@@ -1790,10 +1790,10 @@
                 default { "" }
                 hidewhen "{ mesh_distroMethod != 1 }"
                 menutoggle {
-                    [ "opmenu -l blast4 group" ]
+                    [ "opmenu -l blast3 group" ]
                 }
                 parmtag { "autoscope" "0000000000000000" }
-                parmtag { "script_action" "import soputils\nkwargs['geometrytype'] = kwargs['node'].parmTuple('grouptype')\nkwargs['inputindex'] = 0\nsoputils.selectGroupParm(kwargs)" }
+                parmtag { "script_action" "import soputils\nkwargs['geometrytype'] = kwargs['node'].node('blast3').parmTuple('grouptype')\nkwargs['inputindex'] = 0\nsoputils.selectGroupParm(kwargs)" }
                 parmtag { "script_action_help" "Select geometry from an available viewport.\nShift-click to turn on Select Groups." }
                 parmtag { "script_action_icon" "BUTTONS_reselect" }
             }
