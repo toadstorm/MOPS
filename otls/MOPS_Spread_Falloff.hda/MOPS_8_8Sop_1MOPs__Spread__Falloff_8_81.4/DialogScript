@@ -189,12 +189,12 @@
                 name    "basegroup"
                 label   "Start Point Group"
                 type    string
-                default { "0" }
+                default { "" }
                 menutoggle {
-                    [ "opmenu -l group1 basegroup" ]
+                    [ "opmenu -l -a group1 basegroup" ]
                 }
                 parmtag { "autoscope" "0000000000000000" }
-                parmtag { "script_action" "import soputils\nkwargs['geometrytype'] = kwargs['node'].parmTuple('grouptype')\nkwargs['inputindex'] = 0\nkwargs['ordered'] = kwargs['node'].parm('ordered').eval()\nsoputils.selectGroupParm(kwargs)" }
+                parmtag { "script_action" "import soputils\nkwargs['geometrytype'] = kwargs['node'].parmTuple('grouptype')\nkwargs['inputindex'] = 0\n#kwargs['ordered'] = kwargs['node'].parm('ordered').eval()\nkwargs['ordered'] = 0\nsoputils.selectGroupParm(kwargs)" }
                 parmtag { "script_action_help" "Select geometry from an available viewport.\nShift-click to turn on Select Groups." }
                 parmtag { "script_action_icon" "BUTTONS_reselect" }
             }
