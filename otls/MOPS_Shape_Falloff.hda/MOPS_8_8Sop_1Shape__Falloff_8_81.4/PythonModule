@@ -23,3 +23,23 @@ def autoFit(kwargs):
     sy.set(size.y()/2)
     sz.set(size.z()/2)
     uscale.set(1)
+    
+def autoFit2(kwargs):
+    node = kwargs['node']
+    bounds = node.node("BBOX").geometry()
+    xf = bounds.attribValue("out")
+    orig_xf = bounds.attribValue("xform")
+    center = bounds.attribValue("centroid")
+    lengths = bounds.attribValue("radii")
+    r = hou.Matrix3(xf).extractRotates()
+    
+    node.parm("translatex").set(center[0])
+    node.parm("translatey").set(center[1])
+    node.parm("translatez").set(center[2])
+    node.parm("rotatex").set(r[0])
+    node.parm("rotatey").set(r[1])
+    node.parm("rotatez").set(r[2])    
+    node.parm("scalex").set(lengths[0])
+    node.parm("scaley").set(lengths[1])
+    node.parm("scalez").set(lengths[2])
+    node.parm("uniform_scale").set(1)
