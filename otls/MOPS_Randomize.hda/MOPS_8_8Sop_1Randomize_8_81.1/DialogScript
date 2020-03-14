@@ -69,6 +69,15 @@
         default { "" }
     }
     parm {
+        name    "seed_attr"
+        label   "Seed Attribute"
+        type    string
+        default { "id" }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
         name    "local_space"
         label   "Local Space"
         type    toggle
@@ -371,6 +380,7 @@
             name    "useseedattrib"
             label   "Use Seed Attribute"
             type    toggle
+            invisible
             nolabel
             joinnext
             default { "off" }
@@ -381,6 +391,7 @@
             name    "seedattrib"
             label   "Seed Attribute"
             type    string
+            invisible
             default { "id" }
             disablewhen "{ useseedattrib == 0 }"
             range   { 0 1 }

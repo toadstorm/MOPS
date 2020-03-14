@@ -1,0 +1,57 @@
+= MOPs Align =
+
+#icon: opdef:.?mops_modifier_02.svg
+
+"""Aligns packed primitives and modifies pivot points."""
+
+MOPs Align can modify the positions and pivots of packed primitives to align them based on their underlying bounding boxes. This means you can have them all scale up from their lowest point in Y, for example, without having to manually set the pivots of each of the instances in the MOPs Instancer. You can also set the pivot point manually to any position in space via a channel or a VEXpression, allowing for more complex transformations or FK-like behavior.
+
+== Overview ==
+
+@inputs
+
+Packed Primitives:
+    The packed primitives to transform.
+    
+@parameters
+
+== General ==
+
+Use Falloff:
+    #id: do_falloff
+    Enable the `mops_falloff` attribute. This means that any adjustments you make to pivots or positions will be influenced by the falloff value.
+
+Falloff Attribute:
+    #id: falloff_attr 
+    The name of the point attribute to use as the falloff attribute.
+    
+Mode:
+    #id: mode
+    The method by which the pivots should be adjusted.
+    * Center Pivot: The pivot points are reset to the original packed center of each packed primitive.
+    * Align to BBox: The pivot point is moved to the center of one of the faces of each primitive's bounding box.
+    * Shift Pivot: An offset is added to the existing pivot of each packed primitive, in local or world space.
+    * Set Pivot (Local): The pivot is set to an exact specified location, relative to each packed primitive.
+    * Set Pivot (World): The pivot is set to an exact specified location in world space.
+    
+Pivots Only:
+    #id: pivots_only
+    If enabled, the pivots of the packed primitives will be adjusted without modifying their positions in space.
+    
+Alignment Side:
+    #id: align
+    Align to BBox mode only. The face of the bounding box of each primitive to snap the pivot to.
+    
+Shift Amount:
+    #id: shift_amount
+    Shift Pivot mode only. The value to add to the existing pivot point of each packed primitive.
+    
+Local Space:
+    #id: local
+    Shift Pivot mode only. If enabled, the specified Shift Amount will be applied in the local space of each packed primitive. Otherwise the shift will be in world space.
+    
+Pivot:
+    #id: pivot
+    Set Pivot mode only. The new pivot point for each packed primitive. In Local mode, this is relative to the original packed center of each primitive. In World mode, this is a single position in world space. 
+    
+

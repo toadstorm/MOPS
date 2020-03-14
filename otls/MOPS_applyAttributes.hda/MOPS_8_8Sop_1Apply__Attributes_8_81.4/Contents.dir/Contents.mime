@@ -52,7 +52,7 @@ inputs
 stat
 {
   create 1569469174
-  modify 1583691873
+  modify 1584209369
   author Henry@LAPPY586
   access 0777
 }
@@ -113,7 +113,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1583691974
+  modify 1584209285
   author Henry@LAPPY586
   access 0777
 }
@@ -646,7 +646,7 @@ if(doR) {
             orient2 = qmultiply(orient2, qinvert(mops_orient));
             p@__orient2 = orient2;
         }
-        vector4 out_orient = qmultiply(orient, orient2);
+        vector4 out_orient = qmultiply(orient2, orient);
         if(!local){
             out_orient = qmultiply(orient2, orient);
         }
@@ -672,7 +672,7 @@ p@__out_orient = orient;
 
 // generate output matrix. use the inverse of mops_orient axes at first (default is ident)
 matrix3 out = invert(qconvert(mops_orient));
-scale(out, scale*pscale);
+scale(out, (scale*pscale));
 // now rotate this matrix by mops_orient.
 out *= qconvert(mops_orient);
 
@@ -701,7 +701,7 @@ do_scale	[ 0	locks=0	autoscope=0 ]	(	[ do_scale	1 ] 	)
 do_weight	[ 0	locks=0	autoscope=0 ]	(	[ do_weight	1 ] 	)
 rotate_mode	[ 0	locks=0	autoscope=0 ]	(	[ rotate_mode	0 ] 	)
 scale_mode	[ 0	locks=0	autoscope=0 ]	(	[ scale_mode	0 ] 	)
-local_space	[ 0	locks=0	autoscope=0 ]	(	[ local_space	1 ] 	)
+local_space	[ 0	locks=0	autoscope=0 ]	(	[ local_space	0 ] 	)
 rotate_order	[ 0	locks=0	autoscope=0 ]	(	[ rotate_order	0 ] 	)
 falloff_attribute	[ 0	locks=0 ]	(	[ falloff_attribute	mops_falloff ] 	)
 can_ignore_falloff	[ 8	locks=0 ]	(	[ can_ignore_falloff	0 ] 	)
@@ -750,7 +750,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1583691868
+  modify 1584208869
   author Henry@LAPPY586
   access 0777
 }
@@ -833,7 +833,7 @@ inputs
 stat
 {
   create 1555437557
-  modify 1583691914
+  modify 1584208869
   author Henry@LAPPY586
   access 0777
 }
@@ -929,7 +929,7 @@ inputs
 stat
 {
   create 1569084024
-  modify 1583690426
+  modify 1584208869
   author Henry@LAPPY586
   access 0777
 }
@@ -998,7 +998,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.31613 0.494133
+position -1.31613 -0.23292
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1016,7 +1016,7 @@ inputs
 stat
 {
   create 1583618763
-  modify 1583692002
+  modify 1584208869
   author Henry@LAPPY586
   access 0777
 }
@@ -1096,7 +1096,7 @@ inputs
 stat
 {
   create 1583691828
-  modify 1583691869
+  modify 1584208869
   author Henry@LAPPY586
   access 0777
 }
@@ -1158,7 +1158,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.60794 -1.41911
+position 1.60794 -2.14616
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1178,7 +1178,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1583690426
+  modify 1584208869
   author Henry@LAPPY586
   access 0777
 }
@@ -1331,7 +1331,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1583690426
+  modify 1584208869
   author Henry@LAPPY586
   access 0777
 }
@@ -1447,7 +1447,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.382921 -17.6769
+position -0.382921 -18.404
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1464,7 +1464,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1583519692
+  modify 1584209162
   author Henry@LAPPY586
   access 0777
 }
@@ -1506,7 +1506,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.386371 -14.9128
+position -0.386371 -15.6399
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1524,7 +1524,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1583692018
+  modify 1584173407
   author Henry@LAPPY586
   access 0777
 }
@@ -1570,7 +1570,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.330122 -3.59871
+position -0.330122 -4.32576
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1590,7 +1590,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1583690426
+  modify 1584208869
   author Henry@LAPPY586
   access 0777
 }
@@ -1665,7 +1665,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1583691868
+  modify 1584208869
   author Henry@LAPPY586
   access 0777
 }
@@ -1801,7 +1801,7 @@ inputs
 stat
 {
   create 1555459453
-  modify 1583691873
+  modify 1584208869
   author Henry@LAPPY586
   access 0777
 }
@@ -1857,7 +1857,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.382921 -12.8305
+position -0.382921 -13.5576
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1877,7 +1877,7 @@ inputs
 stat
 {
   create 1556862778
-  modify 1583690426
+  modify 1584208869
   author Henry@LAPPY586
   access 0777
 }
@@ -1952,7 +1952,7 @@ inputs
 stat
 {
   create 1569084092
-  modify 1583690426
+  modify 1584208869
   author Henry@LAPPY586
   access 0777
 }
@@ -2007,7 +2007,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.382921 -10.5558
+position -0.382921 -11.2829
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -2027,7 +2027,7 @@ inputs
 stat
 {
   create 1569468433
-  modify 1583690426
+  modify 1584208869
   author Henry@LAPPY586
   access 0777
 }
@@ -2082,7 +2082,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.14262 -4.59657
+position 1.14262 -5.32362
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -2100,7 +2100,7 @@ inputs
 stat
 {
   create 1569468449
-  modify 1583618263
+  modify 1584173407
   author Henry@LAPPY586
   access 0777
 }
@@ -2148,7 +2148,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.33907 -11.6784
+position 1.33907 -12.4055
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -2166,7 +2166,7 @@ inputs
 stat
 {
   create 1569470684
-  modify 1583618259
+  modify 1584173407
   author Henry@LAPPY586
   access 0777
 }
@@ -2214,7 +2214,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.00353 -5.59657
+position 1.00353 -6.32362
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -2232,7 +2232,7 @@ inputs
 stat
 {
   create 1569709553
-  modify 1583618265
+  modify 1584173407
   author Henry@LAPPY586
   access 0777
 }
@@ -2300,7 +2300,7 @@ inputs
 stat
 {
   create 1573854736
-  modify 1583690426
+  modify 1584208869
   author Henry@LAPPY586
   access 0777
 }
@@ -2423,7 +2423,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.788374 -2.47911
+position 0.788374 -3.20616
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -2443,7 +2443,7 @@ inputs
 stat
 {
   create 1583519692
-  modify 1583690426
+  modify 1584208869
   author Henry@LAPPY586
   access 0777
 }
@@ -2472,7 +2472,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	1 ] 	)
+input	[ 0	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2499,7 +2499,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 4.82342 -1.31205
+position 4.82342 -2.0391
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -2519,7 +2519,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1583690426
+  modify 1584208869
   author Henry@LAPPY586
   access 0777
 }
@@ -2604,7 +2604,7 @@ inputs
 stat
 {
   create 1583618748
-  modify 1583692008
+  modify 1584173368
   author Henry@LAPPY586
   access 0777
 }

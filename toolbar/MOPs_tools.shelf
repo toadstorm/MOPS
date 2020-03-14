@@ -21,7 +21,7 @@
 # generate a MOPs Move Along Spline modifier, enable Snap to Centroid,
 # set the starting attachment position to 0, and set Offset to 1.
 
-node = soptoolutils.genericTool(kwargs, "MOPS::move_along_spline::1.4", force_filter=True)
+node = soptoolutils.genericTool(kwargs, "MOPS::move_along_spline::1.5", force_filter=True)
 node.parm('do_snap').set(1)
 node.parm('maintain_offset').set(1.0)
 node.parm('attach_mode').set(1)
@@ -38,21 +38,21 @@ node.parm('attach_attr').set("")]]></script>
 # generate a MOPs Move Along Spline modifier, then set it to distribute
 # everything onto the spline.
 
-node = soptoolutils.genericTool(kwargs, 'MOPS::move_along_spline::1.4', force_filter=True)
+node = soptoolutils.genericTool(kwargs, 'MOPS::move_along_spline::1.5', force_filter=True)
 node.parm('attach_mode').set(2)
 node.parm('curve_select_mode').set(1)]]></script>
   </tool>
 
   <tool name="MOPs_Pivot" label="MOPs Pivot" icon="opdef:MOPS::Sop/Align::1.0?mops_modifier_02.svg">
-	<toolMenuContext name="network">
-		<contextNetType>SOP</contextNetType>
-	</toolMenuContext>
+    <toolMenuContext name="network">
+      <contextNetType>SOP</contextNetType>
+    </toolMenuContext>
     <toolSubmenu>MOPs/Modifiers</toolSubmenu>
     <script scriptType="python"><![CDATA[import soptoolutils
 
 # generate a MOPs Move Along Spline modifier, enable Snap to Centroid,
 # set the starting attachment position to 0, and set Offset to 1.
 
-node = soptoolutils.genericTool(kwargs, "MOPS::Align::1.0", force_filter=True)]]></script>
+node = soptoolutils.genericTool(kwargs, "MOPS::Align::1.2", force_filter=True)]]></script>
   </tool>
 </shelfDocument>
