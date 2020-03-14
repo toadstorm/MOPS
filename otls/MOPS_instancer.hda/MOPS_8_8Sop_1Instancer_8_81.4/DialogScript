@@ -982,6 +982,27 @@
             range   { 0 10 }
             parmtag { "autoscope" "0000000000000000" }
         }
+        parm {
+            name    "do_copy_attrs"
+            label   "Copy Template Attributes"
+            type    toggle
+            default { "on" }
+            disablewhen "{ distro_type < 5 }"
+            range   { 0! 10 }
+            parmtag { "autoscope" "1000000000000000" }
+        }
+        parm {
+            name    "attribname2"
+            label   "Attributes To Copy"
+            type    string
+            default { "mops_falloff" }
+            disablewhen "{ do_copy_attrs == 0 }"
+            menutoggle {
+                [ "opmenu -l -a MOPs_Apply_Attributes attribname" ]
+            }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "sop_input" "2else1" }
+        }
         groupsimple {
             name    "folder0"
             label   "Linear"
