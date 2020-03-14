@@ -167,4 +167,23 @@
         }
     }
 
+    parm {
+        name    "do_vexpression"
+        label   "Do Vexpression"
+        type    toggle
+        default { "off" }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "vexpression"
+        label   "Vexpression"
+        type    string
+        default { "// pivot = {0,0,0};" }
+        disablewhen "{ do_vexpression 0 }"
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "editor" "1" }
+        parmtag { "editorlang" "vex" }
+    }
 }

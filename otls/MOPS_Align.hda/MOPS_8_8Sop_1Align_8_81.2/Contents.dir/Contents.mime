@@ -34,7 +34,7 @@ sopflags sopflags =
 comment ""
 position -1.973 -3.9444
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 0 "output1"
@@ -50,7 +50,7 @@ inputs
 stat
 {
   create 1584077743
-  modify 1584083528
+  modify 1584156829
   author Henry@LAPPY586
   access 0777
 }
@@ -108,7 +108,7 @@ inputs
 stat
 {
   create 1584071885
-  modify 1584082438
+  modify 1584156741
   author Henry@LAPPY586
   access 0777
 }
@@ -296,6 +296,21 @@ Content-Type: text/plain
         default { "0" }
         range   { 0 10 }
     }
+    parm {
+        name    "do_vexpression"
+        label   "Do Vexpression"
+        type    toggle
+        default { "0" }
+        range   { 0 1 }
+    }
+    parm {
+        name    "vexpression"
+        label   "Vexpression"
+        type    string
+        default { "" }
+        parmtag { "editor" "1" }
+        parmtag { "editorlang" "vex" }
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/centroid.chn"
@@ -328,6 +343,26 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = ch(\"../grouptype\") }
     }
+    channel do_vexpression {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../do_vexpression\") }
+    }
+    channel vexpression {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../vexpression\") }
+    }
+    channel move {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../pivots_only\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -347,13 +382,17 @@ float weight = @attr;
 if(!chi(\"do_falloff\")) {
     weight = 1;
 }
-vector pivot = v@__pivot;
-vector new_pivot = set(0,0,0);
-new_pivot = lerp(pivot, new_pivot, weight);
-vector offset = new_pivot - pivot;
+vector old_pivot = v@__pivot;
+vector pivot = set(0,0,0);
+
+// vexpression
+`ifs(ch(\"do_vexpression\"), chs(\"vexpression\"), \"\")`
+
+pivot = lerp(old_pivot, pivot, weight);
+vector offset = pivot - old_pivot;
 matrix xform = 4@__xform;
 // setprimintrinsic(0, \"pivot\", @ptnum, new_pivot, \"set\");
-v@__pivot = new_pivot;
+v@__pivot = pivot;
 if(move) {
     @P = offset * xform;
 }"	)
@@ -371,8 +410,10 @@ vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
-move	[ 0	locks=0 ]	(	1	)
+move	[ 0	locks=0 ]	(	[ move	1 ] 	)
 do_falloff	[ 0	locks=0 ]	(	[ do_falloff	1 ] 	)
+do_vexpression	[ 0	locks=0 ]	(	[ do_vexpression	0 ] 	)
+vexpression	[ 0	locks=0 ]	(	[ vexpression	"// pivot = {0,0,0};" ] 	)
 bindname1	[ 0	locks=0 ]	(	[ bindname1	mops_falloff ] 	)
 bindparm1	[ 0	locks=0 ]	(	attr	)
 }
@@ -419,7 +460,7 @@ inputs
 stat
 {
   create 1584071885
-  modify 1584082568
+  modify 1584156789
   author Henry@LAPPY586
   access 0777
 }
@@ -615,6 +656,21 @@ Content-Type: text/plain
         default { "0" }
         range   { 0 10 }
     }
+    parm {
+        name    "do_vexpression"
+        label   "Do Vexpression"
+        type    toggle
+        default { "0" }
+        range   { 0 1 }
+    }
+    parm {
+        name    "vexpression"
+        label   "Vexpression"
+        type    string
+        default { "" }
+        parmtag { "editor" "1" }
+        parmtag { "editorlang" "vex" }
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/local_pivot.chn"
@@ -672,6 +728,19 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = ch(\"../grouptype\") }
     }
+    channel do_vexpression {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../do_vexpression\") }
+    }
+    channel vexpression {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../vexpression\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -691,13 +760,17 @@ float weight = @attr;
 if(!chi(\"do_falloff\")) {
     weight = 1;
 }
-vector pivot = v@__pivot;
-vector new_pivot = chv(\"pivot\");
-new_pivot = lerp(pivot, new_pivot, weight);
-vector offset = new_pivot - pivot;
+vector old_pivot = v@__pivot;
+vector pivot = chv(\"pivot\");
+
+// vexpression
+`ifs(ch(\"do_vexpression\"), chs(\"vexpression\"), \"\")`
+
+pivot = lerp(old_pivot, pivot, weight);
+vector offset = pivot - old_pivot;
 matrix xform = 4@__xform;
 // setprimintrinsic(0, \"pivot\", @ptnum, new_pivot, \"set\");
-v@__pivot = new_pivot;
+v@__pivot = pivot;
 if(move) {
     @P = offset * xform;
 }"	)
@@ -718,6 +791,8 @@ folder1	[ 0	locks=0 ]	(	0	0	)
 pivot	[ 0	locks=0 ]	(	[ pivotx	0 ] 	[ pivoty	0 ] 	[ pivotz	0 ] 	)
 move	[ 0	locks=0 ]	(	[ move	1 ] 	)
 do_falloff	[ 0	locks=0 ]	(	[ do_falloff	1 ] 	)
+do_vexpression	[ 0	locks=0 ]	(	[ do_vexpression	0 ] 	)
+vexpression	[ 0	locks=0 ]	(	[ vexpression	"// pivot = {0,0,0};" ] 	)
 bindname1	[ 0	locks=0 ]	(	[ bindname1	mops_falloff ] 	)
 bindparm1	[ 0	locks=0 ]	(	attr	)
 }
@@ -764,7 +839,7 @@ inputs
 stat
 {
   create 1584071885
-  modify 1584082569
+  modify 1584156869
   author Henry@LAPPY586
   access 0777
 }
@@ -967,6 +1042,21 @@ Content-Type: text/plain
         default { "0" }
         range   { 0 10 }
     }
+    parm {
+        name    "do_vexpression"
+        label   "Do Vexpression"
+        type    toggle
+        default { "0" }
+        range   { 0 1 }
+    }
+    parm {
+        name    "vexpression"
+        label   "Vexpression"
+        type    string
+        default { "" }
+        parmtag { "editor" "1" }
+        parmtag { "editorlang" "vex" }
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/pivot_shift.chn"
@@ -1031,6 +1121,19 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = ch(\"../grouptype\") }
     }
+    channel do_vexpression {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../do_vexpression\") }
+    }
+    channel vexpression {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../vexpression\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1051,17 +1154,20 @@ float weight = @attr;
 if(!chi(\"do_falloff\")) {
     weight = 1;
 }
-vector pivot = v@__pivot;
-vector offset = chv(\"pivot\");
-offset = lerp(set(0,0,0), offset, weight);
+vector pivot = chv(\"pivot\");
+pivot = lerp(set(0,0,0), pivot, weight);
+
+// vexpression
+`ifs(ch(\"do_vexpression\"), chs(\"vexpression\"), \"\")`
+
 matrix3 xform = matrix3(4@__xform);
 if(!local) {
-    offset = invert(xform) * offset;
+    pivot = invert(xform) * pivot;
 }
 // setprimintrinsic(0, \"pivot\", @ptnum, offset, \"add\");
-v@__pivot += offset;
+v@__pivot += pivot;
 if(move) {
-    @P += (offset * xform);
+    @P += (pivot * xform);
 }"	)
 exportlist	[ 0	locks=0 ]	(	*	)
 vex_strict	[ 0	locks=0 ]	(	"off"	)
@@ -1081,6 +1187,8 @@ pivot	[ 0	locks=0 ]	(	[ pivotx	0 ] 	[ pivoty	0 ] 	[ pivotz	0 ] 	)
 local	[ 0	locks=0 ]	(	[ local	1 ] 	)
 move	[ 0	locks=0 ]	(	[ move	1 ] 	)
 do_falloff	[ 0	locks=0 ]	(	[ do_falloff	1 ] 	)
+do_vexpression	[ 0	locks=0 ]	(	[ do_vexpression	0 ] 	)
+vexpression	[ 0	locks=0 ]	(	[ vexpression	"// pivot = {0,0,0};" ] 	)
 bindname1	[ 0	locks=0 ]	(	[ bindname1	mops_falloff ] 	)
 bindparm1	[ 0	locks=0 ]	(	attr	)
 }
@@ -1127,7 +1235,7 @@ inputs
 stat
 {
   create 1584071885
-  modify 1584083495
+  modify 1584156816
   author Henry@LAPPY586
   access 0777
 }
@@ -1316,6 +1424,21 @@ Content-Type: text/plain
         default { "0" }
         range   { 0 10 }
     }
+    parm {
+        name    "do_vexpression"
+        label   "Do Vexpression"
+        type    toggle
+        default { "0" }
+        range   { 0 1 }
+    }
+    parm {
+        name    "vexpression"
+        label   "Vexpression"
+        type    string
+        default { "" }
+        parmtag { "editor" "1" }
+        parmtag { "editorlang" "vex" }
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/world_pivot.chn"
@@ -1360,6 +1483,26 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = ch(\"../grouptype\") }
     }
+    channel do_falloff {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../do_falloff\") }
+    }
+    channel do_vexpression {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../do_vexpression\") }
+    }
+    channel vexpression {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../vexpression\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1374,22 +1517,26 @@ grouptype	[ 0	locks=0 ]	(	[ grouptype	0 ] 	)
 class	[ 0	locks=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
-snippet	[ 0	locks=0 ]	(	"vector pivot = v@__pivot;
+snippet	[ 0	locks=0 ]	(	"vector old_pivot = v@__pivot;
 float weight = @attr;
 if(!chi(\"do_falloff\")) {
     weight = 1;
 }
-vector new_pivot = chv(\"pivot\");
+vector pivot = chv(\"pivot\");
 // we don't really want to lerp between \"pivot\" and \"new pivot\" in this case,
 // because our pivot is in local space.
+
+// vexpression
+`ifs(ch(\"do_vexpression\"), chs(\"vexpression\"), \"\")`
+
 matrix3 xform = matrix3(4@__xform);
-vector world_pivot = @P - (xform * pivot);
-new_pivot = lerp(world_pivot, new_pivot, weight);
-vector offset = new_pivot - world_pivot;
+vector world_pivot = @P - (xform * old_pivot);
+pivot = lerp(world_pivot, pivot, weight);
+vector offset = pivot - world_pivot;
 
 // setprimintrinsic(0, \"pivot\", @ptnum, offset * invert(xform), \"set\");
 v@__pivot = offset * invert(xform);
-@P = new_pivot;"	)
+@P = pivot;"	)
 exportlist	[ 0	locks=0 ]	(	*	)
 vex_strict	[ 0	locks=0 ]	(	"off"	)
 autobind	[ 0	locks=0 ]	(	"on"	)
@@ -1405,7 +1552,9 @@ vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 pivot	[ 0	locks=0 ]	(	[ pivotx	0 ] 	[ pivoty	0 ] 	[ pivotz	0 ] 	)
-do_falloff	[ 0	locks=0 ]	(	1	)
+do_falloff	[ 0	locks=0 ]	(	[ do_falloff	1 ] 	)
+do_vexpression	[ 0	locks=0 ]	(	[ do_vexpression	0 ] 	)
+vexpression	[ 0	locks=0 ]	(	[ vexpression	"// pivot = {0,0,0};" ] 	)
 bindname1	[ 0	locks=0 ]	(	[ bindname1	mops_falloff ] 	)
 bindparm1	[ 0	locks=0 ]	(	attr	)
 }
@@ -1452,7 +1601,7 @@ inputs
 stat
 {
   create 1584071885
-  modify 1584082438
+  modify 1584156789
   author Henry@LAPPY586
   access 0777
 }
@@ -1647,6 +1796,21 @@ Content-Type: text/plain
         default { "0" }
         range   { 0 10 }
     }
+    parm {
+        name    "do_vexpression"
+        label   "Do Vexpression"
+        type    toggle
+        default { "0" }
+        range   { 0 1 }
+    }
+    parm {
+        name    "vexpression"
+        label   "Vexpression"
+        type    string
+        default { "" }
+        parmtag { "editor" "1" }
+        parmtag { "editorlang" "vex" }
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/align.chn"
@@ -1693,6 +1857,19 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = ch(\"../grouptype\") }
     }
+    channel do_vexpression {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../do_vexpression\") }
+    }
+    channel vexpression {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../vexpression\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1707,7 +1884,7 @@ grouptype	[ 0	locks=0 ]	(	[ grouptype	0 ] 	)
 class	[ 0	locks=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
-snippet	[ 0	locks=0 ]	(	"vector pivot = v@__pivot;
+snippet	[ 0	locks=0 ]	(	"vector old_pivot = v@__pivot;
 float weight = @attr;
 if(!chi(\"do_falloff\")) {
     weight = 1;
@@ -1717,11 +1894,14 @@ int mode = chi(\"mode\"); // -X, +X, -Y, +Y, -Z, +Z
 int index = floor(mode / 2);
 matrix3 xform = matrix3(4@__xform);
 int move = chi(\"move\");
-vector new_pivot = pivot;
-new_pivot[index] = bounds[mode];
-new_pivot = lerp(pivot, new_pivot, weight);
-v@__pivot = new_pivot;
-vector offset = new_pivot - pivot;
+vector pivot = old_pivot;
+pivot[index] = bounds[mode];
+// vexpression
+`ifs(ch(\"do_vexpression\"), chs(\"vexpression\"), \"\")`
+
+pivot = lerp(old_pivot, pivot, weight);
+v@__pivot = pivot;
+vector offset = pivot - old_pivot;
 // setprimintrinsic(0, \"pivot\", @ptnum, new_pivot, \"set\");
 if(move) {
     @P += (offset * xform);
@@ -1743,6 +1923,8 @@ folder1	[ 0	locks=0 ]	(	0	0	)
 mode	[ 0	locks=0 ]	(	[ mode	2 ] 	)
 move	[ 0	locks=0 ]	(	[ move	1 ] 	)
 do_falloff	[ 0	locks=0 ]	(	[ do_falloff	1 ] 	)
+do_vexpression	[ 0	locks=0 ]	(	[ do_vexpression	0 ] 	)
+vexpression	[ 0	locks=0 ]	(	[ vexpression	"// pivot = {0,0,0};" ] 	)
 bindname1	[ 0	locks=0 ]	(	[ bindname1	mops_falloff ] 	)
 bindparm1	[ 0	locks=0 ]	(	attr	)
 }
@@ -2387,7 +2569,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	4 ] 	)
+input	[ 0	locks=0 ]	(	[ input	2 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
