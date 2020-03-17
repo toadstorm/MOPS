@@ -33,7 +33,7 @@ Content-Type: text/plain
 sopflags sopflags = 
 comment ""
 position -5.09351 -1.33284
-connectornextid 1
+connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
@@ -41,14 +41,16 @@ outputsNamed3
 }
 inputsNamed3
 {
+1 	file1 0 1 "input1"
 }
 inputs
 {
+0 	file1 0 1
 }
 stat
 {
   create 1584171257
-  modify 1584205958
+  modify 1584206195
   author Henry@LAPPY586
   access 0777
 }
@@ -4464,7 +4466,7 @@ inputs
 stat
 {
   create 1584173063
-  modify 1584205339
+  modify 1584413530
   author Henry@LAPPY586
   access 0777
 }
@@ -4511,7 +4513,7 @@ sepparm2	[ 0	locks=0 ]	(	)
 local_space	[ 0	locks=0 ]	(	"on"	)
 rotate_mode	[ 0	locks=0	autoscope=0 ]	(	1	)
 rotate_order	[ 0	locks=0 ]	(	0	)
-scale_mode	[ 0	locks=0	autoscope=0 ]	(	1	)
+scale_mode	[ 0	locks=0	autoscope=0 ]	(	0	)
 do_falloff	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 falloff_attribute	[ 0	locks=0 ]	(	mops_falloff	)
 ignore_no_falloff	[ 0	locks=0 ]	(	"off"	)
@@ -8688,7 +8690,7 @@ inputs
 stat
 {
   create 1509148564
-  modify 1584205857
+  modify 1584413543
   author Henry@LAPPY586
   access 0777
 }
@@ -8722,8 +8724,8 @@ if(!haspointattrib(0, \"pscale\")) {
 }
 v@scale *= chv(\"../instance_scale\" + itoa(i@mops_index+1));
 f@pscale *= ch(\"../instance_pscale\" + itoa(i@mops_index+1));
-v@scale *= chv(\"../global_scale\");
-f@pscale *= ch(\"../global_pscale\");
+//v@scale *= chv(\"../global_scale\");
+//f@pscale *= ch(\"../global_pscale\");
 vector r = chv(\"../instance_rotate\" + itoa(i@mops_index+1));
 vector4 rot = eulertoquaternion(radians(r), XFORM_XYZ);
 vector r2 = chv(\"../global_rotate\");
@@ -13108,7 +13110,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 spare_input0	[ 0	locks=0 ]	(	../foreach_begin1_metadata1	)
 }
 
@@ -13204,7 +13206,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 spare_input0	[ 0	locks=0 ]	(	../foreach_begin1_metadata1	)
 }
 
@@ -13425,13 +13427,13 @@ geodatapath	[ 0	locks=0 ]	(	""	)
 missingframe	[ 0	locks=0 ]	(	"error"	)
 loadtype	[ 0	locks=0 ]	(	"packedseq"	)
 packedviewedit	[ 0	locks=0 ]	(	"unchanged"	)
-viewportlod	[ 8	locks=0 ]	(	[ viewportlod	2 ] 	)
+viewportlod	[ 8	locks=0 ]	(	[ viewportlod	0 ] 	)
 packexpanded	[ 0	locks=0 ]	(	"on"	)
 delayload	[ 0	locks=0 ]	(	"off"	)
 mkpath	[ 0	locks=0 ]	(	"on"	)
 cachesize	[ 0	locks=0 ]	(	0	)
 prefetch	[ 0	locks=0 ]	(	"off"	)
-f	[ 0	locks=0 ]	(	[ f1	1 ] 	[ f2	48 ] 	)
+f	[ 0	locks=0 ]	(	[ f1	1 ] 	[ f2	24 ] 	)
 index	[ 0	locks=0 ]	(	[ index	0 ] 	)
 wrap	[ 0	locks=0 ]	(	"cycle"	)
 retry	[ 0	locks=0 ]	(	0	)
@@ -18933,7 +18935,7 @@ t	[ 0	locks=0 ]	(	[ tx	0 ] 	[ ty	0 ] 	[ tz	0 ] 	)
 r	[ 0	locks=0 ]	(	[ rx	0 ] 	[ ry	0 ] 	[ rz	0 ] 	)
 s	[ 0	locks=0 ]	(	[ sx	1 ] 	[ sy	1 ] 	[ sz	1 ] 	)
 shear	[ 0	locks=0 ]	(	[ shear1	0 ] 	[ shear2	0 ] 	[ shear3	0 ] 	)
-scale	[ 0	locks=0 ]	(	[ scale	1 ] 	)
+scale	[ 0	locks=0 ]	(	[ scale	0.10000000000000001 ] 	)
 parmgroup_pivotxform	[ 0	locks=0 ]	(	0	)
 p	[ 0	locks=0 ]	(	[ px	0 ] 	[ py	0 ] 	[ pz	0 ] 	)
 pr	[ 0	locks=0 ]	(	[ prx	0 ] 	[ pry	0 ] 	[ prz	0 ] 	)
