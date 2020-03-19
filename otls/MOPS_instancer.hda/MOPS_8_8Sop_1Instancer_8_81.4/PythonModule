@@ -174,7 +174,14 @@ def on_input_changed(kwargs):
                 parmfullpath = None
                 inputfullpath = None
                 if(parminstancetype == 0):
-                    parmfullpath = me.node(parmpath).path()
+                    # if this node doesn't evaluate to anything, we deleted a
+                    # node with other upstream connections.
+                    try:
+                        parmfullpath = me.node(parmpath).path()
+                    except AttributeError:
+                        # just update the input path and skip the rest.
+                        parmfullpath = me.inputs()[parmindex].path()
+                        me.parm('instancepath'+str(x)).set(me.relativePathTo(hou.node(parmfullpath)))
                     inputfullpath = me.inputs()[parmindex].path()
                 else:
                     # this is a File or Alembic
