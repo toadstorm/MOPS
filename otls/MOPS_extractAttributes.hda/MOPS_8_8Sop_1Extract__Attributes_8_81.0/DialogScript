@@ -23,6 +23,15 @@
         parmtag { "autoscope" "0000000000000000" }
     }
     parm {
+        name    "do_mops_orient"
+        label   "Extract MOPs Orient"
+        type    toggle
+        default { "0" }
+        range   { 0! 10 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
         name    "do_full_transform"
         label   "Extract Full Transform (Abc)"
         type    toggle

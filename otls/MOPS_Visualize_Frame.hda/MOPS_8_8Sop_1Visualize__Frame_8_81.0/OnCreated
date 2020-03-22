@@ -15,7 +15,7 @@ if hasattr(hou, 'viewportVisualizers'):
     node = kwargs['node']
     v1 = hou.viewportVisualizers.createVisualizer(hou.viewportVisualizers.type('vis_marker'), hou.viewportVisualizerCategory.Node, node)
     v1.setIsActive(True)
-    v1.setParm('attrib', 'N')
+    v1.setParm('attrib', 'viz_N')
     v1.setParm('style', 'vector')
     v1.setParm('markercolorr', 0);
     v1.setParm('markercolorg', 0);
@@ -23,7 +23,7 @@ if hasattr(hou, 'viewportVisualizers'):
     
     v2 = hou.viewportVisualizers.createVisualizer(hou.viewportVisualizers.type('vis_marker'), hou.viewportVisualizerCategory.Node, node)
     v2.setIsActive(True)
-    v2.setParm('attrib', 'up')
+    v2.setParm('attrib', 'viz_up')
     v2.setParm('style', 'vector')
     v2.setParm('markercolorr', 0);
     v2.setParm('markercolorg', 1);
@@ -31,7 +31,7 @@ if hasattr(hou, 'viewportVisualizers'):
     
     v1 = hou.viewportVisualizers.createVisualizer(hou.viewportVisualizers.type('vis_marker'), hou.viewportVisualizerCategory.Node, node)
     v1.setIsActive(True)
-    v1.setParm('attrib', 'binormal')
+    v1.setParm('attrib', 'viz_binormal')
     v1.setParm('style', 'vector')
     v1.setParm('markercolorr', 1);
     v1.setParm('markercolorg', 0);
