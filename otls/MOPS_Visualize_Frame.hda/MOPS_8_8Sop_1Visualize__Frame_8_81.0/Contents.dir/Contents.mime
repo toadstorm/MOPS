@@ -32,24 +32,24 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.7841 -4.5317
+position -12.6815 1.73941
 connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
 inputsNamed3
 {
-0 	MOPs_Trails 1 1 "input1"
+0 	MOPs_Transform_Modifier1 1 1 "input1"
 }
 inputs
 {
-0 	MOPs_Trails 1 1
+0 	MOPs_Transform_Modifier1 0 1
 }
 stat
 {
-  create 1562628489
-  modify 1562736441
+  create 1584895659
+  modify 1584914898
   author Henry@LAPPY586
   access 0777
 }
@@ -150,7 +150,7 @@ inputs
 stat
 {
   create 1542840097
-  modify 1562628489
+  modify 1584914855
   author Henry@LAPPY586
   access 0777
 }
@@ -171,10 +171,18 @@ grouptype	[ 0	locks=0 ]	(	"guess"	)
 class	[ 0	locks=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
-snippet	[ 0	locks=0 ]	(	"matrix3 m = qconvert(p@orient);
-v@N = {0,0,1}*m;
-v@up = {0,1,0}*m;
-v@binormal = {1,0,0}*m;"	)
+snippet	[ 0	locks=0 ]	(	"// apply mops_orient pretransform
+
+vector4 mops_orient = quaternion(ident());
+if(haspointattrib(0, \"mops_orient\")) {
+    mops_orient = point(0, \"mops_orient\", @ptnum);
+}
+p@orient = qmultiply(p@orient, mops_orient);
+
+matrix3 m = qconvert(p@orient);
+v@viz_N = {0,0,1}*m;
+v@viz_up = {0,1,0}*m;
+v@viz_binormal = {1,0,0}*m;"	)
 exportlist	[ 0	locks=0 ]	(	*	)
 vex_strict	[ 0	locks=0 ]	(	"off"	)
 autobind	[ 0	locks=0 ]	(	"on"	)
@@ -187,6 +195,7 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -213,7 +222,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.29394 3.62547
+position 1.72165 3.73591
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -231,7 +240,7 @@ inputs
 stat
 {
   create 1557810246
-  modify 1557813721
+  modify 1584895438
   author Henry@LAPPY586
   access 0777
 }
@@ -316,7 +325,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -346,7 +355,7 @@ inputsNamed3
 }
 inputs
 {
-0 	(0) 1 1
+0 	(0) 0 1
 }
 stat
 {
@@ -377,7 +386,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -414,7 +423,7 @@ inputs
 stat
 {
   create 1557810327
-  modify 1557813725
+  modify 1584895621
   author Henry@LAPPY586
   access 0777
 }
@@ -436,7 +445,7 @@ destgrouptype	[ 0	locks=0 ]	(	"points"	)
 matchbyattribute	[ 0	locks=0 ]	(	"off"	)
 attributetomatch	[ 0	locks=0 ]	(	piece	)
 attrib	[ 0	locks=0 ]	(	"otherattrib"	)
-attribname	[ 0	locks=0 ]	(	"N up binormal"	)
+attribname	[ 0	locks=0 ]	(	"viz_N viz_up viz_binormal"	)
 copyp	[ 0	locks=0 ]	(	"on"	)
 usenewname	[ 0	locks=0 ]	(	"off"	)
 newname	[ 0	locks=0 ]	(	""	)
@@ -451,7 +460,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
