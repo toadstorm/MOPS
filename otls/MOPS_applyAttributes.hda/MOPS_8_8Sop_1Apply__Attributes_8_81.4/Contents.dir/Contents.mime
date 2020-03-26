@@ -32,7 +32,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -14.4992 1.44353
+position -0.0708374 -10.8034
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -41,18 +41,18 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	attribdelete1 1 1 "input1"
-1 	MOPs_Extract_Attributes 1 1 "input2"
+0 	MOPS_IN 0 1 "input1"
+1 	switch_do_pscale 0 1 "input2"
 }
 inputs
 {
-0 	attribdelete1 0 1
-1 	MOPs_Extract_Attributes 0 1
+0 	MOPS_IN 0 1
+1 	switch_do_pscale 0 1
 }
 stat
 {
-  create 1584915313
-  modify 1584917180
+  create 1584163373
+  modify 1585189489
   author Henry@LAPPY586
   access 0777
 }
@@ -113,7 +113,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1584915313
+  modify 1585189633
   author Henry@LAPPY586
   access 0777
 }
@@ -629,8 +629,8 @@ if(doS) {
     }
 }
 
-//v@__scale = scale;
-//f@__pscale = pscale;
+v@__scale = scale;
+f@__pscale = pscale;
 
 vector4 mops_orient = quaternion(ident());
 if(haspointattrib(0, \"mops_orient\")) {
@@ -692,11 +692,11 @@ vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
 vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
-do_translate	[ 0	locks=0	autoscope=0 ]	(	[ do_translate	1 ] 	)
-do_rotate	[ 0	locks=0	autoscope=0 ]	(	[ do_rotate	1 ] 	)
+do_translate	[ 0	locks=0	autoscope=0 ]	(	[ do_translate	0 ] 	)
+do_rotate	[ 0	locks=0	autoscope=0 ]	(	[ do_rotate	0 ] 	)
 do_scale	[ 0	locks=0	autoscope=0 ]	(	[ do_scale	1 ] 	)
 do_weight	[ 0	locks=0	autoscope=0 ]	(	[ do_weight	1 ] 	)
-rotate_mode	[ 0	locks=0	autoscope=0 ]	(	[ rotate_mode	1 ] 	)
+rotate_mode	[ 0	locks=0	autoscope=0 ]	(	[ rotate_mode	0 ] 	)
 scale_mode	[ 0	locks=0	autoscope=0 ]	(	[ scale_mode	0 ] 	)
 local_space	[ 0	locks=0	autoscope=0 ]	(	[ local_space	1 ] 	)
 rotate_order	[ 0	locks=0	autoscope=0 ]	(	[ rotate_order	0 ] 	)
@@ -747,7 +747,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1584915313
+  modify 1585189489
   author Henry@LAPPY586
   access 0777
 }
@@ -830,7 +830,7 @@ inputs
 stat
 {
   create 1555437557
-  modify 1584915313
+  modify 1585189489
   author Henry@LAPPY586
   access 0777
 }
@@ -926,7 +926,7 @@ inputs
 stat
 {
   create 1569084024
-  modify 1584915313
+  modify 1585189489
   author Henry@LAPPY586
   access 0777
 }
@@ -1013,7 +1013,7 @@ inputs
 stat
 {
   create 1583618763
-  modify 1584915313
+  modify 1585189489
   author Henry@LAPPY586
   access 0777
 }
@@ -1093,7 +1093,7 @@ inputs
 stat
 {
   create 1583691828
-  modify 1584915313
+  modify 1585189489
   author Henry@LAPPY586
   access 0777
 }
@@ -1173,7 +1173,7 @@ inputs
 stat
 {
   create 1584863149
-  modify 1584915313
+  modify 1585189489
   author Henry@LAPPY586
   access 0777
 }
@@ -1260,7 +1260,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1584915313
+  modify 1585189489
   author Henry@LAPPY586
   access 0777
 }
@@ -1413,7 +1413,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1584915313
+  modify 1585189489
   author Henry@LAPPY586
   access 0777
 }
@@ -1672,7 +1672,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1584915313
+  modify 1585189489
   author Henry@LAPPY586
   access 0777
 }
@@ -1747,7 +1747,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1584915313
+  modify 1585189489
   author Henry@LAPPY586
   access 0777
 }
@@ -1883,7 +1883,7 @@ inputs
 stat
 {
   create 1555459453
-  modify 1584915313
+  modify 1585189489
   author Henry@LAPPY586
   access 0777
 }
@@ -1912,7 +1912,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	1 ] 	)
+input	[ 0	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1959,7 +1959,7 @@ inputs
 stat
 {
   create 1556862778
-  modify 1584915313
+  modify 1585189489
   author Henry@LAPPY586
   access 0777
 }
@@ -2034,7 +2034,7 @@ inputs
 stat
 {
   create 1569084092
-  modify 1584915313
+  modify 1585189489
   author Henry@LAPPY586
   access 0777
 }
@@ -2062,7 +2062,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2109,7 +2109,7 @@ inputs
 stat
 {
   create 1569468433
-  modify 1584915313
+  modify 1585189489
   author Henry@LAPPY586
   access 0777
 }
@@ -2382,7 +2382,7 @@ inputs
 stat
 {
   create 1573854736
-  modify 1584915313
+  modify 1585189489
   author Henry@LAPPY586
   access 0777
 }
@@ -2525,7 +2525,7 @@ inputs
 stat
 {
   create 1583519692
-  modify 1584915313
+  modify 1585189489
   author Henry@LAPPY586
   access 0777
 }
@@ -2601,7 +2601,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1584915313
+  modify 1585189489
   author Henry@LAPPY586
   access 0777
 }
