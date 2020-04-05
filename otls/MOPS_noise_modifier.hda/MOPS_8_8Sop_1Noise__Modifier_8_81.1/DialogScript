@@ -310,7 +310,8 @@
                 type    vector2
                 size    2
                 default { "-1" "1" }
-                disablewhen "{ do_remap 0 }"
+                disablewhen "{ do_remap == 0 }"
+                hidewhen "{ signature == 1 }"
                 range   { 0 1 }
                 parmtag { "autoscope" "0000000000000000" }
             }
@@ -320,9 +321,58 @@
                 type    vector2
                 size    2
                 default { "-1" "1" }
-                disablewhen "{ do_remap 0 }"
+                disablewhen "{ do_remap == 0 }"
+                hidewhen "{ signature == 1 }"
                 range   { 0 1 }
                 parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "input_min_3D"
+                label   "Input Min"
+                type    vector
+                size    3
+                default { "-1" "-1" "-1" }
+                disablewhen "{ do_remap == 0 }"
+                hidewhen "{ signature == 0 }"
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "input_max_3D"
+                label   "Input Max"
+                type    vector
+                size    3
+                default { "1" "1" "1" }
+                disablewhen "{ do_remap == 0 }"
+                hidewhen "{ signature == 0 }"
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "output_min_3D"
+                label   "Output Min"
+                type    vector
+                size    3
+                default { "-1" "-1" "-1" }
+                disablewhen "{ do_remap == 0 }"
+                hidewhen "{ signature == 0 }"
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "output_max_3D"
+                label   "Output Max"
+                type    vector
+                size    3
+                default { "1" "1" "1" }
+                disablewhen "{ do_remap == 0 }"
+                hidewhen "{ signature == 0 }"
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
             }
         }
 

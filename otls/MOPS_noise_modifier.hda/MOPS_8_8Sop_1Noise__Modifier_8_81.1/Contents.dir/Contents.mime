@@ -32,26 +32,25 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -8.2097 -10.858
-connectornextid 2
+position -4.4752 -1.01356
+connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-1 "output1"
 }
 inputsNamed3
 {
-0 	MOPs_Shape_Falloff 1 1 "input1"
+0 	MOPs_Deintersect 2 1 "input1"
 }
 inputs
 {
-0 	MOPs_Shape_Falloff 0 1
+0 	MOPs_Deintersect 0 1
 }
 stat
 {
-  create 1583604787
-  modify 1583723939
-  author herna@DESKTOP-6E8O9KU
+  create 1586049194
+  modify 1586050393
+  author Henry@LAPPY586
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -146,7 +145,7 @@ sopflags sopflags =
 comment ""
 position -12.0983 -3.43131
 connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 0 "output1"
@@ -164,7 +163,7 @@ inputs
 stat
 {
   create 1583723904
-  modify 1583723966
+  modify 1586049815
   author Henry@LAPPY586
   access 0777
 }
@@ -281,6 +280,7 @@ Content-Type: text/plain
 {
 version 0.8
 do_pivot	[ 0	locks=0 ]	(	"on"	)
+do_mops_orient	[ 0	locks=0 ]	(	"off"	)
 do_full_transform	[ 0	locks=0 ]	(	"off"	)
 }
 
@@ -326,7 +326,7 @@ inputs
 stat
 {
   create 1546924805
-  modify 1582671175
+  modify 1586049195
   author Henry@LAPPY586
   access 0777
 }
@@ -409,7 +409,7 @@ inputs
 stat
 {
   create 1568176217
-  modify 1582671289
+  modify 1586049439
   author Henry@LAPPY586
   access 0777
 }
@@ -635,6 +635,90 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../output_rangevy\") }
     }
+    channel input_min_3Dx {
+      lefttype = extend
+      righttype = extend
+      default = -1
+      flags = 0
+      segment { length = 0 value = -1 -1 expr = ch(\"../input_min_3Dx\") }
+    }
+    channel input_min_3Dy {
+      lefttype = extend
+      righttype = extend
+      default = -1
+      flags = 0
+      segment { length = 0 value = -1 -1 expr = ch(\"../input_min_3Dy\") }
+    }
+    channel input_min_3Dz {
+      lefttype = extend
+      righttype = extend
+      default = -1
+      flags = 0
+      segment { length = 0 value = -1 -1 expr = ch(\"../input_min_3Dz\") }
+    }
+    channel input_max_3Dx {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../input_max_3Dx\") }
+    }
+    channel input_max_3Dy {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../input_max_3Dy\") }
+    }
+    channel input_max_3Dz {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../input_max_3Dz\") }
+    }
+    channel output_min_3Dx {
+      lefttype = extend
+      righttype = extend
+      default = -1
+      flags = 0
+      segment { length = 0 value = -1 -1 expr = ch(\"../output_min_3Dx\") }
+    }
+    channel output_min_3Dy {
+      lefttype = extend
+      righttype = extend
+      default = -1
+      flags = 0
+      segment { length = 0 value = -1 -1 expr = ch(\"../output_min_3Dy\") }
+    }
+    channel output_min_3Dz {
+      lefttype = extend
+      righttype = extend
+      default = -1
+      flags = 0
+      segment { length = 0 value = -1 -1 expr = ch(\"../output_min_3Dz\") }
+    }
+    channel output_max_3Dx {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../output_max_3Dx\") }
+    }
+    channel output_max_3Dy {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../output_max_3Dy\") }
+    }
+    channel output_max_3Dz {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../output_max_3Dz\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -651,7 +735,7 @@ attrname	[ 0	locks=0	autoscope=0 ]	(	__offset	)
 attrnamev	[ 0	locks=0	autoscope=0 ]	(	__offset	)
 sepparm	[ 0	locks=0 ]	(	)
 folder0	[ 0	locks=0	autoscope=0 ]	(	1	1	1	)
-input	[ 0	locks=0	autoscope=0 ]	(	[ input	1 ] 	)
+input	[ 0	locks=0	autoscope=0 ]	(	[ input	9 ] 	)
 use_rest	[ 0	locks=0	autoscope=0 ]	(	[ use_rest	0 ] 	)
 sepparm2	[ 0	locks=0 ]	(	)
 amp	[ 0	locks=0	autoscope=0 ]	(	[ ampx	1 ] 	[ ampy	1 ] 	[ ampz	1 ] 	)
@@ -664,12 +748,16 @@ tile_size	[ 0	locks=0	autoscope=0 ]	(	[ tile_sizex	1 ] 	[ tile_sizey	1 ] 	[ tile
 Distort	[ 0	locks=0	autoscope=0 ]	(	[ Distortx	0 ] 	[ Distorty	0 ] 	[ Distortz	0 ] 	)
 time_varying	[ 0	locks=0	autoscope=0 ]	(	[ time_varying	1 ] 	)
 time_scale	[ 0	locks=0	autoscope=0 ]	(	[ time_scale	1 ] 	)
-do_remap_2D	[ 0	locks=0 ]	(	[ do_remap_2D	0 ] 	)
+do_remap_2D	[ 0	locks=0 ]	(	[ do_remap_2D	1 ] 	)
 input_rangev	[ 0	locks=0	autoscope=0 ]	(	[ input_rangevx	-1 ] 	[ input_rangevy	1 ] 	)
 output_rangev	[ 0	locks=0	autoscope=0 ]	(	[ output_rangevx	-1 ] 	[ output_rangevy	1 ] 	)
-do_remap_3D	[ 0	locks=0 ]	(	[ do_remap_3D	0 ] 	)
+do_remap_3D	[ 0	locks=0 ]	(	[ do_remap_3D	1 ] 	)
 input_range	[ 0	locks=0	autoscope=0 ]	(	[ input_rangex	-1 ] 	[ input_rangey	1 ] 	)
 output_range	[ 0	locks=0	autoscope=0 ]	(	[ output_rangex	-1 ] 	[ output_rangey	1 ] 	)
+input_min_3D	[ 0	locks=0 ]	(	[ input_min_3Dx	-1 ] 	[ input_min_3Dy	-1 ] 	[ input_min_3Dz	-1 ] 	)
+input_max_3D	[ 0	locks=0 ]	(	[ input_max_3Dx	1 ] 	[ input_max_3Dy	1 ] 	[ input_max_3Dz	1 ] 	)
+output_min_3D	[ 0	locks=0 ]	(	[ output_min_3Dx	0 ] 	[ output_min_3Dy	-1 ] 	[ output_min_3Dz	-1 ] 	)
+output_max_3D	[ 0	locks=0 ]	(	[ output_max_3Dx	1 ] 	[ output_max_3Dy	1 ] 	[ output_max_3Dz	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -714,7 +802,7 @@ inputs
 stat
 {
   create 1554928384
-  modify 1582671175
+  modify 1586049195
   author Henry@LAPPY586
   access 0777
 }
@@ -1108,7 +1196,7 @@ inputs
 stat
 {
   create 1554928384
-  modify 1582671175
+  modify 1586049822
   author Henry@LAPPY586
   access 0777
 }
@@ -1457,7 +1545,7 @@ vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 scale	[ 0	locks=0 ]	(	[ scale	1 ] 	)
-do_falloff	[ 0	locks=0 ]	(	[ do_falloff	1 ] 	)
+do_falloff	[ 0	locks=0 ]	(	[ do_falloff	0 ] 	)
 do_scale	[ 8	locks=0 ]	(	[ do_scale	0 ] 	)
 oldmin	[ 8	locks=0 ]	(	[ oldmin	0 ] 	)
 oldmax	[ 8	locks=0 ]	(	[ oldmax	1 ] 	)
@@ -1508,7 +1596,7 @@ inputs
 stat
 {
   create 1546815258
-  modify 1582671175
+  modify 1586049195
   author Henry@LAPPY586
   access 0777
 }
@@ -1614,7 +1702,7 @@ inputs
 stat
 {
   create 1324348265
-  modify 1555736255
+  modify 1586049943
   author nobody@nowhere.sidefx.com
   access 0777
 }
@@ -1728,7 +1816,7 @@ inputs
 stat
 {
   create 1546816119
-  modify 1582671175
+  modify 1586049195
   author Henry@LAPPY586
   access 0777
 }
@@ -2114,7 +2202,7 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	MOPs_Noise_Patterns1 1 1 "input1"
+0 	MOPs_Noise_Patterns1 0 1 "input1"
 }
 inputs
 {
@@ -2123,7 +2211,7 @@ inputs
 stat
 {
   create 1554928384
-  modify 1582671175
+  modify 1586050095
   author Henry@LAPPY586
   access 0777
 }
@@ -2377,6 +2465,7 @@ class	[ 0	locks=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
 snippet	[ 0	locks=0 ]	(	"float scale = ch(\"scale\");
+vector orig_P = @P;
 // compute displaced position
 if(!haspointattrib(0, \"mops_falloff\")) {
     f@mops_falloff = 1;
@@ -2416,10 +2505,10 @@ vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
-do_falloff	[ 8	locks=0 ]	(	[ do_falloff	1 ] 	)
+do_falloff	[ 8	locks=0 ]	(	[ do_falloff	0 ] 	)
 scale	[ 0	locks=0 ]	(	[ scale	1 ] 	)
-do_trails	[ 0	locks=0 ]	(	[ do_trails	0 ] 	)
-do_P	[ 0	locks=0 ]	(	[ do_P	0 ] 	)
+do_trails	[ 0	locks=0 ]	(	[ do_trails	1 ] 	)
+do_P	[ 0	locks=0 ]	(	[ do_P	1 ] 	)
 bindname1	[ 0	locks=0 ]	(	[ bindname1	N ] 	)
 bindparm1	[ 0	locks=0 ]	(	axis	)
 }
@@ -2457,7 +2546,7 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	MOPs_Noise_Patterns1 1 1 "input1"
+0 	MOPs_Noise_Patterns1 0 1 "input1"
 }
 inputs
 {
@@ -2466,7 +2555,7 @@ inputs
 stat
 {
   create 1554928384
-  modify 1582671175
+  modify 1586049942
   author Henry@LAPPY586
   access 0777
 }
@@ -2781,10 +2870,10 @@ vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 scale	[ 0	locks=0 ]	(	[ scale	1 ] 	)
-do_falloff	[ 0	locks=0 ]	(	[ do_falloff	1 ] 	)
+do_falloff	[ 0	locks=0 ]	(	[ do_falloff	0 ] 	)
 aim_weight	[ 0	locks=0 ]	(	[ aim_weight	0.10000000000000001 ] 	)
-do_trails	[ 0	locks=0 ]	(	[ do_trails	0 ] 	)
-do_P	[ 0	locks=0 ]	(	[ do_P	0 ] 	)
+do_trails	[ 0	locks=0 ]	(	[ do_trails	1 ] 	)
+do_P	[ 0	locks=0 ]	(	[ do_P	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2802,7 +2891,7 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot/advect_noise/d/s/MOPs_Noise_Patterns1.init"
 Content-Type: text/plain
 
-type = MOPS::Noise_Patterns::1.1
+type = MOPS::Noise_Patterns::1.2
 matchesdef = 1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2816,11 +2905,11 @@ connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-1 "output1"
+0 "output1"
 }
 inputsNamed3
 {
-0 	update_attrs 2 1 "input1"
+1 	update_attrs 2 1 "input1"
 }
 inputs
 {
@@ -2828,8 +2917,8 @@ inputs
 }
 stat
 {
-  create 1555736090
-  modify 1582671175
+  create 1586049942
+  modify 1586050156
   author Henry@LAPPY586
   access 0777
 }
@@ -2858,56 +2947,48 @@ Content-Type: text/plain
     channel use_rest {
       lefttype = extend
       righttype = extend
-      default = 1
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../../../../use_rest\") }
     }
     channel ampx {
       lefttype = extend
       righttype = extend
-      default = 1
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../../../../ampx\") }
     }
     channel ampy {
       lefttype = extend
       righttype = extend
-      default = 1
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../../../../ampy\") }
     }
     channel ampz {
       lefttype = extend
       righttype = extend
-      default = 1
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../../../../ampz\") }
     }
     channel freqx {
       lefttype = extend
       righttype = extend
-      default = 1
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../../../../freqx\") }
     }
     channel freqy {
       lefttype = extend
       righttype = extend
-      default = 1
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../../../../freqy\") }
     }
     channel freqz {
       lefttype = extend
       righttype = extend
-      default = 1
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../../../../freqz\") }
     }
     channel freqw {
       lefttype = extend
       righttype = extend
-      default = 1
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../../../../freqw\") }
     }
@@ -2920,14 +3001,12 @@ Content-Type: text/plain
     channel roughness {
       lefttype = extend
       righttype = extend
-      default = 0.5
       flags = 0
       segment { length = 0 value = 0.5 0.5 expr = ch(\"../../../../roughness\") }
     }
     channel octaves {
       lefttype = extend
       righttype = extend
-      default = 1
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../../../../octaves\") }
     }
@@ -2958,21 +3037,18 @@ Content-Type: text/plain
     channel tile_sizex {
       lefttype = extend
       righttype = extend
-      default = 1
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../../../../tile_sizex\") }
     }
     channel tile_sizey {
       lefttype = extend
       righttype = extend
-      default = 1
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../../../../tile_sizey\") }
     }
     channel tile_sizez {
       lefttype = extend
       righttype = extend
-      default = 1
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../../../../tile_sizez\") }
     }
@@ -3003,37 +3079,128 @@ Content-Type: text/plain
     channel time_scale {
       lefttype = extend
       righttype = extend
-      default = 1
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../../../../time_scale\") }
     }
     channel input_rangevx {
       lefttype = extend
       righttype = extend
-      default = -1
       flags = 0
       segment { length = 0 value = -1 -1 expr = ch(\"../../../../input_rangevx\") }
     }
     channel input_rangevy {
       lefttype = extend
       righttype = extend
-      default = 1
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../../../../input_rangevy\") }
     }
     channel output_rangevx {
       lefttype = extend
       righttype = extend
-      default = -1
       flags = 0
       segment { length = 0 value = -1 -1 expr = ch(\"../../../../output_rangevx\") }
     }
     channel output_rangevy {
       lefttype = extend
       righttype = extend
-      default = 1
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../../../../output_rangevy\") }
+    }
+    channel do_remap_3D {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../../../do_remap\") }
+    }
+    channel input_min_3Dx {
+      lefttype = extend
+      righttype = extend
+      default = -1
+      flags = 0
+      segment { length = 0 value = -1 -1 expr = ch(\"../../../../input_min_3Dx\") }
+    }
+    channel input_min_3Dy {
+      lefttype = extend
+      righttype = extend
+      default = -1
+      flags = 0
+      segment { length = 0 value = -1 -1 expr = ch(\"../../../../input_min_3Dy\") }
+    }
+    channel input_min_3Dz {
+      lefttype = extend
+      righttype = extend
+      default = -1
+      flags = 0
+      segment { length = 0 value = -1 -1 expr = ch(\"../../../../input_min_3Dz\") }
+    }
+    channel input_max_3Dx {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../../../../input_max_3Dx\") }
+    }
+    channel input_max_3Dy {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../../../../input_max_3Dy\") }
+    }
+    channel input_max_3Dz {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../../../../input_max_3Dz\") }
+    }
+    channel output_min_3Dx {
+      lefttype = extend
+      righttype = extend
+      default = -1
+      flags = 0
+      segment { length = 0 value = -1 -1 expr = ch(\"../../../../output_min_3Dx\") }
+    }
+    channel output_min_3Dy {
+      lefttype = extend
+      righttype = extend
+      default = -1
+      flags = 0
+      segment { length = 0 value = -1 -1 expr = ch(\"../../../../output_min_3Dy\") }
+    }
+    channel output_min_3Dz {
+      lefttype = extend
+      righttype = extend
+      default = -1
+      flags = 0
+      segment { length = 0 value = -1 -1 expr = ch(\"../../../../output_min_3Dz\") }
+    }
+    channel output_max_3Dx {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../../../../output_max_3Dx\") }
+    }
+    channel output_max_3Dy {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../../../../output_max_3Dy\") }
+    }
+    channel output_max_3Dz {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../../../../output_max_3Dz\") }
+    }
+    channel do_remap_2D {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../../../do_remap\") }
     }
   }
 
@@ -3043,31 +3210,37 @@ Content-Type: text/plain
 
 {
 version 0.8
-group	[ 0	locks=0 ]	(	__mops_orig	)
-grouptype	[ 0	locks=0 ]	(	"guess"	)
+group	[ 0	locks=0	autoscope=0 ]	(	__mops_orig	)
+grouptype	[ 0	locks=0	autoscope=0 ]	(	"guess"	)
 sepparm3	[ 0	locks=0 ]	(	)
-signature	[ 0	locks=0 ]	(	[ signature	1 ] 	)
-attrname	[ 0	locks=0 ]	(	__offset	)
-attrnamev	[ 0	locks=0 ]	(	__offset	)
+signature	[ 0	locks=0	autoscope=0 ]	(	[ signature	1 ] 	)
+attrname	[ 0	locks=0	autoscope=0 ]	(	__offset	)
+attrnamev	[ 0	locks=0	autoscope=0 ]	(	__offset	)
 sepparm	[ 0	locks=0 ]	(	)
-folder0	[ 0	locks=0 ]	(	0	0	0	)
-input	[ 0	locks=0 ]	(	[ input	9 ] 	)
-use_rest	[ 0	locks=0 ]	(	[ use_rest	0 ] 	)
+folder0	[ 0	locks=0	autoscope=0 ]	(	1	1	1	)
+input	[ 0	locks=0	autoscope=0 ]	(	[ input	9 ] 	)
+use_rest	[ 0	locks=0	autoscope=0 ]	(	[ use_rest	0 ] 	)
 sepparm2	[ 0	locks=0 ]	(	)
-amp	[ 0	locks=0 ]	(	[ ampx	1 ] 	[ ampy	1 ] 	[ ampz	1 ] 	)
-freq	[ 0	locks=0 ]	(	[ freqx	1 ] 	[ freqy	1 ] 	[ freqz	1 ] 	[ freqw	1 ] 	)
-uniform	[ 0	locks=0 ]	(	[ uniform	0 ] 	)
-roughness	[ 0	locks=0 ]	(	[ roughness	0.5 ] 	)
-octaves	[ 0	locks=0 ]	(	[ octaves	1 ] 	)
-offset	[ 0	locks=0 ]	(	[ offsetx	0 ] 	[ offsety	0 ] 	[ offsetz	0 ] 	[ offsetw	0 ] 	)
-tile_size	[ 0	locks=0 ]	(	[ tile_sizex	1 ] 	[ tile_sizey	1 ] 	[ tile_sizez	1 ] 	)
-Distort	[ 0	locks=0 ]	(	[ Distortx	0 ] 	[ Distorty	0 ] 	[ Distortz	0 ] 	)
-time_varying	[ 0	locks=0 ]	(	[ time_varying	1 ] 	)
-time_scale	[ 0	locks=0 ]	(	[ time_scale	1 ] 	)
-input_rangev	[ 0	locks=0 ]	(	[ input_rangevx	-1 ] 	[ input_rangevy	1 ] 	)
-output_rangev	[ 0	locks=0 ]	(	[ output_rangevx	-1 ] 	[ output_rangevy	1 ] 	)
-input_range	[ 0	locks=0 ]	(	0	1	)
-output_range	[ 0	locks=0 ]	(	0	1	)
+amp	[ 0	locks=0	autoscope=0 ]	(	[ ampx	1 ] 	[ ampy	1 ] 	[ ampz	1 ] 	)
+freq	[ 0	locks=0	autoscope=0 ]	(	[ freqx	1 ] 	[ freqy	1 ] 	[ freqz	1 ] 	[ freqw	1 ] 	)
+uniform	[ 0	locks=0	autoscope=0 ]	(	[ uniform	0 ] 	)
+roughness	[ 0	locks=0	autoscope=0 ]	(	[ roughness	0.5 ] 	)
+octaves	[ 0	locks=0	autoscope=0 ]	(	[ octaves	1 ] 	)
+offset	[ 0	locks=0	autoscope=0 ]	(	[ offsetx	0 ] 	[ offsety	0 ] 	[ offsetz	0 ] 	[ offsetw	0 ] 	)
+tile_size	[ 0	locks=0	autoscope=0 ]	(	[ tile_sizex	1 ] 	[ tile_sizey	1 ] 	[ tile_sizez	1 ] 	)
+Distort	[ 0	locks=0	autoscope=0 ]	(	[ Distortx	0 ] 	[ Distorty	0 ] 	[ Distortz	0 ] 	)
+time_varying	[ 0	locks=0	autoscope=0 ]	(	[ time_varying	1 ] 	)
+time_scale	[ 0	locks=0	autoscope=0 ]	(	[ time_scale	1 ] 	)
+do_remap_2D	[ 0	locks=0	autoscope=0 ]	(	[ do_remap_2D	1 ] 	)
+input_rangev	[ 0	locks=0	autoscope=0 ]	(	[ input_rangevx	-1 ] 	[ input_rangevy	1 ] 	)
+output_rangev	[ 0	locks=0	autoscope=0 ]	(	[ output_rangevx	-1 ] 	[ output_rangevy	1 ] 	)
+do_remap_3D	[ 0	locks=0	autoscope=0 ]	(	[ do_remap_3D	1 ] 	)
+input_range	[ 0	locks=0	autoscope=0 ]	(	0	1	)
+output_range	[ 0	locks=0	autoscope=0 ]	(	0	1	)
+input_min_3D	[ 0	locks=0	autoscope=0 ]	(	[ input_min_3Dx	-1 ] 	[ input_min_3Dy	-1 ] 	[ input_min_3Dz	-1 ] 	)
+input_max_3D	[ 0	locks=0	autoscope=0 ]	(	[ input_max_3Dx	1 ] 	[ input_max_3Dy	1 ] 	[ input_max_3Dz	1 ] 	)
+output_min_3D	[ 0	locks=0	autoscope=0 ]	(	[ output_min_3Dx	0 ] 	[ output_min_3Dy	-1 ] 	[ output_min_3Dz	-1 ] 	)
+output_max_3D	[ 0	locks=0	autoscope=0 ]	(	[ output_max_3Dx	1 ] 	[ output_max_3Dy	1 ] 	[ output_max_3Dz	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -3112,7 +3285,7 @@ inputs
 stat
 {
   create 1557519690
-  modify 1582671175
+  modify 1586049195
   author Henry@LAPPY586
   access 0777
 }
@@ -3268,7 +3441,7 @@ inputs
 stat
 {
   create 1523127556
-  modify 1582671175
+  modify 1586049195
   author Mo@Mo-PC
   access 0777
 }
@@ -3491,7 +3664,7 @@ inputs
 stat
 {
   create 1546818553
-  modify 1582671175
+  modify 1586049195
   author Henry@LAPPY586
   access 0777
 }
@@ -3605,7 +3778,7 @@ inputs
 stat
 {
   create 1546818578
-  modify 1583723904
+  modify 1586049195
   author Henry@LAPPY586
   access 0777
 }
@@ -3634,7 +3807,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	0 ] 	)
+input	[ 0	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -3681,7 +3854,7 @@ inputs
 stat
 {
   create 1546819340
-  modify 1582671175
+  modify 1586049195
   author Henry@LAPPY586
   access 0777
 }
@@ -3817,7 +3990,7 @@ sopflags sopflags =
 comment ""
 position -11.186 -19.5382
 connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
@@ -3832,7 +4005,7 @@ inputs
 stat
 {
   create 1546922096
-  modify 1583723869
+  modify 1586049822
   author Henry@LAPPY586
   access 0777
 }
@@ -4022,7 +4195,7 @@ inputs
 stat
 {
   create 1546923929
-  modify 1582671175
+  modify 1586049195
   author Henry@LAPPY586
   access 0777
 }
@@ -4096,7 +4269,7 @@ inputs
 stat
 {
   create 1546925005
-  modify 1582671175
+  modify 1586049195
   author Henry@LAPPY586
   access 0777
 }
@@ -4169,7 +4342,7 @@ inputs
 stat
 {
   create 1546925057
-  modify 1582671175
+  modify 1586049195
   author Henry@LAPPY586
   access 0777
 }
@@ -4245,7 +4418,7 @@ inputs
 stat
 {
   create 1546925167
-  modify 1582671175
+  modify 1586049195
   author Henry@LAPPY586
   access 0777
 }
@@ -4318,7 +4491,7 @@ inputs
 stat
 {
   create 1546925176
-  modify 1582671175
+  modify 1586049195
   author Henry@LAPPY586
   access 0777
 }
@@ -4448,7 +4621,7 @@ inputs
 stat
 {
   create 1554924824
-  modify 1582671175
+  modify 1586049195
   author Henry@LAPPY586
   access 0777
 }
@@ -4589,7 +4762,7 @@ inputs
 stat
 {
   create 1554929951
-  modify 1582671175
+  modify 1586049195
   author Henry@LAPPY586
   access 0777
 }
@@ -4664,7 +4837,7 @@ inputs
 stat
 {
   create 1554930775
-  modify 1582671175
+  modify 1586049195
   author Henry@LAPPY586
   access 0777
 }
@@ -4692,7 +4865,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -4735,7 +4908,7 @@ inputs
 stat
 {
   create 1324348265
-  modify 1582671175
+  modify 1586050892
   author nobody@nowhere.sidefx.com
   access 0777
 }
@@ -4841,7 +5014,7 @@ inputs
 stat
 {
   create 1324348294
-  modify 1582671175
+  modify 1586049195
   author nobody@nowhere.sidefx.com
   access 0777
 }
@@ -4920,7 +5093,7 @@ inputs
 stat
 {
   create 1324348294
-  modify 1582671175
+  modify 1586049195
   author nobody@nowhere.sidefx.com
   access 0777
 }
@@ -4999,7 +5172,7 @@ inputs
 stat
 {
   create 1324348294
-  modify 1582671175
+  modify 1586049195
   author nobody@nowhere.sidefx.com
   access 0777
 }
@@ -5078,7 +5251,7 @@ inputs
 stat
 {
   create 1324348294
-  modify 1582671175
+  modify 1586049195
   author nobody@nowhere.sidefx.com
   access 0777
 }
@@ -5220,7 +5393,7 @@ inputs
 stat
 {
   create 1546995483
-  modify 1582671175
+  modify 1586049195
   author Henry@LAPPY586
   access 0777
 }
@@ -5308,7 +5481,7 @@ inputs
 stat
 {
   create 1554929951
-  modify 1582671175
+  modify 1586049944
   author Henry@LAPPY586
   access 0777
 }
@@ -5407,7 +5580,7 @@ inputs
 stat
 {
   create 1546819340
-  modify 1582671175
+  modify 1586049195
   author Henry@LAPPY586
   access 0777
 }
@@ -5436,7 +5609,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -5614,7 +5787,7 @@ inputs
 stat
 {
   create 1565235649
-  modify 1582671175
+  modify 1586049195
   author Henry@LAPPY586
   access 0777
 }
@@ -5694,7 +5867,7 @@ inputs
 stat
 {
   create 1565235679
-  modify 1582671175
+  modify 1586049195
   author Henry@LAPPY586
   access 0777
 }

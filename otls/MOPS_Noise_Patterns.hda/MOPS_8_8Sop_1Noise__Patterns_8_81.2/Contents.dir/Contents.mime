@@ -32,25 +32,24 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 2.25339 1.411
-connectornextid 2
+position -0.611655 -1.20918
+connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-0 "output1"
 }
 inputsNamed3
 {
-1 	apply_transform 1 1 "input1"
+0 	MOPs_Deintersect 2 1 "input1"
 }
 inputs
 {
-0 	apply_transform 0 1
+0 	MOPs_Deintersect 0 1
 }
 stat
 {
-  create 1568176106
-  modify 1583773867
+  create 1586048687
+  modify 1586049186
   author Henry@LAPPY586
   access 0777
 }
@@ -133,7 +132,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1583773533
+  modify 1586048687
   author Henry@LAPPY586
   access 0777
 }
@@ -602,7 +601,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1583773533
+  modify 1586048687
   author Henry@LAPPY586
   access 0777
 }
@@ -1071,7 +1070,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1583773533
+  modify 1586048687
   author Henry@LAPPY586
   access 0777
 }
@@ -1549,7 +1548,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1583773533
+  modify 1586048687
   author Henry@LAPPY586
   access 0777
 }
@@ -2027,7 +2026,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1583773533
+  modify 1586048687
   author Henry@LAPPY586
   access 0777
 }
@@ -2504,7 +2503,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1583773533
+  modify 1586048687
   author Henry@LAPPY586
   access 0777
 }
@@ -3014,7 +3013,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1583773533
+  modify 1586048687
   author Henry@LAPPY586
   access 0777
 }
@@ -3484,7 +3483,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1583773533
+  modify 1586048687
   author Henry@LAPPY586
   access 0777
 }
@@ -3978,7 +3977,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1583773533
+  modify 1586048687
   author Henry@LAPPY586
   access 0777
 }
@@ -4449,7 +4448,7 @@ inputs
 stat
 {
   create 1524060464
-  modify 1583773827
+  modify 1586048687
   author Henry@LAPPY586
   access 0777
 }
@@ -4687,8 +4686,8 @@ vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
 vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0	autoscope=0 ]	(	0	0	)
-use_rest	[ 0	locks=0	autoscope=0 ]	(	[ use_rest	0 ] 	)
-has_rest	[ 8	locks=0	autoscope=0 ]	(	[ has_rest	0 ] 	)
+use_rest	[ 0	locks=0	autoscope=0 ]	(	[ use_rest	1 ] 	)
+has_rest	[ 8	locks=0	autoscope=0 ]	(	[ has_rest	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -4733,7 +4732,7 @@ inputs
 stat
 {
   create 1549075027
-  modify 1583773533
+  modify 1586048687
   author Henry@LAPPY586
   access 0777
 }
@@ -4812,7 +4811,7 @@ inputs
 stat
 {
   create 1549515796
-  modify 1583773533
+  modify 1586048687
   author Henry@LAPPY586
   access 0777
 }
@@ -5123,7 +5122,7 @@ inputs
 stat
 {
   create 1550294119
-  modify 1583773898
+  modify 1586049135
   author Henry@LAPPY586
   access 0777
 }
@@ -5323,27 +5322,27 @@ Content-Type: text/plain
       lefttype = extend
       righttype = extend
       flags = 0
-      segment { length = 0 expr = ch(\"../input_rangex\") }
+      segment { length = 0 expr = ch(\"../input_rangevx\") }
     }
     channel input_rangey {
       lefttype = extend
       righttype = extend
       default = 1
       flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../input_rangey\") }
+      segment { length = 0 value = 1 1 expr = ch(\"../input_rangevy\") }
     }
     channel output_rangex {
       lefttype = extend
       righttype = extend
       flags = 0
-      segment { length = 0 expr = ch(\"../output_rangex\") }
+      segment { length = 0 expr = ch(\"../output_rangevx\") }
     }
     channel output_rangey {
       lefttype = extend
       righttype = extend
       default = 1
       flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../output_rangey\") }
+      segment { length = 0 value = 1 1 expr = ch(\"../output_rangevy\") }
     }
   }
 
@@ -5377,9 +5376,9 @@ vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 vex_precision	[ 0	locks=0 ]	(	auto	)
-folder1	[ 0	locks=0 ]	(	1	1	)
-input_range	[ 8	locks=0 ]	(	[ input_rangex	0 ] 	[ input_rangey	1 ] 	)
-output_range	[ 8	locks=0 ]	(	[ output_rangex	0 ] 	[ output_rangey	1 ] 	)
+folder1	[ 0	locks=0 ]	(	0	0	)
+input_range	[ 8	locks=0 ]	(	[ input_rangex	-1 ] 	[ input_rangey	1 ] 	)
+output_range	[ 8	locks=0 ]	(	[ output_rangex	-1 ] 	[ output_rangey	1 ] 	)
 bindname1	[ 0	locks=0 ]	(	__attr	)
 bindparm1	[ 0	locks=0 ]	(	attr	)
 }
@@ -5426,7 +5425,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1583773533
+  modify 1586048687
   author Henry@LAPPY586
   access 0777
 }
@@ -5896,7 +5895,7 @@ inputs
 stat
 {
   create 1554935939
-  modify 1583773533
+  modify 1586048687
   author Henry@LAPPY586
   access 0777
 }
@@ -5975,7 +5974,7 @@ inputs
 stat
 {
   create 1554935960
-  modify 1583773533
+  modify 1586048687
   author Henry@LAPPY586
   access 0777
 }
@@ -6243,7 +6242,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1583773533
+  modify 1586048687
   author Henry@LAPPY586
   access 0777
 }
@@ -6713,7 +6712,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1583773533
+  modify 1586048687
   author Henry@LAPPY586
   access 0777
 }
@@ -7184,7 +7183,7 @@ inputs
 stat
 {
   create 1583773867
-  modify 1583773914
+  modify 1586048687
   author Henry@LAPPY586
   access 0777
 }
@@ -7199,7 +7198,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-folder0	[ 0	locks=0 ]	(	1	1	)
+folder0	[ 0	locks=0 ]	(	0	0	)
 group	[ 0	locks=0 ]	(	""	)
 grouptype	[ 0	locks=0 ]	(	"guess"	)
 class	[ 0	locks=0 ]	(	"point"	)
@@ -7225,6 +7224,397 @@ bindparm1	[ 0	locks=0 ]	(	attr	)
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/pointwrangle3.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/range_3D1.init"
+Content-Type: text/plain
+
+type = attribwrangle
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/range_3D1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 8.35516 -5.66842
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	attribdelete1 1 1 "input1"
+}
+inputs
+{
+0 	attribdelete1 0 1
+}
+stat
+{
+  create 1549515796
+  modify 1586049023
+  author Henry@LAPPY586
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/range_3D1.multiparm"
+Content-Type: text/plain
+
+3
+remap_ramp#pos ../remap_ramp#pos
+remap_ramp#value ../remap_ramp#value
+remap_ramp#interp ../remap_ramp#interp
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/range_3D1.spareparmdef"
+Content-Type: text/plain
+
+    group {
+        name    "folder1"
+        label   "Code"
+
+        parm {
+            name    "group"
+            baseparm
+            label   "Group"
+            export  none
+            bindselector points "Modify Points"
+                "Select the points to affect and press Enter to complete."
+                0 1 0xffffffff 0 grouptype 0
+        }
+        parm {
+            name    "grouptype"
+            baseparm
+            label   "Group Type"
+            export  none
+        }
+        parm {
+            name    "class"
+            baseparm
+            label   "Run Over"
+            export  none
+        }
+        parm {
+            name    "vex_numcount"
+            baseparm
+            label   "Number Count"
+            export  none
+        }
+        parm {
+            name    "vex_threadjobsize"
+            baseparm
+            label   "Thread Job Size"
+            export  none
+        }
+        parm {
+            name    "snippet"
+            baseparm
+            label   "VEXpression"
+            export  all
+        }
+        parm {
+            name    "exportlist"
+            baseparm
+            label   "Attributes to Create"
+            export  none
+        }
+        parm {
+            name    "vex_strict"
+            baseparm
+            label   "Enforce Prototypes"
+            export  none
+        }
+    }
+
+    group {
+        name    "folder1_1"
+        label   "Bindings"
+
+        parm {
+            name    "autobind"
+            baseparm
+            label   "Autobind by Name"
+            export  none
+        }
+        multiparm {
+            name    "bindings"
+            label    "Number of Bindings"
+            baseparm
+            default 0
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "multistartoffset" "1" }
+
+            parm {
+                name    "bindname#"
+                baseparm
+                label   "Attribute Name"
+                export  none
+            }
+            parm {
+                name    "bindparm#"
+                baseparm
+                label   "VEX Parameter"
+                export  none
+            }
+        }
+
+        parm {
+            name    "groupautobind"
+            baseparm
+            label   "Autobind Groups by Name"
+            export  none
+        }
+        multiparm {
+            name    "groupbindings"
+            label    "Group Bindings"
+            baseparm
+            default 0
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "multistartoffset" "1" }
+
+            parm {
+                name    "bindgroupname#"
+                baseparm
+                label   "Group Name"
+                export  none
+            }
+            parm {
+                name    "bindgroupparm#"
+                baseparm
+                label   "VEX Parameter"
+                export  none
+            }
+        }
+
+        parm {
+            name    "vex_cwdpath"
+            baseparm
+            label   "Evaluation Node Path"
+            export  none
+        }
+        parm {
+            name    "vex_outputmask"
+            baseparm
+            label   "Export Parameters"
+            export  none
+        }
+        parm {
+            name    "vex_updatenmls"
+            baseparm
+            label   "Update Normals If Displaced"
+            export  none
+        }
+        parm {
+            name    "vex_matchattrib"
+            baseparm
+            label   "Attribute to Match"
+            export  none
+        }
+        parm {
+            name    "vex_inplace"
+            baseparm
+            label   "Compute Results In Place"
+            export  none
+        }
+        parm {
+            name    "vex_selectiongroup"
+            baseparm
+            label   "Output Selection Group"
+            export  none
+        }
+    }
+
+    parm {
+        name    "vex_precision"
+        baseparm
+        label   "VEX Precision"
+        export  none
+    }
+    parm {
+        name    "input_min"
+        label   "Input Min"
+        type    vector
+        size    3
+        default { "0" "0" "0" }
+        range   { 0 1 }
+    }
+    parm {
+        name    "input_max"
+        label   "Input Max"
+        type    vector
+        size    3
+        default { "0" "0" "0" }
+        range   { 0 1 }
+    }
+    parm {
+        name    "output_min"
+        label   "Output Min"
+        type    vector
+        size    3
+        default { "0" "0" "0" }
+        range   { 0 1 }
+    }
+    parm {
+        name    "output_max"
+        label   "Output Max"
+        type    vector
+        size    3
+        default { "0" "0" "0" }
+        range   { 0 1 }
+    }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/range_3D1.chn"
+Content-Type: text/plain
+
+{
+    channel input_minx {
+      lefttype = extend
+      righttype = extend
+      default = -1
+      flags = 0
+      segment { length = 0 value = -1 -1 expr = ch(\"../input_min_3Dx\") }
+    }
+    channel input_miny {
+      lefttype = extend
+      righttype = extend
+      default = -1
+      flags = 0
+      segment { length = 0 value = -1 -1 expr = ch(\"../input_min_3Dy\") }
+    }
+    channel input_minz {
+      lefttype = extend
+      righttype = extend
+      default = -1
+      flags = 0
+      segment { length = 0 value = -1 -1 expr = ch(\"../input_min_3Dz\") }
+    }
+    channel input_maxx {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../input_max_3Dx\") }
+    }
+    channel input_maxy {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../input_max_3Dy\") }
+    }
+    channel input_maxz {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../input_max_3Dz\") }
+    }
+    channel output_minx {
+      lefttype = extend
+      righttype = extend
+      default = -1
+      flags = 0
+      segment { length = 0 value = -1 -1 expr = ch(\"../output_min_3Dx\") }
+    }
+    channel output_miny {
+      lefttype = extend
+      righttype = extend
+      default = -1
+      flags = 0
+      segment { length = 0 value = -1 -1 expr = ch(\"../output_min_3Dy\") }
+    }
+    channel output_minz {
+      lefttype = extend
+      righttype = extend
+      default = -1
+      flags = 0
+      segment { length = 0 value = -1 -1 expr = ch(\"../output_min_3Dz\") }
+    }
+    channel output_maxx {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../output_max_3Dx\") }
+    }
+    channel output_maxy {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../output_max_3Dy\") }
+    }
+    channel output_maxz {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../output_max_3Dz\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/range_3D1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+folder0	[ 0	locks=0 ]	(	0	0	)
+group	[ 0	locks=0 ]	(	""	)
+grouptype	[ 0	locks=0 ]	(	"guess"	)
+class	[ 0	locks=0 ]	(	"point"	)
+vex_numcount	[ 0	locks=0 ]	(	10	)
+vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
+snippet	[ 0	locks=0 ]	(	"vector input_min = chv(\"input_min\");
+vector input_max = chv(\"input_max\");
+vector output_min = chv(\"output_min\");
+vector output_max = chv(\"output_max\");
+
+vector remap = fit(v@attr, input_min, input_max, output_min, output_max);
+
+v@attr = remap;"	)
+exportlist	[ 0	locks=0 ]	(	*	)
+vex_strict	[ 0	locks=0 ]	(	"off"	)
+autobind	[ 0	locks=0 ]	(	"on"	)
+bindings	[ 0	locks=0 ]	(	1	)
+groupautobind	[ 0	locks=0 ]	(	"on"	)
+groupbindings	[ 0	locks=0 ]	(	0	)
+vex_cwdpath	[ 0	locks=0 ]	(	.	)
+vex_outputmask	[ 0	locks=0 ]	(	*	)
+vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
+vex_matchattrib	[ 0	locks=0 ]	(	id	)
+vex_inplace	[ 0	locks=0 ]	(	"off"	)
+vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
+bindname1	[ 0	locks=0 ]	(	__attr	)
+bindparm1	[ 0	locks=0 ]	(	attr	)
+folder1	[ 0	locks=0 ]	(	0	0	)
+input_min	[ 8	locks=0 ]	(	[ input_minx	-1 ] 	[ input_miny	-1 ] 	[ input_minz	-1 ] 	)
+input_max	[ 8	locks=0 ]	(	[ input_maxx	1 ] 	[ input_maxy	1 ] 	[ input_maxz	1 ] 	)
+output_min	[ 8	locks=0 ]	(	[ output_minx	-1 ] 	[ output_miny	-1 ] 	[ output_minz	-1 ] 	)
+output_max	[ 8	locks=0 ]	(	[ output_maxx	1 ] 	[ output_maxy	1 ] 	[ output_maxz	1 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/range_3D1.userdata"
 Content-Type: text/plain
 
 {
@@ -7348,7 +7738,7 @@ inputs
 stat
 {
   create 1549075032
-  modify 1583773533
+  modify 1586048687
   author Henry@LAPPY586
   access 0777
 }
@@ -7544,7 +7934,7 @@ inputs
 stat
 {
   create 1550294318
-  modify 1583773867
+  modify 1586048687
   author Henry@LAPPY586
   access 0777
 }
@@ -7612,7 +8002,7 @@ inputs
 stat
 {
   create 1550294550
-  modify 1583773867
+  modify 1586048687
   author Henry@LAPPY586
   access 0777
 }
@@ -7685,7 +8075,7 @@ inputs
 stat
 {
   create 1550294976
-  modify 1583773533
+  modify 1586048687
   author Henry@LAPPY586
   access 0777
 }
@@ -7817,7 +8207,7 @@ inputs
 stat
 {
   create 1554935927
-  modify 1583773533
+  modify 1586048687
   author Henry@LAPPY586
   access 0777
 }
@@ -7882,17 +8272,17 @@ outputsNamed3
 inputsNamed3
 {
 0 	attribdelete1 1 1 "input1"
-1 	range_3D 1 1 "input2"
+1 	range_3D1 1 1 "input2"
 }
 inputs
 {
 0 	attribdelete1 0 1
-1 	range_3D 0 1
+1 	range_3D1 0 1
 }
 stat
 {
   create 1582671001
-  modify 1583773533
+  modify 1586048742
   author Henry@LAPPY586
   access 0777
 }
@@ -7967,7 +8357,7 @@ inputs
 stat
 {
   create 1582671001
-  modify 1583773868
+  modify 1586048687
   author Henry@LAPPY586
   access 0777
 }
@@ -8013,7 +8403,7 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot.order"
 Content-Type: text/plain
 
-30
+31
 Perlin
 Simplex
 Worley_f2-f1
@@ -8044,6 +8434,7 @@ Sparse_Convolution
 do_remap_3d
 do_remap_2d
 pointwrangle3
+range_3D1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"
