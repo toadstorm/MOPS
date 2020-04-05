@@ -219,7 +219,7 @@
     group {
         name    "folder0_1"
         label   "Remap"
-        hidewhentab "{ signature == 0 }"
+        hidewhentab "{ signature == 1 }"
 
         parm {
             name    "do_remap_2D"
@@ -236,7 +236,7 @@
             type    vector2
             size    2
             default { "-1" "1" }
-            disablewhen "{ do_remap_2D 0 }"
+            disablewhen "{ do_remap_2D == 0 }"
             range   { 0 1 }
             parmtag { "autoscope" "0000000000000000" }
         }
@@ -246,7 +246,7 @@
             type    vector2
             size    2
             default { "-1" "1" }
-            disablewhen "{ do_remap_2D 0 }"
+            disablewhen "{ do_remap_2D == 0 }"
             range   { 0 1 }
             parmtag { "autoscope" "0000000000000000" }
         }
@@ -255,7 +255,7 @@
     group {
         name    "folder0_2"
         label   "Remap"
-        hidewhentab "{ signature == 1 }"
+        hidewhentab "{ signature == 0 }"
 
         parm {
             name    "do_remap_3D"
@@ -270,9 +270,10 @@
             name    "input_range"
             label   "Input Range"
             type    vector2
+            invisible
             size    2
             default { "0" "1" }
-            disablewhen "{ do_remap_3D 0 }"
+            disablewhen "{ do_remap_3D == 0 }"
             range   { 0 1 }
             parmtag { "autoscope" "0000000000000000" }
         }
@@ -280,11 +281,56 @@
             name    "output_range"
             label   "Output Range"
             type    vector2
+            invisible
             size    2
             default { "0" "1" }
-            disablewhen "{ do_remap_3D 0 }"
+            disablewhen "{ do_remap_3D == 0 }"
             range   { 0 1 }
             parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "input_min_3D"
+            label   "Input Min"
+            type    vector
+            size    3
+            default { "-1" "-1" "-1" }
+            disablewhen "{ do_remap_3D == 0 }"
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "input_max_3D"
+            label   "Input Max"
+            type    vector
+            size    3
+            default { "1" "1" "1" }
+            disablewhen "{ do_remap_3D == 0 }"
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "output_min_3D"
+            label   "Output Min"
+            type    vector
+            size    3
+            default { "-1" "-1" "-1" }
+            disablewhen "{ do_remap_3D == 0 }"
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "output_max_3D"
+            label   "Output Max"
+            type    vector
+            size    3
+            default { "1" "1" "1" }
+            disablewhen "{ do_remap_3D == 0 }"
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
         }
     }
 
