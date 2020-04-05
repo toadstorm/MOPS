@@ -32,24 +32,25 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.611655 -1.20918
-connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+position 0.131055 -4.48354
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
+0 "output1"
 }
 inputsNamed3
 {
-0 	MOPs_Deintersect 2 1 "input1"
+1 	update_attrs 2 1 "input1"
 }
 inputs
 {
-0 	MOPs_Deintersect 0 1
+0 	update_attrs 0 1
 }
 stat
 {
-  create 1586048687
-  modify 1586049186
+  create 1586049942
+  modify 1586107415
   author Henry@LAPPY586
   access 0777
 }
@@ -132,7 +133,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1586048687
+  modify 1586108674
   author Henry@LAPPY586
   access 0777
 }
@@ -497,12 +498,12 @@ Content-Type: text/plain
 {
 version 0.8
 folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
-group	[ 0	locks=0	autoscope=0 ]	(	[ group	"" ] 	)
+group	[ 0	locks=0	autoscope=0 ]	(	[ group	__mops_orig ] 	)
 grouptype	[ 0	locks=0	autoscope=0 ]	(	[ grouptype	0 ] 	)
 class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
-snippet	[ 0	locks=0	autoscope=0 ]	(	"vector4 pos = @P;
+snippet	[ 0	locks=0	autoscope=0 ]	(	"vector4 pos = set(@P.x, @P.y, @P.z, 0);
 vector4 freq = chp(\"freq\");
 vector4 offset = chp(\"offset\");
 vector amp = chv(\"amp\");
@@ -549,7 +550,7 @@ vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 amp	[ 8	locks=0	autoscope=0 ]	(	[ ampx	1 ] 	[ ampy	1 ] 	[ ampz	1 ] 	)
 roughness	[ 0	locks=0	autoscope=0 ]	(	[ roughness	0.5 ] 	)
-octaves	[ 0	locks=0	autoscope=0 ]	(	[ octaves	2 ] 	)
+octaves	[ 0	locks=0	autoscope=0 ]	(	[ octaves	1 ] 	)
 freq	[ 0	locks=0	autoscope=0 ]	(	[ freqx	1 ] 	[ freqy	1 ] 	[ freqz	1 ] 	[ freqw	1 ] 	)
 offset	[ 0	locks=0	autoscope=0 ]	(	[ offsetx	0 ] 	[ offsety	0 ] 	[ offsetz	0 ] 	[ offsetw	0 ] 	)
 uniform	[ 0	locks=0	autoscope=0 ]	(	[ uniform	0 ] 	)
@@ -601,7 +602,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1586048687
+  modify 1586108671
   author Henry@LAPPY586
   access 0777
 }
@@ -972,7 +973,7 @@ grouptype	[ 8	locks=0	autoscope=0 ]	(	[ grouptype	0 ] 	)
 class	[ 8	locks=0	autoscope=0 ]	(	[ class	2 ] 	)
 vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
-snippet	[ 0	locks=0	autoscope=0 ]	(	"vector4 pos = @P;
+snippet	[ 0	locks=0	autoscope=0 ]	(	"vector4 pos = set(@P.x, @P.y, @P.z, 0);
 vector4 freq = chp(\"freq\");
 vector4 offset = chp(\"offset\");
 vector amp = chv(\"amp\");
@@ -1070,7 +1071,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1586048687
+  modify 1586108668
   author Henry@LAPPY586
   access 0777
 }
@@ -1441,7 +1442,7 @@ grouptype	[ 8	locks=0	autoscope=0 ]	(	[ grouptype	0 ] 	)
 class	[ 8	locks=0	autoscope=0 ]	(	[ class	2 ] 	)
 vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
-snippet	[ 0	locks=0	autoscope=0 ]	(	"vector4 pos = @P;
+snippet	[ 0	locks=0	autoscope=0 ]	(	"vector4 pos = set(@P.x, @P.y, @P.z, 0);
 vector4 freq = chp(\"freq\");
 vector4 offset = chp(\"offset\");
 vector amp = chv(\"amp\");
@@ -1548,7 +1549,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1586048687
+  modify 1586108660
   author Henry@LAPPY586
   access 0777
 }
@@ -1919,7 +1920,7 @@ grouptype	[ 8	locks=0	autoscope=0 ]	(	[ grouptype	0 ] 	)
 class	[ 8	locks=0	autoscope=0 ]	(	[ class	2 ] 	)
 vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
-snippet	[ 0	locks=0	autoscope=0 ]	(	"vector4 pos = @P;
+snippet	[ 0	locks=0	autoscope=0 ]	(	"vector4 pos = set(@P.x, @P.y, @P.z, 0);
 vector4 freq = chp(\"freq\");
 vector4 offset = chp(\"offset\");
 vector amp = chv(\"amp\");
@@ -2026,7 +2027,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1586048687
+  modify 1586108656
   author Henry@LAPPY586
   access 0777
 }
@@ -2396,7 +2397,7 @@ grouptype	[ 8	locks=0	autoscope=0 ]	(	[ grouptype	0 ] 	)
 class	[ 8	locks=0	autoscope=0 ]	(	[ class	2 ] 	)
 vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
-snippet	[ 0	locks=0	autoscope=0 ]	(	"vector4 pos = @P;
+snippet	[ 0	locks=0	autoscope=0 ]	(	"vector4 pos = set(@P.x, @P.y, @P.z, 0);
 vector4 freq = chp(\"freq\");
 vector4 offset = chp(\"offset\");
 vector amp = chv(\"amp\");
@@ -2503,7 +2504,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1586048687
+  modify 1586108651
   author Henry@LAPPY586
   access 0777
 }
@@ -2902,7 +2903,7 @@ grouptype	[ 8	locks=0	autoscope=0 ]	(	[ grouptype	0 ] 	)
 class	[ 8	locks=0	autoscope=0 ]	(	[ class	2 ] 	)
 vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
-snippet	[ 0	locks=0	autoscope=0 ]	(	"vector4 pos = @P;
+snippet	[ 0	locks=0	autoscope=0 ]	(	"vector4 pos = set(@P.x, @P.y, @P.z, 0);
 vector4 freq = chp(\"freq\");
 vector4 offset = chp(\"offset\");
 vector amp = chv(\"amp\");
@@ -3013,7 +3014,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1586048687
+  modify 1586108648
   author Henry@LAPPY586
   access 0777
 }
@@ -3377,7 +3378,7 @@ grouptype	[ 8	locks=0	autoscope=0 ]	(	[ grouptype	0 ] 	)
 class	[ 8	locks=0	autoscope=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
-snippet	[ 0	locks=0	autoscope=0 ]	(	"vector4 pos = @P;
+snippet	[ 0	locks=0	autoscope=0 ]	(	"vector4 pos = set(@P.x, @P.y, @P.z, 0);
 vector4 freq = chp(\"freq\");
 vector4 offset = chp(\"offset\");
 vector amp = chv(\"amp\");
@@ -3483,7 +3484,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1586048687
+  modify 1586108643
   author Henry@LAPPY586
   access 0777
 }
@@ -3870,7 +3871,7 @@ grouptype	[ 8	locks=0	autoscope=0 ]	(	[ grouptype	0 ] 	)
 class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
-snippet	[ 0	locks=0	autoscope=0 ]	(	"vector4 pos = @P;
+snippet	[ 0	locks=0	autoscope=0 ]	(	"vector4 pos = set(@P.x, @P.y, @P.z, 0);
 vector4 freq = chp(\"freq\");
 vector4 offset = chp(\"offset\");
 vector distort = chv(\"Distort\");
@@ -3928,7 +3929,7 @@ octaves	[ 0	locks=0	autoscope=0 ]	(	[ octaves	1 ] 	)
 freq	[ 0	locks=0	autoscope=0 ]	(	[ freqx	1 ] 	[ freqy	1 ] 	[ freqz	1 ] 	[ freqw	1 ] 	)
 offset	[ 0	locks=0	autoscope=0 ]	(	[ offsetx	0 ] 	[ offsety	0 ] 	[ offsetz	0 ] 	[ offsetw	0 ] 	)
 uniform	[ 0	locks=0	autoscope=0 ]	(	[ uniform	0 ] 	)
-Distort	[ 0	locks=0	autoscope=0 ]	(	[ Distortx	1 ] 	[ Distorty	1 ] 	[ Distortz	1 ] 	)
+Distort	[ 0	locks=0	autoscope=0 ]	(	[ Distortx	0 ] 	[ Distorty	0 ] 	[ Distortz	0 ] 	)
 time_scale	[ 0	locks=0	autoscope=0 ]	(	[ time_scale	1 ] 	)
 time_varying	[ 0	locks=0	autoscope=0 ]	(	[ time_varying	0 ] 	)
 bindname1	[ 0	locks=0 ]	(	__attr	)
@@ -3977,7 +3978,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1586048687
+  modify 1586108639
   author Henry@LAPPY586
   access 0777
 }
@@ -4341,7 +4342,7 @@ grouptype	[ 8	locks=0	autoscope=0 ]	(	[ grouptype	0 ] 	)
 class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
-snippet	[ 0	locks=0	autoscope=0 ]	(	"vector4 pos = @P;
+snippet	[ 0	locks=0	autoscope=0 ]	(	"vector4 pos = set(@P.x, @P.y, @P.z, 0);
 vector4 freq = chp(\"freq\");
 vector4 offset = chp(\"offset\");
 vector amp = chv(\"amp\");
@@ -4432,7 +4433,7 @@ sopflags sopflags =
 comment ""
 position -0.00258204 4.2038
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 0 "output1"
@@ -4448,7 +4449,7 @@ inputs
 stat
 {
   create 1524060464
-  modify 1586048687
+  modify 1586108457
   author Henry@LAPPY586
   access 0777
 }
@@ -4686,7 +4687,7 @@ vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
 vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0	autoscope=0 ]	(	0	0	)
-use_rest	[ 0	locks=0	autoscope=0 ]	(	[ use_rest	1 ] 	)
+use_rest	[ 0	locks=0	autoscope=0 ]	(	[ use_rest	0 ] 	)
 has_rest	[ 8	locks=0	autoscope=0 ]	(	[ has_rest	1 ] 	)
 }
 
@@ -4732,7 +4733,7 @@ inputs
 stat
 {
   create 1549075027
-  modify 1586048687
+  modify 1586107415
   author Henry@LAPPY586
   access 0777
 }
@@ -4811,7 +4812,7 @@ inputs
 stat
 {
   create 1549515796
-  modify 1586048687
+  modify 1586107415
   author Henry@LAPPY586
   access 0777
 }
@@ -5122,7 +5123,7 @@ inputs
 stat
 {
   create 1550294119
-  modify 1586049135
+  modify 1586107415
   author Henry@LAPPY586
   access 0777
 }
@@ -5425,7 +5426,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1586048687
+  modify 1586108612
   author Henry@LAPPY586
   access 0777
 }
@@ -5790,12 +5791,12 @@ Content-Type: text/plain
 {
 version 0.8
 folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
-group	[ 0	locks=0	autoscope=0 ]	(	[ group	"" ] 	)
+group	[ 0	locks=0	autoscope=0 ]	(	[ group	__mops_orig ] 	)
 grouptype	[ 0	locks=0	autoscope=0 ]	(	[ grouptype	0 ] 	)
 class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
-snippet	[ 0	locks=0	autoscope=0 ]	(	"vector4 pos = @P;
+snippet	[ 0	locks=0	autoscope=0 ]	(	"vector4 pos = set(@P.x, @P.y, @P.z, 0);
 vector4 freq = chp(\"freq\");
 vector4 offset = chp(\"offset\");
 vector amp = chv(\"amp\");
@@ -5841,7 +5842,7 @@ vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
 vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
-amp	[ 8	locks=0	autoscope=0 ]	(	[ ampx	1 ] 	[ ampy	1 ] 	[ ampz	1 ] 	)
+amp	[ 0	locks=0	autoscope=0 ]	(	[ ampx	1 ] 	[ ampy	1 ] 	[ ampz	1 ] 	)
 roughness	[ 0	locks=0	autoscope=0 ]	(	[ roughness	0.5 ] 	)
 octaves	[ 0	locks=0	autoscope=0 ]	(	[ octaves	1 ] 	)
 freq	[ 0	locks=0	autoscope=0 ]	(	[ freqx	1 ] 	[ freqy	1 ] 	[ freqz	1 ] 	[ freqw	1 ] 	)
@@ -5895,7 +5896,7 @@ inputs
 stat
 {
   create 1554935939
-  modify 1586048687
+  modify 1586107415
   author Henry@LAPPY586
   access 0777
 }
@@ -5974,7 +5975,7 @@ inputs
 stat
 {
   create 1554935960
-  modify 1586048687
+  modify 1586107415
   author Henry@LAPPY586
   access 0777
 }
@@ -6242,7 +6243,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1586048687
+  modify 1586108625
   author Henry@LAPPY586
   access 0777
 }
@@ -6607,12 +6608,12 @@ Content-Type: text/plain
 {
 version 0.8
 folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
-group	[ 0	locks=0	autoscope=0 ]	(	[ group	"" ] 	)
+group	[ 0	locks=0	autoscope=0 ]	(	[ group	__mops_orig ] 	)
 grouptype	[ 0	locks=0	autoscope=0 ]	(	[ grouptype	0 ] 	)
 class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
-snippet	[ 0	locks=0	autoscope=0 ]	(	"vector4 pos = @P;
+snippet	[ 0	locks=0	autoscope=0 ]	(	"vector4 pos = set(@P.x, @P.y, @P.z, 0);
 vector4 freq = chp(\"freq\");
 vector4 offset = chp(\"offset\");
 vector amp = chv(\"amp\");
@@ -6712,7 +6713,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1586048687
+  modify 1586108634
   author Henry@LAPPY586
   access 0777
 }
@@ -7077,12 +7078,12 @@ Content-Type: text/plain
 {
 version 0.8
 folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
-group	[ 0	locks=0	autoscope=0 ]	(	[ group	"" ] 	)
+group	[ 0	locks=0	autoscope=0 ]	(	[ group	__mops_orig ] 	)
 grouptype	[ 0	locks=0	autoscope=0 ]	(	[ grouptype	0 ] 	)
 class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
-snippet	[ 0	locks=0	autoscope=0 ]	(	"vector4 pos = @P;
+snippet	[ 0	locks=0	autoscope=0 ]	(	"vector4 pos = set(@P.x, @P.y, @P.z, 0);
 vector4 freq = chp(\"freq\");
 vector4 offset = chp(\"offset\");
 vector amp = chv(\"amp\");
@@ -7183,7 +7184,7 @@ inputs
 stat
 {
   create 1583773867
-  modify 1586048687
+  modify 1586107415
   author Henry@LAPPY586
   access 0777
 }
@@ -7264,7 +7265,7 @@ inputs
 stat
 {
   create 1549515796
-  modify 1586049023
+  modify 1586107415
   author Henry@LAPPY586
   access 0777
 }
@@ -7604,13 +7605,13 @@ vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 vex_precision	[ 0	locks=0 ]	(	auto	)
-bindname1	[ 0	locks=0 ]	(	__attr	)
-bindparm1	[ 0	locks=0 ]	(	attr	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 input_min	[ 8	locks=0 ]	(	[ input_minx	-1 ] 	[ input_miny	-1 ] 	[ input_minz	-1 ] 	)
 input_max	[ 8	locks=0 ]	(	[ input_maxx	1 ] 	[ input_maxy	1 ] 	[ input_maxz	1 ] 	)
 output_min	[ 8	locks=0 ]	(	[ output_minx	-1 ] 	[ output_miny	-1 ] 	[ output_minz	-1 ] 	)
 output_max	[ 8	locks=0 ]	(	[ output_maxx	1 ] 	[ output_maxy	1 ] 	[ output_maxz	1 ] 	)
+bindname1	[ 0	locks=0 ]	(	__attr	)
+bindparm1	[ 0	locks=0 ]	(	attr	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -7738,7 +7739,7 @@ inputs
 stat
 {
   create 1549075032
-  modify 1586048687
+  modify 1586107415
   author Henry@LAPPY586
   access 0777
 }
@@ -7766,7 +7767,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	0 ] 	)
+input	[ 0	locks=0 ]	(	[ input	9 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -7795,7 +7796,7 @@ sopflags sopflags =
 comment ""
 position 2.71285 -11.8033
 connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
@@ -7810,7 +7811,7 @@ inputs
 stat
 {
   create 1549075045
-  modify 1583773867
+  modify 1586108457
   author Henry@LAPPY586
   access 0777
 }
@@ -7934,7 +7935,7 @@ inputs
 stat
 {
   create 1550294318
-  modify 1586048687
+  modify 1586107415
   author Henry@LAPPY586
   access 0777
 }
@@ -8002,7 +8003,7 @@ inputs
 stat
 {
   create 1550294550
-  modify 1586048687
+  modify 1586107415
   author Henry@LAPPY586
   access 0777
 }
@@ -8030,7 +8031,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	0 ] 	)
+input	[ 0	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -8075,7 +8076,7 @@ inputs
 stat
 {
   create 1550294976
-  modify 1586048687
+  modify 1586107415
   author Henry@LAPPY586
   access 0777
 }
@@ -8207,7 +8208,7 @@ inputs
 stat
 {
   create 1554935927
-  modify 1586048687
+  modify 1586107415
   author Henry@LAPPY586
   access 0777
 }
@@ -8282,7 +8283,7 @@ inputs
 stat
 {
   create 1582671001
-  modify 1586048742
+  modify 1586107415
   author Henry@LAPPY586
   access 0777
 }
@@ -8357,7 +8358,7 @@ inputs
 stat
 {
   create 1582671001
-  modify 1586048687
+  modify 1586107415
   author Henry@LAPPY586
   access 0777
 }
