@@ -44,6 +44,15 @@
         parmtag { "autoscope" "0000000000000000" }
     }
     parm {
+        name    "falloff_attr"
+        label   "Falloff Attribute"
+        type    string
+        default { "mops_falloff" }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
         name    "input"
         label   "Blend Mode"
         type    ordinal

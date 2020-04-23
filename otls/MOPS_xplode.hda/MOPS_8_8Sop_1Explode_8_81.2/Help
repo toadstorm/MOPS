@@ -37,18 +37,8 @@ Cusp Angle:
     
 == Compute Source Orient ==
     
-Compute N/Up:
-    #id: compute_N_up
-    Compute normal and up vectors on the input mesh, to be used in creating the orientation frame.
-    
-Style:
-    #id: style
-    The method by which the initial N and up vectors are computed. See the Polyframe SOP for details.
-    
-Attribute Name:
-    #id: attribname
-    If Style is set to "Texture UV", the vector point attribute to read to determine the directionality of the tangent and bitangent vectors.
-    
+For more precise control over the source orientation, consider using MOPs Orient Mesh.
+
 Custom Up Vector:
     #id: custom_up_vector
     If enabled, use this up vector instead of the one computed via the above parameters.

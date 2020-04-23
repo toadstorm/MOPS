@@ -151,6 +151,7 @@ def on_input_changed(kwargs):
             me.parm('instancetype'+str(multiparm_count+1)).set(0)
             me.parm('instancepath'+str(multiparm_count+1)).set(new_path)
         me.parm('inputindex'+str(multiparm_count+1)).set(int(kwargs['input_index']))
+        me.parm('pack_from'+str(multiparm_count+1)).set(int(me.evalParm("packfromdefault")))
 
     elif len(input_indexes) > len(inputs):
         # remove the multiparm entry whose index matches kwargs['input_index']

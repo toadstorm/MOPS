@@ -42,6 +42,10 @@ Transform Type:
     #id: xformtype
     When loading SOPs into the Instancer, the method by which the objects are merged into the current Object network. See the Object Merge SOP for details.
     
+Pack From Default:
+    #id: packfromdefault
+    When connecting new inputs, the default packed pivot to use for the input. See "Pack From" in the Instance Objects Block.
+    
 Enable Material Overrides:
     #id: do_material_overrides
     Enable the Material Override parameters for the Instance Objects.
@@ -94,7 +98,7 @@ Instance Objects:
         The weighted probability of each instance type. Lower numbers are less likely to appear in the Random Indexing mode.
     
     Pack From:
-        #id: pack_from1
+        #id: pack_from#
         Where the default pivot for the packed primitive should be placed: at the centroid of the instance geometry, or at the world origin.        
         
     Material Override:

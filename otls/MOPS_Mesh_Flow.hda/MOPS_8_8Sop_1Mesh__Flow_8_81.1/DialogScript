@@ -15,6 +15,15 @@
     inputlabel	4	"Sub-Network Input #4"
 
     parm {
+        name    "do_viz"
+        label   "Visualize Up Vector"
+        type    toggle
+        default { "0" }
+        range   { 0! 10 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
         name    "compute_method"
         label   "Compute Method"
         type    integer

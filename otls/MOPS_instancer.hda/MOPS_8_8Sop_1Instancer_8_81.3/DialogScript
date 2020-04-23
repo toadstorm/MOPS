@@ -654,6 +654,17 @@
                 parmtag { "autoscope" "0000000000000000" }
             }
             parm {
+                name    "packfromdefault"
+                label   "Pack From Default"
+                type    ordinal
+                default { "0" }
+                menu {
+                    "0" "Origin"
+                    "1" "Centroid"
+                }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
                 name    "sepparm2"
                 label   "Separator"
                 type    separator
@@ -884,7 +895,7 @@
                     name    "pack_from#"
                     label   "Pack From"
                     type    ordinal
-                    default { "1" }
+                    default { "0" }
                     menu {
                         "0" "Origin"
                         "1" "Centroid"
