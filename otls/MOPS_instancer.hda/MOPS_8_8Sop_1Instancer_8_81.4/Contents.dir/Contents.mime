@@ -33,8 +33,8 @@ Content-Type: text/plain
 sopflags sopflags = 
 comment ""
 position 3.49412 -4.1606
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 1 "output1"
@@ -42,15 +42,17 @@ outputsNamed3
 inputsNamed3
 {
 0 	alembic1 0 1 "input1"
+2 	file1 0 1 "input2"
 }
 inputs
 {
 0 	alembic1 0 1
+1 	file1 0 1
 }
 stat
 {
   create 1586750663
-  modify 1587956403
+  modify 1588214967
   author Henry@LAPPY586
   access 0777
 }
@@ -12683,7 +12685,7 @@ inputs
 stat
 {
   create 1567744824
-  modify 1587956403
+  modify 1588214942
   author Henry@LAPPY586
   access 0777
 }
@@ -13110,7 +13112,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 spare_input0	[ 0	locks=0 ]	(	../foreach_begin1_metadata1	)
 }
 
@@ -13464,7 +13466,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 70.6065 -36.1205
+position 71.3938 -36.1168
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -13480,7 +13482,7 @@ inputs
 stat
 {
   create 1530848886
-  modify 1586055239
+  modify 1588214923
   author Henry@LAPPY586
   access 0777
 }
@@ -13849,6 +13851,15 @@ Content-Type: text/plain
         parmtag { "opfilter" "!!SOP!!" }
         parmtag { "oprelative" "." }
     }
+    parm {
+        name    "spare_input1"
+        label   "Spare Input 1"
+        type    oppath
+        default { "" }
+        help    "Refer to this in expressions as -2, such as: npoints(-2)"
+        parmtag { "opfilter" "!!SOP!!" }
+        parmtag { "oprelative" "." }
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/load_alembic.chn"
@@ -13875,6 +13886,13 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = ch(\"../viewportlod\") }
     }
+    channel pointmode {
+      lefttype = extend
+      righttype = extend
+      default = 2
+      flags = 0
+      segment { length = 0 value = 2 2 expr = "if(ch(\"../pack_from\" + ((detail(-1, \"value\", 0)+1)))==1, 2, 1)" }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -13893,7 +13911,7 @@ stdswitcher	[ 0	locks=0 ]	(	0	0	0	)
 abcxform	[ 0	locks=0 ]	(	"off"	)
 loadmode	[ 0	locks=0 ]	(	"alembic"	)
 viewportlod	[ 0	locks=0 ]	(	[ viewportlod	0 ] 	)
-pointmode	[ 0	locks=0 ]	(	"centroid"	)
+pointmode	[ 0	locks=0 ]	(	[ pointmode	1 ] 	)
 polysoup	[ 0	locks=0 ]	(	"polymesh"	)
 includeXform	[ 0	locks=0 ]	(	"on"	)
 usevisibility	[ 0	locks=0 ]	(	"on"	)
@@ -13934,6 +13952,7 @@ fileattrib	[ 0	locks=0 ]	(	abcFileName	)
 remapAttributes	[ 0	locks=0 ]	(	0	)
 stdswitcher4	[ 0	locks=0 ]	(	0	0	0	)
 spare_input0	[ 0	locks=0 ]	(	../foreach_begin1_metadata1	)
+spare_input1	[ 0	locks=0 ]	(	""	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -13975,7 +13994,7 @@ inputs
 stat
 {
   create 1567746994
-  modify 1587956403
+  modify 1588214942
   author Henry@LAPPY586
   access 0777
 }
