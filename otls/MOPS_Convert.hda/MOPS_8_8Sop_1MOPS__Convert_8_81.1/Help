@@ -1,0 +1,72 @@
+= MOPs Convert =
+
+#icon: opdef:.?mops_TD_tools_05.svg
+
+""" Converts existing primitives to MOPs-compatible packed primitives. """
+
+MOPs Convert can convert existing primitives, packed or not, into MOPs-compatible packed primitives. This could be used to allow for MOPs operations on voronoi-shattered pieces, for example.
+This operator adds and/or modifies the following point attributes: s@name, i@id, f@mops_falloff, and v@rest.
+
+By default, this node creates packed fragments, which are more efficient if all of your pieces are unique. However, packed fragments cannot preview Falloff in the viewport.
+
+== Overview ==
+
+@inputs
+
+Primitives To Convert:
+    The primitives to convert into MOPs packed primitives.
+    
+== General ==
+
+@parameters
+
+Input Type:
+    #id: input_type
+    The type of geometry you mean to convert to MOPs-ready packed primitives. You can either convert polygon geometry, or modify existing packed primitives.
+
+Compute Normals:
+    #id: do_normal
+    If converting polygon geometry, enable the creation of vertex normals. This prevents dark display artifacts on newly-generated packed primitives.
+    
+Cusp Angle:
+    #id: cuspangle
+    If vertex normals are equal to or less than this angle away from each other, they will be averaged together. Higher numbers give a softer appearance.
+    
+Partition Method:
+    #id: name_method
+    The method by which input geometry is divided into pieces. Each piece will become a packed primitive. There are two modes:
+        * Connectivity: The primitive connectivity will be used to separate pieces. Each polygon shell will become a packed primitive.
+        * Attribute: An integer or string primitive attribute will be used to separate pieces. Each unique value of this attribute will become a packed primitive.
+    
+Piece Attribute:
+    #id: name_attr
+    An integer or string primitive attribute to define pieces for partitioning.
+        
+Transfer Attributes:
+    #id: transfer_attributes
+    If these attributes exist on the source geometry, transfer them to the new packed primitives.
+    
+Create Packed Fragments:
+    #id: packedfragments
+    Create packed fragments instead of standard packed primitives. This means that each chunk contains a reference to the entire original geometry, which can speed up performance if each piece is unique, such as from a voronoi shatter.
+    NOTE: Packed fragments cannot display any color attributes that were modified after the pack operation. This means previewing falloff or modifying colors will not work in the viewport.
+    
+Override ID Attr:
+    #id: do_id
+    Override any existing ID attribute with a newly-generated one based on the point number and the ID Start Number parameter.
+    
+ID Start Number:
+    #id: startindex
+    The starting number to use for both the i@id attribute and the s@name suffix.
+    
+Override Name Attr:
+    #id: do_name
+    Override any existing name attribute with a newly-generated one based on the ID and the Name Prefix parameter.
+    
+Name Prefix:
+    #id: prefix
+    The prefix to use for the generated s@name attribute. Objects going into a Packed RBD simulation must have unique s@name attributes to solve as separate pieces.    
+    
+Rest Frame:
+    #id: rest_frame
+    When computing the v@rest attribute for MOPs, the frame in which the rest attribute will be generated from.
