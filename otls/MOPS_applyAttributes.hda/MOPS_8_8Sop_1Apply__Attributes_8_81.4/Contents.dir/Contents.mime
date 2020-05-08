@@ -32,27 +32,27 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.0708374 -10.8034
+position -3.13514 -0.384687
 connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-2 "output1"
+0 "output1"
 }
 inputsNamed3
 {
-0 	MOPS_IN 0 1 "input1"
-1 	switch_do_pscale 0 1 "input2"
+1 	attribdelete1 1 1 "input1"
+2 	compute_translate 1 1 "input2"
 }
 inputs
 {
-0 	MOPS_IN 0 1
-1 	switch_do_pscale 0 1
+0 	attribdelete1 0 1
+1 	compute_translate 0 1
 }
 stat
 {
-  create 1584163373
-  modify 1585189489
+  create 1569469174
+  modify 1588965192
   author Henry@LAPPY586
   access 0777
 }
@@ -113,7 +113,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1585189633
+  modify 1588965271
   author Henry@LAPPY586
   access 0777
 }
@@ -363,6 +363,13 @@ Content-Type: text/plain
         default { "0" }
         range   { 0 10 }
     }
+    parm {
+        name    "do_pivot"
+        label   "Do Pivot"
+        type    integer
+        default { "0" }
+        range   { 0 10 }
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/apply_attributes1.chn"
@@ -472,6 +479,12 @@ return outmask" language = python }
       flags = 0
       segment { length = 0 expr = ch(\"../matchmode\") }
     }
+    channel do_pivot {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../do_pivots\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -513,6 +526,11 @@ vector P2 = point(1, \"P\", matchpt);
 vector4 orient2 = point(1, \"orient\", matchpt);
 vector scale2 = point(1, \"scale\", matchpt);
 float pscale2 = point(1, \"pscale\", matchpt);
+vector pivot2 = primintrinsic(1, \"pivot\", matchpt);
+if(haspointattrib(1, \"pivot\")) {
+    pivot2 = point(1, \"pivot\", matchpt);
+}
+
 float weight = 1.0;
 if( haspointattrib(0, falloff)) {
     // printf(\"\\nattr name: \" + falloff);
@@ -534,12 +552,14 @@ if(!haspointattrib(1, \"orient\")) {
 int doT = chi(\"do_translate\");
 int doR = chi(\"do_rotate\");
 int doS = chi(\"do_scale\");
+int doP = chi(\"do_pivot\");
 int doWeight = chi(\"do_weight\");
 
 // define starting attributes.
-matrix3 m = 3@__transform;
+matrix3 m = primintrinsic(0, \"transform\", @ptnum);
 vector pos = 0;
 vector scale = cracktransform(0,0,2,{0,0,0},m);
+vector pivot = {0,0,0};
 float pscale = 1;
 vector4 orient = quaternion(m);
 
@@ -571,8 +591,6 @@ if((type != \"PackedGeometry\") && (type != \"PackedFragment\") && (type != \"Pa
         }
     }
 }
-
-// p@__orient1 = orient;
 
 // simplify pscale vs scale
 if(abs(scale.x-scale.y) < epsilon && abs(scale.y-scale.z) < epsilon && abs(length(scale)-1) < epsilon) {
@@ -613,10 +631,14 @@ if(haspointattrib(1, \"euler\")) {
     orient2 = quaternion(em);
 }
 
-// scale, rotate, translate
+// pivot
+if(doP) {
+    pivot = primintrinsic(0, \"pivot\", @ptnum);
+    pivot = lerp(pivot, pivot2, weight);
+    // v@__pivot = pivot;
+}
 
-//f@__pscale2 = pscale2;
-//v@__scale1 = scale;
+// scale, rotate, translate
 if(doS) {
     if(Smode == 0) {
         // scale = lerp(scale, scale*scale2*pscale2, weight);
@@ -676,8 +698,10 @@ matrix3 out = ident();
 scale(out, (scale*pscale));
 matrix3 rot = qconvert(orient);
 out = out * rot;
-3@__transform = out;
-i@__ingroup = 1;"	)
+
+// set intrinsics.
+setprimintrinsic(0, \"transform\", @ptnum, out, \"set\");
+setprimintrinsic(0, \"pivot\", @ptnum, pivot, \"set\");"	)
 exportlist	[ 0	locks=0	autoscope=0 ]	(	*	)
 vex_strict	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 autobind	[ 0	locks=0	autoscope=0 ]	(	"on"	)
@@ -692,8 +716,8 @@ vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
 vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
-do_translate	[ 0	locks=0	autoscope=0 ]	(	[ do_translate	0 ] 	)
-do_rotate	[ 0	locks=0	autoscope=0 ]	(	[ do_rotate	0 ] 	)
+do_translate	[ 0	locks=0	autoscope=0 ]	(	[ do_translate	1 ] 	)
+do_rotate	[ 0	locks=0	autoscope=0 ]	(	[ do_rotate	1 ] 	)
 do_scale	[ 0	locks=0	autoscope=0 ]	(	[ do_scale	1 ] 	)
 do_weight	[ 0	locks=0	autoscope=0 ]	(	[ do_weight	1 ] 	)
 rotate_mode	[ 0	locks=0	autoscope=0 ]	(	[ rotate_mode	0 ] 	)
@@ -703,6 +727,7 @@ rotate_order	[ 0	locks=0	autoscope=0 ]	(	[ rotate_order	0 ] 	)
 falloff_attribute	[ 0	locks=0 ]	(	[ falloff_attribute	mops_falloff ] 	)
 can_ignore_falloff	[ 8	locks=0 ]	(	[ can_ignore_falloff	0 ] 	)
 matchmode	[ 0	locks=0 ]	(	[ matchmode	0 ] 	)
+do_pivot	[ 0	locks=0 ]	(	[ do_pivot	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -788,104 +813,6 @@ vex_precision	[ 0	locks=0 ]	(	auto	)
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/make_id_if_missing.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":""
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/adjust_pivots.init"
-Content-Type: text/plain
-
-type = attribwrangle
-matchesdef = 1
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/adjust_pivots.def"
-Content-Type: text/plain
-
-sopflags sopflags = 
-comment ""
-position -2.03997 7.06741
-connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
-outputsNamed3
-{
-1 "output1"
-}
-inputsNamed3
-{
-0 	attribpromote3 1 1 "input1"
-2 	null1 0 1 "input2"
-}
-inputs
-{
-0 	attribpromote3 0 1
-1 	null1 0 1
-}
-stat
-{
-  create 1555437557
-  modify 1585189489
-  author Henry@LAPPY586
-  access 0777
-}
-color UT_Color RGB 1 0 0 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/adjust_pivots.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-folder0	[ 0	locks=0 ]	(	0	0	)
-group	[ 0	locks=0 ]	(	`chs(\"../apply_attributes1/group\")`	)
-grouptype	[ 0	locks=0 ]	(	"guess"	)
-class	[ 0	locks=0 ]	(	"point"	)
-vex_numcount	[ 0	locks=0 ]	(	10	)
-vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
-snippet	[ 0	locks=0 ]	(	"int matchpt = @ptnum;
-float falloff = 1;
-if( (haspointattrib(0, \"id\")) && (haspointattrib(1, \"id\")) ) {
-    matchpt = idtopoint(1, point(0,\"id\",@ptnum));
-}
-//i@__matchpt = matchpt;
-if(haspointattrib(0, \"mops_falloff\")) {
-    falloff = point(0, \"mops_falloff\", @ptnum);
-}
-// get pivot of matching point
-vector pivot2 = primintrinsic(1, \"pivot\", matchpt);
-//vector pivot2 = {0,0,0};
-if(haspointattrib(1, \"pivot\")) {
-    pivot2 = point(1, \"pivot\", matchpt);
-}
-vector pivot = v@__pivot;
-pivot2 = lerp(pivot, pivot2, falloff);
-v@__pivot = pivot2;"	)
-exportlist	[ 0	locks=0 ]	(	*	)
-vex_strict	[ 0	locks=0 ]	(	"off"	)
-autobind	[ 0	locks=0 ]	(	"on"	)
-bindings	[ 0	locks=0 ]	(	0	)
-groupautobind	[ 0	locks=0 ]	(	"on"	)
-groupbindings	[ 0	locks=0 ]	(	0	)
-vex_cwdpath	[ 0	locks=0 ]	(	.	)
-vex_outputmask	[ 0	locks=0 ]	(	*	)
-vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
-vex_matchattrib	[ 0	locks=0 ]	(	id	)
-vex_inplace	[ 0	locks=0 ]	(	"off"	)
-vex_selectiongroup	[ 0	locks=0 ]	(	""	)
-vex_precision	[ 0	locks=0 ]	(	auto	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/adjust_pivots.userdata"
 Content-Type: text/plain
 
 {
@@ -997,7 +924,7 @@ sopflags sopflags =
 comment ""
 position -1.31613 -0.23292
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass on display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 1 "output1"
@@ -1013,7 +940,7 @@ inputs
 stat
 {
   create 1583618763
-  modify 1585189489
+  modify 1588965167
   author Henry@LAPPY586
   access 0777
 }
@@ -1077,7 +1004,7 @@ sopflags sopflags =
 comment ""
 position -4.53057 8.86287
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass on display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 1 "output1"
@@ -1093,7 +1020,7 @@ inputs
 stat
 {
   create 1583691828
-  modify 1585189489
+  modify 1588964957
   author Henry@LAPPY586
   access 0777
 }
@@ -1851,82 +1778,6 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/switch_do_pivots.init"
-Content-Type: text/plain
-
-type = switch
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/switch_do_pivots.def"
-Content-Type: text/plain
-
-sopflags sopflags = 
-comment ""
-position -3.86415 6.12399
-connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
-outputsNamed3
-{
-2 "output1"
-}
-inputsNamed3
-{
-0 	attribpromote3 1 1 "input1"
-1 	adjust_pivots 1 1 "input2"
-}
-inputs
-{
-0 	attribpromote3 0 1
-1 	adjust_pivots 0 1
-}
-stat
-{
-  create 1555459453
-  modify 1585189489
-  author Henry@LAPPY586
-  access 0777
-}
-color UT_Color RGB 0.8 1 0.7 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/switch_do_pivots.chn"
-Content-Type: text/plain
-
-{
-    channel input {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../do_pivots\") }
-    }
-  }
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/switch_do_pivots.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-input	[ 0	locks=0 ]	(	[ input	0 ] 	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/switch_do_pivots.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"18.0.391"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/switch_do_output_orient.init"
 Content-Type: text/plain
 
@@ -2062,7 +1913,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2362,7 +2213,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -3.16359 4.15417
+position -4.52757 5.46067
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -2371,18 +2222,18 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	switch_do_pivots 2 1 "input1"
+0 	attribpromote3 1 1 "input1"
 2 	attribpromote2 1 1 "input2"
 }
 inputs
 {
-0 	switch_do_pivots 0 1
+0 	attribpromote3 0 1
 1 	attribpromote2 0 1
 }
 stat
 {
   create 1573854736
-  modify 1585189489
+  modify 1588964936
   author Henry@LAPPY586
   access 0777
 }
@@ -2437,7 +2288,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -2.18455 5.1601
+position -2.32121 6.52673
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -2446,16 +2297,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	switch_do_pivots 2 1 "input1"
+0 	attribpromote3 1 1 "input1"
 }
 inputs
 {
-0 	switch_do_pivots 0 1
+0 	attribpromote3 0 1
 }
 stat
 {
   create 1573854774
-  modify 1573854975
+  modify 1588963473
   author Henry@LAPPY586
   access 0777
 }
@@ -2670,7 +2521,7 @@ sopflags sopflags =
 comment ""
 position -1.32303 1.80698
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass on display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 1 "output1"
@@ -2686,7 +2537,7 @@ inputs
 stat
 {
   create 1583618748
-  modify 1584897426
+  modify 1588965171
   author Henry@LAPPY586
   access 0777
 }
@@ -2738,7 +2589,7 @@ sopflags sopflags =
 comment ""
 position -4.53102 8.09798
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass on display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 1 "output1"
@@ -2754,7 +2605,7 @@ inputs
 stat
 {
   create 1583691873
-  modify 1584862529
+  modify 1588964949
   author Henry@LAPPY586
   access 0777
 }
@@ -2795,7 +2646,7 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot.order"
 Content-Type: text/plain
 
-29
+27
 apply_attributes1
 attribcopy_id
 enumerate1
@@ -2807,8 +2658,6 @@ switch2
 make_id_if_missing
 do_make_id
 IN
-adjust_pivots
-switch_do_pivots
 switch_do_output_orient
 generate_orient_if_none
 switch4
