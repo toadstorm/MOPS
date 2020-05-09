@@ -52,7 +52,7 @@ inputs
 stat
 {
   create 1569469174
-  modify 1588965192
+  modify 1588995739
   author Henry@LAPPY586
   access 0777
 }
@@ -113,7 +113,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1588965271
+  modify 1588995804
   author Henry@LAPPY586
   access 0777
 }
@@ -632,10 +632,9 @@ if(haspointattrib(1, \"euler\")) {
 }
 
 // pivot
+pivot = primintrinsic(0, \"pivot\", @ptnum);
 if(doP) {
-    pivot = primintrinsic(0, \"pivot\", @ptnum);
     pivot = lerp(pivot, pivot2, weight);
-    // v@__pivot = pivot;
 }
 
 // scale, rotate, translate
