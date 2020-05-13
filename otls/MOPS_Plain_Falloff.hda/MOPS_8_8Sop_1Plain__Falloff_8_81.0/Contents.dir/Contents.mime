@@ -32,22 +32,24 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -58.4098 73.6063
-connectornextid 0
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+position -14.7498 2.0004
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
 inputsNamed3
 {
+0 	MOPs_Object_Falloff 2 1 "input1"
 }
 inputs
 {
+0 	MOPs_Object_Falloff 0 1
 }
 stat
 {
-  create 1573270999
-  modify 1573271050
+  create 1588875033
+  modify 1588875137
   author Henry@LAPPY586
   access 0777
 }
@@ -105,7 +107,7 @@ inputs
 stat
 {
   create 1520763177
-  modify 1573271000
+  modify 1588875033
   author Mo@Mo-PC
   access 0777
 }
@@ -127,7 +129,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector uvselect "Modify Points"
+            bindselector points "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -280,6 +282,12 @@ Content-Type: text/plain
         default { "0" }
         range   { 0 1 }
     }
+    parm {
+        name    "vex_precision"
+        baseparm
+        label   "VEX Precision"
+        export  none
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/pointwrangle1.chn"
@@ -319,8 +327,9 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
-Falloff_Value	[ 0	locks=0 ]	(	[ Falloff_Value	0.42499999999999999 ] 	)
+Falloff_Value	[ 0	locks=0 ]	(	[ Falloff_Value	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -367,7 +376,7 @@ inputs
 stat
 {
   create 1522551176
-  modify 1573271000
+  modify 1588875033
   author henry@GlaDOS
   access 0777
 }
@@ -476,7 +485,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -3.46637e-09 -0.583314
+position 1.63315 -0.437497
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -494,7 +503,7 @@ inputs
 stat
 {
   create 1536023094
-  modify 1573271000
+  modify 1588875138
   author Henry@LAPPY586
   access 0777
 }
@@ -543,7 +552,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-do_preview	[ 0	locks=0 ]	(	[ do_preview	1 ] 	)
+do_preview	[ 0	locks=0 ]	(	[ do_preview	0 ] 	)
 do_sprite	[ 0	locks=0 ]	(	[ do_sprite	0 ] 	)
 spritemap	[ 0	locks=0 ]	(	sphere_matte.pic	)
 spritescale	[ 0	locks=0 ]	(	[ spritescale	1 ] 	)
@@ -635,7 +644,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -672,7 +681,7 @@ inputs
 stat
 {
   create 1521374085
-  modify 1573271000
+  modify 1588875033
   author Mo@Mo-PC
   access 0777
 }
@@ -710,7 +719,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -769,7 +778,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -804,7 +813,7 @@ inputs
 stat
 {
   create 1565318119
-  modify 1573271000
+  modify 1588875033
   author Henry@LAPPY586
   access 0777
 }
@@ -837,7 +846,7 @@ numswaps	[ 0	locks=0 ]	(	1	)
 enable1	[ 0	locks=0 ]	(	"on"	)
 method1	[ 0	locks=0 ]	(	"swap"	)
 class1	[ 0	locks=0 ]	(	"point"	)
-srcattribs1	[ 0	locks=0 ]	(	[ srcattribs1	butt ] 	)
+srcattribs1	[ 0	locks=0 ]	(	[ srcattribs1	mops_falloff ] 	)
 dstattribs1	[ 0	locks=0 ]	(	mops_falloff	)
 typeinfo1	[ 0	locks=0 ]	(	"dest"	)
 }
@@ -849,7 +858,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -875,16 +884,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	MOPs_Preview_Falloff 1 1 "input1"
+0 	switch2 1 1 "input1"
 }
 inputs
 {
-0 	MOPs_Preview_Falloff 0 1
+0 	switch2 0 1
 }
 stat
 {
   create 1565318159
-  modify 1573271000
+  modify 1588875140
   author Henry@LAPPY586
   access 0777
 }
@@ -915,7 +924,82 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch2.init"
+Content-Type: text/plain
+
+type = switch
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch2.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -1.59035 -0.583314
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	switch1 2 1 "input1"
+2 	MOPs_Preview_Falloff 1 1 "input2"
+}
+inputs
+{
+0 	switch1 0 1
+1 	MOPs_Preview_Falloff 0 1
+}
+stat
+{
+  create 1588875137
+  modify 1588875149
+  author Henry@LAPPY586
+  access 0777
+}
+color UT_Color RGB 0.8 1 0.7 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch2.chn"
+Content-Type: text/plain
+
+{
+    channel input {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../do_preview\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch2.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch2.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"18.0.391"
 	}
 }
 
@@ -923,7 +1007,7 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot.order"
 Content-Type: text/plain
 
-8
+9
 pointwrangle1
 IN
 switch1
@@ -932,6 +1016,7 @@ OUT
 MOPs_Preview_Falloff
 attribswap1
 attribswap2
+switch2
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"

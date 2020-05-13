@@ -63,6 +63,12 @@
         parmtag { "autoscope" "0000000000000000" }
     }
     parm {
+        name    "sepparm"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
         name    "aim_type"
         label   "Aim Method"
         type    integer
@@ -80,7 +86,6 @@
         label   "Use Up Attribute"
         type    toggle
         default { "0" }
-        disablewhen "{ aim_type != 2 }"
         range   { 0 10 }
         parmtag { "autoscope" "0000000000000000" }
     }
@@ -90,6 +95,7 @@
         type    vector
         size    3
         default { "0" "1" "0" }
+        disablewhen "{ use_up_attr == 1 }"
         range   { 0 1 }
         parmtag { "autoscope" "0000000000000000" }
     }
@@ -99,8 +105,33 @@
         type    vector
         size    3
         default { "0" "0" "0" }
-        disablewhen "{ aim_type == 1 }"
+        disablewhen "{ aim_type != 0 }"
         range   { -1 1 }
         parmtag { "autoscope" "0010000000000000" }
+    }
+    parm {
+        name    "sepparm2"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "do_vexpression"
+        label   "Use Vexpression"
+        type    toggle
+        default { "off" }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "vexpression"
+        label   "Vexpression"
+        type    string
+        default { "// aim = {0,0,1};\n// up = {0,1,0};" }
+        disablewhen "{ do_vexpression == 0 }"
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "editor" "1" }
+        parmtag { "editorlang" "vex" }
     }
 }

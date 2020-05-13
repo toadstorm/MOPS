@@ -189,6 +189,22 @@
             label   "Image Settings"
 
             parm {
+                name    "use_existing_uv"
+                label   "Use Existing UVs"
+                type    toggle
+                default { "1" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "uvattrib"
+                label   "UV Attribute"
+                type    string
+                default { "uv" }
+                disablewhen "{ use_existing_uv 0 }"
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "sidefx::attrib_access" "read" }
+            }
+            parm {
                 name    "type"
                 label   "Texture Type"
                 type    ordinal

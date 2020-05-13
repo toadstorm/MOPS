@@ -67,6 +67,7 @@
             menu {
                 "0" "Primitive Number"
                 "1" "Use Nearest"
+                "2" "Distribute"
             }
             range   { 0 10 }
             parmtag { "autoscope" "0000000000000000" }
@@ -518,6 +519,29 @@
             default { "on" }
             range   { 0 10 }
             parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "keep_goal_attrs"
+            label   "Keep Goal Attributes"
+            type    toggle
+            default { "0" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "goal_attr_name"
+            label   "Goal Attribute"
+            type    string
+            default { "goal" }
+            hidewhen "{ keep_goal_attrs 0 }"
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "curve_attr_name"
+            label   "Curve Num Attribute"
+            type    string
+            default { "curvenum" }
+            hidewhen "{ keep_goal_attrs 0 }"
+            parmtag { "script_callback_language" "python" }
         }
         group {
             name    "folder1_4"
