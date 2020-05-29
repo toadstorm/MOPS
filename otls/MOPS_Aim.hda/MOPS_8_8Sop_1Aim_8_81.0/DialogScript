@@ -110,6 +110,24 @@
         parmtag { "autoscope" "0010000000000000" }
     }
     parm {
+        name    "reverse_aim"
+        label   "Reverse Aim"
+        type    toggle
+        default { "0" }
+        range   { 0 10 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "reverse_up"
+        label   "Reverse Up"
+        type    toggle
+        default { "0" }
+        range   { 0 10 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
         name    "sepparm2"
         label   "Separator"
         type    separator
