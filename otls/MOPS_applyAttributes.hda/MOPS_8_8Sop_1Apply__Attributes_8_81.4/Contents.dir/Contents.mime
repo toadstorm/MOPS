@@ -32,27 +32,22 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -3.13514 -0.384687
-connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+position 11.7005 -1.88016
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-0 "output1"
 }
 inputsNamed3
 {
-1 	attribdelete1 1 1 "input1"
-2 	compute_translate 1 1 "input2"
 }
 inputs
 {
-0 	attribdelete1 0 1
-1 	compute_translate 0 1
 }
 stat
 {
-  create 1569469174
-  modify 1590188211
+  create 1590718186
+  modify 1590718191
   author Henry@LAPPY586
   access 0777
 }
@@ -113,7 +108,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1590188195
+  modify 1590718227
   author Henry@LAPPY586
   access 0777
 }
@@ -494,7 +489,7 @@ Content-Type: text/plain
 {
 version 0.8
 folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
-group	[ 0	locks=0	autoscope=1 ]	(	[ group	98 ] 	)
+group	[ 0	locks=0	autoscope=1 ]	(	[ group	"" ] 	)
 grouptype	[ 0	locks=0	autoscope=0 ]	(	[ grouptype	0 ] 	)
 class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
@@ -567,7 +562,7 @@ string type = primintrinsic(0, \"typename\", @ptnum);
 // type = sprintf(\"%s\", type);
 
 // if there is no primitive, this is gonna return 0 which is super annoying
-if((type != \"PackedGeometry\") && (type != \"PackedFragment\") && (type != \"PackedDiskSequence\") && (type != \"AlembicRef\")) {
+if((type != \"PackedGeometry\") && (type != \"PackedFragment\") && (type != \"PackedDiskSequence\") && (type != \"AlembicRef\") && (type != \"PackedUSD\")) {
     // if this is a regular point, just use some basic defaults here.
     orient = quaternion(ident());
     scale = set(1,1,1);
@@ -720,14 +715,14 @@ do_translate	[ 0	locks=0	autoscope=0 ]	(	[ do_translate	1 ] 	)
 do_rotate	[ 0	locks=0	autoscope=0 ]	(	[ do_rotate	1 ] 	)
 do_scale	[ 0	locks=0	autoscope=0 ]	(	[ do_scale	1 ] 	)
 do_weight	[ 0	locks=0	autoscope=0 ]	(	[ do_weight	1 ] 	)
-rotate_mode	[ 0	locks=0	autoscope=0 ]	(	[ rotate_mode	0 ] 	)
-scale_mode	[ 0	locks=0	autoscope=0 ]	(	[ scale_mode	0 ] 	)
+rotate_mode	[ 0	locks=0	autoscope=0 ]	(	[ rotate_mode	1 ] 	)
+scale_mode	[ 0	locks=0	autoscope=0 ]	(	[ scale_mode	1 ] 	)
 local_space	[ 0	locks=0	autoscope=0 ]	(	[ local_space	1 ] 	)
 rotate_order	[ 0	locks=0	autoscope=0 ]	(	[ rotate_order	0 ] 	)
 falloff_attribute	[ 0	locks=0 ]	(	[ falloff_attribute	mops_falloff ] 	)
 can_ignore_falloff	[ 8	locks=0 ]	(	[ can_ignore_falloff	0 ] 	)
 matchmode	[ 0	locks=0 ]	(	[ matchmode	0 ] 	)
-do_pivot	[ 0	locks=0 ]	(	[ do_pivot	0 ] 	)
+do_pivot	[ 0	locks=0 ]	(	[ do_pivot	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -772,7 +767,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1590187862
+  modify 1590718186
   author Henry@LAPPY586
   access 0777
 }
@@ -853,7 +848,7 @@ inputs
 stat
 {
   create 1569084024
-  modify 1590187862
+  modify 1590718186
   author Henry@LAPPY586
   access 0777
 }
@@ -940,7 +935,7 @@ inputs
 stat
 {
   create 1583618763
-  modify 1590187862
+  modify 1590718186
   author Henry@LAPPY586
   access 0777
 }
@@ -1020,7 +1015,7 @@ inputs
 stat
 {
   create 1583691828
-  modify 1590187862
+  modify 1590718186
   author Henry@LAPPY586
   access 0777
 }
@@ -1100,7 +1095,7 @@ inputs
 stat
 {
   create 1584863149
-  modify 1590187862
+  modify 1590718186
   author Henry@LAPPY586
   access 0777
 }
@@ -1185,7 +1180,7 @@ inputs
 stat
 {
   create 1590187941
-  modify 1590188337
+  modify 1590718186
   author Henry@LAPPY586
   access 0777
 }
@@ -1287,7 +1282,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1590187862
+  modify 1590718186
   author Henry@LAPPY586
   access 0777
 }
@@ -1440,7 +1435,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1590187862
+  modify 1590718186
   author Henry@LAPPY586
   access 0777
 }
@@ -1699,7 +1694,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1590187862
+  modify 1590718186
   author Henry@LAPPY586
   access 0777
 }
@@ -1774,7 +1769,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1590187862
+  modify 1590718186
   author Henry@LAPPY586
   access 0777
 }
@@ -1910,7 +1905,7 @@ inputs
 stat
 {
   create 1556862778
-  modify 1590187862
+  modify 1590718186
   author Henry@LAPPY586
   access 0777
 }
@@ -1985,7 +1980,7 @@ inputs
 stat
 {
   create 1569084092
-  modify 1590187862
+  modify 1590718186
   author Henry@LAPPY586
   access 0777
 }
@@ -2013,7 +2008,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2060,7 +2055,7 @@ inputs
 stat
 {
   create 1569468433
-  modify 1590187862
+  modify 1590718186
   author Henry@LAPPY586
   access 0777
 }
@@ -2333,7 +2328,7 @@ inputs
 stat
 {
   create 1573854736
-  modify 1590187862
+  modify 1590718186
   author Henry@LAPPY586
   access 0777
 }
@@ -2476,7 +2471,7 @@ inputs
 stat
 {
   create 1583519692
-  modify 1590187862
+  modify 1590718186
   author Henry@LAPPY586
   access 0777
 }
@@ -2552,7 +2547,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1590187862
+  modify 1590718186
   author Henry@LAPPY586
   access 0777
 }
