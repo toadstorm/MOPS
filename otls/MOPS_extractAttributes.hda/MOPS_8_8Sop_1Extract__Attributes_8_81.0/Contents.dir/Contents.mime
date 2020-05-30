@@ -32,25 +32,22 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 10.9237 4.76878
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass on display on render on highlight off unload off savedata off compress on colordefault on exposed on
+position 16.5352 0.239597
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-1 "output1"
 }
 inputsNamed3
 {
-0 	INPUT_SURFACE 1 1 "input1"
 }
 inputs
 {
-0 	INPUT_SURFACE 0 1
 }
 stat
 {
-  create 1583125753
-  modify 1585515095
+  create 1590718237
+  modify 1590718241
   author Henry@LAPPY586
   access 0777
 }
@@ -108,7 +105,7 @@ inputs
 stat
 {
   create 1524695134
-  modify 1585514291
+  modify 1590718237
   author Henry@LAPPY586
   access 0777
 }
@@ -394,7 +391,7 @@ inputs
 stat
 {
   create 1550365158
-  modify 1585514291
+  modify 1590718237
   author Henry@LAPPY586
   access 0777
 }
@@ -473,7 +470,7 @@ inputs
 stat
 {
   create 1573854821
-  modify 1585514291
+  modify 1590718237
   author Henry@LAPPY586
   access 0777
 }
@@ -552,7 +549,7 @@ inputs
 stat
 {
   create 1583522390
-  modify 1585514937
+  modify 1590718257
   author Henry@LAPPY586
   access 0777
 }
@@ -777,7 +774,7 @@ vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
 snippet	[ 0	locks=0 ]	(	"float epsilon = 0.000001;
 string type = primintrinsic(0, \"typename\", @elemnum);
 i@__haspackedtransform = 0;
-if(type == \"PackedGeometry\" || type == \"PackedFragment\" || type == \"PackedDiskSequence\" || type == \"AlembicRef\") {
+if(type == \"PackedGeometry\" || type == \"PackedFragment\" || type == \"PackedDiskSequence\" || type == \"AlembicRef\" || type == \"PackedUSD\") {
     // extract as normal
     // if full transform extraction is enabled, get that instead of transform
     i@__haspackedtransform = 1;
@@ -870,7 +867,7 @@ inputs
 stat
 {
   create 1584916562
-  modify 1585514291
+  modify 1590718237
   author Henry@LAPPY586
   access 0777
 }
@@ -958,7 +955,7 @@ inputs
 stat
 {
   create 1542257157
-  modify 1585514291
+  modify 1590718237
   author Henry@LAPPY586
   access 0777
 }
@@ -1006,7 +1003,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 spare_input0	[ 0	locks=0 ]	(	../INPUT	)
 }
 
@@ -1314,7 +1311,7 @@ inputs
 stat
 {
   create 1550365152
-  modify 1585514998
+  modify 1590718237
   author Henry@LAPPY586
   access 0777
 }
@@ -1881,7 +1878,7 @@ inputs
 stat
 {
   create 1584916552
-  modify 1585514291
+  modify 1590718237
   author Henry@LAPPY586
   access 0777
 }
@@ -1957,7 +1954,7 @@ inputs
 stat
 {
   create 1585514990
-  modify 1585515080
+  modify 1590718237
   author Henry@LAPPY586
   access 0777
 }

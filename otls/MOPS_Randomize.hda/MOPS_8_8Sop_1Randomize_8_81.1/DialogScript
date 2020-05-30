@@ -124,6 +124,15 @@
             range   { 0 1 }
             parmtag { "autoscope" "0000000000000000" }
         }
+        parm {
+            name    "translate_step"
+            label   "Step"
+            type    float
+            default { "0" }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
     }
 
     parm {
@@ -193,6 +202,15 @@
             type    float
             default { "1" }
             range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "rotation_step"
+            label   "Step"
+            type    float
+            default { "0" }
+            range   { 0 360 }
             parmtag { "autoscope" "0000000000000000" }
             parmtag { "script_callback_language" "python" }
         }
@@ -298,6 +316,15 @@
             range   { 0 10 }
             parmtag { "autoscope" "0000000000000000" }
         }
+        parm {
+            name    "scale_step"
+            label   "Step"
+            type    float
+            default { "0" }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
     }
 
     parm {
@@ -336,6 +363,15 @@
             default { "0" }
             range   { 0 10 }
             parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "pscale_step"
+            label   "Step"
+            type    float
+            default { "0" }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
         }
     }
 

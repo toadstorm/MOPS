@@ -32,27 +32,22 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -3.13514 -0.384687
-connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+position 11.7005 -1.88016
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-0 "output1"
 }
 inputsNamed3
 {
-1 	attribdelete1 1 1 "input1"
-2 	compute_translate 1 1 "input2"
 }
 inputs
 {
-0 	attribdelete1 0 1
-1 	compute_translate 0 1
 }
 stat
 {
-  create 1569469174
-  modify 1588995739
+  create 1590718186
+  modify 1590718191
   author Henry@LAPPY586
   access 0777
 }
@@ -93,7 +88,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.32258 2.86914
+position -1.32258 2.10115
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -102,18 +97,18 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	switch_is_prim_group 1 1 "input1"
+0 	init_attrs 1 1 "input1"
 1 	switch4 1 1 "input2"
 }
 inputs
 {
-0 	switch_is_prim_group 0 1
+0 	init_attrs 0 1
 1 	switch4 0 1
 }
 stat
 {
   create 1529358487
-  modify 1588995804
+  modify 1590718227
   author Henry@LAPPY586
   access 0777
 }
@@ -564,12 +559,13 @@ float pscale = 1;
 vector4 orient = quaternion(m);
 
 string type = primintrinsic(0, \"typename\", @ptnum);
+// type = sprintf(\"%s\", type);
+
 // if there is no primitive, this is gonna return 0 which is super annoying
-if((type != \"PackedGeometry\") && (type != \"PackedFragment\") && (type != \"PackedDiskSequence\") && (type != \"AlembicRef\")) {
+if((type != \"PackedGeometry\") && (type != \"PackedFragment\") && (type != \"PackedDiskSequence\") && (type != \"AlembicRef\") && (type != \"PackedUSD\")) {
     // if this is a regular point, just use some basic defaults here.
     orient = quaternion(ident());
-    
-    scale = {1,1,1};
+    scale = set(1,1,1);
     if(haspointattrib(0, \"scale\")) {
         scale = point(0, \"scale\", @ptnum);
     }
@@ -719,14 +715,14 @@ do_translate	[ 0	locks=0	autoscope=0 ]	(	[ do_translate	1 ] 	)
 do_rotate	[ 0	locks=0	autoscope=0 ]	(	[ do_rotate	1 ] 	)
 do_scale	[ 0	locks=0	autoscope=0 ]	(	[ do_scale	1 ] 	)
 do_weight	[ 0	locks=0	autoscope=0 ]	(	[ do_weight	1 ] 	)
-rotate_mode	[ 0	locks=0	autoscope=0 ]	(	[ rotate_mode	0 ] 	)
-scale_mode	[ 0	locks=0	autoscope=0 ]	(	[ scale_mode	0 ] 	)
+rotate_mode	[ 0	locks=0	autoscope=0 ]	(	[ rotate_mode	1 ] 	)
+scale_mode	[ 0	locks=0	autoscope=0 ]	(	[ scale_mode	1 ] 	)
 local_space	[ 0	locks=0	autoscope=0 ]	(	[ local_space	1 ] 	)
 rotate_order	[ 0	locks=0	autoscope=0 ]	(	[ rotate_order	0 ] 	)
 falloff_attribute	[ 0	locks=0 ]	(	[ falloff_attribute	mops_falloff ] 	)
 can_ignore_falloff	[ 8	locks=0 ]	(	[ can_ignore_falloff	0 ] 	)
 matchmode	[ 0	locks=0 ]	(	[ matchmode	0 ] 	)
-do_pivot	[ 0	locks=0 ]	(	[ do_pivot	0 ] 	)
+do_pivot	[ 0	locks=0 ]	(	[ do_pivot	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -771,7 +767,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1585189489
+  modify 1590718186
   author Henry@LAPPY586
   access 0777
 }
@@ -787,7 +783,7 @@ Content-Type: text/plain
 {
 version 0.8
 folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
-group	[ 0	locks=0	autoscope=0 ]	(	`chs(\"../group\")`	)
+group	[ 0	locks=0	autoscope=0 ]	(	""	)
 grouptype	[ 0	locks=0	autoscope=0 ]	(	"guess"	)
 class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
@@ -852,7 +848,7 @@ inputs
 stat
 {
   create 1569084024
-  modify 1585189489
+  modify 1590718186
   author Henry@LAPPY586
   access 0777
 }
@@ -921,7 +917,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.31613 -0.23292
+position -1.31613 -1.00091
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass on display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -939,7 +935,7 @@ inputs
 stat
 {
   create 1583618763
-  modify 1588965167
+  modify 1590718186
   author Henry@LAPPY586
   access 0777
 }
@@ -1019,7 +1015,7 @@ inputs
 stat
 {
   create 1583691828
-  modify 1588964957
+  modify 1590718186
   author Henry@LAPPY586
   access 0777
 }
@@ -1081,7 +1077,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.33952 -13.3967
+position 1.33952 -14.1647
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1099,7 +1095,7 @@ inputs
 stat
 {
   create 1584863149
-  modify 1585189489
+  modify 1590718186
   author Henry@LAPPY586
   access 0777
 }
@@ -1154,6 +1150,106 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/init_attrs.init"
+Content-Type: text/plain
+
+type = attribwrangle
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/init_attrs.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -6.95087 3.30049
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	switch_is_prim_group 1 1 "input1"
+}
+inputs
+{
+0 	switch_is_prim_group 0 1
+}
+stat
+{
+  create 1590187941
+  modify 1590718186
+  author Henry@LAPPY586
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/init_attrs.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+folder0	[ 0	locks=0 ]	(	0	0	)
+group	[ 0	locks=0 ]	(	""	)
+grouptype	[ 0	locks=0 ]	(	"guess"	)
+class	[ 0	locks=0 ]	(	"point"	)
+vex_numcount	[ 0	locks=0 ]	(	10	)
+vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
+snippet	[ 0	locks=0 ]	(	"// we need to set defaults even on points that aren't being affected by the transform. otherwise, if we create template
+// attributes when a group mask is involved, the defaults will be invalid (scale=0, etc)
+
+vector scale = {1,1,1};
+float pscale = 1;
+vector4 orient = quaternion(ident());
+
+if(haspointattrib(0, \"scale\")) {
+    scale = point(0, \"scale\", @ptnum);
+}
+if(haspointattrib(0, \"pscale\")) {
+    pscale = point(0, \"pscale\", @ptnum);
+}
+if(haspointattrib(0, \"orient\")) {
+    orient = point(0, \"orient\", @ptnum);
+}
+
+v@__scale = scale;
+f@__pscale = pscale;
+p@__out_orient = orient;
+
+"	)
+exportlist	[ 0	locks=0 ]	(	*	)
+vex_strict	[ 0	locks=0 ]	(	"off"	)
+autobind	[ 0	locks=0 ]	(	"on"	)
+bindings	[ 0	locks=0 ]	(	0	)
+groupautobind	[ 0	locks=0 ]	(	"on"	)
+groupbindings	[ 0	locks=0 ]	(	0	)
+vex_cwdpath	[ 0	locks=0 ]	(	.	)
+vex_outputmask	[ 0	locks=0 ]	(	*	)
+vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
+vex_matchattrib	[ 0	locks=0 ]	(	id	)
+vex_inplace	[ 0	locks=0 ]	(	"off"	)
+vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/init_attrs.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/attribcopy_id.init"
 Content-Type: text/plain
 
@@ -1166,7 +1262,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.60794 -2.14616
+position 1.60794 -2.91415
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1186,7 +1282,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1585189489
+  modify 1590718186
   author Henry@LAPPY586
   access 0777
 }
@@ -1339,7 +1435,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1585189489
+  modify 1590718186
   author Henry@LAPPY586
   access 0777
 }
@@ -1455,7 +1551,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.382921 -18.404
+position -0.382921 -19.172
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1472,7 +1568,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1584862529
+  modify 1590184957
   author Henry@LAPPY586
   access 0777
 }
@@ -1514,7 +1610,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.386371 -15.6399
+position -0.386371 -16.4079
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1532,7 +1628,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1584173407
+  modify 1590184957
   author Henry@LAPPY586
   access 0777
 }
@@ -1578,7 +1674,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.330122 -4.32576
+position -0.330122 -5.09375
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1598,7 +1694,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1585189489
+  modify 1590718186
   author Henry@LAPPY586
   access 0777
 }
@@ -1673,7 +1769,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1585189489
+  modify 1590718186
   author Henry@LAPPY586
   access 0777
 }
@@ -1701,7 +1797,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0	autoscope=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0	autoscope=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1789,7 +1885,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.382921 -14.5805
+position -0.382921 -15.3485
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1809,7 +1905,7 @@ inputs
 stat
 {
   create 1556862778
-  modify 1585189489
+  modify 1590718186
   author Henry@LAPPY586
   access 0777
 }
@@ -1884,7 +1980,7 @@ inputs
 stat
 {
   create 1569084092
-  modify 1585189489
+  modify 1590718186
   author Henry@LAPPY586
   access 0777
 }
@@ -1912,7 +2008,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1939,7 +2035,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.382921 -11.2829
+position -0.382921 -12.0509
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1959,7 +2055,7 @@ inputs
 stat
 {
   create 1569468433
-  modify 1585189489
+  modify 1590718186
   author Henry@LAPPY586
   access 0777
 }
@@ -2014,7 +2110,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.14262 -5.32362
+position 1.14262 -6.09161
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -2032,7 +2128,7 @@ inputs
 stat
 {
   create 1569468449
-  modify 1584173407
+  modify 1590184957
   author Henry@LAPPY586
   access 0777
 }
@@ -2080,7 +2176,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.33907 -12.4055
+position 1.33907 -13.1735
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -2098,7 +2194,7 @@ inputs
 stat
 {
   create 1569470684
-  modify 1584173407
+  modify 1590184957
   author Henry@LAPPY586
   access 0777
 }
@@ -2146,7 +2242,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.14262 -6.21869
+position 1.14262 -6.98668
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -2164,7 +2260,7 @@ inputs
 stat
 {
   create 1569709553
-  modify 1584897229
+  modify 1590184957
   author Henry@LAPPY586
   access 0777
 }
@@ -2232,7 +2328,7 @@ inputs
 stat
 {
   create 1573854736
-  modify 1588964936
+  modify 1590718186
   author Henry@LAPPY586
   access 0777
 }
@@ -2355,7 +2451,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.788374 -3.20616
+position 0.788374 -3.97415
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -2375,7 +2471,7 @@ inputs
 stat
 {
   create 1583519692
-  modify 1585189489
+  modify 1590718186
   author Henry@LAPPY586
   access 0777
 }
@@ -2431,7 +2527,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 4.82342 -2.0391
+position 4.82342 -2.80709
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -2451,7 +2547,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1585189489
+  modify 1590718186
   author Henry@LAPPY586
   access 0777
 }
@@ -2518,7 +2614,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.32303 1.80698
+position -1.32303 1.03899
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass on display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -2536,7 +2632,7 @@ inputs
 stat
 {
   create 1583618748
-  modify 1588965171
+  modify 1590184957
   author Henry@LAPPY586
   access 0777
 }
@@ -2642,10 +2738,121 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribcreate1.init"
+Content-Type: text/plain
+
+type = attribcreate::2.0
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribcreate1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -4.53102 4.42843
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	switch_is_prim_group 1 1 "input1"
+}
+inputs
+{
+0 	switch_is_prim_group 0 1
+}
+stat
+{
+  create 1590184957
+  modify 1590188007
+  author Henry@LAPPY586
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribcreate1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+group	[ 0	locks=0 ]	(	""	)
+grouptype	[ 0	locks=0 ]	(	"guess"	)
+encodenames	[ 0	locks=0 ]	(	"off"	)
+numattr	[ 0	locks=0 ]	(	3	)
+enable1	[ 0	locks=0 ]	(	"on"	)
+name1	[ 0	locks=0 ]	(	__scale	)
+existing1	[ 0	locks=0 ]	(	"better"	)
+createvarmap1	[ 0	locks=0 ]	(	"off"	)
+varname1	[ 0	locks=0 ]	(	""	)
+class1	[ 0	locks=0 ]	(	"point"	)
+savetoinfo1	[ 0	locks=0 ]	(	"off"	)
+type1	[ 0	locks=0 ]	(	"vector"	)
+typeinfo1	[ 0	locks=0 ]	(	"guess"	)
+precision1	[ 0	locks=0 ]	(	"auto"	)
+size1	[ 0	locks=0 ]	(	1	)
+default1v	[ 0	locks=0 ]	(	1	1	1	1	)
+writevalues1	[ 0	locks=0 ]	(	"on"	)
+uselocal1	[ 0	locks=0 ]	(	"on"	)
+value1v	[ 0	locks=0 ]	(	1	1	1	1	)
+string1	[ 0	locks=0 ]	(	""	)
+enable2	[ 0	locks=0 ]	(	"on"	)
+name2	[ 0	locks=0 ]	(	__pscale	)
+existing2	[ 0	locks=0 ]	(	"better"	)
+createvarmap2	[ 0	locks=0 ]	(	"off"	)
+varname2	[ 0	locks=0 ]	(	""	)
+class2	[ 0	locks=0 ]	(	"point"	)
+savetoinfo2	[ 0	locks=0 ]	(	"off"	)
+type2	[ 0	locks=0 ]	(	"float"	)
+typeinfo2	[ 0	locks=0 ]	(	"guess"	)
+precision2	[ 0	locks=0 ]	(	"auto"	)
+size2	[ 0	locks=0 ]	(	1	)
+default2v	[ 0	locks=0 ]	(	1	0	0	0	)
+writevalues2	[ 0	locks=0 ]	(	"on"	)
+uselocal2	[ 0	locks=0 ]	(	"on"	)
+value2v	[ 0	locks=0 ]	(	1	1	1	1	)
+string2	[ 0	locks=0 ]	(	""	)
+enable3	[ 0	locks=0 ]	(	"on"	)
+name3	[ 0	locks=0 ]	(	__out_orient	)
+existing3	[ 0	locks=0 ]	(	"better"	)
+createvarmap3	[ 0	locks=0 ]	(	"off"	)
+varname3	[ 0	locks=0 ]	(	""	)
+class3	[ 0	locks=0 ]	(	"point"	)
+savetoinfo3	[ 0	locks=0 ]	(	"off"	)
+type3	[ 0	locks=0 ]	(	"float"	)
+typeinfo3	[ 0	locks=0 ]	(	"quaternion"	)
+precision3	[ 0	locks=0 ]	(	"auto"	)
+size3	[ 0	locks=0 ]	(	4	)
+default3v	[ 0	locks=0 ]	(	0	0	0	1	)
+writevalues3	[ 0	locks=0 ]	(	"on"	)
+uselocal3	[ 0	locks=0 ]	(	"on"	)
+value3v	[ 0	locks=0 ]	(	0	0	0	0	)
+string3	[ 0	locks=0 ]	(	""	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribcreate1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"18.0.391"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.order"
 Content-Type: text/plain
 
-27
+29
 apply_attributes1
 attribcopy_id
 enumerate1
@@ -2673,6 +2880,8 @@ set_intrinsics
 primitivewrangle1
 attribpromote3
 pointwrangle1
+attribcreate1
+init_attrs
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"
