@@ -25,7 +25,9 @@ Download the desired release directly from the [releases page](https://github.co
 
 **Option 1: Plugin (17.5+ only)**
 For those of you running Houdini 17.5 or later, you have an option for a much easier install. 
-Simply create a folder inside your Houdini preferences directory (where the houdini.env typically is) called "packages", and place the MOPS.json file from the MOPs download into that folder. Then edit MOPS.json and change the "MOPS" variable to match the install path (the directory that contains "otls", "scripts", and so on). That's it!
+Simply create a folder inside your Houdini preferences directory (where the houdini.env typically is) called "packages", and place the MOPS.json file from the MOPs download into that folder. Then edit MOPS.json and change the "MOPS" variable to match the install path (this project's directory, which contains "otls", "scripts", and so on). That's it!
+
+> Note for MacOS users: Houdini preferences directory you can find it in ` ~/Library/Preferences/houdini`
 
 **Option 2: Edit Houdini.env**
 You need to add the MOPS root directory to your Houdini environment file. For more information about the Houdini environment file, see [this help link](https://www.sidefx.com/docs/houdini/basics/config_env.html#setting-environment-variables).
