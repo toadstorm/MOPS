@@ -14,6 +14,9 @@ MOPs is based on an internal framework of nodes that convert point attributes to
 **INSTALLATION PROCEDURE HAS BEEN SIMPLIFIED FROM PREVIOUS RELEASES. PLEASE READ CAREFULLY.**
 
 ## Step 1: Downloading MOPs
+
+You need to download MOPs from GitHub and then save them somewhere on a local drive or network share. It's important that you **do not** install MOPs directly into your `$HOME/houdiniXX.X` directory, or else it may not properly be loaded when you start Houdini.
+
 **Option 1 (users who are familiar with Git)**:
 Navigate to the folder you want to contain MOPs, and from BASH / Git BASH type:
 `git clone https://github.com/toadstorm/MOPS.git`
@@ -25,10 +28,14 @@ Download the desired release directly from the [releases page](https://github.co
 
 **Option 1: Plugin (17.5+ only)**
 For those of you running Houdini 17.5 or later, you have an option for a much easier install. 
-Simply create a folder inside your Houdini preferences directory (where the houdini.env typically is) called "packages", and place the MOPS.json file from the MOPs download into that folder. Then edit MOPS.json and change the "MOPS" variable to match the install path (the directory that contains "otls", "scripts", and so on). That's it!
+Simply create a folder inside your Houdini preferences directory (where the houdini.env typically is) called "packages", and place the MOPS.json file from the MOPs download into that package folder. Your preferences directory on Windows is typically in `My Documents\houdiniXX.X`. In OS X it's in `~Library/Preferences/Houdini`.
+
+Then edit MOPS.json and change the "MOPS" variable to match the MOPs install path you chose in step 1 (the directory that contains "otls", "scripts", and so on). That's it! 
+
+To verify your install, open Houdini and drop down a Geometry container, then dive inside. If you see MOPs nodes in the Tab menu, the installation was successful. You can also check the "+" button next to the Shelf menu and look for a shelf called "MOPs" to verify your installation.
 
 **Option 2: Edit Houdini.env**
-You need to add the MOPS root directory to your Houdini environment file. For more information about the Houdini environment file, see [this help link](https://www.sidefx.com/docs/houdini/basics/config_env.html#setting-environment-variables).
+You need to add the MOPS installation directory to your Houdini environment file. For more information about the Houdini environment file, see [this help link](https://www.sidefx.com/docs/houdini/basics/config_env.html#setting-environment-variables).
 Edit your houdini.env file and create a variable called MOPS that points to the new folder you just extracted MOPs to. The folder you point to should be the one that contains "otls", "scripts", and "toolbar":
 `MOPS="/path/to/MOPS"`
 
@@ -48,6 +55,8 @@ HOUDINI_PATH=$HOUDINI_PATH;$QLIB;$MOPS;&
 It's important that your HOUDINI_PATH always ends in ;&. You can append any other paths you like,
 but the last path should be `&`. This will ensure that Houdini's built-in operators work normally.
 
+To verify your install, open Houdini and drop down a Geometry container, then dive inside. If you see MOPs nodes in the Tab menu, the installation was successful. You can also check the "+" button next to the Shelf menu and look for a shelf called "MOPs" to verify your installation.
+
 ### Usage basics:
 
 The main types of nodes in MOPs are the Generators, Modifiers, and Falloff nodes. Generators like the MOPs Instancer create copies of objects. Modifiers transform or otherwise change the objects. Falloffs weight the effects of Modifiers.
@@ -58,9 +67,6 @@ Append a MOPs Transform Modifier to the MOPs Instancer. Try playing with the rot
 
 For more detailed examples, see the "examples" folder for HIP files.
 
-### Data analytics:
-
-MOPs *optionally* collects data about what MOPs nodes are being used via Google Analytics in order to help us prioritize development and get feedback. The *only* information associated with an individual user is a randomized UUID. By default, MOPs follows the same permissions as Houdini does when collecting data (i.e., if you opt out of Houdini's collection, we will not collect either). If you would like to set an override on this behavior, you can add the key MOPS_ALLOW_ANALYTICS to your houdini.env file. Setting MOPS_ALLOW_ANALYTICS = 1 will allow the collection to go ahead. Setting it to 0 will always disable it, regardless of your Houdini data collection settings.
 
 ### Developers:
 This section is in progress.
