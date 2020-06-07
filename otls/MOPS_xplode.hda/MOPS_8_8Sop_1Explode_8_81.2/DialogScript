@@ -37,6 +37,13 @@
         range   { 0! 180! }
         parmtag { "autoscope" "0000000000000000" }
     }
+    parm {
+        name    "transfer_attrs"
+        label   "Transfer Attributes"
+        type    string
+        default { "" }
+        parmtag { "script_callback_language" "python" }
+    }
     group {
         name    "folder0"
         label   "Compute Source Orient"
