@@ -32,26 +32,26 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -18.0122 2.91813
+position -5.72318 -0.11067
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-1 "output1"
+0 "output1"
 }
 inputsNamed3
 {
-0 	pack1 1 1 "input1"
+1 	attribcreate1 1 1 "input1"
 }
 inputs
 {
-0 	pack1 0 1
+0 	attribcreate1 0 1
 }
 stat
 {
-  create 1588459411
-  modify 1588460538
-  author Henry@LAPPY586
+  create 1591261154
+  modify 1591285728
+  author adam@Science2
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -435,7 +435,7 @@ vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
-move	[ 0	locks=0 ]	(	[ move	1 ] 	)
+move	[ 0	locks=0 ]	(	[ move	0 ] 	)
 do_falloff	[ 0	locks=0 ]	(	[ do_falloff	0 ] 	)
 do_vexpression	[ 0	locks=0 ]	(	[ do_vexpression	0 ] 	)
 vexpression	[ 0	locks=0 ]	(	[ vexpression	"// pivot = {0,0,0};" ] 	)
@@ -2528,7 +2528,7 @@ vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 mode	[ 0	locks=0 ]	(	[ mode	2 ] 	)
-move	[ 0	locks=0 ]	(	[ move	1 ] 	)
+move	[ 0	locks=0 ]	(	[ move	0 ] 	)
 do_falloff	[ 0	locks=0 ]	(	[ do_falloff	0 ] 	)
 do_vexpression	[ 0	locks=0 ]	(	[ do_vexpression	0 ] 	)
 vexpression	[ 0	locks=0 ]	(	[ vexpression	"// pivot = {0,0,0};" ] 	)
@@ -2605,7 +2605,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.416"
+		"value":"18.0.391"
 	}
 }
 
@@ -2622,7 +2622,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -2.18348 -6.8817
+position -2.18003 -9.87855
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -2631,16 +2631,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	attribdelete1 1 1 "input1"
+0 	switch2 1 1 "input1"
 }
 inputs
 {
-0 	attribdelete1 0 1
+0 	switch2 0 1
 }
 stat
 {
   create 1555387829
-  modify 1584678356
+  modify 1591285494
   author Henry@LAPPY586
   access 0777
 }
@@ -2665,7 +2665,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.416"
+		"value":"18.0.391"
 	}
 }
 
@@ -2747,7 +2747,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.416"
+		"value":"18.0.391"
 	}
 }
 
@@ -2815,7 +2815,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.416"
+		"value":"18.0.391"
 	}
 }
 
@@ -2883,7 +2883,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.416"
+		"value":"18.0.391"
 	}
 }
 
@@ -3023,7 +3023,167 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.416"
+		"value":"18.0.391"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch2.init"
+Content-Type: text/plain
+
+type = switch
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch2.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -2.18003 -8.41462
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	attribdelete1 1 1 "input1"
+2 	attribdelete2 1 1 "input2"
+}
+inputs
+{
+0 	attribdelete1 0 1
+1 	attribdelete2 0 1
+}
+stat
+{
+  create 1591285480
+  modify 1591285717
+  author Henry@LAPPY586
+  access 0777
+}
+color UT_Color RGB 0.8 1 0.7 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch2.spareparmdef"
+Content-Type: text/plain
+
+    parm {
+        name    "input"
+        baseparm
+        label   "Select Input"
+        export  all
+    }
+    parm {
+        name    "spare_input0"
+        label   "Spare Input 0"
+        type    oppath
+        default { "" }
+        help    "Refer to this in expressions as -1, such as: npoints(-1)"
+        parmtag { "opfilter" "!!SOP!!" }
+        parmtag { "oprelative" "." }
+    }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch2.chn"
+Content-Type: text/plain
+
+{
+    channel input {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = "!haspointattrib(-1, chs(\"../falloff_attribute\"))" }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch2.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+spare_input0	[ 0	locks=0 ]	(	../MOPS_IN	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch2.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"18.0.391"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribdelete2.init"
+Content-Type: text/plain
+
+type = attribdelete
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribdelete2.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -0.251286 -7.13681
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	attribdelete1 1 1 "input1"
+}
+inputs
+{
+0 	attribdelete1 0 1
+}
+stat
+{
+  create 1591285572
+  modify 1591285592
+  author Henry@LAPPY586
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribdelete2.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+ptdel	[ 0	locks=0 ]	(	`chs(\"../falloff_attribute\")`	)
+vtxdel	[ 0	locks=0 ]	(	""	)
+primdel	[ 0	locks=0 ]	(	""	)
+dtldel	[ 0	locks=0 ]	(	""	)
+updatevar	[ 0	locks=0 ]	(	"on"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribdelete2.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
 	}
 }
 
@@ -3031,7 +3191,7 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot.order"
 Content-Type: text/plain
 
-15
+17
 MOPS_IN
 output0
 centroid
@@ -3047,6 +3207,8 @@ attribdelete1
 align_local
 switch_align_space
 align_world
+switch2
+attribdelete2
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"
