@@ -32,7 +32,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -12.923 -0.670459
+position 0.56383 -4.56899
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -40,18 +40,18 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	MOPs_Shape_Falloff 1 1 "input1"
-1 	circle1 0 1 "input2"
+0 	MOPs_Remap_Falloff 1 1 "input1"
+1 	curve1 0 1 "input2"
 }
 inputs
 {
-0 	MOPs_Shape_Falloff 0 1
-1 	circle1 0 1
+0 	MOPs_Remap_Falloff 0 1
+1 	curve1 0 1
 }
 stat
 {
-  create 1588875252
-  modify 1588875342
+  create 1592095361
+  modify 1592095797
   author Henry@LAPPY586
   access 0777
 }
@@ -110,7 +110,7 @@ inputs
 stat
 {
   create 1520238981
-  modify 1588875253
+  modify 1592095362
   author Mo@Mo-PC
   access 0777
 }
@@ -191,7 +191,7 @@ inputs
 stat
 {
   create 1520238994
-  modify 1588875253
+  modify 1592095362
   author Mo@Mo-PC
   access 0777
 }
@@ -277,7 +277,7 @@ inputs
 stat
 {
   create 1520239056
-  modify 1588875253
+  modify 1592095362
   author Mo@Mo-PC
   access 0777
 }
@@ -523,7 +523,7 @@ vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
-max	[ 0	locks=0 ]	(	[ max	19.100000000000001 ] 	)
+max	[ 0	locks=0 ]	(	[ max	0.159 ] 	)
 min	[ 0	locks=0 ]	(	[ min	0 ] 	)
 }
 
@@ -569,7 +569,7 @@ inputs
 stat
 {
   create 1520239092
-  modify 1588875253
+  modify 1592095362
   author Mo@Mo-PC
   access 0777
 }
@@ -922,7 +922,7 @@ inputs
 stat
 {
   create 1520239111
-  modify 1588875253
+  modify 1592095362
   author Mo@Mo-PC
   access 0777
 }
@@ -1001,7 +1001,7 @@ inputs
 stat
 {
   create 1520239857
-  modify 1588875253
+  modify 1592095362
   author Mo@Mo-PC
   access 0777
 }
@@ -1263,7 +1263,7 @@ inputs
 stat
 {
   create 1523234729
-  modify 1588875317
+  modify 1592095362
   author henry@GlaDOS
   access 0777
 }
@@ -1384,7 +1384,7 @@ inputs
 stat
 {
   create 1523247855
-  modify 1588875319
+  modify 1592095362
   author henry@GlaDOS
   access 0777
 }
@@ -1511,14 +1511,7 @@ sepparm	[ 0	locks=0 ]	(	)
 falloff_attr	[ 0	locks=0 ]	(	mops_falloff	)
 output_attr	[ 0	locks=0 ]	(	mops_falloff	)
 do_preview	[ 0	locks=0 ]	(	"off"	)
-folder0	[ 0	locks=0 ]	(	0	)
-do_sprite	[ 0	locks=0 ]	(	"on"	)
-spritescale	[ 0	locks=0 ]	(	1	)
-override_scale	[ 0	locks=0 ]	(	"off"	)
-ramp_preset	[ 0	locks=0 ]	(	"heatmap"	)
-falloff_heatmap	[ 0	locks=0 ]	(	5	)
-sepparm2	[ 0	locks=0 ]	(	)
-fitparams	[ 0	locks=0 ]	(	0	)
+fitparams	[ 0	locks=0 ]	(	0	0	)
 switchfit	[ 0	locks=0 ]	(	[ switchfit	0 ] 	)
 auto_min_max	[ 0	locks=0 ]	(	[ auto_min_max	0 ] 	)
 frame	[ 0	locks=0 ]	(	[ frame	1 ] 	)
@@ -1527,6 +1520,17 @@ imax	[ 0	locks=0 ]	(	[ imax	1 ] 	)
 omin	[ 0	locks=0 ]	(	[ omin	0 ] 	)
 omax	[ 0	locks=0 ]	(	[ omax	1 ] 	)
 remap_falloff	[ 0	locks=0 ]	(	[ remap_falloff	2 ] 	)
+do_sprite	[ 0	locks=0 ]	(	"on"	)
+spritescale	[ 0	locks=0 ]	(	1	)
+override_scale	[ 0	locks=0 ]	(	"off"	)
+ramp_preset	[ 0	locks=0 ]	(	"heatmap"	)
+falloff_heatmap	[ 0	locks=0 ]	(	5	)
+remap_falloff1pos	[ 0	locks=0 ]	(	[ remap_falloff1pos	0 ] 	)
+remap_falloff1value	[ 0	locks=0 ]	(	[ remap_falloff1value	0 ] 	)
+remap_falloff1interp	[ 0	locks=0 ]	(	[ remap_falloff1interp	1 ] 	)
+remap_falloff2pos	[ 0	locks=0 ]	(	[ remap_falloff2pos	1 ] 	)
+remap_falloff2value	[ 0	locks=0 ]	(	[ remap_falloff2value	1 ] 	)
+remap_falloff2interp	[ 0	locks=0 ]	(	[ remap_falloff2interp	1 ] 	)
 falloff_heatmap1pos	[ 0	locks=0 ]	(	0	)
 falloff_heatmap1c	[ 0	locks=0 ]	(	0.036199998110532761	0	0.5429999828338623	)
 falloff_heatmap1interp	[ 0	locks=0 ]	(	"linear"	)
@@ -1542,12 +1546,6 @@ falloff_heatmap4interp	[ 0	locks=0 ]	(	"linear"	)
 falloff_heatmap5pos	[ 0	locks=0 ]	(	1	)
 falloff_heatmap5c	[ 0	locks=0 ]	(	1	1	1	)
 falloff_heatmap5interp	[ 0	locks=0 ]	(	"linear"	)
-remap_falloff1pos	[ 0	locks=0 ]	(	[ remap_falloff1pos	0 ] 	)
-remap_falloff1value	[ 0	locks=0 ]	(	[ remap_falloff1value	0 ] 	)
-remap_falloff1interp	[ 0	locks=0 ]	(	[ remap_falloff1interp	1 ] 	)
-remap_falloff2pos	[ 0	locks=0 ]	(	[ remap_falloff2pos	1 ] 	)
-remap_falloff2value	[ 0	locks=0 ]	(	[ remap_falloff2value	1 ] 	)
-remap_falloff2interp	[ 0	locks=0 ]	(	[ remap_falloff2interp	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1592,7 +1590,7 @@ inputs
 stat
 {
   create 1536024126
-  modify 1588875343
+  modify 1592095429
   author Henry@LAPPY586
   access 0777
 }
@@ -1751,41 +1749,6 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../falloff_heatmap4interp\") }
     }
-    channel falloff_heatmap5pos {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../falloff_heatmap5pos\") }
-    }
-    channel falloff_heatmap5cr {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../falloff_heatmap5cr\") }
-    }
-    channel falloff_heatmap5cg {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../falloff_heatmap5cg\") }
-    }
-    channel falloff_heatmap5cb {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../falloff_heatmap5cb\") }
-    }
-    channel falloff_heatmap5interp {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../falloff_heatmap5interp\") }
-    }
     channel do_preview {
       lefttype = extend
       righttype = extend
@@ -1825,6 +1788,37 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = ch(\"../override_scale\") }
     }
+    channel falloff_heatmap5pos {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../falloff_heatmap5pos\") }
+    }
+    channel falloff_heatmap5cr {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../falloff_heatmap5cr\") }
+    }
+    channel falloff_heatmap5cg {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../falloff_heatmap5cg\") }
+    }
+    channel falloff_heatmap5cb {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../falloff_heatmap5cb\") }
+    }
+    channel falloff_heatmap5interp {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../falloff_heatmap5interp\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1841,19 +1835,19 @@ override_scale	[ 0	locks=0 ]	(	[ override_scale	0 ] 	)
 ramp_preset	[ 0	locks=0 ]	(	[ ramp_preset	0 ] 	)
 falloff_heatmap	[ 0	locks=0 ]	(	[ falloff_heatmap	5 ] 	)
 falloff_heatmap1pos	[ 0	locks=0 ]	(	[ falloff_heatmap1pos	0 ] 	)
-falloff_heatmap1c	[ 0	locks=0 ]	(	[ falloff_heatmap1cr	0.036199998110532761 ] 	[ falloff_heatmap1cg	0 ] 	[ falloff_heatmap1cb	0.5429999828338623 ] 	)
+falloff_heatmap1c	[ 0	locks=0 ]	(	[ falloff_heatmap1cr	0.20000000298023224 ] 	[ falloff_heatmap1cg	0 ] 	[ falloff_heatmap1cb	1 ] 	)
 falloff_heatmap1interp	[ 0	locks=0 ]	(	[ falloff_heatmap1interp	1 ] 	)
-falloff_heatmap2pos	[ 0	locks=0 ]	(	[ falloff_heatmap2pos	0.27027025818824768 ] 	)
-falloff_heatmap2c	[ 0	locks=0 ]	(	[ falloff_heatmap2cr	0.7369999885559082 ] 	[ falloff_heatmap2cg	0 ] 	[ falloff_heatmap2cb	0 ] 	)
+falloff_heatmap2pos	[ 0	locks=0 ]	(	[ falloff_heatmap2pos	0.25 ] 	)
+falloff_heatmap2c	[ 0	locks=0 ]	(	[ falloff_heatmap2cr	0 ] 	[ falloff_heatmap2cg	0.85000002384185791 ] 	[ falloff_heatmap2cb	1 ] 	)
 falloff_heatmap2interp	[ 0	locks=0 ]	(	[ falloff_heatmap2interp	1 ] 	)
-falloff_heatmap3pos	[ 0	locks=0 ]	(	[ falloff_heatmap3pos	0.71814674139022827 ] 	)
-falloff_heatmap3c	[ 0	locks=0 ]	(	[ falloff_heatmap3cr	1 ] 	[ falloff_heatmap3cg	0.28333333134651184 ] 	[ falloff_heatmap3cb	0 ] 	)
+falloff_heatmap3pos	[ 0	locks=0 ]	(	[ falloff_heatmap3pos	0.5 ] 	)
+falloff_heatmap3c	[ 0	locks=0 ]	(	[ falloff_heatmap3cr	0 ] 	[ falloff_heatmap3cg	1 ] 	[ falloff_heatmap3cb	0.10000000149011612 ] 	)
 falloff_heatmap3interp	[ 0	locks=0 ]	(	[ falloff_heatmap3interp	1 ] 	)
-falloff_heatmap4pos	[ 0	locks=0 ]	(	[ falloff_heatmap4pos	0.90154439210891724 ] 	)
-falloff_heatmap4c	[ 0	locks=0 ]	(	[ falloff_heatmap4cr	0.89999997615814209 ] 	[ falloff_heatmap4cg	0.89999997615814209 ] 	[ falloff_heatmap4cb	0 ] 	)
+falloff_heatmap4pos	[ 0	locks=0 ]	(	[ falloff_heatmap4pos	0.75 ] 	)
+falloff_heatmap4c	[ 0	locks=0 ]	(	[ falloff_heatmap4cr	0.94999998807907104 ] 	[ falloff_heatmap4cg	1 ] 	[ falloff_heatmap4cb	0 ] 	)
 falloff_heatmap4interp	[ 0	locks=0 ]	(	[ falloff_heatmap4interp	1 ] 	)
 falloff_heatmap5pos	[ 0	locks=0 ]	(	[ falloff_heatmap5pos	1 ] 	)
-falloff_heatmap5c	[ 0	locks=0 ]	(	[ falloff_heatmap5cr	1 ] 	[ falloff_heatmap5cg	1 ] 	[ falloff_heatmap5cb	1 ] 	)
+falloff_heatmap5c	[ 0	locks=0 ]	(	[ falloff_heatmap5cr	1 ] 	[ falloff_heatmap5cg	0 ] 	[ falloff_heatmap5cb	0 ] 	)
 falloff_heatmap5interp	[ 0	locks=0 ]	(	[ falloff_heatmap5interp	1 ] 	)
 }
 
@@ -1899,7 +1893,7 @@ inputs
 stat
 {
   create 1550362245
-  modify 1588875253
+  modify 1592095362
   author Henry@LAPPY586
   access 0777
 }
@@ -1978,7 +1972,7 @@ inputs
 stat
 {
   create 1568176441
-  modify 1588875253
+  modify 1592095362
   author Henry@LAPPY586
   access 0777
 }
@@ -2219,7 +2213,7 @@ inputs
 stat
 {
   create 1550362262
-  modify 1588875253
+  modify 1592095362
   author Henry@LAPPY586
   access 0777
 }
@@ -2324,7 +2318,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -2385,7 +2379,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -2422,7 +2416,7 @@ inputs
 stat
 {
   create 1520238964
-  modify 1588875253
+  modify 1592095362
   author Mo@Mo-PC
   access 0777
 }
@@ -2460,7 +2454,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -2495,7 +2489,7 @@ inputs
 stat
 {
   create 1520238968
-  modify 1588875253
+  modify 1592095362
   author Mo@Mo-PC
   access 0777
 }
@@ -2653,7 +2647,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -2692,7 +2686,7 @@ inputs
 stat
 {
   create 1520239135
-  modify 1588875253
+  modify 1592095362
   author Mo@Mo-PC
   access 0777
 }
@@ -2730,7 +2724,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -2855,7 +2849,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -2915,7 +2909,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -2977,7 +2971,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -3036,7 +3030,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -3073,7 +3067,7 @@ inputs
 stat
 {
   create 1523234394
-  modify 1588875253
+  modify 1592095362
   author henry@GlaDOS
   access 0777
 }
@@ -3111,7 +3105,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -3191,7 +3185,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -3228,7 +3222,7 @@ inputs
 stat
 {
   create 1523247567
-  modify 1588875253
+  modify 1592095362
   author henry@GlaDOS
   access 0777
 }
@@ -3266,7 +3260,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -3301,7 +3295,7 @@ inputs
 stat
 {
   create 1565319729
-  modify 1588875253
+  modify 1592095362
   author Henry@LAPPY586
   access 0777
 }
@@ -3346,7 +3340,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -3381,7 +3375,7 @@ inputs
 stat
 {
   create 1565319729
-  modify 1588875346
+  modify 1592095362
   author Henry@LAPPY586
   access 0777
 }
@@ -3412,7 +3406,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -3449,7 +3443,7 @@ inputs
 stat
 {
   create 1588875301
-  modify 1588875331
+  modify 1592095362
   author Henry@LAPPY586
   access 0777
 }
@@ -3487,7 +3481,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -3524,7 +3518,7 @@ inputs
 stat
 {
   create 1588875334
-  modify 1588875356
+  modify 1592095362
   author Henry@LAPPY586
   access 0777
 }
@@ -3562,7 +3556,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 

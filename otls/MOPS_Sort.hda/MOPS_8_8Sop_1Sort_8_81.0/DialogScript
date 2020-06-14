@@ -1,0 +1,26 @@
+# Dialog script for MOPS::Sort::1.0 automatically generated
+
+{
+    name	MOPS::Sort::1.0
+    script	MOPS::Sort::1.0
+    label	"MOPs Sort"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Sub-Network Input #1"
+    inputlabel	2	"Sub-Network Input #2"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+
+    parm {
+        name    "rebuild_id"
+        label   "Rebuild ID from Name"
+        type    toggle
+        default { "0" }
+        range   { 0! 10 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+}
