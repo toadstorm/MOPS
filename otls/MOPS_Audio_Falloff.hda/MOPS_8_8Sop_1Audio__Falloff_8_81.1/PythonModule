@@ -1,0 +1,56 @@
+def previewOriginal(kwargs):
+    me = kwargs['node']
+    hou.audio.setChopPath(me.path()+"/audio/original_audio")
+    hou.audio.useTimeLineMode()
+    hou.audio.useChops()
+    
+def previewFiltered(kwargs):
+    me = kwargs['node']
+    band = kwargs['parm'].name().split('preview')[-1]
+    band = str(int(band)-1)
+    me.parm('band_isolate').set('band'+band)
+    hou.audio.setChopPath(me.path()+"/audio/filtered_audio")
+    hou.audio.useTimeLineMode()
+    hou.audio.useChops()
+    
+def previewOff(kwargs):
+    hou.audio.turnOffAudio()
+
+
+def createBands(kwargs):
+    me = kwargs['node']
+    # count how many bands we have, then verify we have the
+    # same number of Pass Filters in the CHOPnet's subnet.
+    input = me.node('./audio/BANDS/IN')
+    output = me.node('./audio/BANDS/MERGE_BANDS')
+    bands = [f for f in output.inputs() if f.name() != "IN"]
+    num_bands_needed = me.parm('bands').eval()
+    if len(bands) > num_bands_needed:            
+        # prune bands
+        for x in range(num_bands_needed, len(bands)):
+            if bands[x].name() != "IN":
+                # disconnect and destroy
+                for i in output.inputConnections():
+                    index = i.inputIndex()
+                    node = i.inputNode()
+                    if node == bands[x]:
+                        output.setInput(index, None, 0)
+                bands[x].destroy()
+    elif len(bands) < num_bands_needed:
+        # make and connect new band object
+        for x in range(len(bands), num_bands_needed):
+            new_band = input.parent().createNode('pass')
+            #print('created new pass: {}'.format(new_band.name()))
+            new_band.setNextInput(input)
+            output.setNextInput(new_band)
+            # create channel references
+            filter = me.parm('filter'+str(x+1))
+            cutofflow = me.parm('cutofflow'+str(x+1))
+            cutoffhigh = me.parm('cutoffhigh'+str(x+1))
+            gain = me.parm('gain'+str(x+1))
+            rolloff = me.parm('rolloff'+str(x+1))
+            new_band.parm('filter').set(filter)
+            new_band.parm('cutofflow').set(cutofflow)
+            new_band.parm('cutoffhigh').set(cutoffhigh)
+            new_band.parm('gain').set(gain)
+            new_band.parm('rolloff').set(rolloff)
