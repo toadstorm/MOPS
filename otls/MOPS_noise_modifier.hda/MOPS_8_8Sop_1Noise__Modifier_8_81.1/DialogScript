@@ -60,14 +60,6 @@
         }
     }
     parm {
-        name    "scale"
-        label   "Effect Amount"
-        type    float
-        default { "1" }
-        range   { 0 1 }
-        parmtag { "autoscope" "0000000000000000" }
-    }
-    parm {
         name    "do_P"
         label   "Affect Position"
         type    toggle
@@ -77,6 +69,15 @@
         parmtag { "script_callback_language" "python" }
     }
     parm {
+        name    "scale"
+        label   "Position Amount"
+        type    float
+        default { "1" }
+        disablewhen "{ do_P == 0 }"
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
         name    "orientclones"
         label   "Affect Rotation"
         type    toggle
@@ -84,7 +85,7 @@
     }
     parm {
         name    "rotation_amount"
-        label   "Rotation Scale"
+        label   "Rotation Amount"
         type    float
         default { "1" }
         disablewhen "{ orientclones == 0 }"
@@ -106,8 +107,19 @@
         label   "Affect Scale"
         type    toggle
         default { "0" }
+        disablewhen "{ noisemode 1 }"
         range   { 0 10 }
         parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "scale_amount"
+        label   "Scale Amount"
+        type    float
+        default { "1" }
+        disablewhen "{ do_scale 0 }"
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
     }
     parm {
         name    "scale_range_input"
