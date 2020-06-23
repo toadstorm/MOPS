@@ -60,14 +60,6 @@
         }
     }
     parm {
-        name    "scale"
-        label   "Effect Amount"
-        type    float
-        default { "1" }
-        range   { 0 1 }
-        parmtag { "autoscope" "0000000000000000" }
-    }
-    parm {
         name    "do_P"
         label   "Affect Position"
         type    toggle
@@ -77,56 +69,90 @@
         parmtag { "script_callback_language" "python" }
     }
     parm {
+        name    "scale"
+        label   "Position Amount"
+        type    float
+        default { "1" }
+        disablewhen "{ do_P == 0 }"
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
         name    "orientclones"
         label   "Affect Rotation"
         type    toggle
         default { "0" }
+        disablewhen "{ signature == 0 }"
     }
-    parm {
-        name    "rotation_amount"
-        label   "Rotation Scale"
-        type    float
-        default { "1" }
-        disablewhen "{ orientclones == 0 }"
-        range   { 0 1 }
-        parmtag { "autoscope" "0000000000000000" }
-        parmtag { "script_callback_language" "python" }
+    groupsimple {
+        name    "folder1"
+        label   "Rotation"
+        disablewhentab "{ orientclones 0 }"
+
+        parm {
+            name    "rotation_amount"
+            label   "Rotation Amount"
+            type    float
+            default { "1" }
+            disablewhen "{ noisemode == 1 }"
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "aim_weight"
+            label   "Aim Weight"
+            type    float
+            default { "0.1" }
+            disablewhen "{ noisemode == 0 }"
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
     }
-    parm {
-        name    "aim_weight"
-        label   "Aim Weight"
-        type    float
-        default { "0.1" }
-        disablewhen "{ noisemode == 0 }"
-        range   { 0 1 }
-        parmtag { "autoscope" "0000000000000000" }
-    }
+
     parm {
         name    "do_scale"
         label   "Affect Scale"
         type    toggle
         default { "0" }
+        disablewhen "{ noisemode == 1 }"
         range   { 0 10 }
         parmtag { "autoscope" "0000000000000000" }
     }
-    parm {
-        name    "scale_range_input"
-        label   "Scale In Range"
-        type    vector2
-        size    2
-        default { "0" "1" }
-        disablewhen "{ do_scale == 0 }"
-        range   { -1 1 }
+    groupsimple {
+        name    "folder2"
+        label   "Scale"
+
+        parm {
+            name    "scale_amount"
+            label   "Scale Amount"
+            type    float
+            default { "1" }
+            disablewhen "{ do_scale == 0 }"
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "scale_range_input"
+            label   "Scale In Range"
+            type    vector2
+            size    2
+            default { "0" "1" }
+            disablewhen "{ do_scale == 0 }"
+            range   { -1 1 }
+        }
+        parm {
+            name    "scale_range"
+            label   "Scale Out Range"
+            type    vector2
+            size    2
+            default { "0" "1" }
+            disablewhen "{ do_scale == 0 }"
+            range   { -1 1 }
+        }
     }
-    parm {
-        name    "scale_range"
-        label   "Scale Out Range"
-        type    vector2
-        size    2
-        default { "0" "1" }
-        disablewhen "{ do_scale == 0 }"
-        range   { -1 1 }
-    }
+
     parm {
         name    "do_falloff"
         label   "Do Falloff"
