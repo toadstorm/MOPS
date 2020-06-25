@@ -1045,13 +1045,21 @@
             }
         }
 
+        parm {
+            name    "remap_falloff"
+            label   "Remap Falloff"
+            type    ramp_flt
+            default { "2" }
+            range   { 1! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "rampfloatdefault" "1pos ( 0 ) 1value ( 0 ) 1interp ( linear ) 2pos ( 1 ) 2value ( 1 ) 2interp ( linear )" }
+        }
     }
 
     group {
         name    "stdswitcher2_5"
         label   "Preview Falloff"
-        tabbreak
-        hidewhentab "{ do_preview 0 }"
+        hidewhentab "{ do_preview == 0 }"
 
         parm {
             name    "do_sprite"

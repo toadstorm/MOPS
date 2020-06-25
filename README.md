@@ -9,6 +9,11 @@ MOPs is intended to be an easy way to manipulate lots of copies of things, lever
 
 MOPs is based on an internal framework of nodes that convert point attributes to packed primitive intrinsic attributes and back again, making it easy for technical artists to develop new MOPs modifiers.
 
+* [MOPs Forum](https://forum.motionoperators.com)
+* [Facebook User's Group](https://www.facebook.com/groups/616993195326231)
+* [Motionoperators Twitter](https://twitter.com/motionoperators)
+* [Motionoperators Instagram](https://www.instagram.com/motionoperators)
+
 ### Installation:
 
 **INSTALLATION PROCEDURE HAS BEEN SIMPLIFIED FROM PREVIOUS RELEASES. PLEASE READ CAREFULLY.**
@@ -48,6 +53,10 @@ HOUDINI_PATH=$HOUDINI_PATH;$QLIB;$MOPS;&
 It's important that your HOUDINI_PATH always ends in ;&. You can append any other paths you like,
 but the last path should be `&`. This will ensure that Houdini's built-in operators work normally.
 
+## Step 3: Test MOPs
+
+To ensure that the installation worked correctly, create a Geometry container and dive inside, then look for the "MOPs" entry in the Tab menu. Also look for a toolbar called "MOPS" in your shelf list. The MOPs Shelf contains some handy tools complete with their own documentation.
+
 ### Usage basics:
 
 The main types of nodes in MOPs are the Generators, Modifiers, and Falloff nodes. Generators like the MOPs Instancer create copies of objects. Modifiers transform or otherwise change the objects. Falloffs weight the effects of Modifiers.
@@ -58,9 +67,6 @@ Append a MOPs Transform Modifier to the MOPs Instancer. Try playing with the rot
 
 For more detailed examples, see the "examples" folder for HIP files.
 
-### Data analytics:
-
-MOPs *optionally* collects data about what MOPs nodes are being used via Google Analytics in order to help us prioritize development and get feedback. The *only* information associated with an individual user is a randomized UUID. By default, MOPs follows the same permissions as Houdini does when collecting data (i.e., if you opt out of Houdini's collection, we will not collect either). If you would like to set an override on this behavior, you can add the key MOPS_ALLOW_ANALYTICS to your houdini.env file. Setting MOPS_ALLOW_ANALYTICS = 1 will allow the collection to go ahead. Setting it to 0 will always disable it, regardless of your Houdini data collection settings.
 
 ### Developers:
 This section is in progress.
