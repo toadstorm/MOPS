@@ -250,6 +250,16 @@
             range   { 0 1 }
             parmtag { "autoscope" "0000000000000000" }
         }
+        parm {
+            name    "remap_ramp_2D"
+            label   "Remap Ramp"
+            type    ramp_flt
+            default { "2" }
+            range   { 1! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "rampfloatdefault" "1pos ( 0 ) 1value ( 0 ) 1interp ( linear ) 2pos ( 1 ) 2value ( 1 ) 2interp ( linear )" }
+            parmtag { "script_callback_language" "python" }
+        }
     }
 
     group {
@@ -330,6 +340,16 @@
             disablewhen "{ do_remap_3D == 0 }"
             range   { 0 1 }
             parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "remap_ramp_3D"
+            label   "Remap Ramp"
+            type    ramp_flt
+            default { "2" }
+            range   { 1! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "rampfloatdefault" "1pos ( 0 ) 1value ( 0 ) 1interp ( linear ) 2pos ( 1 ) 2value ( 1 ) 2interp ( linear )" }
             parmtag { "script_callback_language" "python" }
         }
     }

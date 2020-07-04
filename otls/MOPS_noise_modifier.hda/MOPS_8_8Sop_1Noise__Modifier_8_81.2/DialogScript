@@ -1,7 +1,7 @@
-# Dialog script for MOPS::Noise_Modifier::1.1 automatically generated
+# Dialog script for MOPS::Noise_Modifier::1.2 automatically generated
 
 {
-    name	MOPS::Noise_Modifier::1.1
+    name	MOPS::Noise_Modifier::1.2
     script	MOPS::Noise_Modifier::1.1
     label	"MOPs Noise Modifier"
 
@@ -87,7 +87,7 @@
     groupsimple {
         name    "folder1"
         label   "Rotation"
-        disablewhentab "{ orientclones 0 }"
+        disablewhentab "{ orientclones == 0 }"
 
         parm {
             name    "rotation_amount"
@@ -408,6 +408,28 @@
                 hidewhen "{ signature == 0 }"
                 range   { 0 1 }
                 parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "remap_ramp_3D"
+                label   "Remap Ramp"
+                type    ramp_flt
+                default { "2" }
+                hidewhen "{ signature 0 }"
+                range   { 1! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "rampfloatdefault" "1pos ( 0 ) 1value ( 0 ) 1interp ( linear ) 2pos ( 1 ) 2value ( 1 ) 2interp ( linear )" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "remap_ramp_2D"
+                label   "Remap Ramp"
+                type    ramp_flt
+                default { "2" }
+                hidewhen "{ signature 1 }"
+                range   { 1! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "rampfloatdefault" "1pos ( 0 ) 1value ( 0 ) 1interp ( linear ) 2pos ( 1 ) 2value ( 1 ) 2interp ( linear )" }
                 parmtag { "script_callback_language" "python" }
             }
         }
