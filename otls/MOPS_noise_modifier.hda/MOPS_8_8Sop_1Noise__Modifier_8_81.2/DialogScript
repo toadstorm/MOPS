@@ -415,7 +415,7 @@
                 label   "Remap Ramp"
                 type    ramp_flt
                 default { "2" }
-                hidewhen "{ signature 0 }"
+                hidewhen "{ signature == 0 }"
                 range   { 1! 10 }
                 parmtag { "autoscope" "0000000000000000" }
                 parmtag { "rampfloatdefault" "1pos ( 0 ) 1value ( 0 ) 1interp ( linear ) 2pos ( 1 ) 2value ( 1 ) 2interp ( linear )" }
@@ -426,7 +426,7 @@
                 label   "Remap Ramp"
                 type    ramp_flt
                 default { "2" }
-                hidewhen "{ signature 1 }"
+                hidewhen "{ signature == 1 }"
                 range   { 1! 10 }
                 parmtag { "autoscope" "0000000000000000" }
                 parmtag { "rampfloatdefault" "1pos ( 0 ) 1value ( 0 ) 1interp ( linear ) 2pos ( 1 ) 2value ( 1 ) 2interp ( linear )" }
