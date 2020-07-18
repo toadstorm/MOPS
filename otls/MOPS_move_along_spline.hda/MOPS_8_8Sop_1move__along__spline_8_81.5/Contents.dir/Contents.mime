@@ -40,18 +40,18 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	MOPs_Randomize 1 1 "input1"
+0 	MOPs_Transform_Modifier 1 1 "input1"
 1 	MOPs_Orient_Curve 1 1 "input2"
 }
 inputs
 {
-0 	MOPs_Randomize 0 1
+0 	MOPs_Transform_Modifier 0 1
 1 	MOPs_Orient_Curve 0 1
 }
 stat
 {
   create 1595101634
-  modify 1595108898
+  modify 1595109722
   author Henry@LAPPY586
   access 0777
 }
@@ -1623,6 +1623,25 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../offset_ramp1interp\") }
     }
+    channel offset_ramp2pos {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../offset_ramp2pos\") }
+    }
+    channel offset_ramp2value {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../offset_ramp2value\") }
+    }
+    channel offset_ramp2interp {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../offset_ramp2interp\") }
+    }
     channel twist_ramp1pos {
       lefttype = extend
       righttype = extend
@@ -1839,25 +1858,6 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 2 2 expr = ch(\"../orient_offset_ramp\") }
     }
-    channel offset_ramp2pos {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../offset_ramp2pos\") }
-    }
-    channel offset_ramp2value {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../offset_ramp2value\") }
-    }
-    channel offset_ramp2interp {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../offset_ramp2interp\") }
-    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2007,6 +2007,9 @@ offset_ramp	[ 0	locks=0 ]	(	[ offset_ramp	2 ] 	)
 offset_ramp1pos	[ 0	locks=0 ]	(	[ offset_ramp1pos	0 ] 	)
 offset_ramp1value	[ 0	locks=0 ]	(	[ offset_ramp1value	1 ] 	)
 offset_ramp1interp	[ 0	locks=0 ]	(	[ offset_ramp1interp	1 ] 	)
+offset_ramp2pos	[ 0	locks=0 ]	(	[ offset_ramp2pos	1 ] 	)
+offset_ramp2value	[ 0	locks=0 ]	(	[ offset_ramp2value	1 ] 	)
+offset_ramp2interp	[ 0	locks=0 ]	(	[ offset_ramp2interp	1 ] 	)
 do_falloff	[ 0	locks=0 ]	(	[ do_falloff	0 ] 	)
 twist_amount	[ 0	locks=0 ]	(	[ twist_amount	0 ] 	)
 twist_ramp	[ 0	locks=0 ]	(	[ twist_ramp	2 ] 	)
@@ -2032,9 +2035,6 @@ orient_offset_ramp1interp	[ 0	locks=0 ]	(	[ orient_offset_ramp1interp	1 ] 	)
 orient_offset_ramp2pos	[ 0	locks=0 ]	(	[ orient_offset_ramp2pos	1 ] 	)
 orient_offset_ramp2value	[ 0	locks=0 ]	(	[ orient_offset_ramp2value	1 ] 	)
 orient_offset_ramp2interp	[ 0	locks=0 ]	(	[ orient_offset_ramp2interp	1 ] 	)
-offset_ramp2pos	[ 0	locks=0 ]	(	[ offset_ramp2pos	1 ] 	)
-offset_ramp2value	[ 0	locks=0 ]	(	[ offset_ramp2value	1 ] 	)
-offset_ramp2interp	[ 0	locks=0 ]	(	[ offset_ramp2interp	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -3129,7 +3129,7 @@ inputs
 stat
 {
   create 1543025898
-  modify 1595103372
+  modify 1595109767
   author Henry@LAPPY586
   access 0777
 }
@@ -3495,6 +3495,25 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../../../../apply_new_goals/offset_ramp1interp\") }
     }
+    channel offset_ramp2pos {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../../../apply_new_goals/offset_ramp2pos\") }
+    }
+    channel offset_ramp2value {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../../../apply_new_goals/offset_ramp2value\") }
+    }
+    channel offset_ramp2interp {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../../../../apply_new_goals/offset_ramp2interp\") }
+    }
     channel twist_ramp1pos {
       lefttype = extend
       righttype = extend
@@ -3676,25 +3695,6 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 2 2 expr = ch(\"../../../../orient_offset_ramp\") }
     }
-    channel offset_ramp2pos {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../../../../apply_new_goals/offset_ramp2pos\") }
-    }
-    channel offset_ramp2value {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../../../../apply_new_goals/offset_ramp2value\") }
-    }
-    channel offset_ramp2interp {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../../../../apply_new_goals/offset_ramp2interp\") }
-    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -3784,8 +3784,11 @@ vector offset = qrotate(offset_rot, v@__orig_offset);
 // output orientation
 p@orient = qmultiply(twist, goal_O);
 // apply orient offset
-vector4 orient_offset = slerp(quaternion(ident()), qinvert(p@__orig_orient), orient_offset_amount);
-p@orient = qmultiply(p@orient, orient_offset);
+goal_O = qmultiply(twist, goal_O);
+// if we're maintaining orient offset, we want to add this goal orientation to our current orientation.
+// otherwise we just want to assume the goal orientation.
+vector4 offset_O = qmultiply(goal_O, p@__delta_orient);
+p@orient = slerp(goal_O, offset_O, orient_offset_amount);
 // store goal_u
 f@__goalu = goalu;
 // store offset
@@ -3819,9 +3822,12 @@ acceleration_ramp2pos	[ 0	locks=0 ]	(	[ acceleration_ramp2pos	1 ] 	)
 acceleration_ramp2value	[ 0	locks=0 ]	(	[ acceleration_ramp2value	1 ] 	)
 acceleration_ramp2interp	[ 0	locks=0 ]	(	[ acceleration_ramp2interp	1 ] 	)
 offset_ramp	[ 8	locks=0 ]	(	[ offset_ramp	2 ] 	)
-offset_ramp1pos	[ 0	locks=0 ]	(	[ offset_ramp1pos	0.32253885269165039 ] 	)
-offset_ramp1value	[ 0	locks=0 ]	(	[ offset_ramp1value	0 ] 	)
+offset_ramp1pos	[ 0	locks=0 ]	(	[ offset_ramp1pos	0 ] 	)
+offset_ramp1value	[ 0	locks=0 ]	(	[ offset_ramp1value	1 ] 	)
 offset_ramp1interp	[ 0	locks=0 ]	(	[ offset_ramp1interp	1 ] 	)
+offset_ramp2pos	[ 0	locks=0 ]	(	[ offset_ramp2pos	1 ] 	)
+offset_ramp2value	[ 0	locks=0 ]	(	[ offset_ramp2value	1 ] 	)
+offset_ramp2interp	[ 0	locks=0 ]	(	[ offset_ramp2interp	1 ] 	)
 twist_ramp	[ 8	locks=0 ]	(	[ twist_ramp	2 ] 	)
 twist_ramp1pos	[ 0	locks=0 ]	(	[ twist_ramp1pos	0 ] 	)
 twist_ramp1value	[ 0	locks=0 ]	(	[ twist_ramp1value	0 ] 	)
@@ -3837,7 +3843,7 @@ vexpression	[ 0	locks=0 ]	(	[ vexpression	"// random_amount = 0.0;
 // twist_amount = 0.0;" ] 	)
 trails	[ 8	locks=0 ]	(	[ trails	0 ] 	)
 curve_mode	[ 0	locks=0 ]	(	0	)
-orient_offset	[ 0	locks=0 ]	(	[ orient_offset	0 ] 	)
+orient_offset	[ 0	locks=0 ]	(	[ orient_offset	1 ] 	)
 orient_offset_ramp	[ 8	locks=0 ]	(	[ orient_offset_ramp	2 ] 	)
 orient_offset_ramp1pos	[ 0	locks=0 ]	(	[ orient_offset_ramp1pos	0 ] 	)
 orient_offset_ramp1value	[ 0	locks=0 ]	(	[ orient_offset_ramp1value	1 ] 	)
@@ -3845,9 +3851,6 @@ orient_offset_ramp1interp	[ 0	locks=0 ]	(	[ orient_offset_ramp1interp	1 ] 	)
 orient_offset_ramp2pos	[ 0	locks=0 ]	(	[ orient_offset_ramp2pos	1 ] 	)
 orient_offset_ramp2value	[ 0	locks=0 ]	(	[ orient_offset_ramp2value	1 ] 	)
 orient_offset_ramp2interp	[ 0	locks=0 ]	(	[ orient_offset_ramp2interp	1 ] 	)
-offset_ramp2pos	[ 0	locks=0 ]	(	[ offset_ramp2pos	0 ] 	)
-offset_ramp2value	[ 0	locks=0 ]	(	[ offset_ramp2value	0 ] 	)
-offset_ramp2interp	[ 0	locks=0 ]	(	[ offset_ramp2interp	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -6326,7 +6329,7 @@ inputs
 stat
 {
   create 1324348265
-  modify 1595101634
+  modify 1595109870
   author nobody@nowhere.sidefx.com
   access 0777
 }
@@ -7363,7 +7366,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
