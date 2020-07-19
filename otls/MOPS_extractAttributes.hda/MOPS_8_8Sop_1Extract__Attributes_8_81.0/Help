@@ -29,6 +29,10 @@ Extract Full Transform (Abc):
     #id: do_full_transform
     Extract the `packedfulltransform` intrinsic rather than the `transform` intrinsic. This is necessary if you're trying to extract the transforms of a packed Alembic from disk rather than regular Houdini packed primitives.
     
+Simplify Scale:
+    #id: simplify_scale
+    If enabled, if all three components of the v@scale attribute are effectively identical, write to @pscale instead.
+    
 @related
 
 * [MOPs Apply Attributes|Node:sop/MOPS--Apply_Attributes-1.4]

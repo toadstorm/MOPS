@@ -532,7 +532,7 @@
             label   "Goal Attribute"
             type    string
             default { "goal" }
-            hidewhen "{ keep_goal_attrs 0 }"
+            hidewhen "{ keep_goal_attrs == 0 }"
             parmtag { "script_callback_language" "python" }
         }
         parm {
@@ -540,7 +540,7 @@
             label   "Curve Num Attribute"
             type    string
             default { "curvenum" }
-            hidewhen "{ keep_goal_attrs 0 }"
+            hidewhen "{ keep_goal_attrs == 0 }"
             parmtag { "script_callback_language" "python" }
         }
         group {
@@ -595,12 +595,14 @@
         group {
             name    "folder1_4_2"
             label   "Trails"
+            disablewhentab "{ mode 0 }"
 
             parm {
                 name    "do_trails"
                 label   "Create Trails"
                 type    toggle
                 default { "0" }
+                disablewhen "{ mode == 0 }"
                 range   { 0! 10 }
                 parmtag { "autoscope" "0000000000000000" }
             }
