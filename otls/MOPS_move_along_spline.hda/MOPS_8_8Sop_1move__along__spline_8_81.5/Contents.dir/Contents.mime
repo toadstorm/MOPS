@@ -51,7 +51,7 @@ inputs
 stat
 {
   create 1595101634
-  modify 1595109722
+  modify 1595115881
   author Henry@LAPPY586
   access 0777
 }
@@ -1623,25 +1623,6 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../offset_ramp1interp\") }
     }
-    channel offset_ramp2pos {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../offset_ramp2pos\") }
-    }
-    channel offset_ramp2value {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../offset_ramp2value\") }
-    }
-    channel offset_ramp2interp {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../offset_ramp2interp\") }
-    }
     channel twist_ramp1pos {
       lefttype = extend
       righttype = extend
@@ -1660,25 +1641,6 @@ Content-Type: text/plain
       default = 1
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../post_twist_ramp1interp\") }
-    }
-    channel twist_ramp2pos {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../post_twist_ramp2pos\") }
-    }
-    channel twist_ramp2value {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../post_twist_ramp2value\") }
-    }
-    channel twist_ramp2interp {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../post_twist_ramp2interp\") }
     }
     channel acceleration_ramp1pos {
       lefttype = extend
@@ -1699,25 +1661,6 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../acceleration_ramp_simple1interp\") }
     }
-    channel acceleration_ramp2pos {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../acceleration_ramp_simple2pos\") }
-    }
-    channel acceleration_ramp2value {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../acceleration_ramp_simple2value\") }
-    }
-    channel acceleration_ramp2interp {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../acceleration_ramp_simple2interp\") }
-    }
     channel orient_offset_ramp1pos {
       lefttype = extend
       righttype = extend
@@ -1737,6 +1680,63 @@ Content-Type: text/plain
       default = 1
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../orient_offset_ramp1interp\") }
+    }
+    channel offset_ramp2pos {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../offset_ramp2pos\") }
+    }
+    channel offset_ramp2value {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../offset_ramp2value\") }
+    }
+    channel offset_ramp2interp {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../offset_ramp2interp\") }
+    }
+    channel twist_ramp2pos {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../post_twist_ramp2pos\") }
+    }
+    channel twist_ramp2value {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../post_twist_ramp2value\") }
+    }
+    channel twist_ramp2interp {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../post_twist_ramp2interp\") }
+    }
+    channel acceleration_ramp2pos {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../acceleration_ramp_simple2pos\") }
+    }
+    channel acceleration_ramp2value {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../acceleration_ramp_simple2value\") }
+    }
+    channel acceleration_ramp2interp {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../acceleration_ramp_simple2interp\") }
     }
     channel orient_offset_ramp2pos {
       lefttype = extend
@@ -2007,31 +2007,31 @@ offset_ramp	[ 0	locks=0 ]	(	[ offset_ramp	2 ] 	)
 offset_ramp1pos	[ 0	locks=0 ]	(	[ offset_ramp1pos	0 ] 	)
 offset_ramp1value	[ 0	locks=0 ]	(	[ offset_ramp1value	1 ] 	)
 offset_ramp1interp	[ 0	locks=0 ]	(	[ offset_ramp1interp	1 ] 	)
-offset_ramp2pos	[ 0	locks=0 ]	(	[ offset_ramp2pos	1 ] 	)
-offset_ramp2value	[ 0	locks=0 ]	(	[ offset_ramp2value	1 ] 	)
-offset_ramp2interp	[ 0	locks=0 ]	(	[ offset_ramp2interp	1 ] 	)
 do_falloff	[ 0	locks=0 ]	(	[ do_falloff	0 ] 	)
 twist_amount	[ 0	locks=0 ]	(	[ twist_amount	0 ] 	)
 twist_ramp	[ 0	locks=0 ]	(	[ twist_ramp	2 ] 	)
 twist_ramp1pos	[ 0	locks=0 ]	(	[ twist_ramp1pos	0 ] 	)
 twist_ramp1value	[ 0	locks=0 ]	(	[ twist_ramp1value	0 ] 	)
 twist_ramp1interp	[ 0	locks=0 ]	(	[ twist_ramp1interp	1 ] 	)
-twist_ramp2pos	[ 0	locks=0 ]	(	[ twist_ramp2pos	1 ] 	)
-twist_ramp2value	[ 0	locks=0 ]	(	[ twist_ramp2value	1 ] 	)
-twist_ramp2interp	[ 0	locks=0 ]	(	[ twist_ramp2interp	1 ] 	)
 goal_type	[ 0	locks=0 ]	(	[ goal_type	0 ] 	)
 acceleration_ramp	[ 0	locks=0 ]	(	[ acceleration_ramp	2 ] 	)
 acceleration_ramp1pos	[ 0	locks=0 ]	(	[ acceleration_ramp1pos	0 ] 	)
 acceleration_ramp1value	[ 0	locks=0 ]	(	[ acceleration_ramp1value	0 ] 	)
 acceleration_ramp1interp	[ 0	locks=0 ]	(	[ acceleration_ramp1interp	1 ] 	)
-acceleration_ramp2pos	[ 0	locks=0 ]	(	[ acceleration_ramp2pos	1 ] 	)
-acceleration_ramp2value	[ 0	locks=0 ]	(	[ acceleration_ramp2value	1 ] 	)
-acceleration_ramp2interp	[ 0	locks=0 ]	(	[ acceleration_ramp2interp	1 ] 	)
 orient_offset	[ 0	locks=0 ]	(	[ orient_offset	1 ] 	)
 orient_offset_ramp	[ 0	locks=0 ]	(	[ orient_offset_ramp	2 ] 	)
 orient_offset_ramp1pos	[ 0	locks=0 ]	(	[ orient_offset_ramp1pos	0 ] 	)
 orient_offset_ramp1value	[ 0	locks=0 ]	(	[ orient_offset_ramp1value	1 ] 	)
 orient_offset_ramp1interp	[ 0	locks=0 ]	(	[ orient_offset_ramp1interp	1 ] 	)
+offset_ramp2pos	[ 0	locks=0 ]	(	[ offset_ramp2pos	1 ] 	)
+offset_ramp2value	[ 0	locks=0 ]	(	[ offset_ramp2value	1 ] 	)
+offset_ramp2interp	[ 0	locks=0 ]	(	[ offset_ramp2interp	1 ] 	)
+twist_ramp2pos	[ 0	locks=0 ]	(	[ twist_ramp2pos	1 ] 	)
+twist_ramp2value	[ 0	locks=0 ]	(	[ twist_ramp2value	1 ] 	)
+twist_ramp2interp	[ 0	locks=0 ]	(	[ twist_ramp2interp	1 ] 	)
+acceleration_ramp2pos	[ 0	locks=0 ]	(	[ acceleration_ramp2pos	1 ] 	)
+acceleration_ramp2value	[ 0	locks=0 ]	(	[ acceleration_ramp2value	1 ] 	)
+acceleration_ramp2interp	[ 0	locks=0 ]	(	[ acceleration_ramp2interp	1 ] 	)
 orient_offset_ramp2pos	[ 0	locks=0 ]	(	[ orient_offset_ramp2pos	1 ] 	)
 orient_offset_ramp2value	[ 0	locks=0 ]	(	[ orient_offset_ramp2value	1 ] 	)
 orient_offset_ramp2interp	[ 0	locks=0 ]	(	[ orient_offset_ramp2interp	1 ] 	)
@@ -3129,7 +3129,7 @@ inputs
 stat
 {
   create 1543025898
-  modify 1595109767
+  modify 1595115966
   author Henry@LAPPY586
   access 0777
 }
@@ -3457,25 +3457,6 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../../../../acceleration_ramp1interp\") }
     }
-    channel acceleration_ramp2pos {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../../../../acceleration_ramp2pos\") }
-    }
-    channel acceleration_ramp2value {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../../../../acceleration_ramp2value\") }
-    }
-    channel acceleration_ramp2interp {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../../../../acceleration_ramp2interp\") }
-    }
     channel offset_ramp1pos {
       lefttype = extend
       righttype = extend
@@ -3495,25 +3476,6 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../../../../apply_new_goals/offset_ramp1interp\") }
     }
-    channel offset_ramp2pos {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../../../../apply_new_goals/offset_ramp2pos\") }
-    }
-    channel offset_ramp2value {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../../../../apply_new_goals/offset_ramp2value\") }
-    }
-    channel offset_ramp2interp {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../../../../apply_new_goals/offset_ramp2interp\") }
-    }
     channel twist_ramp1pos {
       lefttype = extend
       righttype = extend
@@ -3532,6 +3494,63 @@ Content-Type: text/plain
       default = 1
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../../../../apply_new_goals/twist_ramp1interp\") }
+    }
+    channel orient_offset_ramp1pos {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../../../orient_offset_ramp1pos\") }
+    }
+    channel orient_offset_ramp1value {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../../../orient_offset_ramp1value\") }
+    }
+    channel orient_offset_ramp1interp {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../../../../orient_offset_ramp1interp\") }
+    }
+    channel acceleration_ramp2pos {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../../../acceleration_ramp2pos\") }
+    }
+    channel acceleration_ramp2value {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../../../acceleration_ramp2value\") }
+    }
+    channel acceleration_ramp2interp {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../../../../acceleration_ramp2interp\") }
+    }
+    channel offset_ramp2pos {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../../../apply_new_goals/offset_ramp2pos\") }
+    }
+    channel offset_ramp2value {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../../../apply_new_goals/offset_ramp2value\") }
+    }
+    channel offset_ramp2interp {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../../../../apply_new_goals/offset_ramp2interp\") }
     }
     channel twist_ramp2pos {
       lefttype = extend
@@ -3553,25 +3572,6 @@ Content-Type: text/plain
       default = 1
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../../../../apply_new_goals/twist_ramp2interp\") }
-    }
-    channel orient_offset_ramp1pos {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../../../../orient_offset_ramp1pos\") }
-    }
-    channel orient_offset_ramp1value {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../../../../orient_offset_ramp1value\") }
-    }
-    channel orient_offset_ramp1interp {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../../../../orient_offset_ramp1interp\") }
     }
     channel orient_offset_ramp2pos {
       lefttype = extend
@@ -3792,7 +3792,7 @@ p@orient = slerp(goal_O, offset_O, orient_offset_amount);
 // store goal_u
 f@__goalu = goalu;
 // store offset
-v@__offset = offset;"	)
+v@__offset = offset * offset_amount;"	)
 exportlist	[ 0	locks=0 ]	(	*	)
 vex_strict	[ 0	locks=0 ]	(	"off"	)
 autobind	[ 0	locks=0 ]	(	"on"	)
@@ -3818,28 +3818,20 @@ acceleration_ramp	[ 0	locks=0 ]	(	[ acceleration_ramp	2 ] 	)
 acceleration_ramp1pos	[ 0	locks=0 ]	(	[ acceleration_ramp1pos	0 ] 	)
 acceleration_ramp1value	[ 0	locks=0 ]	(	[ acceleration_ramp1value	1 ] 	)
 acceleration_ramp1interp	[ 0	locks=0 ]	(	[ acceleration_ramp1interp	1 ] 	)
-acceleration_ramp2pos	[ 0	locks=0 ]	(	[ acceleration_ramp2pos	1 ] 	)
-acceleration_ramp2value	[ 0	locks=0 ]	(	[ acceleration_ramp2value	1 ] 	)
-acceleration_ramp2interp	[ 0	locks=0 ]	(	[ acceleration_ramp2interp	1 ] 	)
 offset_ramp	[ 8	locks=0 ]	(	[ offset_ramp	2 ] 	)
 offset_ramp1pos	[ 0	locks=0 ]	(	[ offset_ramp1pos	0 ] 	)
 offset_ramp1value	[ 0	locks=0 ]	(	[ offset_ramp1value	1 ] 	)
 offset_ramp1interp	[ 0	locks=0 ]	(	[ offset_ramp1interp	1 ] 	)
-offset_ramp2pos	[ 0	locks=0 ]	(	[ offset_ramp2pos	1 ] 	)
-offset_ramp2value	[ 0	locks=0 ]	(	[ offset_ramp2value	1 ] 	)
-offset_ramp2interp	[ 0	locks=0 ]	(	[ offset_ramp2interp	1 ] 	)
 twist_ramp	[ 8	locks=0 ]	(	[ twist_ramp	2 ] 	)
 twist_ramp1pos	[ 0	locks=0 ]	(	[ twist_ramp1pos	0 ] 	)
 twist_ramp1value	[ 0	locks=0 ]	(	[ twist_ramp1value	0 ] 	)
 twist_ramp1interp	[ 0	locks=0 ]	(	[ twist_ramp1interp	1 ] 	)
-twist_ramp2pos	[ 0	locks=0 ]	(	[ twist_ramp2pos	1 ] 	)
-twist_ramp2value	[ 0	locks=0 ]	(	[ twist_ramp2value	1 ] 	)
-twist_ramp2interp	[ 0	locks=0 ]	(	[ twist_ramp2interp	1 ] 	)
-do_vexpression	[ 8	locks=0 ]	(	[ do_vexpression	0 ] 	)
+do_vexpression	[ 8	locks=0 ]	(	[ do_vexpression	1 ] 	)
 vexpression	[ 0	locks=0 ]	(	[ vexpression	"// random_amount = 0.0;
 // random_seed = i@id;
 // offset_amount = 1.0;
-// speed = 0.02;
+speed = fit01(rand(@id), 0.01, 0.04);
+offset_amount = sin(@Time*2)*0.5 + 0.5;
 // twist_amount = 0.0;" ] 	)
 trails	[ 8	locks=0 ]	(	[ trails	0 ] 	)
 curve_mode	[ 0	locks=0 ]	(	0	)
@@ -3848,6 +3840,15 @@ orient_offset_ramp	[ 8	locks=0 ]	(	[ orient_offset_ramp	2 ] 	)
 orient_offset_ramp1pos	[ 0	locks=0 ]	(	[ orient_offset_ramp1pos	0 ] 	)
 orient_offset_ramp1value	[ 0	locks=0 ]	(	[ orient_offset_ramp1value	1 ] 	)
 orient_offset_ramp1interp	[ 0	locks=0 ]	(	[ orient_offset_ramp1interp	1 ] 	)
+acceleration_ramp2pos	[ 0	locks=0 ]	(	[ acceleration_ramp2pos	1 ] 	)
+acceleration_ramp2value	[ 0	locks=0 ]	(	[ acceleration_ramp2value	1 ] 	)
+acceleration_ramp2interp	[ 0	locks=0 ]	(	[ acceleration_ramp2interp	1 ] 	)
+offset_ramp2pos	[ 0	locks=0 ]	(	[ offset_ramp2pos	1 ] 	)
+offset_ramp2value	[ 0	locks=0 ]	(	[ offset_ramp2value	1 ] 	)
+offset_ramp2interp	[ 0	locks=0 ]	(	[ offset_ramp2interp	1 ] 	)
+twist_ramp2pos	[ 0	locks=0 ]	(	[ twist_ramp2pos	1 ] 	)
+twist_ramp2value	[ 0	locks=0 ]	(	[ twist_ramp2value	1 ] 	)
+twist_ramp2interp	[ 0	locks=0 ]	(	[ twist_ramp2interp	1 ] 	)
 orient_offset_ramp2pos	[ 0	locks=0 ]	(	[ orient_offset_ramp2pos	1 ] 	)
 orient_offset_ramp2value	[ 0	locks=0 ]	(	[ orient_offset_ramp2value	1 ] 	)
 orient_offset_ramp2interp	[ 0	locks=0 ]	(	[ orient_offset_ramp2interp	1 ] 	)
@@ -6329,7 +6330,7 @@ inputs
 stat
 {
   create 1324348265
-  modify 1595109870
+  modify 1595116078
   author nobody@nowhere.sidefx.com
   access 0777
 }
@@ -6905,7 +6906,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY

@@ -32,22 +32,25 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 16.5352 0.239597
-connectornextid 0
+position 5.27604 -5.81747
+connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
+1 "output1"
 }
 inputsNamed3
 {
+0 	Input_1 0 1 "input1"
 }
 inputs
 {
+0 	Input_1 0 1
 }
 stat
 {
-  create 1590718237
-  modify 1590718241
+  create 1558584909
+  modify 1595118858
   author Henry@LAPPY586
   access 0777
 }
@@ -105,7 +108,7 @@ inputs
 stat
 {
   create 1524695134
-  modify 1590718237
+  modify 1595118564
   author Henry@LAPPY586
   access 0777
 }
@@ -391,7 +394,7 @@ inputs
 stat
 {
   create 1550365158
-  modify 1590718237
+  modify 1595118564
   author Henry@LAPPY586
   access 0777
 }
@@ -470,7 +473,7 @@ inputs
 stat
 {
   create 1573854821
-  modify 1590718237
+  modify 1595118564
   author Henry@LAPPY586
   access 0777
 }
@@ -549,7 +552,7 @@ inputs
 stat
 {
   create 1583522390
-  modify 1590718257
+  modify 1595118854
   author Henry@LAPPY586
   access 0777
 }
@@ -737,6 +740,13 @@ Content-Type: text/plain
         default { "0" }
         range   { 0 10 }
     }
+    parm {
+        name    "simplify_scale"
+        label   "Simplify Scale"
+        type    integer
+        default { "0" }
+        range   { 0 10 }
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/do_extraction_prims.chn"
@@ -756,6 +766,12 @@ Content-Type: text/plain
       flags = 0
       start = 41.666666666666664
       segment { length = 0 expr = ch(\"../do_full_transform\") }
+    }
+    channel simplify_scale {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../simplify_scale\") }
     }
   }
 
@@ -797,9 +813,11 @@ if(type == \"PackedGeometry\" || type == \"PackedFragment\" || type == \"PackedD
     v@up = normalize(m * {0,1,0});
     // if scale is uniform, write to pscale and leave scale at 1.
     f@pscale = 1;
-    if(abs(scale.x-scale.y) < epsilon && abs(scale.y-scale.z) < epsilon) {
-        f@pscale = scale.x;
-        scale = 1;
+    if(chi(\"simplify_scale\")) {
+        if(abs(scale.x-scale.y) < epsilon && abs(scale.y-scale.z) < epsilon) {
+            f@pscale = scale.x;
+            scale = 1;
+        }
     }
     v@scale = scale;
     if(chi(\"do_pivot\")) {
@@ -823,6 +841,7 @@ vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 do_full_transform	[ 0	locks=0 ]	(	[ do_full_transform	0 ] 	)
 do_pivot	[ 0	locks=0 ]	(	[ do_pivot	1 ] 	)
+simplify_scale	[ 0	locks=0 ]	(	[ simplify_scale	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -867,7 +886,7 @@ inputs
 stat
 {
   create 1584916562
-  modify 1590718237
+  modify 1595118564
   author Henry@LAPPY586
   access 0777
 }
@@ -955,7 +974,7 @@ inputs
 stat
 {
   create 1542257157
-  modify 1590718237
+  modify 1595118564
   author Henry@LAPPY586
   access 0777
 }
@@ -1003,7 +1022,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 spare_input0	[ 0	locks=0 ]	(	../INPUT	)
 }
 
@@ -1014,7 +1033,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -1082,7 +1101,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -1154,7 +1173,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -1215,7 +1234,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -1274,7 +1293,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -1311,7 +1330,7 @@ inputs
 stat
 {
   create 1550365152
-  modify 1590718237
+  modify 1595118564
   author Henry@LAPPY586
   access 0777
 }
@@ -1349,7 +1368,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -1493,7 +1512,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -1561,7 +1580,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -1641,7 +1660,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -1773,7 +1792,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -1841,7 +1860,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -1878,7 +1897,7 @@ inputs
 stat
 {
   create 1584916552
-  modify 1590718237
+  modify 1595118564
   author Henry@LAPPY586
   access 0777
 }
@@ -1917,7 +1936,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -1954,7 +1973,7 @@ inputs
 stat
 {
   create 1585514990
-  modify 1590718237
+  modify 1595118564
   author Henry@LAPPY586
   access 0777
 }
@@ -2002,7 +2021,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 spare_input0	[ 0	locks=0 ]	(	../attribpromote6	)
 }
 
@@ -2013,7 +2032,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -2081,7 +2100,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
