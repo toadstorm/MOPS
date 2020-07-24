@@ -32,26 +32,23 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -3.03107 -2.33865
-connectornextid 2
+position -8.56624 -0.395079
+connectornextid 0
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-1 "output1"
 }
 inputsNamed3
 {
-0 	MOPs_Shape_Falloff 1 1 "input1"
 }
 inputs
 {
-0 	MOPs_Shape_Falloff 0 1
 }
 stat
 {
-  create 1531965306
-  modify 1582594819
-  author Henry@LAPPY586
+  create 1595610087
+  modify 1595610352
+  author Henry@GlaDOS
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -157,7 +154,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector points "Modify Points"
+            bindselector uvselect "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -525,7 +522,9 @@ Content-Type: text/plain
 {
 version 0.8
 do_pivot	[ 0	locks=0 ]	(	"on"	)
+do_mops_orient	[ 0	locks=0 ]	(	"off"	)
 do_full_transform	[ 0	locks=0 ]	(	"off"	)
+simplify_scale	[ 0	locks=0 ]	(	"on"	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -799,7 +798,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.348"
+		"value":"18.0.460"
 	}
 }
 
@@ -856,7 +855,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector points "Modify Points"
+            bindselector uvselect "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -1123,7 +1122,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector points "Modify Points"
+            bindselector uvselect "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -1474,7 +1473,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector points "Modify Points"
+            bindselector uvselect "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -2443,7 +2442,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.348"
+		"value":"18.0.460"
 	}
 }
 
@@ -2522,7 +2521,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.348"
+		"value":"18.0.460"
 	}
 }
 
@@ -2601,7 +2600,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.348"
+		"value":"18.0.460"
 	}
 }
 
@@ -2680,7 +2679,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.348"
+		"value":"18.0.460"
 	}
 }
 
@@ -2759,7 +2758,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.348"
+		"value":"18.0.460"
 	}
 }
 
@@ -2820,7 +2819,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.348"
+		"value":"18.0.460"
 	}
 }
 
@@ -2879,7 +2878,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.348"
+		"value":"18.0.460"
 	}
 }
 
@@ -2979,7 +2978,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.348"
+		"value":"18.0.460"
 	}
 }
 
@@ -3057,7 +3056,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.348"
+		"value":"18.0.460"
 	}
 }
 
@@ -3160,7 +3159,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.348"
+		"value":"18.0.460"
 	}
 }
 
@@ -3219,7 +3218,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.348"
+		"value":"18.0.460"
 	}
 }
 
@@ -3287,7 +3286,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.348"
+		"value":"18.0.460"
 	}
 }
 
@@ -3396,7 +3395,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.348"
+		"value":"18.0.460"
 	}
 }
 
@@ -3505,7 +3504,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.348"
+		"value":"18.0.460"
 	}
 }
 
@@ -3540,7 +3539,7 @@ inputs
 stat
 {
   create 1524695187
-  modify 1580168017
+  modify 1595610359
   author Henry@LAPPY586
   access 0777
 }
@@ -3558,7 +3557,7 @@ version 0.8
 stdswitcher	[ 0	locks=0	autoscope=0 ]	(	0	0	0	0	0	)
 _label1_	[ 0	locks=0	autoscope=0 ]	(	From	To	)
 ptrenames	[ 0	locks=0	autoscope=0 ]	(	5	)
-ptdel	[ 0	locks=0	autoscope=0 ]	(	"orient pivot scale __age __max_age"	)
+ptdel	[ 0	locks=0	autoscope=0 ]	(	"__age __max_age"	)
 ptkeep	[ 0	locks=0	autoscope=0 ]	(	*	)
 _label2_	[ 0	locks=0	autoscope=0 ]	(	From	To	)
 vtxrenames	[ 0	locks=0	autoscope=0 ]	(	5	)
@@ -3647,7 +3646,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.348"
+		"value":"18.0.460"
 	}
 }
 
@@ -3715,7 +3714,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.348"
+		"value":"18.0.460"
 	}
 }
 
@@ -3860,7 +3859,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.348"
+		"value":"18.0.460"
 	}
 }
 
@@ -3934,7 +3933,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.348"
+		"value":"18.0.460"
 	}
 }
 
@@ -4072,7 +4071,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.348"
+		"value":"18.0.460"
 	}
 }
 
