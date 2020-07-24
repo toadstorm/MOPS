@@ -32,9 +32,9 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -8.56624 -0.395079
+position -0.259576 -0.573798
 connectornextid 0
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
@@ -46,8 +46,8 @@ inputs
 }
 stat
 {
-  create 1595610087
-  modify 1595610352
+  create 1595614715
+  modify 1595614720
   author Henry@GlaDOS
   access 0777
 }
@@ -132,7 +132,7 @@ inputs
 stat
 {
   create 1524695187
-  modify 1582594181
+  modify 1595614715
   author Henry@LAPPY586
   access 0777
 }
@@ -154,7 +154,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector uvselect "Modify Points"
+            bindselector points "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -425,7 +425,7 @@ inputs
 stat
 {
   create 1524695187
-  modify 1580169210
+  modify 1595614715
   author Henry@LAPPY586
   access 0777
 }
@@ -569,7 +569,7 @@ inputs
 stat
 {
   create 1524695187
-  modify 1572554415
+  modify 1595614715
   author Henry@LAPPY586
   access 0777
 }
@@ -833,7 +833,7 @@ inputs
 stat
 {
   create 1524695845
-  modify 1572554246
+  modify 1595614715
   author Henry@LAPPY586
   access 0777
 }
@@ -855,7 +855,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector uvselect "Modify Points"
+            bindselector points "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -1100,7 +1100,7 @@ inputs
 stat
 {
   create 1524695901
-  modify 1572554245
+  modify 1595614715
   author Henry@LAPPY586
   access 0777
 }
@@ -1122,7 +1122,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector uvselect "Modify Points"
+            bindselector points "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -1372,7 +1372,7 @@ inputs
 stat
 {
   create 1572554245
-  modify 1572554299
+  modify 1595614715
   author jacobr@carpenters.fas.fa.disney.com
   access 0777
 }
@@ -1451,7 +1451,7 @@ inputs
 stat
 {
   create 1531965466
-  modify 1582594791
+  modify 1595614715
   author Henry@LAPPY586
   access 0777
 }
@@ -1473,7 +1473,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector uvselect "Modify Points"
+            bindselector points "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -1766,7 +1766,7 @@ inputs
 stat
 {
   create 1531283685
-  modify 1582594150
+  modify 1595614715
   author Henry@LAPPY586
   access 0777
 }
@@ -1878,7 +1878,7 @@ inputs
 stat
 {
   create 1531969324
-  modify 1582594229
+  modify 1595614715
   author Henry@LAPPY586
   access 0777
 }
@@ -1973,7 +1973,7 @@ inputs
 stat
 {
   create 1572554245
-  modify 1582594185
+  modify 1595614715
   author jacobr@carpenters.fas.fa.disney.com
   access 0777
 }
@@ -2054,7 +2054,7 @@ inputs
 stat
 {
   create 1578955634
-  modify 1582594188
+  modify 1595614789
   author jacobr@carpenters.fas.fa.disney.com
   access 0777
 }
@@ -2075,13 +2075,13 @@ grouptype	[ 0	locks=0 ]	(	"guess"	)
 class	[ 0	locks=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
-snippet	[ 0	locks=0 ]	(	"int id = findattribval(1, \"prim\", \"primId\", @id);
-float min = prim(1, \"__min\", id);
-float max = prim(1, \"__max\", id);
+snippet	[ 0	locks=0 ]	(	"// int id = findattribval(1, \"prim\", \"primId\", @id);
+float min = prim(1, \"__min\", idtoprim(1, i@id));
+float max = prim(1, \"__max\", idtoprim(1, i@id));
 float u = fit(@__max_age, min, max, 0, 1);
 
 v@__primuv = set(u, 0);
-@__prim = @id;
+@__prim = idtoprim(1, @id);
 "	)
 exportlist	[ 0	locks=0 ]	(	*	)
 vex_strict	[ 0	locks=0 ]	(	"off"	)
@@ -2140,7 +2140,7 @@ inputs
 stat
 {
   create 1580167205
-  modify 1582594194
+  modify 1595614715
   author jacobr@carpenters.fas.fa.disney.com
   access 0777
 }
@@ -2283,7 +2283,7 @@ inputs
 stat
 {
   create 1580167255
-  modify 1582594221
+  modify 1595614715
   author jacobr@carpenters.fas.fa.disney.com
   access 0777
 }
@@ -2369,7 +2369,7 @@ inputs
 stat
 {
   create 1324348265
-  modify 1582594997
+  modify 1595614715
   author jlait@andorra.sidefx.com
   access 0777
 }
@@ -2475,7 +2475,7 @@ inputs
 stat
 {
   create 1324348294
-  modify 1543604861
+  modify 1595614715
   author jlait@andorra.sidefx.com
   access 0777
 }
@@ -2554,7 +2554,7 @@ inputs
 stat
 {
   create 1324348294
-  modify 1543604861
+  modify 1595614715
   author jlait@andorra.sidefx.com
   access 0777
 }
@@ -2633,7 +2633,7 @@ inputs
 stat
 {
   create 1324348294
-  modify 1543604861
+  modify 1595614715
   author jlait@andorra.sidefx.com
   access 0777
 }
@@ -2712,7 +2712,7 @@ inputs
 stat
 {
   create 1324348294
-  modify 1543604861
+  modify 1595614715
   author jlait@andorra.sidefx.com
   access 0777
 }
@@ -3750,7 +3750,7 @@ inputs
 stat
 {
   create 1529386178
-  modify 1543604861
+  modify 1595614715
   author Henry@LAPPY586
   access 0777
 }
