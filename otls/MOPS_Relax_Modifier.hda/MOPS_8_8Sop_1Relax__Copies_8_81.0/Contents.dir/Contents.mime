@@ -50,7 +50,7 @@ inputs
 stat
 {
   create 1595616019
-  modify 1595616630
+  modify 1595617616
   author Henry@GlaDOS
   access 0777
 }
@@ -108,7 +108,7 @@ inputs
 stat
 {
   create 1520101624
-  modify 1595616487
+  modify 1595617104
   author Mo@Mo-PC
   access 0777
 }
@@ -289,6 +289,20 @@ Content-Type: text/plain
         label   "VEX Precision"
         export  none
     }
+    parm {
+        name    "axis"
+        label   "Axis"
+        type    integer
+        default { "0" }
+        range   { 0 10 }
+    }
+    parm {
+        name    "auto"
+        label   "Auto"
+        type    integer
+        default { "0" }
+        range   { 0 10 }
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/get_bounds.chn"
@@ -300,6 +314,19 @@ Content-Type: text/plain
       righttype = extend
       flags = 0
       segment { length = 0 expr = ch(\"../radius\") }
+    }
+    channel auto {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../autoaxis\") }
+    }
+    channel axis {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../axis\") }
     }
   }
 
@@ -328,7 +355,14 @@ push(maxd, dy);
 push(maxd, dz);
 float max = max(maxd);
 
+int axis = chi(\"axis\");
+int auto = chi(\"auto\");
 float pscale = max/2;
+
+if(!auto) {
+   pscale = maxd[axis]/2;
+} 
+    
 
 f@mops_pscale = abs(pscale);"	)
 exportlist	[ 0	locks=0 ]	(	*	)
@@ -346,6 +380,8 @@ vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 scale_rad	[ 0	locks=0 ]	(	[ scale_rad	1 ] 	)
+axis	[ 0	locks=0 ]	(	[ axis	0 ] 	)
+auto	[ 0	locks=0 ]	(	[ auto	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1238,7 +1274,7 @@ version 0.8
 group	[ 0	locks=0 ]	(	""	)
 influencegroup	[ 0	locks=0 ]	(	""	)
 surfacegroup	[ 0	locks=0 ]	(	""	)
-maxiterations	[ 0	locks=0 ]	(	[ maxiterations	128 ] 	)
+maxiterations	[ 0	locks=0 ]	(	[ maxiterations	61 ] 	)
 radius	[ 0	locks=0 ]	(	[ radius	1 ] 	)
 useradiusattrib	[ 0	locks=0 ]	(	"on"	)
 radiusattrib	[ 0	locks=0 ]	(	mops_pscale	)
