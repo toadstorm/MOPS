@@ -214,6 +214,16 @@
             range   { 0 1 }
             parmtag { "autoscope" "0000000000000000" }
         }
+        parm {
+            name    "time_offset"
+            label   "Time Offset"
+            type    float
+            default { "0" }
+            disablewhen "{ time_varying == 0 }"
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
     }
 
     group {
