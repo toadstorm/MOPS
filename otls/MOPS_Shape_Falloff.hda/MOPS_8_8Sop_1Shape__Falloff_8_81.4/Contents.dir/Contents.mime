@@ -32,7 +32,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 12.0012 -3.62434
+position -2.02812 1.1191
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -40,17 +40,17 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	MOPs_Instancer1 1 1 "input1"
+0 	group1 1 1 "input1"
 }
 inputs
 {
-0 	MOPs_Instancer1 0 1
+0 	group1 0 1
 }
 stat
 {
-  create 1592358019
-  modify 1592359028
-  author Henry@LAPPY586
+  create 1596652970
+  modify 1596653196
+  author Henry@GlaDOS
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -110,7 +110,7 @@ inputs
 stat
 {
   create 1524060597
-  modify 1592358238
+  modify 1596653046
   author Henry@LAPPY586
   access 0777
 }
@@ -120,14 +120,34 @@ exprlanguage hscript
 end
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/falloff_linear.chn"
+Content-Type: text/plain
+
+{
+    channel group {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../group\") }
+    }
+    channel grouptype {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../grouptype\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/falloff_linear.parm"
 Content-Type: text/plain
 
 {
 version 0.8
 folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
-group	[ 0	locks=0	autoscope=0 ]	(	`chs(\"../MOPs_Remap_Falloff/group\")`	)
-grouptype	[ 0	locks=0	autoscope=0 ]	(	"guess"	)
+group	[ 0	locks=0	autoscope=0 ]	(	[ group	group1 ] 	)
+grouptype	[ 0	locks=0	autoscope=0 ]	(	[ grouptype	0 ] 	)
 class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
@@ -201,7 +221,7 @@ inputs
 stat
 {
   create 1524060597
-  modify 1588875163
+  modify 1596652970
   author Henry@LAPPY586
   access 0777
 }
@@ -345,7 +365,7 @@ inputs
 stat
 {
   create 1524060597
-  modify 1588875163
+  modify 1596652970
   author Henry@LAPPY586
   access 0777
 }
@@ -427,7 +447,7 @@ inputs
 stat
 {
   create 1524060597
-  modify 1592358238
+  modify 1596653072
   author Henry@LAPPY586
   access 0777
 }
@@ -633,6 +653,19 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../sphere_radiusy\") }
     }
+    channel group {
+      lefttype = extend
+      righttype = extend
+      defaultString = chs(\"../MOPs_Remap_Falloff/group\")
+      flags = 0
+      segment { length = 0 expr = chs(\"../group\") }
+    }
+    channel grouptype {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../grouptype\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -642,8 +675,8 @@ Content-Type: text/plain
 {
 version 0.8
 folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
-group	[ 0	locks=0	autoscope=0 ]	(	`chs(\"../MOPs_Remap_Falloff/group\")`	)
-grouptype	[ 0	locks=0	autoscope=0 ]	(	"guess"	)
+group	[ 0	locks=0	autoscope=0 ]	(	[ group	group1 ] 	)
+grouptype	[ 0	locks=0	autoscope=0 ]	(	[ grouptype	0 ] 	)
 class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
@@ -720,7 +753,7 @@ inputs
 stat
 {
   create 1524060597
-  modify 1592358238
+  modify 1596653075
   author Henry@LAPPY586
   access 0777
 }
@@ -939,6 +972,19 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = ch(\"../box_falloff\") }
     }
+    channel group {
+      lefttype = extend
+      righttype = extend
+      defaultString = chs(\"../MOPs_Remap_Falloff/group\")
+      flags = 0
+      segment { length = 0 expr = chs(\"../group\") }
+    }
+    channel grouptype {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../grouptype\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -948,8 +994,8 @@ Content-Type: text/plain
 {
 version 0.8
 folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
-group	[ 0	locks=0	autoscope=0 ]	(	`chs(\"../MOPs_Remap_Falloff/group\")`	)
-grouptype	[ 0	locks=0	autoscope=0 ]	(	"guess"	)
+group	[ 0	locks=0	autoscope=0 ]	(	[ group	group1 ] 	)
+grouptype	[ 0	locks=0	autoscope=0 ]	(	[ grouptype	0 ] 	)
 class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
@@ -987,8 +1033,8 @@ vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
 vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0	autoscope=0 ]	(	0	0	)
-radius	[ 0	locks=0	autoscope=0 ]	(	[ radiusx	0.5 ] 	[ radiusy	0.5 ] 	[ radiusz	0.5 ] 	)
-falloff	[ 0	locks=0	autoscope=0 ]	(	[ falloff	0 ] 	)
+radius	[ 0	locks=0	autoscope=0 ]	(	[ radiusx	1 ] 	[ radiusy	1 ] 	[ radiusz	1 ] 	)
+falloff	[ 0	locks=0	autoscope=0 ]	(	[ falloff	0.5 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1035,7 +1081,7 @@ inputs
 stat
 {
   create 1524060597
-  modify 1592358238
+  modify 1596653084
   author Henry@LAPPY586
   access 0777
 }
@@ -1248,6 +1294,19 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 0.25 0.25 expr = ch(\"../torus_sizey\") }
     }
+    channel group {
+      lefttype = extend
+      righttype = extend
+      defaultString = chs(\"../MOPs_Remap_Falloff/group\")
+      flags = 0
+      segment { length = 0 expr = chs(\"../group\") }
+    }
+    channel grouptype {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../grouptype\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1257,8 +1316,8 @@ Content-Type: text/plain
 {
 version 0.8
 folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
-group	[ 0	locks=0	autoscope=0 ]	(	`chs(\"../MOPs_Remap_Falloff/group\")`	)
-grouptype	[ 0	locks=0	autoscope=0 ]	(	"guess"	)
+group	[ 0	locks=0	autoscope=0 ]	(	[ group	group1 ] 	)
+grouptype	[ 0	locks=0	autoscope=0 ]	(	[ grouptype	0 ] 	)
 class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
@@ -1346,7 +1405,7 @@ inputs
 stat
 {
   create 1524060597
-  modify 1592358238
+  modify 1596653135
   author Henry@LAPPY586
   access 0777
 }
@@ -1384,6 +1443,13 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = ch(\"../grouptype\") }
     }
+    channel group {
+      lefttype = extend
+      righttype = extend
+      defaultString = chs(\"../MOPs_Remap_Falloff/group\")
+      flags = 0
+      segment { length = 0 expr = chs(\"../group\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1392,7 +1458,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-group	[ 0	locks=0	autoscope=0 ]	(	`chs(\"../MOPs_Remap_Falloff/group\")`	)
+group	[ 0	locks=0	autoscope=0 ]	(	[ group	group1 ] 	)
 grouptype	[ 0	locks=0 ]	(	[ grouptype	0 ] 	)
 falloff_attr	[ 0	locks=0 ]	(	mops_falloff	)
 input	[ 0	locks=0	autoscope=0 ]	(	[ input	8 ] 	)
@@ -1467,7 +1533,7 @@ inputs
 stat
 {
   create 1524060597
-  modify 1592358238
+  modify 1596653094
   author Henry@LAPPY586
   access 0777
 }
@@ -1686,6 +1752,19 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = ch(\"../cylinder_sizez\") }
     }
+    channel group {
+      lefttype = extend
+      righttype = extend
+      defaultString = chs(\"../MOPs_Remap_Falloff/group\")
+      flags = 0
+      segment { length = 0 expr = chs(\"../group\") }
+    }
+    channel grouptype {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../grouptype\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1695,8 +1774,8 @@ Content-Type: text/plain
 {
 version 0.8
 folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
-group	[ 0	locks=0	autoscope=0 ]	(	`chs(\"../MOPs_Remap_Falloff/group\")`	)
-grouptype	[ 0	locks=0	autoscope=0 ]	(	"guess"	)
+group	[ 0	locks=0	autoscope=0 ]	(	[ group	group1 ] 	)
+grouptype	[ 0	locks=0	autoscope=0 ]	(	[ grouptype	0 ] 	)
 class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
@@ -1735,8 +1814,8 @@ vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
 vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0	autoscope=0 ]	(	0	0	)
-falloff	[ 0	locks=0	autoscope=0 ]	(	[ falloff	0.32400000000000001 ] 	)
-size	[ 0	locks=0	autoscope=0 ]	(	[ sizex	0.80000000000000004 ] 	[ sizey	0.80000000000000004 ] 	[ sizez	-0.20000000000000001 ] 	)
+falloff	[ 0	locks=0	autoscope=0 ]	(	[ falloff	0.5 ] 	)
+size	[ 0	locks=0	autoscope=0 ]	(	[ sizex	1 ] 	[ sizey	1 ] 	[ sizez	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1781,7 +1860,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1588875163
+  modify 1596652970
   author Henry@LAPPY586
   access 0777
 }
@@ -1860,7 +1939,7 @@ inputs
 stat
 {
   create 1536023588
-  modify 1588875228
+  modify 1596652970
   author Henry@LAPPY586
   access 0777
 }
@@ -2170,7 +2249,7 @@ inputs
 stat
 {
   create 1568176415
-  modify 1588875163
+  modify 1596652970
   author Henry@LAPPY586
   access 0777
 }
@@ -2357,9 +2436,11 @@ tile_size	[ 0	locks=0	autoscope=0 ]	(	[ tile_sizex	1 ] 	[ tile_sizey	1 ] 	[ tile
 Distort	[ 0	locks=0	autoscope=0 ]	(	[ Distortx	0 ] 	[ Distorty	0 ] 	[ Distortz	0 ] 	)
 time_varying	[ 0	locks=0	autoscope=0 ]	(	[ time_varying	0 ] 	)
 time_scale	[ 0	locks=0	autoscope=0 ]	(	[ time_scale	1 ] 	)
+time_offset	[ 0	locks=0 ]	(	0	)
 do_remap_2D	[ 0	locks=0 ]	(	"off"	)
 input_rangev	[ 0	locks=0 ]	(	-1	1	)
 output_rangev	[ 0	locks=0 ]	(	-1	1	)
+remap_ramp_2D	[ 0	locks=0 ]	(	2	)
 do_remap_3D	[ 0	locks=0 ]	(	"off"	)
 input_range	[ 0	locks=0 ]	(	0	1	)
 output_range	[ 0	locks=0 ]	(	0	1	)
@@ -2367,6 +2448,19 @@ input_min_3D	[ 0	locks=0 ]	(	-1	-1	-1	)
 input_max_3D	[ 0	locks=0 ]	(	1	1	1	)
 output_min_3D	[ 0	locks=0 ]	(	-1	-1	-1	)
 output_max_3D	[ 0	locks=0 ]	(	1	1	1	)
+remap_ramp_3D	[ 0	locks=0 ]	(	2	)
+remap_ramp_2D1pos	[ 0	locks=0 ]	(	0	)
+remap_ramp_2D1value	[ 0	locks=0 ]	(	0	)
+remap_ramp_2D1interp	[ 0	locks=0 ]	(	"linear"	)
+remap_ramp_2D2pos	[ 0	locks=0 ]	(	1	)
+remap_ramp_2D2value	[ 0	locks=0 ]	(	1	)
+remap_ramp_2D2interp	[ 0	locks=0 ]	(	"linear"	)
+remap_ramp_3D1pos	[ 0	locks=0 ]	(	0	)
+remap_ramp_3D1value	[ 0	locks=0 ]	(	0	)
+remap_ramp_3D1interp	[ 0	locks=0 ]	(	"linear"	)
+remap_ramp_3D2pos	[ 0	locks=0 ]	(	1	)
+remap_ramp_3D2value	[ 0	locks=0 ]	(	1	)
+remap_ramp_3D2interp	[ 0	locks=0 ]	(	"linear"	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2411,7 +2505,7 @@ inputs
 stat
 {
   create 1550446177
-  modify 1588875163
+  modify 1596652970
   author Henry@LAPPY586
   access 0777
 }
@@ -2490,7 +2584,7 @@ inputs
 stat
 {
   create 1550446187
-  modify 1588875163
+  modify 1596652970
   author Henry@LAPPY586
   access 0777
 }
@@ -2571,7 +2665,7 @@ inputs
 stat
 {
   create 1570162863
-  modify 1588875163
+  modify 1596653102
   author Henry@LAPPY586
   access 0777
 }
@@ -2787,6 +2881,19 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 30 30 expr = ch(\"../falloff\") }
     }
+    channel group {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../group\") }
+    }
+    channel grouptype {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../grouptype\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2796,8 +2903,8 @@ Content-Type: text/plain
 {
 version 0.8
 folder0	[ 0	locks=0 ]	(	0	0	)
-group	[ 0	locks=0 ]	(	""	)
-grouptype	[ 0	locks=0 ]	(	"guess"	)
+group	[ 0	locks=0 ]	(	[ group	group1 ] 	)
+grouptype	[ 0	locks=0 ]	(	[ grouptype	0 ] 	)
 class	[ 0	locks=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
@@ -2921,7 +3028,7 @@ inputs
 stat
 {
   create 1570310604
-  modify 1588875163
+  modify 1596653112
   author Henry@LAPPY586
   access 0777
 }
@@ -3134,6 +3241,19 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = ch(\"../falloff_fan/angle_rangey\") }
     }
+    channel group {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../group\") }
+    }
+    channel grouptype {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../grouptype\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -3143,8 +3263,8 @@ Content-Type: text/plain
 {
 version 0.8
 folder0	[ 0	locks=0 ]	(	0	0	)
-group	[ 0	locks=0 ]	(	""	)
-grouptype	[ 0	locks=0 ]	(	"guess"	)
+group	[ 0	locks=0 ]	(	[ group	group1 ] 	)
+grouptype	[ 0	locks=0 ]	(	[ grouptype	0 ] 	)
 class	[ 0	locks=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
@@ -3201,7 +3321,7 @@ vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
-falloff	[ 8	locks=0 ]	(	[ falloff	36.200000000000003 ] 	)
+falloff	[ 8	locks=0 ]	(	[ falloff	-0 ] 	)
 angle_range	[ 8	locks=0 ]	(	[ angle_rangex	-45 ] 	[ angle_rangey	45 ] 	)
 }
 
@@ -3247,7 +3367,7 @@ inputs
 stat
 {
   create 1583821827
-  modify 1588875211
+  modify 1596652970
   author Henry@LAPPY586
   access 0777
 }
@@ -3350,7 +3470,7 @@ inputs
 stat
 {
   create 1592358223
-  modify 1592358431
+  modify 1596653138
   author Henry@LAPPY586
   access 0777
 }
@@ -3373,19 +3493,19 @@ Content-Disposition: attachment; filename="hdaroot/MOPs_Remap_Falloff1.chn"
 Content-Type: text/plain
 
 {
-    channel auto_min_max {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../auto_min_max\") }
-    }
     channel frame {
       lefttype = extend
       righttype = extend
       default = 1
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../frame\") }
+    }
+    channel auto_min_max {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../auto_min_max\") }
     }
     channel imin {
       lefttype = extend
@@ -3460,6 +3580,19 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../remap_falloff2interp\") }
     }
+    channel group {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../group\") }
+    }
+    channel grouptype {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../grouptype\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -3468,8 +3601,8 @@ Content-Type: text/plain
 
 {
 version 0.8
-group	[ 0	locks=0 ]	(	""	)
-grouptype	[ 0	locks=0 ]	(	"guess"	)
+group	[ 0	locks=0 ]	(	[ group	"" ] 	)
+grouptype	[ 0	locks=0 ]	(	[ grouptype	0 ] 	)
 sepparm	[ 0	locks=0 ]	(	)
 falloff_attr	[ 0	locks=0 ]	(	mops_falloff	)
 output_attr	[ 0	locks=0 ]	(	mops_falloff	)
@@ -3997,7 +4130,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1588875163
+  modify 1596652970
   author Henry@LAPPY586
   access 0777
 }
@@ -4148,7 +4281,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1588875163
+  modify 1596652970
   author Henry@LAPPY586
   access 0777
 }
@@ -4275,7 +4408,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1588875163
+  modify 1596652970
   author Henry@LAPPY586
   access 0777
 }
@@ -4366,7 +4499,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1588875163
+  modify 1596652970
   author Henry@LAPPY586
   access 0777
 }
@@ -4496,7 +4629,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1588875163
+  modify 1596652970
   author Henry@LAPPY586
   access 0777
 }
@@ -4582,7 +4715,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1588875163
+  modify 1596652970
   author Henry@LAPPY586
   access 0777
 }
@@ -4802,7 +4935,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1588875163
+  modify 1596652970
   author Henry@LAPPY586
   access 0777
 }
@@ -4873,7 +5006,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1588875163
+  modify 1596652970
   author Henry@LAPPY586
   access 0777
 }
@@ -4969,7 +5102,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1588875163
+  modify 1596652970
   author Henry@LAPPY586
   access 0777
 }
@@ -5190,7 +5323,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1588875163
+  modify 1596652970
   author Henry@LAPPY586
   access 0777
 }
@@ -5346,7 +5479,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1588875163
+  modify 1596652970
   author Henry@LAPPY586
   access 0777
 }
@@ -5502,7 +5635,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1588875163
+  modify 1596652970
   author Henry@LAPPY586
   access 0777
 }
@@ -5722,7 +5855,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1588875163
+  modify 1596652970
   author Henry@LAPPY586
   access 0777
 }
@@ -5824,7 +5957,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1588875163
+  modify 1596652970
   author Henry@LAPPY586
   access 0777
 }
@@ -5899,7 +6032,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1588875163
+  modify 1596652970
   author Henry@LAPPY586
   access 0777
 }
@@ -6036,7 +6169,7 @@ inputs
 stat
 {
   create 1565319729
-  modify 1588875163
+  modify 1596652970
   author Henry@LAPPY586
   access 0777
 }
@@ -6116,7 +6249,7 @@ inputs
 stat
 {
   create 1565319729
-  modify 1588875220
+  modify 1596652970
   author Henry@LAPPY586
   access 0777
 }
@@ -6180,7 +6313,7 @@ inputs
 stat
 {
   create 1570167447
-  modify 1588875163
+  modify 1596652970
   author Henry@LAPPY586
   access 0777
 }
@@ -6334,7 +6467,7 @@ inputs
 stat
 {
   create 1570312315
-  modify 1588875163
+  modify 1596652970
   author Henry@LAPPY586
   access 0777
 }
@@ -6620,7 +6753,7 @@ inputs
 stat
 {
   create 1588875175
-  modify 1592358232
+  modify 1596652970
   author Henry@LAPPY586
   access 0777
 }
@@ -6648,7 +6781,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -6695,7 +6828,7 @@ inputs
 stat
 {
   create 1588875215
-  modify 1588875228
+  modify 1596652970
   author Henry@LAPPY586
   access 0777
 }
