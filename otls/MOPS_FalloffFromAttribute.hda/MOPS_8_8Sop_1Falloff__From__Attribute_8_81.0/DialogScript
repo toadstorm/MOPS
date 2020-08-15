@@ -173,7 +173,7 @@
     }
 
     group {
-        name    "folder1"
+        name    "folder0_2"
         label   "Falloff Preview"
         hidewhentab "{ do_preview == 0 }"
 
@@ -227,4 +227,13 @@
         }
     }
 
+    parm {
+        name    "description"
+        label   "Label"
+        type    string
+        invisible
+        nolabel
+        default { [ "attr = hou.pwd().evalParm(\"falloff_attr\")\nin_attr = hou.pwd().evalParm(\"attrname\")\nreturn \"{} --> {}\".format(in_attr, attr)" python ] }
+        parmtag { "script_callback_language" "python" }
+    }
 }
