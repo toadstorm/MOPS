@@ -278,7 +278,7 @@ class MOPsUpdateWindow(QtWidgets.QDialog):
         self.update_env.setVisible(False)
         self.do_analytics = QtWidgets.QCheckBox('Share anonymous MOPs data')
         self.do_analytics.setChecked(False)
-		self.do_analytics.setVisible(False)
+        self.do_analytics.setVisible(False)
         apply_btn = QtWidgets.QPushButton('Apply Update')
         cancel_btn = QtWidgets.QPushButton('Cancel')
         form.addWidget(current_branch_label, 0, 0)

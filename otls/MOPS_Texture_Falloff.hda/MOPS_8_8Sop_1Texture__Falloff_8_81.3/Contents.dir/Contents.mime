@@ -32,24 +32,22 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.678396 -6.82758
-connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+position -3.39689 -3.62791
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
 inputsNamed3
 {
-0 	MOPs_Spread_Falloff 1 1 "input1"
 }
 inputs
 {
-0 	MOPs_Spread_Falloff 0 1
 }
 stat
 {
-  create 1592095543
-  modify 1592095580
+  create 1597457615
+  modify 1597457622
   author Henry@LAPPY586
   access 0777
 }
@@ -107,7 +105,7 @@ inputs
 stat
 {
   create 1520761826
-  modify 1592095544
+  modify 1597457616
   author Mo@Mo-PC
   access 0777
 }
@@ -311,7 +309,7 @@ inputs
 stat
 {
   create 1300390512
-  modify 1592095545
+  modify 1597457617
   author cklosters@ghurian.sidefx.com
   access 0777
 }
@@ -2345,7 +2343,7 @@ inputs
 stat
 {
   create 1319659414
-  modify 1592095544
+  modify 1597457616
   author andrew@clinton.sidefx.com
   access 0777
 }
@@ -6170,7 +6168,7 @@ inputs
 stat
 {
   create 1300391705
-  modify 1592095544
+  modify 1597457616
   author cklosters@ghurian.sidefx.com
   access 0777
 }
@@ -6382,7 +6380,7 @@ inputs
 stat
 {
   create 1300733468
-  modify 1592095544
+  modify 1597457616
   author cklosters@ghurian.sidefx.com
   access 0777
 }
@@ -7333,7 +7331,7 @@ inputs
 stat
 {
   create 1300391705
-  modify 1592095544
+  modify 1597457616
   author cklosters@ghurian.sidefx.com
   access 0777
 }
@@ -9261,7 +9259,7 @@ inputs
 stat
 {
   create 1523506819
-  modify 1592095544
+  modify 1597457616
   author Henry@LAPPY586
   access 0777
 }
@@ -9471,7 +9469,7 @@ inputs
 stat
 {
   create 1523506944
-  modify 1592095544
+  modify 1597457616
   author Henry@LAPPY586
   access 0777
 }
@@ -9598,7 +9596,7 @@ inputs
 stat
 {
   create 1523507576
-  modify 1592095544
+  modify 1597457616
   author Henry@LAPPY586
   access 0777
 }
@@ -9677,7 +9675,7 @@ inputs
 stat
 {
   create 1536030928
-  modify 1592095544
+  modify 1597457616
   author Henry@LAPPY586
   access 0777
 }
@@ -9980,7 +9978,7 @@ inputs
 stat
 {
   create 1550362452
-  modify 1592095544
+  modify 1597457616
   author Henry@LAPPY586
   access 0777
 }
@@ -10059,7 +10057,7 @@ inputs
 stat
 {
   create 1568176494
-  modify 1592095544
+  modify 1597457616
   author Henry@LAPPY586
   access 0777
 }
@@ -10246,9 +10244,11 @@ tile_size	[ 0	locks=0	autoscope=0 ]	(	[ tile_sizex	1 ] 	[ tile_sizey	1 ] 	[ tile
 Distort	[ 0	locks=0	autoscope=0 ]	(	[ Distortx	0 ] 	[ Distorty	0 ] 	[ Distortz	0 ] 	)
 time_varying	[ 0	locks=0	autoscope=0 ]	(	[ time_varying	0 ] 	)
 time_scale	[ 0	locks=0	autoscope=0 ]	(	[ time_scale	1 ] 	)
+time_offset	[ 0	locks=0 ]	(	0	)
 do_remap_2D	[ 0	locks=0 ]	(	"off"	)
 input_rangev	[ 0	locks=0	autoscope=0 ]	(	-1	1	)
 output_rangev	[ 0	locks=0	autoscope=0 ]	(	-1	1	)
+remap_ramp_2D	[ 0	locks=0 ]	(	2	)
 do_remap_3D	[ 0	locks=0 ]	(	"off"	)
 input_range	[ 0	locks=0	autoscope=0 ]	(	0	1	)
 output_range	[ 0	locks=0	autoscope=0 ]	(	0	1	)
@@ -10256,6 +10256,19 @@ input_min_3D	[ 0	locks=0 ]	(	-1	-1	-1	)
 input_max_3D	[ 0	locks=0 ]	(	1	1	1	)
 output_min_3D	[ 0	locks=0 ]	(	-1	-1	-1	)
 output_max_3D	[ 0	locks=0 ]	(	1	1	1	)
+remap_ramp_3D	[ 0	locks=0 ]	(	2	)
+remap_ramp_2D1pos	[ 0	locks=0 ]	(	0	)
+remap_ramp_2D1value	[ 0	locks=0 ]	(	0	)
+remap_ramp_2D1interp	[ 0	locks=0 ]	(	"linear"	)
+remap_ramp_2D2pos	[ 0	locks=0 ]	(	1	)
+remap_ramp_2D2value	[ 0	locks=0 ]	(	1	)
+remap_ramp_2D2interp	[ 0	locks=0 ]	(	"linear"	)
+remap_ramp_3D1pos	[ 0	locks=0 ]	(	0	)
+remap_ramp_3D1value	[ 0	locks=0 ]	(	0	)
+remap_ramp_3D1interp	[ 0	locks=0 ]	(	"linear"	)
+remap_ramp_3D2pos	[ 0	locks=0 ]	(	1	)
+remap_ramp_3D2value	[ 0	locks=0 ]	(	1	)
+remap_ramp_3D2interp	[ 0	locks=0 ]	(	"linear"	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -10300,7 +10313,7 @@ inputs
 stat
 {
   create 1550362471
-  modify 1592095544
+  modify 1597457616
   author Henry@LAPPY586
   access 0777
 }
@@ -10440,7 +10453,7 @@ inputs
 stat
 {
   create 1300397479
-  modify 1592095544
+  modify 1597457616
   author cklosters@ghurian.sidefx.com
   access 0777
 }
@@ -10564,7 +10577,7 @@ inputs
 stat
 {
   create 1300399867
-  modify 1592095544
+  modify 1597457616
   author cklosters@ghurian.sidefx.com
   access 0777
 }
@@ -10665,7 +10678,7 @@ inputs
 stat
 {
   create 1300463851
-  modify 1592095544
+  modify 1597457616
   author cklosters@ghurian.sidefx.com
   access 0777
 }
@@ -10749,7 +10762,7 @@ inputs
 stat
 {
   create 1300464991
-  modify 1592095544
+  modify 1597457616
   author cklosters@ghurian.sidefx.com
   access 0777
 }
@@ -10824,7 +10837,7 @@ inputs
 stat
 {
   create 1072728535
-  modify 1592095544
+  modify 1597457616
   author jlait@otago
   access 0777
 }
@@ -10897,7 +10910,7 @@ inputs
 stat
 {
   create 1072730112
-  modify 1592095544
+  modify 1597457616
   author jlait@otago
   access 0777
 }
@@ -11175,7 +11188,7 @@ inputs
 stat
 {
   create 1369852411
-  modify 1592095544
+  modify 1597457616
   author jlait@andorra.sidefx.com
   access 0777
 }
@@ -11261,7 +11274,7 @@ inputs
 stat
 {
   create 1506107437
-  modify 1592095544
+  modify 1597457616
   author ndickson@trail
   access 0777
 }
@@ -11419,7 +11432,7 @@ inputs
 stat
 {
   create 1588875855
-  modify 1592095544
+  modify 1597457616
   author Henry@LAPPY586
   access 0777
 }
@@ -11604,7 +11617,7 @@ inputs
 stat
 {
   create 1523507109
-  modify 1592095544
+  modify 1597457616
   author Henry@LAPPY586
   access 0777
 }
@@ -11679,7 +11692,7 @@ inputs
 stat
 {
   create 1523507570
-  modify 1592095544
+  modify 1597457616
   author Henry@LAPPY586
   access 0777
 }
@@ -11875,7 +11888,7 @@ inputs
 stat
 {
   create 1565319729
-  modify 1592095544
+  modify 1597457616
   author Henry@LAPPY586
   access 0777
 }
@@ -11955,7 +11968,7 @@ inputs
 stat
 {
   create 1565319729
-  modify 1592095544
+  modify 1597457616
   author Henry@LAPPY586
   access 0777
 }
@@ -12023,7 +12036,7 @@ inputs
 stat
 {
   create 1588875634
-  modify 1592095544
+  modify 1597457616
   author Henry@LAPPY586
   access 0777
 }
@@ -12098,7 +12111,7 @@ inputs
 stat
 {
   create 1588875650
-  modify 1592095544
+  modify 1597457616
   author Henry@LAPPY586
   access 0777
 }

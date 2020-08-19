@@ -208,9 +208,18 @@
                 parmtag { "autoscope" "0000000000000000" }
             }
             parm {
+                name    "axis_attr"
+                label   "Direction Attribute"
+                type    string
+                default { "N" }
+                hidewhen "{ signature == 1 }"
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
                 name    "forwardaxis"
                 label   "Forward Axis"
                 type    ordinal
+                invisible
                 default { "0" }
                 disablewhen "{ signature == 1 }"
                 menu {
