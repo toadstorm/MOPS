@@ -32,25 +32,25 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.14151 -0.976415
+position 1.69777 1.99011
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-1 "output1"
+0 "output1"
 }
 inputsNamed3
 {
-0 	grid1 0 1 "input1"
+1 	apply_transform 1 1 "input1"
 }
 inputs
 {
-0 	grid1 0 1
+0 	apply_transform 0 1
 }
 stat
 {
-  create 1595700223
-  modify 1595701406
+  create 1568176106
+  modify 1597798542
   author Henry@LAPPY586
   access 0777
 }
@@ -133,7 +133,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1595700224
+  modify 1597793670
   author Henry@LAPPY586
   access 0777
 }
@@ -602,7 +602,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1595700224
+  modify 1597793670
   author Henry@LAPPY586
   access 0777
 }
@@ -1071,7 +1071,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1595700224
+  modify 1597793670
   author Henry@LAPPY586
   access 0777
 }
@@ -1549,7 +1549,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1595700224
+  modify 1597793670
   author Henry@LAPPY586
   access 0777
 }
@@ -2027,7 +2027,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1595700224
+  modify 1597793670
   author Henry@LAPPY586
   access 0777
 }
@@ -2504,7 +2504,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1595700224
+  modify 1597793670
   author Henry@LAPPY586
   access 0777
 }
@@ -3014,7 +3014,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1595700224
+  modify 1597793670
   author Henry@LAPPY586
   access 0777
 }
@@ -3484,7 +3484,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1595700224
+  modify 1597793670
   author Henry@LAPPY586
   access 0777
 }
@@ -3978,7 +3978,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1595700224
+  modify 1597793670
   author Henry@LAPPY586
   access 0777
 }
@@ -4449,7 +4449,7 @@ inputs
 stat
 {
   create 1524060464
-  modify 1595700224
+  modify 1597793670
   author Henry@LAPPY586
   access 0777
 }
@@ -4688,7 +4688,7 @@ vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
 vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0	autoscope=0 ]	(	0	0	)
 use_rest	[ 0	locks=0	autoscope=0 ]	(	[ use_rest	1 ] 	)
-has_rest	[ 8	locks=0	autoscope=0 ]	(	[ has_rest	0 ] 	)
+has_rest	[ 8	locks=0	autoscope=0 ]	(	[ has_rest	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -4733,7 +4733,7 @@ inputs
 stat
 {
   create 1549075027
-  modify 1595700224
+  modify 1597793670
   author Henry@LAPPY586
   access 0777
 }
@@ -4812,7 +4812,7 @@ inputs
 stat
 {
   create 1549515796
-  modify 1595700224
+  modify 1597793670
   author Henry@LAPPY586
   access 0777
 }
@@ -5123,7 +5123,7 @@ inputs
 stat
 {
   create 1550294119
-  modify 1595700224
+  modify 1597793670
   author Henry@LAPPY586
   access 0777
 }
@@ -5496,7 +5496,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1595700224
+  modify 1597793670
   author Henry@LAPPY586
   access 0777
 }
@@ -5966,7 +5966,7 @@ inputs
 stat
 {
   create 1554935939
-  modify 1595701070
+  modify 1597793670
   author Henry@LAPPY586
   access 0777
 }
@@ -6045,7 +6045,7 @@ inputs
 stat
 {
   create 1554935960
-  modify 1595701167
+  modify 1597798536
   author Henry@LAPPY586
   access 0777
 }
@@ -6233,6 +6233,13 @@ Content-Type: text/plain
         default { "0" }
         range   { 0 1 }
     }
+    parm {
+        name    "time"
+        label   "Time"
+        type    float
+        default { "0" }
+        range   { 0 1 }
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/pointwrangle2.chn"
@@ -6252,6 +6259,12 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = ch(\"../time_offset\") }
     }
+    channel time {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../time\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -6266,7 +6279,7 @@ grouptype	[ 0	locks=0 ]	(	"guess"	)
 class	[ 0	locks=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
-snippet	[ 0	locks=0 ]	(	"p@time_offset = set(0,0,0,(@Time * ch(\"timescale\")) + ch(\"time_offset\"));"	)
+snippet	[ 0	locks=0 ]	(	"p@time_offset = set(0,0,0,(ch(\"time\") * ch(\"timescale\")) + ch(\"time_offset\"));"	)
 exportlist	[ 0	locks=0 ]	(	*	)
 vex_strict	[ 0	locks=0 ]	(	"off"	)
 autobind	[ 0	locks=0 ]	(	"on"	)
@@ -6283,6 +6296,7 @@ vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 timescale	[ 0	locks=0 ]	(	[ timescale	1 ] 	)
 time_offset	[ 0	locks=0 ]	(	[ time_offset	0 ] 	)
+time	[ 0	locks=0 ]	(	[ time	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -6327,7 +6341,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1595700224
+  modify 1597793670
   author Henry@LAPPY586
   access 0777
 }
@@ -6797,7 +6811,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1595700224
+  modify 1597793670
   author Henry@LAPPY586
   access 0777
 }
@@ -7268,7 +7282,7 @@ inputs
 stat
 {
   create 1583773867
-  modify 1595700224
+  modify 1597793670
   author Henry@LAPPY586
   access 0777
 }
@@ -7349,7 +7363,7 @@ inputs
 stat
 {
   create 1549515796
-  modify 1595700224
+  modify 1597793670
   author Henry@LAPPY586
   access 0777
 }
@@ -7893,7 +7907,7 @@ inputs
 stat
 {
   create 1549075032
-  modify 1595700224
+  modify 1597793670
   author Henry@LAPPY586
   access 0777
 }
@@ -8089,7 +8103,7 @@ inputs
 stat
 {
   create 1550294318
-  modify 1595700224
+  modify 1597793670
   author Henry@LAPPY586
   access 0777
 }
@@ -8157,7 +8171,7 @@ inputs
 stat
 {
   create 1550294550
-  modify 1595700224
+  modify 1597793670
   author Henry@LAPPY586
   access 0777
 }
@@ -8230,7 +8244,7 @@ inputs
 stat
 {
   create 1550294976
-  modify 1595700224
+  modify 1597793670
   author Henry@LAPPY586
   access 0777
 }
@@ -8362,7 +8376,7 @@ inputs
 stat
 {
   create 1554935927
-  modify 1595700224
+  modify 1597793670
   author Henry@LAPPY586
   access 0777
 }
@@ -8437,7 +8451,7 @@ inputs
 stat
 {
   create 1582671001
-  modify 1595700224
+  modify 1597793670
   author Henry@LAPPY586
   access 0777
 }
@@ -8512,7 +8526,7 @@ inputs
 stat
 {
   create 1582671001
-  modify 1595700224
+  modify 1597793670
   author Henry@LAPPY586
   access 0777
 }

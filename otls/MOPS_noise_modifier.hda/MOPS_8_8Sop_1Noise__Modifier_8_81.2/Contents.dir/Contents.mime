@@ -32,7 +32,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.518868 -0.962264
+position 3.08191 -1.16059
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -40,17 +40,17 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	testgeometry_paul1 0 1 "input1"
+0 	MOPs_Instancer 1 1 "input1"
 }
 inputs
 {
-0 	testgeometry_paul1 0 1
+0 	MOPs_Instancer 0 1
 }
 stat
 {
-  create 1595714865
-  modify 1595729337
-  author Henry@LAPPY586
+  create 1597800949
+  modify 1597801340
+  author Henry@GlaDOS
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -163,7 +163,7 @@ inputs
 stat
 {
   create 1583723904
-  modify 1595715941
+  modify 1597800949
   author Henry@LAPPY586
   access 0777
 }
@@ -327,7 +327,7 @@ inputs
 stat
 {
   create 1546924805
-  modify 1595714921
+  modify 1597800949
   author Henry@LAPPY586
   access 0777
 }
@@ -410,7 +410,7 @@ inputs
 stat
 {
   create 1568176217
-  modify 1595714920
+  modify 1597801055
   author Henry@LAPPY586
   access 0777
 }
@@ -436,6 +436,12 @@ Content-Disposition: attachment; filename="hdaroot/MOPs_Noise_Patterns.chn"
 Content-Type: text/plain
 
 {
+    channel time {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = "@Time % ch(\"../period\")" }
+    }
     channel remap_ramp_2D1pos {
       lefttype = extend
       righttype = extend
@@ -833,7 +839,7 @@ version 0.8
 group	[ 0	locks=0 ]	(	""	)
 grouptype	[ 0	locks=0 ]	(	"guess"	)
 sepparm3	[ 0	locks=0 ]	(	)
-signature	[ 0	locks=0	autoscope=0 ]	(	[ signature	0 ] 	)
+signature	[ 0	locks=0	autoscope=0 ]	(	[ signature	1 ] 	)
 attrname	[ 0	locks=0	autoscope=0 ]	(	__offset	)
 attrnamev	[ 0	locks=0	autoscope=0 ]	(	__offset	)
 sepparm	[ 0	locks=0 ]	(	)
@@ -842,7 +848,7 @@ input	[ 0	locks=0	autoscope=0 ]	(	[ input	9 ] 	)
 use_rest	[ 0	locks=0	autoscope=0 ]	(	[ use_rest	0 ] 	)
 sepparm2	[ 0	locks=0 ]	(	)
 amp	[ 0	locks=0	autoscope=0 ]	(	[ ampx	1 ] 	[ ampy	1 ] 	[ ampz	1 ] 	)
-freq	[ 0	locks=0	autoscope=0 ]	(	[ freqx	4.7000000000000002 ] 	[ freqy	4.7000000000000002 ] 	[ freqz	4.7000000000000002 ] 	[ freqw	4.7000000000000002 ] 	)
+freq	[ 0	locks=0	autoscope=0 ]	(	[ freqx	1 ] 	[ freqy	1 ] 	[ freqz	1 ] 	[ freqw	1 ] 	)
 uniform	[ 0	locks=0	autoscope=0 ]	(	[ uniform	0 ] 	)
 roughness	[ 0	locks=0	autoscope=0 ]	(	[ roughness	0.5 ] 	)
 octaves	[ 0	locks=0	autoscope=0 ]	(	[ octaves	1 ] 	)
@@ -850,6 +856,7 @@ offset	[ 0	locks=0	autoscope=0 ]	(	[ offsetx	0 ] 	[ offsety	0 ] 	[ offsetz	0 ] 	
 tile_size	[ 0	locks=0	autoscope=0 ]	(	[ tile_sizex	1 ] 	[ tile_sizey	1 ] 	[ tile_sizez	1 ] 	)
 Distort	[ 0	locks=0	autoscope=0 ]	(	[ Distortx	0 ] 	[ Distorty	0 ] 	[ Distortz	0 ] 	)
 time_varying	[ 0	locks=0	autoscope=0 ]	(	[ time_varying	1 ] 	)
+time	[ 0	locks=0 ]	(	[ time	0 ] 	)
 time_scale	[ 0	locks=0	autoscope=0 ]	(	[ time_scale	1 ] 	)
 time_offset	[ 0	locks=0 ]	(	0	)
 do_remap_2D	[ 0	locks=0 ]	(	[ do_remap_2D	0 ] 	)
@@ -920,7 +927,7 @@ inputs
 stat
 {
   create 1554928384
-  modify 1595729250
+  modify 1597800949
   author Henry@LAPPY586
   access 0777
 }
@@ -1314,7 +1321,7 @@ inputs
 stat
 {
   create 1554928384
-  modify 1595715941
+  modify 1597800949
   author Henry@LAPPY586
   access 0777
 }
@@ -1706,7 +1713,7 @@ vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
-scale	[ 0	locks=0 ]	(	[ scale	0.185 ] 	)
+scale	[ 0	locks=0 ]	(	[ scale	1 ] 	)
 do_falloff	[ 0	locks=0 ]	(	[ do_falloff	1 ] 	)
 do_scale	[ 8	locks=0 ]	(	[ do_scale	0 ] 	)
 oldmin	[ 8	locks=0 ]	(	[ oldmin	0 ] 	)
@@ -1760,7 +1767,7 @@ inputs
 stat
 {
   create 1546815258
-  modify 1595715941
+  modify 1597800949
   author Henry@LAPPY586
   access 0777
 }
@@ -1980,7 +1987,7 @@ inputs
 stat
 {
   create 1546816119
-  modify 1595714865
+  modify 1597800949
   author Henry@LAPPY586
   access 0777
 }
@@ -2375,7 +2382,7 @@ inputs
 stat
 {
   create 1554928384
-  modify 1595729249
+  modify 1597800949
   author Henry@LAPPY586
   access 0777
 }
@@ -2712,7 +2719,7 @@ inputs
 stat
 {
   create 1554928384
-  modify 1595714865
+  modify 1597800949
   author Henry@LAPPY586
   access 0777
 }
@@ -3081,7 +3088,7 @@ inputs
 stat
 {
   create 1586049942
-  modify 1595714865
+  modify 1597800949
   author Henry@LAPPY586
   access 0777
 }
@@ -3095,6 +3102,12 @@ Content-Disposition: attachment; filename="hdaroot/advect_noise/d/s/MOPs_Noise_P
 Content-Type: text/plain
 
 {
+    channel time {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = @Time }
+    }
     channel signature {
       lefttype = extend
       righttype = extend
@@ -3393,6 +3406,7 @@ offset	[ 0	locks=0	autoscope=0 ]	(	[ offsetx	0 ] 	[ offsety	0 ] 	[ offsetz	0 ] 	
 tile_size	[ 0	locks=0	autoscope=0 ]	(	[ tile_sizex	1 ] 	[ tile_sizey	1 ] 	[ tile_sizez	1 ] 	)
 Distort	[ 0	locks=0	autoscope=0 ]	(	[ Distortx	0 ] 	[ Distorty	0 ] 	[ Distortz	0 ] 	)
 time_varying	[ 0	locks=0	autoscope=0 ]	(	[ time_varying	1 ] 	)
+time	[ 0	locks=0 ]	(	[ time	0 ] 	)
 time_scale	[ 0	locks=0	autoscope=0 ]	(	[ time_scale	1 ] 	)
 time_offset	[ 0	locks=0 ]	(	0	)
 do_remap_2D	[ 0	locks=0	autoscope=0 ]	(	[ do_remap_2D	0 ] 	)
@@ -3463,7 +3477,7 @@ inputs
 stat
 {
   create 1557519690
-  modify 1595715941
+  modify 1597800949
   author Henry@LAPPY586
   access 0777
 }
@@ -3560,7 +3574,7 @@ inputs
 stat
 {
   create 1588543414
-  modify 1595715941
+  modify 1597800949
   author Henry@LAPPY586
   access 0777
 }
@@ -3817,7 +3831,7 @@ inputs
 stat
 {
   create 1568176217
-  modify 1595714920
+  modify 1597801128
   author Henry@LAPPY586
   access 0777
 }
@@ -3839,243 +3853,16 @@ remap_ramp_2D#value ../remap_ramp_2D#value
 remap_ramp_2D#interp ../remap_ramp_2D#interp
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/MOPs_Noise_Patterns1.spareparmdef"
-Content-Type: text/plain
-
-    parm {
-        name    "group"
-        baseparm
-        label   "Group"
-        export  none
-    }
-    parm {
-        name    "grouptype"
-        baseparm
-        label   "Group Type"
-        export  none
-    }
-    parm {
-        name    "sepparm3"
-        baseparm
-        label   "Separator"
-        export  none
-    }
-    parm {
-        name    "signature"
-        baseparm
-        label   "Noise Signature"
-        export  none
-    }
-    parm {
-        name    "attrname"
-        baseparm
-        label   "Output Attribute"
-        export  none
-    }
-    parm {
-        name    "attrnamev"
-        baseparm
-        label   "Output Attribute"
-        export  none
-    }
-    parm {
-        name    "sepparm"
-        baseparm
-        label   "Separator"
-        export  none
-    }
-    group {
-        name    "folder1"
-        label   "Noise"
-
-        parm {
-            name    "input"
-            baseparm
-            label   "Noise Type"
-            export  none
-        }
-        parm {
-            name    "use_rest"
-            baseparm
-            label   "Use Rest Attribute"
-            export  none
-        }
-        parm {
-            name    "sepparm2"
-            baseparm
-            label   "Separator"
-            export  none
-        }
-        parm {
-            name    "amp"
-            baseparm
-            label   "Amplitude"
-            export  none
-        }
-        parm {
-            name    "freq"
-            baseparm
-            label   "Frequency"
-            export  none
-        }
-        parm {
-            name    "uniform"
-            baseparm
-            label   "Uniform"
-            export  none
-        }
-        parm {
-            name    "roughness"
-            baseparm
-            label   "Roughness"
-            export  none
-        }
-        parm {
-            name    "octaves"
-            baseparm
-            label   "Octaves"
-            export  none
-        }
-        parm {
-            name    "offset"
-            baseparm
-            label   "Offset"
-            export  none
-        }
-        parm {
-            name    "tile_size"
-            baseparm
-            label   "Tile Size"
-            export  none
-        }
-        parm {
-            name    "Distort"
-            baseparm
-            label   "Distort"
-            export  none
-        }
-        parm {
-            name    "time_varying"
-            baseparm
-            label   "Time Varying"
-            export  none
-        }
-        parm {
-            name    "time_scale"
-            baseparm
-            label   "Time Scale"
-            export  none
-        }
-        parm {
-            name    "time_offset"
-            baseparm
-            label   "Time Offset"
-            export  none
-        }
-        parm {
-            name    "period"
-            label   "Period"
-            type    float
-            default { "0" }
-            range   { 0 10 }
-            parmtag { "script_callback_language" "python" }
-        }
-    }
-
-    group {
-        name    "folder1_1"
-        label   "Remap"
-        hidewhentab "{ signature == 1 }"
-
-        parm {
-            name    "do_remap_2D"
-            baseparm
-            label   "Enable Remap"
-            export  none
-        }
-        parm {
-            name    "input_rangev"
-            baseparm
-            label   "Input Range"
-            export  none
-        }
-        parm {
-            name    "output_rangev"
-            baseparm
-            label   "Output Range"
-            export  none
-        }
-        parm {
-            name    "remap_ramp_2D"
-            baseparm
-            label   "Remap Ramp"
-            export  none
-        }
-    }
-
-    group {
-        name    "folder1_2"
-        label   "Remap"
-        hidewhentab "{ signature == 0 }"
-
-        parm {
-            name    "do_remap_3D"
-            baseparm
-            label   "Enable Remap"
-            export  none
-        }
-        parm {
-            name    "input_range"
-            baseparm
-            label   "Input Range"
-            invisible
-            export  none
-        }
-        parm {
-            name    "output_range"
-            baseparm
-            label   "Output Range"
-            invisible
-            export  none
-        }
-        parm {
-            name    "input_min_3D"
-            baseparm
-            label   "Input Min"
-            export  none
-        }
-        parm {
-            name    "input_max_3D"
-            baseparm
-            label   "Input Max"
-            export  none
-        }
-        parm {
-            name    "output_min_3D"
-            baseparm
-            label   "Output Min"
-            export  none
-        }
-        parm {
-            name    "output_max_3D"
-            baseparm
-            label   "Output Max"
-            export  none
-        }
-        parm {
-            name    "remap_ramp_3D"
-            baseparm
-            label   "Remap Ramp"
-            export  none
-        }
-    }
-
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/MOPs_Noise_Patterns1.chn"
 Content-Type: text/plain
 
 {
+    channel time {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = "@Time % ch(\"../period\")" }
+    }
     channel remap_ramp_2D1pos {
       lefttype = extend
       righttype = extend
@@ -4467,15 +4254,7 @@ Content-Type: text/plain
       righttype = extend
       flags = 0
       start = -0.041666666666666664
-      segment { length = 0 expr = "(ch(\"../MOPs_Noise_Patterns/time_offset\") - ch(\"period\")) * ch(\"time_scale\")" }
-    }
-    channel period {
-      lefttype = extend
-      righttype = extend
-      default = 2
-      flags = 0
-      start = -0.041666666666666664
-      segment { length = 0 value = 2 2 expr = ch(\"../period\") }
+      segment { length = 0 expr = "(ch(\"../MOPs_Noise_Patterns/time_offset\") - ch(\"../period\")) * ch(\"time_scale\")" }
     }
   }
 
@@ -4488,7 +4267,7 @@ version 0.8
 group	[ 0	locks=0 ]	(	""	)
 grouptype	[ 0	locks=0 ]	(	"guess"	)
 sepparm3	[ 0	locks=0 ]	(	)
-signature	[ 0	locks=0	autoscope=0 ]	(	[ signature	0 ] 	)
+signature	[ 0	locks=0	autoscope=0 ]	(	[ signature	1 ] 	)
 attrname	[ 0	locks=0	autoscope=0 ]	(	__offset	)
 attrnamev	[ 0	locks=0	autoscope=0 ]	(	__offset	)
 sepparm	[ 0	locks=0 ]	(	)
@@ -4497,7 +4276,7 @@ input	[ 0	locks=0	autoscope=0 ]	(	[ input	9 ] 	)
 use_rest	[ 0	locks=0	autoscope=0 ]	(	[ use_rest	0 ] 	)
 sepparm2	[ 0	locks=0 ]	(	)
 amp	[ 0	locks=0	autoscope=0 ]	(	[ ampx	1 ] 	[ ampy	1 ] 	[ ampz	1 ] 	)
-freq	[ 0	locks=0	autoscope=0 ]	(	[ freqx	4.7000000000000002 ] 	[ freqy	4.7000000000000002 ] 	[ freqz	4.7000000000000002 ] 	[ freqw	4.7000000000000002 ] 	)
+freq	[ 0	locks=0	autoscope=0 ]	(	[ freqx	1 ] 	[ freqy	1 ] 	[ freqz	1 ] 	[ freqw	1 ] 	)
 uniform	[ 0	locks=0	autoscope=0 ]	(	[ uniform	0 ] 	)
 roughness	[ 0	locks=0	autoscope=0 ]	(	[ roughness	0.5 ] 	)
 octaves	[ 0	locks=0	autoscope=0 ]	(	[ octaves	1 ] 	)
@@ -4505,6 +4284,7 @@ offset	[ 0	locks=0	autoscope=0 ]	(	[ offsetx	0 ] 	[ offsety	0 ] 	[ offsetz	0 ] 	
 tile_size	[ 0	locks=0	autoscope=0 ]	(	[ tile_sizex	1 ] 	[ tile_sizey	1 ] 	[ tile_sizez	1 ] 	)
 Distort	[ 0	locks=0	autoscope=0 ]	(	[ Distortx	0 ] 	[ Distorty	0 ] 	[ Distortz	0 ] 	)
 time_varying	[ 0	locks=0	autoscope=0 ]	(	[ time_varying	1 ] 	)
+time	[ 0	locks=0 ]	(	[ time	0 ] 	)
 time_scale	[ 0	locks=0	autoscope=0 ]	(	[ time_scale	1 ] 	)
 time_offset	[ 0	locks=0 ]	(	[ time_offset	-2 ] 	)
 do_remap_2D	[ 0	locks=0 ]	(	[ do_remap_2D	0 ] 	)
@@ -4531,8 +4311,6 @@ remap_ramp_3D1interp	[ 0	locks=0 ]	(	[ remap_ramp_3D1interp	1 ] 	)
 remap_ramp_3D2pos	[ 0	locks=0 ]	(	[ remap_ramp_3D2pos	1 ] 	)
 remap_ramp_3D2value	[ 0	locks=0 ]	(	[ remap_ramp_3D2value	1 ] 	)
 remap_ramp_3D2interp	[ 0	locks=0 ]	(	[ remap_ramp_3D2interp	1 ] 	)
-folder1	[ 0	locks=0 ]	(	0	0	0	)
-period	[ 0	locks=0 ]	(	[ period	2 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -4579,7 +4357,7 @@ inputs
 stat
 {
   create 1595708550
-  modify 1595715981
+  modify 1597800949
   author Henry@LAPPY586
   access 0777
 }
@@ -4660,7 +4438,7 @@ inputs
 stat
 {
   create 1595704867
-  modify 1595714920
+  modify 1597801301
   author Henry@LAPPY586
   access 0777
 }
@@ -4668,208 +4446,6 @@ color UT_Color RGB 0.8 0.8 0.8
 delscript ""
 exprlanguage hscript
 end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribwrangle1.spareparmdef"
-Content-Type: text/plain
-
-    group {
-        name    "folder1"
-        label   "Code"
-
-        parm {
-            name    "group"
-            baseparm
-            label   "Group"
-            export  none
-            bindselector points "Modify Points"
-                "Select the points to affect and press Enter to complete."
-                0 1 0xffffffff 0 grouptype 0
-        }
-        parm {
-            name    "grouptype"
-            baseparm
-            label   "Group Type"
-            export  none
-        }
-        parm {
-            name    "class"
-            baseparm
-            label   "Run Over"
-            export  none
-        }
-        parm {
-            name    "vex_numcount"
-            baseparm
-            label   "Number Count"
-            export  none
-        }
-        parm {
-            name    "vex_threadjobsize"
-            baseparm
-            label   "Thread Job Size"
-            export  none
-        }
-        parm {
-            name    "snippet"
-            baseparm
-            label   "VEXpression"
-            export  all
-        }
-        parm {
-            name    "exportlist"
-            baseparm
-            label   "Attributes to Create"
-            export  none
-        }
-        parm {
-            name    "vex_strict"
-            baseparm
-            label   "Enforce Prototypes"
-            export  none
-        }
-    }
-
-    group {
-        name    "folder1_1"
-        label   "Bindings"
-
-        parm {
-            name    "autobind"
-            baseparm
-            label   "Autobind by Name"
-            export  none
-        }
-        multiparm {
-            name    "bindings"
-            label    "Number of Bindings"
-            baseparm
-            default 0
-            parmtag { "autoscope" "0000000000000000" }
-            parmtag { "multistartoffset" "1" }
-
-            parm {
-                name    "bindname#"
-                baseparm
-                label   "Attribute Name"
-                export  none
-            }
-            parm {
-                name    "bindparm#"
-                baseparm
-                label   "VEX Parameter"
-                export  none
-            }
-        }
-
-        parm {
-            name    "groupautobind"
-            baseparm
-            label   "Autobind Groups by Name"
-            export  none
-        }
-        multiparm {
-            name    "groupbindings"
-            label    "Group Bindings"
-            baseparm
-            default 0
-            parmtag { "autoscope" "0000000000000000" }
-            parmtag { "multistartoffset" "1" }
-
-            parm {
-                name    "bindgroupname#"
-                baseparm
-                label   "Group Name"
-                export  none
-            }
-            parm {
-                name    "bindgroupparm#"
-                baseparm
-                label   "VEX Parameter"
-                export  none
-            }
-        }
-
-        parm {
-            name    "vex_cwdpath"
-            baseparm
-            label   "Evaluation Node Path"
-            export  none
-        }
-        parm {
-            name    "vex_outputmask"
-            baseparm
-            label   "Export Parameters"
-            export  none
-        }
-        parm {
-            name    "vex_updatenmls"
-            baseparm
-            label   "Update Normals If Displaced"
-            export  none
-        }
-        parm {
-            name    "vex_matchattrib"
-            baseparm
-            label   "Attribute to Match"
-            export  none
-        }
-        parm {
-            name    "vex_inplace"
-            baseparm
-            label   "Compute Results In Place"
-            export  none
-        }
-        parm {
-            name    "vex_selectiongroup"
-            baseparm
-            label   "Output Selection Group"
-            export  none
-        }
-        parm {
-            name    "vex_precision"
-            baseparm
-            label   "VEX Precision"
-            export  none
-        }
-    }
-
-    parm {
-        name    "period"
-        label   "Period"
-        type    float
-        default { "0" }
-        range   { 0 1 }
-    }
-    parm {
-        name    "timescale"
-        label   "Timescale"
-        type    float
-        default { "0" }
-        range   { 0 1 }
-    }
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribwrangle1.chn"
-Content-Type: text/plain
-
-{
-    channel period {
-      lefttype = extend
-      righttype = extend
-      default = 2
-      flags = 0
-      start = -0.041666666666666664
-      segment { length = 0 value = 2 2 expr = ch(\"../MOPs_Noise_Patterns1/period\") }
-    }
-    channel timescale {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      start = -0.041666666666666664
-      segment { length = 0 expr = ch(\"../MOPs_Noise_Patterns/time_scale\") }
-    }
-  }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/attribwrangle1.parm"
@@ -4883,13 +4459,7 @@ grouptype	[ 0	locks=0 ]	(	"guess"	)
 class	[ 0	locks=0 ]	(	"detail"	)
 vex_numcount	[ 0	locks=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
-snippet	[ 0	locks=0 ]	(	"# include <math.h>
-# include <math.h>
-float time = (@Time *  PI) / ch(\"period\");
-f@__noisescale = sin((time*2) - PI/2);
-f@__bias = sin(time-PI/2);
-f@__bias = fit(@__bias, -1, 1, 0, 1);
-f@__noisescale = fit(@__noisescale, -1 ,1, 1, 2);"	)
+snippet	[ 0	locks=0 ]	(	"f@__bias = (@Time % ch(\"../period\")) / ch(\"../period\");"	)
 exportlist	[ 0	locks=0 ]	(	*	)
 vex_strict	[ 0	locks=0 ]	(	"off"	)
 autobind	[ 0	locks=0 ]	(	"on"	)
@@ -4903,9 +4473,6 @@ vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 vex_precision	[ 0	locks=0 ]	(	auto	)
-folder1	[ 0	locks=0 ]	(	0	0	)
-period	[ 0	locks=0 ]	(	[ period	2 ] 	)
-timescale	[ 0	locks=0 ]	(	[ timescale	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -4952,7 +4519,7 @@ inputs
 stat
 {
   create 1595708550
-  modify 1595716011
+  modify 1597800949
   author Henry@LAPPY586
   access 0777
 }
@@ -5094,7 +4661,7 @@ inputs
 stat
 {
   create 1523127556
-  modify 1595714920
+  modify 1597800949
   author Mo@Mo-PC
   access 0777
 }
@@ -5317,7 +4884,7 @@ inputs
 stat
 {
   create 1546818553
-  modify 1595715941
+  modify 1597800949
   author Henry@LAPPY586
   access 0777
 }
@@ -5431,7 +4998,7 @@ inputs
 stat
 {
   create 1546818578
-  modify 1595715941
+  modify 1597800949
   author Henry@LAPPY586
   access 0777
 }
@@ -5507,7 +5074,7 @@ inputs
 stat
 {
   create 1546819340
-  modify 1595715941
+  modify 1597800949
   author Henry@LAPPY586
   access 0777
 }
@@ -5848,7 +5415,7 @@ inputs
 stat
 {
   create 1546923929
-  modify 1595715941
+  modify 1597800949
   author Henry@LAPPY586
   access 0777
 }
@@ -5922,7 +5489,7 @@ inputs
 stat
 {
   create 1546925005
-  modify 1595714920
+  modify 1597800949
   author Henry@LAPPY586
   access 0777
 }
@@ -5995,7 +5562,7 @@ inputs
 stat
 {
   create 1546925057
-  modify 1595714920
+  modify 1597800949
   author Henry@LAPPY586
   access 0777
 }
@@ -6071,7 +5638,7 @@ inputs
 stat
 {
   create 1546925167
-  modify 1595715941
+  modify 1597800949
   author Henry@LAPPY586
   access 0777
 }
@@ -6144,7 +5711,7 @@ inputs
 stat
 {
   create 1546925176
-  modify 1595715941
+  modify 1597800949
   author Henry@LAPPY586
   access 0777
 }
@@ -6274,7 +5841,7 @@ inputs
 stat
 {
   create 1554924824
-  modify 1595714865
+  modify 1597800949
   author Henry@LAPPY586
   access 0777
 }
@@ -6302,7 +5869,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -6415,7 +5982,7 @@ inputs
 stat
 {
   create 1554929951
-  modify 1595715941
+  modify 1597800949
   author Henry@LAPPY586
   access 0777
 }
@@ -6443,7 +6010,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -6490,7 +6057,7 @@ inputs
 stat
 {
   create 1554930775
-  modify 1595715941
+  modify 1597800949
   author Henry@LAPPY586
   access 0777
 }
@@ -6561,7 +6128,7 @@ inputs
 stat
 {
   create 1324348265
-  modify 1595714865
+  modify 1597800949
   author nobody@nowhere.sidefx.com
   access 0777
 }
@@ -6667,7 +6234,7 @@ inputs
 stat
 {
   create 1324348294
-  modify 1595714865
+  modify 1597800949
   author nobody@nowhere.sidefx.com
   access 0777
 }
@@ -6746,7 +6313,7 @@ inputs
 stat
 {
   create 1324348294
-  modify 1595714865
+  modify 1597800949
   author nobody@nowhere.sidefx.com
   access 0777
 }
@@ -6825,7 +6392,7 @@ inputs
 stat
 {
   create 1324348294
-  modify 1595714865
+  modify 1597800949
   author nobody@nowhere.sidefx.com
   access 0777
 }
@@ -6904,7 +6471,7 @@ inputs
 stat
 {
   create 1324348294
-  modify 1595714865
+  modify 1597800949
   author nobody@nowhere.sidefx.com
   access 0777
 }
@@ -7046,7 +6613,7 @@ inputs
 stat
 {
   create 1546995483
-  modify 1595714865
+  modify 1597800949
   author Henry@LAPPY586
   access 0777
 }
@@ -7134,7 +6701,7 @@ inputs
 stat
 {
   create 1554929951
-  modify 1595714865
+  modify 1597800949
   author Henry@LAPPY586
   access 0777
 }
@@ -7233,7 +6800,7 @@ inputs
 stat
 {
   create 1546819340
-  modify 1595715941
+  modify 1597800949
   author Henry@LAPPY586
   access 0777
 }
@@ -7440,7 +7007,7 @@ inputs
 stat
 {
   create 1565235649
-  modify 1595714922
+  modify 1597800949
   author Henry@LAPPY586
   access 0777
 }
@@ -7520,7 +7087,7 @@ inputs
 stat
 {
   create 1565235679
-  modify 1595715941
+  modify 1597800949
   author Henry@LAPPY586
   access 0777
 }
@@ -7588,7 +7155,7 @@ inputs
 stat
 {
   create 1595708519
-  modify 1595715976
+  modify 1597800949
   author Henry@LAPPY586
   access 0777
 }
@@ -7665,7 +7232,7 @@ inputs
 stat
 {
   create 1595715958
-  modify 1595715998
+  modify 1597800949
   author Henry@LAPPY586
   access 0777
 }
@@ -7693,7 +7260,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
