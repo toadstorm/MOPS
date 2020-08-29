@@ -9,6 +9,11 @@ MOPs is intended to be an easy way to manipulate lots of copies of things, lever
 
 MOPs is based on an internal framework of nodes that convert point attributes to packed primitive intrinsic attributes and back again, making it easy for technical artists to develop new MOPs modifiers.
 
+* [MOPs Forum](https://forum.motionoperators.com)
+* [Facebook User's Group](https://www.facebook.com/groups/616993195326231)
+* [Motionoperators Twitter](https://twitter.com/motionoperators)
+* [Motionoperators Instagram](https://www.instagram.com/motionoperators)
+
 ### Installation:
 
 **INSTALLATION PROCEDURE HAS BEEN SIMPLIFIED FROM PREVIOUS RELEASES. PLEASE READ CAREFULLY.**
@@ -55,7 +60,11 @@ HOUDINI_PATH=$HOUDINI_PATH;$QLIB;$MOPS;&
 It's important that your HOUDINI_PATH always ends in ;&. You can append any other paths you like,
 but the last path should be `&`. This will ensure that Houdini's built-in operators work normally.
 
-To verify your install, open Houdini and drop down a Geometry container, then dive inside. If you see MOPs nodes in the Tab menu, the installation was successful. You can also check the "+" button next to the Shelf menu and look for a shelf called "MOPs" to verify your installation.
+
+## Step 3: Test MOPs
+
+To ensure that the installation worked correctly, create a Geometry container and dive inside, then look for the "MOPs" entry in the Tab menu. Also look for a toolbar called "MOPS" in your shelf list. The MOPs Shelf contains some handy tools complete with their own documentation.
+
 
 ### Usage basics:
 

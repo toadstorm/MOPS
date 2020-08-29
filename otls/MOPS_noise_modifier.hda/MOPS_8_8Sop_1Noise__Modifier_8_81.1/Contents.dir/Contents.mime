@@ -32,25 +32,24 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -6.67043 -7.01351
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+position -4.25175 -11.2981
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-1 "output1"
 }
 inputsNamed3
 {
-0 	MOPs_Spread_Falloff 1 1 "input1"
+0 	MOPs_Aim 2 1 "input1"
 }
 inputs
 {
-0 	MOPs_Spread_Falloff 0 1
+0 	MOPs_Aim 0 1
 }
 stat
 {
-  create 1586107414
-  modify 1586108851
+  create 1588543198
+  modify 1588543644
   author Henry@LAPPY586
   access 0777
 }
@@ -154,17 +153,17 @@ outputsNamed3
 inputsNamed3
 {
 1 	group1 1 1 "input1"
-2 	split1 1 1 "input2"
+2 	pointwrangle1 1 1 "input2"
 }
 inputs
 {
 0 	group1 0 1
-1 	split1 0 1
+1 	pointwrangle1 0 1
 }
 stat
 {
   create 1583723904
-  modify 1586107415
+  modify 1588543414
   author Henry@LAPPY586
   access 0777
 }
@@ -204,7 +203,7 @@ sepparm	[ 0	locks=0 ]	(	)
 matchmode	[ 0	locks=0	autoscope=0 ]	(	"0"	)
 folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
 do_translate	[ 0	locks=0	autoscope=0 ]	(	"on"	)
-do_rotate	[ 0	locks=0	autoscope=0 ]	(	[ do_rotate	1 ] 	)
+do_rotate	[ 0	locks=0	autoscope=0 ]	(	[ do_rotate	0 ] 	)
 do_scale	[ 0	locks=0	autoscope=0 ]	(	[ do_scale	0 ] 	)
 do_pivots	[ 0	locks=0	autoscope=0 ]	(	"on"	)
 sepparm2	[ 0	locks=0 ]	(	)
@@ -327,7 +326,7 @@ inputs
 stat
 {
   create 1546924805
-  modify 1586107415
+  modify 1588543199
   author Henry@LAPPY586
   access 0777
 }
@@ -410,7 +409,7 @@ inputs
 stat
 {
   create 1568176217
-  modify 1586108689
+  modify 1588543199
   author Henry@LAPPY586
   access 0777
 }
@@ -739,16 +738,16 @@ folder0	[ 0	locks=0	autoscope=0 ]	(	1	1	1	)
 input	[ 0	locks=0	autoscope=0 ]	(	[ input	9 ] 	)
 use_rest	[ 0	locks=0	autoscope=0 ]	(	[ use_rest	0 ] 	)
 sepparm2	[ 0	locks=0 ]	(	)
-amp	[ 0	locks=0	autoscope=0 ]	(	[ ampx	1 ] 	[ ampy	1 ] 	[ ampz	1 ] 	)
-freq	[ 0	locks=0	autoscope=0 ]	(	[ freqx	1 ] 	[ freqy	1 ] 	[ freqz	1 ] 	[ freqw	1 ] 	)
+amp	[ 0	locks=0	autoscope=0 ]	(	[ ampx	0.20000000000000001 ] 	[ ampy	0.20000000000000001 ] 	[ ampz	0.20000000000000001 ] 	)
+freq	[ 0	locks=0	autoscope=0 ]	(	[ freqx	1.1000000000000001 ] 	[ freqy	1.1000000000000001 ] 	[ freqz	1.1000000000000001 ] 	[ freqw	1.1000000000000001 ] 	)
 uniform	[ 0	locks=0	autoscope=0 ]	(	[ uniform	0 ] 	)
 roughness	[ 0	locks=0	autoscope=0 ]	(	[ roughness	0.5 ] 	)
 octaves	[ 0	locks=0	autoscope=0 ]	(	[ octaves	1 ] 	)
 offset	[ 0	locks=0	autoscope=0 ]	(	[ offsetx	0 ] 	[ offsety	0 ] 	[ offsetz	0 ] 	[ offsetw	0 ] 	)
 tile_size	[ 0	locks=0	autoscope=0 ]	(	[ tile_sizex	1 ] 	[ tile_sizey	1 ] 	[ tile_sizez	1 ] 	)
 Distort	[ 0	locks=0	autoscope=0 ]	(	[ Distortx	0 ] 	[ Distorty	0 ] 	[ Distortz	0 ] 	)
-time_varying	[ 0	locks=0	autoscope=0 ]	(	[ time_varying	0 ] 	)
-time_scale	[ 0	locks=0	autoscope=0 ]	(	[ time_scale	1 ] 	)
+time_varying	[ 0	locks=0	autoscope=0 ]	(	[ time_varying	1 ] 	)
+time_scale	[ 0	locks=0	autoscope=0 ]	(	[ time_scale	0.5 ] 	)
 do_remap_2D	[ 0	locks=0 ]	(	[ do_remap_2D	0 ] 	)
 input_rangev	[ 0	locks=0	autoscope=0 ]	(	[ input_rangevx	-1 ] 	[ input_rangevy	1 ] 	)
 output_rangev	[ 0	locks=0	autoscope=0 ]	(	[ output_rangevx	-1 ] 	[ output_rangevy	1 ] 	)
@@ -803,7 +802,7 @@ inputs
 stat
 {
   create 1554928384
-  modify 1586107415
+  modify 1588543199
   author Henry@LAPPY586
   access 0777
 }
@@ -1197,7 +1196,7 @@ inputs
 stat
 {
   create 1554928384
-  modify 1586107415
+  modify 1588543199
   author Henry@LAPPY586
   access 0777
 }
@@ -1597,7 +1596,7 @@ inputs
 stat
 {
   create 1546815258
-  modify 1586107415
+  modify 1588543199
   author Henry@LAPPY586
   access 0777
 }
@@ -1817,7 +1816,7 @@ inputs
 stat
 {
   create 1546816119
-  modify 1586107415
+  modify 1588543199
   author Henry@LAPPY586
   access 0777
 }
@@ -2212,7 +2211,7 @@ inputs
 stat
 {
   create 1554928384
-  modify 1586107415
+  modify 1588543199
   author Henry@LAPPY586
   access 0777
 }
@@ -2556,7 +2555,7 @@ inputs
 stat
 {
   create 1554928384
-  modify 1586107415
+  modify 1588543199
   author Henry@LAPPY586
   access 0777
 }
@@ -2919,7 +2918,7 @@ inputs
 stat
 {
   create 1586049942
-  modify 1586108689
+  modify 1588543199
   author Henry@LAPPY586
   access 0777
 }
@@ -3286,7 +3285,7 @@ inputs
 stat
 {
   create 1557519690
-  modify 1586107415
+  modify 1588543199
   author Henry@LAPPY586
   access 0777
 }
@@ -3341,6 +3340,278 @@ bindparm1	[ 0	locks=0 ]	(	attr	)
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/pointwrangle2.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointwrangle1.init"
+Content-Type: text/plain
+
+type = attribwrangle
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointwrangle1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -10.7315 -2.07269
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	split1 1 1 "input1"
+2 	group1 1 1 "input2"
+}
+inputs
+{
+0 	split1 0 1
+1 	group1 0 1
+}
+stat
+{
+  create 1588543414
+  modify 1588543524
+  author Henry@LAPPY586
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointwrangle1.spareparmdef"
+Content-Type: text/plain
+
+    group {
+        name    "folder1"
+        label   "Code"
+
+        parm {
+            name    "group"
+            baseparm
+            label   "Group"
+            export  none
+            bindselector points "Modify Points"
+                "Select the points to affect and press Enter to complete."
+                0 1 0xffffffff 0 grouptype 0
+        }
+        parm {
+            name    "grouptype"
+            baseparm
+            label   "Group Type"
+            export  none
+        }
+        parm {
+            name    "class"
+            baseparm
+            label   "Run Over"
+            export  none
+        }
+        parm {
+            name    "vex_numcount"
+            baseparm
+            label   "Number Count"
+            export  none
+        }
+        parm {
+            name    "vex_threadjobsize"
+            baseparm
+            label   "Thread Job Size"
+            export  none
+        }
+        parm {
+            name    "snippet"
+            baseparm
+            label   "VEXpression"
+            export  all
+        }
+        parm {
+            name    "exportlist"
+            baseparm
+            label   "Attributes to Create"
+            export  none
+        }
+        parm {
+            name    "vex_strict"
+            baseparm
+            label   "Enforce Prototypes"
+            export  none
+        }
+    }
+
+    group {
+        name    "folder1_1"
+        label   "Bindings"
+
+        parm {
+            name    "autobind"
+            baseparm
+            label   "Autobind by Name"
+            export  none
+        }
+        multiparm {
+            name    "bindings"
+            label    "Number of Bindings"
+            baseparm
+            default 0
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "multistartoffset" "1" }
+
+            parm {
+                name    "bindname#"
+                baseparm
+                label   "Attribute Name"
+                export  none
+            }
+            parm {
+                name    "bindparm#"
+                baseparm
+                label   "VEX Parameter"
+                export  none
+            }
+        }
+
+        parm {
+            name    "groupautobind"
+            baseparm
+            label   "Autobind Groups by Name"
+            export  none
+        }
+        multiparm {
+            name    "groupbindings"
+            label    "Group Bindings"
+            baseparm
+            default 0
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "multistartoffset" "1" }
+
+            parm {
+                name    "bindgroupname#"
+                baseparm
+                label   "Group Name"
+                export  none
+            }
+            parm {
+                name    "bindgroupparm#"
+                baseparm
+                label   "VEX Parameter"
+                export  none
+            }
+        }
+
+        parm {
+            name    "vex_cwdpath"
+            baseparm
+            label   "Evaluation Node Path"
+            export  none
+        }
+        parm {
+            name    "vex_outputmask"
+            baseparm
+            label   "Export Parameters"
+            export  none
+        }
+        parm {
+            name    "vex_updatenmls"
+            baseparm
+            label   "Update Normals If Displaced"
+            export  none
+        }
+        parm {
+            name    "vex_matchattrib"
+            baseparm
+            label   "Attribute to Match"
+            export  none
+        }
+        parm {
+            name    "vex_inplace"
+            baseparm
+            label   "Compute Results In Place"
+            export  none
+        }
+        parm {
+            name    "vex_selectiongroup"
+            baseparm
+            label   "Output Selection Group"
+            export  none
+        }
+        parm {
+            name    "vex_precision"
+            baseparm
+            label   "VEX Precision"
+            export  none
+        }
+    }
+
+    parm {
+        name    "aim_weight"
+        label   "Aim Weight"
+        type    float
+        default { "0" }
+        range   { 0 1 }
+    }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointwrangle1.chn"
+Content-Type: text/plain
+
+{
+    channel aim_weight {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../rotation_amount\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointwrangle1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+folder0	[ 0	locks=0 ]	(	0	0	)
+group	[ 0	locks=0 ]	(	""	)
+grouptype	[ 0	locks=0 ]	(	"guess"	)
+class	[ 0	locks=0 ]	(	"point"	)
+vex_numcount	[ 0	locks=0 ]	(	10	)
+vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
+snippet	[ 0	locks=0 ]	(	"float aim_weight = ch(\"aim_weight\");
+int match = idtopoint(1, i@id);
+vector4 orig_orient = point(1, \"orient\", match);
+p@orient = slerp(orig_orient, p@orient, aim_weight);"	)
+exportlist	[ 0	locks=0 ]	(	*	)
+vex_strict	[ 0	locks=0 ]	(	"off"	)
+autobind	[ 0	locks=0 ]	(	"on"	)
+bindings	[ 0	locks=0 ]	(	0	)
+groupautobind	[ 0	locks=0 ]	(	"on"	)
+groupbindings	[ 0	locks=0 ]	(	0	)
+vex_cwdpath	[ 0	locks=0 ]	(	.	)
+vex_outputmask	[ 0	locks=0 ]	(	*	)
+vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
+vex_matchattrib	[ 0	locks=0 ]	(	id	)
+vex_inplace	[ 0	locks=0 ]	(	"off"	)
+vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
+folder1	[ 0	locks=0 ]	(	0	0	)
+aim_weight	[ 0	locks=0 ]	(	[ aim_weight	0.041000000000000002 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointwrangle1.userdata"
 Content-Type: text/plain
 
 {
@@ -3442,7 +3713,7 @@ inputs
 stat
 {
   create 1523127556
-  modify 1586107415
+  modify 1588543199
   author Mo@Mo-PC
   access 0777
 }
@@ -3665,7 +3936,7 @@ inputs
 stat
 {
   create 1546818553
-  modify 1586107415
+  modify 1588543199
   author Henry@LAPPY586
   access 0777
 }
@@ -3779,7 +4050,7 @@ inputs
 stat
 {
   create 1546818578
-  modify 1586107415
+  modify 1588543199
   author Henry@LAPPY586
   access 0777
 }
@@ -3855,7 +4126,7 @@ inputs
 stat
 {
   create 1546819340
-  modify 1586107415
+  modify 1588543199
   author Henry@LAPPY586
   access 0777
 }
@@ -4196,7 +4467,7 @@ inputs
 stat
 {
   create 1546923929
-  modify 1586107415
+  modify 1588543199
   author Henry@LAPPY586
   access 0777
 }
@@ -4270,7 +4541,7 @@ inputs
 stat
 {
   create 1546925005
-  modify 1586107415
+  modify 1588543199
   author Henry@LAPPY586
   access 0777
 }
@@ -4343,7 +4614,7 @@ inputs
 stat
 {
   create 1546925057
-  modify 1586107415
+  modify 1588543199
   author Henry@LAPPY586
   access 0777
 }
@@ -4419,7 +4690,7 @@ inputs
 stat
 {
   create 1546925167
-  modify 1586107415
+  modify 1588543199
   author Henry@LAPPY586
   access 0777
 }
@@ -4492,7 +4763,7 @@ inputs
 stat
 {
   create 1546925176
-  modify 1586107415
+  modify 1588543199
   author Henry@LAPPY586
   access 0777
 }
@@ -4622,7 +4893,7 @@ inputs
 stat
 {
   create 1554924824
-  modify 1586107415
+  modify 1588543199
   author Henry@LAPPY586
   access 0777
 }
@@ -4763,7 +5034,7 @@ inputs
 stat
 {
   create 1554929951
-  modify 1586107415
+  modify 1588543199
   author Henry@LAPPY586
   access 0777
 }
@@ -4838,7 +5109,7 @@ inputs
 stat
 {
   create 1554930775
-  modify 1586107415
+  modify 1588543199
   author Henry@LAPPY586
   access 0777
 }
@@ -4866,7 +5137,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -4909,7 +5180,7 @@ inputs
 stat
 {
   create 1324348265
-  modify 1586109138
+  modify 1588543199
   author nobody@nowhere.sidefx.com
   access 0777
 }
@@ -5015,7 +5286,7 @@ inputs
 stat
 {
   create 1324348294
-  modify 1586107415
+  modify 1588543199
   author nobody@nowhere.sidefx.com
   access 0777
 }
@@ -5094,7 +5365,7 @@ inputs
 stat
 {
   create 1324348294
-  modify 1586107415
+  modify 1588543199
   author nobody@nowhere.sidefx.com
   access 0777
 }
@@ -5173,7 +5444,7 @@ inputs
 stat
 {
   create 1324348294
-  modify 1586107415
+  modify 1588543199
   author nobody@nowhere.sidefx.com
   access 0777
 }
@@ -5252,7 +5523,7 @@ inputs
 stat
 {
   create 1324348294
-  modify 1586107415
+  modify 1588543199
   author nobody@nowhere.sidefx.com
   access 0777
 }
@@ -5394,7 +5665,7 @@ inputs
 stat
 {
   create 1546995483
-  modify 1586107415
+  modify 1588543199
   author Henry@LAPPY586
   access 0777
 }
@@ -5482,7 +5753,7 @@ inputs
 stat
 {
   create 1554929951
-  modify 1586107415
+  modify 1588543199
   author Henry@LAPPY586
   access 0777
 }
@@ -5581,7 +5852,7 @@ inputs
 stat
 {
   create 1546819340
-  modify 1586107415
+  modify 1588543199
   author Henry@LAPPY586
   access 0777
 }
@@ -5788,7 +6059,7 @@ inputs
 stat
 {
   create 1565235649
-  modify 1586107415
+  modify 1588543199
   author Henry@LAPPY586
   access 0777
 }
@@ -5868,7 +6139,7 @@ inputs
 stat
 {
   create 1565235679
-  modify 1586107415
+  modify 1588543199
   author Henry@LAPPY586
   access 0777
 }
@@ -5907,7 +6178,7 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot.order"
 Content-Type: text/plain
 
-34
+35
 IN
 group1
 MOPs_Apply_Attributes
@@ -5942,6 +6213,7 @@ uvtexture2
 attribdelete1
 attribswap1
 attribswap2
+pointwrangle1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"

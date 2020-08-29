@@ -17,6 +17,14 @@ Packed Primitives:
 
 == General ==
 
+Auto Compute Point Radius:
+    #id: autoaxis
+    Automatically estimate the point radius of each instance based on the longest bounding box axis.
+    
+Point Radius Axis:
+    #id: axis
+    If Auto Compute Point Radius is disabled, use this local axis to determine the point radius of each instance.
+
 Stick To Surface:
     #id: sticktosurface
 
@@ -41,7 +49,7 @@ Max Iterations:
     
     Relaxation is an iterative process. This specifies how many relax iterations should be executed.
     
-Insphere Radius Scale:
+Radius Scale:
     #id: radius
     
     Scales the instance's boundary. 
@@ -54,7 +62,7 @@ Relax in 3D Space:
 Use Normal Attribute:
     #id: usenormals
     
-    Use instance's normal attribute to generate direction in which instance will be moved..
+    Use instance's normal attribute to generate direction in which instance will be moved.
     
 Normal Direction:
     #id: normal

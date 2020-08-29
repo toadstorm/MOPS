@@ -32,23 +32,26 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 3.42623 -2.05984
-connectornextid 0
+position -1.07624 -9.14674
+connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
+1 "output1"
 }
 inputsNamed3
 {
+0 	MOPs_Trigger 0 1 "input1"
 }
 inputs
 {
+0 	MOPs_Trigger 0 1
 }
 stat
 {
-  create 1573536363
-  modify 1573536367
-  author Henry@LAPPY586
+  create 1597939558
+  modify 1598661273
+  author Henry@GlaDOS
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -105,7 +108,7 @@ inputs
 stat
 {
   create 1531283685
-  modify 1573536363
+  modify 1598661263
   author Henry@LAPPY586
   access 0777
 }
@@ -294,6 +297,12 @@ Content-Type: text/plain
         default { "0" }
         range   { 0 10 }
     }
+    parm {
+        name    "vex_precision"
+        baseparm
+        label   "VEX Precision"
+        export  none
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/alembic_cycling.chn"
@@ -329,7 +338,7 @@ if(type == \"AlembicRef\") {
     float start = point(0, \"mops_abc_start\", @ptnum);
     float end = point(0, \"mops_abc_end\", @ptnum);
     float index = primintrinsic(0, \"abcframe\", @ptnum) / @TimeInc;
-    f@index = index;
+    // f@index = index;
     
     // have to manually clamp alembics...
     if(s@mops_abc_wrap == \"cycle\") {
@@ -376,6 +385,7 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 set_abc_range	[ 0	locks=0 ]	(	"off"	)
 new_start	[ 0	locks=0 ]	(	0	)
@@ -605,6 +615,12 @@ Content-Type: text/plain
         type    string
         default { "" }
     }
+    parm {
+        name    "vex_precision"
+        baseparm
+        label   "VEX Precision"
+        export  none
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/set_intrinsics_channel.chn"
@@ -664,6 +680,7 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 index	[ 0	locks=0 ]	(	[ index	1 ] 	)
 mode	[ 0	locks=0 ]	(	[ mode	set ] 	)
@@ -886,6 +903,12 @@ Content-Type: text/plain
         default { "0" }
         range   { 0 10 }
     }
+    parm {
+        name    "vex_precision"
+        baseparm
+        label   "VEX Precision"
+        export  none
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/modify_sequence_cycling.chn"
@@ -953,6 +976,7 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 mode	[ 0	locks=0 ]	(	[ mode	2 ] 	)
 }
@@ -1180,6 +1204,12 @@ Content-Type: text/plain
         type    string
         default { "" }
     }
+    parm {
+        name    "vex_precision"
+        baseparm
+        label   "VEX Precision"
+        export  none
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/set_intrinsics_attribute.chn"
@@ -1240,10 +1270,11 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 index_attr	[ 0	locks=0 ]	(	__frame	)
 mode	[ 0	locks=0 ]	(	[ mode	set ] 	)
-bindname1	[ 0	locks=0 ]	(	[ bindname1	__frame ] 	)
+bindname1	[ 0	locks=0 ]	(	[ bindname1	seqtime ] 	)
 bindparm1	[ 0	locks=0 ]	(	attrib	)
 }
 
@@ -1471,6 +1502,12 @@ Content-Type: text/plain
         default { "0" }
         range   { 0 10 }
     }
+    parm {
+        name    "vex_precision"
+        baseparm
+        label   "VEX Precision"
+        export  none
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/set_abc_range.chn"
@@ -1519,6 +1556,7 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 new_start	[ 0	locks=0 ]	(	[ new_start	1 ] 	)
 new_end	[ 0	locks=0 ]	(	[ new_end	24 ] 	)
@@ -1596,7 +1634,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	1 ] 	)
+input	[ 0	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1606,7 +1644,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -1665,7 +1703,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -1730,7 +1768,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1740,7 +1778,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -1805,7 +1843,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	1 ] 	)
+input	[ 0	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1815,7 +1853,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 

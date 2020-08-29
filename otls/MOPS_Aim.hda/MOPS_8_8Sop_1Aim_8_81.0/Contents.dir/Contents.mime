@@ -32,9 +32,9 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -2.64621 0.461792
+position 17.7183 2.82686
 connectornextid 0
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
@@ -46,8 +46,8 @@ inputs
 }
 stat
 {
-  create 1573409067
-  modify 1573409076
+  create 1590722599
+  modify 1590725610
   author Henry@LAPPY586
   access 0777
 }
@@ -108,7 +108,7 @@ inputs
 stat
 {
   create 1523778096
-  modify 1573409067
+  modify 1590725585
   author henry@GlaDOS
   access 0777
 }
@@ -291,6 +291,40 @@ Content-Type: text/plain
         default { "0" "0" "0" }
         range   { 0 1 }
     }
+    parm {
+        name    "vex_precision"
+        baseparm
+        label   "VEX Precision"
+        export  none
+    }
+    parm {
+        name    "do_vexpression"
+        label   "Do Vexpression"
+        type    toggle
+        default { "0" }
+    }
+    parm {
+        name    "vexpression"
+        label   "Vexpression"
+        type    string
+        default { "" }
+        parmtag { "editor" "1" }
+        parmtag { "editorlang" "vex" }
+    }
+    parm {
+        name    "reverse_aim"
+        label   "Reverse Aim"
+        type    integer
+        default { "0" }
+        range   { 0 10 }
+    }
+    parm {
+        name    "reverse_up"
+        label   "Reverse Up"
+        type    integer
+        default { "0" }
+        range   { 0 10 }
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/create_aim_vector.chn"
@@ -328,6 +362,33 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = ch(\"../Apply_Attributes1/grouptype\") }
     }
+    channel do_vexpression {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../do_vexpression\") }
+    }
+    channel vexpression {
+      lefttype = extend
+      righttype = extend
+      defaultString = "\"// aim = {0,0,1};
+// up = {0,1,0};\""
+      flags = 0
+      segment { length = 0 expr = chs(\"../vexpression\") }
+    }
+    channel reverse_aim {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../reverse_aim\") }
+    }
+    channel reverse_up {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../reverse_up\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -349,6 +410,16 @@ if(haspointattrib(0, \"up\") && chi(\"use_up_attr\")) {
 
 vector center = getbbox_center(1);
 vector aim = normalize(center - @P);
+
+if(chi(\"reverse_aim\")) {
+    aim *= -1;
+}
+if(chi(\"reverse_up\")) {
+    up *= -1;
+}
+
+`ifs(ch(\"do_vexpression\"), chs(\"vexpression\"), \"\")`
+
 vector4 q = quaternion(maketransform(aim, up));
 
 p@orient = q;
@@ -365,9 +436,15 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 use_up_attr	[ 0	locks=0 ]	(	[ use_up_attr	0 ] 	)
 up	[ 0	locks=0 ]	(	[ upx	0 ] 	[ upy	1 ] 	[ upz	0 ] 	)
+do_vexpression	[ 0	locks=0 ]	(	[ do_vexpression	0 ] 	)
+vexpression	[ 0	locks=0 ]	(	[ vexpression	"// aim = {0,0,1};
+// up = {0,1,0};" ] 	)
+reverse_aim	[ 0	locks=0 ]	(	[ reverse_aim	0 ] 	)
+reverse_up	[ 0	locks=0 ]	(	[ reverse_up	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -394,7 +471,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.63175 0.0513842
+position -1.94217 -1.57831
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -414,7 +491,7 @@ inputs
 stat
 {
   create 1569471907
-  modify 1573409067
+  modify 1590722621
   author Henry@LAPPY586
   access 0777
 }
@@ -463,6 +540,7 @@ version 0.8
 group	[ 0	locks=0	autoscope=0 ]	(	[ group	"" ] 	)
 grouptype	[ 0	locks=0	autoscope=0 ]	(	[ grouptype	0 ] 	)
 sepparm	[ 0	locks=0 ]	(	)
+matchmode	[ 0	locks=0 ]	(	"0"	)
 folder0	[ 0	locks=0 ]	(	0	0	0	)
 do_translate	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 do_rotate	[ 0	locks=0	autoscope=0 ]	(	"on"	)
@@ -473,7 +551,7 @@ local_space	[ 0	locks=0	autoscope=0 ]	(	"on"	)
 rotate_mode	[ 0	locks=0	autoscope=0 ]	(	1	)
 rotate_order	[ 0	locks=0	autoscope=0 ]	(	0	)
 scale_mode	[ 0	locks=0	autoscope=0 ]	(	0	)
-do_falloff	[ 0	locks=0	autoscope=0 ]	(	[ do_falloff	0 ] 	)
+do_falloff	[ 0	locks=0	autoscope=0 ]	(	[ do_falloff	1 ] 	)
 falloff_attribute	[ 0	locks=0	autoscope=0 ]	(	[ falloff_attribute	mops_falloff ] 	)
 ignore_no_falloff	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 do_copy_attrs	[ 0	locks=0	autoscope=0 ]	(	"off"	)
@@ -542,6 +620,7 @@ Content-Type: text/plain
 {
 version 0.8
 do_pivot	[ 0	locks=0 ]	(	"on"	)
+do_mops_orient	[ 0	locks=0 ]	(	"off"	)
 do_full_transform	[ 0	locks=0 ]	(	"off"	)
 }
 
@@ -589,7 +668,7 @@ inputs
 stat
 {
   create 1523780303
-  modify 1573409067
+  modify 1590725608
   author henry@GlaDOS
   access 0777
 }
@@ -772,6 +851,40 @@ Content-Type: text/plain
         default { "0" "0" "0" }
         range   { 0 1 }
     }
+    parm {
+        name    "vex_precision"
+        baseparm
+        label   "VEX Precision"
+        export  none
+    }
+    parm {
+        name    "do_vexpression"
+        label   "Do Vexpression"
+        type    toggle
+        default { "0" }
+    }
+    parm {
+        name    "vexpression"
+        label   "Vexpression"
+        type    string
+        default { "" }
+        parmtag { "editor" "1" }
+        parmtag { "editorlang" "vex" }
+    }
+    parm {
+        name    "reverse_aim"
+        label   "Reverse Aim"
+        type    integer
+        default { "0" }
+        range   { 0 10 }
+    }
+    parm {
+        name    "reverse_up"
+        label   "Reverse Up"
+        type    integer
+        default { "0" }
+        range   { 0 10 }
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/create_aim_vectors.chn"
@@ -808,6 +921,31 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = ch(\"../Apply_Attributes1/grouptype\") }
     }
+    channel do_vexpression {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../do_vexpression\") }
+    }
+    channel vexpression {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../vexpression\") }
+    }
+    channel reverse_aim {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../reverse_aim\") }
+    }
+    channel reverse_up {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../reverse_up\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -833,6 +971,16 @@ if(haspointattrib(0, \"up\") && chi(\"use_up_attr\")) {
 }
 
 vector aim = normalize(point(1, \"P\", matchpt) - @P);
+
+if(chi(\"reverse_aim\")) {
+    aim *= -1;
+}
+if(chi(\"reverse_up\")) {
+    up *= -1;
+}
+
+`ifs(ch(\"do_vexpression\"), chs(\"vexpression\"), \"\")`
+
 vector4 q = quaternion(maketransform(aim, up));
 
 p@orient = q;
@@ -849,9 +997,15 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 use_up_attr	[ 0	locks=0 ]	(	[ use_up_attr	0 ] 	)
 up	[ 0	locks=0 ]	(	[ upx	0 ] 	[ upy	1 ] 	[ upz	0 ] 	)
+do_vexpression	[ 0	locks=0 ]	(	[ do_vexpression	0 ] 	)
+vexpression	[ 0	locks=0 ]	(	[ vexpression	"// aim = {0,0,1};
+// up = {0,1,0};" ] 	)
+reverse_aim	[ 0	locks=0 ]	(	[ reverse_aim	0 ] 	)
+reverse_up	[ 0	locks=0 ]	(	[ reverse_up	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -898,7 +1052,7 @@ inputs
 stat
 {
   create 1525057897
-  modify 1573409067
+  modify 1590725608
   author henry@GlaDOS
   access 0777
 }
@@ -1074,6 +1228,40 @@ Content-Type: text/plain
         default { "0" "0" "0" }
         range   { 0 1 }
     }
+    parm {
+        name    "vex_precision"
+        baseparm
+        label   "VEX Precision"
+        export  none
+    }
+    parm {
+        name    "do_vexpression"
+        label   "Do Vexpression"
+        type    toggle
+        default { "0" }
+    }
+    parm {
+        name    "vexpression"
+        label   "Vexpression"
+        type    string
+        default { "" }
+        parmtag { "editor" "1" }
+        parmtag { "editorlang" "vex" }
+    }
+    parm {
+        name    "reverse_aim"
+        label   "Reverse Aim"
+        type    integer
+        default { "0" }
+        range   { 0 10 }
+    }
+    parm {
+        name    "reverse_up"
+        label   "Reverse Up"
+        type    integer
+        default { "0" }
+        range   { 0 10 }
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/pointwrangle1.chn"
@@ -1099,6 +1287,31 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = ch(\"../upz\") }
     }
+    channel do_vexpression {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../do_vexpression\") }
+    }
+    channel vexpression {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../vexpression\") }
+    }
+    channel reverse_aim {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../reverse_aim\") }
+    }
+    channel reverse_up {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../reverse_up\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1116,7 +1329,13 @@ vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
 snippet	[ 0	locks=0 ]	(	"vector pos = getbbox_center(1);
 vector aim = normalize(pos - @P);
 vector up = chv(\"up\");
-
+if(chi(\"reverse_aim\")) {
+    aim *= -1;
+}
+if(chi(\"reverse_up\")) {
+    up *= -1;
+}
+`ifs(ch(\"do_vexpression\"), chs(\"vexpression\"), \"\")`
 vector4 q = quaternion(maketransform(aim, up));
 p@orient = q;
 "	)
@@ -1132,8 +1351,14 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 up	[ 0	locks=0 ]	(	[ upx	0 ] 	[ upy	1 ] 	[ upz	0 ] 	)
+do_vexpression	[ 0	locks=0 ]	(	[ do_vexpression	0 ] 	)
+vexpression	[ 0	locks=0 ]	(	[ vexpression	"// aim = {0,0,1};
+// up = {0,1,0};" ] 	)
+reverse_aim	[ 0	locks=0 ]	(	[ reverse_aim	0 ] 	)
+reverse_up	[ 0	locks=0 ]	(	[ reverse_up	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1204,7 +1429,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -1252,6 +1477,7 @@ Content-Type: text/plain
 
 {
 version 0.8
+usecolor	[ 0	locks=0 ]	(	"on"	)
 color	[ 0	locks=0 ]	(	1	1	1	)
 size	[ 0	locks=0 ]	(	1	1	1	)
 t	[ 0	locks=0 ]	(	0	0	0	)
@@ -1272,7 +1498,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -1307,7 +1533,7 @@ inputs
 stat
 {
   create 1523778074
-  modify 1573409067
+  modify 1590722600
   author henry@GlaDOS
   access 0777
 }
@@ -1384,7 +1610,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -1445,7 +1671,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -1462,7 +1688,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.63175 -1.36181
+position -1.94217 -2.9915
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1479,7 +1705,7 @@ inputs
 stat
 {
   create 1523779784
-  modify 1569471907
+  modify 1590722621
   author henry@GlaDOS
   access 0777
 }
@@ -1504,7 +1730,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -1543,7 +1769,7 @@ inputs
 stat
 {
   create 1523780233
-  modify 1573409067
+  modify 1590722600
   author henry@GlaDOS
   access 0777
 }
@@ -1581,7 +1807,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -1642,7 +1868,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -1703,7 +1929,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -1764,7 +1990,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -1801,7 +2027,7 @@ inputs
 stat
 {
   create 1525058140
-  modify 1573409067
+  modify 1590722600
   author henry@GlaDOS
   access 0777
 }
@@ -1839,7 +2065,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -1898,7 +2124,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 

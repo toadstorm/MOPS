@@ -32,27 +32,26 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.798842 -1.61267
-connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+position 0.56383 -2.10581
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-2 "output1"
 }
 inputsNamed3
 {
-0 	apply_transform 1 1 "input1"
-1 	MOPs_Remap_Falloff 1 1 "input2"
+0 	MOPs_Object_Falloff 2 1 "input1"
+1 	MOPs_Noise_Falloff 1 1 "input2"
 }
 inputs
 {
-0 	apply_transform 0 1
-1 	MOPs_Remap_Falloff 0 1
+0 	MOPs_Object_Falloff 0 1
+1 	MOPs_Noise_Falloff 0 1
 }
 stat
 {
-  create 1524060463
-  modify 1581278354
+  create 1592094480
+  modify 1592094936
   author Henry@LAPPY586
   access 0777
 }
@@ -113,7 +112,7 @@ inputs
 stat
 {
   create 1524060262
-  modify 1581278264
+  modify 1592094480
   author Henry@LAPPY586
   access 0777
 }
@@ -397,7 +396,7 @@ inputs
 stat
 {
   create 1524060262
-  modify 1581278264
+  modify 1592094480
   author Henry@LAPPY586
   access 0777
 }
@@ -681,7 +680,7 @@ inputs
 stat
 {
   create 1524060262
-  modify 1581278264
+  modify 1592094480
   author Henry@LAPPY586
   access 0777
 }
@@ -967,7 +966,7 @@ inputs
 stat
 {
   create 1524060262
-  modify 1581278264
+  modify 1592094480
   author Henry@LAPPY586
   access 0777
 }
@@ -1253,7 +1252,7 @@ inputs
 stat
 {
   create 1524060262
-  modify 1581278264
+  modify 1592094480
   author Henry@LAPPY586
   access 0777
 }
@@ -1554,7 +1553,7 @@ inputs
 stat
 {
   create 1524060262
-  modify 1581278264
+  modify 1592094480
   author Henry@LAPPY586
   access 0777
 }
@@ -1859,7 +1858,7 @@ inputs
 stat
 {
   create 1524060262
-  modify 1581278264
+  modify 1592094480
   author Henry@LAPPY586
   access 0777
 }
@@ -2157,7 +2156,7 @@ inputs
 stat
 {
   create 1524060262
-  modify 1581278264
+  modify 1592094480
   author Henry@LAPPY586
   access 0777
 }
@@ -2453,7 +2452,7 @@ inputs
 stat
 {
   create 1524060262
-  modify 1581277979
+  modify 1592094480
   author Henry@LAPPY586
   access 0777
 }
@@ -2547,7 +2546,7 @@ inputs
 stat
 {
   create 1524060262
-  modify 1581278264
+  modify 1592094480
   author Henry@LAPPY586
   access 0777
 }
@@ -2830,7 +2829,7 @@ inputs
 stat
 {
   create 1524060262
-  modify 1581277979
+  modify 1592094480
   author Henry@LAPPY586
   access 0777
 }
@@ -2896,7 +2895,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.4246 -5.29099
+position 2.29991 -4.71751
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -2914,7 +2913,7 @@ inputs
 stat
 {
   create 1536023239
-  modify 1581277979
+  modify 1592094918
   author Henry@LAPPY586
   access 0777
 }
@@ -2962,8 +2961,8 @@ Content-Type: text/plain
 
 {
 version 0.8
-do_preview	[ 0	locks=0 ]	(	[ do_preview	0 ] 	)
-do_sprite	[ 0	locks=0 ]	(	[ do_sprite	1 ] 	)
+do_preview	[ 0	locks=0 ]	(	[ do_preview	1 ] 	)
+do_sprite	[ 0	locks=0 ]	(	[ do_sprite	0 ] 	)
 spritemap	[ 0	locks=0 ]	(	sphere_matte.pic	)
 spritescale	[ 0	locks=0 ]	(	[ spritescale	1 ] 	)
 override_scale	[ 0	locks=0 ]	(	[ override_scale	0 ] 	)
@@ -3054,7 +3053,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.348"
+		"value":"18.0.460"
 	}
 }
 
@@ -3115,7 +3114,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.348"
+		"value":"18.0.460"
 	}
 }
 
@@ -3166,7 +3165,7 @@ inputs
 stat
 {
   create 1524060262
-  modify 1581277979
+  modify 1592094480
   author Henry@LAPPY586
   access 0777
 }
@@ -3194,7 +3193,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0	autoscope=0 ]	(	[ input	8 ] 	)
+input	[ 0	locks=0	autoscope=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -3204,7 +3203,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.348"
+		"value":"18.0.460"
 	}
 }
 
@@ -3241,7 +3240,7 @@ inputs
 stat
 {
   create 1524060262
-  modify 1581277979
+  modify 1592094480
   author Henry@LAPPY586
   access 0777
 }
@@ -3279,7 +3278,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.348"
+		"value":"18.0.460"
 	}
 }
 
@@ -3338,7 +3337,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.348"
+		"value":"18.0.460"
 	}
 }
 
@@ -3373,7 +3372,7 @@ inputs
 stat
 {
   create 1565318708
-  modify 1581277979
+  modify 1592094480
   author Henry@LAPPY586
   access 0777
 }
@@ -3418,7 +3417,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.348"
+		"value":"18.0.460"
 	}
 }
 
@@ -3444,16 +3443,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	MOPs_Preview_Falloff 0 1 "input1"
+0 	switch1 2 1 "input1"
 }
 inputs
 {
-0 	MOPs_Preview_Falloff 0 1
+0 	switch1 0 1
 }
 stat
 {
   create 1565318742
-  modify 1581277979
+  modify 1592094922
   author Henry@LAPPY586
   access 0777
 }
@@ -3484,7 +3483,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.348"
+		"value":"18.0.460"
 	}
 }
 
@@ -3519,7 +3518,7 @@ inputs
 stat
 {
   create 1565318708
-  modify 1581277979
+  modify 1592094480
   author Henry@LAPPY586
   access 0777
 }
@@ -3564,7 +3563,69 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.348"
+		"value":"18.0.460"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch1.init"
+Content-Type: text/plain
+
+type = switch
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 1.42805 -5.53246
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+2 "output1"
+}
+inputsNamed3
+{
+0 	switch_clamping 2 1 "input1"
+1 	MOPs_Preview_Falloff 0 1 "input2"
+}
+inputs
+{
+0 	switch_clamping 0 1
+1 	MOPs_Preview_Falloff 0 1
+}
+stat
+{
+  create 1592094917
+  modify 1592094934
+  author Henry@LAPPY586
+  access 0777
+}
+color UT_Color RGB 0.8 1 0.7 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+input	[ 0	locks=0 ]	(	0	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"18.0.460"
 	}
 }
 
@@ -3572,7 +3633,7 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot.order"
 Content-Type: text/plain
 
-20
+21
 add
 subtract
 multiply
@@ -3593,6 +3654,7 @@ MOPs_Preview_Falloff
 attribswap1
 attribswap2
 attribswap3
+switch1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"

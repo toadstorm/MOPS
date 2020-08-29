@@ -32,24 +32,27 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -11.8261 -1.74388
-connectornextid 1
+position -19.6497 -2.17212
+connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
+2 "output1"
 }
 inputsNamed3
 {
-0 	pointwrangle1 1 1 "input1"
+0 	MOPs_Sort 0 1 "input1"
+1 	curve1 0 1 "input2"
 }
 inputs
 {
-0 	pointwrangle1 0 1
+0 	MOPs_Sort 0 1
+1 	curve1 0 1
 }
 stat
 {
-  create 1565235466
-  modify 1565235606
+  create 1583696184
+  modify 1588964289
   author Henry@LAPPY586
   access 0777
 }
@@ -323,6 +326,12 @@ Content-Type: text/plain
         default { "0" }
         range   { 0 1 }
     }
+    parm {
+        name    "vex_precision"
+        baseparm
+        label   "VEX Precision"
+        export  none
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/init_attrs.chn"
@@ -388,9 +397,10 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 curve_num_expr	[ 8	locks=0	autoscope=1	autosel=4294967295 ]	(	[ curve_num_expr	0 ] 	)
-curve_select_mode	[ 0	locks=0 ]	(	[ curve_select_mode	0 ] 	)
+curve_select_mode	[ 0	locks=0 ]	(	[ curve_select_mode	1 ] 	)
 search_dist	[ 8	locks=0 ]	(	[ search_dist	100 ] 	)
 }
 
@@ -634,6 +644,12 @@ Content-Type: text/plain
         type    string
         default { "" }
     }
+    parm {
+        name    "vex_precision"
+        baseparm
+        label   "VEX Precision"
+        export  none
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/compute_initial_goals.chn"
@@ -724,9 +740,10 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 search_dist	[ 0	locks=0 ]	(	[ search_dist	100 ] 	)
-mode	[ 0	locks=0 ]	(	[ mode	0 ] 	)
+mode	[ 0	locks=0 ]	(	[ mode	2 ] 	)
 invert_normal	[ 0	locks=0 ]	(	"off"	)
 attach_attr	[ 0	locks=0 ]	(	[ attach_attr	goalu ] 	)
 }
@@ -1055,6 +1072,12 @@ Content-Type: text/plain
         default { "2" }
         range   { 1! 10 }
     }
+    parm {
+        name    "vex_precision"
+        baseparm
+        label   "VEX Precision"
+        export  none
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/apply_new_goals.chn"
@@ -1081,44 +1104,6 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../offset_ramp1interp\") }
     }
-    channel twist_ramp1pos {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../post_twist_ramp1pos\") }
-    }
-    channel twist_ramp1value {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../post_twist_ramp1value\") }
-    }
-    channel twist_ramp1interp {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../post_twist_ramp1interp\") }
-    }
-    channel acceleration_ramp1pos {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../acceleration_ramp_simple1pos\") }
-    }
-    channel acceleration_ramp1value {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../acceleration_ramp_simple1value\") }
-    }
-    channel acceleration_ramp1interp {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../acceleration_ramp_simple1interp\") }
-    }
     channel offset_ramp2pos {
       lefttype = extend
       righttype = extend
@@ -1138,6 +1123,25 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../offset_ramp2interp\") }
     }
+    channel twist_ramp1pos {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../post_twist_ramp1pos\") }
+    }
+    channel twist_ramp1value {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../post_twist_ramp1value\") }
+    }
+    channel twist_ramp1interp {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../post_twist_ramp1interp\") }
+    }
     channel twist_ramp2pos {
       lefttype = extend
       righttype = extend
@@ -1156,6 +1160,25 @@ Content-Type: text/plain
       default = 1
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../post_twist_ramp2interp\") }
+    }
+    channel acceleration_ramp1pos {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../acceleration_ramp_simple1pos\") }
+    }
+    channel acceleration_ramp1value {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../acceleration_ramp_simple1value\") }
+    }
+    channel acceleration_ramp1interp {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../acceleration_ramp_simple1interp\") }
     }
     channel acceleration_ramp2pos {
       lefttype = extend
@@ -1379,6 +1402,7 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 travel	[ 8	locks=0 ]	(	[ travel	0 ] 	)
 maintain_offset	[ 0	locks=0 ]	(	[ maintain_offset	0 ] 	)
@@ -1396,23 +1420,23 @@ offset_ramp	[ 0	locks=0 ]	(	[ offset_ramp	2 ] 	)
 offset_ramp1pos	[ 0	locks=0 ]	(	[ offset_ramp1pos	0 ] 	)
 offset_ramp1value	[ 0	locks=0 ]	(	[ offset_ramp1value	1 ] 	)
 offset_ramp1interp	[ 0	locks=0 ]	(	[ offset_ramp1interp	1 ] 	)
+offset_ramp2pos	[ 0	locks=0 ]	(	[ offset_ramp2pos	1 ] 	)
+offset_ramp2value	[ 0	locks=0 ]	(	[ offset_ramp2value	1 ] 	)
+offset_ramp2interp	[ 0	locks=0 ]	(	[ offset_ramp2interp	1 ] 	)
 do_falloff	[ 0	locks=0 ]	(	[ do_falloff	0 ] 	)
 twist_amount	[ 0	locks=0 ]	(	[ twist_amount	0 ] 	)
 twist_ramp	[ 0	locks=0 ]	(	[ twist_ramp	2 ] 	)
 twist_ramp1pos	[ 0	locks=0 ]	(	[ twist_ramp1pos	0 ] 	)
 twist_ramp1value	[ 0	locks=0 ]	(	[ twist_ramp1value	0 ] 	)
 twist_ramp1interp	[ 0	locks=0 ]	(	[ twist_ramp1interp	1 ] 	)
+twist_ramp2pos	[ 0	locks=0 ]	(	[ twist_ramp2pos	1 ] 	)
+twist_ramp2value	[ 0	locks=0 ]	(	[ twist_ramp2value	1 ] 	)
+twist_ramp2interp	[ 0	locks=0 ]	(	[ twist_ramp2interp	1 ] 	)
 goal_type	[ 0	locks=0 ]	(	[ goal_type	0 ] 	)
 acceleration_ramp	[ 0	locks=0 ]	(	[ acceleration_ramp	2 ] 	)
 acceleration_ramp1pos	[ 0	locks=0 ]	(	[ acceleration_ramp1pos	0 ] 	)
 acceleration_ramp1value	[ 0	locks=0 ]	(	[ acceleration_ramp1value	0 ] 	)
 acceleration_ramp1interp	[ 0	locks=0 ]	(	[ acceleration_ramp1interp	1 ] 	)
-offset_ramp2pos	[ 0	locks=0 ]	(	[ offset_ramp2pos	1 ] 	)
-offset_ramp2value	[ 0	locks=0 ]	(	[ offset_ramp2value	1 ] 	)
-offset_ramp2interp	[ 0	locks=0 ]	(	[ offset_ramp2interp	1 ] 	)
-twist_ramp2pos	[ 0	locks=0 ]	(	[ twist_ramp2pos	1 ] 	)
-twist_ramp2value	[ 0	locks=0 ]	(	[ twist_ramp2value	1 ] 	)
-twist_ramp2interp	[ 0	locks=0 ]	(	[ twist_ramp2interp	1 ] 	)
 acceleration_ramp2pos	[ 0	locks=0 ]	(	[ acceleration_ramp2pos	1 ] 	)
 acceleration_ramp2value	[ 0	locks=0 ]	(	[ acceleration_ramp2value	1 ] 	)
 acceleration_ramp2interp	[ 0	locks=0 ]	(	[ acceleration_ramp2interp	1 ] 	)
@@ -1433,7 +1457,7 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot/MOPs_Apply_Attributes.init"
 Content-Type: text/plain
 
-type = MOPS::Apply_Attributes::1.2
+type = MOPS::Apply_Attributes::1.4
 matchesdef = 1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1451,18 +1475,18 @@ outputsNamed3
 }
 inputsNamed3
 {
-1 	(__dot1) "" 1 "input1"
+1 	mops_prepped 1 1 "input1"
 2 	switch_falloff_rotation 1 1 "input2"
 }
 inputs
 {
-0 	(__dot1) 0 1
+0 	mops_prepped 0 1
 1 	switch_falloff_rotation 0 1
 }
 stat
 {
-  create 1556863040
-  modify 1565235467
+  create 1588964243
+  modify 1588964290
   author Henry@LAPPY586
   access 0777
 }
@@ -1492,20 +1516,27 @@ Content-Type: text/plain
 version 0.8
 group	[ 0	locks=0	autoscope=0 ]	(	""	)
 grouptype	[ 0	locks=0	autoscope=0 ]	(	"guess"	)
+sepparm	[ 0	locks=0 ]	(	)
+matchmode	[ 0	locks=0	autoscope=0 ]	(	"0"	)
+folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
 do_translate	[ 0	locks=0	autoscope=0 ]	(	"on"	)
 do_rotate	[ 0	locks=0	autoscope=0 ]	(	[ do_rotate	1 ] 	)
 do_scale	[ 0	locks=0	autoscope=0 ]	(	"on"	)
-do_falloff	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 do_pivots	[ 0	locks=0	autoscope=0 ]	(	"on"	)
-ignore_no_falloff	[ 0	locks=0	autoscope=0 ]	(	"off"	)
-rotate_mode	[ 0	locks=0	autoscope=0 ]	(	1	)
-scale_mode	[ 0	locks=0	autoscope=0 ]	(	0	)
-rotate_order	[ 0	locks=0	autoscope=0 ]	(	0	)
+sepparm2	[ 0	locks=0 ]	(	)
 local_space	[ 0	locks=0	autoscope=0 ]	(	"off"	)
-do_make_id	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+rotate_mode	[ 0	locks=0	autoscope=0 ]	(	1	)
+rotate_order	[ 0	locks=0	autoscope=0 ]	(	0	)
+scale_mode	[ 0	locks=0	autoscope=0 ]	(	0	)
+do_falloff	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+falloff_attribute	[ 0	locks=0	autoscope=0 ]	(	mops_falloff	)
+ignore_no_falloff	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 do_copy_attrs	[ 0	locks=0	autoscope=0 ]	(	"on"	)
 attribname	[ 0	locks=0	autoscope=0 ]	(	__offset	)
+do_make_id	[ 0	locks=0	autoscope=0 ]	(	"on"	)
 do_orient	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+do_output_scale	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+sepparm3	[ 0	locks=0 ]	(	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1763,6 +1794,7 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2000,6 +2032,12 @@ Content-Type: text/plain
         default { "0" }
         range   { 0 10 }
     }
+    parm {
+        name    "vex_precision"
+        baseparm
+        label   "VEX Precision"
+        export  none
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/snap_to_curve.chn"
@@ -2100,6 +2138,7 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 up_axis	[ 0	locks=0 ]	(	[ up_axisx	0 ] 	[ up_axisy	0 ] 	[ up_axisz	1 ] 	)
 normal_axis	[ 0	locks=0 ]	(	[ normal_axisx	0 ] 	[ normal_axisy	1 ] 	[ normal_axisz	0 ] 	)
@@ -2121,7 +2160,7 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot/MOPs_Apply_Attributes1.init"
 Content-Type: text/plain
 
-type = MOPS::Apply_Attributes::1.0
+type = MOPS::Apply_Attributes::1.4
 matchesdef = 1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2135,12 +2174,12 @@ connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-2 "output1"
+0 "output1"
 }
 inputsNamed3
 {
-0 	init_attrs 1 1 "input1"
-1 	snap_to_curve 1 1 "input2"
+1 	init_attrs 1 1 "input1"
+2 	snap_to_curve 1 1 "input2"
 }
 inputs
 {
@@ -2149,8 +2188,8 @@ inputs
 }
 stat
 {
-  create 1542941667
-  modify 1558836472
+  create 1588964275
+  modify 1588964317
   author Henry@LAPPY586
   access 0777
 }
@@ -2165,20 +2204,29 @@ Content-Type: text/plain
 
 {
 version 0.8
-group	[ 0	locks=0 ]	(	""	)
-grouptype	[ 0	locks=0 ]	(	"guess"	)
-do_translate	[ 0	locks=0 ]	(	"on"	)
-do_rotate	[ 0	locks=0 ]	(	"on"	)
-do_scale	[ 0	locks=0 ]	(	"off"	)
-do_falloff	[ 0	locks=0 ]	(	"off"	)
-ignore_no_falloff	[ 0	locks=0 ]	(	"off"	)
-rotate_mode	[ 0	locks=0 ]	(	1	)
-scale_mode	[ 0	locks=0 ]	(	0	)
-rotate_order	[ 0	locks=0 ]	(	0	)
-local_space	[ 0	locks=0 ]	(	"off"	)
-do_make_id	[ 0	locks=0 ]	(	"on"	)
-do_copy_attrs	[ 0	locks=0 ]	(	"off"	)
-attribname	[ 0	locks=0 ]	(	""	)
+group	[ 0	locks=0	autoscope=0 ]	(	""	)
+grouptype	[ 0	locks=0	autoscope=0 ]	(	"guess"	)
+sepparm	[ 0	locks=0 ]	(	)
+matchmode	[ 0	locks=0	autoscope=0 ]	(	"0"	)
+folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+do_translate	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+do_rotate	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+do_scale	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+do_pivots	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+sepparm2	[ 0	locks=0 ]	(	)
+local_space	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+rotate_mode	[ 0	locks=0	autoscope=0 ]	(	1	)
+rotate_order	[ 0	locks=0	autoscope=0 ]	(	0	)
+scale_mode	[ 0	locks=0	autoscope=0 ]	(	0	)
+do_falloff	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+falloff_attribute	[ 0	locks=0	autoscope=0 ]	(	mops_falloff	)
+ignore_no_falloff	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+do_copy_attrs	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+attribname	[ 0	locks=0	autoscope=0 ]	(	""	)
+do_make_id	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+do_orient	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+do_output_scale	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+sepparm3	[ 0	locks=0 ]	(	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2260,6 +2308,7 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2425,6 +2474,8 @@ parmop_transformsopoutput	[ 0	locks=0	autoscope=0 ]	(	"default"	)
 transformsopoutput	[ 0	locks=0	autoscope=0 ]	(	"on"	)
 parmop_solveinitframe	[ 0	locks=0	autoscope=0 ]	(	"default"	)
 solveinitframe	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+parmop_numstamps	[ 0	locks=0 ]	(	"default"	)
+numstamps	[ 0	locks=0 ]	(	0	)
 parmop_usetimestep	[ 0	locks=0 ]	(	"default"	)
 usetimestep	[ 0	locks=0 ]	(	"on"	)
 parmop_timescale	[ 0	locks=0 ]	(	"default"	)
@@ -2444,7 +2495,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -2760,6 +2811,12 @@ Content-Type: text/plain
         default { "0" }
         range   { 0 10 }
     }
+    parm {
+        name    "vex_precision"
+        baseparm
+        label   "VEX Precision"
+        export  none
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/advect_mops/d/s/advect_points.chn"
@@ -2786,44 +2843,6 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../../../../acceleration_ramp1interp\") }
     }
-    channel offset_ramp1pos {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../../../../apply_new_goals/offset_ramp1pos\") }
-    }
-    channel offset_ramp1value {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../../../../apply_new_goals/offset_ramp1value\") }
-    }
-    channel offset_ramp1interp {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../../../../apply_new_goals/offset_ramp1interp\") }
-    }
-    channel twist_ramp1pos {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../../../../apply_new_goals/twist_ramp1pos\") }
-    }
-    channel twist_ramp1value {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../../../../apply_new_goals/twist_ramp1value\") }
-    }
-    channel twist_ramp1interp {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../../../../apply_new_goals/twist_ramp1interp\") }
-    }
     channel acceleration_ramp2pos {
       lefttype = extend
       righttype = extend
@@ -2843,6 +2862,25 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../../../../acceleration_ramp2interp\") }
     }
+    channel offset_ramp1pos {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../../../apply_new_goals/offset_ramp1pos\") }
+    }
+    channel offset_ramp1value {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../../../apply_new_goals/offset_ramp1value\") }
+    }
+    channel offset_ramp1interp {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../../../../apply_new_goals/offset_ramp1interp\") }
+    }
     channel offset_ramp2pos {
       lefttype = extend
       righttype = extend
@@ -2861,6 +2899,25 @@ Content-Type: text/plain
       default = 1
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../../../../apply_new_goals/offset_ramp2interp\") }
+    }
+    channel twist_ramp1pos {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../../../apply_new_goals/twist_ramp1pos\") }
+    }
+    channel twist_ramp1value {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../../../apply_new_goals/twist_ramp1value\") }
+    }
+    channel twist_ramp1interp {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../../../../apply_new_goals/twist_ramp1interp\") }
     }
     channel twist_ramp2pos {
       lefttype = extend
@@ -3074,6 +3131,7 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 speed	[ 0	locks=0 ]	(	[ speed	0.01 ] 	)
 maintain_offset	[ 8	locks=0 ]	(	[ maintain_offset	1 ] 	)
@@ -3086,14 +3144,23 @@ acceleration_ramp	[ 0	locks=0 ]	(	[ acceleration_ramp	2 ] 	)
 acceleration_ramp1pos	[ 0	locks=0 ]	(	[ acceleration_ramp1pos	0 ] 	)
 acceleration_ramp1value	[ 0	locks=0 ]	(	[ acceleration_ramp1value	1 ] 	)
 acceleration_ramp1interp	[ 0	locks=0 ]	(	[ acceleration_ramp1interp	1 ] 	)
+acceleration_ramp2pos	[ 0	locks=0 ]	(	[ acceleration_ramp2pos	1 ] 	)
+acceleration_ramp2value	[ 0	locks=0 ]	(	[ acceleration_ramp2value	1 ] 	)
+acceleration_ramp2interp	[ 0	locks=0 ]	(	[ acceleration_ramp2interp	1 ] 	)
 offset_ramp	[ 8	locks=0 ]	(	[ offset_ramp	2 ] 	)
 offset_ramp1pos	[ 0	locks=0 ]	(	[ offset_ramp1pos	0 ] 	)
 offset_ramp1value	[ 0	locks=0 ]	(	[ offset_ramp1value	1 ] 	)
 offset_ramp1interp	[ 0	locks=0 ]	(	[ offset_ramp1interp	1 ] 	)
+offset_ramp2pos	[ 0	locks=0 ]	(	[ offset_ramp2pos	1 ] 	)
+offset_ramp2value	[ 0	locks=0 ]	(	[ offset_ramp2value	1 ] 	)
+offset_ramp2interp	[ 0	locks=0 ]	(	[ offset_ramp2interp	1 ] 	)
 twist_ramp	[ 8	locks=0 ]	(	[ twist_ramp	2 ] 	)
 twist_ramp1pos	[ 0	locks=0 ]	(	[ twist_ramp1pos	0 ] 	)
 twist_ramp1value	[ 0	locks=0 ]	(	[ twist_ramp1value	0 ] 	)
 twist_ramp1interp	[ 0	locks=0 ]	(	[ twist_ramp1interp	1 ] 	)
+twist_ramp2pos	[ 0	locks=0 ]	(	[ twist_ramp2pos	1 ] 	)
+twist_ramp2value	[ 0	locks=0 ]	(	[ twist_ramp2value	1 ] 	)
+twist_ramp2interp	[ 0	locks=0 ]	(	[ twist_ramp2interp	1 ] 	)
 do_vexpression	[ 8	locks=0 ]	(	[ do_vexpression	0 ] 	)
 vexpression	[ 0	locks=0 ]	(	[ vexpression	"// random_amount = 0.0;
 // random_seed = i@id;
@@ -3102,15 +3169,6 @@ vexpression	[ 0	locks=0 ]	(	[ vexpression	"// random_amount = 0.0;
 // twist_amount = 0.0;" ] 	)
 trails	[ 8	locks=0 ]	(	[ trails	1 ] 	)
 curve_mode	[ 0	locks=0 ]	(	0	)
-acceleration_ramp2pos	[ 0	locks=0 ]	(	[ acceleration_ramp2pos	1 ] 	)
-acceleration_ramp2value	[ 0	locks=0 ]	(	[ acceleration_ramp2value	1 ] 	)
-acceleration_ramp2interp	[ 0	locks=0 ]	(	[ acceleration_ramp2interp	1 ] 	)
-offset_ramp2pos	[ 0	locks=0 ]	(	[ offset_ramp2pos	1 ] 	)
-offset_ramp2value	[ 0	locks=0 ]	(	[ offset_ramp2value	1 ] 	)
-offset_ramp2interp	[ 0	locks=0 ]	(	[ offset_ramp2interp	1 ] 	)
-twist_ramp2pos	[ 0	locks=0 ]	(	[ twist_ramp2pos	1 ] 	)
-twist_ramp2value	[ 0	locks=0 ]	(	[ twist_ramp2value	1 ] 	)
-twist_ramp2interp	[ 0	locks=0 ]	(	[ twist_ramp2interp	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -3329,6 +3387,12 @@ Content-Type: text/plain
         type    string
         default { "" }
     }
+    parm {
+        name    "vex_precision"
+        baseparm
+        label   "VEX Precision"
+        export  none
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/advect_mops/d/s/generate_trails.parm"
@@ -3357,6 +3421,7 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 trail_group	[ 0	locks=0 ]	(	trails	)
 }
@@ -3440,6 +3505,7 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -3518,6 +3584,7 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -3737,6 +3804,12 @@ Content-Type: text/plain
         default { "0" }
         range   { 0 10 }
     }
+    parm {
+        name    "vex_precision"
+        baseparm
+        label   "VEX Precision"
+        export  none
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/taper_trails.chn"
@@ -3778,6 +3851,7 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 do_taper	[ 0	locks=0 ]	(	[ do_taper	0 ] 	)
 }
@@ -4040,6 +4114,7 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -4137,6 +4212,7 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -4207,7 +4283,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -4268,7 +4344,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -4333,7 +4409,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	0 ] 	)
+input	[ 0	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -4343,7 +4419,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -4491,7 +4567,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -4566,7 +4642,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -4627,7 +4703,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -4737,7 +4813,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -4798,7 +4874,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -4857,7 +4933,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -4925,7 +5001,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -4986,7 +5062,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -5069,7 +5145,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -5143,7 +5219,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -5170,7 +5246,7 @@ outputsNamed3
 inputsNamed3
 {
 2 	init_attrs 1 1 "input1"
-0 	MOPs_Apply_Attributes1 2 1 "input2"
+0 	MOPs_Apply_Attributes1 0 1 "input2"
 }
 inputs
 {
@@ -5180,7 +5256,7 @@ inputs
 stat
 {
   create 1542940068
-  modify 1565235467
+  modify 1588964275
   author Henry@LAPPY586
   access 0777
 }
@@ -5219,7 +5295,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -5393,7 +5469,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -5475,6 +5551,8 @@ viewportlod	[ 0	locks=0 ]	(	"full"	)
 importbyname	[ 0	locks=0	autoscope=0 ]	(	"on"	)
 objectnames	[ 0	locks=0 ]	(	"dopobject"	)
 geodatapath	[ 0	locks=0	autoscope=0 ]	(	"`stamps(\"..\", \"DATANAME\", chs(\"../datapath\"))`"	)
+transferattributes	[ 0	locks=0 ]	(	""	)
+transfergroups	[ 0	locks=0 ]	(	""	)
 inverseop	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 doposxform	[ 0	locks=0	autoscope=0 ]	(	[ doposxform	1 ] 	)
 doxform	[ 0	locks=0	autoscope=0 ]	(	[ doxform	1 ] 	)
@@ -5497,7 +5575,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -5576,7 +5654,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -5655,7 +5733,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -5734,7 +5812,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -5813,7 +5891,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -5874,7 +5952,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -5935,7 +6013,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -6010,7 +6088,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -6069,7 +6147,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -6145,7 +6223,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -6205,7 +6283,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -6306,7 +6384,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -6468,7 +6546,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -6578,7 +6656,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -6656,7 +6734,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -6732,7 +6810,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -6793,7 +6871,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -6854,7 +6932,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -6922,7 +7000,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -6996,7 +7074,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -7064,7 +7142,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -7132,7 +7210,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -7274,7 +7352,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -7342,7 +7420,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -7484,7 +7562,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -7622,7 +7700,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -7659,7 +7737,7 @@ inputs
 stat
 {
   create 1543085443
-  modify 1565235467
+  modify 1588964243
   author Henry@LAPPY586
   access 0777
 }
@@ -7698,7 +7776,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -7733,7 +7811,7 @@ inputs
 stat
 {
   create 1543085473
-  modify 1563388607
+  modify 1588964243
   author Henry@LAPPY586
   access 0777
 }
@@ -7872,7 +7950,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -7982,7 +8060,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -8057,7 +8135,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -8137,7 +8215,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 
@@ -8203,7 +8281,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.391"
 	}
 }
 

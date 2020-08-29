@@ -32,25 +32,22 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -3.03107 -2.33865
-connectornextid 2
+position -3.95336 0.594681
+connectornextid 0
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-1 "output1"
 }
 inputsNamed3
 {
-0 	MOPs_Shape_Falloff 1 1 "input1"
 }
 inputs
 {
-0 	MOPs_Shape_Falloff 0 1
 }
 stat
 {
-  create 1531965306
-  modify 1582594819
+  create 1595825409
+  modify 1595827520
   author Henry@LAPPY586
   access 0777
 }
@@ -135,7 +132,7 @@ inputs
 stat
 {
   create 1524695187
-  modify 1582594181
+  modify 1595825409
   author Henry@LAPPY586
   access 0777
 }
@@ -428,7 +425,7 @@ inputs
 stat
 {
   create 1524695187
-  modify 1580169210
+  modify 1595825409
   author Henry@LAPPY586
   access 0777
 }
@@ -500,16 +497,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-1 	set_alembic_attrs 1 1 "input1"
+1 	time_index_attr 1 1 "input1"
 }
 inputs
 {
-0 	set_alembic_attrs 0 1
+0 	time_index_attr 0 1
 }
 stat
 {
   create 1524695187
-  modify 1582594180
+  modify 1595827294
   author Henry@LAPPY586
   access 0777
 }
@@ -525,7 +522,9 @@ Content-Type: text/plain
 {
 version 0.8
 do_pivot	[ 0	locks=0 ]	(	"on"	)
+do_mops_orient	[ 0	locks=0 ]	(	"off"	)
 do_full_transform	[ 0	locks=0 ]	(	"off"	)
+simplify_scale	[ 0	locks=0 ]	(	"on"	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -570,7 +569,7 @@ inputs
 stat
 {
   create 1524695187
-  modify 1572554415
+  modify 1595825409
   author Henry@LAPPY586
   access 0777
 }
@@ -799,7 +798,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.348"
+		"value":"18.0.460"
 	}
 }
 
@@ -834,7 +833,7 @@ inputs
 stat
 {
   create 1524695845
-  modify 1572554246
+  modify 1595825409
   author Henry@LAPPY586
   access 0777
 }
@@ -1101,7 +1100,7 @@ inputs
 stat
 {
   create 1524695901
-  modify 1572554245
+  modify 1595825409
   author Henry@LAPPY586
   access 0777
 }
@@ -1373,7 +1372,7 @@ inputs
 stat
 {
   create 1572554245
-  modify 1572554299
+  modify 1595825409
   author jacobr@carpenters.fas.fa.disney.com
   access 0777
 }
@@ -1434,9 +1433,9 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.114141 15.4811
+position 0.114141 15.9273
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass on display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 1 "output1"
@@ -1452,7 +1451,7 @@ inputs
 stat
 {
   create 1531965466
-  modify 1582594791
+  modify 1595827310
   author Henry@LAPPY586
   access 0777
 }
@@ -1632,13 +1631,19 @@ Content-Type: text/plain
         label   "Do Sequence Delay"
         type    toggle
         default { "0" }
-        range   { 0 10 }
     }
     parm {
         name    "vex_precision"
         baseparm
         label   "VEX Precision"
         export  none
+    }
+    parm {
+        name    "mode"
+        label   "Mode"
+        type    integer
+        default { "0" }
+        range   { 0 10 }
     }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1665,6 +1670,12 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../do_sequence_delay\") }
     }
+    channel mode {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../delay_type\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1681,6 +1692,10 @@ vex_numcount	[ 0	locks=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
 snippet	[ 0	locks=0 ]	(	"float max_delay = ch(\"delay\");
 float index;
+int mode = chi(\"mode\"); // 0 = seconds, 1 = frames
+if(mode) {
+    max_delay *= @TimeInc;
+}
 
 int do_sequence_delay = chi(\"do_sequence_delay\");
 i@__ispackedsequence = 0;
@@ -1723,122 +1738,11 @@ vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 delay	[ 0	locks=0 ]	(	[ delay	0.5 ] 	)
 do_sequence_delay	[ 0	locks=0 ]	(	[ do_sequence_delay	1 ] 	)
+mode	[ 0	locks=0 ]	(	[ mode	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/apply_sequence_delay.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":""
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/set_alembic_attrs.init"
-Content-Type: text/plain
-
-type = attribwrangle
-matchesdef = 1
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/set_alembic_attrs.def"
-Content-Type: text/plain
-
-sopflags sopflags = 
-comment ""
-position 0.114141 14.433
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
-outputsNamed3
-{
-1 "output1"
-}
-inputsNamed3
-{
-0 	apply_sequence_delay 1 1 "input1"
-}
-inputs
-{
-0 	apply_sequence_delay 0 1
-}
-stat
-{
-  create 1531283685
-  modify 1582594150
-  author Henry@LAPPY586
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/set_alembic_attrs.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-folder0	[ 0	locks=0 ]	(	0	0	)
-group	[ 0	locks=0 ]	(	@__isabc==1	)
-grouptype	[ 0	locks=0 ]	(	"guess"	)
-class	[ 0	locks=0 ]	(	"point"	)
-vex_numcount	[ 0	locks=0 ]	(	10	)
-vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
-snippet	[ 0	locks=0 ]	(	"// set abcframe intrinsic
-float start = point(0, \"mops_abc_start\", @ptnum);
-float end = point(0, \"mops_abc_end\", @ptnum);
-float index = @__index / @TimeInc;
-
-// have to manually clamp alembics...
-if(s@mops_abc_wrap == \"cycle\") {
-    // cycle
-    index = ((index - 1) % (end-start)) + start;   
-
-} else if(s@mops_abc_wrap == \"mirror\") {
-    // mirror
-    // y = (A/P) * (P - abs(x % (2*P) - P) )
-    float A = 1;
-    float P = (end-start);
-    index -= 1;
-    float time = (A/P) * (P - abs((index) % (2*P) - P) );
-    time = fit01(time, start, end);
-    index = time;
-    
-} else if(s@mops_abc_wrap == \"strict\") {
-    // strict doesn't work with alembic.
-    index = index + (start-1);
-    //if((index < start) || (index > end)) {
-    //    removeprim(0, @primnum, 1);
-    //}
-    
-} else {
-    // clamp
-    index = clamp(index+(start-1), start, end);
-}
-
-f@__index = index * @TimeInc;
-"	)
-exportlist	[ 0	locks=0 ]	(	*	)
-vex_strict	[ 0	locks=0 ]	(	"off"	)
-autobind	[ 0	locks=0 ]	(	"on"	)
-bindings	[ 0	locks=0 ]	(	0	)
-groupautobind	[ 0	locks=0 ]	(	"on"	)
-groupbindings	[ 0	locks=0 ]	(	0	)
-vex_cwdpath	[ 0	locks=0 ]	(	.	)
-vex_outputmask	[ 0	locks=0 ]	(	*	)
-vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
-vex_matchattrib	[ 0	locks=0 ]	(	id	)
-vex_inplace	[ 0	locks=0 ]	(	"off"	)
-vex_selectiongroup	[ 0	locks=0 ]	(	""	)
-vex_precision	[ 0	locks=0 ]	(	auto	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/set_alembic_attrs.userdata"
 Content-Type: text/plain
 
 {
@@ -1861,7 +1765,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.501351 -6.2558
+position -0.501351 -7.46306
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1870,16 +1774,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	attribcopy1 1 1 "input1"
+0 	alembic_cycling 1 1 "input1"
 }
 inputs
 {
-0 	attribcopy1 0 1
+0 	alembic_cycling 0 1
 }
 stat
 {
   create 1531969324
-  modify 1582594229
+  modify 1595827391
   author Henry@LAPPY586
   access 0777
 }
@@ -1974,7 +1878,7 @@ inputs
 stat
 {
   create 1572554245
-  modify 1582594185
+  modify 1595825409
   author jacobr@carpenters.fas.fa.disney.com
   access 0777
 }
@@ -2055,7 +1959,7 @@ inputs
 stat
 {
   create 1578955634
-  modify 1582594188
+  modify 1595825409
   author jacobr@carpenters.fas.fa.disney.com
   access 0777
 }
@@ -2076,13 +1980,13 @@ grouptype	[ 0	locks=0 ]	(	"guess"	)
 class	[ 0	locks=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
-snippet	[ 0	locks=0 ]	(	"int id = findattribval(1, \"prim\", \"primId\", @id);
-float min = prim(1, \"__min\", id);
-float max = prim(1, \"__max\", id);
+snippet	[ 0	locks=0 ]	(	"// int id = findattribval(1, \"prim\", \"primId\", @id);
+float min = prim(1, \"__min\", idtoprim(1, i@id));
+float max = prim(1, \"__max\", idtoprim(1, i@id));
 float u = fit(@__max_age, min, max, 0, 1);
 
 v@__primuv = set(u, 0);
-@__prim = @id;
+@__prim = idtoprim(1, @id);
 "	)
 exportlist	[ 0	locks=0 ]	(	*	)
 vex_strict	[ 0	locks=0 ]	(	"off"	)
@@ -2141,7 +2045,7 @@ inputs
 stat
 {
   create 1580167205
-  modify 1582594194
+  modify 1595825409
   author jacobr@carpenters.fas.fa.disney.com
   access 0777
 }
@@ -2284,7 +2188,7 @@ inputs
 stat
 {
   create 1580167255
-  modify 1582594221
+  modify 1595825409
   author jacobr@carpenters.fas.fa.disney.com
   access 0777
 }
@@ -2342,6 +2246,205 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/time_index_attr.init"
+Content-Type: text/plain
+
+type = attribwrangle
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/time_index_attr.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 0.114141 14.0787
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	apply_sequence_delay 1 1 "input1"
+}
+inputs
+{
+0 	apply_sequence_delay 0 1
+}
+stat
+{
+  create 1595708550
+  modify 1595827369
+  author Henry@LAPPY586
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/time_index_attr.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+folder0	[ 0	locks=0 ]	(	0	0	)
+group	[ 0	locks=0 ]	(	""	)
+grouptype	[ 0	locks=0 ]	(	"guess"	)
+class	[ 0	locks=0 ]	(	"point"	)
+vex_numcount	[ 0	locks=0 ]	(	10	)
+vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
+snippet	[ 0	locks=0 ]	(	"string typename = primintrinsic(0, \"typename\", @elemnum);
+int time_mode = chi(\"time_mode\");
+if(typename == \"AlembicRef\") {
+    i@__isabc = 1;
+    f@__index = primintrinsic(0, \"abcframe\", @ptnum);
+} else if(typename == \"PackedDiskSequence\") {
+    i@__ispackedsequence = 1;
+    f@__index = primintrinsic(0, \"index\", @ptnum);
+}"	)
+exportlist	[ 0	locks=0 ]	(	*	)
+vex_strict	[ 0	locks=0 ]	(	"off"	)
+autobind	[ 0	locks=0 ]	(	"on"	)
+bindings	[ 0	locks=0 ]	(	0	)
+groupautobind	[ 0	locks=0 ]	(	"on"	)
+groupbindings	[ 0	locks=0 ]	(	0	)
+vex_cwdpath	[ 0	locks=0 ]	(	.	)
+vex_outputmask	[ 0	locks=0 ]	(	*	)
+vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
+vex_matchattrib	[ 0	locks=0 ]	(	id	)
+vex_inplace	[ 0	locks=0 ]	(	"off"	)
+vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/time_index_attr.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/alembic_cycling.init"
+Content-Type: text/plain
+
+type = attribwrangle
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/alembic_cycling.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -0.629773 -6.29743
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	remove_spare_attribs 0 1 "input1"
+}
+inputs
+{
+0 	remove_spare_attribs 0 1
+}
+stat
+{
+  create 1531283685
+  modify 1595827519
+  author Henry@LAPPY586
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/alembic_cycling.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+folder0	[ 0	locks=0 ]	(	0	0	)
+group	[ 0	locks=0 ]	(	@__isabc==1	)
+grouptype	[ 0	locks=0 ]	(	"guess"	)
+class	[ 0	locks=0 ]	(	"point"	)
+vex_numcount	[ 0	locks=0 ]	(	10	)
+vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
+snippet	[ 0	locks=0 ]	(	"// set abcframe intrinsic
+float start = point(0, \"mops_abc_start\", @ptnum);
+float end = point(0, \"mops_abc_end\", @ptnum);
+float index = @__index / @TimeInc;
+
+// have to manually clamp alembics...
+if(s@mops_abc_wrap == \"cycle\") {
+    // cycle
+    index = ((index - 1) % (end-start)) + start;   
+
+} else if(s@mops_abc_wrap == \"mirror\") {
+    // mirror
+    // y = (A/P) * (P - abs(x % (2*P) - P) )
+    float A = 1;
+    float P = (end-start);
+    index -= 1;
+    float time = (A/P) * (P - abs((index) % (2*P) - P) );
+    time = fit01(time, start, end);
+    index = time;
+    
+} else if(s@mops_abc_wrap == \"strict\") {
+    // strict doesn't work with alembic.
+    index = index + (start-1);
+    //if((index < start) || (index > end)) {
+    //    removeprim(0, @primnum, 1);
+    //}
+    
+} else {
+    // clamp
+    index = clamp(index+(start-1), start, end);
+}
+
+f@__index = index * @TimeInc;
+"	)
+exportlist	[ 0	locks=0 ]	(	*	)
+vex_strict	[ 0	locks=0 ]	(	"off"	)
+autobind	[ 0	locks=0 ]	(	"on"	)
+bindings	[ 0	locks=0 ]	(	0	)
+groupautobind	[ 0	locks=0 ]	(	"on"	)
+groupbindings	[ 0	locks=0 ]	(	0	)
+vex_cwdpath	[ 0	locks=0 ]	(	.	)
+vex_outputmask	[ 0	locks=0 ]	(	*	)
+vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
+vex_matchattrib	[ 0	locks=0 ]	(	id	)
+vex_inplace	[ 0	locks=0 ]	(	"off"	)
+vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/alembic_cycling.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/Trail_Motion/d/s/Prev_Frame.init"
 Content-Type: text/plain
 
@@ -2370,7 +2473,7 @@ inputs
 stat
 {
   create 1324348265
-  modify 1582594997
+  modify 1595825409
   author jlait@andorra.sidefx.com
   access 0777
 }
@@ -2443,7 +2546,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.348"
+		"value":"18.0.460"
 	}
 }
 
@@ -2476,7 +2579,7 @@ inputs
 stat
 {
   create 1324348294
-  modify 1543604861
+  modify 1595825409
   author jlait@andorra.sidefx.com
   access 0777
 }
@@ -2522,7 +2625,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.348"
+		"value":"18.0.460"
 	}
 }
 
@@ -2555,7 +2658,7 @@ inputs
 stat
 {
   create 1324348294
-  modify 1543604861
+  modify 1595825409
   author jlait@andorra.sidefx.com
   access 0777
 }
@@ -2601,7 +2704,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.348"
+		"value":"18.0.460"
 	}
 }
 
@@ -2634,7 +2737,7 @@ inputs
 stat
 {
   create 1324348294
-  modify 1543604861
+  modify 1595825409
   author jlait@andorra.sidefx.com
   access 0777
 }
@@ -2680,7 +2783,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.348"
+		"value":"18.0.460"
 	}
 }
 
@@ -2713,7 +2816,7 @@ inputs
 stat
 {
   create 1324348294
-  modify 1543604861
+  modify 1595825409
   author jlait@andorra.sidefx.com
   access 0777
 }
@@ -2759,7 +2862,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.348"
+		"value":"18.0.460"
 	}
 }
 
@@ -2820,7 +2923,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.348"
+		"value":"18.0.460"
 	}
 }
 
@@ -2879,7 +2982,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.348"
+		"value":"18.0.460"
 	}
 }
 
@@ -2979,7 +3082,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.348"
+		"value":"18.0.460"
 	}
 }
 
@@ -3057,7 +3160,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.348"
+		"value":"18.0.460"
 	}
 }
 
@@ -3160,7 +3263,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.348"
+		"value":"18.0.460"
 	}
 }
 
@@ -3177,7 +3280,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -3.54802 -10.0455
+position -3.54802 -11.2528
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -3194,7 +3297,7 @@ inputs
 stat
 {
   create 1524695187
-  modify 1582594228
+  modify 1595827380
   author Henry@LAPPY586
   access 0777
 }
@@ -3219,7 +3322,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.348"
+		"value":"18.0.460"
 	}
 }
 
@@ -3254,7 +3357,7 @@ inputs
 stat
 {
   create 1524695187
-  modify 1529386279
+  modify 1595827343
   author Henry@LAPPY586
   access 0777
 }
@@ -3275,7 +3378,7 @@ outclass	[ 0	locks=0	autoscope=0 ]	(	"primitive"	)
 usepieceattrib	[ 0	locks=0 ]	(	"off"	)
 pieceattrib	[ 0	locks=0 ]	(	name	)
 method	[ 0	locks=0	autoscope=0 ]	(	"mean"	)
-useoutname	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+useoutname	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 outname	[ 0	locks=0	autoscope=0 ]	(	primId	)
 deletein	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 }
@@ -3287,7 +3390,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.348"
+		"value":"18.0.460"
 	}
 }
 
@@ -3396,7 +3499,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.348"
+		"value":"18.0.460"
 	}
 }
 
@@ -3505,7 +3608,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.348"
+		"value":"18.0.460"
 	}
 }
 
@@ -3540,7 +3643,7 @@ inputs
 stat
 {
   create 1524695187
-  modify 1580168017
+  modify 1595610359
   author Henry@LAPPY586
   access 0777
 }
@@ -3558,7 +3661,7 @@ version 0.8
 stdswitcher	[ 0	locks=0	autoscope=0 ]	(	0	0	0	0	0	)
 _label1_	[ 0	locks=0	autoscope=0 ]	(	From	To	)
 ptrenames	[ 0	locks=0	autoscope=0 ]	(	5	)
-ptdel	[ 0	locks=0	autoscope=0 ]	(	"orient pivot scale __age __max_age"	)
+ptdel	[ 0	locks=0	autoscope=0 ]	(	"__age __max_age"	)
 ptkeep	[ 0	locks=0	autoscope=0 ]	(	*	)
 _label2_	[ 0	locks=0	autoscope=0 ]	(	From	To	)
 vtxrenames	[ 0	locks=0	autoscope=0 ]	(	5	)
@@ -3647,7 +3750,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.348"
+		"value":"18.0.460"
 	}
 }
 
@@ -3715,7 +3818,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.348"
+		"value":"18.0.460"
 	}
 }
 
@@ -3751,7 +3854,7 @@ inputs
 stat
 {
   create 1529386178
-  modify 1543604861
+  modify 1595825409
   author Henry@LAPPY586
   access 0777
 }
@@ -3816,7 +3919,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -3.54917 -8.315
+position -3.54917 -9.52226
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -3836,7 +3939,7 @@ inputs
 stat
 {
   create 1529386288
-  modify 1580167255
+  modify 1595827380
   author Henry@LAPPY586
   access 0777
 }
@@ -3860,81 +3963,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.348"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribcopy1.init"
-Content-Type: text/plain
-
-type = attribcopy
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribcopy1.def"
-Content-Type: text/plain
-
-sopflags sopflags = 
-comment ""
-position -0.501801 -5.02418
-connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
-outputsNamed3
-{
-1 "output1"
-}
-inputsNamed3
-{
-0 	remove_spare_attribs 0 1 "input1"
-2 	set_alembic_attrs 1 1 "input2"
-}
-inputs
-{
-0 	remove_spare_attribs 0 1
-1 	set_alembic_attrs 0 1
-}
-stat
-{
-  create 1531969261
-  modify 1582594225
-  author Henry@LAPPY586
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribcopy1.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-srcgroup	[ 0	locks=0 ]	(	""	)
-srcgrouptype	[ 0	locks=0 ]	(	"points"	)
-destgroup	[ 0	locks=0 ]	(	""	)
-destgrouptype	[ 0	locks=0 ]	(	"points"	)
-matchbyattribute	[ 0	locks=0 ]	(	"on"	)
-attributetomatch	[ 0	locks=0 ]	(	id	)
-attrib	[ 0	locks=0 ]	(	"otherattrib"	)
-attribname	[ 0	locks=0 ]	(	__index	)
-copyp	[ 0	locks=0 ]	(	"on"	)
-usenewname	[ 0	locks=0 ]	(	"off"	)
-newname	[ 0	locks=0 ]	(	""	)
-class	[ 0	locks=0 ]	(	"guess"	)
-copyvariable	[ 0	locks=0 ]	(	"on"	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribcopy1.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"18.0.348"
+		"value":"18.0.460"
 	}
 }
 
@@ -3951,7 +3980,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.83834 -7.2937
+position -1.83834 -8.50096
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -3969,7 +3998,7 @@ inputs
 stat
 {
   create 1531969827
-  modify 1580171109
+  modify 1595827380
   author Henry@LAPPY586
   access 0777
 }
@@ -4072,7 +4101,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.348"
+		"value":"18.0.460"
 	}
 }
 
@@ -4097,8 +4126,6 @@ attribpromote2
 split1
 merge1
 apply_sequence_delay
-set_alembic_attrs
-attribcopy1
 apply_delayed_sequence_index
 attribdelete1
 transfer_max_age
@@ -4106,6 +4133,8 @@ attribinterpolate1
 create_prim_uvs
 timeblend1
 attribwrangle2
+time_index_attr
+alembic_cycling
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"

@@ -902,6 +902,13 @@
                     }
                 }
                 parm {
+                    name    "centerinstance#"
+                    label   "Center Instance"
+                    type    toggle
+                    default { "0" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
                     name    "instance_material#"
                     label   "Material Override"
                     type    oppath
@@ -961,7 +968,7 @@
             default { "" }
             disablewhen "{ distro_type < 5 }"
             menutoggle {
-                [ "opmenu -l object_merge1 group1" ]
+                [ "opmenu -l SOURCE_TEMPLATE group1" ]
             }
             parmtag { "autoscope" "0000000000000000" }
         }
@@ -2455,7 +2462,7 @@
 
                         parm {
                             name    "bias"
-                            label   "Blend with Original"
+                            label   "Amount"
                             type    float
                             default { "0.5" }
                             range   { 0 1 }

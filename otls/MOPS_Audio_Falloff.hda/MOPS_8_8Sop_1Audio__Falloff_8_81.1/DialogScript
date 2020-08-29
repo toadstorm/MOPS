@@ -1,0 +1,1122 @@
+# Dialog script for MOPS::Audio_Falloff::1.1 automatically generated
+
+{
+    name	MOPS::Audio_Falloff::1.1
+    script	MOPS::Audio_Falloff::1.1
+    label	"MOPs Audio Falloff"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Sub-Network Input #1"
+    inputlabel	2	"Sub-Network Input #2"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+
+    parm {
+        name    "group"
+        label   "Group"
+        type    string
+        default { "" }
+        menutoggle {
+            [ "opmenu -l Combine_Falloffs1 group" ]
+        }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_action" "import soputils\nkwargs['geometrytype'] = kwargs['node'].parmTuple('grouptype')\nkwargs['inputindex'] = 0\nsoputils.selectGroupParm(kwargs)" }
+        parmtag { "script_action_help" "Select geometry from an available viewport." }
+        parmtag { "script_action_icon" "BUTTONS_reselect" }
+    }
+    parm {
+        name    "grouptype"
+        label   "Group Type"
+        type    ordinal
+        default { "guess" }
+        menu {
+            "guess"     "Guess from Group"
+            "vertices"  "Vertices"
+            "edges"     "Edges"
+            "points"    "Points"
+            "prims"     "Primitives"
+        }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "falloff_attr"
+        label   "Falloff Attribute"
+        type    string
+        default { "mops_falloff" }
+        menureplace {
+            [ "opmenu -l attribswap1 srcattribs1" ]
+        }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "input"
+        label   "Blend Mode"
+        type    ordinal
+        default { "8" }
+        menu {
+            "0" "Add"
+            "1" "Subtract"
+            "2" "Multiply"
+            "3" "Divide"
+            "4" "Screen"
+            "5" "Overlay"
+            "6" "Max"
+            "7" "Min"
+            "8" "Set"
+        }
+        range   { 0! 10 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "strength"
+        label   "Blend Strength"
+        type    float
+        default { "1" }
+        range   { 0! 1! }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "switchclamp"
+        label   "Clamp"
+        type    toggle
+        default { "off" }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "sepparm"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "do_preview"
+        label   "Preview Falloff"
+        type    toggle
+        default { "0" }
+        range   { 0! 10 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "sepparm2"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    group {
+        name    "stdswitcher2"
+        label   "File"
+
+        parm {
+            name    "file"
+            label   "Audio File"
+            type    file
+            default { "" }
+            menureplace {
+                [ "opmenu -l audio/file1 file" ]
+            }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "filechooser_mode" "read" }
+        }
+        parm {
+            name    "reload"
+            label   "Reload File"
+            type    button
+            default { "0" }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "nameoption"
+            label   "Name Options"
+            type    ordinal
+            invisible
+            default { "infile" }
+            menu {
+                "infile"    "Use Names In File"
+                "new"       "Use New Names"
+                "filename"  "Use Filename"
+            }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "name"
+            label   "Name"
+            type    string
+            invisible
+            default { "chan0" }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        groupsimple {
+            name    "folder0"
+            label   "Audio Preview"
+
+            parm {
+                name    "preview_raw"
+                label   "Original"
+                type    button
+                joinnext
+                default { "0" }
+                parmtag { "script_callback" "hou.pwd().hdaModule().previewOriginal(kwargs)" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "preview_off"
+                label   "Disable"
+                type    button
+                default { "0" }
+                parmtag { "script_callback" "hou.pwd().hdaModule().previewOff(kwargs)" }
+                parmtag { "script_callback_language" "python" }
+            }
+        }
+
+        parm {
+            name    "rateoption"
+            label   "Rate Options"
+            type    ordinal
+            default { "nochange" }
+            menu {
+                "nochange"  "No Change"
+                "override"  "Override"
+                "resample"  "Resample"
+            }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "rate"
+            label   "Sample Rate"
+            type    float
+            default { "4096" }
+            range   { 0! 120 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "left"
+            label   "Extend Left"
+            type    ordinal
+            default { "asis" }
+            menu {
+                "asis"      "No Change"
+                "hold"      "Hold"
+                "slope"     "Slope"
+                "cycle"     "Cycle"
+                "mirror"    "Mirror"
+                "default"   "Default Value"
+                "cyclestep" "Cycle with Offset"
+            }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "right"
+            label   "Extend Right"
+            type    ordinal
+            default { "asis" }
+            menu {
+                "asis"      "No Change"
+                "hold"      "Hold"
+                "slope"     "Slope"
+                "cycle"     "Cycle"
+                "mirror"    "Mirror"
+                "default"   "Default Value"
+                "cyclestep" "Cycle with Offset"
+            }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "defval"
+            label   "Default Value"
+            type    float
+            invisible
+            default { "0" }
+            range   { -10 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+    }
+
+    group {
+        name    "stdswitcher2_1"
+        label   "Trim & Shift"
+
+        parm {
+            name    "do_trim"
+            label   "Enable Trim"
+            type    toggle
+            default { "0" }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "do_shift"
+            label   "Enable Shift"
+            type    toggle
+            default { "0" }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        group {
+            name    "folder2_1"
+            label   "Trim"
+            tabbreak
+            disablewhentab "{ do_trim == 0 }"
+
+            parm {
+                name    "relative3"
+                label   "Unit Values"
+                type    ordinal
+                default { "rel" }
+                menu {
+                    "abs"   "Absolute"
+                    "rel"   "Relative to Start/End"
+                    "cur"   "Relative to Current Frame"
+                    "slice" "Current Time Slice"
+                }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "start3"
+                label   "Start"
+                type    float
+                default { "0" }
+                range   { -100 100 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "end3"
+                label   "End"
+                type    float
+                default { "0" }
+                range   { -100 100 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "discard"
+                label   "Discard"
+                type    ordinal
+                default { "trimExt" }
+                menu {
+                    "trimExt"   "Exterior"
+                    "trimInt"   "Interior"
+                }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+        }
+
+        group {
+            name    "folder2"
+            label   "Shift"
+            tabbreak
+            disablewhentab "{ do_shift == 0 }"
+
+            parm {
+                name    "reference"
+                label   "Reference"
+                type    ordinal
+                default { "refstart" }
+                menu {
+                    "refstart"  "Start Position"
+                    "refend"    "End Position"
+                }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "relative"
+                label   "Unit Values"
+                type    ordinal
+                default { "rel" }
+                menu {
+                    "abs"   "Absolute"
+                    "rel"   "Relative to Start/End"
+                    "cur"   "Use Current Frame"
+                }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "start"
+                label   "Start"
+                type    float
+                default { "0" }
+                range   { -10 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "end"
+                label   "End"
+                type    float
+                default { "0" }
+                range   { -10 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "scroll"
+                label   "Scroll Offset"
+                type    float
+                default { "0" }
+                range   { -10 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+        }
+
+    }
+
+    group {
+        name    "stdswitcher2_2"
+        label   "Bands"
+
+        group {
+            name    "folder3"
+            label   "Frequencies"
+
+            multiswitcher {
+                name    "bands"
+                label    "Bands"
+                parmtag { "script_callback" "hou.pwd().hdaModule().createBands(kwargs)" }
+                parmtag { "script_callback_language" "python" }
+
+                parm {
+                    name    "preview#"
+                    label   "Preview Band"
+                    type    button
+                    default { "0" }
+                    parmtag { "script_callback" "hou.pwd().hdaModule().previewFiltered(kwargs)" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "filter#"
+                    label   "Filter"
+                    type    ordinal
+                    default { "0" }
+                    menu {
+                        "0" "Low Pass"
+                        "1" "High Pass"
+                        "2" "Band Pass"
+                        "3" "Band Stop"
+                    }
+                }
+                parm {
+                    name    "cutofflow#"
+                    label   "Low Cutoff"
+                    type    float
+                    default { "0" }
+                    disablewhen "{ filter# == 0 }"
+                    range   { 0! 2000 }
+                }
+                parm {
+                    name    "cutoffhigh#"
+                    label   "High Cutoff"
+                    type    float
+                    default { "2000" }
+                    disablewhen "{ filter# == 1 }"
+                    range   { 0! 2000 }
+                }
+                parm {
+                    name    "gain#"
+                    label   "Pass Gain (dB)"
+                    type    float
+                    default { "0" }
+                    range   { -10 10 }
+                }
+                parm {
+                    name    "rolloff#"
+                    label   "Rolloff Factor"
+                    type    float
+                    default { "3" }
+                    range   { 0 10 }
+                }
+            }
+
+        }
+
+        group {
+            name    "folder3_1"
+            label   "Band Options"
+            tabbreak
+
+            parm {
+                name    "preview_bands"
+                label   "Preview Bands"
+                type    toggle
+                default { "0" }
+            }
+            parm {
+                name    "auto_distribute"
+                label   "Auto Distribute"
+                type    toggle
+                default { "1" }
+                range   { 0 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "band_attr"
+                label   "Band Attribute"
+                type    string
+                default { "mops_falloff" }
+                disablewhen "{ auto_distribute == 1 }"
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "distribute_ramp"
+                label   "Band Weighting"
+                type    ramp_flt
+                default { "2" }
+                range   { 1! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "rampfloatdefault" "1pos ( 0 ) 1value ( 0 ) 1interp ( linear ) 2pos ( 1 ) 2value ( 1 ) 2interp ( linear )" }
+            }
+        }
+
+    }
+
+    group {
+        name    "stdswitcher2_3"
+        label   "Processing"
+
+        group {
+            name    "stdswitcher"
+            label   "Envelope"
+
+            parm {
+                name    "do_envelope"
+                label   "Enable Envelope"
+                type    toggle
+                default { "0" }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "method"
+                label   "Type"
+                type    ordinal
+                default { "exp" }
+                disablewhen "{ do_envelope == 0 }"
+                menu {
+                    "exp"       "Exponential Decay"
+                    "window"    "Local Maximum Window"
+                }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "bounds"
+                label   "Envelope Bounds"
+                type    ordinal
+                default { "power" }
+                disablewhen "{ do_envelope == 0 }"
+                menu {
+                    "mag"   "Magnitude"
+                    "power" "Signal Power"
+                    "min"   "Maximum Values"
+                    "max"   "Minimum Values"
+                }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "width"
+                label   "Envelope Width"
+                type    float
+                default { "2" }
+                disablewhen "{ do_envelope == 0 }"
+                range   { 0! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "interp"
+                label   "Interpolate"
+                type    ordinal
+                default { "linear" }
+                disablewhen "{ do_envelope == 0 }"
+                menu {
+                    "none"      "None"
+                    "linear"    "Linear"
+                    "cubic"     "Cubic"
+                }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "norm"
+                label   "Normalize Power Envelope"
+                type    toggle
+                default { "off" }
+                disablewhen "{ do_envelope == 0 }"
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "resample"
+                label   "Resample Envelope"
+                type    toggle
+                default { "on" }
+                disablewhen "{ do_envelope == 0 }"
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "samplerate"
+                label   "Sample Rate"
+                type    float
+                default { "24" }
+                disablewhen "{ do_envelope == 0 }"
+                range   { 0! 120 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+        }
+
+        group {
+            name    "stdswitcher_1"
+            label   "Filter"
+
+            parm {
+                name    "do_filter"
+                label   "Enable Filter"
+                type    toggle
+                default { "0" }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "type"
+                label   "Type"
+                type    ordinal
+                default { "gauss" }
+                disablewhen "{ do_filter == 0 }"
+                menu {
+                    "gauss"     "Gaussian"
+                    "halfgauss" "Left Half Gaussian"
+                    "box"       "Box"
+                    "halfbox"   "Left Half Box"
+                    "edge"      "Edge Detect"
+                    "sharpen"   "Sharpen"
+                    "despike"   "De-spike"
+                }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "effect"
+                label   "Effect"
+                type    float
+                default { "1" }
+                disablewhen "{ do_filter == 0 }"
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "width2"
+                label   "Filter Width"
+                type    float
+                default { "1" }
+                disablewhen "{ do_filter == 0 }"
+                range   { 0.001! 2 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "spike"
+                label   "Spike Tolerance"
+                type    float
+                default { "0.1" }
+                disablewhen "{ do_filter == 0 }"
+                range   { 0! 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "passes"
+                label   "Number of Passes"
+                type    integer
+                default { "1" }
+                disablewhen "{ do_filter == 0 }"
+                range   { 1! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+        }
+
+        group {
+            name    "stdswitcher_2"
+            label   "Trigger"
+
+            parm {
+                name    "do_trigger"
+                label   "Enable Trigger"
+                type    toggle
+                default { "0" }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            group {
+                name    "stdswitcher3"
+                label   "Trigger"
+                disablewhentab "{ do_trigger == 0 }"
+
+                parm {
+                    name    "threshold"
+                    label   "Release = Trigger Threshold"
+                    type    toggle
+                    default { "on" }
+                    parmtag { "autoscope" "0000000000000000" }
+                }
+                parm {
+                    name    "threshup"
+                    label   "Trigger Threshold"
+                    type    float
+                    default { "0" }
+                    range   { 0 2 }
+                    parmtag { "autoscope" "0000000000000000" }
+                }
+                parm {
+                    name    "threshdown"
+                    label   "Release Threshold"
+                    type    float
+                    default { "0" }
+                    range   { 0 2 }
+                    parmtag { "autoscope" "0000000000000000" }
+                }
+                parm {
+                    name    "retrigger"
+                    label   "Re-trigger Delay"
+                    type    float
+                    default { "0" }
+                    range   { 0! 2 }
+                    parmtag { "autoscope" "0000000000000000" }
+                }
+                parm {
+                    name    "mintrigger"
+                    label   "Min Trigger Length"
+                    type    float
+                    default { "0" }
+                    range   { 0! 4 }
+                    parmtag { "autoscope" "0000000000000000" }
+                }
+                parm {
+                    name    "triggeron"
+                    label   "Trigger On"
+                    type    ordinal
+                    default { "increase" }
+                    menu {
+                        "increase"  "Increasing Values"
+                        "decrease"  "Decreasing Values"
+                    }
+                    parmtag { "autoscope" "0000000000000000" }
+                }
+            }
+
+            group {
+                name    "stdswitcher3_1"
+                label   "Attack"
+                disablewhentab "{ do_trigger == 0 }"
+
+                parm {
+                    name    "delay"
+                    label   "Delay Length"
+                    type    float
+                    default { "0" }
+                    range   { 0! 2 }
+                    parmtag { "autoscope" "0000000000000000" }
+                }
+                parm {
+                    name    "attack"
+                    label   "Attack Length"
+                    type    float
+                    default { "0.2" }
+                    range   { 0! 2 }
+                    parmtag { "autoscope" "0000000000000000" }
+                }
+                parm {
+                    name    "ashape"
+                    label   "Attack Shape"
+                    type    ordinal
+                    default { "halfcos" }
+                    menu {
+                        "linear"    "Linear"
+                        "easein"    "Ease In"
+                        "easeout"   "Ease Out"
+                        "halfcos"   "Ease in Ease out"
+                    }
+                    parmtag { "autoscope" "0000000000000000" }
+                }
+                parm {
+                    name    "peak"
+                    label   "Peak Level"
+                    type    float
+                    default { "1" }
+                    range   { 0 2 }
+                    parmtag { "autoscope" "0000000000000000" }
+                }
+                parm {
+                    name    "peaklen"
+                    label   "Peak Length"
+                    type    float
+                    default { "0.1" }
+                    range   { 0! 2 }
+                    parmtag { "autoscope" "0000000000000000" }
+                }
+            }
+
+            group {
+                name    "stdswitcher3_2"
+                label   "Sustain"
+                disablewhentab "{ do_trigger == 0 }"
+
+                parm {
+                    name    "decay"
+                    label   "Decay Length"
+                    type    float
+                    default { "0.2" }
+                    range   { 0! 2 }
+                    parmtag { "autoscope" "0000000000000000" }
+                }
+                parm {
+                    name    "dshape"
+                    label   "Decay Shape"
+                    type    ordinal
+                    default { "halfcos" }
+                    menu {
+                        "linear"    "Linear"
+                        "easein"    "Ease In"
+                        "easeout"   "Ease Out"
+                        "halfcos"   "Ease in Ease out"
+                    }
+                    parmtag { "autoscope" "0000000000000000" }
+                }
+                parm {
+                    name    "sustain"
+                    label   "Sustain Level"
+                    type    float
+                    default { "0.5" }
+                    range   { 0 2 }
+                    parmtag { "autoscope" "0000000000000000" }
+                }
+                parm {
+                    name    "release"
+                    label   "Release Length"
+                    type    float
+                    default { "0.3" }
+                    range   { 0! 2 }
+                    parmtag { "autoscope" "0000000000000000" }
+                }
+                parm {
+                    name    "rshape"
+                    label   "Release Shape"
+                    type    ordinal
+                    default { "halfcos" }
+                    menu {
+                        "linear"    "Linear"
+                        "easein"    "Ease In"
+                        "easeout"   "Ease Out"
+                        "halfcos"   "Ease in Ease out"
+                    }
+                    parmtag { "autoscope" "0000000000000000" }
+                }
+            }
+
+        }
+
+        group {
+            name    "stdswitcher_3"
+            label   "Lag"
+
+            parm {
+                name    "do_lag"
+                label   "Enable Lag"
+                type    toggle
+                default { "0" }
+            }
+            parm {
+                name    "lagmethod"
+                label   "Method"
+                type    ordinal
+                default { "value" }
+                disablewhen "{ do_lag == 0 }"
+                menu {
+                    "value" "Lag Value"
+                    "amp"   "Lag Amplitude"
+                    "mag"   "Lag Magnitude"
+                }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "lag"
+                label   "Lag"
+                type    float
+                size    2
+                default { "0.2" "0.2" }
+                disablewhen "{ do_lag == 0 }"
+                range   { 0! 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "overshoot"
+                label   "Overshoot"
+                type    float
+                size    2
+                default { "0" "0" }
+                disablewhen "{ do_lag == 0 }"
+                range   { 0! 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "clamp"
+                label   "Clamp Slope"
+                type    toggle
+                default { "off" }
+                disablewhen "{ do_lag == 0 }"
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "slope"
+                label   "Max Slope"
+                type    float
+                size    2
+                default { "1" "1" }
+                disablewhen "{ do_lag == 0 }"
+                range   { 0! 2 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "aclamp"
+                label   "Clamp Acceleration"
+                type    toggle
+                default { "off" }
+                disablewhen "{ do_lag == 0 }"
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "accel"
+                label   "Max Acceleration"
+                type    float
+                size    2
+                default { "1" "1" }
+                disablewhen "{ do_lag == 0 }"
+                range   { 0! 2 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+        }
+
+        group {
+            name    "stdswitcher_4"
+            label   "Area"
+            tabbreak
+
+            parm {
+                name    "do_area"
+                label   "Enable Area"
+                type    toggle
+                default { "0" }
+            }
+            parm {
+                name    "order"
+                label   "Order"
+                type    ordinal
+                default { "first" }
+                disablewhen "{ do_area == 0 }"
+                menu {
+                    "first"     "First"
+                    "second"    "Second"
+                    "third"     "Third"
+                }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "constant1"
+                label   "First Constant"
+                type    float
+                default { "0" }
+                disablewhen "{ do_area == 0 }"
+                range   { -10 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "constant2"
+                label   "Second Constant"
+                type    float
+                default { "0" }
+                disablewhen "{ do_area == 0 }"
+                range   { -10 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "constant3"
+                label   "Third Constant"
+                type    float
+                default { "0" }
+                disablewhen "{ do_area == 0 }"
+                range   { -10 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "relative2"
+                label   "Unit Values"
+                type    ordinal
+                default { "rel" }
+                disablewhen "{ do_area == 0 }"
+                menu {
+                    "abs"   "Absolute"
+                    "rel"   "Relative to Start/End"
+                }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "start2"
+                label   "Start"
+                type    float
+                default { "0" }
+                disablewhen "{ do_area == 0 }"
+                range   { -10 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "end2"
+                label   "End"
+                type    float
+                default { "0" }
+                disablewhen "{ do_area == 0 }"
+                range   { -10 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+        }
+
+    }
+
+    group {
+        name    "stdswitcher2_4"
+        label   "Remap"
+
+        groupsimple {
+            name    "fitparams"
+            label   "Fit"
+
+            parm {
+                name    "switchfit"
+                label   "Fit"
+                type    toggle
+                default { "off" }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "auto_min_max"
+                label   "Auto min and max input values"
+                type    toggle
+                default { "off" }
+                disablewhen "{ switchfit != 1 }"
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "frame"
+                label   "Reference Frame"
+                type    float
+                default { [ "$F" hscript-expr ] }
+                hidewhen "{ auto_min_max == 0 }"
+                range   { 0 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "imin"
+                label   "Input Min"
+                type    float
+                default { "0" }
+                disablewhen "{ auto_min_max == 1 } { switchfit != 1 }"
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "imax"
+                label   "Input Max"
+                type    float
+                default { "1" }
+                disablewhen "{ auto_min_max == 1 } { switchfit != 1 }"
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "omin"
+                label   "Output Min"
+                type    float
+                default { "0" }
+                disablewhen "{ switchfit != 1 }"
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "omax"
+                label   "Output Max"
+                type    float
+                default { "1" }
+                disablewhen "{ switchfit != 1 }"
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+        }
+
+        parm {
+            name    "remap_falloff"
+            label   "Remap Falloff"
+            type    ramp_flt
+            default { "2" }
+            range   { 1! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "rampfloatdefault" "1pos ( 0 ) 1value ( 0 ) 1interp ( linear ) 2pos ( 1 ) 2value ( 1 ) 2interp ( linear )" }
+        }
+    }
+
+    group {
+        name    "stdswitcher2_5"
+        label   "Preview Falloff"
+        hidewhentab "{ do_preview == 0 }"
+
+        parm {
+            name    "do_sprite"
+            label   "Display as Sprites"
+            type    toggle
+            default { "off" }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "spritescale"
+            label   "Sprite Scale"
+            type    float
+            default { "1" }
+            hidewhen "{ do_sprite == 0 }"
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "override_scale"
+            label   "Override Scale"
+            type    toggle
+            default { "off" }
+            hidewhen "{ do_sprite == 0 }"
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "ramp_preset"
+            label   "Preset"
+            type    ordinal
+            default { "blackbody" }
+            menu {
+                "heatmap"   "Heatmap"
+                "blackbody" "Blackbody"
+                "infrared"  "Infrared"
+            }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "falloff_heatmap"
+            label   "Falloff Ramp"
+            type    ramp_rgb
+            default { "5" }
+            range   { 1! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "rampcolordefault" "1pos ( 0 ) 1c ( 0.036199998110532761 0 0.5429999828338623 ) 1interp ( linear ) 2pos ( 0.27027025818824768 ) 2c ( 0.7369999885559082 0 0 ) 2interp ( linear ) 3pos ( 0.71814674139022827 ) 3c ( 1 0.28333333134651184 0 ) 3interp ( linear ) 4pos ( 0.90154439210891724 ) 4c ( 0.89999997615814209 0.89999997615814209 0 ) 4interp ( linear ) 5pos ( 1 ) 5c ( 1 1 1 ) 5interp ( linear )" }
+            parmtag { "rampshowcontrolsdefault" "0" }
+        }
+    }
+
+    parm {
+        name    "band_isolate"
+        label   "Isolate Band"
+        type    string
+        invisible
+        default { "" }
+    }
+}

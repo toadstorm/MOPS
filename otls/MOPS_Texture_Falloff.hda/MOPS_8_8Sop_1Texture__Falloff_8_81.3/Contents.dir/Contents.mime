@@ -32,7 +32,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -60.2851 71.5921
+position -3.39689 -3.62791
 connectornextid 0
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -46,8 +46,8 @@ inputs
 }
 stat
 {
-  create 1573271924
-  modify 1573271931
+  create 1597457615
+  modify 1597457622
   author Henry@LAPPY586
   access 0777
 }
@@ -72,7 +72,7 @@ Content-Disposition: attachment; filename="hdaroot.inp"
 Content-Type: text/plain
 
 1
-0 -1.0045131875293747 9.9326695938586251 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+0 -1.564749087910223 11.557353704963086 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/attribfrommap2.init"
@@ -87,7 +87,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.0035 4.14184
+position 0.864866 4.70208
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -105,7 +105,7 @@ inputs
 stat
 {
   create 1520761826
-  modify 1573271925
+  modify 1597457616
   author Mo@Mo-PC
   access 0777
 }
@@ -201,6 +201,13 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = ch(\"../uv_ty\") }
     }
+    channel uvattrib {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"uv\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../uvattrib\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -215,7 +222,7 @@ filename	[ 0	locks=0 ]	(	[ filename	UVcolor.rat ] 	)
 reload	[ 0	locks=0 ]	(	0	)
 udim	[ 0	locks=0 ]	(	"off"	)
 texture_channel	[ 0	locks=0 ]	(	""	)
-uvattrib	[ 0	locks=0 ]	(	uv	)
+uvattrib	[ 0	locks=0 ]	(	[ uvattrib	uv ] 	)
 export_attribute	[ 0	locks=0 ]	(	mops_falloff	)
 attrib_type	[ 0	locks=0 ]	(	"float"	)
 color_settings	[ 0	locks=0 ]	(	2	2	2	)
@@ -284,7 +291,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.69896 3.14655
+position 0.668803 2.02919
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault off exposed on
 outputsNamed3
@@ -302,7 +309,7 @@ inputs
 stat
 {
   create 1300390512
-  modify 1573271926
+  modify 1597457617
   author cklosters@ghurian.sidefx.com
   access 0777
 }
@@ -828,7 +835,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -907,7 +914,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -987,6 +994,9 @@ colordef	[ 0	locks=0 ]	(	0	0	0	)
 color4def	[ 0	locks=0 ]	(	0	0	0	0	)
 bsdfdef	[ 0	locks=0 ]	(	""	)
 coshaderdef	[ 0	locks=0 ]	(	""	)
+surfacedef	[ 0	locks=0 ]	(	""	)
+displacementdef	[ 0	locks=0 ]	(	""	)
+atmospheredef	[ 0	locks=0 ]	(	""	)
 floatadef	[ 0	locks=0 ]	(	)
 intadef	[ 0	locks=0 ]	(	)
 vector2adef	[ 0	locks=0 ]	(	)
@@ -1035,7 +1045,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -1117,6 +1127,9 @@ colordef	[ 0	locks=0 ]	(	0	0	0	)
 color4def	[ 0	locks=0 ]	(	0	0	0	0	)
 bsdfdef	[ 0	locks=0 ]	(	""	)
 coshaderdef	[ 0	locks=0 ]	(	""	)
+surfacedef	[ 0	locks=0 ]	(	""	)
+displacementdef	[ 0	locks=0 ]	(	""	)
+atmospheredef	[ 0	locks=0 ]	(	""	)
 floatadef	[ 0	locks=0 ]	(	)
 intadef	[ 0	locks=0 ]	(	)
 vector2adef	[ 0	locks=0 ]	(	)
@@ -1165,7 +1178,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -1245,6 +1258,9 @@ colordef	[ 0	locks=0 ]	(	0	0	0	)
 color4def	[ 0	locks=0 ]	(	0	0	0	0	)
 bsdfdef	[ 0	locks=0 ]	(	""	)
 coshaderdef	[ 0	locks=0 ]	(	""	)
+surfacedef	[ 0	locks=0 ]	(	""	)
+displacementdef	[ 0	locks=0 ]	(	""	)
+atmospheredef	[ 0	locks=0 ]	(	""	)
 floatadef	[ 0	locks=0 ]	(	)
 intadef	[ 0	locks=0 ]	(	)
 vector2adef	[ 0	locks=0 ]	(	)
@@ -1293,7 +1309,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -1352,7 +1368,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -1432,6 +1448,9 @@ colordef	[ 0	locks=0 ]	(	0	0	0	)
 color4def	[ 0	locks=0 ]	(	0	0	0	0	)
 bsdfdef	[ 0	locks=0 ]	(	""	)
 coshaderdef	[ 0	locks=0 ]	(	""	)
+surfacedef	[ 0	locks=0 ]	(	""	)
+displacementdef	[ 0	locks=0 ]	(	""	)
+atmospheredef	[ 0	locks=0 ]	(	""	)
 floatadef	[ 0	locks=0 ]	(	)
 intadef	[ 0	locks=0 ]	(	)
 vector2adef	[ 0	locks=0 ]	(	)
@@ -1480,7 +1499,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -1543,7 +1562,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -1736,7 +1755,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -1794,7 +1813,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -1874,6 +1893,9 @@ colordef	[ 0	locks=0 ]	(	0	0	0	)
 color4def	[ 0	locks=0 ]	(	0	0	0	0	)
 bsdfdef	[ 0	locks=0 ]	(	""	)
 coshaderdef	[ 0	locks=0 ]	(	""	)
+surfacedef	[ 0	locks=0 ]	(	""	)
+displacementdef	[ 0	locks=0 ]	(	""	)
+atmospheredef	[ 0	locks=0 ]	(	""	)
 floatadef	[ 0	locks=0 ]	(	)
 intadef	[ 0	locks=0 ]	(	)
 vector2adef	[ 0	locks=0 ]	(	)
@@ -1922,7 +1944,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -2071,6 +2093,9 @@ colordef	[ 0	locks=0 ]	(	0	0	0	)
 color4def	[ 0	locks=0 ]	(	0	0	0	0	)
 bsdfdef	[ 0	locks=0 ]	(	""	)
 coshaderdef	[ 0	locks=0 ]	(	""	)
+surfacedef	[ 0	locks=0 ]	(	""	)
+displacementdef	[ 0	locks=0 ]	(	""	)
+atmospheredef	[ 0	locks=0 ]	(	""	)
 floatadef	[ 0	locks=0 ]	(	)
 intadef	[ 0	locks=0 ]	(	)
 vector2adef	[ 0	locks=0 ]	(	)
@@ -2119,7 +2144,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -2199,6 +2224,9 @@ colordef	[ 0	locks=0 ]	(	0	0	0	)
 color4def	[ 0	locks=0 ]	(	0	0	0	0	)
 bsdfdef	[ 0	locks=0 ]	(	""	)
 coshaderdef	[ 0	locks=0 ]	(	""	)
+surfacedef	[ 0	locks=0 ]	(	""	)
+displacementdef	[ 0	locks=0 ]	(	""	)
+atmospheredef	[ 0	locks=0 ]	(	""	)
 floatadef	[ 0	locks=0 ]	(	)
 intadef	[ 0	locks=0 ]	(	)
 vector2adef	[ 0	locks=0 ]	(	)
@@ -2247,7 +2275,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -2315,7 +2343,7 @@ inputs
 stat
 {
   create 1319659414
-  modify 1573271925
+  modify 1597457616
   author andrew@clinton.sidefx.com
   access 0777
 }
@@ -2479,6 +2507,9 @@ colordef	[ 0	locks=0 ]	(	0	0	0	)
 color4def	[ 0	locks=0 ]	(	0	0	0	0	)
 bsdfdef	[ 0	locks=0 ]	(	""	)
 coshaderdef	[ 0	locks=0 ]	(	""	)
+surfacedef	[ 0	locks=0 ]	(	""	)
+displacementdef	[ 0	locks=0 ]	(	""	)
+atmospheredef	[ 0	locks=0 ]	(	""	)
 floatadef	[ 0	locks=0 ]	(	)
 intadef	[ 0	locks=0 ]	(	)
 vector2adef	[ 0	locks=0 ]	(	)
@@ -2505,7 +2536,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -2585,6 +2616,9 @@ colordef	[ 0	locks=0 ]	(	0	0	0	)
 color4def	[ 0	locks=0 ]	(	0	0	0	0	)
 bsdfdef	[ 0	locks=0 ]	(	""	)
 coshaderdef	[ 0	locks=0 ]	(	""	)
+surfacedef	[ 0	locks=0 ]	(	""	)
+displacementdef	[ 0	locks=0 ]	(	""	)
+atmospheredef	[ 0	locks=0 ]	(	""	)
 floatadef	[ 0	locks=0 ]	(	)
 intadef	[ 0	locks=0 ]	(	)
 vector2adef	[ 0	locks=0 ]	(	)
@@ -2633,7 +2667,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -2713,6 +2747,9 @@ colordef	[ 0	locks=0 ]	(	0	0	0	)
 color4def	[ 0	locks=0 ]	(	0	0	0	0	)
 bsdfdef	[ 0	locks=0 ]	(	""	)
 coshaderdef	[ 0	locks=0 ]	(	""	)
+surfacedef	[ 0	locks=0 ]	(	""	)
+displacementdef	[ 0	locks=0 ]	(	""	)
+atmospheredef	[ 0	locks=0 ]	(	""	)
 floatadef	[ 0	locks=0 ]	(	)
 intadef	[ 0	locks=0 ]	(	)
 vector2adef	[ 0	locks=0 ]	(	)
@@ -2761,7 +2798,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -2841,6 +2878,9 @@ colordef	[ 0	locks=0 ]	(	0	0	0	)
 color4def	[ 0	locks=0 ]	(	0	0	0	1	)
 bsdfdef	[ 0	locks=0 ]	(	""	)
 coshaderdef	[ 0	locks=0 ]	(	""	)
+surfacedef	[ 0	locks=0 ]	(	""	)
+displacementdef	[ 0	locks=0 ]	(	""	)
+atmospheredef	[ 0	locks=0 ]	(	""	)
 floatadef	[ 0	locks=0 ]	(	)
 intadef	[ 0	locks=0 ]	(	)
 vector2adef	[ 0	locks=0 ]	(	)
@@ -2889,7 +2929,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -2969,6 +3009,9 @@ colordef	[ 0	locks=0 ]	(	0	0	0	)
 color4def	[ 0	locks=0 ]	(	0	0	0	0	)
 bsdfdef	[ 0	locks=0 ]	(	""	)
 coshaderdef	[ 0	locks=0 ]	(	""	)
+surfacedef	[ 0	locks=0 ]	(	""	)
+displacementdef	[ 0	locks=0 ]	(	""	)
+atmospheredef	[ 0	locks=0 ]	(	""	)
 floatadef	[ 0	locks=0 ]	(	)
 intadef	[ 0	locks=0 ]	(	)
 vector2adef	[ 0	locks=0 ]	(	)
@@ -3017,7 +3060,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -3096,6 +3139,9 @@ colordef	[ 0	locks=0 ]	(	0	0	0	)
 color4def	[ 0	locks=0 ]	(	0	0	0	0	)
 bsdfdef	[ 0	locks=0 ]	(	""	)
 coshaderdef	[ 0	locks=0 ]	(	""	)
+surfacedef	[ 0	locks=0 ]	(	""	)
+displacementdef	[ 0	locks=0 ]	(	""	)
+atmospheredef	[ 0	locks=0 ]	(	""	)
 floatadef	[ 0	locks=0 ]	(	)
 intadef	[ 0	locks=0 ]	(	)
 vector2adef	[ 0	locks=0 ]	(	)
@@ -3144,7 +3190,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -3203,7 +3249,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -3283,6 +3329,9 @@ colordef	[ 0	locks=0 ]	(	0	0	0	)
 color4def	[ 0	locks=0 ]	(	0	0	0	0	)
 bsdfdef	[ 0	locks=0 ]	(	""	)
 coshaderdef	[ 0	locks=0 ]	(	""	)
+surfacedef	[ 0	locks=0 ]	(	""	)
+displacementdef	[ 0	locks=0 ]	(	""	)
+atmospheredef	[ 0	locks=0 ]	(	""	)
 floatadef	[ 0	locks=0 ]	(	)
 intadef	[ 0	locks=0 ]	(	)
 vector2adef	[ 0	locks=0 ]	(	)
@@ -3331,7 +3380,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -3612,6 +3661,9 @@ colordef	[ 0	locks=0 ]	(	0	0	0	)
 color4def	[ 0	locks=0 ]	(	0	0	0	0	)
 bsdfdef	[ 0	locks=0 ]	(	""	)
 coshaderdef	[ 0	locks=0 ]	(	""	)
+surfacedef	[ 0	locks=0 ]	(	""	)
+displacementdef	[ 0	locks=0 ]	(	""	)
+atmospheredef	[ 0	locks=0 ]	(	""	)
 floatadef	[ 0	locks=0 ]	(	)
 intadef	[ 0	locks=0 ]	(	)
 vector2adef	[ 0	locks=0 ]	(	)
@@ -3638,7 +3690,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -3698,7 +3750,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -3778,6 +3830,9 @@ colordef	[ 0	locks=0 ]	(	0	0	0	)
 color4def	[ 0	locks=0 ]	(	0	0	0	0	)
 bsdfdef	[ 0	locks=0 ]	(	""	)
 coshaderdef	[ 0	locks=0 ]	(	""	)
+surfacedef	[ 0	locks=0 ]	(	""	)
+displacementdef	[ 0	locks=0 ]	(	""	)
+atmospheredef	[ 0	locks=0 ]	(	""	)
 floatadef	[ 0	locks=0 ]	(	)
 intadef	[ 0	locks=0 ]	(	)
 vector2adef	[ 0	locks=0 ]	(	)
@@ -3826,7 +3881,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -3906,6 +3961,9 @@ colordef	[ 0	locks=0 ]	(	0	0	0	)
 color4def	[ 0	locks=0 ]	(	0	0	0	0	)
 bsdfdef	[ 0	locks=0 ]	(	""	)
 coshaderdef	[ 0	locks=0 ]	(	""	)
+surfacedef	[ 0	locks=0 ]	(	""	)
+displacementdef	[ 0	locks=0 ]	(	""	)
+atmospheredef	[ 0	locks=0 ]	(	""	)
 floatadef	[ 0	locks=0 ]	(	)
 intadef	[ 0	locks=0 ]	(	)
 vector2adef	[ 0	locks=0 ]	(	)
@@ -3954,7 +4012,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -4029,7 +4087,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -4230,7 +4288,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -4294,7 +4352,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -4374,6 +4432,9 @@ colordef	[ 0	locks=0 ]	(	0	0	0	)
 color4def	[ 0	locks=0 ]	(	0	0	0	0	)
 bsdfdef	[ 0	locks=0 ]	(	""	)
 coshaderdef	[ 0	locks=0 ]	(	""	)
+surfacedef	[ 0	locks=0 ]	(	""	)
+displacementdef	[ 0	locks=0 ]	(	""	)
+atmospheredef	[ 0	locks=0 ]	(	""	)
 floatadef	[ 0	locks=0 ]	(	)
 intadef	[ 0	locks=0 ]	(	)
 vector2adef	[ 0	locks=0 ]	(	)
@@ -4422,7 +4483,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -4515,7 +4576,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -4608,6 +4669,9 @@ colordef	[ 0	locks=0 ]	(	0	0	0	)
 color4def	[ 0	locks=0 ]	(	0	0	0	0	)
 bsdfdef	[ 0	locks=0 ]	(	""	)
 coshaderdef	[ 0	locks=0 ]	(	""	)
+surfacedef	[ 0	locks=0 ]	(	""	)
+displacementdef	[ 0	locks=0 ]	(	""	)
+atmospheredef	[ 0	locks=0 ]	(	""	)
 floatadef	[ 0	locks=0 ]	(	)
 intadef	[ 0	locks=0 ]	(	)
 vector2adef	[ 0	locks=0 ]	(	)
@@ -4656,7 +4720,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -4724,7 +4788,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -4851,7 +4915,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -5044,7 +5108,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -5103,7 +5167,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -5376,7 +5440,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -5436,7 +5500,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -5496,7 +5560,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -5558,7 +5622,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -5620,7 +5684,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -5680,7 +5744,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -5740,7 +5804,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -5872,7 +5936,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -5932,7 +5996,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -6068,7 +6132,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -6104,7 +6168,7 @@ inputs
 stat
 {
   create 1300391705
-  modify 1573271925
+  modify 1597457616
   author cklosters@ghurian.sidefx.com
   access 0777
 }
@@ -6276,7 +6340,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -6316,7 +6380,7 @@ inputs
 stat
 {
   create 1300733468
-  modify 1573271925
+  modify 1597457616
   author cklosters@ghurian.sidefx.com
   access 0777
 }
@@ -6423,7 +6487,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -6558,7 +6622,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -6751,7 +6815,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -6809,7 +6873,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -6966,7 +7030,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -7167,7 +7231,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -7231,7 +7295,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -7267,7 +7331,7 @@ inputs
 stat
 {
   create 1300391705
-  modify 1573271925
+  modify 1597457616
   author cklosters@ghurian.sidefx.com
   access 0777
 }
@@ -7439,7 +7503,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -7574,7 +7638,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -7769,7 +7833,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -7827,7 +7891,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -7887,7 +7951,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -8325,7 +8389,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -8662,6 +8726,9 @@ colordef	[ 0	locks=0 ]	(	0	0	0	)
 color4def	[ 0	locks=0 ]	(	0	0	0	0	)
 bsdfdef	[ 0	locks=0 ]	(	""	)
 coshaderdef	[ 0	locks=0 ]	(	""	)
+surfacedef	[ 0	locks=0 ]	(	""	)
+displacementdef	[ 0	locks=0 ]	(	""	)
+atmospheredef	[ 0	locks=0 ]	(	""	)
 floatadef	[ 0	locks=0 ]	(	)
 intadef	[ 0	locks=0 ]	(	)
 vector2adef	[ 0	locks=0 ]	(	)
@@ -8710,7 +8777,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -8773,7 +8840,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -8968,7 +9035,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -9026,7 +9093,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -9106,6 +9173,9 @@ colordef	[ 0	locks=0 ]	(	0	0	0	)
 color4def	[ 0	locks=0 ]	(	0	0	0	0	)
 bsdfdef	[ 0	locks=0 ]	(	""	)
 coshaderdef	[ 0	locks=0 ]	(	""	)
+surfacedef	[ 0	locks=0 ]	(	""	)
+displacementdef	[ 0	locks=0 ]	(	""	)
+atmospheredef	[ 0	locks=0 ]	(	""	)
 floatadef	[ 0	locks=0 ]	(	)
 intadef	[ 0	locks=0 ]	(	)
 vector2adef	[ 0	locks=0 ]	(	)
@@ -9154,7 +9224,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -9171,7 +9241,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -5.00049e-05 2.13273
+position 1.5406 2.13273
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -9189,7 +9259,7 @@ inputs
 stat
 {
   create 1523506819
-  modify 1573271925
+  modify 1597457616
   author Henry@LAPPY586
   access 0777
 }
@@ -9318,14 +9388,7 @@ sepparm	[ 0	locks=0 ]	(	)
 falloff_attr	[ 0	locks=0 ]	(	mops_falloff	)
 output_attr	[ 0	locks=0 ]	(	mops_falloff	)
 do_preview	[ 0	locks=0 ]	(	"off"	)
-folder0	[ 0	locks=0 ]	(	0	)
-do_sprite	[ 0	locks=0 ]	(	"on"	)
-spritescale	[ 0	locks=0 ]	(	1	)
-override_scale	[ 0	locks=0 ]	(	"off"	)
-ramp_preset	[ 0	locks=0 ]	(	"heatmap"	)
-falloff_heatmap	[ 0	locks=0 ]	(	5	)
-sepparm2	[ 0	locks=0 ]	(	)
-fitparams	[ 0	locks=0 ]	(	0	)
+fitparams	[ 0	locks=0 ]	(	0	0	)
 switchfit	[ 0	locks=0 ]	(	[ switchfit	0 ] 	)
 auto_min_max	[ 0	locks=0 ]	(	[ auto_min_max	0 ] 	)
 frame	[ 0	locks=0 ]	(	[ frame	1 ] 	)
@@ -9334,6 +9397,17 @@ imax	[ 0	locks=0 ]	(	[ imax	1 ] 	)
 omin	[ 0	locks=0 ]	(	[ omin	0 ] 	)
 omax	[ 0	locks=0 ]	(	[ omax	1 ] 	)
 remap_falloff	[ 0	locks=0 ]	(	[ remap_falloff	2 ] 	)
+do_sprite	[ 0	locks=0 ]	(	"on"	)
+spritescale	[ 0	locks=0 ]	(	1	)
+override_scale	[ 0	locks=0 ]	(	"off"	)
+ramp_preset	[ 0	locks=0 ]	(	"heatmap"	)
+falloff_heatmap	[ 0	locks=0 ]	(	5	)
+remap_falloff1pos	[ 0	locks=0 ]	(	[ remap_falloff1pos	0 ] 	)
+remap_falloff1value	[ 0	locks=0 ]	(	[ remap_falloff1value	0 ] 	)
+remap_falloff1interp	[ 0	locks=0 ]	(	[ remap_falloff1interp	1 ] 	)
+remap_falloff2pos	[ 0	locks=0 ]	(	[ remap_falloff2pos	1 ] 	)
+remap_falloff2value	[ 0	locks=0 ]	(	[ remap_falloff2value	1 ] 	)
+remap_falloff2interp	[ 0	locks=0 ]	(	[ remap_falloff2interp	1 ] 	)
 falloff_heatmap1pos	[ 0	locks=0 ]	(	0	)
 falloff_heatmap1c	[ 0	locks=0 ]	(	0.036199998110532761	0	0.5429999828338623	)
 falloff_heatmap1interp	[ 0	locks=0 ]	(	"linear"	)
@@ -9349,12 +9423,6 @@ falloff_heatmap4interp	[ 0	locks=0 ]	(	"linear"	)
 falloff_heatmap5pos	[ 0	locks=0 ]	(	1	)
 falloff_heatmap5c	[ 0	locks=0 ]	(	1	1	1	)
 falloff_heatmap5interp	[ 0	locks=0 ]	(	"linear"	)
-remap_falloff1pos	[ 0	locks=0 ]	(	[ remap_falloff1pos	0 ] 	)
-remap_falloff1value	[ 0	locks=0 ]	(	[ remap_falloff1value	0 ] 	)
-remap_falloff1interp	[ 0	locks=0 ]	(	[ remap_falloff1interp	1 ] 	)
-remap_falloff2pos	[ 0	locks=0 ]	(	[ remap_falloff2pos	1 ] 	)
-remap_falloff2value	[ 0	locks=0 ]	(	[ remap_falloff2value	1 ] 	)
-remap_falloff2interp	[ 0	locks=0 ]	(	[ remap_falloff2interp	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -9391,17 +9459,17 @@ outputsNamed3
 inputsNamed3
 {
 0 	switch_do_noise 1 1 "input1"
-1 	MOPs_Remap_Falloff 1 1 "input2"
+1 	switch2 2 1 "input2"
 }
 inputs
 {
 0 	switch_do_noise 0 1
-1 	MOPs_Remap_Falloff 0 1
+1 	switch2 0 1
 }
 stat
 {
   create 1523506944
-  modify 1573271925
+  modify 1597457616
   author Henry@LAPPY586
   access 0777
 }
@@ -9528,7 +9596,7 @@ inputs
 stat
 {
   create 1523507576
-  modify 1573271925
+  modify 1597457616
   author Henry@LAPPY586
   access 0777
 }
@@ -9562,6 +9630,7 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -9588,7 +9657,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.24196 -2.55397
+position -0.162483 -2.27385
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -9606,7 +9675,7 @@ inputs
 stat
 {
   create 1536030928
-  modify 1573271925
+  modify 1597457616
   author Henry@LAPPY586
   access 0777
 }
@@ -9631,25 +9700,6 @@ Content-Disposition: attachment; filename="hdaroot/MOPs_Preview_Falloff.chn"
 Content-Type: text/plain
 
 {
-    channel do_preview {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../do_preview\") }
-    }
-    channel ramp_preset {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../ramp_preset\") }
-    }
-    channel falloff_heatmap {
-      lefttype = extend
-      righttype = extend
-      default = 5
-      flags = 0
-      segment { length = 0 value = 5 5 expr = ch(\"../falloff_heatmap\") }
-    }
     channel falloff_heatmap1pos {
       lefttype = extend
       righttype = extend
@@ -9815,6 +9865,25 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../falloff_heatmap5interp\") }
     }
+    channel do_preview {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../do_preview\") }
+    }
+    channel ramp_preset {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../ramp_preset\") }
+    }
+    channel falloff_heatmap {
+      lefttype = extend
+      righttype = extend
+      default = 5
+      flags = 0
+      segment { length = 0 value = 5 5 expr = ch(\"../falloff_heatmap\") }
+    }
     channel do_sprite {
       lefttype = extend
       righttype = extend
@@ -9843,7 +9912,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-do_preview	[ 0	locks=0 ]	(	[ do_preview	0 ] 	)
+do_preview	[ 0	locks=0 ]	(	[ do_preview	1 ] 	)
 do_sprite	[ 0	locks=0 ]	(	[ do_sprite	0 ] 	)
 spritemap	[ 0	locks=0 ]	(	sphere_matte.pic	)
 spritescale	[ 0	locks=0 ]	(	[ spritescale	1 ] 	)
@@ -9891,7 +9960,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.642116 8.04466
+position 0.474045 8.63291
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -9909,7 +9978,7 @@ inputs
 stat
 {
   create 1550362452
-  modify 1573271925
+  modify 1597457616
   author Henry@LAPPY586
   access 0777
 }
@@ -9943,6 +10012,7 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -9969,7 +10039,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.645116 7.01444
+position 0.648116 7.71473
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -9987,7 +10057,7 @@ inputs
 stat
 {
   create 1568176494
-  modify 1573271925
+  modify 1597457616
   author Henry@LAPPY586
   access 0777
 }
@@ -10174,10 +10244,31 @@ tile_size	[ 0	locks=0	autoscope=0 ]	(	[ tile_sizex	1 ] 	[ tile_sizey	1 ] 	[ tile
 Distort	[ 0	locks=0	autoscope=0 ]	(	[ Distortx	0 ] 	[ Distorty	0 ] 	[ Distortz	0 ] 	)
 time_varying	[ 0	locks=0	autoscope=0 ]	(	[ time_varying	0 ] 	)
 time_scale	[ 0	locks=0	autoscope=0 ]	(	[ time_scale	1 ] 	)
+time_offset	[ 0	locks=0 ]	(	0	)
+do_remap_2D	[ 0	locks=0 ]	(	"off"	)
 input_rangev	[ 0	locks=0	autoscope=0 ]	(	-1	1	)
 output_rangev	[ 0	locks=0	autoscope=0 ]	(	-1	1	)
+remap_ramp_2D	[ 0	locks=0 ]	(	2	)
+do_remap_3D	[ 0	locks=0 ]	(	"off"	)
 input_range	[ 0	locks=0	autoscope=0 ]	(	0	1	)
 output_range	[ 0	locks=0	autoscope=0 ]	(	0	1	)
+input_min_3D	[ 0	locks=0 ]	(	-1	-1	-1	)
+input_max_3D	[ 0	locks=0 ]	(	1	1	1	)
+output_min_3D	[ 0	locks=0 ]	(	-1	-1	-1	)
+output_max_3D	[ 0	locks=0 ]	(	1	1	1	)
+remap_ramp_3D	[ 0	locks=0 ]	(	2	)
+remap_ramp_2D1pos	[ 0	locks=0 ]	(	0	)
+remap_ramp_2D1value	[ 0	locks=0 ]	(	0	)
+remap_ramp_2D1interp	[ 0	locks=0 ]	(	"linear"	)
+remap_ramp_2D2pos	[ 0	locks=0 ]	(	1	)
+remap_ramp_2D2value	[ 0	locks=0 ]	(	1	)
+remap_ramp_2D2interp	[ 0	locks=0 ]	(	"linear"	)
+remap_ramp_3D1pos	[ 0	locks=0 ]	(	0	)
+remap_ramp_3D1value	[ 0	locks=0 ]	(	0	)
+remap_ramp_3D1interp	[ 0	locks=0 ]	(	"linear"	)
+remap_ramp_3D2pos	[ 0	locks=0 ]	(	1	)
+remap_ramp_3D2value	[ 0	locks=0 ]	(	1	)
+remap_ramp_3D2interp	[ 0	locks=0 ]	(	"linear"	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -10204,7 +10295,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.645116 6.10155
+position 0.645116 6.80184
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -10222,7 +10313,7 @@ inputs
 stat
 {
   create 1550362471
-  modify 1573271925
+  modify 1597457616
   author Henry@LAPPY586
   access 0777
 }
@@ -10256,6 +10347,7 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -10282,7 +10374,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.11375 0.669921
+position -1.14391 -0.447439
 connectornextid 0
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress off colordefault off exposed on
 outputsNamed3
@@ -10300,7 +10392,7 @@ inputs
 stat
 {
   create 1300395289
-  modify 1506107485
+  modify 1588875855
   author cklosters@ghurian.sidefx.com
   access 0777
 }
@@ -10326,7 +10418,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -10343,7 +10435,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.69896 4.3525
+position 0.668803 3.23514
 connectornextid 0
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault off exposed on
 outputsNamed3
@@ -10352,16 +10444,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-4 	texture 7 1 "input1"
+4 	do_overwrite_uv 1 1 "input1"
 }
 inputs
 {
-0 	texture 0 1
+0 	do_overwrite_uv 0 1
 }
 stat
 {
   create 1300397479
-  modify 1573271925
+  modify 1597457616
   author cklosters@ghurian.sidefx.com
   access 0777
 }
@@ -10443,7 +10535,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -10485,7 +10577,7 @@ inputs
 stat
 {
   create 1300399867
-  modify 1573271925
+  modify 1597457616
   author cklosters@ghurian.sidefx.com
   access 0777
 }
@@ -10551,7 +10643,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -10586,7 +10678,7 @@ inputs
 stat
 {
   create 1300463851
-  modify 1573271925
+  modify 1597457616
   author cklosters@ghurian.sidefx.com
   access 0777
 }
@@ -10633,7 +10725,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -10670,7 +10762,7 @@ inputs
 stat
 {
   create 1300464991
-  modify 1573271925
+  modify 1597457616
   author cklosters@ghurian.sidefx.com
   access 0777
 }
@@ -10708,7 +10800,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -10725,7 +10817,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.69896 5.41434
+position 0.69896 5.68794
 connectornextid 0
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault off exposed on
 outputsNamed3
@@ -10745,7 +10837,7 @@ inputs
 stat
 {
   create 1072728535
-  modify 1573271925
+  modify 1597457616
   author jlait@otago
   access 0777
 }
@@ -10783,7 +10875,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -10818,7 +10910,7 @@ inputs
 stat
 {
   create 1072730112
-  modify 1573271925
+  modify 1597457616
   author jlait@otago
   access 0777
 }
@@ -10872,7 +10964,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -11076,7 +11168,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.1172 1.77533
+position -1.14736 0.65797
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault off exposed on
 outputsNamed3
@@ -11096,7 +11188,7 @@ inputs
 stat
 {
   create 1369852411
-  modify 1573271925
+  modify 1597457616
   author jlait@andorra.sidefx.com
   access 0777
 }
@@ -11147,7 +11239,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -11182,7 +11274,7 @@ inputs
 stat
 {
   create 1506107437
-  modify 1573271925
+  modify 1597457616
   author ndickson@trail
   access 0777
 }
@@ -11303,7 +11395,82 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribfrommap2/do_overwrite_uv.init"
+Content-Type: text/plain
+
+type = switch
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribfrommap2/do_overwrite_uv.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 0.69896 4.29474
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+2 	make_default_uvs 3 1 "input1"
+0 	texture 7 1 "input2"
+}
+inputs
+{
+0 	make_default_uvs 0 1
+1 	texture 0 1
+}
+stat
+{
+  create 1588875855
+  modify 1597457616
+  author Henry@LAPPY586
+  access 0777
+}
+color UT_Color RGB 0.8 1 0.7 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribfrommap2/do_overwrite_uv.chn"
+Content-Type: text/plain
+
+{
+    channel input {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../use_existing_uv\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribfrommap2/do_overwrite_uv.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribfrommap2/do_overwrite_uv.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"18.0.460"
 	}
 }
 
@@ -11337,7 +11504,7 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot/attribfrommap2.order"
 Content-Type: text/plain
 
-10
+11
 OUT
 uvtransform1
 IN
@@ -11348,6 +11515,7 @@ make_default_uvs
 calculate_point_attribute
 attribcopy1
 rename_to_uv
+do_overwrite_uv
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/attribfrommap2.net"
@@ -11368,7 +11536,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.00451 9.15027
+position -1.56475 10.775
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -11386,7 +11554,7 @@ inputs
 stat
 {
   create 1520761837
-  modify 1550362443
+  modify 1588875682
   author Mo@Mo-PC
   access 0777
 }
@@ -11412,7 +11580,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -11449,7 +11617,7 @@ inputs
 stat
 {
   create 1523507109
-  modify 1573271925
+  modify 1597457616
   author Henry@LAPPY586
   access 0777
 }
@@ -11487,7 +11655,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -11524,7 +11692,7 @@ inputs
 stat
 {
   create 1523507570
-  modify 1573271925
+  modify 1597457616
   author Henry@LAPPY586
   access 0777
 }
@@ -11562,7 +11730,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -11685,7 +11853,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -11702,7 +11870,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.13792 8.15396
+position -1.69816 9.77864
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -11720,7 +11888,7 @@ inputs
 stat
 {
   create 1565319729
-  modify 1573271925
+  modify 1597457616
   author Henry@LAPPY586
   access 0777
 }
@@ -11765,7 +11933,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -11791,16 +11959,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	MOPs_Preview_Falloff 1 1 "input1"
+0 	switch3 2 1 "input1"
 }
 inputs
 {
-0 	MOPs_Preview_Falloff 0 1
+0 	switch3 0 1
 }
 stat
 {
   create 1565319729
-  modify 1573271925
+  modify 1597457616
   author Henry@LAPPY586
   access 0777
 }
@@ -11831,7 +11999,157 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch2.init"
+Content-Type: text/plain
+
+type = switch
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch2.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -0.394402 2.69343
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+2 "output1"
+}
+inputsNamed3
+{
+0 	attribfrommap2 1 1 "input1"
+1 	MOPs_Remap_Falloff 1 1 "input2"
+}
+inputs
+{
+0 	attribfrommap2 0 1
+1 	MOPs_Remap_Falloff 0 1
+}
+stat
+{
+  create 1588875634
+  modify 1597457616
+  author Henry@LAPPY586
+  access 0777
+}
+color UT_Color RGB 0.8 1 0.7 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch2.chn"
+Content-Type: text/plain
+
+{
+    channel input {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../switchfit\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch2.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch2.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"18.0.460"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch3.init"
+Content-Type: text/plain
+
+type = switch
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch3.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -2.49529 -2.65682
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+2 "output1"
+}
+inputsNamed3
+{
+0 	switch1 1 1 "input1"
+1 	MOPs_Preview_Falloff 1 1 "input2"
+}
+inputs
+{
+0 	switch1 0 1
+1 	MOPs_Preview_Falloff 0 1
+}
+stat
+{
+  create 1588875650
+  modify 1597457616
+  author Henry@LAPPY586
+  access 0777
+}
+color UT_Color RGB 0.8 1 0.7 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch3.chn"
+Content-Type: text/plain
+
+{
+    channel input {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../do_preview\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch3.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch3.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"18.0.460"
 	}
 }
 
@@ -11839,7 +12157,7 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot.order"
 Content-Type: text/plain
 
-15
+17
 attribfrommap2
 IN
 MOPs_Remap_Falloff
@@ -11855,6 +12173,8 @@ MOPs_Noise_Patterns
 pointwrangle3
 attribswap1
 attribswap2
+switch2
+switch3
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"

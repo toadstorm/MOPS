@@ -32,24 +32,22 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.76961 -0.587418
-connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+position -5.83552 -1.38568
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
 inputsNamed3
 {
-0 	transform1 1 1 "input1"
 }
 inputs
 {
-0 	transform1 0 1
 }
 stat
 {
-  create 1583877262
-  modify 1583886928
+  create 1597457567
+  modify 1597457574
   author Henry@LAPPY586
   access 0777
 }
@@ -110,7 +108,7 @@ inputs
 stat
 {
   create 1524060597
-  modify 1583877263
+  modify 1597457568
   author Henry@LAPPY586
   access 0777
 }
@@ -120,14 +118,34 @@ exprlanguage hscript
 end
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/falloff_linear.chn"
+Content-Type: text/plain
+
+{
+    channel group {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../group\") }
+    }
+    channel grouptype {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../grouptype\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/falloff_linear.parm"
 Content-Type: text/plain
 
 {
 version 0.8
 folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
-group	[ 0	locks=0	autoscope=0 ]	(	`chs(\"../MOPs_Remap_Falloff/group\")`	)
-grouptype	[ 0	locks=0	autoscope=0 ]	(	"guess"	)
+group	[ 0	locks=0	autoscope=0 ]	(	[ group	group1 ] 	)
+grouptype	[ 0	locks=0	autoscope=0 ]	(	[ grouptype	0 ] 	)
 class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
@@ -201,7 +219,7 @@ inputs
 stat
 {
   create 1524060597
-  modify 1583877263
+  modify 1597457568
   author Henry@LAPPY586
   access 0777
 }
@@ -287,9 +305,9 @@ group	[ 0	locks=0 ]	(	""	)
 grouptype	[ 0	locks=0 ]	(	"guess"	)
 ignore_no_falloff	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 local	[ 0	locks=0 ]	(	"on"	)
-translate	[ 0	locks=0	autoscope=0 ]	(	[ translatex	0.00051808357238769531 ] 	[ translatey	0.00063776969909667969 ] 	[ translatez	0.00077533721923828125 ] 	)
-rotate	[ 0	locks=0	autoscope=0 ]	(	[ rotatex	-237.19507377843388 ] 	[ rotatey	-4.7846201356394849 ] 	[ rotatez	-43.615646017155349 ] 	)
-scale	[ 0	locks=0	autoscope=0 ]	(	[ scalex	0.050000302493572235 ] 	[ scaley	0.46294495463371277 ] 	[ scalez	3.9535884857177734 ] 	)
+translate	[ 0	locks=0	autoscope=0 ]	(	[ translatex	0 ] 	[ translatey	0 ] 	[ translatez	0 ] 	)
+rotate	[ 0	locks=0	autoscope=0 ]	(	[ rotatex	0 ] 	[ rotatey	0 ] 	[ rotatez	0 ] 	)
+scale	[ 0	locks=0	autoscope=0 ]	(	[ scalex	1 ] 	[ scaley	1 ] 	[ scalez	1 ] 	)
 uniform_scale	[ 0	locks=0	autoscope=0 ]	(	[ uniform_scale	1 ] 	)
 pivot	[ 0	locks=0 ]	(	0	0	0	)
 do_weight	[ 0	locks=0	autoscope=0 ]	(	"off"	)
@@ -345,7 +363,7 @@ inputs
 stat
 {
   create 1524060597
-  modify 1583877263
+  modify 1597457568
   author Henry@LAPPY586
   access 0777
 }
@@ -395,214 +413,6 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/MOPs_Remap_Falloff.init"
-Content-Type: text/plain
-
-type = MOPS::Remap_Falloff::1.0
-matchesdef = 1
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/MOPs_Remap_Falloff.def"
-Content-Type: text/plain
-
-sopflags sopflags = 
-comment ""
-position -3.35644 -4.04891
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
-outputsNamed3
-{
-1 "output1"
-}
-inputsNamed3
-{
-0 	switch_falloff_type 0 1 "input1"
-}
-inputs
-{
-0 	switch_falloff_type 0 1
-}
-stat
-{
-  create 1524060597
-  modify 1583877263
-  author Henry@LAPPY586
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/MOPs_Remap_Falloff.multiparm"
-Content-Type: text/plain
-
-3
-remap_falloff#pos ../remap_falloff#pos
-remap_falloff#value ../remap_falloff#value
-remap_falloff#interp ../remap_falloff#interp
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/MOPs_Remap_Falloff.chn"
-Content-Type: text/plain
-
-{
-    channel frame {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../frame\") }
-    }
-    channel remap_falloff1pos {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../remap_falloff1pos\") }
-    }
-    channel remap_falloff1value {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../remap_falloff1value\") }
-    }
-    channel remap_falloff1interp {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../remap_falloff1interp\") }
-    }
-    channel remap_falloff2pos {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../remap_falloff2pos\") }
-    }
-    channel remap_falloff2value {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../remap_falloff2value\") }
-    }
-    channel remap_falloff2interp {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../remap_falloff2interp\") }
-    }
-    channel group {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = chs(\"../group\") }
-    }
-    channel switchfit {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../switchfit\") }
-    }
-    channel auto_min_max {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../auto_min_max\") }
-    }
-    channel imin {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../imin\") }
-    }
-    channel imax {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../imax\") }
-    }
-    channel omin {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../omin\") }
-    }
-    channel omax {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../omax\") }
-    }
-    channel remap_falloff {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 value = 2 2 expr = ch(\"../remap_falloff\") }
-    }
-  }
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/MOPs_Remap_Falloff.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-group	[ 0	locks=0	autoscope=0 ]	(	[ group	"" ] 	)
-grouptype	[ 0	locks=0 ]	(	"guess"	)
-sepparm	[ 0	locks=0 ]	(	)
-falloff_attr	[ 0	locks=0 ]	(	mops_falloff	)
-output_attr	[ 0	locks=0 ]	(	mops_falloff	)
-do_preview	[ 0	locks=0 ]	(	"off"	)
-folder0	[ 0	locks=0 ]	(	0	)
-do_sprite	[ 0	locks=0 ]	(	"on"	)
-spritescale	[ 0	locks=0 ]	(	1	)
-override_scale	[ 0	locks=0 ]	(	"off"	)
-ramp_preset	[ 0	locks=0 ]	(	"heatmap"	)
-falloff_heatmap	[ 0	locks=0 ]	(	5	)
-sepparm2	[ 0	locks=0 ]	(	)
-fitparams	[ 0	locks=0 ]	(	0	)
-switchfit	[ 0	locks=0	autoscope=0 ]	(	[ switchfit	0 ] 	)
-auto_min_max	[ 0	locks=0	autoscope=0 ]	(	[ auto_min_max	0 ] 	)
-frame	[ 0	locks=0	autoscope=0 ]	(	[ frame	0 ] 	)
-imin	[ 0	locks=0	autoscope=0 ]	(	[ imin	0 ] 	)
-imax	[ 0	locks=0	autoscope=0 ]	(	[ imax	1 ] 	)
-omin	[ 0	locks=0	autoscope=0 ]	(	[ omin	0 ] 	)
-omax	[ 0	locks=0	autoscope=0 ]	(	[ omax	1 ] 	)
-remap_falloff	[ 0	locks=0	autoscope=0 ]	(	[ remap_falloff	2 ] 	)
-falloff_heatmap1pos	[ 0	locks=0 ]	(	0	)
-falloff_heatmap1c	[ 0	locks=0 ]	(	0.036199998110532761	0	0.5429999828338623	)
-falloff_heatmap1interp	[ 0	locks=0 ]	(	"linear"	)
-falloff_heatmap2pos	[ 0	locks=0 ]	(	0.27027025818824768	)
-falloff_heatmap2c	[ 0	locks=0 ]	(	0.7369999885559082	0	0	)
-falloff_heatmap2interp	[ 0	locks=0 ]	(	"linear"	)
-falloff_heatmap3pos	[ 0	locks=0 ]	(	0.71814674139022827	)
-falloff_heatmap3c	[ 0	locks=0 ]	(	1	0.28333333134651184	0	)
-falloff_heatmap3interp	[ 0	locks=0 ]	(	"linear"	)
-falloff_heatmap4pos	[ 0	locks=0 ]	(	0.90154439210891724	)
-falloff_heatmap4c	[ 0	locks=0 ]	(	0.89999997615814209	0.89999997615814209	0	)
-falloff_heatmap4interp	[ 0	locks=0 ]	(	"linear"	)
-falloff_heatmap5pos	[ 0	locks=0 ]	(	1	)
-falloff_heatmap5c	[ 0	locks=0 ]	(	1	1	1	)
-falloff_heatmap5interp	[ 0	locks=0 ]	(	"linear"	)
-remap_falloff1pos	[ 0	locks=0	autoscope=0 ]	(	[ remap_falloff1pos	0 ] 	)
-remap_falloff1value	[ 0	locks=0	autoscope=0 ]	(	[ remap_falloff1value	0 ] 	)
-remap_falloff1interp	[ 0	locks=0	autoscope=0 ]	(	[ remap_falloff1interp	1 ] 	)
-remap_falloff2pos	[ 0	locks=0	autoscope=0 ]	(	[ remap_falloff2pos	1 ] 	)
-remap_falloff2value	[ 0	locks=0	autoscope=0 ]	(	[ remap_falloff2value	1 ] 	)
-remap_falloff2interp	[ 0	locks=0	autoscope=0 ]	(	[ remap_falloff2interp	1 ] 	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/MOPs_Remap_Falloff.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":""
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/falloff_spherical.init"
 Content-Type: text/plain
 
@@ -635,7 +445,7 @@ inputs
 stat
 {
   create 1524060597
-  modify 1583877263
+  modify 1597457568
   author Henry@LAPPY586
   access 0777
 }
@@ -657,7 +467,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector uvselect "Modify Points"
+            bindselector points "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -841,6 +651,19 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../sphere_radiusy\") }
     }
+    channel group {
+      lefttype = extend
+      righttype = extend
+      defaultString = chs(\"../MOPs_Remap_Falloff/group\")
+      flags = 0
+      segment { length = 0 expr = chs(\"../group\") }
+    }
+    channel grouptype {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../grouptype\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -850,8 +673,8 @@ Content-Type: text/plain
 {
 version 0.8
 folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
-group	[ 0	locks=0	autoscope=0 ]	(	`chs(\"../MOPs_Remap_Falloff/group\")`	)
-grouptype	[ 0	locks=0	autoscope=0 ]	(	"guess"	)
+group	[ 0	locks=0	autoscope=0 ]	(	[ group	group1 ] 	)
+grouptype	[ 0	locks=0	autoscope=0 ]	(	[ grouptype	0 ] 	)
 class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
@@ -928,7 +751,7 @@ inputs
 stat
 {
   create 1524060597
-  modify 1583877263
+  modify 1597457568
   author Henry@LAPPY586
   access 0777
 }
@@ -950,7 +773,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector uvselect "Modify Points"
+            bindselector points "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -1147,6 +970,19 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = ch(\"../box_falloff\") }
     }
+    channel group {
+      lefttype = extend
+      righttype = extend
+      defaultString = chs(\"../MOPs_Remap_Falloff/group\")
+      flags = 0
+      segment { length = 0 expr = chs(\"../group\") }
+    }
+    channel grouptype {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../grouptype\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1156,8 +992,8 @@ Content-Type: text/plain
 {
 version 0.8
 folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
-group	[ 0	locks=0	autoscope=0 ]	(	`chs(\"../MOPs_Remap_Falloff/group\")`	)
-grouptype	[ 0	locks=0	autoscope=0 ]	(	"guess"	)
+group	[ 0	locks=0	autoscope=0 ]	(	[ group	group1 ] 	)
+grouptype	[ 0	locks=0	autoscope=0 ]	(	[ grouptype	0 ] 	)
 class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
@@ -1195,8 +1031,8 @@ vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
 vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0	autoscope=0 ]	(	0	0	)
-radius	[ 0	locks=0	autoscope=0 ]	(	[ radiusx	0.5 ] 	[ radiusy	0.5 ] 	[ radiusz	0.5 ] 	)
-falloff	[ 0	locks=0	autoscope=0 ]	(	[ falloff	0 ] 	)
+radius	[ 0	locks=0	autoscope=0 ]	(	[ radiusx	1 ] 	[ radiusy	1 ] 	[ radiusz	1 ] 	)
+falloff	[ 0	locks=0	autoscope=0 ]	(	[ falloff	0.5 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1243,7 +1079,7 @@ inputs
 stat
 {
   create 1524060597
-  modify 1583877263
+  modify 1597457568
   author Henry@LAPPY586
   access 0777
 }
@@ -1265,7 +1101,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector uvselect "Modify Points"
+            bindselector points "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -1456,6 +1292,19 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 0.25 0.25 expr = ch(\"../torus_sizey\") }
     }
+    channel group {
+      lefttype = extend
+      righttype = extend
+      defaultString = chs(\"../MOPs_Remap_Falloff/group\")
+      flags = 0
+      segment { length = 0 expr = chs(\"../group\") }
+    }
+    channel grouptype {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../grouptype\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1465,8 +1314,8 @@ Content-Type: text/plain
 {
 version 0.8
 folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
-group	[ 0	locks=0	autoscope=0 ]	(	`chs(\"../MOPs_Remap_Falloff/group\")`	)
-grouptype	[ 0	locks=0	autoscope=0 ]	(	"guess"	)
+group	[ 0	locks=0	autoscope=0 ]	(	[ group	group1 ] 	)
+grouptype	[ 0	locks=0	autoscope=0 ]	(	[ grouptype	0 ] 	)
 class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
@@ -1544,17 +1393,17 @@ outputsNamed3
 inputsNamed3
 {
 0 	attribswap1 1 1 "input1"
-1 	MOPs_Remap_Falloff 1 1 "input2"
+1 	switch2 2 1 "input2"
 }
 inputs
 {
 0 	attribswap1 0 1
-1 	MOPs_Remap_Falloff 0 1
+1 	switch2 0 1
 }
 stat
 {
   create 1524060597
-  modify 1583877263
+  modify 1597457568
   author Henry@LAPPY586
   access 0777
 }
@@ -1592,6 +1441,13 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = ch(\"../grouptype\") }
     }
+    channel group {
+      lefttype = extend
+      righttype = extend
+      defaultString = chs(\"../MOPs_Remap_Falloff/group\")
+      flags = 0
+      segment { length = 0 expr = chs(\"../group\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1600,7 +1456,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-group	[ 0	locks=0	autoscope=0 ]	(	`chs(\"../MOPs_Remap_Falloff/group\")`	)
+group	[ 0	locks=0	autoscope=0 ]	(	[ group	group1 ] 	)
 grouptype	[ 0	locks=0 ]	(	[ grouptype	0 ] 	)
 falloff_attr	[ 0	locks=0 ]	(	mops_falloff	)
 input	[ 0	locks=0	autoscope=0 ]	(	[ input	8 ] 	)
@@ -1675,7 +1531,7 @@ inputs
 stat
 {
   create 1524060597
-  modify 1583877263
+  modify 1597457568
   author Henry@LAPPY586
   access 0777
 }
@@ -1697,7 +1553,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector uvselect "Modify Points"
+            bindselector points "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -1894,6 +1750,19 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = ch(\"../cylinder_sizez\") }
     }
+    channel group {
+      lefttype = extend
+      righttype = extend
+      defaultString = chs(\"../MOPs_Remap_Falloff/group\")
+      flags = 0
+      segment { length = 0 expr = chs(\"../group\") }
+    }
+    channel grouptype {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../grouptype\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1903,8 +1772,8 @@ Content-Type: text/plain
 {
 version 0.8
 folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
-group	[ 0	locks=0	autoscope=0 ]	(	`chs(\"../MOPs_Remap_Falloff/group\")`	)
-grouptype	[ 0	locks=0	autoscope=0 ]	(	"guess"	)
+group	[ 0	locks=0	autoscope=0 ]	(	[ group	group1 ] 	)
+grouptype	[ 0	locks=0	autoscope=0 ]	(	[ grouptype	0 ] 	)
 class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
@@ -1943,8 +1812,8 @@ vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
 vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0	autoscope=0 ]	(	0	0	)
-falloff	[ 0	locks=0	autoscope=0 ]	(	[ falloff	0.32400000000000001 ] 	)
-size	[ 0	locks=0	autoscope=0 ]	(	[ sizex	0.80000000000000004 ] 	[ sizey	0.80000000000000004 ] 	[ sizez	-0.20000000000000001 ] 	)
+falloff	[ 0	locks=0	autoscope=0 ]	(	[ falloff	0.5 ] 	)
+size	[ 0	locks=0	autoscope=0 ]	(	[ sizex	1 ] 	[ sizey	1 ] 	[ sizez	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1989,7 +1858,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1583877263
+  modify 1597457568
   author Henry@LAPPY586
   access 0777
 }
@@ -2050,7 +1919,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -4.49467 -10.0635
+position -3.28753 -10.2808
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -2068,7 +1937,7 @@ inputs
 stat
 {
   create 1536023588
-  modify 1583877263
+  modify 1597457568
   author Henry@LAPPY586
   access 0777
 }
@@ -2378,7 +2247,7 @@ inputs
 stat
 {
   create 1568176415
-  modify 1583877263
+  modify 1597457568
   author Henry@LAPPY586
   access 0777
 }
@@ -2565,12 +2434,31 @@ tile_size	[ 0	locks=0	autoscope=0 ]	(	[ tile_sizex	1 ] 	[ tile_sizey	1 ] 	[ tile
 Distort	[ 0	locks=0	autoscope=0 ]	(	[ Distortx	0 ] 	[ Distorty	0 ] 	[ Distortz	0 ] 	)
 time_varying	[ 0	locks=0	autoscope=0 ]	(	[ time_varying	0 ] 	)
 time_scale	[ 0	locks=0	autoscope=0 ]	(	[ time_scale	1 ] 	)
+time_offset	[ 0	locks=0 ]	(	0	)
 do_remap_2D	[ 0	locks=0 ]	(	"off"	)
 input_rangev	[ 0	locks=0 ]	(	-1	1	)
 output_rangev	[ 0	locks=0 ]	(	-1	1	)
+remap_ramp_2D	[ 0	locks=0 ]	(	2	)
 do_remap_3D	[ 0	locks=0 ]	(	"off"	)
 input_range	[ 0	locks=0 ]	(	0	1	)
 output_range	[ 0	locks=0 ]	(	0	1	)
+input_min_3D	[ 0	locks=0 ]	(	-1	-1	-1	)
+input_max_3D	[ 0	locks=0 ]	(	1	1	1	)
+output_min_3D	[ 0	locks=0 ]	(	-1	-1	-1	)
+output_max_3D	[ 0	locks=0 ]	(	1	1	1	)
+remap_ramp_3D	[ 0	locks=0 ]	(	2	)
+remap_ramp_2D1pos	[ 0	locks=0 ]	(	0	)
+remap_ramp_2D1value	[ 0	locks=0 ]	(	0	)
+remap_ramp_2D1interp	[ 0	locks=0 ]	(	"linear"	)
+remap_ramp_2D2pos	[ 0	locks=0 ]	(	1	)
+remap_ramp_2D2value	[ 0	locks=0 ]	(	1	)
+remap_ramp_2D2interp	[ 0	locks=0 ]	(	"linear"	)
+remap_ramp_3D1pos	[ 0	locks=0 ]	(	0	)
+remap_ramp_3D1value	[ 0	locks=0 ]	(	0	)
+remap_ramp_3D1interp	[ 0	locks=0 ]	(	"linear"	)
+remap_ramp_3D2pos	[ 0	locks=0 ]	(	1	)
+remap_ramp_3D2value	[ 0	locks=0 ]	(	1	)
+remap_ramp_3D2interp	[ 0	locks=0 ]	(	"linear"	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2615,7 +2503,7 @@ inputs
 stat
 {
   create 1550446177
-  modify 1583877263
+  modify 1597457568
   author Henry@LAPPY586
   access 0777
 }
@@ -2694,7 +2582,7 @@ inputs
 stat
 {
   create 1550446187
-  modify 1583877263
+  modify 1597457568
   author Henry@LAPPY586
   access 0777
 }
@@ -2775,7 +2663,7 @@ inputs
 stat
 {
   create 1570162863
-  modify 1583877263
+  modify 1597457568
   author Henry@LAPPY586
   access 0777
 }
@@ -2797,7 +2685,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector uvselect "Modify Points"
+            bindselector points "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -2991,6 +2879,19 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 30 30 expr = ch(\"../falloff\") }
     }
+    channel group {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../group\") }
+    }
+    channel grouptype {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../grouptype\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -3000,8 +2901,8 @@ Content-Type: text/plain
 {
 version 0.8
 folder0	[ 0	locks=0 ]	(	0	0	)
-group	[ 0	locks=0 ]	(	""	)
-grouptype	[ 0	locks=0 ]	(	"guess"	)
+group	[ 0	locks=0 ]	(	[ group	group1 ] 	)
+grouptype	[ 0	locks=0 ]	(	[ grouptype	0 ] 	)
 class	[ 0	locks=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
@@ -3125,7 +3026,7 @@ inputs
 stat
 {
   create 1570310604
-  modify 1583877263
+  modify 1597457568
   author Henry@LAPPY586
   access 0777
 }
@@ -3147,7 +3048,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector uvselect "Modify Points"
+            bindselector points "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -3338,6 +3239,19 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = ch(\"../falloff_fan/angle_rangey\") }
     }
+    channel group {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../group\") }
+    }
+    channel grouptype {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../grouptype\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -3347,8 +3261,8 @@ Content-Type: text/plain
 {
 version 0.8
 folder0	[ 0	locks=0 ]	(	0	0	)
-group	[ 0	locks=0 ]	(	""	)
-grouptype	[ 0	locks=0 ]	(	"guess"	)
+group	[ 0	locks=0 ]	(	[ group	group1 ] 	)
+grouptype	[ 0	locks=0 ]	(	[ grouptype	0 ] 	)
 class	[ 0	locks=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
@@ -3405,7 +3319,7 @@ vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
-falloff	[ 8	locks=0 ]	(	[ falloff	36.200000000000003 ] 	)
+falloff	[ 8	locks=0 ]	(	[ falloff	-0 ] 	)
 angle_range	[ 8	locks=0 ]	(	[ angle_rangex	-45 ] 	[ angle_rangey	45 ] 	)
 }
 
@@ -3433,7 +3347,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.976432 -14.2073
+position -0.976432 -16.335
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -3451,7 +3365,7 @@ inputs
 stat
 {
   create 1583821827
-  modify 1583884968
+  modify 1597457568
   author Henry@LAPPY586
   access 0777
 }
@@ -3514,6 +3428,222 @@ vex_precision	[ 0	locks=0 ]	(	auto	)
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/pointwrangle3.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/MOPs_Remap_Falloff1.init"
+Content-Type: text/plain
+
+type = MOPS::Remap_Falloff::1.0
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/MOPs_Remap_Falloff1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -1.87183 -3.5693
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	switch_falloff_type 0 1 "input1"
+}
+inputs
+{
+0 	switch_falloff_type 0 1
+}
+stat
+{
+  create 1592358223
+  modify 1597457568
+  author Henry@LAPPY586
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/MOPs_Remap_Falloff1.multiparm"
+Content-Type: text/plain
+
+3
+remap_falloff#pos ../remap_falloff#pos
+remap_falloff#value ../remap_falloff#value
+remap_falloff#interp ../remap_falloff#interp
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/MOPs_Remap_Falloff1.chn"
+Content-Type: text/plain
+
+{
+    channel frame {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../frame\") }
+    }
+    channel auto_min_max {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../auto_min_max\") }
+    }
+    channel imin {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../imin\") }
+    }
+    channel imax {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../imax\") }
+    }
+    channel omin {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../omin\") }
+    }
+    channel omax {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../omax\") }
+    }
+    channel remap_falloff {
+      lefttype = extend
+      righttype = extend
+      default = 2
+      flags = 0
+      segment { length = 0 value = 2 2 expr = ch(\"../remap_falloff\") }
+    }
+    channel remap_falloff1pos {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../remap_falloff1pos\") }
+    }
+    channel remap_falloff1value {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../remap_falloff1value\") }
+    }
+    channel remap_falloff1interp {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../remap_falloff1interp\") }
+    }
+    channel remap_falloff2pos {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../remap_falloff2pos\") }
+    }
+    channel remap_falloff2value {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../remap_falloff2value\") }
+    }
+    channel remap_falloff2interp {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../remap_falloff2interp\") }
+    }
+    channel group {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../group\") }
+    }
+    channel grouptype {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../grouptype\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/MOPs_Remap_Falloff1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+group	[ 0	locks=0 ]	(	[ group	"" ] 	)
+grouptype	[ 0	locks=0 ]	(	[ grouptype	0 ] 	)
+sepparm	[ 0	locks=0 ]	(	)
+falloff_attr	[ 0	locks=0 ]	(	mops_falloff	)
+output_attr	[ 0	locks=0 ]	(	mops_falloff	)
+do_preview	[ 0	locks=0 ]	(	"off"	)
+fitparams	[ 0	locks=0 ]	(	0	0	)
+switchfit	[ 0	locks=0 ]	(	"on"	)
+auto_min_max	[ 0	locks=0 ]	(	[ auto_min_max	0 ] 	)
+frame	[ 0	locks=0 ]	(	[ frame	1 ] 	)
+imin	[ 0	locks=0 ]	(	[ imin	0 ] 	)
+imax	[ 0	locks=0 ]	(	[ imax	1 ] 	)
+omin	[ 0	locks=0 ]	(	[ omin	0 ] 	)
+omax	[ 0	locks=0 ]	(	[ omax	1 ] 	)
+remap_falloff	[ 0	locks=0 ]	(	[ remap_falloff	2 ] 	)
+do_sprite	[ 0	locks=0 ]	(	"off"	)
+spritescale	[ 0	locks=0 ]	(	1	)
+override_scale	[ 0	locks=0 ]	(	"off"	)
+ramp_preset	[ 0	locks=0 ]	(	"heatmap"	)
+falloff_heatmap	[ 0	locks=0 ]	(	5	)
+remap_falloff1pos	[ 0	locks=0 ]	(	[ remap_falloff1pos	0 ] 	)
+remap_falloff1value	[ 0	locks=0 ]	(	[ remap_falloff1value	0 ] 	)
+remap_falloff1interp	[ 0	locks=0 ]	(	[ remap_falloff1interp	1 ] 	)
+remap_falloff2pos	[ 0	locks=0 ]	(	[ remap_falloff2pos	1 ] 	)
+remap_falloff2value	[ 0	locks=0 ]	(	[ remap_falloff2value	1 ] 	)
+remap_falloff2interp	[ 0	locks=0 ]	(	[ remap_falloff2interp	1 ] 	)
+falloff_heatmap1pos	[ 0	locks=0 ]	(	0	)
+falloff_heatmap1c	[ 0	locks=0 ]	(	0.036199998110532761	0	0.5429999828338623	)
+falloff_heatmap1interp	[ 0	locks=0 ]	(	"linear"	)
+falloff_heatmap2pos	[ 0	locks=0 ]	(	0.27027025818824768	)
+falloff_heatmap2c	[ 0	locks=0 ]	(	0.7369999885559082	0	0	)
+falloff_heatmap2interp	[ 0	locks=0 ]	(	"linear"	)
+falloff_heatmap3pos	[ 0	locks=0 ]	(	0.71814674139022827	)
+falloff_heatmap3c	[ 0	locks=0 ]	(	1	0.28333333134651184	0	)
+falloff_heatmap3interp	[ 0	locks=0 ]	(	"linear"	)
+falloff_heatmap4pos	[ 0	locks=0 ]	(	0.90154439210891724	)
+falloff_heatmap4c	[ 0	locks=0 ]	(	0.89999997615814209	0.89999997615814209	0	)
+falloff_heatmap4interp	[ 0	locks=0 ]	(	"linear"	)
+falloff_heatmap5pos	[ 0	locks=0 ]	(	1	)
+falloff_heatmap5c	[ 0	locks=0 ]	(	1	1	1	)
+falloff_heatmap5interp	[ 0	locks=0 ]	(	"linear"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/MOPs_Remap_Falloff1.userdata"
 Content-Type: text/plain
 
 {
@@ -3588,7 +3718,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -3657,7 +3787,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -3718,7 +3848,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -3778,7 +3908,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -3839,7 +3969,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -3900,7 +4030,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -3961,7 +4091,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -3998,7 +4128,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1583877265
+  modify 1597457568
   author Henry@LAPPY586
   access 0777
 }
@@ -4036,7 +4166,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -4114,7 +4244,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -4149,7 +4279,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1583877263
+  modify 1597457568
   author Henry@LAPPY586
   access 0777
 }
@@ -4182,7 +4312,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -4243,7 +4373,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -4276,7 +4406,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1583877263
+  modify 1597457568
   author Henry@LAPPY586
   access 0777
 }
@@ -4322,7 +4452,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -4367,7 +4497,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1583877263
+  modify 1597457568
   author Henry@LAPPY586
   access 0777
 }
@@ -4405,7 +4535,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -4422,9 +4552,9 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -4.49467 -12.3279
+position -4.67574 -15.7633
 connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
@@ -4439,7 +4569,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1583819447
+  modify 1588875211
   author Henry@LAPPY586
   access 0777
 }
@@ -4464,7 +4594,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -4497,7 +4627,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1583877263
+  modify 1597457568
   author Henry@LAPPY586
   access 0777
 }
@@ -4550,7 +4680,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -4583,7 +4713,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1583877263
+  modify 1597457568
   author Henry@LAPPY586
   access 0777
 }
@@ -4636,7 +4766,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -4697,7 +4827,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -4758,7 +4888,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -4803,7 +4933,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1583877263
+  modify 1597457568
   author Henry@LAPPY586
   access 0777
 }
@@ -4841,7 +4971,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -4874,7 +5004,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1583877263
+  modify 1597457568
   author Henry@LAPPY586
   access 0777
 }
@@ -4937,7 +5067,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -4970,7 +5100,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1583877263
+  modify 1597457568
   author Henry@LAPPY586
   access 0777
 }
@@ -5036,7 +5166,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -5097,7 +5227,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -5158,7 +5288,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -5191,7 +5321,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1583877263
+  modify 1597457568
   author Henry@LAPPY586
   access 0777
 }
@@ -5253,7 +5383,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -5314,7 +5444,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -5347,7 +5477,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1583877263
+  modify 1597457568
   author Henry@LAPPY586
   access 0777
 }
@@ -5409,7 +5539,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -5470,7 +5600,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -5503,7 +5633,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1583877263
+  modify 1597457568
   author Henry@LAPPY586
   access 0777
 }
@@ -5568,7 +5698,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -5629,7 +5759,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -5690,7 +5820,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -5723,7 +5853,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1583877263
+  modify 1597457568
   author Henry@LAPPY586
   access 0777
 }
@@ -5788,7 +5918,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -5825,7 +5955,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1583877263
+  modify 1597457568
   author Henry@LAPPY586
   access 0777
 }
@@ -5863,7 +5993,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -5900,7 +6030,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1583877263
+  modify 1597457568
   author Henry@LAPPY586
   access 0777
 }
@@ -5938,7 +6068,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -6037,7 +6167,7 @@ inputs
 stat
 {
   create 1565319729
-  modify 1583877263
+  modify 1597457568
   author Henry@LAPPY586
   access 0777
 }
@@ -6082,7 +6212,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -6099,7 +6229,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -4.49812 -11.0395
+position -4.49812 -13.1672
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -6108,16 +6238,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	MOPs_Preview_Falloff 1 1 "input1"
+0 	switch3 2 1 "input1"
 }
 inputs
 {
-0 	MOPs_Preview_Falloff 0 1
+0 	switch3 0 1
 }
 stat
 {
   create 1565319729
-  modify 1583877263
+  modify 1597457568
   author Henry@LAPPY586
   access 0777
 }
@@ -6148,7 +6278,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -6181,7 +6311,7 @@ inputs
 stat
 {
   create 1570167447
-  modify 1583877263
+  modify 1597457568
   author Henry@LAPPY586
   access 0777
 }
@@ -6237,7 +6367,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -6298,7 +6428,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -6335,7 +6465,7 @@ inputs
 stat
 {
   create 1570312315
-  modify 1583877263
+  modify 1597457568
   author Henry@LAPPY586
   access 0777
 }
@@ -6373,7 +6503,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -6390,7 +6520,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.976432 -13.0395
+position -0.976432 -15.1672
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -6408,7 +6538,7 @@ inputs
 stat
 {
   create 1583809609
-  modify 1583820647
+  modify 1588875211
   author Henry@LAPPY586
   access 0777
 }
@@ -6456,7 +6586,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -6473,9 +6603,9 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.976432 -15.7316
+position -0.976432 -17.8593
 connectornextid 1
-flags =  lock off model off template on footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
@@ -6490,7 +6620,7 @@ inputs
 stat
 {
   create 1583809998
-  modify 1583821827
+  modify 1588875211
   author Henry@LAPPY586
   access 0777
 }
@@ -6516,7 +6646,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
 	}
 }
 
@@ -6533,9 +6663,9 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -2.4667 -12.0395
+position -2.4667 -14.1672
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 1 "output1"
@@ -6551,7 +6681,7 @@ inputs
 stat
 {
   create 1583810023
-  modify 1583820413
+  modify 1588875211
   author Henry@LAPPY586
   access 0777
 }
@@ -6584,7 +6714,157 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.460"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch2.init"
+Content-Type: text/plain
+
+type = switch
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch2.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -3.77135 -4.27484
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+2 "output1"
+}
+inputsNamed3
+{
+0 	switch_falloff_type 0 1 "input1"
+1 	MOPs_Remap_Falloff1 1 1 "input2"
+}
+inputs
+{
+0 	switch_falloff_type 0 1
+1 	MOPs_Remap_Falloff1 0 1
+}
+stat
+{
+  create 1588875175
+  modify 1597457568
+  author Henry@LAPPY586
+  access 0777
+}
+color UT_Color RGB 0.8 1 0.7 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch2.chn"
+Content-Type: text/plain
+
+{
+    channel input {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../switchfit\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch2.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch2.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"18.0.460"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch3.init"
+Content-Type: text/plain
+
+type = switch
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch3.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -4.65604 -11.5781
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+2 "output1"
+}
+inputsNamed3
+{
+0 	switch_back_to_P 0 1 "input1"
+1 	MOPs_Preview_Falloff 1 1 "input2"
+}
+inputs
+{
+0 	switch_back_to_P 0 1
+1 	MOPs_Preview_Falloff 0 1
+}
+stat
+{
+  create 1588875215
+  modify 1597457568
+  author Henry@LAPPY586
+  access 0777
+}
+color UT_Color RGB 0.8 1 0.7 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch3.chn"
+Content-Type: text/plain
+
+{
+    channel input {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../do_preview\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch3.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch3.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"18.0.460"
 	}
 }
 
@@ -6592,11 +6872,10 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot.order"
 Content-Type: text/plain
 
-59
+61
 falloff_linear
 do_local_transform
 transform_guide
-MOPs_Remap_Falloff
 grid_end
 grid_start
 merge1
@@ -6652,6 +6931,9 @@ bound1
 BBOX
 unpack1
 pointwrangle3
+switch2
+switch3
+MOPs_Remap_Falloff1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"

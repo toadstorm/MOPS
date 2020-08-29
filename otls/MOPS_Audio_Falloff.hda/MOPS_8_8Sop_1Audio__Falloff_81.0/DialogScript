@@ -102,8 +102,9 @@
         parmtag { "autoscope" "0000000000000000" }
     }
     groupsimple {
-        name    "folder1"
+        name    "stdswitcher2_5"
         label   "Falloff Preview"
+        tabbreak
         hidewhentab "{ do_preview == 0 }"
 
         parm {
@@ -294,55 +295,131 @@
 
     group {
         name    "stdswitcher2_1"
-        label   "Shift"
+        label   "Trim & Shift"
 
         parm {
-            name    "reference"
-            label   "Reference"
-            type    ordinal
-            default { "refstart" }
-            menu {
-                "refstart"  "Start Position"
-                "refend"    "End Position"
+            name    "do_trim"
+            label   "Enable Trim"
+            type    toggle
+            default { "0" }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "do_shift"
+            label   "Enable Shift"
+            type    toggle
+            default { "0" }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        group {
+            name    "folder2_1"
+            label   "Trim"
+            tabbreak
+            disablewhentab "{ do_trim == 0 }"
+
+            parm {
+                name    "relative3"
+                label   "Unit Values"
+                type    ordinal
+                default { "rel" }
+                menu {
+                    "abs"   "Absolute"
+                    "rel"   "Relative to Start/End"
+                    "cur"   "Relative to Current Frame"
+                    "slice" "Current Time Slice"
+                }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
             }
-            parmtag { "autoscope" "0000000000000000" }
-        }
-        parm {
-            name    "relative"
-            label   "Unit Values"
-            type    ordinal
-            default { "rel" }
-            menu {
-                "abs"   "Absolute"
-                "rel"   "Relative to Start/End"
-                "cur"   "Use Current Frame"
+            parm {
+                name    "start3"
+                label   "Start"
+                type    float
+                default { "0" }
+                range   { -100 100 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
             }
-            parmtag { "autoscope" "0000000000000000" }
+            parm {
+                name    "end3"
+                label   "End"
+                type    float
+                default { "0" }
+                range   { -100 100 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "discard"
+                label   "Discard"
+                type    ordinal
+                default { "trimExt" }
+                menu {
+                    "trimExt"   "Exterior"
+                    "trimInt"   "Interior"
+                }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
         }
-        parm {
-            name    "start"
-            label   "Start"
-            type    float
-            default { "0" }
-            range   { -10 10 }
-            parmtag { "autoscope" "0000000000000000" }
+
+        group {
+            name    "folder2"
+            label   "Shift"
+            tabbreak
+            disablewhentab "{ do_shift == 0 }"
+
+            parm {
+                name    "reference"
+                label   "Reference"
+                type    ordinal
+                default { "refstart" }
+                menu {
+                    "refstart"  "Start Position"
+                    "refend"    "End Position"
+                }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "relative"
+                label   "Unit Values"
+                type    ordinal
+                default { "rel" }
+                menu {
+                    "abs"   "Absolute"
+                    "rel"   "Relative to Start/End"
+                    "cur"   "Use Current Frame"
+                }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "start"
+                label   "Start"
+                type    float
+                default { "0" }
+                range   { -10 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "end"
+                label   "End"
+                type    float
+                default { "0" }
+                range   { -10 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "scroll"
+                label   "Scroll Offset"
+                type    float
+                default { "0" }
+                range   { -10 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
         }
-        parm {
-            name    "end"
-            label   "End"
-            type    float
-            default { "0" }
-            range   { -10 10 }
-            parmtag { "autoscope" "0000000000000000" }
-        }
-        parm {
-            name    "scroll"
-            label   "Scroll Offset"
-            type    float
-            default { "0" }
-            range   { -10 10 }
-            parmtag { "autoscope" "0000000000000000" }
-        }
+
     }
 
     group {
@@ -414,8 +491,9 @@
         }
 
         group {
-            name    "folder2"
+            name    "folder3_1"
             label   "Band Options"
+            tabbreak
 
             parm {
                 name    "preview_bands"
@@ -966,7 +1044,7 @@
                 name    "switchfit"
                 label   "Fit"
                 type    toggle
-                default { "on" }
+                default { "off" }
                 parmtag { "autoscope" "0000000000000000" }
             }
             parm {
