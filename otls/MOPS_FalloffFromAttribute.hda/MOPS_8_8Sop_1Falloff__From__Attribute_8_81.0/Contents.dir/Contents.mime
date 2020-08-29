@@ -32,22 +32,24 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.776596 1.06931
-connectornextid 0
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+position -7.3529 0.924744
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
 inputsNamed3
 {
+0 	MOPs_Instancer 1 1 "input1"
 }
 inputs
 {
+0 	MOPs_Instancer 0 1
 }
 stat
 {
-  create 1597457391
-  modify 1597457487
+  create 1598664408
+  modify 1598666990
   author Henry@LAPPY586
   access 0777
 }
@@ -107,7 +109,7 @@ inputs
 stat
 {
   create 1521001039
-  modify 1597457391
+  modify 1598665969
   author Henry@LAPPY586
   access 0777
 }
@@ -446,7 +448,7 @@ if(chi(\"do_remap\")) {
     falloff_remap = chramp(\"remap_ramp\", falloff);
 }
 
-@mops_falloff = falloff_remap;"	)
+@attribute = falloff_remap;"	)
 exportlist	[ 0	locks=0 ]	(	*	)
 vex_strict	[ 0	locks=0 ]	(	"off"	)
 autobind	[ 0	locks=0 ]	(	"on"	)
@@ -464,7 +466,7 @@ folder1	[ 0	locks=0 ]	(	0	0	)
 min	[ 0	locks=0 ]	(	[ min	0 ] 	)
 max	[ 0	locks=0 ]	(	[ max	1 ] 	)
 auto_range	[ 0	locks=0 ]	(	[ auto_range	1 ] 	)
-do_remap	[ 0	locks=0 ]	(	[ do_remap	0 ] 	)
+do_remap	[ 0	locks=0 ]	(	[ do_remap	1 ] 	)
 remap_ramp	[ 0	locks=0 ]	(	[ remap_ramp	2 ] 	)
 remap_ramp1pos	[ 0	locks=0 ]	(	[ remap_ramp1pos	0 ] 	)
 remap_ramp1value	[ 0	locks=0 ]	(	[ remap_ramp1value	0 ] 	)
@@ -500,7 +502,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.637607 -2.69793
+position -1.29702 -2.70116
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -509,7 +511,7 @@ outputsNamed3
 }
 inputsNamed3
 {
-1 	Combine_Falloffs1 2 1 "input1"
+1 	Combine_Falloffs1 0 1 "input1"
 }
 inputs
 {
@@ -518,7 +520,7 @@ inputs
 stat
 {
   create 1536026656
-  modify 1597457391
+  modify 1598667060
   author Henry@LAPPY586
   access 0777
 }
@@ -675,13 +677,6 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 5 5 expr = ch(\"../falloff_heatmap\") }
     }
-    channel do_preview {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../do_preview\") }
-    }
     channel do_sprite {
       lefttype = extend
       righttype = extend
@@ -741,23 +736,24 @@ Content-Type: text/plain
 
 {
 version 0.8
-do_preview	[ 0	locks=0	autoscope=0 ]	(	[ do_preview	1 ] 	)
+do_preview	[ 0	locks=0 ]	(	"on"	)
+falloff_attr	[ 0	locks=0 ]	(	`chs(\"../falloff_attr\")`	)
 do_sprite	[ 0	locks=0 ]	(	[ do_sprite	0 ] 	)
 spritemap	[ 0	locks=0 ]	(	sphere_matte.pic	)
 spritescale	[ 0	locks=0 ]	(	[ spritescale	0.070000000000000007 ] 	)
-override_scale	[ 0	locks=0 ]	(	[ override_scale	1 ] 	)
+override_scale	[ 0	locks=0 ]	(	[ override_scale	0 ] 	)
 ramp_preset	[ 0	locks=0	autoscope=0 ]	(	[ ramp_preset	0 ] 	)
 falloff_heatmap	[ 0	locks=0	autoscope=0 ]	(	[ falloff_heatmap	5 ] 	)
 falloff_heatmap1pos	[ 0	locks=0	autoscope=0 ]	(	[ falloff_heatmap1pos	0 ] 	)
-falloff_heatmap1c	[ 0	locks=0	autoscope=0 ]	(	[ falloff_heatmap1cr	0.035999998450279236 ] 	[ falloff_heatmap1cg	0 ] 	[ falloff_heatmap1cb	0.5429999828338623 ] 	)
+falloff_heatmap1c	[ 0	locks=0	autoscope=0 ]	(	[ falloff_heatmap1cr	0.036199998110532761 ] 	[ falloff_heatmap1cg	0 ] 	[ falloff_heatmap1cb	0.5429999828338623 ] 	)
 falloff_heatmap1interp	[ 0	locks=0	autoscope=0 ]	(	[ falloff_heatmap1interp	1 ] 	)
-falloff_heatmap2pos	[ 0	locks=0	autoscope=0 ]	(	[ falloff_heatmap2pos	0.27000001072883606 ] 	)
+falloff_heatmap2pos	[ 0	locks=0	autoscope=0 ]	(	[ falloff_heatmap2pos	0.27027025818824768 ] 	)
 falloff_heatmap2c	[ 0	locks=0	autoscope=0 ]	(	[ falloff_heatmap2cr	0.7369999885559082 ] 	[ falloff_heatmap2cg	0 ] 	[ falloff_heatmap2cb	0 ] 	)
 falloff_heatmap2interp	[ 0	locks=0	autoscope=0 ]	(	[ falloff_heatmap2interp	1 ] 	)
-falloff_heatmap3pos	[ 0	locks=0	autoscope=0 ]	(	[ falloff_heatmap3pos	0.71799999475479126 ] 	)
-falloff_heatmap3c	[ 0	locks=0	autoscope=0 ]	(	[ falloff_heatmap3cr	1 ] 	[ falloff_heatmap3cg	0.2800000011920929 ] 	[ falloff_heatmap3cb	0 ] 	)
+falloff_heatmap3pos	[ 0	locks=0	autoscope=0 ]	(	[ falloff_heatmap3pos	0.71814674139022827 ] 	)
+falloff_heatmap3c	[ 0	locks=0	autoscope=0 ]	(	[ falloff_heatmap3cr	1 ] 	[ falloff_heatmap3cg	0.28333333134651184 ] 	[ falloff_heatmap3cb	0 ] 	)
 falloff_heatmap3interp	[ 0	locks=0	autoscope=0 ]	(	[ falloff_heatmap3interp	1 ] 	)
-falloff_heatmap4pos	[ 0	locks=0	autoscope=0 ]	(	[ falloff_heatmap4pos	0.89999997615814209 ] 	)
+falloff_heatmap4pos	[ 0	locks=0	autoscope=0 ]	(	[ falloff_heatmap4pos	0.90154439210891724 ] 	)
 falloff_heatmap4c	[ 0	locks=0	autoscope=0 ]	(	[ falloff_heatmap4cr	0.89999997615814209 ] 	[ falloff_heatmap4cg	0.89999997615814209 ] 	[ falloff_heatmap4cb	0 ] 	)
 falloff_heatmap4interp	[ 0	locks=0	autoscope=0 ]	(	[ falloff_heatmap4interp	1 ] 	)
 falloff_heatmap5pos	[ 0	locks=0 ]	(	[ falloff_heatmap5pos	1 ] 	)
@@ -780,7 +776,7 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot/Combine_Falloffs1.init"
 Content-Type: text/plain
 
-type = MOPS::Combine_Falloffs::1.0
+type = MOPS::Combine_Falloffs::1.1
 matchesdef = 1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -789,17 +785,17 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.98096 -0.875527
+position -2.19892 -0.439611
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-2 "output1"
+0 "output1"
 }
 inputsNamed3
 {
-0 	null1 1 1 "input1"
-1 	falloff_from_attribute 2 1 "input2"
+1 	null1 1 1 "input1"
+2 	falloff_from_attribute 2 1 "input2"
 }
 inputs
 {
@@ -808,9 +804,9 @@ inputs
 }
 stat
 {
-  create 1523748762
-  modify 1597457391
-  author henry@GlaDOS
+  create 1598666029
+  modify 1598667009
+  author Henry@LAPPY586
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -823,6 +819,18 @@ Content-Disposition: attachment; filename="hdaroot/Combine_Falloffs1.chn"
 Content-Type: text/plain
 
 {
+    channel grouptype {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../grouptype\") }
+    }
+    channel falloff_attr {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = chs(\"../falloff_attr\") }
+    }
     channel input {
       lefttype = extend
       righttype = extend
@@ -832,7 +840,6 @@ Content-Type: text/plain
     channel strength {
       lefttype = extend
       righttype = extend
-      default = 1
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../strength\") }
     }
@@ -842,12 +849,6 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = ch(\"../switchclamp\") }
     }
-    channel grouptype {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../grouptype\") }
-    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -856,35 +857,35 @@ Content-Type: text/plain
 
 {
 version 0.8
-group	[ 0	locks=0 ]	(	`chs(\"../falloff_from_attribute/group\")`	)
-grouptype	[ 0	locks=0 ]	(	[ grouptype	0 ] 	)
-falloff_attr	[ 0	locks=0 ]	(	mops_falloff	)
-input	[ 0	locks=0 ]	(	[ input	8 ] 	)
-strength	[ 0	locks=0 ]	(	[ strength	1 ] 	)
-switchclamp	[ 0	locks=0 ]	(	[ switchclamp	0 ] 	)
+group	[ 0	locks=0	autoscope=0 ]	(	`chs(\"../falloff_from_attribute/group\")`	)
+grouptype	[ 0	locks=0	autoscope=0 ]	(	[ grouptype	0 ] 	)
+falloff_attr	[ 0	locks=0	autoscope=0 ]	(	[ falloff_attr	piss ] 	)
+input	[ 0	locks=0	autoscope=0 ]	(	[ input	0 ] 	)
+strength	[ 0	locks=0	autoscope=0 ]	(	[ strength	1 ] 	)
+switchclamp	[ 0	locks=0	autoscope=0 ]	(	[ switchclamp	1 ] 	)
 sepparm	[ 0	locks=0 ]	(	)
 do_preview	[ 0	locks=0 ]	(	"off"	)
 folder0	[ 0	locks=0 ]	(	0	)
-do_sprite	[ 0	locks=0 ]	(	"on"	)
+do_sprite	[ 0	locks=0	autoscope=0 ]	(	"on"	)
 spritescale	[ 0	locks=0 ]	(	1	)
 override_scale	[ 0	locks=0 ]	(	"off"	)
 ramp_preset	[ 0	locks=0 ]	(	"heatmap"	)
-falloff_heatmap	[ 0	locks=0 ]	(	5	)
-falloff_heatmap1pos	[ 0	locks=0 ]	(	0	)
-falloff_heatmap1c	[ 0	locks=0 ]	(	0.036199998110532761	0	0.5429999828338623	)
-falloff_heatmap1interp	[ 0	locks=0 ]	(	"linear"	)
-falloff_heatmap2pos	[ 0	locks=0 ]	(	0.27027025818824768	)
-falloff_heatmap2c	[ 0	locks=0 ]	(	0.7369999885559082	0	0	)
-falloff_heatmap2interp	[ 0	locks=0 ]	(	"linear"	)
-falloff_heatmap3pos	[ 0	locks=0 ]	(	0.71814674139022827	)
-falloff_heatmap3c	[ 0	locks=0 ]	(	1	0.28333333134651184	0	)
-falloff_heatmap3interp	[ 0	locks=0 ]	(	"linear"	)
-falloff_heatmap4pos	[ 0	locks=0 ]	(	0.90154439210891724	)
-falloff_heatmap4c	[ 0	locks=0 ]	(	0.89999997615814209	0.89999997615814209	0	)
-falloff_heatmap4interp	[ 0	locks=0 ]	(	"linear"	)
-falloff_heatmap5pos	[ 0	locks=0 ]	(	1	)
-falloff_heatmap5c	[ 0	locks=0 ]	(	1	1	1	)
-falloff_heatmap5interp	[ 0	locks=0 ]	(	"linear"	)
+falloff_heatmap	[ 0	locks=0	autoscope=0 ]	(	5	)
+falloff_heatmap1pos	[ 0	locks=0	autoscope=0 ]	(	0	)
+falloff_heatmap1c	[ 0	locks=0	autoscope=0 ]	(	0.036199998110532761	0	0.5429999828338623	)
+falloff_heatmap1interp	[ 0	locks=0	autoscope=0 ]	(	"linear"	)
+falloff_heatmap2pos	[ 0	locks=0	autoscope=0 ]	(	0.27027025818824768	)
+falloff_heatmap2c	[ 0	locks=0	autoscope=0 ]	(	0.7369999885559082	0	0	)
+falloff_heatmap2interp	[ 0	locks=0	autoscope=0 ]	(	"linear"	)
+falloff_heatmap3pos	[ 0	locks=0	autoscope=0 ]	(	0.71814674139022827	)
+falloff_heatmap3c	[ 0	locks=0	autoscope=0 ]	(	1	0.28333333134651184	0	)
+falloff_heatmap3interp	[ 0	locks=0	autoscope=0 ]	(	"linear"	)
+falloff_heatmap4pos	[ 0	locks=0	autoscope=0 ]	(	0.90154439210891724	)
+falloff_heatmap4c	[ 0	locks=0	autoscope=0 ]	(	0.89999997615814209	0.89999997615814209	0	)
+falloff_heatmap4interp	[ 0	locks=0	autoscope=0 ]	(	"linear"	)
+falloff_heatmap5pos	[ 0	locks=0	autoscope=0 ]	(	1	)
+falloff_heatmap5c	[ 0	locks=0	autoscope=0 ]	(	1	1	1	)
+falloff_heatmap5interp	[ 0	locks=0	autoscope=0 ]	(	"linear"	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -929,7 +930,7 @@ inputs
 stat
 {
   create 1527557574
-  modify 1597457391
+  modify 1598664408
   author Henry@LAPPY586
   access 0777
 }
@@ -1145,7 +1146,7 @@ vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
-bindname1	[ 0	locks=0 ]	(	[ bindname1	mops_falloff ] 	)
+bindname1	[ 0	locks=0 ]	(	[ bindname1	piss ] 	)
 bindparm1	[ 0	locks=0 ]	(	attr	)
 }
 
@@ -1191,7 +1192,7 @@ inputs
 stat
 {
   create 1521001572
-  modify 1597457391
+  modify 1598664408
   author Henry@LAPPY586
   access 0777
 }
@@ -1259,7 +1260,7 @@ inputs
 stat
 {
   create 1521001572
-  modify 1597457391
+  modify 1598664408
   author Henry@LAPPY586
   access 0777
 }
@@ -1327,7 +1328,7 @@ inputs
 stat
 {
   create 1522551540
-  modify 1597457391
+  modify 1598664408
   author henry@GlaDOS
   access 0777
 }
@@ -1419,7 +1420,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.637607 -4.69793
+position -2.66462 -6.565
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1427,16 +1428,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	attribdelete1 1 1 "input1"
+0 	switch1 2 1 "input1"
 }
 inputs
 {
-0 	attribdelete1 0 1
+0 	switch1 0 1
 }
 stat
 {
   create 1522551563
-  modify 1582597394
+  modify 1598665685
   author henry@GlaDOS
   access 0777
 }
@@ -1527,70 +1528,6 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribdelete1.init"
-Content-Type: text/plain
-
-type = attribdelete
-matchesdef = 1
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribdelete1.def"
-Content-Type: text/plain
-
-sopflags sopflags = 
-comment ""
-position -0.637607 -3.69793
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
-outputsNamed3
-{
-1 "output1"
-}
-inputsNamed3
-{
-0 	MOPs_Preview_Falloff 0 1 "input1"
-}
-inputs
-{
-0 	MOPs_Preview_Falloff 0 1
-}
-stat
-{
-  create 1546922184
-  modify 1582597108
-  author Henry@LAPPY586
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribdelete1.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-ptdel	[ 0	locks=0 ]	(	__attr	)
-vtxdel	[ 0	locks=0 ]	(	""	)
-primdel	[ 0	locks=0 ]	(	""	)
-dtldel	[ 0	locks=0 ]	(	""	)
-updatevar	[ 0	locks=0 ]	(	"on"	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribdelete1.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":""
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/python1.init"
 Content-Type: text/plain
 
@@ -1672,6 +1609,81 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch1.init"
+Content-Type: text/plain
+
+type = switch
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -2.66117 -4.60859
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+2 "output1"
+}
+inputsNamed3
+{
+0 	Combine_Falloffs1 0 1 "input1"
+1 	MOPs_Preview_Falloff 0 1 "input2"
+}
+inputs
+{
+0 	Combine_Falloffs1 0 1
+1 	MOPs_Preview_Falloff 0 1
+}
+stat
+{
+  create 1598665587
+  modify 1598666970
+  author Henry@LAPPY586
+  access 0777
+}
+color UT_Color RGB 0.8 1 0.7 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch1.chn"
+Content-Type: text/plain
+
+{
+    channel input {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../do_preview\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"18.0.460"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.order"
 Content-Type: text/plain
 
@@ -1685,8 +1697,8 @@ output1
 Combine_Falloffs1
 null1
 bind_channel_to_attr
-attribdelete1
 python1
+switch1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"

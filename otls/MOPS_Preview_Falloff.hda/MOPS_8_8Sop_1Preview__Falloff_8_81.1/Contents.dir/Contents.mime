@@ -32,22 +32,25 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -2.63934 -1.8959
-connectornextid 0
+position -1.29702 -2.70116
+connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
+0 "output1"
 }
 inputsNamed3
 {
+1 	Combine_Falloffs1 0 1 "input1"
 }
 inputs
 {
+0 	Combine_Falloffs1 0 1
 }
 stat
 {
-  create 1573535860
-  modify 1573536066
+  create 1536026656
+  modify 1598667009
   author Henry@LAPPY586
   access 0777
 }
@@ -105,7 +108,7 @@ inputs
 stat
 {
   create 1522436772
-  modify 1573535860
+  modify 1598666882
   author Henry@LAPPY586
   access 0777
 }
@@ -290,6 +293,12 @@ Content-Type: text/plain
         type    ramp_rgb
         default { "2" }
         range   { 1! 10 }
+    }
+    parm {
+        name    "vex_precision"
+        baseparm
+        label   "VEX Precision"
+        export  none
     }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -480,7 +489,7 @@ snippet	[ 0	locks=0 ]	(	"vector preview = chramp(\"falloff_heatmap\", clamp(@mop
 exportlist	[ 0	locks=0 ]	(	*	)
 vex_strict	[ 0	locks=0 ]	(	"off"	)
 autobind	[ 0	locks=0 ]	(	"on"	)
-bindings	[ 0	locks=0 ]	(	0	)
+bindings	[ 0	locks=0 ]	(	1	)
 groupautobind	[ 0	locks=0 ]	(	"on"	)
 groupbindings	[ 0	locks=0 ]	(	0	)
 vex_cwdpath	[ 0	locks=0 ]	(	.	)
@@ -489,7 +498,8 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
-folder1	[ 0	locks=0 ]	(	0	0	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
+folder1	[ 0	locks=0 ]	(	1	1	)
 falloff_heatmap	[ 0	locks=0 ]	(	[ falloff_heatmap	5 ] 	)
 falloff_heatmap1pos	[ 0	locks=0 ]	(	[ falloff_heatmap1pos	0 ] 	)
 falloff_heatmap1c	[ 0	locks=0 ]	(	[ falloff_heatmap1cr	0.036199998110532761 ] 	[ falloff_heatmap1cg	0 ] 	[ falloff_heatmap1cb	0.5429999828338623 ] 	)
@@ -506,6 +516,8 @@ falloff_heatmap4interp	[ 0	locks=0 ]	(	[ falloff_heatmap4interp	1 ] 	)
 falloff_heatmap5pos	[ 0	locks=0 ]	(	[ falloff_heatmap5pos	1 ] 	)
 falloff_heatmap5c	[ 0	locks=0 ]	(	[ falloff_heatmap5cr	1 ] 	[ falloff_heatmap5cg	1 ] 	[ falloff_heatmap5cb	1 ] 	)
 falloff_heatmap5interp	[ 0	locks=0 ]	(	[ falloff_heatmap5interp	1 ] 	)
+bindname1	[ 0	locks=0 ]	(	`chs(\"../falloff_attr\")`	)
+bindparm1	[ 0	locks=0 ]	(	mops_falloff	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -550,7 +562,7 @@ inputs
 stat
 {
   create 1536025246
-  modify 1573535860
+  modify 1598666030
   author Henry@LAPPY586
   access 0777
 }
@@ -725,6 +737,12 @@ Content-Type: text/plain
         default { "0" }
         range   { 0 10 }
     }
+    parm {
+        name    "vex_precision"
+        baseparm
+        label   "VEX Precision"
+        export  none
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/pointwrangle1.chn"
@@ -770,6 +788,7 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 override_scale	[ 0	locks=0 ]	(	[ override_scale	0 ] 	)
 }
@@ -816,7 +835,7 @@ inputs
 stat
 {
   create 1538069567
-  modify 1573535860
+  modify 1598666030
   author Henry@LAPPY586
   access 0777
 }
@@ -920,7 +939,7 @@ inputs
 stat
 {
   create 1539749753
-  modify 1573535860
+  modify 1598666030
   author henry@GlaDOS
   access 0777
 }
@@ -965,6 +984,7 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1025,7 +1045,9 @@ Content-Type: text/plain
 {
 version 0.8
 do_pivot	[ 0	locks=0 ]	(	"on"	)
+do_mops_orient	[ 0	locks=0 ]	(	"off"	)
 do_full_transform	[ 0	locks=0 ]	(	"off"	)
+simplify_scale	[ 0	locks=0 ]	(	"on"	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1070,7 +1092,7 @@ inputs
 stat
 {
   create 1542258177
-  modify 1573535860
+  modify 1598666030
   author Henry@LAPPY586
   access 0777
 }
@@ -1107,6 +1129,7 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1151,7 +1174,7 @@ inputs
 stat
 {
   create 1522436772
-  modify 1573535860
+  modify 1598667050
   author Henry@LAPPY586
   access 0777
 }
@@ -1336,6 +1359,12 @@ Content-Type: text/plain
         type    ramp_rgb
         default { "2" }
         range   { 1! 10 }
+    }
+    parm {
+        name    "vex_precision"
+        baseparm
+        label   "VEX Precision"
+        export  none
     }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1526,7 +1555,7 @@ snippet	[ 0	locks=0 ]	(	"vector preview = chramp(\"falloff_heatmap\", clamp(@mop
 exportlist	[ 0	locks=0 ]	(	*	)
 vex_strict	[ 0	locks=0 ]	(	"off"	)
 autobind	[ 0	locks=0 ]	(	"on"	)
-bindings	[ 0	locks=0 ]	(	0	)
+bindings	[ 0	locks=0 ]	(	1	)
 groupautobind	[ 0	locks=0 ]	(	"on"	)
 groupbindings	[ 0	locks=0 ]	(	0	)
 vex_cwdpath	[ 0	locks=0 ]	(	.	)
@@ -1535,7 +1564,8 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
-folder1	[ 0	locks=0 ]	(	0	0	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
+folder1	[ 0	locks=0 ]	(	1	1	)
 falloff_heatmap	[ 0	locks=0 ]	(	[ falloff_heatmap	5 ] 	)
 falloff_heatmap1pos	[ 0	locks=0 ]	(	[ falloff_heatmap1pos	0 ] 	)
 falloff_heatmap1c	[ 0	locks=0 ]	(	[ falloff_heatmap1cr	0.036199998110532761 ] 	[ falloff_heatmap1cg	0 ] 	[ falloff_heatmap1cb	0.5429999828338623 ] 	)
@@ -1552,6 +1582,8 @@ falloff_heatmap4interp	[ 0	locks=0 ]	(	[ falloff_heatmap4interp	1 ] 	)
 falloff_heatmap5pos	[ 0	locks=0 ]	(	[ falloff_heatmap5pos	1 ] 	)
 falloff_heatmap5c	[ 0	locks=0 ]	(	[ falloff_heatmap5cr	1 ] 	[ falloff_heatmap5cg	1 ] 	[ falloff_heatmap5cb	1 ] 	)
 falloff_heatmap5interp	[ 0	locks=0 ]	(	[ falloff_heatmap5interp	1 ] 	)
+bindname1	[ 0	locks=0 ]	(	`chs(\"../falloff_attr\")`	)
+bindparm1	[ 0	locks=0 ]	(	mops_falloff	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1622,7 +1654,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -1681,7 +1713,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -1759,7 +1791,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -1796,7 +1828,7 @@ inputs
 stat
 {
   create 1536021933
-  modify 1573535860
+  modify 1598666030
   author Henry@LAPPY586
   access 0777
 }
@@ -1834,7 +1866,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -1871,7 +1903,7 @@ inputs
 stat
 {
   create 1538070395
-  modify 1573535860
+  modify 1598666030
   author Henry@LAPPY586
   access 0777
 }
@@ -1899,7 +1931,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1909,7 +1941,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -1977,7 +2009,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -2014,7 +2046,7 @@ inputs
 stat
 {
   create 1542258372
-  modify 1573535860
+  modify 1598666030
   author Henry@LAPPY586
   access 0777
 }
@@ -2052,7 +2084,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -2191,7 +2223,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -2260,7 +2292,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -2361,7 +2393,7 @@ inputs
 stat
 {
   create 1551418993
-  modify 1573535860
+  modify 1598666030
   author Henry@LAPPY586
   access 0777
 }
@@ -2399,7 +2431,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
@@ -2436,7 +2468,7 @@ inputs
 stat
 {
   create 1554853353
-  modify 1573535860
+  modify 1598666030
   author Henry@LAPPY586
   access 0777
 }
@@ -2474,7 +2506,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"18.0.460"
 	}
 }
 
