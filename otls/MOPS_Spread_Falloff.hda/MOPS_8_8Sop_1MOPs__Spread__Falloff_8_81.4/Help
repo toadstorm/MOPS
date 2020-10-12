@@ -7,6 +7,10 @@
 The MOPs Spread Falloff creates an animatable falloff based on a set of starting points. These points can be a group of points or MOPs
 primitives, or an arbitrary set of points connected to the second input, or a group defined by an existing attribute.
 
+TIP:
+    In "Radius" mode, MOPs Spread Falloff will try to make connections between points based on their distance from each other at the Reference Frame. If you're finding that some points just aren't being reached by the spread, it may be because you have a lot of points very close to each other that are taking up all the connections. Consider fusing points and transferring the falloff attribute back to the original points, or increase Max Connections.
+  
+
 @parameters
 
 Falloff Attribute:
@@ -75,7 +79,7 @@ Search Radius:
     
 Max Connections:
     #id: maxsearchpoints
-    Radius mode only. The maximum number of neighboring points to consider. Higher numbers may increase the speed of the spread, and affect the pattern.
+    Radius mode only. The maximum number of neighboring points to consider. Higher numbers may increase the speed of the spread, and affect the pattern. If you have a lot of points close together, you may need to increase this value to get a complete spread.
     
 Spread:
     #id: spread
