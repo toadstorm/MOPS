@@ -32,26 +32,25 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0 4.1767
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+position -7.37878 -9.27667
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-1 "output1"
 }
 inputsNamed3
 {
-0 	INPUT_CURVES 1 1 "input1"
+0 	MOPs_TO_KINEFX 1 1 "input1"
 }
 inputs
 {
-0 	INPUT_CURVES 0 1
+0 	MOPs_TO_KINEFX 0 1
 }
 stat
 {
-  create 1599349256
-  modify 1599527558
-  author Henry@LAPPY586
+  create -1
+  modify -1
+  author Henry@GlaDOS
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -107,8 +106,8 @@ inputs
 }
 stat
 {
-  create 1524695134
-  modify 1599526763
+  create -1
+  modify -1
   author Henry@LAPPY586
   access 0777
 }
@@ -328,7 +327,13 @@ if(!haspointattrib(0, \"up\")) {
     v@up = {0,1,0};
 }
 if(!haspointattrib(0, \"orient\")) {
-    p@orient = quaternion(maketransform(@N, v@up));
+    // if this is kinefx, convert the \"transform\" point attribute
+    if(haspointattrib(0, \"scaleinheritance\")) {
+        matrix3 transform = point(0, \"transform\", @ptnum);
+        p@orient = quaternion(transform);
+    } else {
+        p@orient = quaternion(maketransform(@N, v@up));
+    }
 } else {
     // use existing orient to derive N/up
     matrix3 m = qconvert(p@orient);
@@ -393,8 +398,8 @@ inputs
 }
 stat
 {
-  create 1550365158
-  modify 1599526763
+  create -1
+  modify -1
   author Henry@LAPPY586
   access 0777
 }
@@ -472,8 +477,8 @@ inputs
 }
 stat
 {
-  create 1573854821
-  modify 1599526763
+  create -1
+  modify -1
   author Henry@LAPPY586
   access 0777
 }
@@ -551,8 +556,8 @@ inputs
 }
 stat
 {
-  create 1583522390
-  modify 1599526763
+  create -1
+  modify -1
   author Henry@LAPPY586
   access 0777
 }
@@ -841,7 +846,7 @@ vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 do_full_transform	[ 0	locks=0 ]	(	[ do_full_transform	0 ] 	)
 do_pivot	[ 0	locks=0 ]	(	[ do_pivot	1 ] 	)
-simplify_scale	[ 0	locks=0 ]	(	[ simplify_scale	0 ] 	)
+simplify_scale	[ 0	locks=0 ]	(	[ simplify_scale	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -885,8 +890,8 @@ inputs
 }
 stat
 {
-  create 1584916562
-  modify 1599526763
+  create -1
+  modify -1
   author Henry@LAPPY586
   access 0777
 }
@@ -973,8 +978,8 @@ inputs
 }
 stat
 {
-  create 1542257157
-  modify 1599526763
+  create -1
+  modify -1
   author Henry@LAPPY586
   access 0777
 }
@@ -1033,7 +1038,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"___EXTERNAL___"
 	}
 }
 
@@ -1067,8 +1072,8 @@ inputs
 }
 stat
 {
-  create 1542257182
-  modify 1583520881
+  create -1
+  modify -1
   author Henry@LAPPY586
   access 0777
 }
@@ -1101,7 +1106,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"___EXTERNAL___"
 	}
 }
 
@@ -1135,8 +1140,8 @@ inputs
 }
 stat
 {
-  create 1542257205
-  modify 1583520879
+  create -1
+  modify -1
   author Henry@LAPPY586
   access 0777
 }
@@ -1173,7 +1178,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"___EXTERNAL___"
 	}
 }
 
@@ -1207,8 +1212,8 @@ inputs
 }
 stat
 {
-  create 1542257249
-  modify 1583520877
+  create -1
+  modify -1
   author Henry@LAPPY586
   access 0777
 }
@@ -1234,7 +1239,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"___EXTERNAL___"
 	}
 }
 
@@ -1267,8 +1272,8 @@ inputs
 }
 stat
 {
-  create 1542257309
-  modify 1585515096
+  create -1
+  modify -1
   author Henry@LAPPY586
   access 0777
 }
@@ -1293,7 +1298,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"___EXTERNAL___"
 	}
 }
 
@@ -1329,8 +1334,8 @@ inputs
 }
 stat
 {
-  create 1550365152
-  modify 1599526763
+  create -1
+  modify -1
   author Henry@LAPPY586
   access 0777
 }
@@ -1358,7 +1363,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1368,7 +1373,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"___EXTERNAL___"
 	}
 }
 
@@ -1402,8 +1407,8 @@ inputs
 }
 stat
 {
-  create 1555308337
-  modify 1599527664
+  create -1
+  modify -1
   author Henry@LAPPY586
   access 0777
 }
@@ -1418,9 +1423,15 @@ Content-Type: text/plain
 
 {
 version 0.8
+usereference	[ 0	locks=0 ]	(	"off"	)
+negate	[ 0	locks=0 ]	(	"off"	)
+doptdel	[ 0	locks=0 ]	(	"on"	)
 ptdel	[ 0	locks=0 ]	(	pivot	)
+dovtxdel	[ 0	locks=0 ]	(	"on"	)
 vtxdel	[ 0	locks=0 ]	(	""	)
+doprimdel	[ 0	locks=0 ]	(	"on"	)
 primdel	[ 0	locks=0 ]	(	pivot	)
+dodtldel	[ 0	locks=0 ]	(	"on"	)
 dtldel	[ 0	locks=0 ]	(	""	)
 updatevar	[ 0	locks=0 ]	(	"on"	)
 }
@@ -1466,8 +1477,8 @@ inputs
 }
 stat
 {
-  create 1573854838
-  modify 1584210256
+  create -1
+  modify -1
   author Henry@LAPPY586
   access 0777
 }
@@ -1512,7 +1523,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"___EXTERNAL___"
 	}
 }
 
@@ -1546,8 +1557,8 @@ inputs
 }
 stat
 {
-  create 1573854850
-  modify 1584210271
+  create -1
+  modify -1
   author Henry@LAPPY586
   access 0777
 }
@@ -1580,7 +1591,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"___EXTERNAL___"
 	}
 }
 
@@ -1614,8 +1625,8 @@ inputs
 }
 stat
 {
-  create 1573854897
-  modify 1584322124
+  create -1
+  modify -1
   author Henry@LAPPY586
   access 0777
 }
@@ -1660,7 +1671,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"___EXTERNAL___"
 	}
 }
 
@@ -1694,8 +1705,8 @@ inputs
 }
 stat
 {
-  create 1583520923
-  modify 1584322124
+  create -1
+  modify -1
   author Henry@LAPPY586
   access 0777
 }
@@ -1710,9 +1721,15 @@ Content-Type: text/plain
 
 {
 version 0.8
+usereference	[ 0	locks=0 ]	(	"off"	)
+negate	[ 0	locks=0 ]	(	"off"	)
+doptdel	[ 0	locks=0 ]	(	"on"	)
 ptdel	[ 0	locks=0 ]	(	""	)
+dovtxdel	[ 0	locks=0 ]	(	"on"	)
 vtxdel	[ 0	locks=0 ]	(	""	)
+doprimdel	[ 0	locks=0 ]	(	"on"	)
 primdel	[ 0	locks=0 ]	(	"__origid ptid"	)
+dodtldel	[ 0	locks=0 ]	(	"on"	)
 dtldel	[ 0	locks=0 ]	(	""	)
 updatevar	[ 0	locks=0 ]	(	"on"	)
 }
@@ -1758,8 +1775,8 @@ inputs
 }
 stat
 {
-  create 1583522534
-  modify 1585515034
+  create -1
+  modify -1
   author Henry@LAPPY586
   access 0777
 }
@@ -1792,7 +1809,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"___EXTERNAL___"
 	}
 }
 
@@ -1826,8 +1843,8 @@ inputs
 }
 stat
 {
-  create 1583522534
-  modify 1585514904
+  create -1
+  modify -1
   author Henry@LAPPY586
   access 0777
 }
@@ -1860,7 +1877,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"___EXTERNAL___"
 	}
 }
 
@@ -1896,8 +1913,8 @@ inputs
 }
 stat
 {
-  create 1584916552
-  modify 1599526763
+  create -1
+  modify -1
   author Henry@LAPPY586
   access 0777
 }
@@ -1936,7 +1953,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"___EXTERNAL___"
 	}
 }
 
@@ -1972,8 +1989,8 @@ inputs
 }
 stat
 {
-  create 1585514990
-  modify 1599526763
+  create -1
+  modify -1
   author Henry@LAPPY586
   access 0777
 }
@@ -2032,7 +2049,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"___EXTERNAL___"
 	}
 }
 
@@ -2066,8 +2083,8 @@ inputs
 }
 stat
 {
-  create 1585515034
-  modify 1585515050
+  create -1
+  modify -1
   author Henry@LAPPY586
   access 0777
 }
@@ -2100,7 +2117,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"___EXTERNAL___"
 	}
 }
 
@@ -2134,8 +2151,8 @@ inputs
 }
 stat
 {
-  create 1585515095
-  modify 1585515101
+  create -1
+  modify -1
   author Henry@LAPPY586
   access 0777
 }
@@ -2150,9 +2167,15 @@ Content-Type: text/plain
 
 {
 version 0.8
+usereference	[ 0	locks=0 ]	(	"off"	)
+negate	[ 0	locks=0 ]	(	"off"	)
+doptdel	[ 0	locks=0 ]	(	"on"	)
 ptdel	[ 0	locks=0 ]	(	""	)
+dovtxdel	[ 0	locks=0 ]	(	"on"	)
 vtxdel	[ 0	locks=0 ]	(	""	)
+doprimdel	[ 0	locks=0 ]	(	"on"	)
 primdel	[ 0	locks=0 ]	(	""	)
+dodtldel	[ 0	locks=0 ]	(	"on"	)
 dtldel	[ 0	locks=0 ]	(	__haspackedtransform	)
 updatevar	[ 0	locks=0 ]	(	"on"	)
 }
