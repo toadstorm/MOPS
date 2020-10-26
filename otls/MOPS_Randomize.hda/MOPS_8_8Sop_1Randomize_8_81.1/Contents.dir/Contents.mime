@@ -32,25 +32,23 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -21.1458 0.52016
-connectornextid 1
+position -0.618174 1.06434
+connectornextid 0
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
 inputsNamed3
 {
-0 	MOPs_Reorient 1 1 "input1"
 }
 inputs
 {
-0 	MOPs_Reorient 0 1
 }
 stat
 {
-  create 1600391158
-  modify 1600391604
-  author Henry@LAPPY586
+  create 1603754900
+  modify 1603754911
+  author Henry@GlaDOS
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -80,7 +78,7 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot/Apply_Attributes1.init"
 Content-Type: text/plain
 
-type = MOPS::Apply_Attributes::1.4
+type = MOPS::Apply_Attributes::1.5
 matchesdef = 1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -94,12 +92,12 @@ connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-2 "output1"
+0 "output1"
 }
 inputsNamed3
 {
-0 	MOPS_IN 0 1 "input1"
-1 	switch_do_pscale 0 1 "input2"
+1 	MOPS_IN 0 1 "input1"
+2 	switch_do_pscale 0 1 "input2"
 }
 inputs
 {
@@ -108,9 +106,9 @@ inputs
 }
 stat
 {
-  create 1584163373
-  modify 1600391158
-  author Henry@LAPPY586
+  create 1603754905
+  modify 1603754983
+  author Henry@GlaDOS
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -189,8 +187,9 @@ group	[ 0	locks=0	autoscope=0 ]	(	[ group	"" ] 	)
 grouptype	[ 0	locks=0	autoscope=0 ]	(	[ grouptype	0 ] 	)
 sepparm	[ 0	locks=0 ]	(	)
 matchmode	[ 0	locks=0	autoscope=0 ]	(	"0"	)
+forcematch	[ 0	locks=0	autoscope=0 ]	(	"on"	)
 folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
-do_translate	[ 0	locks=0	autoscope=0 ]	(	[ do_translate	1 ] 	)
+do_translate	[ 0	locks=0	autoscope=0 ]	(	[ do_translate	0 ] 	)
 do_rotate	[ 0	locks=0	autoscope=0 ]	(	[ do_rotate	0 ] 	)
 do_scale	[ 0	locks=0	autoscope=0 ]	(	"on"	)
 do_pivots	[ 0	locks=0	autoscope=0 ]	(	"off"	)
@@ -251,7 +250,7 @@ inputs
 stat
 {
   create 1584163374
-  modify 1600391158
+  modify 1603754900
   author Henry@LAPPY586
   access 0777
 }
@@ -438,7 +437,7 @@ inputs
 stat
 {
   create 1584163374
-  modify 1600391158
+  modify 1603754900
   author Henry@LAPPY586
   access 0777
 }
@@ -625,7 +624,7 @@ inputs
 stat
 {
   create 1584163374
-  modify 1600391158
+  modify 1603754900
   author Henry@LAPPY586
   access 0777
 }
@@ -779,7 +778,7 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	Apply_Attributes1 2 1 "input1"
+0 	Apply_Attributes1 0 1 "input1"
 }
 inputs
 {
@@ -788,7 +787,7 @@ inputs
 stat
 {
   create 1584163374
-  modify 1600391158
+  modify 1603754905
   author Henry@LAPPY586
   access 0777
 }
@@ -942,7 +941,7 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	Apply_Attributes1 2 1 "input1"
+0 	Apply_Attributes1 0 1 "input1"
 1 	attribrandomize4 1 1 "input2"
 }
 inputs
@@ -953,7 +952,7 @@ inputs
 stat
 {
   create 1584163374
-  modify 1600391158
+  modify 1603754908
   author Henry@LAPPY586
   access 0777
 }
@@ -1072,7 +1071,7 @@ inputs
 stat
 {
   create 1584163374
-  modify 1600391158
+  modify 1603754900
   author Henry@LAPPY586
   access 0777
 }
@@ -1446,7 +1445,7 @@ inputs
 stat
 {
   create 1584163374
-  modify 1600391158
+  modify 1603754900
   author Henry@LAPPY586
   access 0777
 }
@@ -1527,7 +1526,7 @@ inputs
 stat
 {
   create 1584163374
-  modify 1600391565
+  modify 1603754900
   author Henry@LAPPY586
   access 0777
 }
@@ -1907,7 +1906,7 @@ inputs
 stat
 {
   create 1584163374
-  modify 1600391158
+  modify 1603754900
   author Henry@LAPPY586
   access 0777
 }
@@ -2268,7 +2267,7 @@ inputs
 stat
 {
   create 1584163374
-  modify 1600391158
+  modify 1603754900
   author Henry@LAPPY586
   access 0777
 }
@@ -2623,7 +2622,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -2660,7 +2659,7 @@ inputs
 stat
 {
   create 1584163374
-  modify 1600391158
+  modify 1603754900
   author Henry@LAPPY586
   access 0777
 }
@@ -2698,7 +2697,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -2735,7 +2734,7 @@ inputs
 stat
 {
   create 1584163374
-  modify 1600391158
+  modify 1603754900
   author Henry@LAPPY586
   access 0777
 }
@@ -2773,7 +2772,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -2810,7 +2809,7 @@ inputs
 stat
 {
   create 1584163374
-  modify 1600391158
+  modify 1603754900
   author Henry@LAPPY586
   access 0777
 }
@@ -2848,7 +2847,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -2907,7 +2906,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -2944,7 +2943,7 @@ inputs
 stat
 {
   create 1584163374
-  modify 1600391158
+  modify 1603754900
   author Henry@LAPPY586
   access 0777
 }
@@ -2982,7 +2981,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -3008,7 +3007,7 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	Apply_Attributes1 2 1 "input1"
+0 	Apply_Attributes1 0 1 "input1"
 1 	Combine_Falloffs1 2 1 "input2"
 }
 inputs
@@ -3019,7 +3018,7 @@ inputs
 stat
 {
   create 1584163374
-  modify 1600391158
+  modify 1603754905
   author Henry@LAPPY586
   access 0777
 }
@@ -3057,7 +3056,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -3094,7 +3093,7 @@ inputs
 stat
 {
   create 1584163374
-  modify 1600391158
+  modify 1603754900
   author Henry@LAPPY586
   access 0777
 }
@@ -3132,7 +3131,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -3198,7 +3197,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -3233,7 +3232,7 @@ inputs
 stat
 {
   create 1584163374
-  modify 1600391158
+  modify 1603754900
   author Henry@LAPPY586
   access 0777
 }
@@ -3277,7 +3276,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -3312,7 +3311,7 @@ inputs
 stat
 {
   create 1584163374
-  modify 1600391158
+  modify 1603754900
   author Henry@LAPPY586
   access 0777
 }
@@ -3343,7 +3342,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 

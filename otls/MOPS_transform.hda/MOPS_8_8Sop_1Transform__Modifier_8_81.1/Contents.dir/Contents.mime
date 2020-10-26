@@ -32,26 +32,23 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -18.0001 3.21857
-connectornextid 2
+position -1.68582 -0.973146
+connectornextid 0
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-1 "output1"
 }
 inputsNamed3
 {
-0 	MOPs_Explode 1 1 "input1"
 }
 inputs
 {
-0 	MOPs_Explode 0 1
 }
 stat
 {
-  create 1584210481
-  modify 1584904261
-  author Henry@LAPPY586
+  create 1603754949
+  modify 1603754955
+  author Henry@GlaDOS
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -116,7 +113,7 @@ inputs
 stat
 {
   create 1524060453
-  modify 1584037852
+  modify 1603754949
   author Henry@LAPPY586
   access 0777
 }
@@ -518,8 +515,8 @@ vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 uniform_scale	[ 0	locks=0	autoscope=0 ]	(	[ uniform_scale	1 ] 	)
 translate	[ 0	locks=0	autoscope=0 ]	(	[ translatex	0 ] 	[ translatey	0 ] 	[ translatez	0 ] 	)
-rotate	[ 0	locks=0	autoscope=0 ]	(	[ rotatex	0 ] 	[ rotatey	0 ] 	[ rotatez	0 ] 	)
-scale	[ 0	locks=0	autoscope=0 ]	(	[ scalex	1 ] 	[ scaley	1 ] 	[ scalez	1 ] 	)
+rotate	[ 0	locks=0	autoscope=0 ]	(	[ rotatex	0 ] 	[ rotatey	90 ] 	[ rotatez	0 ] 	)
+scale	[ 0	locks=0	autoscope=0 ]	(	[ scalex	0.5 ] 	[ scaley	0.5 ] 	[ scalez	0.5 ] 	)
 local	[ 0	locks=0	autoscope=0 ]	(	[ local	1 ] 	)
 do_vexpression	[ 0	locks=0 ]	(	[ do_vexpression	0 ] 	)
 vexpression	[ 0	locks=0 ]	(	[ vexpression	"// translate = {0,0,0};
@@ -544,7 +541,7 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot/Apply_Attributes1.init"
 Content-Type: text/plain
 
-type = MOPS::Apply_Attributes::1.4
+type = MOPS::Apply_Attributes::1.5
 matchesdef = 1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -555,7 +552,7 @@ sopflags sopflags =
 comment ""
 position -3.13514 -0.384687
 connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 0 "output1"
@@ -572,9 +569,9 @@ inputs
 }
 stat
 {
-  create 1569469174
-  modify 1584904270
-  author Henry@LAPPY586
+  create 1603754571
+  modify 1603754949
+  author Henry@GlaDOS
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -599,23 +596,11 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = ch(\"../grouptype\") }
     }
-    channel do_falloff {
+    channel local_space {
       lefttype = extend
       righttype = extend
       flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../do_weight\") }
-    }
-    channel falloff_attribute {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = chs(\"../falloff_attribute\") }
-    }
-    channel ignore_no_falloff {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../ignore_no_falloff\") }
+      segment { length = 0 value = 1 1 expr = ch(\"../compute_translate/local\") }
     }
     channel rotate_mode {
       lefttype = extend
@@ -635,11 +620,23 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = ch(\"../scale_mode\") }
     }
-    channel local_space {
+    channel do_falloff {
       lefttype = extend
       righttype = extend
       flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../compute_translate/local\") }
+      segment { length = 0 value = 1 1 expr = ch(\"../do_weight\") }
+    }
+    channel falloff_attribute {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = chs(\"../falloff_attribute\") }
+    }
+    channel ignore_no_falloff {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../ignore_no_falloff\") }
     }
   }
 
@@ -652,11 +649,12 @@ version 0.8
 group	[ 0	locks=0	autoscope=0 ]	(	[ group	"" ] 	)
 grouptype	[ 0	locks=0	autoscope=0 ]	(	[ grouptype	0 ] 	)
 sepparm	[ 0	locks=0 ]	(	)
-matchmode	[ 0	locks=0 ]	(	"0"	)
-folder0	[ 0	locks=0 ]	(	0	0	0	)
-do_translate	[ 0	locks=0 ]	(	"on"	)
-do_rotate	[ 0	locks=0 ]	(	"on"	)
-do_scale	[ 0	locks=0 ]	(	"on"	)
+matchmode	[ 0	locks=0	autoscope=0 ]	(	"0"	)
+forcematch	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+do_translate	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+do_rotate	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+do_scale	[ 0	locks=0	autoscope=0 ]	(	"on"	)
 do_pivots	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 sepparm2	[ 0	locks=0 ]	(	)
 local_space	[ 0	locks=0	autoscope=0 ]	(	[ local_space	1 ] 	)
@@ -666,11 +664,11 @@ scale_mode	[ 0	locks=0	autoscope=0 ]	(	[ scale_mode	0 ] 	)
 do_falloff	[ 0	locks=0	autoscope=0 ]	(	[ do_falloff	1 ] 	)
 falloff_attribute	[ 0	locks=0	autoscope=0 ]	(	[ falloff_attribute	mops_falloff ] 	)
 ignore_no_falloff	[ 0	locks=0	autoscope=0 ]	(	[ ignore_no_falloff	0 ] 	)
-do_copy_attrs	[ 0	locks=0 ]	(	"off"	)
-attribname	[ 0	locks=0 ]	(	""	)
-do_make_id	[ 0	locks=0 ]	(	"on"	)
-do_orient	[ 0	locks=0 ]	(	"on"	)
-do_output_scale	[ 0	locks=0 ]	(	"on"	)
+do_copy_attrs	[ 0	locks=0	autoscope=1 ]	(	"off"	)
+attribname	[ 0	locks=0	autoscope=0 ]	(	""	)
+do_make_id	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+do_orient	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+do_output_scale	[ 0	locks=0	autoscope=0 ]	(	"on"	)
 sepparm3	[ 0	locks=0 ]	(	)
 }
 
@@ -716,7 +714,7 @@ inputs
 stat
 {
   create 1524060453
-  modify 1584037852
+  modify 1603754949
   author Henry@LAPPY586
   access 0777
 }
@@ -1032,7 +1030,7 @@ inputs
 stat
 {
   create 1583690993
-  modify 1584037852
+  modify 1603754949
   author Henry@LAPPY586
   access 0777
 }
@@ -1112,7 +1110,7 @@ inputs
 stat
 {
   create 1583691244
-  modify 1584175463
+  modify 1603754949
   author Henry@LAPPY586
   access 0777
 }
@@ -1176,7 +1174,7 @@ sopflags sopflags =
 comment ""
 position -3.13514 -3.04954
 connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
@@ -1191,7 +1189,7 @@ inputs
 stat
 {
   create 1524060453
-  modify 1584175498
+  modify 1603754577
   author Henry@LAPPY586
   access 0777
 }
@@ -1216,7 +1214,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.597"
 	}
 }
 
@@ -1284,7 +1282,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.597"
 	}
 }
 
@@ -1352,7 +1350,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.597"
 	}
 }
 
