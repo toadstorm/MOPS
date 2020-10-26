@@ -89,14 +89,13 @@
             label   "Auto min and max input values"
             type    toggle
             default { "0" }
-            disablewhen "{ switchfit != 1 }"
         }
         parm {
             name    "frame"
             label   "Reference Frame"
             type    float
             default { [ "$F" hscript-expr ] }
-            hidewhen "{ auto_min_max == 0 }"
+            disablewhen "{ auto_min_max == 0 }"
             range   { 0 10 }
             parmtag { "autoscope" "0000000000000000" }
         }
@@ -105,7 +104,7 @@
             label   "Input Min"
             type    float
             default { "0" }
-            disablewhen "{ auto_min_max == 1 } { switchfit != 1 }"
+            disablewhen "{ auto_min_max == 1 }"
             range   { 0 1 }
             parmtag { "autoscope" "0000000000000000" }
         }
@@ -114,7 +113,7 @@
             label   "Input Max"
             type    float
             default { "1" }
-            disablewhen "{ auto_min_max == 1 } { switchfit != 1 }"
+            disablewhen "{ auto_min_max == 1 }"
             range   { 0 1 }
             parmtag { "autoscope" "0000000000000000" }
         }
@@ -123,7 +122,6 @@
             label   "Output Min"
             type    float
             default { "0" }
-            disablewhen "{ switchfit != 1 }"
             range   { 0 1 }
             parmtag { "autoscope" "0000000000000000" }
         }
@@ -132,7 +130,6 @@
             label   "Output Max"
             type    float
             default { "1" }
-            disablewhen "{ switchfit != 1 }"
             range   { 0 1 }
             parmtag { "autoscope" "0000000000000000" }
         }
