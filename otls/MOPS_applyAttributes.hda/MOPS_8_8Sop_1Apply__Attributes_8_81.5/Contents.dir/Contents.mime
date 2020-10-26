@@ -32,26 +32,22 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -2.81051 -0.683007
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+position -5.9401 -1.53549
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
 inputsNamed3
 {
-0 	MOPs_Plain_Falloff 1 1 "input1"
-1 	attribdelete1 1 1 "input2"
 }
 inputs
 {
-0 	MOPs_Plain_Falloff 0 1
-1 	attribdelete1 0 1
 }
 stat
 {
-  create 1597263118
-  modify 1597264498
+  create 1603734972
+  modify 1603736256
   author Henry@GlaDOS
   access 0777
 }
@@ -1278,6 +1274,85 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/write_transform.init"
+Content-Type: text/plain
+
+type = attribwrangle
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/write_transform.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 0.955663 -9.6866
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	switch_do_output_scale 1 1 "input1"
+}
+inputs
+{
+0 	switch_do_output_scale 0 1
+}
+stat
+{
+  create 1603736224
+  modify 1603736244
+  author Henry@GlaDOS
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/write_transform.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+folder0	[ 0	locks=0 ]	(	0	0	)
+group	[ 0	locks=0 ]	(	""	)
+grouptype	[ 0	locks=0 ]	(	"guess"	)
+class	[ 0	locks=0 ]	(	"point"	)
+vex_numcount	[ 0	locks=0 ]	(	10	)
+vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
+snippet	[ 0	locks=0 ]	(	"3@transform = qconvert(p@__out_orient);"	)
+exportlist	[ 0	locks=0 ]	(	*	)
+vex_strict	[ 0	locks=0 ]	(	"off"	)
+autobind	[ 0	locks=0 ]	(	"on"	)
+bindings	[ 0	locks=0 ]	(	0	)
+groupautobind	[ 0	locks=0 ]	(	"on"	)
+groupbindings	[ 0	locks=0 ]	(	0	)
+vex_cwdpath	[ 0	locks=0 ]	(	.	)
+vex_outputmask	[ 0	locks=0 ]	(	*	)
+vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
+vex_matchattrib	[ 0	locks=0 ]	(	id	)
+vex_inplace	[ 0	locks=0 ]	(	"off"	)
+vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/write_transform.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/attribcopy_id.init"
 Content-Type: text/plain
 
@@ -1360,7 +1435,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -1426,7 +1501,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -1501,7 +1576,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -1562,7 +1637,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -1579,7 +1654,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.382921 -19.172
+position -0.515558 -22.9964
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1596,7 +1671,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1590184957
+  modify 1603736148
   author Henry@LAPPY586
   access 0777
 }
@@ -1621,7 +1696,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -1638,7 +1713,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.386371 -16.4079
+position -0.519008 -20.2323
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1656,7 +1731,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1590184957
+  modify 1603736157
   author Henry@LAPPY586
   access 0777
 }
@@ -1760,7 +1835,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -1835,7 +1910,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -1896,7 +1971,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -1922,18 +1997,18 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	switch_do_output_scale 1 1 "input1"
+0 	switch_kinefx 1 1 "input1"
 2 	pointwrangle1 1 1 "input2"
 }
 inputs
 {
-0 	switch_do_output_scale 0 1
+0 	switch_kinefx 0 1
 1 	pointwrangle1 0 1
 }
 stat
 {
   create 1556862778
-  modify 1597263119
+  modify 1603736171
   author Henry@LAPPY586
   access 0777
 }
@@ -1971,7 +2046,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -2036,7 +2111,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2046,7 +2121,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -2063,7 +2138,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.382921 -12.0509
+position -0.578401 -8.75566
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -2083,7 +2158,7 @@ inputs
 stat
 {
   create 1569468433
-  modify 1597263119
+  modify 1603736168
   author Henry@LAPPY586
   access 0777
 }
@@ -2121,7 +2196,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -2187,7 +2262,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -2213,16 +2288,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	switch_do_output_scale 1 1 "input1"
+0 	switch_kinefx 1 1 "input1"
 }
 inputs
 {
-0 	switch_do_output_scale 0 1
+0 	switch_kinefx 0 1
 }
 stat
 {
   create 1569470684
-  modify 1590184957
+  modify 1603736172
   author Henry@LAPPY586
   access 0777
 }
@@ -2253,7 +2328,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -2319,7 +2394,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -2394,7 +2469,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -2462,7 +2537,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -2538,7 +2613,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -2625,7 +2700,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -2693,7 +2768,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -2761,7 +2836,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -2872,7 +2947,82 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch_kinefx.init"
+Content-Type: text/plain
+
+type = switch
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch_kinefx.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -0.578401 -11.0793
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	switch_do_output_scale 1 1 "input1"
+2 	write_transform 1 1 "input2"
+}
+inputs
+{
+0 	switch_do_output_scale 0 1
+1 	write_transform 0 1
+}
+stat
+{
+  create 1603736153
+  modify 1603736251
+  author Henry@GlaDOS
+  access 0777
+}
+color UT_Color RGB 0.8 1 0.7 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch_kinefx.chn"
+Content-Type: text/plain
+
+{
+    channel input {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = "haspointattrib(0, \"scaleinheritance\")" }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch_kinefx.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch_kinefx.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"18.0.597"
 	}
 }
 
@@ -2880,7 +3030,7 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot.order"
 Content-Type: text/plain
 
-29
+31
 apply_attributes1
 attribcopy_id
 enumerate1
@@ -2910,6 +3060,8 @@ attribpromote3
 pointwrangle1
 attribcreate1
 init_attrs
+switch_kinefx
+write_transform
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"
