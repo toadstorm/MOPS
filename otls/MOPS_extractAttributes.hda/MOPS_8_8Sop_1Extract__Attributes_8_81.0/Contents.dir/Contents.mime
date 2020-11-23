@@ -32,7 +32,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -6.66544 0.534597
+position 0.54727 -2.16304
 connectornextid 0
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -46,8 +46,8 @@ inputs
 }
 stat
 {
-  create 1603735833
-  modify 1603735837
+  create 1606163205
+  modify 1606163209
   author Henry@GlaDOS
   access 0777
 }
@@ -105,7 +105,7 @@ inputs
 stat
 {
   create 1524695134
-  modify 1603735853
+  modify 1606163212
   author Henry@LAPPY586
   access 0777
 }
@@ -329,6 +329,8 @@ if(!haspointattrib(0, \"orient\")) {
     if(haspointattrib(0, \"scaleinheritance\")) {
         matrix3 transform = point(0, \"transform\", @ptnum);
         p@orient = quaternion(transform);
+        v@N = qrotate(p@orient, {0,0,1});
+        v@up = qrotate(p@orient, {0,1,0});
     } else {
         p@orient = quaternion(maketransform(@N, v@up));
     }
@@ -397,7 +399,7 @@ inputs
 stat
 {
   create 1550365158
-  modify 1603735833
+  modify 1606163205
   author Henry@LAPPY586
   access 0777
 }
@@ -476,7 +478,7 @@ inputs
 stat
 {
   create 1573854821
-  modify 1603735833
+  modify 1606163205
   author Henry@LAPPY586
   access 0777
 }
@@ -555,7 +557,7 @@ inputs
 stat
 {
   create 1583522390
-  modify 1603735833
+  modify 1606163205
   author Henry@LAPPY586
   access 0777
 }
@@ -889,7 +891,7 @@ inputs
 stat
 {
   create 1584916562
-  modify 1603735833
+  modify 1606163205
   author Henry@LAPPY586
   access 0777
 }
@@ -977,7 +979,7 @@ inputs
 stat
 {
   create 1542257157
-  modify 1603735833
+  modify 1606163205
   author Henry@LAPPY586
   access 0777
 }
@@ -1333,7 +1335,7 @@ inputs
 stat
 {
   create 1550365152
-  modify 1603735833
+  modify 1606163205
   author Henry@LAPPY586
   access 0777
 }
@@ -1900,7 +1902,7 @@ inputs
 stat
 {
   create 1584916552
-  modify 1603735833
+  modify 1606163205
   author Henry@LAPPY586
   access 0777
 }
@@ -1976,7 +1978,7 @@ inputs
 stat
 {
   create 1585514990
-  modify 1603735833
+  modify 1606163205
   author Henry@LAPPY586
   access 0777
 }
