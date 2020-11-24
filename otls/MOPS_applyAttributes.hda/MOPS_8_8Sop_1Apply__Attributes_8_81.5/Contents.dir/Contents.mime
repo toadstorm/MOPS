@@ -32,22 +32,27 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -4.00856 1.43109
-connectornextid 0
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+position -3.13514 -0.384687
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
+0 "output1"
 }
 inputsNamed3
 {
+1 	attribdelete1 1 1 "input1"
+2 	compute_translate 1 1 "input2"
 }
 inputs
 {
+0 	attribdelete1 0 1
+1 	compute_translate 0 1
 }
 stat
 {
-  create 1605047892
-  modify 1605052545
+  create 1603754571
+  modify 1606182475
   author Henry@GlaDOS
   access 0777
 }
@@ -108,7 +113,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1597264443
+  modify 1606182551
   author Henry@LAPPY586
   access 0777
 }
@@ -628,26 +633,8 @@ if(doWeight == 0) {
 if(haspointattrib(1, \"euler\")) {
     vector euler = point(1, \"euler\", matchpt);
     euler *= weight;
-    vector X = {1,0,0};
-    vector Y = {0,1,0};
-    vector Z = {0,0,1};
-    // handle euler rotate order...
     int order = chi(\"rotate_order\");
-    matrix3 em = ident();
-    if(order == 0) { // XYZ
-        rotate(em, radians(euler.x),X); rotate(em, radians(euler.y),Y); rotate(em, radians(euler.z),Z);
-    } else if(order == 1) { // XZY
-        rotate(em, radians(euler.x),X); rotate(em, radians(euler.z),Z); rotate(em, radians(euler.y),Y);
-    } else if(order == 2) { // YXZ
-        rotate(em, radians(euler.y),Y); rotate(em, radians(euler.x),X); rotate(em, radians(euler.z),Z);
-    } else if(order == 3) { // YZX
-        rotate(em, radians(euler.y),Y); rotate(em, radians(euler.z),Z); rotate(em, radians(euler.x),X);
-    } else if(order == 4) { // ZXY
-        rotate(em, radians(euler.z),Z); rotate(em, radians(euler.x),X); rotate(em, radians(euler.y),Y);
-    } else if(order == 5) { // ZYX
-        rotate(em, radians(euler.z),Z); rotate(em, radians(euler.y),Y); rotate(em, radians(euler.x),X);
-    }
-    orient2 = quaternion(em);
+    orient2 = eulertoquaternion(radians(euler), order);
 }
 
 // pivot
@@ -738,14 +725,14 @@ do_translate	[ 0	locks=0	autoscope=0 ]	(	[ do_translate	1 ] 	)
 do_rotate	[ 0	locks=0	autoscope=0 ]	(	[ do_rotate	1 ] 	)
 do_scale	[ 0	locks=0	autoscope=0 ]	(	[ do_scale	1 ] 	)
 do_weight	[ 0	locks=0	autoscope=0 ]	(	[ do_weight	1 ] 	)
-rotate_mode	[ 0	locks=0	autoscope=0 ]	(	[ rotate_mode	1 ] 	)
-scale_mode	[ 0	locks=0	autoscope=0 ]	(	[ scale_mode	1 ] 	)
+rotate_mode	[ 0	locks=0	autoscope=0 ]	(	[ rotate_mode	0 ] 	)
+scale_mode	[ 0	locks=0	autoscope=0 ]	(	[ scale_mode	0 ] 	)
 local_space	[ 0	locks=0	autoscope=0 ]	(	[ local_space	1 ] 	)
 rotate_order	[ 0	locks=0	autoscope=0 ]	(	[ rotate_order	0 ] 	)
 falloff_attribute	[ 0	locks=0 ]	(	[ falloff_attribute	mops_falloff ] 	)
 can_ignore_falloff	[ 8	locks=0 ]	(	[ can_ignore_falloff	0 ] 	)
 matchmode	[ 0	locks=0 ]	(	[ matchmode	0 ] 	)
-do_pivot	[ 0	locks=0 ]	(	[ do_pivot	1 ] 	)
+do_pivot	[ 0	locks=0 ]	(	[ do_pivot	0 ] 	)
 forcematch	[ 0	locks=0 ]	(	[ forcematch	1 ] 	)
 }
 
@@ -791,7 +778,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1597263119
+  modify 1606182475
   author Henry@LAPPY586
   access 0777
 }
@@ -872,7 +859,7 @@ inputs
 stat
 {
   create 1569084024
-  modify 1597263119
+  modify 1606182475
   author Henry@LAPPY586
   access 0777
 }
@@ -959,7 +946,7 @@ inputs
 stat
 {
   create 1584863149
-  modify 1597263119
+  modify 1606182475
   author Henry@LAPPY586
   access 0777
 }
@@ -1044,7 +1031,7 @@ inputs
 stat
 {
   create 1590187941
-  modify 1597263119
+  modify 1606182475
   author Henry@LAPPY586
   access 0777
 }
@@ -1144,7 +1131,7 @@ inputs
 stat
 {
   create 1603736224
-  modify 1605052600
+  modify 1606182475
   author Henry@GlaDOS
   access 0777
 }
@@ -1247,7 +1234,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1605052539
+  modify 1606182475
   author Henry@LAPPY586
   access 0777
 }
@@ -1400,7 +1387,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1597263119
+  modify 1606182475
   author Henry@LAPPY586
   access 0777
 }
@@ -1659,7 +1646,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1605052539
+  modify 1606182475
   author Henry@LAPPY586
   access 0777
 }
@@ -1734,7 +1721,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1597263119
+  modify 1606182475
   author Henry@LAPPY586
   access 0777
 }
@@ -1870,7 +1857,7 @@ inputs
 stat
 {
   create 1556862778
-  modify 1605052561
+  modify 1606182475
   author Henry@LAPPY586
   access 0777
 }
@@ -1945,7 +1932,7 @@ inputs
 stat
 {
   create 1569084092
-  modify 1597263119
+  modify 1606182475
   author Henry@LAPPY586
   access 0777
 }
@@ -1973,7 +1960,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2020,7 +2007,7 @@ inputs
 stat
 {
   create 1569468433
-  modify 1605052568
+  modify 1606182475
   author Henry@LAPPY586
   access 0777
 }
@@ -2293,7 +2280,7 @@ inputs
 stat
 {
   create 1573854736
-  modify 1605052540
+  modify 1606182475
   author Henry@LAPPY586
   access 0777
 }
@@ -2436,7 +2423,7 @@ inputs
 stat
 {
   create 1583519692
-  modify 1597263119
+  modify 1606182475
   author Henry@LAPPY586
   access 0777
 }
@@ -2512,7 +2499,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1605052539
+  modify 1606182475
   author Henry@LAPPY586
   access 0777
 }
