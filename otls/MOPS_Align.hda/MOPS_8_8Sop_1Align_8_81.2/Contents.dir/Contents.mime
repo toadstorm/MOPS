@@ -32,26 +32,25 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -5.72318 -0.11067
-connectornextid 2
+position 0.103097 -0.17445
+connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-0 "output1"
 }
 inputsNamed3
 {
-1 	attribcreate1 1 1 "input1"
+0 	MOPs_Typography 0 1 "input1"
 }
 inputs
 {
-0 	attribcreate1 0 1
+0 	MOPs_Typography 0 1
 }
 stat
 {
-  create 1591261154
-  modify 1591285728
-  author adam@Science2
+  create 1606239627
+  modify 1606241141
+  author Henry@GlaDOS
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -155,7 +154,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector uvselect "Modify Points"
+            bindselector points "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -507,7 +506,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector uvselect "Modify Points"
+            bindselector points "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -816,8 +815,8 @@ folder1	[ 0	locks=0 ]	(	0	0	)
 pivot	[ 0	locks=0 ]	(	[ pivotx	0 ] 	[ pivoty	0 ] 	[ pivotz	0 ] 	)
 move	[ 0	locks=0 ]	(	[ move	1 ] 	)
 do_falloff	[ 0	locks=0 ]	(	[ do_falloff	0 ] 	)
-do_vexpression	[ 0	locks=0 ]	(	[ do_vexpression	0 ] 	)
-vexpression	[ 0	locks=0 ]	(	[ vexpression	"// pivot = {0,0,0};" ] 	)
+do_vexpression	[ 0	locks=0 ]	(	[ do_vexpression	1 ] 	)
+vexpression	[ 0	locks=0 ]	(	[ vexpression	"pivot = set(old_pivot.x, -0.37, old_pivot.z);" ] 	)
 bindname1	[ 0	locks=0 ]	(	[ bindname1	mops_falloff ] 	)
 bindparm1	[ 0	locks=0 ]	(	attr	)
 }
@@ -864,7 +863,7 @@ inputs
 stat
 {
   create 1584071885
-  modify 1588459411
+  modify 1606241110
   author Henry@LAPPY586
   access 0777
 }
@@ -886,7 +885,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector uvselect "Modify Points"
+            bindselector points "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -1179,6 +1178,7 @@ float weight = @attr;
 if(!chi(\"do_falloff\")) {
     weight = 1;
 }
+vector old_pivot = v@__pivot;
 vector pivot = chv(\"pivot\");
 pivot = lerp(set(0,0,0), pivot, weight);
 
@@ -1212,8 +1212,9 @@ pivot	[ 0	locks=0 ]	(	[ pivotx	0 ] 	[ pivoty	0 ] 	[ pivotz	0 ] 	)
 local	[ 0	locks=0 ]	(	[ local	1 ] 	)
 move	[ 0	locks=0 ]	(	[ move	1 ] 	)
 do_falloff	[ 0	locks=0 ]	(	[ do_falloff	0 ] 	)
-do_vexpression	[ 0	locks=0 ]	(	[ do_vexpression	0 ] 	)
-vexpression	[ 0	locks=0 ]	(	[ vexpression	"// pivot = {0,0,0};" ] 	)
+do_vexpression	[ 0	locks=0 ]	(	[ do_vexpression	1 ] 	)
+vexpression	[ 0	locks=0 ]	(	[ vexpression	"vector orig_pivot = primintrinsic(0, \"pivot\", @elemnum);
+pivot = set(orig_pivot.x, -0.37, orig_pivot.z);" ] 	)
 bindname1	[ 0	locks=0 ]	(	[ bindname1	mops_falloff ] 	)
 bindparm1	[ 0	locks=0 ]	(	attr	)
 }
@@ -1260,7 +1261,7 @@ inputs
 stat
 {
   create 1584071885
-  modify 1588459411
+  modify 1606241126
   author Henry@LAPPY586
   access 0777
 }
@@ -1282,7 +1283,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector uvselect "Modify Points"
+            bindselector points "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -1547,6 +1548,7 @@ float weight = @attr;
 if(!chi(\"do_falloff\")) {
     weight = 1;
 }
+
 vector pivot = chv(\"pivot\");
 // we don't really want to lerp between \"pivot\" and \"new pivot\" in this case,
 // because our pivot is in local space.
@@ -1578,8 +1580,9 @@ vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 pivot	[ 0	locks=0 ]	(	[ pivotx	0 ] 	[ pivoty	0 ] 	[ pivotz	0 ] 	)
 do_falloff	[ 0	locks=0 ]	(	[ do_falloff	0 ] 	)
-do_vexpression	[ 0	locks=0 ]	(	[ do_vexpression	0 ] 	)
-vexpression	[ 0	locks=0 ]	(	[ vexpression	"// pivot = {0,0,0};" ] 	)
+do_vexpression	[ 0	locks=0 ]	(	[ do_vexpression	1 ] 	)
+vexpression	[ 0	locks=0 ]	(	[ vexpression	"vector orig_pivot = primintrinsic(0, \"pivot\", @elemnum);
+pivot = set(orig_pivot.x, -0.37, orig_pivot.z);" ] 	)
 bindname1	[ 0	locks=0 ]	(	[ bindname1	mops_falloff ] 	)
 bindparm1	[ 0	locks=0 ]	(	attr	)
 }
@@ -1828,7 +1831,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector uvselect "Modify Points"
+            bindselector points "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -2165,7 +2168,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.77833 2.07429
+position -2.18993 2.31603
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -2183,7 +2186,7 @@ inputs
 stat
 {
   create 1584071885
-  modify 1588459411
+  modify 1606241081
   author Henry@LAPPY586
   access 0777
 }
@@ -2205,7 +2208,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector uvselect "Modify Points"
+            bindselector points "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -2528,10 +2531,11 @@ vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 mode	[ 0	locks=0 ]	(	[ mode	2 ] 	)
-move	[ 0	locks=0 ]	(	[ move	0 ] 	)
+move	[ 0	locks=0 ]	(	[ move	1 ] 	)
 do_falloff	[ 0	locks=0 ]	(	[ do_falloff	0 ] 	)
-do_vexpression	[ 0	locks=0 ]	(	[ do_vexpression	0 ] 	)
-vexpression	[ 0	locks=0 ]	(	[ vexpression	"// pivot = {0,0,0};" ] 	)
+do_vexpression	[ 0	locks=0 ]	(	[ do_vexpression	1 ] 	)
+vexpression	[ 0	locks=0 ]	(	[ vexpression	"vector orig_pivot = primintrinsic(0, \"pivot\", @elemnum);
+pivot = set(orig_pivot.x, -0.37, orig_pivot.z);" ] 	)
 do_center	[ 0	locks=0 ]	(	1	)
 bindname1	[ 0	locks=0 ]	(	[ bindname1	mops_falloff ] 	)
 bindparm1	[ 0	locks=0 ]	(	attr	)
@@ -2605,7 +2609,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.597"
 	}
 }
 
@@ -2665,7 +2669,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.597"
 	}
 }
 
@@ -2737,7 +2741,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	1 ] 	)
+input	[ 0	locks=0 ]	(	[ input	3 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2747,7 +2751,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.597"
 	}
 }
 
@@ -2815,7 +2819,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.597"
 	}
 }
 
@@ -2883,7 +2887,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.597"
 	}
 }
 
@@ -3013,7 +3017,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	0 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -3023,7 +3027,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.597"
 	}
 }
 
@@ -3108,7 +3112,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 spare_input0	[ 0	locks=0 ]	(	../MOPS_IN	)
 }
 
@@ -3119,7 +3123,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.597"
 	}
 }
 
