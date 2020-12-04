@@ -114,6 +114,12 @@
         parmtag { "autoscope" "0000000000000000" }
     }
     parm {
+        name    "sepparm2"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
         name    "do_weight"
         label   "Do Falloff"
         type    toggle
@@ -130,23 +136,26 @@
         parmtag { "autoscope" "0000000000000000" }
     }
     parm {
-        name    "do_vexpression"
-        label   "Use VEXpression"
-        type    toggle
-        default { "off" }
-        parmtag { "autoscope" "0000000000000000" }
-        parmtag { "parmvop" "1" }
-        parmtag { "shaderparmcontexts" "cvex" }
+        name    "sepparm"
+        label   "Separator"
+        type    separator
+        default { "" }
     }
     parm {
-        name    "vexpression"
-        label   "Vexpression"
-        type    string
-        default { "// translate = {0,0,0};\n// rotate = {0,0,0};\n// scale = {1,1,1};\n// pscale = 1;\n// local = 1;" }
-        disablewhen "{ do_vexpression 0 }"
+        name    "rotate_order"
+        label   "Rotate Order"
+        type    integer
+        default { "0" }
+        menu {
+            "0" "XYZ"
+            "1" "XZY"
+            "2" "YXZ"
+            "3" "YZX"
+            "4" "ZXY"
+            "5" "ZYX"
+        }
+        range   { 0 10 }
         parmtag { "autoscope" "0000000000000000" }
-        parmtag { "editor" "1" }
-        parmtag { "editorlang" "vex" }
     }
     parm {
         name    "rotate_mode"
@@ -173,22 +182,6 @@
         parmtag { "autoscope" "0000000000000000" }
     }
     parm {
-        name    "rotate_order"
-        label   "Rotate Order"
-        type    integer
-        default { "0" }
-        menu {
-            "0" "XYZ"
-            "1" "XZY"
-            "2" "YXZ"
-            "3" "YZX"
-            "4" "ZXY"
-            "5" "ZYX"
-        }
-        range   { 0 10 }
-        parmtag { "autoscope" "0000000000000000" }
-    }
-    parm {
         name    "pivot_mode"
         label   "Pivot Mode"
         type    integer
@@ -199,5 +192,24 @@
         }
         range   { 0 10 }
         parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "do_vexpression"
+        label   "Use VEXpression"
+        type    toggle
+        default { "off" }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "vexpression"
+        label   "Vexpression"
+        type    string
+        default { "// translate = {0,0,0};\n// rotate = {0,0,0};\n// scale = {1,1,1};\n// pscale = 1;\n// local = 1;" }
+        hidewhen "{ do_vexpression == 0 }"
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "editor" "1" }
+        parmtag { "editorlang" "vex" }
     }
 }

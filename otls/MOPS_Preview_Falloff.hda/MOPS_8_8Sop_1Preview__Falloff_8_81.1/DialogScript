@@ -27,6 +27,17 @@
         label   "Falloff Attribute"
         type    string
         default { "mops_falloff" }
+        menureplace {
+            [ "geo = hou.pwd().geometry()" ]
+            [ "attrs = geo.pointAttribs()" ]
+            [ "out = list()" ]
+            [ "for a in attrs:" ]
+            [ "    if a.dataType() == hou.attribData.Float and a.size() == 1:" ]
+            [ "        out.append(len(out))" ]
+            [ "        out.append(a.name())" ]
+            [ "return out" ]
+            language python
+        }
         parmtag { "script_callback_language" "python" }
     }
     parm {

@@ -118,6 +118,40 @@
         parmtag { "autoscope" "0010000000000000" }
     }
     parm {
+        name    "sepparm3"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "aim_axis"
+        label   "Aim Axis"
+        type    ordinal
+        default { "2" }
+        menu {
+            "0" "X"
+            "1" "Y"
+            "2" "Z"
+        }
+        range   { 0 10 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "up_axis"
+        label   "Up Axis"
+        type    ordinal
+        default { "1" }
+        menu {
+            "0" "X"
+            "1" "Y"
+            "2" "Z"
+        }
+        range   { 0 10 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
         name    "reverse_aim"
         label   "Reverse Aim"
         type    toggle

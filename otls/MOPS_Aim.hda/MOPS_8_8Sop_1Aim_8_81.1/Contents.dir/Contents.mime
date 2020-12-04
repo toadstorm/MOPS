@@ -32,7 +32,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -2.88492 -6.64225
+position -2.23187 -1.43769
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -40,18 +40,18 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	color1 1 1 "input1"
-1 	pointwrangle4 1 1 "input2"
+0 	MOPs_Instancer 1 1 "input1"
+1 	control1 0 1 "input2"
 }
 inputs
 {
-0 	color1 0 1
-1 	pointwrangle4 0 1
+0 	MOPs_Instancer 0 1
+1 	control1 0 1
 }
 stat
 {
-  create -1
-  modify -1
+  create 1606160039
+  modify 1606162697
   author Henry@GlaDOS
   access 0777
 }
@@ -76,7 +76,7 @@ Content-Disposition: attachment; filename="hdaroot.inp"
 Content-Type: text/plain
 
 2
-0 -2.0845399888241292 8.7927700011742118 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+0 -2.0845399888241292 11.89888089980445 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
 1 6.3373753485244464 8.7927700011742118 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -111,8 +111,8 @@ inputs
 }
 stat
 {
-  create -1
-  modify -1
+  create 1523778096
+  modify 1605911921
   author henry@GlaDOS
   access 0777
 }
@@ -134,7 +134,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector uvselect "Modify Points"
+            bindselector points "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -329,6 +329,20 @@ Content-Type: text/plain
         default { "0" }
         range   { 0 10 }
     }
+    parm {
+        name    "aim_axis"
+        label   "Aim Axis"
+        type    integer
+        default { "0" }
+        range   { 0 10 }
+    }
+    parm {
+        name    "up_axis"
+        label   "Up Axis"
+        type    integer
+        default { "0" }
+        range   { 0 10 }
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/create_aim_vector.chn"
@@ -393,6 +407,20 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = ch(\"../reverse_up\") }
     }
+    channel aim_axis {
+      lefttype = extend
+      righttype = extend
+      default = 2
+      flags = 0
+      segment { length = 0 value = 2 2 expr = ch(\"../aim_axis\") }
+    }
+    channel up_axis {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../up_axis\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -422,9 +450,29 @@ if(chi(\"reverse_up\")) {
     up *= -1;
 }
 
+vector aim_axis = {0,0,1};
+vector up_axis = {0,1,0};
+int aim_axis_opt = chi(\"aim_axis\");
+int up_axis_opt = chi(\"up_axis\");
+if(aim_axis_opt == 0) {
+    aim_axis = {1,0,0};
+} else if(aim_axis_opt == 1) {
+    aim_axis = {0,1,0};
+}
+if(up_axis_opt == 0) {
+    up_axis = {1,0,0};
+} else if(up_axis_opt == 2) {
+    up_axis = {0,0,1};
+}
+
 `ifs(ch(\"do_vexpression\"), chs(\"vexpression\"), \"\")`
 
+// default aim is +Z, default up is +Y.
+// if these are different, we need to rotate our computed transform to fit.
+vector4 q1 = quaternion(maketransform(aim_axis, up_axis));
 vector4 q = quaternion(maketransform(aim, up));
+
+q = qmultiply(q, qinvert(q1));
 
 p@orient = q;
 "	)
@@ -444,11 +492,13 @@ vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 use_up_attr	[ 0	locks=0 ]	(	[ use_up_attr	0 ] 	)
 up	[ 0	locks=0 ]	(	[ upx	0 ] 	[ upy	1 ] 	[ upz	0 ] 	)
-do_vexpression	[ 0	locks=0 ]	(	[ do_vexpression	0 ] 	)
-vexpression	[ 0	locks=0 ]	(	[ vexpression	"// aim = {0,0,1};
+do_vexpression	[ 0	locks=0 ]	(	[ do_vexpression	1 ] 	)
+vexpression	[ 0	locks=0 ]	(	[ vexpression	"// aim = {1,0,0};
 // up = {0,1,0};" ] 	)
 reverse_aim	[ 0	locks=0 ]	(	[ reverse_aim	0 ] 	)
 reverse_up	[ 0	locks=0 ]	(	[ reverse_up	0 ] 	)
+aim_axis	[ 0	locks=0 ]	(	[ aim_axis	2 ] 	)
+up_axis	[ 0	locks=0 ]	(	[ up_axis	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -494,8 +544,8 @@ inputs
 }
 stat
 {
-  create -1
-  modify -1
+  create 1603754752
+  modify 1605911921
   author Henry@GlaDOS
   access 0777
 }
@@ -591,7 +641,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.18071 4.66488
+position -1.35407 8.33442
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -608,8 +658,8 @@ inputs
 }
 stat
 {
-  create -1
-  modify -1
+  create 1523779358
+  modify 1523780230
   author henry@GlaDOS
   access 0777
 }
@@ -663,18 +713,18 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	IN_MOPS 1 1 "input1"
+0 	Extract_Attributes1 1 1 "input1"
 1 	(1) "" 1 "input2"
 }
 inputs
 {
-0 	IN_MOPS 0 1
+0 	Extract_Attributes1 0 1
 1 	(1) 0 1
 }
 stat
 {
-  create -1
-  modify -1
+  create 1523780303
+  modify 1605912023
   author henry@GlaDOS
   access 0777
 }
@@ -696,7 +746,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector uvselect "Modify Points"
+            bindselector points "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -891,6 +941,20 @@ Content-Type: text/plain
         default { "0" }
         range   { 0 10 }
     }
+    parm {
+        name    "aim_axis"
+        label   "Aim Axis"
+        type    integer
+        default { "0" }
+        range   { 0 10 }
+    }
+    parm {
+        name    "up_axis"
+        label   "Up Axis"
+        type    integer
+        default { "0" }
+        range   { 0 10 }
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/create_aim_vectors.chn"
@@ -959,6 +1023,18 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = chs(\"../matchattr\") }
     }
+    channel aim_axis {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../aim_axis\") }
+    }
+    channel up_axis {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../up_axis\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -992,9 +1068,29 @@ if(chi(\"reverse_up\")) {
     up *= -1;
 }
 
+vector aim_axis = {0,0,1};
+vector up_axis = {0,1,0};
+int aim_axis_opt = chi(\"aim_axis\");
+int up_axis_opt = chi(\"up_axis\");
+if(aim_axis_opt == 0) {
+    aim_axis = {1,0,0};
+} else if(aim_axis_opt == 1) {
+    aim_axis = {0,1,0};
+}
+if(up_axis_opt == 0) {
+    up_axis = {1,0,0};
+} else if(up_axis_opt == 2) {
+    up_axis = {0,0,1};
+}
+
 `ifs(ch(\"do_vexpression\"), chs(\"vexpression\"), \"\")`
 
+// default aim is +Z, default up is +Y.
+// if these are different, we need to rotate our computed transform to fit.
+vector4 q1 = quaternion(maketransform(aim_axis, up_axis));
 vector4 q = quaternion(maketransform(aim, up));
+
+q = qmultiply(q, qinvert(q1));
 
 p@orient = q;
 "	)
@@ -1011,15 +1107,17 @@ vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 vex_precision	[ 0	locks=0 ]	(	auto	)
-folder1	[ 0	locks=0 ]	(	1	1	)
+folder1	[ 0	locks=0 ]	(	0	0	)
 use_up_attr	[ 0	locks=0 ]	(	[ use_up_attr	0 ] 	)
 up	[ 0	locks=0 ]	(	[ upx	0 ] 	[ upy	1 ] 	[ upz	0 ] 	)
-do_vexpression	[ 0	locks=0 ]	(	[ do_vexpression	0 ] 	)
-vexpression	[ 0	locks=0 ]	(	[ vexpression	"// aim = {0,0,1};
+do_vexpression	[ 0	locks=0 ]	(	[ do_vexpression	1 ] 	)
+vexpression	[ 0	locks=0 ]	(	[ vexpression	"// aim = {1,0,0};
 // up = {0,1,0};" ] 	)
 reverse_aim	[ 0	locks=0 ]	(	[ reverse_aim	0 ] 	)
 reverse_up	[ 0	locks=0 ]	(	[ reverse_up	0 ] 	)
-bindname1	[ 0	locks=0 ]	(	[ bindname1	aimid ] 	)
+aim_axis	[ 0	locks=0 ]	(	[ aim_axis	2 ] 	)
+up_axis	[ 0	locks=0 ]	(	[ up_axis	1 ] 	)
+bindname1	[ 0	locks=0 ]	(	[ bindname1	id ] 	)
 bindparm1	[ 0	locks=0 ]	(	attr	)
 }
 
@@ -1056,18 +1154,18 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	IN_MOPS 1 1 "input1"
+0 	Extract_Attributes1 1 1 "input1"
 1 	(1) "" 1 "input2"
 }
 inputs
 {
-0 	IN_MOPS 0 1
+0 	Extract_Attributes1 0 1
 1 	(1) 0 1
 }
 stat
 {
-  create -1
-  modify -1
+  create 1525057897
+  modify 1606162687
   author henry@GlaDOS
   access 0777
 }
@@ -1089,7 +1187,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector uvselect "Modify Points"
+            bindselector points "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -1277,6 +1375,20 @@ Content-Type: text/plain
         default { "0" }
         range   { 0 10 }
     }
+    parm {
+        name    "aim_axis"
+        label   "Aim Axis"
+        type    integer
+        default { "0" }
+        range   { 0 10 }
+    }
+    parm {
+        name    "up_axis"
+        label   "Up Axis"
+        type    integer
+        default { "0" }
+        range   { 0 10 }
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/pointwrangle1.chn"
@@ -1327,6 +1439,18 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = ch(\"../reverse_up\") }
     }
+    channel aim_axis {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../aim_axis\") }
+    }
+    channel up_axis {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../up_axis\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1350,10 +1474,31 @@ if(chi(\"reverse_aim\")) {
 if(chi(\"reverse_up\")) {
     up *= -1;
 }
+
+vector aim_axis = {0,0,1};
+vector up_axis = {0,1,0};
+int aim_axis_opt = chi(\"aim_axis\");
+int up_axis_opt = chi(\"up_axis\");
+if(aim_axis_opt == 0) {
+    aim_axis = {1,0,0};
+} else if(aim_axis_opt == 1) {
+    aim_axis = {0,1,0};
+}
+if(up_axis_opt == 0) {
+    up_axis = {1,0,0};
+} else if(up_axis_opt == 2) {
+    up_axis = {0,0,1};
+}
+
 `ifs(ch(\"do_vexpression\"), chs(\"vexpression\"), \"\")`
+
+// default aim is +Z, default up is +Y.
+// if these are different, we need to rotate our computed transform to fit.
+vector4 q1 = quaternion(maketransform(aim_axis, up_axis));
 vector4 q = quaternion(maketransform(aim, up));
-p@orient = q;
-"	)
+
+q = qmultiply(q, qinvert(q1));
+p@orient = q;"	)
 exportlist	[ 0	locks=0 ]	(	*	)
 vex_strict	[ 0	locks=0 ]	(	"off"	)
 autobind	[ 0	locks=0 ]	(	"on"	)
@@ -1369,11 +1514,13 @@ vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 up	[ 0	locks=0 ]	(	[ upx	0 ] 	[ upy	1 ] 	[ upz	0 ] 	)
-do_vexpression	[ 0	locks=0 ]	(	[ do_vexpression	0 ] 	)
-vexpression	[ 0	locks=0 ]	(	[ vexpression	"// aim = {0,0,1};
+do_vexpression	[ 0	locks=0 ]	(	[ do_vexpression	1 ] 	)
+vexpression	[ 0	locks=0 ]	(	[ vexpression	"// aim = {1,0,0};
 // up = {0,1,0};" ] 	)
 reverse_aim	[ 0	locks=0 ]	(	[ reverse_aim	0 ] 	)
 reverse_up	[ 0	locks=0 ]	(	[ reverse_up	0 ] 	)
+aim_axis	[ 0	locks=0 ]	(	[ aim_axis	0 ] 	)
+up_axis	[ 0	locks=0 ]	(	[ up_axis	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1400,7 +1547,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -2.08454 7.81779
+position -2.24346 10.6639
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1417,8 +1564,8 @@ inputs
 }
 stat
 {
-  create -1
-  modify -1
+  create 1523778023
+  modify 1525057909
   author henry@GlaDOS
   access 0777
 }
@@ -1444,7 +1591,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"___EXTERNAL___"
+		"value":"18.0.597"
 	}
 }
 
@@ -1461,7 +1608,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.64208 8.75947
+position 1.81544 11.5189
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1476,8 +1623,8 @@ inputs
 }
 stat
 {
-  create -1
-  modify -1
+  create 1523778048
+  modify 1525058055
   author henry@GlaDOS
   access 0777
 }
@@ -1513,7 +1660,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"___EXTERNAL___"
+		"value":"18.0.597"
 	}
 }
 
@@ -1530,7 +1677,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.64208 7.69228
+position 1.81544 10.4517
 connectornextid 2
 flags =  lock off model off template on footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1547,8 +1694,8 @@ inputs
 }
 stat
 {
-  create -1
-  modify -1
+  create 1523778074
+  modify 1605911921
   author henry@GlaDOS
   access 0777
 }
@@ -1592,7 +1739,7 @@ group	[ 0	locks=0 ]	(	""	)
 grouptype	[ 0	locks=0 ]	(	"guess"	)
 xOrd	[ 0	locks=0 ]	(	"srt"	)
 rOrd	[ 0	locks=0 ]	(	"xyz"	)
-t	[ 0	locks=0	autoscope=4 ]	(	[ tx	0 ] 	[ ty	0 ] 	[ tz	0 ] 	)
+t	[ 0	locks=0	autoscope=4 ]	(	[ tx	1.0180647969245911 ] 	[ ty	0 ] 	[ tz	0 ] 	)
 r	[ 0	locks=0 ]	(	0	0	0	)
 s	[ 0	locks=0 ]	(	1	1	1	)
 shear	[ 0	locks=0 ]	(	0	0	0	)
@@ -1625,7 +1772,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"___EXTERNAL___"
+		"value":"18.0.597"
 	}
 }
 
@@ -1659,8 +1806,8 @@ inputs
 }
 stat
 {
-  create -1
-  modify -1
+  create 1523778080
+  modify 1525058149
   author henry@GlaDOS
   access 0777
 }
@@ -1686,7 +1833,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"___EXTERNAL___"
+		"value":"18.0.597"
 	}
 }
 
@@ -1719,8 +1866,8 @@ inputs
 }
 stat
 {
-  create -1
-  modify -1
+  create 1523779784
+  modify 1603754752
   author henry@GlaDOS
   access 0777
 }
@@ -1745,7 +1892,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"___EXTERNAL___"
+		"value":"18.0.597"
 	}
 }
 
@@ -1783,8 +1930,8 @@ inputs
 }
 stat
 {
-  create -1
-  modify -1
+  create 1523780233
+  modify 1605911921
   author henry@GlaDOS
   access 0777
 }
@@ -1812,7 +1959,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	2 ] 	)
+input	[ 0	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1822,7 +1969,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"___EXTERNAL___"
+		"value":"18.0.597"
 	}
 }
 
@@ -1856,8 +2003,8 @@ inputs
 }
 stat
 {
-  create -1
-  modify -1
+  create 1523780246
+  modify 1525057868
   author henry@GlaDOS
   access 0777
 }
@@ -1883,7 +2030,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"___EXTERNAL___"
+		"value":"18.0.597"
 	}
 }
 
@@ -1917,8 +2064,8 @@ inputs
 }
 stat
 {
-  create -1
-  modify -1
+  create 1523780256
+  modify 1523780453
   author henry@GlaDOS
   access 0777
 }
@@ -1944,7 +2091,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"___EXTERNAL___"
+		"value":"18.0.597"
 	}
 }
 
@@ -1978,8 +2125,8 @@ inputs
 }
 stat
 {
-  create -1
-  modify -1
+  create 1525057874
+  modify 1525058031
   author henry@GlaDOS
   access 0777
 }
@@ -2005,7 +2152,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"___EXTERNAL___"
+		"value":"18.0.597"
 	}
 }
 
@@ -2022,7 +2169,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 2.63622 6.48412
+position 1.64208 6.67193
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -2041,8 +2188,8 @@ inputs
 }
 stat
 {
-  create -1
-  modify -1
+  create 1525058140
+  modify 1605911921
   author henry@GlaDOS
   access 0777
 }
@@ -2080,7 +2227,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"___EXTERNAL___"
+		"value":"18.0.597"
 	}
 }
 
@@ -2097,7 +2244,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 3.43561 9.15384
+position 0.502863 10.6639
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -2112,8 +2259,8 @@ inputs
 }
 stat
 {
-  create -1
-  modify -1
+  create 1525058146
+  modify 1525058245
   author henry@GlaDOS
   access 0777
 }
@@ -2139,7 +2286,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"___EXTERNAL___"
+		"value":"18.0.597"
 	}
 }
 

@@ -32,25 +32,26 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -5.17631 -5.95474
-connectornextid 1
-flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+position -4.5 -0.771112
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
+1 "output1"
 }
 inputsNamed3
 {
-0 	MOPs_Align1 1 1 "input1"
+0 	popnet 1 1 "input1"
 }
 inputs
 {
-0 	MOPs_Align1 0 1
+0 	popnet 0 1
 }
 stat
 {
-  create 1584321169
-  modify 1584321683
-  author Henry@LAPPY586
+  create 1607093365
+  modify 1607105132
+  author Five31@DESKTOP-SQFBD3C
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -227,7 +228,7 @@ initialsop	[ 0	locks=0 ]	(	""	)
 startframe	[ 0	locks=0 ]	(	[ startframe	1 ] 	)
 substep	[ 0	locks=0 ]	(	[ substep	1 ] 	)
 cacheenabled	[ 0	locks=0 ]	(	[ cacheenabled	1 ] 	)
-cachetodisk	[ 0	locks=0 ]	(	[ cachetodisk	0 ] 	)
+cachetodisk	[ 0	locks=0 ]	(	[ cachetodisk	1 ] 	)
 cachemaxsize	[ 0	locks=0 ]	(	[ cachemaxsize	5000 ] 	)
 }
 
@@ -319,7 +320,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.597"
 	}
 }
 
@@ -843,7 +844,9 @@ Content-Type: text/plain
 {
 version 0.8
 do_pivot	[ 0	locks=0 ]	(	"on"	)
+do_mops_orient	[ 0	locks=0 ]	(	"off"	)
 do_full_transform	[ 0	locks=0 ]	(	"off"	)
+simplify_scale	[ 0	locks=0 ]	(	"on"	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1011,13 +1014,14 @@ version 0.8
 group	[ 0	locks=0 ]	(	""	)
 grouptype	[ 0	locks=0 ]	(	"guess"	)
 sepparm	[ 0	locks=0 ]	(	)
+direction	[ 0	locks=0 ]	(	"0"	)
 invert	[ 0	locks=0 ]	(	[ invert	0 ] 	)
 custom_first_tangent	[ 0	locks=0 ]	(	[ custom_first_tangent	0 ] 	)
 First_Tangent	[ 0	locks=0 ]	(	[ First_Tangentx	0 ] 	[ First_Tangenty	1 ] 	[ First_Tangentz	0 ] 	)
 sepparm2	[ 0	locks=0 ]	(	)
 remove_temp	[ 0	locks=0 ]	(	[ remove_temp	1 ] 	)
 sepparm3	[ 0	locks=0 ]	(	)
-twist_amount	[ 0	locks=0 ]	(	[ twist_amount	180 ] 	)
+twist_amount	[ 0	locks=0 ]	(	[ twist_amount	0 ] 	)
 twist_ramp	[ 0	locks=0 ]	(	[ twist_ramp	2 ] 	)
 twist_ramp1pos	[ 0	locks=0 ]	(	[ twist_ramp1pos	0 ] 	)
 twist_ramp1value	[ 0	locks=0 ]	(	[ twist_ramp1value	0 ] 	)
@@ -1346,7 +1350,7 @@ vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
-max_duration	[ 0	locks=0 ]	(	[ max_duration	18 ] 	)
+max_duration	[ 0	locks=0 ]	(	[ max_duration	36 ] 	)
 do_falloff	[ 0	locks=0 ]	(	[ do_falloff	0 ] 	)
 do_vexpression	[ 0	locks=0 ]	(	[ do_vexpression	0 ] 	)
 vexpression	[ 0	locks=0 ]	(	[ vexpression	"// falloff = 1;
@@ -2081,7 +2085,7 @@ vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 seed	[ 0	locks=0 ]	(	[ seed	0 ] 	)
-random_range	[ 0	locks=0 ]	(	[ random_rangex	0.5 ] 	[ random_rangey	1 ] 	)
+random_range	[ 0	locks=0 ]	(	[ random_rangex	36 ] 	[ random_rangey	120 ] 	)
 do_vexpression	[ 0	locks=0 ]	(	[ do_vexpression	0 ] 	)
 vexpression	[ 0	locks=0 ]	(	[ vexpression	"// clip = 0.5;" ] 	)
 }
@@ -2207,7 +2211,7 @@ inputs
 stat
 {
   create 1324348265
-  modify 1584321625
+  modify 1607104984
   author nobody@nowhere.sidefx.com
   access 0777
 }
@@ -2280,7 +2284,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.597"
 	}
 }
 
@@ -2359,7 +2363,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.597"
 	}
 }
 
@@ -2438,7 +2442,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.597"
 	}
 }
 
@@ -2517,7 +2521,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.597"
 	}
 }
 
@@ -2596,7 +2600,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.597"
 	}
 }
 
@@ -2671,7 +2675,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.597"
 	}
 }
 
@@ -2796,7 +2800,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.597"
 	}
 }
 
@@ -2856,7 +2860,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.597"
 	}
 }
 
@@ -2939,7 +2943,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.597"
 	}
 }
 
@@ -2973,7 +2977,7 @@ inputs
 stat
 {
   create 1562627924
-  modify 1584321682
+  modify 1607105132
   author Henry@LAPPY586
   access 0777
 }
@@ -2998,7 +3002,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.597"
 	}
 }
 
@@ -3060,7 +3064,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.597"
 	}
 }
 
@@ -3077,7 +3081,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 5.31246 -2.70176
+position 5.31246 -2.25463
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -3095,7 +3099,7 @@ inputs
 stat
 {
   create 1562628197
-  modify 1574218448
+  modify 1607105086
   author Henry@LAPPY586
   access 0777
 }
@@ -3152,7 +3156,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.597"
 	}
 }
 
@@ -3187,7 +3191,7 @@ inputs
 stat
 {
   create 1562628694
-  modify 1562629910
+  modify 1607104899
   author Henry@LAPPY586
   access 0777
 }
@@ -3217,7 +3221,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.597"
 	}
 }
 
@@ -3234,7 +3238,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 5.31246 -1.92567
+position 5.31246 -1.47854
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -3243,16 +3247,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	fuse1 1 1 "input1"
+0 	blast1 1 1 "input1"
 }
 inputs
 {
-0 	fuse1 0 1
+0 	blast1 0 1
 }
 stat
 {
   create 1562629405
-  modify 1574218448
+  modify 1607105077
   author Henry@LAPPY586
   access 0777
 }
@@ -3314,7 +3318,7 @@ version 0.8
 method	[ 0	locks=0 ]	(	"byframe"	)
 frame	[ 8	locks=0 ]	(	[ frame	240 ] 	)
 integerframe	[ 0	locks=0 ]	(	"on"	)
-time	[ 0	locks=0 ]	(	[ time	0 ] 	)
+time	[ 0	locks=0 ]	(	[ time	5 ] 	)
 rangeclamp	[ 0	locks=0 ]	(	"none"	)
 frange	[ 0	locks=0 ]	(	[ frange1	1 ] 	[ frange2	240 ] 	)
 trange	[ 0	locks=0 ]	(	[ trange1	0 ] 	[ trange2	0 ] 	)
@@ -3327,7 +3331,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.597"
 	}
 }
 
@@ -3392,7 +3396,7 @@ Content-Type: text/plain
 version 0.8
 group	[ 0	locks=0 ]	(	""	)
 clipop	[ 0	locks=0 ]	(	"below"	)
-origin	[ 8	locks=0 ]	(	0	[ originy	64 ] 	0	)
+origin	[ 8	locks=0 ]	(	0	[ originy	163 ] 	0	)
 dist	[ 0	locks=0 ]	(	0	)
 dir	[ 0	locks=0 ]	(	0	1	0	)
 newg	[ 0	locks=0 ]	(	"off"	)
@@ -3408,7 +3412,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.597"
 	}
 }
 
@@ -3498,18 +3502,18 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	add1 1 1 "input1"
+0 	fuse1 1 1 "input1"
 2 	resample1 1 1 "input2"
 }
 inputs
 {
-0 	add1 0 1
+0 	fuse1 0 1
 1 	resample1 0 1
 }
 stat
 {
   create 1562630025
-  modify 1584321616
+  modify 1607105081
   author Henry@LAPPY586
   access 0777
 }
@@ -3537,7 +3541,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	0 ] 	)
+input	[ 0	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -3547,7 +3551,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.597"
 	}
 }
 
@@ -3573,16 +3577,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	add1 1 1 "input1"
+0 	fuse1 1 1 "input1"
 }
 inputs
 {
-0 	add1 0 1
+0 	fuse1 0 1
 }
 stat
 {
   create 1562630055
-  modify 1574218448
+  modify 1607105082
   author Henry@LAPPY586
   access 0777
 }
@@ -3686,7 +3690,7 @@ edge	[ 0	locks=0 ]	(	[ edge	0 ] 	)
 method	[ 0	locks=0 ]	(	[ method	0 ] 	)
 measure	[ 0	locks=0 ]	(	[ measure	0 ] 	)
 dolength	[ 0	locks=0 ]	(	[ dolength	1 ] 	)
-length	[ 0	locks=0 ]	(	[ length	0.10000000000000001 ] 	)
+length	[ 0	locks=0 ]	(	[ length	0.0050000000000000001 ] 	)
 dosegs	[ 0	locks=0 ]	(	[ dosegs	0 ] 	)
 segs	[ 0	locks=0 ]	(	[ segs	10 ] 	)
 useattribs	[ 0	locks=0 ]	(	"on"	)
@@ -3694,7 +3698,7 @@ allequal	[ 0	locks=0 ]	(	[ allequal	1 ] 	)
 last	[ 0	locks=0 ]	(	[ last	0 ] 	)
 randomshift	[ 0	locks=0 ]	(	[ randomshift	0 ] 	)
 onlypoints	[ 0	locks=0 ]	(	"off"	)
-treatpolysas	[ 0	locks=0 ]	(	[ treatpolysas	1 ] 	)
+treatpolysas	[ 0	locks=0 ]	(	[ treatpolysas	0 ] 	)
 outputsubdpoly	[ 0	locks=0 ]	(	[ outputsubdpoly	0 ] 	)
 doptdistattr	[ 0	locks=0 ]	(	"off"	)
 ptdistattr	[ 0	locks=0 ]	(	ptdist	)
@@ -3713,7 +3717,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.597"
 	}
 }
 
@@ -3778,7 +3782,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	0 ] 	)
+input	[ 0	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -3788,7 +3792,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.597"
 	}
 }
 
@@ -3856,7 +3860,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.597"
 	}
 }
 
@@ -3924,7 +3928,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	0 ] 	)
+input	[ 0	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -3934,7 +3938,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.597"
 	}
 }
 
@@ -4002,7 +4006,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.597"
 	}
 }
 
@@ -4019,7 +4023,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 5.31246 -0.995312
+position 5.31246 -3.30213
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -4028,16 +4032,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	blast1 1 1 "input1"
+0 	add1 1 1 "input1"
 }
 inputs
 {
-0 	blast1 0 1
+0 	add1 0 1
 }
 stat
 {
   create 1562642888
-  modify 1574218448
+  modify 1607105132
   author Henry@LAPPY586
   access 0777
 }
@@ -4075,15 +4079,15 @@ snapgroup	[ 0	locks=0 ]	(	0	)
 snaptype	[ 0	locks=0 ]	(	"distancesnap"	)
 algorithm	[ 0	locks=0 ]	(	"lowest"	)
 usetol3d	[ 0	locks=0 ]	(	"on"	)
-tol3d	[ 0	locks=0 ]	(	[ tol3d	0.0001 ] 	)
+tol3d	[ 0	locks=0 ]	(	[ tol3d	0.001 ] 	)
 targetptattrib	[ 0	locks=0 ]	(	snap_to	)
 targetclass	[ 0	locks=0 ]	(	"point"	)
 usepositionsnapmethod	[ 0	locks=0 ]	(	"on"	)
 positionsnapmethod	[ 0	locks=0 ]	(	"average"	)
 useradiusattrib	[ 0	locks=0 ]	(	"off"	)
 radiusattrib	[ 0	locks=0 ]	(	pscale	)
-usematchattrib	[ 0	locks=0 ]	(	"off"	)
-matchattrib	[ 0	locks=0 ]	(	name	)
+usematchattrib	[ 0	locks=0 ]	(	"on"	)
+matchattrib	[ 0	locks=0 ]	(	id	)
 matchtype	[ 0	locks=0 ]	(	"match"	)
 matchtol	[ 0	locks=0 ]	(	0	)
 gridtype	[ 0	locks=0 ]	(	"spacing"	)
@@ -4117,7 +4121,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.597"
 	}
 }
 
@@ -4190,7 +4194,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.597"
 	}
 }
 
@@ -4256,7 +4260,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	0 ] 	)
+input	[ 0	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -4266,7 +4270,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.597"
 	}
 }
 
@@ -4334,7 +4338,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.597"
 	}
 }
 
@@ -4417,7 +4421,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.597"
 	}
 }
 
@@ -4493,7 +4497,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.597"
 	}
 }
 
@@ -4576,7 +4580,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.597"
 	}
 }
 
@@ -4674,7 +4678,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.597"
 	}
 }
 
@@ -4786,7 +4790,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.597"
 	}
 }
 
@@ -4932,7 +4936,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.597"
 	}
 }
 
@@ -4996,7 +5000,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.597"
 	}
 }
 
@@ -5071,7 +5075,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.597"
 	}
 }
 
@@ -5137,7 +5141,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.597"
 	}
 }
 
@@ -5234,7 +5238,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.597"
 	}
 }
 
@@ -5309,7 +5313,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.391"
+		"value":"18.0.597"
 	}
 }
 
