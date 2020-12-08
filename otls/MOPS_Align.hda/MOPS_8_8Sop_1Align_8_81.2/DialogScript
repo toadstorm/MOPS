@@ -131,6 +131,16 @@
             parmtag { "autoscope" "0000000000000000" }
             parmtag { "script_callback_language" "python" }
         }
+        parm {
+            name    "world_align_mode"
+            label   "Accurate Bounds (slow!)"
+            type    toggle
+            default { "0" }
+            disablewhen "{ align_local 1 }"
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
     }
 
     groupsimple {
