@@ -32,25 +32,25 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 4.00329 -9.36553
+position -13.3944 -12.3368
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template on footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 0 "output1"
 }
 inputsNamed3
 {
-1 	dopnet1 2 1 "input1"
+1 	MOPs_Align 1 1 "input1"
 }
 inputs
 {
-0 	dopnet1 0 1
+0 	MOPs_Align 0 1
 }
 stat
 {
-  create 1607302183
-  modify 1607381490
+  create 1607451266
+  modify 1607452015
   author Henry@GlaDOS
   access 0777
 }
@@ -108,7 +108,7 @@ inputs
 stat
 {
   create 1524695134
-  modify 1607302193
+  modify 1607451267
   author Henry@LAPPY586
   access 0777
 }
@@ -402,7 +402,7 @@ inputs
 stat
 {
   create 1583522390
-  modify 1607302824
+  modify 1607451709
   author Henry@LAPPY586
   access 0777
 }
@@ -645,6 +645,10 @@ if(type == \"PackedGeometry\" || type == \"PackedFragment\" || type == \"PackedD
     // if full transform extraction is enabled, get that instead of transform
     i@__haspackedtransform = 1;
     matrix3 m = primintrinsic(0, \"transform\", @elemnum);    
+    if(chi(\"do_full_transform\")) {
+        matrix m4 = primintrinsic(0, \"packedfulltransform\", @elemnum);
+        m = matrix3(m4);
+    }
     vector scale = cracktransform(0,0,2,{0,0,0},m);
     vector4 orient = quaternion(m);
     p@orient = orient;    
@@ -660,7 +664,7 @@ if(type == \"PackedGeometry\" || type == \"PackedFragment\" || type == \"PackedD
         }
     }
     v@scale = scale;
-    if(chi(\"do_pivot\") && !chi(\"do_full_transform\")) {
+    if(chi(\"do_pivot\")) {
         v@pivot = primintrinsic(0, \"pivot\", @elemnum);
     }
 } 
@@ -726,7 +730,7 @@ inputs
 stat
 {
   create 1584916562
-  modify 1607302831
+  modify 1607451267
   author Henry@LAPPY586
   access 0777
 }
@@ -796,7 +800,7 @@ sopflags sopflags =
 comment ""
 position 4.80944 -1.88223
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass on display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 1 "output1"
@@ -812,7 +816,7 @@ inputs
 stat
 {
   create 1607302831
-  modify 1607303121
+  modify 1607451598
   author Henry@GlaDOS
   access 0777
 }
@@ -1037,7 +1041,7 @@ vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
-do_full_transform	[ 8	locks=0 ]	(	[ do_full_transform	0 ] 	)
+do_full_transform	[ 8	locks=0 ]	(	[ do_full_transform	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1084,7 +1088,7 @@ inputs
 stat
 {
   create 1542257157
-  modify 1607302184
+  modify 1607451267
   author Henry@LAPPY586
   access 0777
 }
@@ -1132,7 +1136,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 spare_input0	[ 0	locks=0 ]	(	../INPUT	)
 }
 
@@ -1440,7 +1444,7 @@ inputs
 stat
 {
   create 1550365152
-  modify 1607314336
+  modify 1607451267
   author Henry@LAPPY586
   access 0777
 }
@@ -1647,7 +1651,7 @@ inputs
 stat
 {
   create 1584916552
-  modify 1607302831
+  modify 1607451267
   author Henry@LAPPY586
   access 0777
 }
@@ -1703,7 +1707,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 2.49722 -2.95642
+position 2.10931 -2.91948
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1723,7 +1727,7 @@ inputs
 stat
 {
   create 1585514990
-  modify 1607302832
+  modify 1607451423
   author Henry@LAPPY586
   access 0777
 }

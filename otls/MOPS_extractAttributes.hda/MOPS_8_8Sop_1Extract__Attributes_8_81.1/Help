@@ -10,9 +10,6 @@ The extracted attributes are written directly to the points representing the pac
 
 This operator generates the following point attributes: p@orient, v@scale, v@N, v@up, v@pivot
 
-NOTE:
-    If your pivots don't match between this geometry and your destination geometry, you should generally enable "Extract Full Transform" and then disable "Use Pivots" on any following MOPs Apply Attributes node. This is due to the pivots shifting during simulations and as a part of the center-of-mass calculations in the solve.
-
 @inputs
 
 Input MOPs Primitives:
@@ -30,7 +27,7 @@ Extract MOPs Orient:
     
 Extract Full Transform:
     #id: do_full_transform
-    Extract the `packedfulltransform` intrinsic rather than the `transform` intrinsic. This is often necessary if you're trying to extract the transforms of something with different pivots from your destination geometry, or a packed Alembic from disk rather than regular Houdini packed primitives.
+    Extract the `packedfulltransform` intrinsic rather than the `transform` intrinsic. This is often necessary if you're trying to extract the transforms of packed Alembics from disk rather than regular Houdini packed primitives.
     
 Simplify Scale:
     #id: simplify_scale
