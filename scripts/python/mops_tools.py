@@ -3,8 +3,6 @@ import hou
 import uuid
 import json
 import traceback
-from SimpleHTTPServer import SimpleHTTPRequestHandler
-from BaseHTTPServer import HTTPServer as BaseHTTPServer
 import threading
 import subprocess
 import shutil
