@@ -32,7 +32,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -2.19892 -0.439611
+position -10.962 -13.3253
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -41,19 +41,19 @@ outputsNamed3
 }
 inputsNamed3
 {
-1 	null1 1 1 "input1"
-2 	falloff_from_attribute 2 1 "input2"
+1 	(__dot1) "" 1 "input1"
+2 	do_noise1 0 1 "input2"
 }
 inputs
 {
-0 	null1 0 1
-1 	falloff_from_attribute 0 1
+0 	(__dot1) 0 1
+1 	do_noise1 0 1
 }
 stat
 {
-  create 1598666029
-  modify 1598666846
-  author Henry@LAPPY586
+  create 1603744387
+  modify 1604893128
+  author Henry@GlaDOS
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -113,7 +113,7 @@ inputs
 stat
 {
   create 1524060262
-  modify 1598666355
+  modify 1608155629
   author Henry@LAPPY586
   access 0777
 }
@@ -328,13 +328,17 @@ Content-Type: text/plain
 {
 version 0.8
 folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
-group	[ 0	locks=0	autoscope=0 ]	(	[ group	"" ] 	)
+group	[ 8	locks=0	autoscope=0 ]	(	[ group	"" ] 	)
 grouptype	[ 0	locks=0	autoscope=0 ]	(	[ grouptype	0 ] 	)
 class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
 snippet	[ 0	locks=0	autoscope=0 ]	(	"float amp = chf(\"amp\");
-int matchpt = idtopoint(1, i@id);
+int matchpt = @ptnum;
+if(haspointattrib(0, \"id\") && haspointattrib(1, \"id\")) {
+    int id = point(0, \"id\", @ptnum);
+    matchpt = idtopoint(1, id);
+}
 string attr = chs(\"../falloff_attr\");
 float falloff = point(1, attr, matchpt);
 f@attr += falloff * amp;"	)
@@ -401,7 +405,7 @@ inputs
 stat
 {
   create 1524060262
-  modify 1598666399
+  modify 1608155635
   author Henry@LAPPY586
   access 0777
 }
@@ -622,7 +626,11 @@ class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
 snippet	[ 0	locks=0	autoscope=0 ]	(	"float amp = chf(\"amp\");
-int matchpt = idtopoint(1, i@id);
+int matchpt = @ptnum;
+if(haspointattrib(0, \"id\") && haspointattrib(1, \"id\")) {
+    int id = point(0, \"id\", @ptnum);
+    matchpt = idtopoint(1, id);
+}
 string attr = chs(\"../falloff_attr\");
 float falloff = point(1, attr, matchpt);
 f@attr -= falloff * amp;"	)
@@ -639,7 +647,7 @@ vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
 vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
 vex_precision	[ 0	locks=0 ]	(	auto	)
-folder1	[ 0	locks=0	autoscope=0 ]	(	1	1	)
+folder1	[ 0	locks=0	autoscope=0 ]	(	0	0	)
 amp	[ 0	locks=0	autoscope=0 ]	(	[ amp	1 ] 	)
 bindname1	[ 0	locks=0 ]	(	`chs(\"../falloff_attr\")`	)
 bindparm1	[ 0	locks=0 ]	(	attr	)
@@ -689,7 +697,7 @@ inputs
 stat
 {
   create 1524060262
-  modify 1598666438
+  modify 1608155641
   author Henry@LAPPY586
   access 0777
 }
@@ -910,7 +918,11 @@ class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
 snippet	[ 0	locks=0	autoscope=0 ]	(	"float amp = chf(\"amp\");
-int matchpt = idtopoint(1, i@id);
+int matchpt = @ptnum;
+if(haspointattrib(0, \"id\") && haspointattrib(1, \"id\")) {
+    int id = point(0, \"id\", @ptnum);
+    matchpt = idtopoint(1, id);
+}
 string attr = chs(\"../falloff_attr\");
 float falloff = point(1, attr, matchpt);
 float out = f@attr * falloff;
@@ -979,7 +991,7 @@ inputs
 stat
 {
   create 1524060262
-  modify 1598666483
+  modify 1608155645
   author Henry@LAPPY586
   access 0777
 }
@@ -1200,7 +1212,11 @@ class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
 snippet	[ 0	locks=0	autoscope=0 ]	(	"float amp = chf(\"amp\");
-int matchpt = idtopoint(1, i@id);
+int matchpt = @ptnum;
+if(haspointattrib(0, \"id\") && haspointattrib(1, \"id\")) {
+    int id = point(0, \"id\", @ptnum);
+    matchpt = idtopoint(1, id);
+}
 string attr = chs(\"../falloff_attr\");
 float falloff = point(1, attr, matchpt);
 float out = f@attr / falloff;
@@ -1269,7 +1285,7 @@ inputs
 stat
 {
   create 1524060262
-  modify 1598666582
+  modify 1608155673
   author Henry@LAPPY586
   access 0777
 }
@@ -1501,7 +1517,11 @@ class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
 snippet	[ 0	locks=0	autoscope=0 ]	(	"float amp = chf(\"amp\");
-int matchpt = idtopoint(1, i@id);
+int matchpt = @ptnum;
+if(haspointattrib(0, \"id\") && haspointattrib(1, \"id\")) {
+    int id = point(0, \"id\", @ptnum);
+    matchpt = idtopoint(1, id);
+}
 string attr = chs(\"../falloff_attr\");
 float falloff = point(1, attr, matchpt);
 float b = falloff * amp;
@@ -1524,7 +1544,7 @@ vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
 vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
 vex_precision	[ 0	locks=0 ]	(	auto	)
-folder1	[ 0	locks=0	autoscope=0 ]	(	1	1	)
+folder1	[ 0	locks=0	autoscope=0 ]	(	0	0	)
 amp	[ 0	locks=0	autoscope=0 ]	(	[ amp	1 ] 	)
 bindname1	[ 0	locks=0 ]	(	`chs(\"../falloff_attr\")`	)
 bindparm1	[ 0	locks=0 ]	(	attr	)
@@ -1574,7 +1594,7 @@ inputs
 stat
 {
   create 1524060262
-  modify 1598666621
+  modify 1608155680
   author Henry@LAPPY586
   access 0777
 }
@@ -1806,7 +1826,11 @@ class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
 snippet	[ 0	locks=0	autoscope=0 ]	(	"float amp = chf(\"amp\");
-int matchpt = idtopoint(1, i@id);
+int matchpt = @ptnum;
+if(haspointattrib(0, \"id\") && haspointattrib(1, \"id\")) {
+    int id = point(0, \"id\", @ptnum);
+    matchpt = idtopoint(1, id);
+}
 string attr = chs(\"../falloff_attr\");
 float falloff = point(1, attr, matchpt);
 float b = falloff;
@@ -1833,7 +1857,7 @@ vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
 vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
 vex_precision	[ 0	locks=0 ]	(	auto	)
-folder1	[ 0	locks=0	autoscope=0 ]	(	1	1	)
+folder1	[ 0	locks=0	autoscope=0 ]	(	0	0	)
 amp	[ 0	locks=0	autoscope=0 ]	(	[ amp	1 ] 	)
 bindname1	[ 0	locks=0 ]	(	`chs(\"../falloff_attr\")`	)
 bindparm1	[ 0	locks=0 ]	(	attr	)
@@ -1883,7 +1907,7 @@ inputs
 stat
 {
   create 1524060262
-  modify 1598666674
+  modify 1608155685
   author Henry@LAPPY586
   access 0777
 }
@@ -2115,7 +2139,11 @@ class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
 snippet	[ 0	locks=0	autoscope=0 ]	(	"float amp = chf(\"amp\");
-int matchpt = idtopoint(1, i@id);
+int matchpt = @ptnum;
+if(haspointattrib(0, \"id\") && haspointattrib(1, \"id\")) {
+    int id = point(0, \"id\", @ptnum);
+    matchpt = idtopoint(1, id);
+}
 string attr = chs(\"../falloff_attr\");
 float falloff = point(1, attr, matchpt);
 float b = falloff;
@@ -2185,7 +2213,7 @@ inputs
 stat
 {
   create 1524060262
-  modify 1598666710
+  modify 1608155691
   author Henry@LAPPY586
   access 0777
 }
@@ -2417,7 +2445,11 @@ class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
 snippet	[ 0	locks=0	autoscope=0 ]	(	"float amp = chf(\"amp\");
-int matchpt = idtopoint(1, i@id);
+int matchpt = @ptnum;
+if(haspointattrib(0, \"id\") && haspointattrib(1, \"id\")) {
+    int id = point(0, \"id\", @ptnum);
+    matchpt = idtopoint(1, id);
+}
 string attr = chs(\"../falloff_attr\");
 float falloff = point(1, attr, matchpt);
 float b = falloff;
@@ -2437,7 +2469,7 @@ vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
 vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
 vex_precision	[ 0	locks=0 ]	(	auto	)
-folder1	[ 0	locks=0	autoscope=0 ]	(	1	1	)
+folder1	[ 0	locks=0	autoscope=0 ]	(	0	0	)
 amp	[ 0	locks=0	autoscope=0 ]	(	[ amp	1 ] 	)
 bindname1	[ 0	locks=0 ]	(	`chs(\"../falloff_attr\")`	)
 bindparm1	[ 0	locks=0 ]	(	attr	)
@@ -2513,7 +2545,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-folder0	[ 0	locks=0	autoscope=0 ]	(	1	1	)
+folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
 group	[ 0	locks=0	autoscope=0 ]	(	`chs(\"../add/group\")`	)
 grouptype	[ 0	locks=0	autoscope=0 ]	(	[ grouptype	0 ] 	)
 class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
@@ -2581,7 +2613,7 @@ inputs
 stat
 {
   create 1524060262
-  modify 1598666333
+  modify 1608155622
   author Henry@LAPPY586
   access 0777
 }
@@ -2796,13 +2828,18 @@ Content-Type: text/plain
 {
 version 0.8
 folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
-group	[ 0	locks=0	autoscope=0 ]	(	[ group	"" ] 	)
+group	[ 8	locks=0	autoscope=0 ]	(	[ group	"" ] 	)
 grouptype	[ 8	locks=0	autoscope=0 ]	(	[ grouptype	0 ] 	)
 class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
 snippet	[ 0	locks=0	autoscope=0 ]	(	"float bias = ch(\"bias\");
-int matchpt = idtopoint(1, i@id);
+int matchpt = @ptnum;
+if(haspointattrib(0, \"id\") && haspointattrib(1, \"id\")) {
+    int id = point(0, \"id\", @ptnum);
+    matchpt = idtopoint(1, id);
+}
+
 string attr = chs(\"../falloff_attr\");
 float falloff = point(1, attr, matchpt);
 @attr = lerp(@attr, falloff, bias);"	)
@@ -2867,7 +2904,7 @@ inputs
 stat
 {
   create 1524060262
-  modify 1598666291
+  modify 1608155528
   author Henry@LAPPY586
   access 0777
 }
@@ -2888,10 +2925,7 @@ grouptype	[ 0	locks=0	autoscope=0 ]	(	"guess"	)
 class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
-snippet	[ 0	locks=0	autoscope=0 ]	(	"if(!haspointattrib(0, \"id\")) {
-    i@id = @ptnum;
-}
-string attr = chs(\"../falloff_attr\");
+snippet	[ 0	locks=0	autoscope=0 ]	(	"string attr = chs(\"../falloff_attr\");
 if(!haspointattrib(0, attr)) {
     @attr = 0;
 }"	)
@@ -3278,7 +3312,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -3339,7 +3373,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -3418,7 +3452,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0	autoscope=0 ]	(	[ input	1 ] 	)
+input	[ 0	locks=0	autoscope=0 ]	(	[ input	8 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -3428,7 +3462,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -3493,7 +3527,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0	autoscope=0 ]	(	[ input	1 ] 	)
+input	[ 0	locks=0	autoscope=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -3503,7 +3537,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -3562,7 +3596,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -3637,7 +3671,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
