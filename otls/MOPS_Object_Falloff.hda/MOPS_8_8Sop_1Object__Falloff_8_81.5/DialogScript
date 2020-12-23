@@ -177,7 +177,7 @@
             label   "Clear Outside"
             type    toggle
             default { "off" }
-            disablewhen "{ object_mode != 2 }"
+            disablewhen "{ object_mode != surface }"
             range   { 0 10 }
             parmtag { "autoscope" "0000000000000000" }
             parmtag { "script_callback_language" "python" }
@@ -187,7 +187,7 @@
             label   "Clear Inside"
             type    toggle
             default { "off" }
-            disablewhen "{ object_mode != 2 }"
+            disablewhen "{ object_mode != surface }"
             range   { 0 10 }
             parmtag { "autoscope" "0000000000000000" }
             parmtag { "script_callback_language" "python" }
@@ -505,7 +505,7 @@
                 label   "Looping Noise"
                 type    toggle
                 default { "0" }
-                disablewhen "{ time_varying 0 }"
+                disablewhen "{ time_varying == 0 }"
                 range   { 0! 10 }
                 parmtag { "autoscope" "0000000000000000" }
                 parmtag { "script_callback_language" "python" }
