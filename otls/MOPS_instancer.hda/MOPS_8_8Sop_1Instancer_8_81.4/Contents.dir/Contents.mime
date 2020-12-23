@@ -32,25 +32,23 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -15.0662 -6.35364
-connectornextid 2
+position -5.6503 -0.54826
+connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-1 "output1"
+0 "output1"
 }
 inputsNamed3
 {
-0 	testgeometry_pighead1 0 1 "input1"
 }
 inputs
 {
-0 	testgeometry_pighead1 0 1
 }
 stat
 {
-  create 1607303192
-  modify 1607303780
+  create 1608324282
+  modify 1608764986
   author Henry@GlaDOS
   access 0777
 }
@@ -8836,6 +8834,7 @@ show_offset	[ 0	locks=0 ]	(	0	)
 folder2	[ 0	locks=0 ]	(	0	)
 align	[ 0	locks=0 ]	(	"2"	)
 align_local	[ 0	locks=0 ]	(	"off"	)
+world_align_mode	[ 0	locks=0 ]	(	"off"	)
 folder0	[ 0	locks=0 ]	(	0	)
 shift_amount	[ 0	locks=0 ]	(	0	0	0	)
 local	[ 0	locks=0 ]	(	"on"	)
@@ -12834,7 +12833,7 @@ inputs
 stat
 {
   create 1567744824
-  modify 1607303321
+  modify 1608764932
   author Henry@LAPPY586
   access 0777
 }
@@ -12998,7 +12997,7 @@ inputs
 stat
 {
   create 1567744114
-  modify 1607303193
+  modify 1608764924
   author Henry@LAPPY586
   access 0777
 }
@@ -13140,6 +13139,12 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = $FF-ch(\"f1\") }
     }
+    channel reload {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../reload#\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -13150,7 +13155,7 @@ Content-Type: text/plain
 version 0.8
 filemode	[ 0	locks=0 ]	(	"read"	)
 file	[ 0	locks=0 ]	(	"op:`chsop(\"../instancepath\" + (detail(-1, \"value\", 0)+1))`"	)
-reload	[ 0	locks=0 ]	(	0	)
+reload	[ 0	locks=0 ]	(	[ reload	0 ] 	)
 objpattern	[ 0	locks=0 ]	(	*	)
 geodatapath	[ 0	locks=0 ]	(	""	)
 missingframe	[ 0	locks=0 ]	(	"error"	)
@@ -13357,7 +13362,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 spare_input0	[ 0	locks=0 ]	(	../foreach_begin1_metadata1	)
 }
 
@@ -13401,7 +13406,7 @@ inputs
 stat
 {
   create 1530848881
-  modify 1607303193
+  modify 1608764924
   author Henry@LAPPY586
   access 0777
 }
@@ -13562,6 +13567,12 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = ch(\"../viewportlod\") }
     }
+    channel reload {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../reload#\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -13572,7 +13583,7 @@ Content-Type: text/plain
 version 0.8
 filemode	[ 0	locks=0 ]	(	"read"	)
 file	[ 0	locks=0 ]	(	"`chsop(\"../instancefilepath\" + (detail(-1, \"value\", 0)+1))`"	)
-reload	[ 0	locks=0 ]	(	0	)
+reload	[ 0	locks=0 ]	(	[ reload	0 ] 	)
 objpattern	[ 0	locks=0 ]	(	*	)
 geodatapath	[ 0	locks=0 ]	(	""	)
 missingframe	[ 0	locks=0 ]	(	"error"	)
@@ -13584,7 +13595,7 @@ delayload	[ 0	locks=0 ]	(	"off"	)
 mkpath	[ 0	locks=0 ]	(	"on"	)
 cachesize	[ 0	locks=0 ]	(	0	)
 prefetch	[ 0	locks=0 ]	(	"off"	)
-f	[ 0	locks=0 ]	(	[ f1	1 ] 	[ f2	24 ] 	)
+f	[ 0	locks=0 ]	(	[ f1	1 ] 	[ f2	26 ] 	)
 index	[ 0	locks=0 ]	(	[ index	0 ] 	)
 wrap	[ 0	locks=0 ]	(	"cycle"	)
 retry	[ 0	locks=0 ]	(	0	)
@@ -13631,7 +13642,7 @@ inputs
 stat
 {
   create 1530848886
-  modify 1607303193
+  modify 1608764925
   author Henry@LAPPY586
   access 0777
 }
@@ -14042,6 +14053,12 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 2 2 expr = "if(ch(\"../pack_from\" + ((detail(-1, \"value\", 0)+1)))==1, 2, 1)" }
     }
+    channel reload {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../reload#\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -14050,7 +14067,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-reload	[ 0	locks=0 ]	(	0	)
+reload	[ 0	locks=0 ]	(	[ reload	0 ] 	)
 numlayers	[ 0	locks=0 ]	(	0	)
 fileName	[ 0	locks=0 ]	(	"`chsop(\"../instancefilepath\" + (detail(-1, \"value\", 0)+1))`"	)
 frame	[ 0	locks=0 ]	(	[ frame	1 ] 	)
@@ -14143,7 +14160,7 @@ inputs
 stat
 {
   create 1567746994
-  modify 1607303321
+  modify 1608764932
   author Henry@LAPPY586
   access 0777
 }
@@ -18653,7 +18670,7 @@ t	[ 8	locks=0 ]	(	[ tx	0 ] 	[ ty	0 ] 	[ tz	0 ] 	)
 r	[ 8	locks=0 ]	(	[ rx	0 ] 	[ ry	0 ] 	[ rz	0 ] 	)
 s	[ 0	locks=0 ]	(	[ sx	1 ] 	[ sy	1 ] 	[ sz	1 ] 	)
 shear	[ 0	locks=0 ]	(	0	0	0	)
-scale	[ 0	locks=0 ]	(	[ scale	0.10000000000000001 ] 	)
+scale	[ 0	locks=0 ]	(	[ scale	0.20000000000000001 ] 	)
 parmgroup_pivotxform	[ 0	locks=0 ]	(	0	)
 p	[ 0	locks=0 ]	(	0	0	0	)
 pr	[ 0	locks=0 ]	(	0	0	0	)
@@ -19037,7 +19054,7 @@ t	[ 8	locks=0 ]	(	[ tx	0 ] 	[ ty	0 ] 	[ tz	0 ] 	)
 r	[ 8	locks=0 ]	(	[ rx	0 ] 	[ ry	0 ] 	[ rz	0 ] 	)
 s	[ 8	locks=0 ]	(	[ sx	1 ] 	[ sy	1 ] 	[ sz	1 ] 	)
 shear	[ 0	locks=0 ]	(	[ shear1	0 ] 	[ shear2	0 ] 	[ shear3	0 ] 	)
-scale	[ 0	locks=0 ]	(	[ scale	0.29999999999999999 ] 	)
+scale	[ 0	locks=0 ]	(	[ scale	0.20000000000000001 ] 	)
 parmgroup_pivotxform	[ 0	locks=0 ]	(	0	)
 p	[ 0	locks=0 ]	(	[ px	0 ] 	[ py	0 ] 	[ pz	0 ] 	)
 pr	[ 0	locks=0 ]	(	[ prx	0 ] 	[ pry	0 ] 	[ prz	0 ] 	)
