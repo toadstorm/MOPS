@@ -445,6 +445,25 @@
                 range   { 0 1 }
                 parmtag { "autoscope" "0000000000000000" }
             }
+            parm {
+                name    "do_loop"
+                label   "Looping Noise"
+                type    toggle
+                default { "0" }
+                disablewhen "{ do_noise 0 }"
+                range   { 0! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "period"
+                label   "Loop Period"
+                type    float
+                default { "2" }
+                disablewhen "{ do_loop 0 }"
+                range   { 0 10 }
+                parmtag { "script_callback_language" "python" }
+            }
         }
 
     }
