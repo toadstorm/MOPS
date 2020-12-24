@@ -32,25 +32,23 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -9.46147 1.41377
-connectornextid 1
+position -3.38101 0.681296
+connectornextid 0
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
 inputsNamed3
 {
-0 	MOPs_Transform_Modifier 1 1 "input1"
 }
 inputs
 {
-0 	MOPs_Transform_Modifier 0 1
 }
 stat
 {
-  create 1595118563
-  modify 1595118660
-  author Henry@LAPPY586
+  create 1603754992
+  modify 1603755001
+  author Henry@GlaDOS
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -107,7 +105,7 @@ inputs
 stat
 {
   create 1523565945
-  modify 1577286169
+  modify 1603754993
   author Mo@Mo-PC
   access 0777
 }
@@ -213,7 +211,7 @@ inputs
 stat
 {
   create 1324348265
-  modify 1558671508
+  modify 1602263222
   author jlait@andorra.sidefx.com
   access 0777
 }
@@ -267,7 +265,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -327,7 +325,7 @@ inputs
 stat
 {
   create 1523567617
-  modify 1577286019
+  modify 1603754993
   author Mo@Mo-PC
   access 0777
 }
@@ -412,7 +410,7 @@ inputs
 stat
 {
   create 1539667218
-  modify 1577286239
+  modify 1603754993
   author henry@GlaDOS
   access 0777
 }
@@ -710,6 +708,15 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 0.40000000000000002 0.40000000000000002 expr = ch(\"../../../../K\") }
     }
+    channel vexpression {
+      lefttype = extend
+      righttype = extend
+      defaultString = "\"// damp = 0.9;
+// mass = 1.0;
+// k = 0.4;\""
+      flags = 0
+      segment { length = 0 expr = chs(\"../../../../vexpression\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -733,9 +740,9 @@ snippet	[ 0	locks=0 ]	(	"function float rot_dist(vector4 q1, q2) {
 
 float damp = chf(\"damping_coeff\");
 float mass = chf(\"Mass\");
-float k = chf(\"Spring_Const\")
+float k = chf(\"Spring_Const\");
 
-`ifs(chi(\"do_vexpression\"), chs(\"vexpression\"), \"\")`;
+`ifs(ch(\"do_vexpression\"), chs(\"vexpression\"), \"\")`
 
 if(chi(\"do_pos\")) {
     vector restpos = point(1, \"P\", @ptnum);
@@ -808,15 +815,15 @@ vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
-damping_coeff	[ 8	locks=0 ]	(	[ damping_coeff	0.746 ] 	)
+damping_coeff	[ 8	locks=0 ]	(	[ damping_coeff	0.90000000000000002 ] 	)
 Mass	[ 8	locks=0 ]	(	[ Mass	1 ] 	)
-Spring_Const	[ 8	locks=0 ]	(	[ Spring_Const	0.188 ] 	)
+Spring_Const	[ 8	locks=0 ]	(	[ Spring_Const	0.40000000000000002 ] 	)
 do_pos	[ 0	locks=0 ]	(	[ do_pos	1 ] 	)
 do_rot	[ 0	locks=0 ]	(	[ do_rot	1 ] 	)
 do_scale	[ 0	locks=0 ]	(	[ do_scale	1 ] 	)
 do_falloff	[ 0	locks=0 ]	(	[ do_falloff	0 ] 	)
-do_vexpression	[ 0	locks=0 ]	(	[ do_vexpression	0 ] 	)
-vexpression	[ 0	locks=0 ]	(	`chs(\"../../../../vexpression\")`	)
+do_vexpression	[ 0	locks=0 ]	(	[ do_vexpression	1 ] 	)
+vexpression	[ 8	locks=0 ]	(	[ vexpression	"k = 0.4;" ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -894,6 +901,91 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/spring_solver/d/s/MOPs_Transform_Modifier.init"
+Content-Type: text/plain
+
+type = MOPS::Transform_Modifier::1.1
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/spring_solver/d/s/MOPs_Transform_Modifier.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 11.0899 -2.73587
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create 1602263222
+  modify 1602263228
+  author Henry@GlaDOS
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/spring_solver/d/s/MOPs_Transform_Modifier.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+group	[ 0	locks=0 ]	(	""	)
+grouptype	[ 0	locks=0 ]	(	"guess"	)
+ignore_no_falloff	[ 0	locks=0 ]	(	"off"	)
+local	[ 0	locks=0 ]	(	"on"	)
+translate	[ 0	locks=0 ]	(	0	0	0	)
+rotate	[ 0	locks=0 ]	(	0	0	0	)
+scale	[ 0	locks=0 ]	(	1	1	1	)
+uniform_scale	[ 0	locks=0 ]	(	1	)
+pivot	[ 0	locks=0 ]	(	0	0	0	)
+do_weight	[ 0	locks=0 ]	(	"on"	)
+falloff_attribute	[ 0	locks=0 ]	(	mops_falloff	)
+do_vexpression	[ 0	locks=0 ]	(	"off"	)
+vexpression	[ 0	locks=0 ]	(	"// translate = {0,0,0};
+// rotate = {0,0,0};
+// scale = {1,1,1};
+// pscale = 1;
+// local = 1;"	)
+rotate_mode	[ 0	locks=0 ]	(	0	)
+scale_mode	[ 0	locks=0 ]	(	0	)
+rotate_order	[ 0	locks=0 ]	(	0	)
+pivot_mode	[ 0	locks=0 ]	(	0	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/spring_solver/d/s/MOPs_Transform_Modifier.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	},
+	"___toolcount___":{
+		"type":"string",
+		"value":"7"
+	},
+	"___toolid___":{
+		"type":"string",
+		"value":"MOPS::sop_Transform_Modifier::1.1"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/MOPs_Preview_Falloff.init"
 Content-Type: text/plain
 
@@ -924,7 +1016,7 @@ inputs
 stat
 {
   create 1539666485
-  modify 1577285407
+  modify 1603754993
   author henry@GlaDOS
   access 0777
 }
@@ -1154,6 +1246,7 @@ Content-Type: text/plain
 {
 version 0.8
 do_preview	[ 0	locks=0	autoscope=0 ]	(	[ do_preview	0 ] 	)
+falloff_attr	[ 0	locks=0 ]	(	mops_falloff	)
 do_sprite	[ 0	locks=0	autoscope=0 ]	(	[ do_sprite	1 ] 	)
 spritemap	[ 0	locks=0	autoscope=0 ]	(	sphere_matte.pic	)
 spritescale	[ 0	locks=0	autoscope=0 ]	(	[ spritescale	1 ] 	)
@@ -1303,7 +1396,7 @@ inputs
 stat
 {
   create 1533874785
-  modify 1577285407
+  modify 1603754993
   author Henry@LAPPY586
   access 0777
 }
@@ -1362,7 +1455,7 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot/MOPs_Apply_Attributes.init"
 Content-Type: text/plain
 
-type = MOPS::Apply_Attributes::1.4
+type = MOPS::Apply_Attributes::1.5
 matchesdef = 1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1390,9 +1483,9 @@ inputs
 }
 stat
 {
-  create 1569472229
-  modify 1577286165
-  author Henry@LAPPY586
+  create 1603754926
+  modify 1603754993
+  author Henry@GlaDOS
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -1434,8 +1527,9 @@ version 0.8
 group	[ 0	locks=0	autoscope=0 ]	(	""	)
 grouptype	[ 0	locks=0	autoscope=0 ]	(	"guess"	)
 sepparm	[ 0	locks=0 ]	(	)
-matchmode	[ 0	locks=0 ]	(	"0"	)
-folder0	[ 0	locks=0 ]	(	0	0	0	)
+matchmode	[ 0	locks=0	autoscope=0 ]	(	"0"	)
+forcematch	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
 do_translate	[ 0	locks=0	autoscope=0 ]	(	[ do_translate	1 ] 	)
 do_rotate	[ 0	locks=0	autoscope=0 ]	(	[ do_rotate	1 ] 	)
 do_scale	[ 0	locks=0	autoscope=0 ]	(	[ do_scale	1 ] 	)
@@ -1559,7 +1653,7 @@ inputs
 stat
 {
   create 1324348265
-  modify 1595118958
+  modify 1603754993
   author jlait@andorra.sidefx.com
   access 0777
 }
@@ -1632,7 +1726,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -1665,7 +1759,7 @@ inputs
 stat
 {
   create 1324348294
-  modify 1577285407
+  modify 1603754993
   author jlait@andorra.sidefx.com
   access 0777
 }
@@ -1711,7 +1805,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -1744,7 +1838,7 @@ inputs
 stat
 {
   create 1324348294
-  modify 1577285407
+  modify 1603754993
   author jlait@andorra.sidefx.com
   access 0777
 }
@@ -1790,7 +1884,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -1823,7 +1917,7 @@ inputs
 stat
 {
   create 1324348294
-  modify 1577285407
+  modify 1603754993
   author jlait@andorra.sidefx.com
   access 0777
 }
@@ -1869,7 +1963,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -1902,7 +1996,7 @@ inputs
 stat
 {
   create 1324348294
-  modify 1577285407
+  modify 1603754993
   author jlait@andorra.sidefx.com
   access 0777
 }
@@ -1948,7 +2042,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -1985,7 +2079,7 @@ inputs
 stat
 {
   create 1523565981
-  modify 1577285407
+  modify 1603754993
   author Mo@Mo-PC
   access 0777
 }
@@ -2023,7 +2117,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -2082,7 +2176,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -2090,7 +2184,7 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot/spring_solver/d/s.order"
 Content-Type: text/plain
 
-10
+11
 Prev_Frame
 Input_1
 Input_2
@@ -2101,6 +2195,7 @@ pointwrangle4
 spring_forces
 output1
 MOPs_Extract_Attributes
+MOPs_Transform_Modifier
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/spring_solver/d/s.net"
@@ -2165,7 +2260,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -2265,7 +2360,7 @@ inputs
 stat
 {
   create 1533875540
-  modify 1577285407
+  modify 1603754993
   author Henry@LAPPY586
   access 0777
 }
@@ -2354,7 +2449,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -2455,7 +2550,7 @@ inputs
 stat
 {
   create 1533876282
-  modify 1569472230
+  modify 1603754926
   author Henry@LAPPY586
   access 0777
 }
@@ -2492,7 +2587,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -2551,7 +2646,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -2588,7 +2683,7 @@ inputs
 stat
 {
   create 1539666524
-  modify 1577285407
+  modify 1603754993
   author henry@GlaDOS
   access 0777
 }
@@ -2626,7 +2721,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -2663,7 +2758,7 @@ inputs
 stat
 {
   create 1540481191
-  modify 1577285407
+  modify 1603754993
   author henry@GlaDOS
   access 0777
 }
@@ -2701,7 +2796,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -2775,7 +2870,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 

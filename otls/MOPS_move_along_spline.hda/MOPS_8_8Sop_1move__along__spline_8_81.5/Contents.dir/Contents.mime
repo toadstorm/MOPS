@@ -32,531 +32,29 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -4.7915 -3.53231
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+position -0.944173 0.102649
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
 inputsNamed3
 {
-0 	MOPs_Transform_Modifier 1 1 "input1"
-1 	MOPs_Orient_Curve 1 1 "input2"
 }
 inputs
 {
-0 	MOPs_Transform_Modifier 0 1
-1 	MOPs_Orient_Curve 0 1
 }
 stat
 {
-  create 1595101634
-  modify 1595115881
-  author Henry@LAPPY586
+  create 1603754851
+  modify 1603754865
+  author Henry@GlaDOS
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
 delscript ""
 exprlanguage hscript
 end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot.spareparmdef"
-Content-Type: text/plain
-
-    parm {
-        name    "bindgroup"
-        baseparm
-        label   "Group"
-        export  none
-    }
-    parm {
-        name    "grouptype"
-        baseparm
-        label   "Group Type"
-        export  none
-    }
-    parm {
-        name    "mode"
-        baseparm
-        label   "Mode"
-        export  none
-    }
-    group {
-        name    "folder2"
-        label   "Attach"
-
-        parm {
-            name    "curve_select_mode"
-            baseparm
-            label   "Curve Select Mode"
-            export  none
-        }
-        parm {
-            name    "curve_num_expr"
-            baseparm
-            label   "Primitive Number"
-            export  none
-        }
-        parm {
-            name    "attach_mode"
-            baseparm
-            label   "Attach Method"
-            export  none
-        }
-        parm {
-            name    "search_dist"
-            baseparm
-            label   "Search Distance"
-            export  none
-        }
-        parm {
-            name    "frame"
-            baseparm
-            label   "Attach Time"
-            export  none
-        }
-        parm {
-            name    "sepparm"
-            baseparm
-            label   "Separator"
-            export  none
-        }
-        parm {
-            name    "attach_attr"
-            baseparm
-            label   "Attach Attr"
-            export  none
-        }
-        parm {
-            name    "do_resample"
-            baseparm
-            label   "Resample Input Curve"
-            export  none
-        }
-        parm {
-            name    "do_reorient"
-            baseparm
-            label   "Reorient Input Curve"
-            export  none
-        }
-        parm {
-            name    "do_snap"
-            baseparm
-            label   "Snap MOPs Centroid to Curve Start"
-            export  none
-        }
-        group {
-            name    "folder3"
-            label   "Offset"
-
-            parm {
-                name    "show_offset"
-                baseparm
-                label   "Visualize Offset"
-                export  none
-            }
-            parm {
-                name    "maintain_offset"
-                baseparm
-                label   "Maintain Offset"
-                export  none
-            }
-            parm {
-                name    "orient_offset"
-                baseparm
-                label   "Maintain Orient Offset"
-                export  none
-            }
-            parm {
-                name    "offset_ramp"
-                baseparm
-                label   "Offset Ramp"
-                export  none
-            }
-            parm {
-                name    "orient_offset_ramp"
-                baseparm
-                label   "Orient Offset Ramp"
-                export  none
-            }
-        }
-
-        group {
-            name    "folder3_1"
-            label   "Resample Curve"
-            hidewhentab "{ do_resample == 0 }"
-
-            parm {
-                name    "edge"
-                baseparm
-                label   "Resample by Polygon Edge"
-                export  none
-            }
-            parm {
-                name    "method"
-                baseparm
-                label   "Method"
-                export  none
-            }
-            parm {
-                name    "measure"
-                baseparm
-                label   "Measure"
-                export  none
-            }
-            parm {
-                name    "dolength"
-                baseparm
-                label   "Maximum Segment Length"
-                export  none
-            }
-            parm {
-                name    "length"
-                baseparm
-                label   "Length"
-                export  none
-            }
-            parm {
-                name    "dosegs"
-                baseparm
-                label   "Maximum Segments"
-                export  none
-            }
-            parm {
-                name    "segs"
-                baseparm
-                label   "Segments"
-                export  none
-            }
-            parm {
-                name    "allequal"
-                baseparm
-                label   "Even Last Segment Same Length"
-                export  none
-            }
-            parm {
-                name    "treatpolysas"
-                baseparm
-                label   "Treat Polygons As"
-                export  none
-            }
-        }
-
-        group {
-            name    "folder3_2"
-            label   "Orient Curve"
-            hidewhentab "{ do_reorient == 0 }"
-
-            parm {
-                name    "invert"
-                baseparm
-                label   "Invert Tangent"
-                export  none
-            }
-            parm {
-                name    "custom_first_tangent"
-                baseparm
-                label   "Custom First Tangent"
-                export  none
-            }
-            parm {
-                name    "First_Tangent"
-                baseparm
-                label   "First Tangent"
-                export  none
-            }
-            parm {
-                name    "twist_amount"
-                baseparm
-                label   "Twist Amount"
-                export  none
-            }
-            parm {
-                name    "twist_ramp"
-                baseparm
-                label   "Twist Ramp"
-                export  none
-            }
-        }
-
-        group {
-            name    "folder3_3"
-            label   "Snap Centroid"
-            hidewhentab "{ do_snap == 0 }"
-
-            parm {
-                name    "do_orient_snap"
-                baseparm
-                label   "Do Orient Snap"
-                export  none
-            }
-            parm {
-                name    "normal_axis"
-                baseparm
-                label   "Normal Axis"
-                export  none
-            }
-            parm {
-                name    "up_axis"
-                baseparm
-                label   "Up Axis"
-                export  none
-            }
-        }
-
-    }
-
-    group {
-        name    "folder2_1"
-        label   "Animate"
-
-        parm {
-            name    "startframe"
-            baseparm
-            label   "Start Frame"
-            export  none
-        }
-        parm {
-            name    "resimulate"
-            baseparm
-            label   "Reset Simulation"
-            export  none
-        }
-        parm {
-            name    "cachemaxsize"
-            baseparm
-            label   "Cache Memory (MB)"
-            export  none
-        }
-        parm {
-            name    "sepparm3"
-            baseparm
-            label   "Separator"
-            export  none
-        }
-        parm {
-            name    "do_falloff"
-            baseparm
-            label   "Do Falloff"
-            export  none
-        }
-        parm {
-            name    "do_rotate_falloff"
-            baseparm
-            label   "Falloff Affects Rotation"
-            export  none
-        }
-        parm {
-            name    "falloff_attr"
-            baseparm
-            label   "Falloff Attribute"
-            export  none
-        }
-        parm {
-            name    "attribname"
-            baseparm
-            label   "Update Attributes"
-            export  none
-        }
-        parm {
-            name    "sepparm2"
-            baseparm
-            label   "Separator"
-            export  none
-        }
-        parm {
-            name    "goal_type"
-            baseparm
-            label   "Goal Type"
-            export  none
-        }
-        parm {
-            name    "goal"
-            baseparm
-            label   "Goal"
-            export  none
-        }
-        parm {
-            name    "speed"
-            baseparm
-            label   "Speed"
-            export  none
-        }
-        parm {
-            name    "random_shift"
-            baseparm
-            label   "Randomize"
-            export  none
-        }
-        parm {
-            name    "random_seed"
-            baseparm
-            label   "Random Seed"
-            export  none
-        }
-        parm {
-            name    "wrap"
-            baseparm
-            label   "Wrap"
-            export  none
-        }
-        parm {
-            name    "do_rotate"
-            baseparm
-            label   "Align to Curve"
-            export  none
-        }
-        parm {
-            name    "keep_goal_attrs"
-            baseparm
-            label   "Keep Goal Attributes"
-            export  none
-        }
-        parm {
-            name    "goal_attr_name"
-            baseparm
-            label   "Goal Attribute"
-            export  none
-        }
-        parm {
-            name    "curve_attr_name"
-            baseparm
-            label   "Curve Num Attribute"
-            export  none
-        }
-        group {
-            name    "folder1_5"
-            label   "Twist"
-
-            parm {
-                name    "post_twist_amount"
-                baseparm
-                label   "Twist Amount"
-                export  none
-            }
-            parm {
-                name    "post_twist_ramp"
-                baseparm
-                label   "Twist Ramp"
-                export  none
-            }
-        }
-
-        group {
-            name    "folder1_5_1"
-            label   "Acceleration"
-
-            parm {
-                name    "acceleration_ramp"
-                baseparm
-                label   "Acceleration Ramp"
-                export  none
-            }
-            parm {
-                name    "acceleration_ramp_simple"
-                baseparm
-                label   "Acceleration Ramp"
-                export  none
-            }
-        }
-
-        group {
-            name    "folder1_5_2"
-            label   "Trails"
-            disablewhentab "{ mode == 0 }"
-
-            parm {
-                name    "do_trails"
-                baseparm
-                label   "Create Trails"
-                export  none
-            }
-            parm {
-                name    "do_taper"
-                baseparm
-                label   "Taper Trail Falloff"
-                invisible
-                export  none
-            }
-            parm {
-                name    "trailgroup"
-                baseparm
-                label   "Trail Group Name"
-                export  none
-            }
-            parm {
-                name    "trails_end"
-                baseparm
-                label   "Trails End Frame"
-                export  none
-            }
-        }
-
-        group {
-            name    "folder1_5_3"
-            label   "VEXpressions"
-
-            parm {
-                name    "do_vexpression"
-                baseparm
-                label   "Use VEXpression"
-                export  none
-            }
-            parm {
-                name    "do_vexpression_solver"
-                baseparm
-                label   "Use VEXpression"
-                export  none
-            }
-            parm {
-                name    "vexpression_solver"
-                baseparm
-                label   "VEXpression"
-                export  none
-            }
-            parm {
-                name    "vexpression"
-                baseparm
-                label   "VEXpression"
-                export  none
-            }
-        }
-
-    }
-
-    parm {
-        name    "node_vis_enabled"
-        label   "Visualization Enabled"
-        type    toggle
-        invisible
-        default { "1" }
-    }
-    multiparm {
-        name    "num_visualizers"
-        label    "Visualizers"
-        invisible
-        default 0
-        parmtag { "multistartoffset" "0" }
-
-        parm {
-            name    "vis_active#"
-            label   "Active #"
-            type    toggle
-            invisible
-            default { "0" }
-        }
-        parm {
-            name    "vis_data#"
-            label   "Raw Data #"
-            type    string
-            invisible
-            nolabel
-            default { "" }
-            parmtag { "editor" "1" }
-        }
-    }
-
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.userdata"
@@ -635,7 +133,7 @@ inputs
 stat
 {
   create 1542751057
-  modify 1595102339
+  modify 1603754851
   author Henry@LAPPY586
   access 0777
 }
@@ -951,7 +449,7 @@ inputs
 stat
 {
   create 1542751296
-  modify 1595107868
+  modify 1603754851
   author Henry@LAPPY586
   access 0777
 }
@@ -1294,7 +792,7 @@ inputs
 stat
 {
   create 1542753142
-  modify 1595108807
+  modify 1603754851
   author Henry@LAPPY586
   access 0777
 }
@@ -1884,7 +1382,8 @@ float goalu = @__goalu;
 
 // if in arc length mode, switch to length space
 if(goal_type == 1) {
-    goalu = primuvconvert(@OpInput2, goalu, i@__curvenum, 5)[0];
+    vector2 g = primuvconvert(@OpInput2, goalu, i@__curvenum, 5);
+    goalu = g[0];
 }
 
 goalu += travel;
@@ -1912,9 +1411,11 @@ if( goal_type == 1 ){
         arclen = primintrinsic(1, \"measuredperimeter\", i@__curvenum);
     }
     if(wrap) {
-        goalu = primuvconvert(@OpInput2, goalu % arclen, i@__curvenum, 10)[0]; 
+        vector2 g = primuvconvert(@OpInput2, goalu % arclen, i@__curvenum, 10);
+        goalu = g[0]; 
     } else {
-        goalu = primuvconvert(@OpInput2, goalu, i@__curvenum, 10)[0]; 
+        vector2 g = primuvconvert(@OpInput2, goalu, i@__curvenum, 10);
+        goalu = g[0]; 
     }
 }
 
@@ -1991,7 +1492,7 @@ vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 travel	[ 8	locks=0 ]	(	[ travel	0 ] 	)
-maintain_offset	[ 0	locks=0 ]	(	[ maintain_offset	1 ] 	)
+maintain_offset	[ 0	locks=0 ]	(	[ maintain_offset	0 ] 	)
 wrap	[ 0	locks=0 ]	(	[ wrap	1 ] 	)
 invert_tangent	[ 0	locks=0 ]	(	"off"	)
 random_shift	[ 0	locks=0 ]	(	[ random_shift	0 ] 	)
@@ -2018,7 +1519,7 @@ acceleration_ramp	[ 0	locks=0 ]	(	[ acceleration_ramp	2 ] 	)
 acceleration_ramp1pos	[ 0	locks=0 ]	(	[ acceleration_ramp1pos	0 ] 	)
 acceleration_ramp1value	[ 0	locks=0 ]	(	[ acceleration_ramp1value	0 ] 	)
 acceleration_ramp1interp	[ 0	locks=0 ]	(	[ acceleration_ramp1interp	1 ] 	)
-orient_offset	[ 0	locks=0 ]	(	[ orient_offset	1 ] 	)
+orient_offset	[ 0	locks=0 ]	(	[ orient_offset	0 ] 	)
 orient_offset_ramp	[ 0	locks=0 ]	(	[ orient_offset_ramp	2 ] 	)
 orient_offset_ramp1pos	[ 0	locks=0 ]	(	[ orient_offset_ramp1pos	0 ] 	)
 orient_offset_ramp1value	[ 0	locks=0 ]	(	[ orient_offset_ramp1value	1 ] 	)
@@ -2052,7 +1553,7 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot/MOPs_Apply_Attributes.init"
 Content-Type: text/plain
 
-type = MOPS::Apply_Attributes::1.4
+type = MOPS::Apply_Attributes::1.5
 matchesdef = 1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2080,9 +1581,9 @@ inputs
 }
 stat
 {
-  create 1569472017
-  modify 1595106258
-  author Henry@LAPPY586
+  create 1603754861
+  modify 1603754915
+  author Henry@GlaDOS
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -2112,8 +1613,9 @@ version 0.8
 group	[ 0	locks=0	autoscope=0 ]	(	""	)
 grouptype	[ 0	locks=0	autoscope=0 ]	(	"guess"	)
 sepparm	[ 0	locks=0 ]	(	)
-matchmode	[ 0	locks=0 ]	(	"0"	)
-folder0	[ 0	locks=0 ]	(	0	0	0	)
+matchmode	[ 0	locks=0	autoscope=0 ]	(	"0"	)
+forcematch	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
 do_translate	[ 0	locks=0	autoscope=0 ]	(	"on"	)
 do_rotate	[ 0	locks=0	autoscope=0 ]	(	[ do_rotate	1 ] 	)
 do_scale	[ 0	locks=0	autoscope=0 ]	(	"off"	)
@@ -2176,7 +1678,7 @@ inputs
 stat
 {
   create 1542837100
-  modify 1595101634
+  modify 1603754851
   author Henry@LAPPY586
   access 0777
 }
@@ -2350,7 +1852,7 @@ inputs
 stat
 {
   create 1542849253
-  modify 1595101634
+  modify 1603754851
   author Henry@LAPPY586
   access 0777
 }
@@ -2436,7 +1938,7 @@ inputs
 stat
 {
   create 1542940107
-  modify 1595102336
+  modify 1603754851
   author Henry@LAPPY586
   access 0777
 }
@@ -2866,7 +2368,7 @@ inputs
 stat
 {
   create 1543010707
-  modify 1595101634
+  modify 1603754851
   author Henry@LAPPY586
   access 0777
 }
@@ -2952,7 +2454,7 @@ inputs
 stat
 {
   create 1543025427
-  modify 1595101634
+  modify 1603754851
   author Henry@LAPPY586
   access 0777
 }
@@ -3092,7 +2594,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -3129,7 +2631,7 @@ inputs
 stat
 {
   create 1543025898
-  modify 1595115966
+  modify 1603754851
   author Henry@LAPPY586
   access 0777
 }
@@ -3726,7 +3228,8 @@ if(!chi(\"do_falloff\")) {
 
 // if in arc length mode, switch to length space
 if(curve_mode == 1) {
-    goalu = primuvconvert(@OpInput2, goalu, i@__curvenum, 5)[0];
+    vector2 g = primuvconvert(@OpInput2, goalu, i@__curvenum, 5);
+    goalu = g[0];
 }
 
 // apply VEXpression
@@ -3747,9 +3250,11 @@ if( curve_mode == 1 ){
         arclen = primintrinsic(1, \"measuredperimeter\", i@__curvenum);
     }
     if(wrap) {
-        goalu = primuvconvert(@OpInput2, goalu % arclen, i@__curvenum, 10)[0]; 
+        vector2 g = primuvconvert(@OpInput2, goalu % arclen, i@__curvenum, 10);
+        goalu = g[0]; 
     } else {
-        goalu = primuvconvert(@OpInput2, goalu, i@__curvenum, 10)[0]; 
+        vector2 g = primuvconvert(@OpInput2, goalu, i@__curvenum, 10);
+        goalu = g[0]; 
     }
 }
 
@@ -3808,7 +3313,7 @@ vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 speed	[ 0	locks=0 ]	(	[ speed	0.01 ] 	)
-maintain_offset	[ 8	locks=0 ]	(	[ maintain_offset	1 ] 	)
+maintain_offset	[ 8	locks=0 ]	(	[ maintain_offset	0 ] 	)
 twist_amount	[ 8	locks=0 ]	(	[ twist_amount	0 ] 	)
 random_amount	[ 8	locks=0 ]	(	[ random_amount	0 ] 	)
 wrap	[ 8	locks=0 ]	(	[ wrap	1 ] 	)
@@ -3826,16 +3331,15 @@ twist_ramp	[ 8	locks=0 ]	(	[ twist_ramp	2 ] 	)
 twist_ramp1pos	[ 0	locks=0 ]	(	[ twist_ramp1pos	0 ] 	)
 twist_ramp1value	[ 0	locks=0 ]	(	[ twist_ramp1value	0 ] 	)
 twist_ramp1interp	[ 0	locks=0 ]	(	[ twist_ramp1interp	1 ] 	)
-do_vexpression	[ 8	locks=0 ]	(	[ do_vexpression	1 ] 	)
+do_vexpression	[ 8	locks=0 ]	(	[ do_vexpression	0 ] 	)
 vexpression	[ 0	locks=0 ]	(	[ vexpression	"// random_amount = 0.0;
 // random_seed = i@id;
 // offset_amount = 1.0;
-speed = fit01(rand(@id), 0.01, 0.04);
-offset_amount = sin(@Time*2)*0.5 + 0.5;
+// speed = 0.02;
 // twist_amount = 0.0;" ] 	)
 trails	[ 8	locks=0 ]	(	[ trails	0 ] 	)
 curve_mode	[ 0	locks=0 ]	(	0	)
-orient_offset	[ 0	locks=0 ]	(	[ orient_offset	1 ] 	)
+orient_offset	[ 0	locks=0 ]	(	[ orient_offset	0 ] 	)
 orient_offset_ramp	[ 8	locks=0 ]	(	[ orient_offset_ramp	2 ] 	)
 orient_offset_ramp1pos	[ 0	locks=0 ]	(	[ orient_offset_ramp1pos	0 ] 	)
 orient_offset_ramp1value	[ 0	locks=0 ]	(	[ orient_offset_ramp1value	1 ] 	)
@@ -3896,7 +3400,7 @@ inputs
 stat
 {
   create 1543036768
-  modify 1595101634
+  modify 1603754851
   author Henry@LAPPY586
   access 0777
 }
@@ -4151,7 +3655,7 @@ inputs
 stat
 {
   create 1543038368
-  modify 1595101634
+  modify 1603754851
   author Henry@LAPPY586
   access 0777
 }
@@ -4233,7 +3737,7 @@ inputs
 stat
 {
   create 1543038949
-  modify 1595101634
+  modify 1603754851
   author Henry@LAPPY586
   access 0777
 }
@@ -4312,7 +3816,7 @@ inputs
 stat
 {
   create 1543040132
-  modify 1595101634
+  modify 1603754851
   author Henry@LAPPY586
   access 0777
 }
@@ -4761,7 +4265,7 @@ inputs
 stat
 {
   create 1558836540
-  modify 1595101634
+  modify 1603754851
   author Henry@LAPPY586
   access 0777
 }
@@ -4844,7 +4348,7 @@ inputs
 stat
 {
   create 1563388607
-  modify 1595106258
+  modify 1603754851
   author Henry@LAPPY586
   access 0777
 }
@@ -4942,7 +4446,7 @@ inputs
 stat
 {
   create 1569808316
-  modify 1595101634
+  modify 1603754851
   author Henry@LAPPY586
   access 0777
 }
@@ -5041,6 +4545,7 @@ version 0.8
 do_pivot	[ 0	locks=0 ]	(	"on"	)
 do_mops_orient	[ 0	locks=0 ]	(	"off"	)
 do_full_transform	[ 0	locks=0 ]	(	"off"	)
+simplify_scale	[ 0	locks=0 ]	(	"on"	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -5111,7 +4616,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -5172,7 +4677,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -5209,7 +4714,7 @@ inputs
 stat
 {
   create 1542750726
-  modify 1595101634
+  modify 1603754851
   author Henry@LAPPY586
   access 0777
 }
@@ -5237,7 +4742,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	1 ] 	)
+input	[ 0	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -5247,7 +4752,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -5282,7 +4787,7 @@ inputs
 stat
 {
   create 1542750742
-  modify 1595101634
+  modify 1603754851
   author Henry@LAPPY586
   access 0777
 }
@@ -5395,7 +4900,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -5432,7 +4937,7 @@ inputs
 stat
 {
   create 1542750786
-  modify 1595101634
+  modify 1603754851
   author Henry@LAPPY586
   access 0777
 }
@@ -5460,7 +4965,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	0 ] 	)
+input	[ 0	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -5470,7 +4975,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -5531,7 +5036,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -5566,7 +5071,7 @@ inputs
 stat
 {
   create 1542751469
-  modify 1595101634
+  modify 1603754851
   author Henry@LAPPY586
   access 0777
 }
@@ -5641,7 +5146,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -5702,7 +5207,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -5761,7 +5266,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -5829,7 +5334,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -5890,7 +5395,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -5973,7 +5478,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -6047,7 +5552,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -6084,7 +5589,7 @@ inputs
 stat
 {
   create 1542940068
-  modify 1595103428
+  modify 1603754851
   author Henry@LAPPY586
   access 0777
 }
@@ -6123,7 +5628,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -6222,7 +5727,7 @@ inputs
 stat
 {
   create 1542942166
-  modify 1595107414
+  modify 1603754851
   author Henry@LAPPY586
   access 0777
 }
@@ -6297,7 +5802,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -6330,7 +5835,7 @@ inputs
 stat
 {
   create 1324348265
-  modify 1595116078
+  modify 1603754851
   author nobody@nowhere.sidefx.com
   access 0777
 }
@@ -6403,7 +5908,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -6436,7 +5941,7 @@ inputs
 stat
 {
   create 1324348294
-  modify 1595101634
+  modify 1603754851
   author nobody@nowhere.sidefx.com
   access 0777
 }
@@ -6482,7 +5987,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -6515,7 +6020,7 @@ inputs
 stat
 {
   create 1324348294
-  modify 1595101634
+  modify 1603754851
   author nobody@nowhere.sidefx.com
   access 0777
 }
@@ -6561,7 +6066,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -6594,7 +6099,7 @@ inputs
 stat
 {
   create 1324348294
-  modify 1595101634
+  modify 1603754851
   author nobody@nowhere.sidefx.com
   access 0777
 }
@@ -6640,7 +6145,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -6673,7 +6178,7 @@ inputs
 stat
 {
   create 1324348294
-  modify 1595101634
+  modify 1603754851
   author nobody@nowhere.sidefx.com
   access 0777
 }
@@ -6719,7 +6224,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -6780,7 +6285,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -6841,7 +6346,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -6916,7 +6421,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -6975,7 +6480,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -7012,7 +6517,7 @@ inputs
 stat
 {
   create 1543036720
-  modify 1595101634
+  modify 1603754851
   author Henry@LAPPY586
   access 0777
 }
@@ -7051,7 +6556,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -7111,7 +6616,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -7148,7 +6653,7 @@ inputs
 stat
 {
   create 1568328567
-  modify 1595101634
+  modify 1603754851
   author Henry@LAPPY586
   access 0777
 }
@@ -7199,7 +6704,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -7236,7 +6741,7 @@ inputs
 stat
 {
   create 1568346497
-  modify 1595101634
+  modify 1603754851
   author Henry@LAPPY586
   access 0777
 }
@@ -7274,7 +6779,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -7338,7 +6843,7 @@ inputs
 stat
 {
   create 1543025695
-  modify 1595106258
+  modify 1603754851
   author Henry@LAPPY586
   access 0777
 }
@@ -7367,7 +6872,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -7377,7 +6882,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -7539,7 +7044,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -7574,7 +7079,7 @@ inputs
 stat
 {
   create 1543037778
-  modify 1595101634
+  modify 1603754851
   author Henry@LAPPY586
   access 0777
 }
@@ -7649,7 +7154,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -7727,7 +7232,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -7764,7 +7269,7 @@ inputs
 stat
 {
   create 1543038086
-  modify 1595106258
+  modify 1603754851
   author Henry@LAPPY586
   access 0777
 }
@@ -7803,7 +7308,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -7864,7 +7369,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -7925,7 +7430,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -7993,7 +7498,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -8067,7 +7572,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -8135,7 +7640,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -8203,7 +7708,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -8345,7 +7850,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -8413,7 +7918,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -8512,7 +8017,7 @@ inputs
 stat
 {
   create 1543040599
-  modify 1595101634
+  modify 1603754851
   author Henry@LAPPY586
   access 0777
 }
@@ -8555,7 +8060,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -8591,7 +8096,7 @@ inputs
 stat
 {
   create 1543044120
-  modify 1595101634
+  modify 1603754851
   author Henry@LAPPY586
   access 0777
 }
@@ -8693,7 +8198,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -8730,7 +8235,7 @@ inputs
 stat
 {
   create 1543085443
-  modify 1595106258
+  modify 1603754861
   author Henry@LAPPY586
   access 0777
 }
@@ -8769,7 +8274,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -8804,7 +8309,7 @@ inputs
 stat
 {
   create 1543085473
-  modify 1595106258
+  modify 1603754861
   author Henry@LAPPY586
   access 0777
 }
@@ -8868,7 +8373,7 @@ inputs
 stat
 {
   create 1542942166
-  modify 1595101634
+  modify 1603754851
   author Henry@LAPPY586
   access 0777
 }
@@ -8943,7 +8448,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -8978,7 +8483,7 @@ inputs
 stat
 {
   create 1542942166
-  modify 1595101634
+  modify 1603754851
   author Henry@LAPPY586
   access 0777
 }
@@ -9053,7 +8558,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -9090,7 +8595,7 @@ inputs
 stat
 {
   create 1563388569
-  modify 1595106258
+  modify 1603754851
   author Henry@LAPPY586
   access 0777
 }
@@ -9128,7 +8633,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -9163,7 +8668,7 @@ inputs
 stat
 {
   create 1565235498
-  modify 1595101634
+  modify 1603754851
   author Henry@LAPPY586
   access 0777
 }
@@ -9208,7 +8713,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -9243,7 +8748,7 @@ inputs
 stat
 {
   create 1565235535
-  modify 1595106258
+  modify 1603754851
   author Henry@LAPPY586
   access 0777
 }
@@ -9274,7 +8779,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -9311,7 +8816,7 @@ inputs
 stat
 {
   create 1568328567
-  modify 1595101634
+  modify 1603754851
   author Henry@LAPPY586
   access 0777
 }
@@ -9362,7 +8867,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -9399,7 +8904,7 @@ inputs
 stat
 {
   create 1568345845
-  modify 1595106252
+  modify 1603754851
   author Henry@LAPPY586
   access 0777
 }
@@ -9437,7 +8942,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -9470,7 +8975,7 @@ inputs
 stat
 {
   create 1568346428
-  modify 1595101634
+  modify 1603754851
   author Henry@LAPPY586
   access 0777
 }
@@ -9516,7 +9021,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -9553,7 +9058,7 @@ inputs
 stat
 {
   create 1588830680
-  modify 1595106258
+  modify 1603754851
   author Henry@LAPPY586
   access 0777
 }
@@ -9591,7 +9096,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -9690,7 +9195,7 @@ inputs
 stat
 {
   create 1588830885
-  modify 1595106258
+  modify 1603754851
   author Henry@LAPPY586
   access 0777
 }
@@ -9797,7 +9302,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 

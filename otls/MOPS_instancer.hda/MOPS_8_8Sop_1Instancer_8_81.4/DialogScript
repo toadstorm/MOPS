@@ -604,6 +604,16 @@
                 parmtag { "autoscope" "0000000000000000" }
             }
             parm {
+                name    "output_template_attrs"
+                label   "Output Template Attributes"
+                type    toggle
+                default { "1" }
+                disablewhen "{ points_only == 1 }"
+                range   { 0! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
                 name    "sepparm3"
                 label   "Separator"
                 type    separator
@@ -775,6 +785,17 @@
                 invisible
                 default { "-1" }
                 range   { 0 10 }
+            }
+            parm {
+                name    "reload#"
+                label   "Reload Geometry"
+                type    button
+                default { "0" }
+                disablewhen "{ inputindex# > -1 }"
+                hidewhen "{ instancetype# == 0 }"
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback" "hou.phm().reload_files(kwargs)" }
+                parmtag { "script_callback_language" "python" }
             }
             parm {
                 name    "cycletype#"

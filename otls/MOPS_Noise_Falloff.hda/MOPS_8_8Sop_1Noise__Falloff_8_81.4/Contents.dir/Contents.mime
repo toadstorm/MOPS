@@ -32,25 +32,26 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -4.13896 -1.82074
-connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+position -6.7427 0.821112
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
+1 "output1"
 }
 inputsNamed3
 {
-0 	MOPs_Instancer 1 1 "input1"
+0 	box1 0 1 "input1"
 }
 inputs
 {
-0 	MOPs_Instancer 0 1
+0 	box1 0 1
 }
 stat
 {
-  create 1597793669
-  modify 1597801393
-  author Henry@GlaDOS
+  create 1601340970
+  modify 1601347855
+  author Henry@LAPPY586
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -108,7 +109,7 @@ inputs
 stat
 {
   create 1578457255
-  modify 1597457480
+  modify 1601340970
   author Henry@LAPPY586
   access 0777
 }
@@ -265,7 +266,7 @@ inputs
 stat
 {
   create 1524060463
-  modify 1597457480
+  modify 1601340970
   author Henry@LAPPY586
   access 0777
 }
@@ -384,7 +385,7 @@ inputs
 stat
 {
   create 1524060464
-  modify 1597457480
+  modify 1601340970
   author Henry@LAPPY586
   access 0777
 }
@@ -625,7 +626,7 @@ vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
 vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0	autoscope=0 ]	(	0	0	)
 use_rest	[ 0	locks=0	autoscope=0 ]	(	[ use_rest	1 ] 	)
-has_rest	[ 0	locks=0	autoscope=0 ]	(	[ has_rest	1 ] 	)
+has_rest	[ 0	locks=0	autoscope=0 ]	(	[ has_rest	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -670,7 +671,7 @@ inputs
 stat
 {
   create 1524060464
-  modify 1597457480
+  modify 1601340970
   author Henry@LAPPY586
   access 0777
 }
@@ -749,7 +750,7 @@ inputs
 stat
 {
   create 1536023491
-  modify 1597457480
+  modify 1601340970
   author Henry@LAPPY586
   access 0777
 }
@@ -991,6 +992,7 @@ Content-Type: text/plain
 {
 version 0.8
 do_preview	[ 0	locks=0 ]	(	[ do_preview	1 ] 	)
+falloff_attr	[ 0	locks=0 ]	(	mops_falloff	)
 do_sprite	[ 0	locks=0 ]	(	[ do_sprite	0 ] 	)
 spritemap	[ 0	locks=0 ]	(	sphere_matte.pic	)
 spritescale	[ 0	locks=0 ]	(	[ spritescale	1 ] 	)
@@ -1058,7 +1060,7 @@ inputs
 stat
 {
   create 1550356490
-  modify 1597457480
+  modify 1601340970
   author Henry@LAPPY586
   access 0777
 }
@@ -1120,7 +1122,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.69777 1.99011
+position 2.52261 1.71516
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1138,7 +1140,7 @@ inputs
 stat
 {
   create 1568176106
-  modify 1597800859
+  modify 1601347824
   author Henry@LAPPY586
   access 0777
 }
@@ -1330,7 +1332,7 @@ offset	[ 0	locks=0	autoscope=0 ]	(	[ offsetx	0 ] 	[ offsety	0 ] 	[ offsetz	0 ] 	
 tile_size	[ 0	locks=0	autoscope=0 ]	(	[ tile_sizex	1 ] 	[ tile_sizey	1 ] 	[ tile_sizez	1 ] 	)
 Distort	[ 0	locks=0	autoscope=0 ]	(	[ Distortx	0.20000000000000001 ] 	[ Distorty	0.20000000000000001 ] 	[ Distortz	0.20000000000000001 ] 	)
 time_varying	[ 0	locks=0	autoscope=0 ]	(	[ time_varying	1 ] 	)
-time	[ 8	locks=0 ]	(	[ time	0 ] 	)
+time	[ 8	locks=0 ]	(	[ time	1.9583333333333333 ] 	)
 time_scale	[ 0	locks=0	autoscope=0 ]	(	[ time_scale	1 ] 	)
 time_offset	[ 0	locks=0 ]	(	0	)
 do_remap_2D	[ 0	locks=0 ]	(	"off"	)
@@ -1401,7 +1403,7 @@ inputs
 stat
 {
   create 1592358543
-  modify 1597457480
+  modify 1601340970
   author Henry@LAPPY586
   access 0777
 }
@@ -1539,10 +1541,10 @@ spritescale	[ 0	locks=0 ]	(	1	)
 override_scale	[ 0	locks=0 ]	(	"off"	)
 ramp_preset	[ 0	locks=0 ]	(	"heatmap"	)
 falloff_heatmap	[ 0	locks=0 ]	(	5	)
-remap_falloff1pos	[ 0	locks=0 ]	(	[ remap_falloff1pos	0.11418919265270233 ] 	)
+remap_falloff1pos	[ 0	locks=0 ]	(	[ remap_falloff1pos	0 ] 	)
 remap_falloff1value	[ 0	locks=0 ]	(	[ remap_falloff1value	0 ] 	)
 remap_falloff1interp	[ 0	locks=0 ]	(	[ remap_falloff1interp	1 ] 	)
-remap_falloff2pos	[ 0	locks=0 ]	(	[ remap_falloff2pos	0.37432432174682617 ] 	)
+remap_falloff2pos	[ 0	locks=0 ]	(	[ remap_falloff2pos	1 ] 	)
 remap_falloff2value	[ 0	locks=0 ]	(	[ remap_falloff2value	1 ] 	)
 remap_falloff2interp	[ 0	locks=0 ]	(	[ remap_falloff2interp	1 ] 	)
 falloff_heatmap1pos	[ 0	locks=0 ]	(	0	)
@@ -1604,7 +1606,7 @@ inputs
 stat
 {
   create 1568176106
-  modify 1597801433
+  modify 1601340970
   author Henry@LAPPY586
   access 0777
 }
@@ -1803,7 +1805,7 @@ offset	[ 0	locks=0	autoscope=0 ]	(	[ offsetx	0 ] 	[ offsety	0 ] 	[ offsetz	0 ] 	
 tile_size	[ 0	locks=0	autoscope=0 ]	(	[ tile_sizex	1 ] 	[ tile_sizey	1 ] 	[ tile_sizez	1 ] 	)
 Distort	[ 0	locks=0	autoscope=0 ]	(	[ Distortx	0.20000000000000001 ] 	[ Distorty	0.20000000000000001 ] 	[ Distortz	0.20000000000000001 ] 	)
 time_varying	[ 0	locks=0	autoscope=0 ]	(	[ time_varying	1 ] 	)
-time	[ 8	locks=0 ]	(	[ time	0 ] 	)
+time	[ 8	locks=0 ]	(	[ time	1.6666666666666665 ] 	)
 time_scale	[ 0	locks=0	autoscope=0 ]	(	[ time_scale	1 ] 	)
 time_offset	[ 0	locks=0 ]	(	[ time_offset	-2 ] 	)
 do_remap_2D	[ 0	locks=0 ]	(	"off"	)
@@ -1909,7 +1911,7 @@ group	[ 0	locks=0 ]	(	""	)
 grouptype	[ 0	locks=0 ]	(	"guess"	)
 falloff_attr	[ 0	locks=0 ]	(	mops_falloff	)
 input	[ 0	locks=0 ]	(	"8"	)
-strength	[ 0	locks=0 ]	(	[ strength	0 ] 	)
+strength	[ 0	locks=0 ]	(	[ strength	0.83333337306976318 ] 	)
 switchclamp	[ 0	locks=0 ]	(	"off"	)
 sepparm	[ 0	locks=0 ]	(	)
 do_preview	[ 0	locks=0 ]	(	"off"	)
@@ -1960,7 +1962,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 2.49086 0.712604
+position 3.37915 0.670305
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1978,7 +1980,7 @@ inputs
 stat
 {
   create 1595704867
-  modify 1597801379
+  modify 1601347821
   author Henry@LAPPY586
   access 0777
 }
@@ -2017,6 +2019,269 @@ vex_precision	[ 0	locks=0 ]	(	auto	)
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/compute_bias.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/MOPs_Noise_Patterns2.init"
+Content-Type: text/plain
+
+type = MOPS::Noise_Patterns::1.2
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/MOPs_Noise_Patterns2.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 1.11391 1.07899
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+1 	apply_transform 1 1 "input1"
+}
+inputs
+{
+0 	apply_transform 0 1
+}
+stat
+{
+  create 1568176106
+  modify 1601347839
+  author Henry@LAPPY586
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/MOPs_Noise_Patterns2.chn"
+Content-Type: text/plain
+
+{
+    channel time {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = @Time }
+    }
+    channel input {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../input2\") }
+    }
+    channel ampx {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../ampx\") }
+    }
+    channel ampy {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../ampy\") }
+    }
+    channel ampz {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../ampz\") }
+    }
+    channel freqx {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../freqx\") }
+    }
+    channel freqy {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../freqy\") }
+    }
+    channel freqz {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../freqz\") }
+    }
+    channel freqw {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../freqw\") }
+    }
+    channel uniform {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../uniform\") }
+    }
+    channel roughness {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 0.5 0.5 expr = ch(\"../roughness\") }
+    }
+    channel octaves {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../octaves\") }
+    }
+    channel offsetx {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../offsetx\") }
+    }
+    channel offsety {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../offsety\") }
+    }
+    channel offsetz {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../offsetz\") }
+    }
+    channel offsetw {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../offsetw\") }
+    }
+    channel tile_sizex {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../tile_sizex\") }
+    }
+    channel tile_sizey {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../tile_sizey\") }
+    }
+    channel tile_sizez {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../tile_sizez\") }
+    }
+    channel Distortx {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../Distortx\") }
+    }
+    channel Distorty {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../Distorty\") }
+    }
+    channel Distortz {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../Distortz\") }
+    }
+    channel time_varying {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../time_varying\") }
+    }
+    channel time_scale {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../time_scale\") }
+    }
+    channel use_rest {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../use_rest\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/MOPs_Noise_Patterns2.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+group	[ 0	locks=0 ]	(	""	)
+grouptype	[ 0	locks=0 ]	(	"guess"	)
+sepparm3	[ 0	locks=0 ]	(	)
+signature	[ 0	locks=0 ]	(	"0"	)
+attrname	[ 0	locks=0 ]	(	mops_falloff	)
+attrnamev	[ 0	locks=0	autoscope=0 ]	(	mops_falloff	)
+sepparm	[ 0	locks=0 ]	(	)
+folder0	[ 0	locks=0 ]	(	0	0	0	)
+input	[ 0	locks=0	autoscope=0 ]	(	[ input	0 ] 	)
+use_rest	[ 0	locks=0	autoscope=0 ]	(	[ use_rest	1 ] 	)
+sepparm2	[ 0	locks=0 ]	(	)
+amp	[ 0	locks=0	autoscope=0 ]	(	[ ampx	1 ] 	[ ampy	1 ] 	[ ampz	1 ] 	)
+freq	[ 0	locks=0	autoscope=0 ]	(	[ freqx	1 ] 	[ freqy	1 ] 	[ freqz	1 ] 	[ freqw	1 ] 	)
+uniform	[ 0	locks=0	autoscope=0 ]	(	[ uniform	0 ] 	)
+roughness	[ 0	locks=0	autoscope=0 ]	(	[ roughness	0.5 ] 	)
+octaves	[ 0	locks=0	autoscope=0 ]	(	[ octaves	2 ] 	)
+offset	[ 0	locks=0	autoscope=0 ]	(	[ offsetx	0 ] 	[ offsety	0 ] 	[ offsetz	0 ] 	[ offsetw	0 ] 	)
+tile_size	[ 0	locks=0	autoscope=0 ]	(	[ tile_sizex	1 ] 	[ tile_sizey	1 ] 	[ tile_sizez	1 ] 	)
+Distort	[ 0	locks=0	autoscope=0 ]	(	[ Distortx	0.20000000000000001 ] 	[ Distorty	0.20000000000000001 ] 	[ Distortz	0.20000000000000001 ] 	)
+time_varying	[ 0	locks=0	autoscope=0 ]	(	[ time_varying	1 ] 	)
+time	[ 8	locks=0 ]	(	[ time	0 ] 	)
+time_scale	[ 0	locks=0	autoscope=0 ]	(	[ time_scale	1 ] 	)
+time_offset	[ 0	locks=0 ]	(	0	)
+do_remap_2D	[ 0	locks=0 ]	(	"off"	)
+input_rangev	[ 0	locks=0 ]	(	-1	1	)
+output_rangev	[ 0	locks=0 ]	(	-1	1	)
+remap_ramp_2D	[ 0	locks=0 ]	(	2	)
+do_remap_3D	[ 0	locks=0 ]	(	"off"	)
+input_range	[ 0	locks=0 ]	(	0	1	)
+output_range	[ 0	locks=0 ]	(	0	1	)
+input_min_3D	[ 0	locks=0 ]	(	-1	-1	-1	)
+input_max_3D	[ 0	locks=0 ]	(	1	1	1	)
+output_min_3D	[ 0	locks=0 ]	(	-1	-1	-1	)
+output_max_3D	[ 0	locks=0 ]	(	1	1	1	)
+remap_ramp_3D	[ 0	locks=0 ]	(	2	)
+remap_ramp_2D1pos	[ 0	locks=0 ]	(	0	)
+remap_ramp_2D1value	[ 0	locks=0 ]	(	0	)
+remap_ramp_2D1interp	[ 0	locks=0 ]	(	"linear"	)
+remap_ramp_2D2pos	[ 0	locks=0 ]	(	1	)
+remap_ramp_2D2value	[ 0	locks=0 ]	(	1	)
+remap_ramp_2D2interp	[ 0	locks=0 ]	(	"linear"	)
+remap_ramp_3D1pos	[ 0	locks=0 ]	(	0	)
+remap_ramp_3D1value	[ 0	locks=0 ]	(	0	)
+remap_ramp_3D1interp	[ 0	locks=0 ]	(	"linear"	)
+remap_ramp_3D2pos	[ 0	locks=0 ]	(	1	)
+remap_ramp_3D2value	[ 0	locks=0 ]	(	1	)
+remap_ramp_3D2interp	[ 0	locks=0 ]	(	"linear"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/MOPs_Noise_Patterns2.userdata"
 Content-Type: text/plain
 
 {
@@ -2081,7 +2346,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.566"
 	}
 }
 
@@ -2142,7 +2407,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.566"
 	}
 }
 
@@ -2179,7 +2444,7 @@ inputs
 stat
 {
   create 1524060464
-  modify 1597457480
+  modify 1601340970
   author Henry@LAPPY586
   access 0777
 }
@@ -2217,7 +2482,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.566"
 	}
 }
 
@@ -2295,7 +2560,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.566"
 	}
 }
 
@@ -2330,7 +2595,7 @@ inputs
 stat
 {
   create 1524060464
-  modify 1597457480
+  modify 1601340970
   author Henry@LAPPY586
   access 0777
 }
@@ -2363,7 +2628,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.566"
 	}
 }
 
@@ -2424,7 +2689,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.566"
 	}
 }
 
@@ -2485,7 +2750,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.566"
 	}
 }
 
@@ -2584,7 +2849,7 @@ inputs
 stat
 {
   create 1565319729
-  modify 1597457480
+  modify 1601340970
   author Henry@LAPPY586
   access 0777
 }
@@ -2629,7 +2894,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.566"
 	}
 }
 
@@ -2664,7 +2929,7 @@ inputs
 stat
 {
   create 1565319729
-  modify 1597457480
+  modify 1601340970
   author Henry@LAPPY586
   access 0777
 }
@@ -2695,7 +2960,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.566"
 	}
 }
 
@@ -2732,7 +2997,7 @@ inputs
 stat
 {
   create 1588874570
-  modify 1597457480
+  modify 1601340970
   author Henry@LAPPY586
   access 0777
 }
@@ -2770,7 +3035,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.566"
 	}
 }
 
@@ -2807,7 +3072,7 @@ inputs
 stat
 {
   create 1588875069
-  modify 1597457480
+  modify 1601340970
   author Henry@LAPPY586
   access 0777
 }
@@ -2835,7 +3100,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2845,7 +3110,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.566"
 	}
 }
 
@@ -2871,18 +3136,18 @@ outputsNamed3
 }
 inputsNamed3
 {
-2 	MOPs_Noise_Patterns 0 1 "input1"
+2 	MOPs_Noise_Patterns2 0 1 "input1"
 0 	MOPs_Combine_Falloffs 2 1 "input2"
 }
 inputs
 {
-0 	MOPs_Noise_Patterns 0 1
+0 	MOPs_Noise_Patterns2 0 1
 1 	MOPs_Combine_Falloffs 0 1
 }
 stat
 {
   create 1595701566
-  modify 1597800899
+  modify 1601347849
   author Henry@LAPPY586
   access 0777
 }
@@ -2911,7 +3176,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	1 ] 	)
+input	[ 0	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2921,7 +3186,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.566"
 	}
 }
 
@@ -2929,7 +3194,7 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot.order"
 Content-Type: text/plain
 
-24
+25
 output1
 do_local_transform
 IN_XFORM
@@ -2954,6 +3219,7 @@ MOPs_Noise_Patterns1
 switch_do_loop
 MOPs_Combine_Falloffs
 compute_bias
+MOPs_Noise_Patterns2
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"

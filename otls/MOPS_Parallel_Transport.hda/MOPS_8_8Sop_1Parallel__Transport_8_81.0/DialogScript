@@ -44,6 +44,19 @@
         parmtag { "autoscope" "0000000000000000" }
     }
     parm {
+        name    "direction"
+        label   "Direction"
+        type    ordinal
+        default { "0" }
+        menu {
+            "0" "Next Edge"
+            "1" "Previous Edge"
+        }
+        range   { 0! 10 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
         name    "custom_first_tangent"
         label   "Custom First Tangent"
         type    toggle

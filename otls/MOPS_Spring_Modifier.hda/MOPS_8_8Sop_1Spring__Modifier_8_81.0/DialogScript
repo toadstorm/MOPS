@@ -176,10 +176,11 @@
         }
         parm {
             name    "vexpression"
-            label   "VEXpression"
+            label   "Vexpression"
             type    string
             default { "// damp = 0.9;\n// mass = 1.0;\n// k = 0.4;" }
-            hidewhen "{ do_vexpression == 0 }"
+            hidewhen "{ do_vexpression 0 }"
+            parmtag { "autoscope" "0000000000000000" }
             parmtag { "editor" "1" }
             parmtag { "editorlang" "vex" }
         }

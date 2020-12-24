@@ -37,6 +37,7 @@
             menu {
                 "0" "Quaternion"
                 "1" "Two Vectors"
+                "2" "Matrix"
             }
         }
         parm {
@@ -44,21 +45,31 @@
             label   "Orient Attribute"
             type    string
             default { "orient" }
-            hidewhen "{ inlineattrtype == 1 }"
+            hidewhen "{ inlineattrtype != 0 }"
+        }
+        parm {
+            name    "inlinematrix"
+            label   "Matrix Attribute"
+            type    string
+            default { "xform" }
+            hidewhen "{ inlineattrtype != 2 }"
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
         }
         parm {
             name    "inlinen"
             label   "Normal Attribute"
             type    string
             default { "N" }
-            hidewhen "{ inlineattrtype == 0 }"
+            hidewhen "{ inlineattrtype != 1 }"
         }
         parm {
             name    "inlineup"
             label   "Up Attribute"
             type    string
             default { "up" }
-            hidewhen "{ inlineattrtype == 0 }"
+            hidewhen "{ inlineattrtype != 1 }"
         }
     }
 
@@ -75,6 +86,7 @@
             menu {
                 "0" "Quaternion"
                 "1" "Two Vectors"
+                "2" "Matrix"
             }
         }
         parm {
@@ -82,21 +94,31 @@
             label   "Orient Attribute"
             type    string
             default { "orient" }
-            hidewhen "{ referenceattrtype == 1 }"
+            hidewhen "{ referenceattrtype != 0 }"
+        }
+        parm {
+            name    "referencematrix"
+            label   "Matrix Attribute"
+            type    string
+            default { "xform" }
+            hidewhen "{ referenceattrtype != 2 }"
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
         }
         parm {
             name    "referencen"
             label   "Normal Attribute"
             type    string
             default { "N" }
-            hidewhen "{ referenceattrtype == 0 }"
+            hidewhen "{ referenceattrtype != 1 }"
         }
         parm {
             name    "referenceup"
             label   "Up Attribute"
             type    string
             default { "up" }
-            hidewhen "{ referenceattrtype == 0 }"
+            hidewhen "{ referenceattrtype != 1 }"
         }
         parm {
             name    "sepparm"

@@ -1,0 +1,51 @@
+# Dialog script for MOPS::Extract_Attributes::1.1 automatically generated
+
+{
+    name	MOPS::Extract_Attributes::1.1
+    script	MOPS::Extract_Attributes::1.1
+    label	"MOPs Extract Attributes"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Input MOPs Primitives"
+    inputlabel	2	"Sub-Network Input #2"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+
+    parm {
+        name    "do_full_transform"
+        label   "Extract Full Transform"
+        type    toggle
+        default { "0" }
+        range   { 0 10 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "do_pivot"
+        label   "Extract Pivot"
+        type    toggle
+        default { "1" }
+        range   { 0! 10 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "do_mops_orient"
+        label   "Extract MOPs Orient"
+        type    toggle
+        default { "0" }
+        range   { 0! 10 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "simplify_scale"
+        label   "Simplify Scale"
+        type    toggle
+        default { "1" }
+        range   { 0 10 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+}

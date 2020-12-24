@@ -32,25 +32,25 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 5.27604 -5.81747
+position -1.05842e-16 3.30972
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-1 "output1"
+0 "output1"
 }
 inputsNamed3
 {
-0 	Input_1 0 1 "input1"
+1 	check_for_orient 1 1 "input1"
 }
 inputs
 {
-0 	Input_1 0 1
+0 	check_for_orient 0 1
 }
 stat
 {
-  create 1558584909
-  modify 1595118858
+  create 1599527956
+  modify 1601527965
   author Henry@LAPPY586
   access 0777
 }
@@ -108,7 +108,7 @@ inputs
 stat
 {
   create 1524695134
-  modify 1595118564
+  modify 1607283376
   author Henry@LAPPY586
   access 0777
 }
@@ -328,7 +328,15 @@ if(!haspointattrib(0, \"up\")) {
     v@up = {0,1,0};
 }
 if(!haspointattrib(0, \"orient\")) {
-    p@orient = quaternion(maketransform(@N, v@up));
+    // if this is kinefx, convert the \"transform\" point attribute
+    if(haspointattrib(0, \"scaleinheritance\")) {
+        matrix3 transform = point(0, \"transform\", @ptnum);
+        p@orient = quaternion(transform);
+        v@N = qrotate(p@orient, {0,0,1});
+        v@up = qrotate(p@orient, {0,1,0});
+    } else {
+        p@orient = quaternion(maketransform(@N, v@up));
+    }
 } else {
     // use existing orient to derive N/up
     matrix3 m = qconvert(p@orient);
@@ -394,7 +402,7 @@ inputs
 stat
 {
   create 1550365158
-  modify 1595118564
+  modify 1607283376
   author Henry@LAPPY586
   access 0777
 }
@@ -473,7 +481,7 @@ inputs
 stat
 {
   create 1573854821
-  modify 1595118564
+  modify 1607283376
   author Henry@LAPPY586
   access 0777
 }
@@ -552,7 +560,7 @@ inputs
 stat
 {
   create 1583522390
-  modify 1595118854
+  modify 1607283376
   author Henry@LAPPY586
   access 0777
 }
@@ -840,7 +848,7 @@ vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 do_full_transform	[ 0	locks=0 ]	(	[ do_full_transform	0 ] 	)
-do_pivot	[ 0	locks=0 ]	(	[ do_pivot	1 ] 	)
+do_pivot	[ 0	locks=0 ]	(	[ do_pivot	0 ] 	)
 simplify_scale	[ 0	locks=0 ]	(	[ simplify_scale	0 ] 	)
 }
 
@@ -886,7 +894,7 @@ inputs
 stat
 {
   create 1584916562
-  modify 1595118564
+  modify 1607283376
   author Henry@LAPPY586
   access 0777
 }
@@ -974,7 +982,7 @@ inputs
 stat
 {
   create 1542257157
-  modify 1595118564
+  modify 1607283376
   author Henry@LAPPY586
   access 0777
 }
@@ -1022,7 +1030,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 spare_input0	[ 0	locks=0 ]	(	../INPUT	)
 }
 
@@ -1033,7 +1041,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -1101,7 +1109,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -1173,7 +1181,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -1234,7 +1242,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -1293,7 +1301,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -1330,7 +1338,7 @@ inputs
 stat
 {
   create 1550365152
-  modify 1595118564
+  modify 1607283376
   author Henry@LAPPY586
   access 0777
 }
@@ -1358,7 +1366,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1368,7 +1376,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -1403,7 +1411,7 @@ inputs
 stat
 {
   create 1555308337
-  modify 1585514996
+  modify 1599527664
   author Henry@LAPPY586
   access 0777
 }
@@ -1420,7 +1428,7 @@ Content-Type: text/plain
 version 0.8
 ptdel	[ 0	locks=0 ]	(	pivot	)
 vtxdel	[ 0	locks=0 ]	(	""	)
-primdel	[ 0	locks=0 ]	(	""	)
+primdel	[ 0	locks=0 ]	(	pivot	)
 dtldel	[ 0	locks=0 ]	(	""	)
 updatevar	[ 0	locks=0 ]	(	"on"	)
 }
@@ -1512,7 +1520,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -1580,7 +1588,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -1660,7 +1668,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -1792,7 +1800,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -1860,7 +1868,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -1897,7 +1905,7 @@ inputs
 stat
 {
   create 1584916552
-  modify 1595118564
+  modify 1607283376
   author Henry@LAPPY586
   access 0777
 }
@@ -1936,7 +1944,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -1973,7 +1981,7 @@ inputs
 stat
 {
   create 1585514990
-  modify 1595118564
+  modify 1607283376
   author Henry@LAPPY586
   access 0777
 }
@@ -2021,7 +2029,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 spare_input0	[ 0	locks=0 ]	(	../attribpromote6	)
 }
 
@@ -2032,7 +2040,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -2100,7 +2108,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -2135,7 +2143,7 @@ inputs
 stat
 {
   create 1585515095
-  modify 1585515101
+  modify 1607285721
   author Henry@LAPPY586
   access 0777
 }
@@ -2152,7 +2160,7 @@ Content-Type: text/plain
 version 0.8
 ptdel	[ 0	locks=0 ]	(	""	)
 vtxdel	[ 0	locks=0 ]	(	""	)
-primdel	[ 0	locks=0 ]	(	""	)
+primdel	[ 0	locks=0 ]	(	"N orient pscale scale up"	)
 dtldel	[ 0	locks=0 ]	(	__haspackedtransform	)
 updatevar	[ 0	locks=0 ]	(	"on"	)
 }

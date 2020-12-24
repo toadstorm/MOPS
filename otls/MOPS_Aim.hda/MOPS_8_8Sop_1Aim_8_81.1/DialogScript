@@ -1,0 +1,197 @@
+# Dialog script for MOPS::Aim::1.1 automatically generated
+
+{
+    name	MOPS::Aim::1.1
+    script	MOPS::Aim::1.1
+    label	"MOPs Aim"
+
+    help {
+	""
+    }
+    bindhandle tx xform "Transformer" tx "movetool_candidate(1) ownerop('transform1') owneropgroup('group')"
+    bindhandle ty xform "Transformer" ty "movetool_candidate(1) ownerop('transform1') owneropgroup('group')"
+    bindhandle tz xform "Transformer" tz "movetool_candidate(1) ownerop('transform1') owneropgroup('group')"
+
+    inputlabel	1	"MOPs Primitives"
+    inputlabel	2	"Optional Aim Target Points"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+
+    parm {
+        name    "group"
+        label   "Group"
+        type    string
+        default { "" }
+        menutoggle {
+            [ "opmenu -l Apply_Attributes1 group" ]
+        }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_action" "import soputils\nkwargs['geometrytype'] = kwargs['node'].parmTuple('grouptype')\nkwargs['inputindex'] = 0\nsoputils.selectGroupParm(kwargs)" }
+        parmtag { "script_action_help" "Select geometry from an available viewport." }
+        parmtag { "script_action_icon" "BUTTONS_reselect" }
+    }
+    parm {
+        name    "grouptype"
+        label   "Group Type"
+        type    ordinal
+        default { "guess" }
+        menu {
+            "guess"     "Guess from Group"
+            "vertices"  "Vertices"
+            "edges"     "Edges"
+            "points"    "Points"
+            "prims"     "Primitives"
+        }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "do_falloff"
+        label   "Do Falloff"
+        type    toggle
+        default { "on" }
+        range   { 0 10 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "falloff_attribute"
+        label   "Falloff Attribute"
+        type    string
+        default { "mops_falloff" }
+        disablewhen "{ do_falloff == 0 }"
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "sepparm"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "aim_type"
+        label   "Aim Method"
+        type    integer
+        default { "0" }
+        menu {
+            "0" "Target Position"
+            "1" "Target Object"
+            "2" "Aim Per Point"
+        }
+        range   { 0! 10 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "matchattr"
+        label   "Match By Attribute"
+        type    string
+        default { "id" }
+        hidewhen "{ aim_type != 2 }"
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "use_up_attr"
+        label   "Use Up Attribute"
+        type    toggle
+        default { "0" }
+        range   { 0 10 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "up"
+        label   "Up Vector"
+        type    vector
+        size    3
+        default { "0" "1" "0" }
+        disablewhen "{ use_up_attr == 1 }"
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "t"
+        label   "Aim Position"
+        type    vector
+        size    3
+        default { "0" "0" "0" }
+        disablewhen "{ aim_type != 0 }"
+        range   { -1 1 }
+        parmtag { "autoscope" "0010000000000000" }
+    }
+    parm {
+        name    "sepparm3"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "aim_axis"
+        label   "Aim Axis"
+        type    ordinal
+        default { "2" }
+        menu {
+            "0" "X"
+            "1" "Y"
+            "2" "Z"
+        }
+        range   { 0 10 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "up_axis"
+        label   "Up Axis"
+        type    ordinal
+        default { "1" }
+        menu {
+            "0" "X"
+            "1" "Y"
+            "2" "Z"
+        }
+        range   { 0 10 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "reverse_aim"
+        label   "Reverse Aim"
+        type    toggle
+        default { "0" }
+        range   { 0 10 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "reverse_up"
+        label   "Reverse Up"
+        type    toggle
+        default { "0" }
+        range   { 0 10 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "sepparm2"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "do_vexpression"
+        label   "Use Vexpression"
+        type    toggle
+        default { "off" }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "vexpression"
+        label   "Vexpression"
+        type    string
+        default { "// aim = {0,0,1};\n// up = {0,1,0};" }
+        disablewhen "{ do_vexpression == 0 }"
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "editor" "1" }
+        parmtag { "editorlang" "vex" }
+    }
+}
