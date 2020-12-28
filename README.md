@@ -13,6 +13,7 @@ MOPs is based on an internal framework of nodes that convert point attributes to
 * [Facebook User's Group](https://www.facebook.com/groups/616993195326231)
 * [Motionoperators Twitter](https://twitter.com/motionoperators)
 * [Motionoperators Instagram](https://www.instagram.com/motionoperators)
+* [MOPs Discord](https://discord.gg/TSb3unn6uf)
 
 ### Installation:
 
