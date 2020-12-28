@@ -31,6 +31,8 @@ Download the desired release directly from the [releases page](https://github.co
 
 ## Step 2: Configuring your Environment
 
+**Important**: Houdini 18.5 builds after 18.5.351 have an error that prevents packages from loading properly. If you are using Houdini 18.5, you must either download build 18.5.415 or later, or use the Houdini.env installation method.
+
 **Option 1: Plugin (17.5+ only)**
 For those of you running Houdini 17.5 or later, you have an option for a much easier install. 
 Simply create a folder inside your Houdini preferences directory (where the houdini.env typically is) called "packages", and place the MOPS.json file from the MOPs download into that package folder. Your preferences directory on Windows is typically in `My Documents\houdiniXX.X`. In OS X it's in `~Library/Preferences/Houdini`.
