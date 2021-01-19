@@ -8,6 +8,12 @@ INSTANCER_PARMS = {'single': ['instancetype', 'instancepath', 'instancefilepath'
                    }
 
 
+def reload_files(kwargs):
+    me = kwargs["node"]
+    me.node("file3").parm("reload").pressButton()
+    me.node("load_file_sequence").parm("reload").pressButton()
+    me.node("load_alembic").parm("reload").pressButton()
+                   
 def swap_multi_parms(node, index1, index2):
     """
     given two multiparm indexes, exchange the underlying

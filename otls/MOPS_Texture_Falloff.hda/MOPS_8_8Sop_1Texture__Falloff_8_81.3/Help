@@ -50,7 +50,7 @@ Color Instances:
     
     Color instances using texture map.
     
-== ColorIntensity Ramp ==
+== Color Intensity Ramp ==
 
 Color Intensity Ramp:
     #id: color_intensity_ramp
@@ -60,6 +60,14 @@ Color Intensity Ramp:
 == Image Settings ==
 
 """Control mapping of incoming texture onto instances."""
+
+Use Existing UVs:
+    #id: use_existing_uv
+    If enabled, use an existing UV attribute instead of creating a new projection. The attribute should be a point or vertex vector attribute.
+    
+UV Attribute:
+    #id: uvattrib
+    If Use Existing UVs is enabled, the name of the attribute to use for texture lookup.
     
 Texture Type:
     #id: type

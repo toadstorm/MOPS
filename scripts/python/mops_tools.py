@@ -1,11 +1,9 @@
 import os
 import hou
-import uuid
+# import uuid
 import json
 import traceback
-from SimpleHTTPServer import SimpleHTTPRequestHandler
-from BaseHTTPServer import HTTPServer as BaseHTTPServer
-import threading
+# import threading
 import subprocess
 import shutil
 import platform
@@ -31,45 +29,47 @@ HOUDINI_BIN = os.path.join(os.getenv("HFS"), "bin")
 
 def get_uuid():
     # check MOPS_SETTINGS file for UUID info
-    userid = None
-    if not os.path.exists(MOPS_SETTINGS):
-        # make the settings file
-        userid = uuid.uuid4()
-        info = {'branch': "N/A", 'release': "N/A", 'uuid': str(userid)}
-        with open(MOPS_SETTINGS, 'w') as f:
-            json.dump(info, f)
-    else:
-        with open(MOPS_SETTINGS, 'r') as f:
-            info = json.load(f)
-            userid = info.get('uuid')
-        if not userid:
-            userid = uuid.uuid4()
-            info['uuid'] = str(userid)
-            with open(MOPS_SETTINGS, 'w') as f:
-                json.dump(info, f)
-    return userid
+	return None
+    # userid = None
+    # if not os.path.exists(MOPS_SETTINGS):
+        # # make the settings file
+        # userid = uuid.uuid4()
+        # info = {'branch': "N/A", 'release': "N/A", 'uuid': str(userid)}
+        # with open(MOPS_SETTINGS, 'w') as f:
+            # json.dump(info, f)
+    # else:
+        # with open(MOPS_SETTINGS, 'r') as f:
+            # info = json.load(f)
+            # userid = info.get('uuid')
+        # if not userid:
+            # userid = uuid.uuid4()
+            # info['uuid'] = str(userid)
+            # with open(MOPS_SETTINGS, 'w') as f:
+                # json.dump(info, f)
+    # return userid
 
 
 def can_send_anonymous_stats():
-    can_share = True
-    with open(CONFIG, 'r') as f:
-        for line in f.readlines():
-            if line.startswith("sendAnonymousStats"):
-                if line.strip().strip(";").split(":=")[1].strip() == "0":
-                    can_share = False
-                break
-    # print('anonymous stats enabled: {}'.format(can_share))
-    override = os.getenv("HOUDINI_ANONYMOUS_STATISTICS", 1)
-    if int(override) == 0:
-        can_share = False
-    override = hou.getenv("MOPS_ALLOW_ANALYTICS")
-    if override is not None:
-        if int(override) == 0:
-            can_share = False
-        elif int(override) == 1:
-            can_share = True
-    # print('stats enabled: {}'.format(can_share))
-    return can_share
+    # can_share = True
+    # with open(CONFIG, 'r') as f:
+        # for line in f.readlines():
+            # if line.startswith("sendAnonymousStats"):
+                # if line.strip().strip(";").split(":=")[1].strip() == "0":
+                    # can_share = False
+                # break
+    # # print('anonymous stats enabled: {}'.format(can_share))
+    # override = os.getenv("HOUDINI_ANONYMOUS_STATISTICS", 1)
+    # if int(override) == 0:
+        # can_share = False
+    # override = hou.getenv("MOPS_ALLOW_ANALYTICS")
+    # if override is not None:
+        # if int(override) == 0:
+            # can_share = False
+        # elif int(override) == 1:
+            # can_share = True
+    # # print('stats enabled: {}'.format(can_share))
+    # return can_share
+	return False
 
 
 def track_event(category, action, label=None, value=0):
@@ -77,29 +77,29 @@ def track_event(category, action, label=None, value=0):
         the event includes an anonymous userid and some information about the node/action. """
     # forget this shit, it's slowing everything down
     return
-    userid = str(get_uuid())
+    # userid = str(get_uuid())
 
-    data = {
-        'v': '1',  # API Version.
-        'tid': GA_TRACKING_ID,  # Tracking ID / Property ID.
-        # Anonymous Client Identifier. Ideally, this should be a UUID that
-        # is associated with particular user, device, or browser instance.
-        'cid': userid,
-        't': 'event',  # Event hit type.
-        'ec': category,  # Event category.
-        'ea': action,  # Event action.
-        'el': label,  # Event label.
-        'ev': value,  # Event value, must be an integer
-    }
+    # data = {
+        # 'v': '1',  # API Version.
+        # 'tid': GA_TRACKING_ID,  # Tracking ID / Property ID.
+        # # Anonymous Client Identifier. Ideally, this should be a UUID that
+        # # is associated with particular user, device, or browser instance.
+        # 'cid': userid,
+        # 't': 'event',  # Event hit type.
+        # 'ec': category,  # Event category.
+        # 'ea': action,  # Event action.
+        # 'el': label,  # Event label.
+        # 'ev': value,  # Event value, must be an integer
+    # }
 
-    if REQUESTS_ENABLED:
-        try:
-            response = requests.post(
-                'http://www.google-analytics.com/collect', data=data, timeout=0.1)
-            # print(response)
-        except:
-            # print(traceback.format_exc())
-            pass
+    # if REQUESTS_ENABLED:
+        # try:
+            # response = requests.post(
+                # 'http://www.google-analytics.com/collect', data=data, timeout=0.1)
+            # # print(response)
+        # except:
+            # # print(traceback.format_exc())
+            # pass
 
 
 def like_node(node):
@@ -115,13 +115,13 @@ def dislike_node(node):
 
 def send_on_create_analytics(node):
     return
-    if can_send_anonymous_stats():
-        # only track the event if the node were actually just put down (not as a child of a parent node!)
-        n = node.node('..')
-        if n.type().name().startswith('MOPS'):
-            # print('analytics skipping child node')
-            return
-        track_event("Node Created", str(node.type().name()), str(node.type().definition().version()))
+    # if can_send_anonymous_stats():
+        # # only track the event if the node were actually just put down (not as a child of a parent node!)
+        # n = node.node('..')
+        # if n.type().name().startswith('MOPS'):
+            # # print('analytics skipping child node')
+            # return
+        # track_event("Node Created", str(node.type().name()), str(node.type().definition().version()))
 
 
 def collapse_hdas(directory):
