@@ -450,7 +450,7 @@
                 label   "Looping Noise"
                 type    toggle
                 default { "0" }
-                disablewhen "{ do_noise 0 }"
+                disablewhen "{ time_varying == 0 }"
                 range   { 0! 10 }
                 parmtag { "autoscope" "0000000000000000" }
                 parmtag { "script_callback_language" "python" }
@@ -460,7 +460,7 @@
                 label   "Loop Period"
                 type    float
                 default { "2" }
-                disablewhen "{ do_loop 0 }"
+                disablewhen "{ do_loop == 0 }"
                 range   { 0 10 }
                 parmtag { "script_callback_language" "python" }
             }
