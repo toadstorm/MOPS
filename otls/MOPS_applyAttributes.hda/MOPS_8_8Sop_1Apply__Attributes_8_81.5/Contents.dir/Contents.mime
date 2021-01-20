@@ -52,7 +52,7 @@ inputs
 stat
 {
   create 1603754571
-  modify 1611111901
+  modify 1611121856
   author Henry@GlaDOS
   access 0777
 }
@@ -113,7 +113,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1611121448
+  modify 1611124290
   author Henry@LAPPY586
   access 0777
 }
@@ -653,20 +653,21 @@ if(doP) {
     pivot = lerp(pivot, pivot2, weight);
 }
 
+vector out_scale = scale;
 // scale, rotate, translate
 if(doS) {
     if(Smode == 0) {
-        // scale = lerp(scale, scale*scale2*pscale2, weight);
-        scale = lerp(scale, scale*scale2, weight);
+        // multiply
+        out_scale = lerp(scale, scale*scale2, weight);
         pscale = lerp(pscale, pscale*pscale2, weight);
     } else {
-        // scale = lerp(scale, scale2*pscale2, weight);
-        scale = lerp(scale, scale2, weight);
+        // replace
+        out_scale = lerp(scale, scale2, weight);
         pscale = lerp(pscale, pscale2, weight);
     }
 }
 
-v@__scale = scale;
+v@__scale = out_scale;
 f@__pscale = pscale;
 
 if(doR) {
@@ -706,11 +707,25 @@ p@__out_orient = orient;
 // generate output matrix.
 matrix3 out = ident();
 matrix3 offset = qconvert(mops_orient);
-out = out * invert(offset);
-scale(out, (scale*pscale));
-out = out * offset;
 matrix3 rot = qconvert(orient);
-out = out * rot;
+
+if(local) {
+    // apply inverse mops_orient, apply all scaling, apply mops_orient, rotate.
+    out = out * invert(offset);
+    scale(out, (out_scale*pscale));
+    out = out * offset;
+    out = out * rot;
+} else {
+    // apply inverse mops_orient, apply original scaling, apply mops_orient,
+    // rotate, apply new scaling.
+    if(Smode == 0) {
+        out = out * invert(offset);
+        scale(out, scale);
+        out = out * offset;
+    }
+    out = out * rot;
+    scale(out, (scale2*pscale2));
+}
 
 // set intrinsics.
 setprimintrinsic(0, \"transform\", @ptnum, out, \"set\");
