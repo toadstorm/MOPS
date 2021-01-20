@@ -52,7 +52,7 @@ inputs
 stat
 {
   create 1603754571
-  modify 1606182475
+  modify 1611111901
   author Henry@GlaDOS
   access 0777
 }
@@ -113,7 +113,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1606182551
+  modify 1611121448
   author Henry@LAPPY586
   access 0777
 }
@@ -578,10 +578,18 @@ int doS = chi(\"do_scale\");
 int doP = chi(\"do_pivot\");
 int doWeight = chi(\"do_weight\");
 
+vector4 mops_orient = quaternion(ident());
+if(haspointattrib(0, \"mops_orient\")) {
+    mops_orient = point(0, \"mops_orient\", @ptnum);
+}
+
 // define starting attributes.
 matrix3 m = primintrinsic(0, \"transform\", @ptnum);
+matrix3 mops_orientm = qconvert(mops_orient);
 vector pos = 0;
-vector scale = cracktransform(0,0,2,{0,0,0},m);
+// scale needs to be converted into local space in case there's a mops_orient...
+matrix3 localm = mops_orientm * m;
+vector scale = cracktransform(0,0,2,{0,0,0},localm);
 vector pivot = {0,0,0};
 float pscale = 1;
 vector4 orient = quaternion(m);
@@ -617,10 +625,12 @@ if((type != \"PackedGeometry\") && (type != \"PackedFragment\") && (type != \"Pa
 }
 
 // simplify pscale vs scale
+/*
 if(abs(scale.x-scale.y) < epsilon && abs(scale.y-scale.z) < epsilon && abs(length(scale)-1) < epsilon) {
     pscale *= scale.x;
     scale = {1,1,1};
 }
+*/
 
 if(doWeight == 0) {
     weight = 1.0;
@@ -659,11 +669,6 @@ if(doS) {
 v@__scale = scale;
 f@__pscale = pscale;
 
-vector4 mops_orient = quaternion(ident());
-if(haspointattrib(0, \"mops_orient\")) {
-    mops_orient = point(0, \"mops_orient\", @ptnum);
-}
-
 if(doR) {
     if(Rmode == 0) {
         vector4 out_orient = quaternion(ident());
@@ -700,7 +705,10 @@ p@__out_orient = orient;
 
 // generate output matrix.
 matrix3 out = ident();
+matrix3 offset = qconvert(mops_orient);
+out = out * invert(offset);
 scale(out, (scale*pscale));
+out = out * offset;
 matrix3 rot = qconvert(orient);
 out = out * rot;
 
@@ -1013,7 +1021,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -6.95087 3.30049
+position -4.37293 3.71015
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1031,7 +1039,7 @@ inputs
 stat
 {
   create 1590187941
-  modify 1606182475
+  modify 1611102947
   author Henry@LAPPY586
   access 0777
 }
@@ -2554,117 +2562,6 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribcreate1.init"
-Content-Type: text/plain
-
-type = attribcreate::2.0
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribcreate1.def"
-Content-Type: text/plain
-
-sopflags sopflags = 
-comment ""
-position -4.53102 4.42843
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
-outputsNamed3
-{
-1 "output1"
-}
-inputsNamed3
-{
-0 	switch_is_prim_group 1 1 "input1"
-}
-inputs
-{
-0 	switch_is_prim_group 0 1
-}
-stat
-{
-  create 1590184957
-  modify 1590188007
-  author Henry@LAPPY586
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribcreate1.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-group	[ 0	locks=0 ]	(	""	)
-grouptype	[ 0	locks=0 ]	(	"guess"	)
-encodenames	[ 0	locks=0 ]	(	"off"	)
-numattr	[ 0	locks=0 ]	(	3	)
-enable1	[ 0	locks=0 ]	(	"on"	)
-name1	[ 0	locks=0 ]	(	__scale	)
-existing1	[ 0	locks=0 ]	(	"better"	)
-createvarmap1	[ 0	locks=0 ]	(	"off"	)
-varname1	[ 0	locks=0 ]	(	""	)
-class1	[ 0	locks=0 ]	(	"point"	)
-savetoinfo1	[ 0	locks=0 ]	(	"off"	)
-type1	[ 0	locks=0 ]	(	"vector"	)
-typeinfo1	[ 0	locks=0 ]	(	"guess"	)
-precision1	[ 0	locks=0 ]	(	"auto"	)
-size1	[ 0	locks=0 ]	(	1	)
-default1v	[ 0	locks=0 ]	(	1	1	1	1	)
-writevalues1	[ 0	locks=0 ]	(	"on"	)
-uselocal1	[ 0	locks=0 ]	(	"on"	)
-value1v	[ 0	locks=0 ]	(	1	1	1	1	)
-string1	[ 0	locks=0 ]	(	""	)
-enable2	[ 0	locks=0 ]	(	"on"	)
-name2	[ 0	locks=0 ]	(	__pscale	)
-existing2	[ 0	locks=0 ]	(	"better"	)
-createvarmap2	[ 0	locks=0 ]	(	"off"	)
-varname2	[ 0	locks=0 ]	(	""	)
-class2	[ 0	locks=0 ]	(	"point"	)
-savetoinfo2	[ 0	locks=0 ]	(	"off"	)
-type2	[ 0	locks=0 ]	(	"float"	)
-typeinfo2	[ 0	locks=0 ]	(	"guess"	)
-precision2	[ 0	locks=0 ]	(	"auto"	)
-size2	[ 0	locks=0 ]	(	1	)
-default2v	[ 0	locks=0 ]	(	1	0	0	0	)
-writevalues2	[ 0	locks=0 ]	(	"on"	)
-uselocal2	[ 0	locks=0 ]	(	"on"	)
-value2v	[ 0	locks=0 ]	(	1	1	1	1	)
-string2	[ 0	locks=0 ]	(	""	)
-enable3	[ 0	locks=0 ]	(	"on"	)
-name3	[ 0	locks=0 ]	(	__out_orient	)
-existing3	[ 0	locks=0 ]	(	"better"	)
-createvarmap3	[ 0	locks=0 ]	(	"off"	)
-varname3	[ 0	locks=0 ]	(	""	)
-class3	[ 0	locks=0 ]	(	"point"	)
-savetoinfo3	[ 0	locks=0 ]	(	"off"	)
-type3	[ 0	locks=0 ]	(	"float"	)
-typeinfo3	[ 0	locks=0 ]	(	"quaternion"	)
-precision3	[ 0	locks=0 ]	(	"auto"	)
-size3	[ 0	locks=0 ]	(	4	)
-default3v	[ 0	locks=0 ]	(	0	0	0	1	)
-writevalues3	[ 0	locks=0 ]	(	"on"	)
-uselocal3	[ 0	locks=0 ]	(	"on"	)
-value3v	[ 0	locks=0 ]	(	0	0	0	0	)
-string3	[ 0	locks=0 ]	(	""	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribcreate1.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"18.0.597"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/switch_kinefx.init"
 Content-Type: text/plain
 
@@ -2743,7 +2640,7 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot.order"
 Content-Type: text/plain
 
-27
+26
 apply_attributes1
 attribcopy_id
 enumerate1
@@ -2767,7 +2664,6 @@ attribpromote2
 switch5
 attribcopy_name
 pointwrangle1
-attribcreate1
 init_attrs
 switch_kinefx
 write_transform
