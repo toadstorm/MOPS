@@ -32,27 +32,26 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -3.13514 -0.384687
-connectornextid 3
+position -11.936 -9.93314
+connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-0 "output1"
 }
 inputsNamed3
 {
-1 	attribdelete1 1 1 "input1"
-2 	compute_translate 1 1 "input2"
+0 	MOPs_Randomize 1 1 "input1"
+1 	MOPs_Extract_Attributes1 1 1 "input2"
 }
 inputs
 {
-0 	attribdelete1 0 1
-1 	compute_translate 0 1
+0 	MOPs_Randomize 0 1
+1 	MOPs_Extract_Attributes1 0 1
 }
 stat
 {
-  create 1603754571
-  modify 1611121856
+  create 1611194202
+  modify 1611195568
   author Henry@GlaDOS
   access 0777
 }
@@ -113,7 +112,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1611124290
+  modify 1611195659
   author Henry@LAPPY586
   access 0777
 }
@@ -724,7 +723,8 @@ if(local) {
         out = out * offset;
     }
     out = out * rot;
-    scale(out, (scale2*pscale2));
+    out_scale = lerp(1, scale2*pscale2, weight);
+    scale(out, out_scale);
 }
 
 // set intrinsics.
@@ -747,15 +747,15 @@ folder1	[ 0	locks=0 ]	(	0	0	)
 do_translate	[ 0	locks=0	autoscope=0 ]	(	[ do_translate	1 ] 	)
 do_rotate	[ 0	locks=0	autoscope=0 ]	(	[ do_rotate	1 ] 	)
 do_scale	[ 0	locks=0	autoscope=0 ]	(	[ do_scale	1 ] 	)
-do_weight	[ 0	locks=0	autoscope=0 ]	(	[ do_weight	1 ] 	)
-rotate_mode	[ 0	locks=0	autoscope=0 ]	(	[ rotate_mode	0 ] 	)
-scale_mode	[ 0	locks=0	autoscope=0 ]	(	[ scale_mode	0 ] 	)
+do_weight	[ 0	locks=0	autoscope=0 ]	(	[ do_weight	0 ] 	)
+rotate_mode	[ 0	locks=0	autoscope=0 ]	(	[ rotate_mode	1 ] 	)
+scale_mode	[ 0	locks=0	autoscope=0 ]	(	[ scale_mode	1 ] 	)
 local_space	[ 0	locks=0	autoscope=0 ]	(	[ local_space	1 ] 	)
 rotate_order	[ 0	locks=0	autoscope=0 ]	(	[ rotate_order	0 ] 	)
 falloff_attribute	[ 0	locks=0 ]	(	[ falloff_attribute	mops_falloff ] 	)
 can_ignore_falloff	[ 8	locks=0 ]	(	[ can_ignore_falloff	0 ] 	)
-matchmode	[ 0	locks=0 ]	(	[ matchmode	0 ] 	)
-do_pivot	[ 0	locks=0 ]	(	[ do_pivot	0 ] 	)
+matchmode	[ 0	locks=0 ]	(	[ matchmode	1 ] 	)
+do_pivot	[ 0	locks=0 ]	(	[ do_pivot	1 ] 	)
 forcematch	[ 0	locks=0 ]	(	[ forcematch	1 ] 	)
 }
 
@@ -801,7 +801,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1606182475
+  modify 1611194203
   author Henry@LAPPY586
   access 0777
 }
@@ -882,7 +882,7 @@ inputs
 stat
 {
   create 1569084024
-  modify 1606182475
+  modify 1611194203
   author Henry@LAPPY586
   access 0777
 }
@@ -969,7 +969,7 @@ inputs
 stat
 {
   create 1584863149
-  modify 1606182475
+  modify 1611194203
   author Henry@LAPPY586
   access 0777
 }
@@ -1054,7 +1054,7 @@ inputs
 stat
 {
   create 1590187941
-  modify 1611102947
+  modify 1611194203
   author Henry@LAPPY586
   access 0777
 }
@@ -1154,7 +1154,7 @@ inputs
 stat
 {
   create 1603736224
-  modify 1606182475
+  modify 1611194203
   author Henry@GlaDOS
   access 0777
 }
@@ -1257,7 +1257,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1606182475
+  modify 1611194203
   author Henry@LAPPY586
   access 0777
 }
@@ -1410,7 +1410,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1606182475
+  modify 1611194203
   author Henry@LAPPY586
   access 0777
 }
@@ -1669,7 +1669,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1606182475
+  modify 1611194203
   author Henry@LAPPY586
   access 0777
 }
@@ -1744,7 +1744,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1606182475
+  modify 1611194203
   author Henry@LAPPY586
   access 0777
 }
@@ -1880,7 +1880,7 @@ inputs
 stat
 {
   create 1556862778
-  modify 1606182475
+  modify 1611194203
   author Henry@LAPPY586
   access 0777
 }
@@ -1955,7 +1955,7 @@ inputs
 stat
 {
   create 1569084092
-  modify 1606182475
+  modify 1611194203
   author Henry@LAPPY586
   access 0777
 }
@@ -2030,7 +2030,7 @@ inputs
 stat
 {
   create 1569468433
-  modify 1606182475
+  modify 1611194203
   author Henry@LAPPY586
   access 0777
 }
@@ -2303,7 +2303,7 @@ inputs
 stat
 {
   create 1573854736
-  modify 1606182475
+  modify 1611194203
   author Henry@LAPPY586
   access 0777
 }
@@ -2446,7 +2446,7 @@ inputs
 stat
 {
   create 1583519692
-  modify 1606182475
+  modify 1611194203
   author Henry@LAPPY586
   access 0777
 }
@@ -2522,7 +2522,7 @@ inputs
 stat
 {
   create 1529358487
-  modify 1606182475
+  modify 1611194203
   author Henry@LAPPY586
   access 0777
 }
