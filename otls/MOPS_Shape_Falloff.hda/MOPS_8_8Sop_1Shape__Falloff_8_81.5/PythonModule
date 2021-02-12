@@ -33,7 +33,7 @@ def autoFit2(kwargs):
     lengths = bounds.attribValue("radii")
     r = hou.Matrix3(xf).extractRotates()
     
-    lengths = max(lengths, 0.0001)
+    lengths = max(lengths, (0.0001, 0.0001, 0.0001))
     
     node.parm("translatex").set(center[0])
     node.parm("translatey").set(center[1])

@@ -32,7 +32,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 11.1711 -1.91638
+position -2.61491 0.233048
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -40,17 +40,17 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	MOPs_Instancer 0 1 "input1"
+0 	testgeometry_pighead1 0 1 "input1"
 }
 inputs
 {
-0 	MOPs_Instancer 0 1
+0 	testgeometry_pighead1 0 1
 }
 stat
 {
-  create 1604893823
-  modify 1604894540
-  author Henry@LAPPY586
+  create 1613104143
+  modify 1613104279
+  author Henry@GlaDOS
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -110,7 +110,7 @@ inputs
 stat
 {
   create 1524060597
-  modify 1604893823
+  modify 1613104144
   author Henry@LAPPY586
   access 0777
 }
@@ -221,7 +221,7 @@ inputs
 stat
 {
   create 1524060597
-  modify 1604893823
+  modify 1613104144
   author Henry@LAPPY586
   access 0777
 }
@@ -307,9 +307,9 @@ group	[ 0	locks=0 ]	(	""	)
 grouptype	[ 0	locks=0 ]	(	"guess"	)
 ignore_no_falloff	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 local	[ 0	locks=0 ]	(	"on"	)
-translate	[ 0	locks=0	autoscope=0 ]	(	[ translatex	0 ] 	[ translatey	0 ] 	[ translatez	0 ] 	)
-rotate	[ 0	locks=0	autoscope=0 ]	(	[ rotatex	0 ] 	[ rotatey	0 ] 	[ rotatez	0 ] 	)
-scale	[ 0	locks=0	autoscope=0 ]	(	[ scalex	1 ] 	[ scaley	1 ] 	[ scalez	1 ] 	)
+translate	[ 0	locks=0	autoscope=0 ]	(	[ translatex	-0.0048185586929321289 ] 	[ translatey	-0.32271131873130798 ] 	[ translatez	0.19423007965087891 ] 	)
+rotate	[ 0	locks=0	autoscope=0 ]	(	[ rotatex	83.361808301157396 ] 	[ rotatey	69.84984502984112 ] 	[ rotatez	82.538146638426497 ] 	)
+scale	[ 0	locks=0	autoscope=0 ]	(	[ scalex	0.96128970384597778 ] 	[ scaley	-0.76731061935424805 ] 	[ scalez	1.0008714199066162 ] 	)
 uniform_scale	[ 0	locks=0	autoscope=0 ]	(	[ uniform_scale	1 ] 	)
 pivot	[ 0	locks=0 ]	(	0	0	0	)
 do_weight	[ 0	locks=0	autoscope=0 ]	(	"off"	)
@@ -365,7 +365,7 @@ inputs
 stat
 {
   create 1524060597
-  modify 1604893823
+  modify 1613104144
   author Henry@LAPPY586
   access 0777
 }
@@ -447,7 +447,7 @@ inputs
 stat
 {
   create 1524060597
-  modify 1604893823
+  modify 1613104144
   author Henry@LAPPY586
   access 0777
 }
@@ -753,7 +753,7 @@ inputs
 stat
 {
   create 1524060597
-  modify 1604893823
+  modify 1613104144
   author Henry@LAPPY586
   access 0777
 }
@@ -1081,7 +1081,7 @@ inputs
 stat
 {
   create 1524060597
-  modify 1604893823
+  modify 1613104144
   author Henry@LAPPY586
   access 0777
 }
@@ -1405,7 +1405,7 @@ inputs
 stat
 {
   create 1524060597
-  modify 1604893823
+  modify 1613104144
   author Henry@LAPPY586
   access 0777
 }
@@ -1533,7 +1533,7 @@ inputs
 stat
 {
   create 1524060597
-  modify 1604893823
+  modify 1613104144
   author Henry@LAPPY586
   access 0777
 }
@@ -1860,7 +1860,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1604893823
+  modify 1613104144
   author Henry@LAPPY586
   access 0777
 }
@@ -1939,7 +1939,7 @@ inputs
 stat
 {
   create 1536023588
-  modify 1604893823
+  modify 1613104144
   author Henry@LAPPY586
   access 0777
 }
@@ -2250,7 +2250,7 @@ inputs
 stat
 {
   create 1568176415
-  modify 1604894308
+  modify 1613104144
   author Henry@LAPPY586
   access 0777
 }
@@ -2273,6 +2273,12 @@ Content-Disposition: attachment; filename="hdaroot/MOPs_Noise_Patterns.chn"
 Content-Type: text/plain
 
 {
+    channel time {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = "if(ch(\"../do_loop\"), @Time % ch(\"../period\"), @Time)" }
+    }
     channel input {
       lefttype = extend
       righttype = extend
@@ -2552,12 +2558,6 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../remap_ramp_3D2interp\") }
     }
-    channel time {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = "if(ch(\"../do_loop\"), @Time % ch(\"../period\"), @Time)" }
-    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2657,7 +2657,7 @@ inputs
 stat
 {
   create 1550446177
-  modify 1604894257
+  modify 1613104144
   author Henry@LAPPY586
   access 0777
 }
@@ -2736,7 +2736,7 @@ inputs
 stat
 {
   create 1550446187
-  modify 1604894239
+  modify 1613104144
   author Henry@LAPPY586
   access 0777
 }
@@ -2817,7 +2817,7 @@ inputs
 stat
 {
   create 1570162863
-  modify 1604893823
+  modify 1613104144
   author Henry@LAPPY586
   access 0777
 }
@@ -3180,7 +3180,7 @@ inputs
 stat
 {
   create 1570310604
-  modify 1604893823
+  modify 1613104144
   author Henry@LAPPY586
   access 0777
 }
@@ -3519,7 +3519,7 @@ inputs
 stat
 {
   create 1583821827
-  modify 1604893823
+  modify 1613104144
   author Henry@LAPPY586
   access 0777
 }
@@ -3622,7 +3622,7 @@ inputs
 stat
 {
   create 1592358223
-  modify 1604893823
+  modify 1613104144
   author Henry@LAPPY586
   access 0777
 }
@@ -3840,7 +3840,7 @@ inputs
 stat
 {
   create 1595708550
-  modify 1604894224
+  modify 1613104144
   author Henry@LAPPY586
   access 0777
 }
@@ -3921,7 +3921,7 @@ inputs
 stat
 {
   create 1568176342
-  modify 1604894260
+  modify 1613104144
   author Henry@LAPPY586
   access 0777
 }
@@ -4348,7 +4348,7 @@ inputs
 stat
 {
   create 1595704867
-  modify 1604894273
+  modify 1613104144
   author Henry@LAPPY586
   access 0777
 }
@@ -4871,7 +4871,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1604893823
+  modify 1613104144
   author Henry@LAPPY586
   access 0777
 }
@@ -5022,7 +5022,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1604893823
+  modify 1613104144
   author Henry@LAPPY586
   access 0777
 }
@@ -5149,7 +5149,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1604893823
+  modify 1613104144
   author Henry@LAPPY586
   access 0777
 }
@@ -5240,7 +5240,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1604893823
+  modify 1613104144
   author Henry@LAPPY586
   access 0777
 }
@@ -5370,7 +5370,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1604893823
+  modify 1613104144
   author Henry@LAPPY586
   access 0777
 }
@@ -5456,7 +5456,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1604893823
+  modify 1613104144
   author Henry@LAPPY586
   access 0777
 }
@@ -5676,7 +5676,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1604893823
+  modify 1613104144
   author Henry@LAPPY586
   access 0777
 }
@@ -5747,7 +5747,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1604893823
+  modify 1613104144
   author Henry@LAPPY586
   access 0777
 }
@@ -5843,7 +5843,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1604893823
+  modify 1613104144
   author Henry@LAPPY586
   access 0777
 }
@@ -6064,7 +6064,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1604893823
+  modify 1613104144
   author Henry@LAPPY586
   access 0777
 }
@@ -6220,7 +6220,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1604893823
+  modify 1613104144
   author Henry@LAPPY586
   access 0777
 }
@@ -6376,7 +6376,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1604893823
+  modify 1613104144
   author Henry@LAPPY586
   access 0777
 }
@@ -6596,7 +6596,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1604893823
+  modify 1613104144
   author Henry@LAPPY586
   access 0777
 }
@@ -6698,7 +6698,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1604893823
+  modify 1613104144
   author Henry@LAPPY586
   access 0777
 }
@@ -6726,7 +6726,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0	autoscope=0 ]	(	[ input	1 ] 	)
+input	[ 0	locks=0	autoscope=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -6773,7 +6773,7 @@ inputs
 stat
 {
   create 1524060598
-  modify 1604893823
+  modify 1613104144
   author Henry@LAPPY586
   access 0777
 }
@@ -6910,7 +6910,7 @@ inputs
 stat
 {
   create 1565319729
-  modify 1604894254
+  modify 1613104144
   author Henry@LAPPY586
   access 0777
 }
@@ -6990,7 +6990,7 @@ inputs
 stat
 {
   create 1565319729
-  modify 1604893823
+  modify 1613104144
   author Henry@LAPPY586
   access 0777
 }
@@ -7054,7 +7054,7 @@ inputs
 stat
 {
   create 1570167447
-  modify 1604893823
+  modify 1613104144
   author Henry@LAPPY586
   access 0777
 }
@@ -7208,7 +7208,7 @@ inputs
 stat
 {
   create 1570312315
-  modify 1604893823
+  modify 1613104144
   author Henry@LAPPY586
   access 0777
 }
@@ -7494,7 +7494,7 @@ inputs
 stat
 {
   create 1588875175
-  modify 1604893823
+  modify 1613104144
   author Henry@LAPPY586
   access 0777
 }
@@ -7569,7 +7569,7 @@ inputs
 stat
 {
   create 1588875215
-  modify 1604893823
+  modify 1613104144
   author Henry@LAPPY586
   access 0777
 }
@@ -7597,7 +7597,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -7644,7 +7644,7 @@ inputs
 stat
 {
   create 1604892717
-  modify 1604894440
+  modify 1613104144
   author Henry@LAPPY586
   access 0777
 }

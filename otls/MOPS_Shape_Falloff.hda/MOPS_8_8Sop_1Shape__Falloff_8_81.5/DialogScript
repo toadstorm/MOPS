@@ -443,7 +443,7 @@
                 label   "Looping Noise"
                 type    toggle
                 default { "0" }
-                disablewhen "{ time_varying 0 }"
+                disablewhen "{ time_varying == 0 }"
                 range   { 0! 10 }
                 parmtag { "autoscope" "0000000000000000" }
                 parmtag { "script_callback_language" "python" }

@@ -32,7 +32,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -7.3529 0.924744
+position -1.69397 -1.78814
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -40,17 +40,17 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	MOPs_Instancer 1 1 "input1"
+0 	subdivide1 1 1 "input1"
 }
 inputs
 {
-0 	MOPs_Instancer 0 1
+0 	subdivide1 0 1
 }
 stat
 {
-  create 1598664408
-  modify 1598666990
-  author Henry@LAPPY586
+  create 1612826682
+  modify 1612826819
+  author Henry@GlaDOS
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -109,7 +109,7 @@ inputs
 stat
 {
   create 1521001039
-  modify 1598665969
+  modify 1612826682
   author Henry@LAPPY586
   access 0777
 }
@@ -466,7 +466,7 @@ folder1	[ 0	locks=0 ]	(	0	0	)
 min	[ 0	locks=0 ]	(	[ min	0 ] 	)
 max	[ 0	locks=0 ]	(	[ max	1 ] 	)
 auto_range	[ 0	locks=0 ]	(	[ auto_range	1 ] 	)
-do_remap	[ 0	locks=0 ]	(	[ do_remap	1 ] 	)
+do_remap	[ 0	locks=0 ]	(	[ do_remap	0 ] 	)
 remap_ramp	[ 0	locks=0 ]	(	[ remap_ramp	2 ] 	)
 remap_ramp1pos	[ 0	locks=0 ]	(	[ remap_ramp1pos	0 ] 	)
 remap_ramp1value	[ 0	locks=0 ]	(	[ remap_ramp1value	0 ] 	)
@@ -520,7 +520,7 @@ inputs
 stat
 {
   create 1536026656
-  modify 1598667060
+  modify 1612826682
   author Henry@LAPPY586
   access 0777
 }
@@ -805,7 +805,7 @@ inputs
 stat
 {
   create 1598666029
-  modify 1598667009
+  modify 1612826682
   author Henry@LAPPY586
   access 0777
 }
@@ -859,10 +859,10 @@ Content-Type: text/plain
 version 0.8
 group	[ 0	locks=0	autoscope=0 ]	(	`chs(\"../falloff_from_attribute/group\")`	)
 grouptype	[ 0	locks=0	autoscope=0 ]	(	[ grouptype	0 ] 	)
-falloff_attr	[ 0	locks=0	autoscope=0 ]	(	[ falloff_attr	piss ] 	)
-input	[ 0	locks=0	autoscope=0 ]	(	[ input	0 ] 	)
+falloff_attr	[ 0	locks=0	autoscope=0 ]	(	[ falloff_attr	mops_falloff ] 	)
+input	[ 0	locks=0	autoscope=0 ]	(	[ input	8 ] 	)
 strength	[ 0	locks=0	autoscope=0 ]	(	[ strength	1 ] 	)
-switchclamp	[ 0	locks=0	autoscope=0 ]	(	[ switchclamp	1 ] 	)
+switchclamp	[ 0	locks=0	autoscope=0 ]	(	[ switchclamp	0 ] 	)
 sepparm	[ 0	locks=0 ]	(	)
 do_preview	[ 0	locks=0 ]	(	"off"	)
 folder0	[ 0	locks=0 ]	(	0	)
@@ -930,7 +930,7 @@ inputs
 stat
 {
   create 1527557574
-  modify 1598664408
+  modify 1612826682
   author Henry@LAPPY586
   access 0777
 }
@@ -1146,7 +1146,7 @@ vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
-bindname1	[ 0	locks=0 ]	(	[ bindname1	piss ] 	)
+bindname1	[ 0	locks=0 ]	(	[ bindname1	mops_falloff ] 	)
 bindparm1	[ 0	locks=0 ]	(	attr	)
 }
 
@@ -1192,7 +1192,7 @@ inputs
 stat
 {
   create 1521001572
-  modify 1598664408
+  modify 1612826682
   author Henry@LAPPY586
   access 0777
 }
@@ -1225,7 +1225,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -1260,7 +1260,7 @@ inputs
 stat
 {
   create 1521001572
-  modify 1598664408
+  modify 1612826682
   author Henry@LAPPY586
   access 0777
 }
@@ -1293,7 +1293,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -1328,7 +1328,7 @@ inputs
 stat
 {
   create 1522551540
-  modify 1598664408
+  modify 1612826682
   author henry@GlaDOS
   access 0777
 }
@@ -1403,7 +1403,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -1462,7 +1462,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -1523,7 +1523,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -1558,7 +1558,7 @@ inputs
 stat
 {
   create 1582597108
-  modify 1582597536
+  modify 1612826832
   author Henry@LAPPY586
   access 0777
 }
@@ -1583,6 +1583,8 @@ in_parm = node.node(\"..\").evalParm('attrname')
 parm_formatted = in_parm.split('.')[0]
 attr = geo.findPointAttrib(parm_formatted)
 prefix = \"f\"
+if attr is None:
+    raise hou.Error(\"Point attribute {} does not exist!\".format(in_parm))
 if attr.dataType() == hou.attribData.Int:
     prefix = \"i\"
 elif attr.size() == 2:
@@ -1604,7 +1606,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
@@ -1641,7 +1643,7 @@ inputs
 stat
 {
   create 1598665587
-  modify 1598666970
+  modify 1612826682
   author Henry@LAPPY586
   access 0777
 }
@@ -1669,7 +1671,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1679,7 +1681,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.460"
+		"value":"18.0.597"
 	}
 }
 
