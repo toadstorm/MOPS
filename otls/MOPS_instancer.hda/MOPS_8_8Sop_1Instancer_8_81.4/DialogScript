@@ -1002,6 +1002,15 @@
             parmtag { "script_callback_language" "python" }
         }
         parm {
+            name    "do_interpolate_scale"
+            label   "Interpolate Scale Attrs"
+            type    toggle
+            default { "off" }
+            disablewhen "{ do_interpolation 0 }"
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
             name    "template_rest_frame"
             label   "Template Rest Frame"
             type    float

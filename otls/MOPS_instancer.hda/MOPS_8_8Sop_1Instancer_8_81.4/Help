@@ -132,6 +132,10 @@ Enable Template Interpolation:
     #id: do_interpolation
     When instancing onto an animated mesh or curves, enable automatic interpolation of the instances' position and orientation to match the template geometry. This makes the Instancer much faster. If your template geometry has a changing point count, you will want to disable this.
     
+Interpolate Scale Attrs:
+    #id: do_interpolate_scale
+    If enabled, consider scaling attributes (scale and pscale) on the template geometry when interpolating. If you don't have these attributes on your template points, leave this disabled.
+    
 Template Rest Frame:
     #id: template_rest_frame
     When instancing onto an animated mesh, the frame to use as the "rest" (default) frame. Instances will automatically interpolate their positions and orientations on an animated mesh, based on this default state. 
