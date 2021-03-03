@@ -1,0 +1,260 @@
+import re
+
+INSTANCER_PARMS = {'single': ['instancetype', 'instancepath', 'instancefilepath', 'cycletype',
+                              'frameselect', 'frameindex', 'frameattr',
+                              'instance_probability', 'pack_from', 'instance_material'],
+                   'vector2': ['frange'],
+                   'vector3': ['instance_translate', 'instance_rotate', 'instance_scale', 'instance_pivot']
+                   }
+
+
+def reload_files(kwargs):
+    me = kwargs["node"]
+    me.node("file3").parm("reload").pressButton()
+    me.node("load_file_sequence").parm("reload").pressButton()
+    me.node("load_alembic").parm("reload").pressButton()
+                   
+def swap_multi_parms(node, index1, index2):
+    """
+    given two multiparm indexes, exchange the underlying
+    parameter values. this is in case a user swaps inputs.
+    """
+    # print('swapping {} multiparm instances {} and {}'.format(node.name(), index1, index2))
+    index1_values = dict()
+    index2_values = dict()
+    for parmtype in INSTANCER_PARMS:
+        for p in INSTANCER_PARMS[parmtype]:
+
+            # print('storing parameter: {}'.format(p + str(index1)))
+            if parmtype == 'single':
+                index1_values[p] = node.parm(p + str(index1)).rawValue()
+                index2_values[p] = node.parm(p + str(index2)).rawValue()
+            elif parmtype == 'vector2':
+                for comp in ['1', '2']:
+                    index1_values[p + comp] = node.parm(p + str(index1) + comp).rawValue()
+                    index2_values[p + comp] = node.parm(p + str(index2) + comp).rawValue()
+            elif parmtype == 'vector3':
+                for comp in ['x', 'y', 'z']:
+                    index1_values[p + comp] = node.parm(p + str(index1) + comp).rawValue()
+                    index2_values[p + comp] = node.parm(p + str(index2) + comp).rawValue()
+    # now swap.
+    for parmtype in INSTANCER_PARMS:
+        for p in INSTANCER_PARMS[parmtype]:
+            if parmtype == 'single':
+                try:
+                    node.parm(p + str(index1)).set(index2_values[p])
+                    node.parm(p + str(index2)).set(index1_values[p])
+                except:
+                    node.parm(p + str(index1)).setExpression(index2_values[p])
+                    node.parm(p + str(index2)).setExpression(index1_values[p])
+            elif parmtype == 'vector2':
+                for comp in ['1', '2']:
+                    try:
+                        node.parm(p + str(index1) + comp).set(index2_values[p + comp])
+                        node.parm(p + str(index2) + comp).set(index1_values[p + comp])
+                    except:
+                        node.parm(p + str(index1) + comp).setExpression(index2_values[p + comp])
+                        node.parm(p + str(index2) + comp).setExpression(index1_values[p + comp])
+            elif parmtype == 'vector3':
+                for comp in ['x', 'y', 'z']:
+                    try:
+                        node.parm(p + str(index1) + comp).set(index2_values[p + comp])
+                        node.parm(p + str(index2) + comp).set(index1_values[p + comp])
+                    except:
+                        node.parm(p + str(index1) + comp).setExpression(index2_values[p + comp])
+                        node.parm(p + str(index2) + comp).setExpression(index1_values[p + comp])
+
+
+def onInstancePathChanged(kwargs):
+    node = kwargs['node']
+    parm = kwargs['parm']
+
+    """
+    get updated instance path, if it's an OBJ and not a SOP,
+    see if there's a material applied to that OBJ.
+    if there is, we're going to apply that as the override
+    material for this layer.
+    """
+
+    newPath = hou.node(parm.eval()).path()
+    relPath = node.relativePathTo(hou.node(newPath))
+    assigned = False
+    # get number of modified multiparm
+    test = re.match('^.+?(\d+)$', parm.name())
+    num = -1
+    if test:
+        num = test.groups()[0]
+        override_parm = node.parm('instance_material' + num)
+
+    if hou.node(newPath) is not None and override_parm:
+        newType = hou.node(newPath).type().name()
+        if newType == 'geo':
+            # get this object's material assignment
+            mat = hou.node(newPath).parm('shop_materialpath').eval()
+            if mat:
+                # apply as override to instance_material#
+                override_expr = '`chsop("{}/shop_materialpath")`'.format(newPath)
+                override_parm.set(override_expr, follow_parm_reference=True)
+                assigned = True
+    if not assigned:
+        override_parm.revertToDefaults()
+
+
+def do_quick_select(kwargs):
+    """ Fires when Quick Add parm is modified. Add all object paths to the multiparm list. """
+    me = kwargs['node']
+    paths = me.evalParm('quick_add').split()
+    me.parm('quick_add').set("")
+    # scale = me.evalParm('quick_scale')
+    if paths:
+        for i in paths:
+            index = me.parm('instanceobjects').evalAsInt()
+            # get path relative to instancer
+            relpath = me.relativePathTo(hou.node(i))
+            me.parm('instanceobjects').insertMultiParmInstance(index)
+            me.parm('instancepath' + str(index + 1)).set(relpath)
+            # me.parm('instance_pscale' + str(index + 1)).set(scale)
+
+def get_input_indexes(node):
+    """ Get the indexes of any multiparm entries that represent inputs. """
+    indexes = list()
+    for x in range(1, node.parm('instanceobjects').eval()+1):
+        index = node.parm('inputindex'+str(x)).eval()
+        if index != -1:
+            indexes.append(x)
+    return indexes
+
+def get_valid_inputs(node):
+    """ Get a list of valid input indexes (they point to an actual node). """
+    return [f for f in node.inputs() if f is not None]
+
+def on_input_changed(kwargs):
+    """ Determine what kind of change was made to inputs, and update the multiparm block. """
+    me = kwargs['node']
+    if me.parm('multiparm_event').eval() == 1:
+        return
+    # lock out multiparm event
+    me.parm('input_event').set(1)
+    multiparm_count = me.parm('instanceobjects').eval()
+    input_indexes = get_input_indexes(me)
+    inputs = get_valid_inputs(me)
+    if len(input_indexes) < len(inputs):
+        # make a new multiparm entry
+        new_input = me.inputs()[int(kwargs['input_index'])]
+        me.parm('instanceobjects').insertMultiParmInstance(multiparm_count)
+        # set attributes depending on input type (sop or file)
+        seq_type = is_input_sequence(new_input)
+        if seq_type:
+            path = None
+            if seq_type == 'file':
+                path = new_input.parm('file')
+            elif seq_type == 'alembic':
+                path = new_input.parm('fileName')
+            me.parm('instancetype'+str(multiparm_count+1)).set(1)
+            me.parm('instancefilepath'+str(multiparm_count+1)).setFromParm(path)
+        else:
+            new_path = me.relativePathTo(new_input)
+            me.parm('instancetype'+str(multiparm_count+1)).set(0)
+            me.parm('instancepath'+str(multiparm_count+1)).set(new_path)
+        me.parm('inputindex'+str(multiparm_count+1)).set(int(kwargs['input_index']))
+        me.parm('pack_from'+str(multiparm_count+1)).set(int(me.evalParm("packfromdefault")))
+
+    elif len(input_indexes) > len(inputs):
+        # remove the multiparm entry whose index matches kwargs['input_index']
+        for x in range(1, multiparm_count+1):
+            inputindex = me.parm('inputindex'+str(x)).eval()
+            if inputindex == int(kwargs['input_index']):
+                me.parm('instanceobjects').removeMultiParmInstance(x-1)
+                break
+
+    else:
+        # find the first two entries in the multiparm whose inputindex doesn't match the actual input, and switch
+        swap_indexes = list()
+        for x in range(1, multiparm_count+1):
+            parmindex = me.parm('inputindex'+str(x)).eval()
+            parmpath = me.parm('instancepath'+str(x)).eval()
+            parmfilepath = me.parm('instancefilepath'+str(x)).eval()
+            parminstancetype = me.parm('instancetype'+str(x)).eval()
+            if parmindex != -1:
+                # check index vs actual input.
+                parmfullpath = None
+                inputfullpath = None
+                if(parminstancetype == 0):
+                    # if this node doesn't evaluate to anything, we deleted a
+                    # node with other upstream connections.
+                    try:
+                        parmfullpath = me.node(parmpath).path()
+                    except AttributeError:
+                        # just update the input path and skip the rest.
+                        parmfullpath = me.inputs()[parmindex].path()
+                        me.parm('instancepath'+str(x)).set(me.relativePathTo(hou.node(parmfullpath)))
+                    inputfullpath = me.inputs()[parmindex].path()
+                else:
+                    # this is a File or Alembic
+                    parmfullpath = parmfilepath
+                    inputtype = me.inputs()[parmindex].type().name()
+                    if inputtype == 'file':
+                        inputfullpath = me.inputs()[parmindex].parm('file').rawValue()
+                    elif inputtype == 'alembic':
+                        inputfullpath = me.inputs()[parmindex].parm('fileName').rawValue()
+                if parmfullpath != inputfullpath:
+                    swap_indexes.append(x)
+                    if len(swap_indexes) == 2:
+                        # print("swapping indexes")
+                        swap_multi_parms(me, swap_indexes[0], swap_indexes[1])
+                        break
+        # if only one index was mismatched, just update the multiparm.
+        if len(swap_indexes) == 1:
+            input = me.inputs()[int(kwargs['input_index'])]
+            # check input type and set parms as needed
+            seq_type = is_input_sequence(input)
+            if seq_type:
+                path = None
+                if seq_type == 'file':
+                    path = input.parm('file')
+                elif seq_type == 'alembic':
+                    path = input.parm('fileName')
+                me.parm('instancetype'+str(swap_indexes[0])).set(1)
+                me.parm('instancefilepath'+str(swap_indexes[0])).setFromParm(path)
+            else:
+                relativepath = me.relativePathTo(input)
+                me.parm('instancetype'+str(swap_indexes[0])).set(0)
+                me.parm('instancepath'+str(swap_indexes[0])).set(relativepath)
+    me.parm('input_event').set(0)
+
+def on_multiparm_changed(kwargs):
+    """ Determine what kind of change was made to the multiparm, and update inputs if required. """
+    me = kwargs['node']
+    if me.parm('input_event').eval() == 1:
+        return
+    # lock out input event
+    me.parm('multiparm_event').set(1)
+    # collect all multiparm inputindexes
+    multiparm_count = me.parm('instanceobjects').eval()
+    input_indexes = list()
+    for x in range(1, multiparm_count+1):
+        index = me.parm('inputindex'+str(x)).eval()
+        if index != -1:
+            input_indexes.append(index)
+    # for each input, see if it's in that list.
+    for x in reversed(range(0, len(me.inputs()))):
+        if x not in input_indexes:
+            me.setInput(x, None)
+
+    me.parm('multiparm_event').set(0)
+
+def is_input_sequence(node):
+    """ returns True if the incoming node is an Alembic or File SOP. """
+    nodetype = node.type().name()
+    if nodetype in ('file', 'alembic'):
+        return nodetype
+    return False
+
+def on_instancetype_changed(kwargs):
+    """ if inputindex of this same parm's index is not -1, disconnect. """
+    parmname = kwargs['parm'].name()
+    regex = "(\d+)$"
+    num = re.match(regex, parmname).group(0)
+    inputindex = kwargs['node'].parm('inputindex'+num).eval()
+    if inputindex != -1:
+        kwargs['node'].setInput(inputindex, None)
