@@ -1,7 +1,7 @@
-# Dialog script for MOPS::Instancer::1.4 automatically generated
+# Dialog script for MOPS::Instancer::1.5 automatically generated
 
 {
-    name	MOPS::Instancer::1.4
+    name	MOPS::Instancer::1.5
     script	MOPS::Instancer::1.1
     label	"MOPs Instancer"
 
@@ -1006,7 +1006,7 @@
             label   "Interpolate Scale Attrs"
             type    toggle
             default { "off" }
-            disablewhen "{ do_interpolation 0 }"
+            disablewhen "{ do_interpolation == 0 }"
             range   { 0 10 }
             parmtag { "autoscope" "0000000000000000" }
         }
@@ -1617,29 +1617,22 @@
                 parmtag { "autoscope" "0000000000000000" }
             }
             parm {
-                name    "honeycomb_rows"
-                label   "Rows"
-                type    integer
-                default { "5" }
-                range   { 1! 20 }
-                parmtag { "autoscope" "0000000000000000" }
-            }
-            parm {
-                name    "honeycomb_cols"
-                label   "Columns"
-                type    integer
-                default { "5" }
-                range   { 1! 20 }
-                parmtag { "autoscope" "0000000000000000" }
+                name    "honeycomb_dims"
+                label   "Dimensions"
+                type    intvector
+                size    3
+                default { "5" "1" "5" }
+                range   { 1! 10 }
+                parmtag { "script_callback_language" "python" }
             }
             parm {
                 name    "honeycomb_rad"
-                label   "Radius"
-                type    vector2
-                size    2
-                default { "1" "1" }
+                label   "Cell Radius"
+                type    vector
+                size    3
+                default { "1" "1" "1" }
                 range   { -1 1 }
-                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
             }
         }
 
