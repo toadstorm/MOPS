@@ -32,25 +32,25 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -13.3944 -12.3368
+position -3.1388 5.94446
 connectornextid 2
-flags =  lock off model off template on footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-0 "output1"
+1 "output1"
 }
 inputsNamed3
 {
-1 	MOPs_Align 1 1 "input1"
+0 	pivot 0 1 "input1"
 }
 inputs
 {
-0 	MOPs_Align 0 1
+0 	pivot 0 1
 }
 stat
 {
-  create 1607451266
-  modify 1607452015
+  create 1614895957
+  modify 1614896305
   author Henry@GlaDOS
   access 0777
 }
@@ -108,7 +108,7 @@ inputs
 stat
 {
   create 1524695134
-  modify 1607451267
+  modify 1614895957
   author Henry@LAPPY586
   access 0777
 }
@@ -357,7 +357,7 @@ vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
 vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
-do_full_transform	[ 0	locks=0 ]	(	[ do_full_transform	1 ] 	)
+do_full_transform	[ 0	locks=0 ]	(	[ do_full_transform	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -402,7 +402,7 @@ inputs
 stat
 {
   create 1583522390
-  modify 1607451709
+  modify 1614895957
   author Henry@LAPPY586
   access 0777
 }
@@ -685,7 +685,7 @@ vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 do_full_transform	[ 8	locks=0 ]	(	[ do_full_transform	0 ] 	)
 do_pivot	[ 0	locks=0 ]	(	[ do_pivot	1 ] 	)
-simplify_scale	[ 0	locks=0 ]	(	[ simplify_scale	1 ] 	)
+simplify_scale	[ 0	locks=0 ]	(	[ simplify_scale	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -730,7 +730,7 @@ inputs
 stat
 {
   create 1584916562
-  modify 1607451267
+  modify 1614895957
   author Henry@LAPPY586
   access 0777
 }
@@ -816,7 +816,7 @@ inputs
 stat
 {
   create 1607302831
-  modify 1607451598
+  modify 1614895957
   author Henry@GlaDOS
   access 0777
 }
@@ -1088,7 +1088,7 @@ inputs
 stat
 {
   create 1542257157
-  modify 1607451267
+  modify 1614895957
   author Henry@LAPPY586
   access 0777
 }
@@ -1424,7 +1424,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.54794 -4.84195
+position 1.47033 -6.11694
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1444,7 +1444,7 @@ inputs
 stat
 {
   create 1550365152
-  modify 1607451267
+  modify 1614896343
   author Henry@LAPPY586
   access 0777
 }
@@ -1651,7 +1651,7 @@ inputs
 stat
 {
   create 1584916552
-  modify 1607451267
+  modify 1614895957
   author Henry@LAPPY586
   access 0777
 }
@@ -1727,7 +1727,7 @@ inputs
 stat
 {
   create 1585514990
-  modify 1607451423
+  modify 1614895957
   author Henry@LAPPY586
   access 0777
 }
@@ -1775,7 +1775,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 spare_input0	[ 0	locks=0 ]	(	../attribpromote6	)
 }
 
@@ -1889,7 +1889,7 @@ inputs
 stat
 {
   create 1585515095
-  modify 1607302831
+  modify 1614896355
   author Henry@LAPPY586
   access 0777
 }
@@ -1906,7 +1906,7 @@ Content-Type: text/plain
 version 0.8
 ptdel	[ 0	locks=0 ]	(	""	)
 vtxdel	[ 0	locks=0 ]	(	""	)
-primdel	[ 0	locks=0 ]	(	"N orient pscale scale up"	)
+primdel	[ 0	locks=0 ]	(	"N orient pscale scale up pivot"	)
 dtldel	[ 0	locks=0 ]	(	__haspackedtransform	)
 updatevar	[ 0	locks=0 ]	(	"on"	)
 }
