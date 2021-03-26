@@ -32,7 +32,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -10.962 -13.3253
+position 2.50051 -12.9266
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -41,18 +41,18 @@ outputsNamed3
 }
 inputsNamed3
 {
-1 	(__dot1) "" 1 "input1"
-2 	do_noise1 0 1 "input2"
+1 	Apply_Attributes1 0 1 "input1"
+2 	attribrandomize4 1 1 "input2"
 }
 inputs
 {
-0 	(__dot1) 0 1
-1 	do_noise1 0 1
+0 	Apply_Attributes1 0 1
+1 	attribrandomize4 0 1
 }
 stat
 {
-  create 1603744387
-  modify 1604893128
+  create 1616724006
+  modify 1616724114
   author Henry@GlaDOS
   access 0777
 }
@@ -113,7 +113,7 @@ inputs
 stat
 {
   create 1524060262
-  modify 1608155629
+  modify 1616724007
   author Henry@LAPPY586
   access 0777
 }
@@ -405,7 +405,7 @@ inputs
 stat
 {
   create 1524060262
-  modify 1608155635
+  modify 1616724007
   author Henry@LAPPY586
   access 0777
 }
@@ -697,7 +697,7 @@ inputs
 stat
 {
   create 1524060262
-  modify 1608155641
+  modify 1616724007
   author Henry@LAPPY586
   access 0777
 }
@@ -991,7 +991,7 @@ inputs
 stat
 {
   create 1524060262
-  modify 1608155645
+  modify 1616724007
   author Henry@LAPPY586
   access 0777
 }
@@ -1285,7 +1285,7 @@ inputs
 stat
 {
   create 1524060262
-  modify 1608155673
+  modify 1616724007
   author Henry@LAPPY586
   access 0777
 }
@@ -1594,7 +1594,7 @@ inputs
 stat
 {
   create 1524060262
-  modify 1608155680
+  modify 1616724007
   author Henry@LAPPY586
   access 0777
 }
@@ -1907,7 +1907,7 @@ inputs
 stat
 {
   create 1524060262
-  modify 1608155685
+  modify 1616724007
   author Henry@LAPPY586
   access 0777
 }
@@ -2213,7 +2213,7 @@ inputs
 stat
 {
   create 1524060262
-  modify 1608155691
+  modify 1616724007
   author Henry@LAPPY586
   access 0777
 }
@@ -2517,7 +2517,7 @@ inputs
 stat
 {
   create 1524060262
-  modify 1598666818
+  modify 1616724007
   author Henry@LAPPY586
   access 0777
 }
@@ -2613,7 +2613,7 @@ inputs
 stat
 {
   create 1524060262
-  modify 1608155622
+  modify 1616724007
   author Henry@LAPPY586
   access 0777
 }
@@ -2904,7 +2904,7 @@ inputs
 stat
 {
   create 1524060262
-  modify 1608155528
+  modify 1616724007
   author Henry@LAPPY586
   access 0777
 }
@@ -2988,7 +2988,7 @@ inputs
 stat
 {
   create 1536023239
-  modify 1598666945
+  modify 1616724155
   author Henry@LAPPY586
   access 0777
 }
@@ -3046,19 +3046,56 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../falloff_heatmap1interp\") }
     }
+    channel do_preview {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../do_preview\") }
+    }
+    channel do_sprite {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../do_sprite\") }
+    }
+    channel spritescale {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../spritescale\") }
+    }
+    channel override_scale {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../override_scale\") }
+    }
+    channel ramp_preset {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../ramp_preset\") }
+    }
+    channel falloff_heatmap {
+      lefttype = extend
+      righttype = extend
+      default = 5
+      flags = 0
+      segment { length = 0 value = 5 5 expr = ch(\"../falloff_heatmap\") }
+    }
     channel falloff_heatmap2pos {
       lefttype = extend
       righttype = extend
-      default = 0.27027025818824768
       flags = 0
-      segment { length = 0 value = 0.27027025818824768 0.27027025818824768 expr = ch(\"../falloff_heatmap2pos\") }
+      segment { length = 0 expr = ch(\"../falloff_heatmap2pos\") }
     }
     channel falloff_heatmap2cr {
       lefttype = extend
       righttype = extend
-      default = 0.7369999885559082
       flags = 0
-      segment { length = 0 value = 0.7369999885559082 0.7369999885559082 expr = ch(\"../falloff_heatmap2cr\") }
+      segment { length = 0 expr = ch(\"../falloff_heatmap2cr\") }
     }
     channel falloff_heatmap2cg {
       lefttype = extend
@@ -3172,45 +3209,6 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../falloff_heatmap5interp\") }
     }
-    channel do_preview {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../do_preview\") }
-    }
-    channel do_sprite {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../do_sprite\") }
-    }
-    channel spritescale {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../spritescale\") }
-    }
-    channel override_scale {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../override_scale\") }
-    }
-    channel ramp_preset {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../ramp_preset\") }
-    }
-    channel falloff_heatmap {
-      lefttype = extend
-      righttype = extend
-      default = 5
-      flags = 0
-      segment { length = 0 value = 5 5 expr = ch(\"../falloff_heatmap\") }
-    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -3219,7 +3217,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-do_preview	[ 0	locks=0 ]	(	[ do_preview	0 ] 	)
+do_preview	[ 0	locks=0 ]	(	[ do_preview	1 ] 	)
 falloff_attr	[ 0	locks=0 ]	(	`chs(\"../falloff_attr\")`	)
 do_sprite	[ 0	locks=0 ]	(	[ do_sprite	1 ] 	)
 spritemap	[ 0	locks=0 ]	(	sphere_matte.pic	)
@@ -3424,7 +3422,7 @@ inputs
 stat
 {
   create 1524060262
-  modify 1598666030
+  modify 1616724007
   author Henry@LAPPY586
   access 0777
 }
@@ -3499,7 +3497,7 @@ inputs
 stat
 {
   create 1524060262
-  modify 1598666030
+  modify 1616724007
   author Henry@LAPPY586
   access 0777
 }
@@ -3633,7 +3631,7 @@ inputs
 stat
 {
   create 1592094917
-  modify 1598666030
+  modify 1616724007
   author Henry@LAPPY586
   access 0777
 }
@@ -3661,7 +3659,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	0 ] 	)
+input	[ 0	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
