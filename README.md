@@ -11,10 +11,11 @@ MOPs is based on an internal framework of nodes that convert point attributes to
 
 * [**MOPs Wiki**](https://github.com/toadstorm/MOPS/wiki)
 * [MOPs Forum](https://forum.motionoperators.com)
-* [Facebook User's Group](https://www.facebook.com/groups/616993195326231)
+* [MOPs Discord](https://discord.gg/TSb3unn6uf)
 * [Motionoperators Twitter](https://twitter.com/motionoperators)
 * [Motionoperators Instagram](https://www.instagram.com/motionoperators)
-* [MOPs Discord](https://discord.gg/TSb3unn6uf)
+* [Facebook User's Group](https://www.facebook.com/groups/616993195326231)
+
 
 ### Installation:
 
