@@ -356,7 +356,7 @@ class MOPsUpdateWindow(QtWidgets.QDialog):
                 do_analytics = self.do_analytics.isChecked()
                 update_houdini_env(HOUDINI_ENV, do_analytics)
             # compress HDAs
-            mops_tools.collapse_hdas(os.path.join(install_path, 'otls'))
+            # mops_tools.collapse_hdas(os.path.join(install_path, 'otls'))
             # notify user
             msg = '{} release {} installed. Please restart Houdini to see changes.'.format(self.branch.upper(), release)
             if self.update_env.isChecked():

@@ -1,9 +1,0 @@
-def editPreset(kwargs):
-    me = kwargs["node"]
-    parm = kwargs["parm"]
-    if parm.eval() == 0:
-        me.parm('attscope').set('P orient scale')
-        me.parm('chanscope').set('t[xyz] o[xyzw] s[xyz]')
-    else:
-        me.parm('attscope').set('P orient scale Cd')
-        me.parm('chanscope').set('t[xyz] o[xyzw] s[xyz] cd[rgb]')
