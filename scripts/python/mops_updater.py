@@ -1,5 +1,11 @@
 import json
-import urllib2
+try:
+	from urllib.request import urlopen
+	from urllib.request import Request
+except:
+	from urllib2 import urlopen
+	from urllib2.request import Request
+
 import contextlib
 import ssl
 import os
@@ -69,7 +75,7 @@ def get_releases():
     :return: a list of releases (version numbers).
     """
     releases = list()
-    with contextlib.closing(urllib2.urlopen(urllib2.Request(MOPS_URL + "/releases"), context=ssl._create_unverified_context())) as response:
+    with contextlib.closing(urlopen(Request(MOPS_URL + "/releases"), context=ssl._create_unverified_context())) as response:
         data = response.read()
         # print(data)
         if data == "":
@@ -97,7 +103,7 @@ def get_download_path(release):
     """
     # response = urllib.urlopen(MOPS_URL + "/releases/tags/" + release)
     jdata = dict()
-    with contextlib.closing(urllib2.urlopen(urllib2.Request(MOPS_URL + "/releases/tags/" + release), context=ssl._create_unverified_context())) as response:
+    with contextlib.closing(urlopen(Request(MOPS_URL + "/releases/tags/" + release), context=ssl._create_unverified_context())) as response:
         data = response.read()
         # print(data)
         if data == "":
