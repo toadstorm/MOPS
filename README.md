@@ -9,11 +9,13 @@ MOPs is intended to be an easy way to manipulate lots of copies of things, lever
 
 MOPs is based on an internal framework of nodes that convert point attributes to packed primitive intrinsic attributes and back again, making it easy for technical artists to develop new MOPs modifiers.
 
+* [**MOPs Wiki**](https://github.com/toadstorm/MOPS/wiki)
 * [MOPs Forum](https://forum.motionoperators.com)
-* [Facebook User's Group](https://www.facebook.com/groups/616993195326231)
+* [MOPs Discord](https://discord.gg/TSb3unn6uf)
 * [Motionoperators Twitter](https://twitter.com/motionoperators)
 * [Motionoperators Instagram](https://www.instagram.com/motionoperators)
-* [MOPs Discord](https://discord.gg/TSb3unn6uf)
+* [Facebook User's Group](https://www.facebook.com/groups/616993195326231)
+
 
 ### Installation:
 
