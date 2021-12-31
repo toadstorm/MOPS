@@ -123,7 +123,7 @@ def download_url(source):
     if not os.path.exists(os.path.dirname(local_path)):
         os.makedirs(os.path.dirname(local_path))
     try:
-        zipfile = urllib2.urlopen(source, context=ssl._create_unverified_context())
+        zipfile = urlopen(source, context=ssl._create_unverified_context())
         with open(local_path, 'wb') as output:
             output.write(zipfile.read())
     except:

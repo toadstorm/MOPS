@@ -14,6 +14,7 @@
     <memberTool name="wiki"/>
     <memberTool name="mops_donate"/>
     <memberTool name="mops_feedback"/>
+    <memberTool name="mops_bake_camera"/>
   </toolshelf>
 
   <tool name="MOPS_convert_point_instances" label="MOPs to Point Instances" icon="opdef:MOPS::Sop/Instancer::1.1?mops_instancing.svg">
@@ -347,5 +348,18 @@ Moritz and Henry]]></helpText>
 url = 'https://www.motionoperators.com/contact'
 
 webbrowser.open(url)]]></script>
+  </tool>
+
+  <tool name="mops_bake_camera" label="Bake Camera" icon="opdef:MOPS::Sop/Instancer::1.5?bread.svg">
+    <script scriptType="python"><![CDATA[import mops_tools
+import toolutils
+
+prompt = toolutils.selectionPrompt(hou.objNodeTypeCategory())
+scene_viewer = toolutils.sceneViewer()
+selection = scene_viewer.selectObjects(prompt)
+
+if selection:
+    cam = selection[0]
+    mops_tools.bake_camera(cam)]]></script>
   </tool>
 </shelfDocument>
