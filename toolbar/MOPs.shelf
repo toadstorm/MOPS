@@ -106,7 +106,7 @@ for network in INSTANCE_DICT:
         instances_container.setDisplayFlag(False)
     nodes_to_align.append(instances_container)
 
-    for i, v in INSTANCE_DICT[network]['paths'].iteritems():
+    for i, v in INSTANCE_DICT[network]['paths'].items():
         # name = i.replace('/', '_')
         name = re.sub('[^\w_ ]', '_', i)
         instanced_node = instances_container.node(name)
