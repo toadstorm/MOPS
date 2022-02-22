@@ -176,7 +176,7 @@ for i in sel:
     # generate instancing string.
     instances_container = hou.node('/obj/{}_MOPS_INSTANCES'.format(i.name()))
     instance_snippet = ""
-    for k, v in INSTANCE_DICT[i.path()]['paths'].iteritems():
+    for k, v in INSTANCE_DICT[i.path()]['paths'].items():
         name = re.sub('[^\w_ ]', '_', k)
         container = instances_container.node(name)
         instance_snippet += 'if(i@mops_index == {}) s@instance = "{}";\n'.format(v['index'], container.path())
