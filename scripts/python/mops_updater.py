@@ -145,7 +145,7 @@ def extract_update(zip_file):
     install_path = hou.getenv('MOPS')
     if install_path is None:
         # prompt user for proper install path...
-        install_path = QtWidgets.QFileDialog.getExistingDirectory(self, 'Choose install parent directory...', HOUDINI_USER_PREF_DIR)
+        install_path = QtWidgets.QFileDialog.getExistingDirectory(hou.qt.mainWindow(), 'Choose install parent directory...', HOUDINI_USER_PREF_DIR)
         install_path = os.path.join(install_path, "MOPS")
     if install_path is None:
         return
