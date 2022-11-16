@@ -21,6 +21,8 @@ MOPs is based on an internal framework of nodes that convert point attributes to
 
 **INSTALLATION PROCEDURE HAS BEEN SIMPLIFIED FROM PREVIOUS RELEASES. PLEASE READ CAREFULLY.**
 
+For detailed instructions and troubleshooting, see the [Installation](https://github.com/toadstorm/MOPS/wiki/Installation) page on the MOPs Wiki.
+
 ## Step 1: Downloading MOPs
 
 You need to download MOPs from GitHub and then save them somewhere on a local drive or network share. It's important that you **do not** install MOPs directly into your `$HOME/houdiniXX.X` directory, or else it may not properly be loaded when you start Houdini.
