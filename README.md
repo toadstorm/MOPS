@@ -38,7 +38,7 @@ Download the desired release directly from the [releases page](https://github.co
 
 **Option 1: Plugin (17.5+ only)**
 For those of you running Houdini 17.5 or later, you have an option for a much easier install. 
-Simply create a folder inside your Houdini preferences directory (where the houdini.env typically is) called "packages", and place the MOPS.json file from the MOPs download into that package folder. Your preferences directory on Windows is typically in `My Documents\houdiniXX.X`. In OS X it's in `~Library/Preferences/Houdini`.
+Simply create a folder inside your Houdini preferences directory (where the houdini.env typically is) called "packages", and place the MOPS.json file from the MOPs download into that package folder. Your preferences directory on Windows is typically in `My Documents\houdiniXX.X`. In OS X it's in `~Library/Preferences/Houdini/XX.X`. On Linux it's in `~/houdiniX.Y`.
 
 Then edit MOPS.json and change the "MOPS" variable to match the MOPs install path you chose in step 1 (the directory that contains "otls", "scripts", and so on). That's it! 
 
