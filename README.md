@@ -42,8 +42,6 @@ Download the desired release directly from the [releases page](https://github.co
 
 
 **Option 1: Plugin (17.5+ only)**
-Simply create a directory inside your Houdini preferences directory (where the houdini.env typically is) called "packages", and place the MOPS.json file from the MOPs download into that package directory. Your preferences directory on Windows is typically in `My Documents\houdiniXX.X`. In OS X it's in `~/Library/Preferences/Houdini/XX.X`. On Linux it's in `~/houdiniX.Y`.
-
 First, locate your Houdini configuration directory. This is where houdini.env typically is:
 
 * **Windows**: `My Documents\houdiniXX.Y`
