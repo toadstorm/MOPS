@@ -44,7 +44,15 @@ Download the desired release directly from the [releases page](https://github.co
 **Option 1: Plugin (17.5+ only)**
 Simply create a directory inside your Houdini preferences directory (where the houdini.env typically is) called "packages", and place the MOPS.json file from the MOPs download into that package directory. Your preferences directory on Windows is typically in `My Documents\houdiniXX.X`. In OS X it's in `~/Library/Preferences/Houdini/XX.X`. On Linux it's in `~/houdiniX.Y`.
 
-Then edit MOPS.json and change the `MOPS` variable to match the MOPs install path you chose in step 1 (the directory that contains "otls", "scripts", and so on). On Windows, make sure to use forward slashes (`/`) instead of backslashes (`\`) when separating paths. For example, if you extracted MOPs to `C:\VFX\MOPs`, you would change the value of the `MOPS` variable at the top of the package JSON to `"C:/VFX/MOPs"`. That's it! 
+First, locate your Houdini configuration directory. This is where houdini.env typically is:
+
+* **Windows**: `My Documents\houdiniXX.Y`
+* **Mac OS**: `~/Library/Preferences/Houdini/XX.Y`
+* **Linux**: `~/houdiniX.Y`
+
+Next, look for a directory in there called `packages`. If it doesn't exist, create it. Copy `MOPs.json` to the `packages` directory.
+
+Then edit MOPS.json and change the `MOPS` variable to match the MOPs install path you chose in step 1 (the directory that contains "otls", "scripts", and so on). On Windows, make sure to use forward slashes (`/`) instead of backslashes (`\`) when separating paths. For example, if you extracted MOPs to `C:\VFX\MOPs`, you would change the value of the `MOPS` variable at the top of the JSON to `"C:/VFX/MOPs"`. That's it! 
 
 To verify your install, open Houdini and drop down a Geometry container, then dive inside. If you see MOPs nodes in the Tab menu, the installation was successful. You can also check the "+" button next to the Shelf menu and look for a shelf called "MOPs" to verify your installation.
 
