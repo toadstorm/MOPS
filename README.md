@@ -12,51 +12,49 @@ MOPs is based on an internal framework of nodes that convert point attributes to
 * [**MOPs Wiki**](https://github.com/toadstorm/MOPS/wiki)
 * [MOPs Forum](https://forum.motionoperators.com)
 * [MOPs Discord](https://discord.gg/TSb3unn6uf)
-* [Motionoperators Twitter](https://twitter.com/motionoperators)
-* [Motionoperators Instagram](https://www.instagram.com/motionoperators)
-* [Facebook User's Group](https://www.facebook.com/groups/616993195326231)
+* [MOPs Bluesky](https://bsky.app/profile/motionoperators.bsky.social)
+* [MOPs Mastodon](https://mograph.social/@motionoperators)
+* [MOPs Twitter](https://twitter.com/motionoperators)
+* [MOPs Instagram](https://www.instagram.com/motionoperators)
 
 
-# Installation:
+### Installation:
 
-For detailed instructions and troubleshooting, see the [Installation](https://github.com/toadstorm/MOPS/wiki/Installation) page on the MOPs Wiki.
+**INSTALLATION PROCEDURE HAS BEEN SIMPLIFIED FROM PREVIOUS RELEASES. PLEASE READ CAREFULLY.**
 
 ## Step 1: Downloading MOPs
 
-You need to download MOPs from GitHub and then save them somewhere on a local drive or network share. It's important that you **do not** install MOPs directly into your `$HOME/houdiniXX.X` directory or into any other default Houdini installation directory, or else it may not properly be loaded when you start Houdini.
+You need to download MOPs from GitHub and then save them somewhere on a local drive or network share. You can install MOPs pretty much anywhere you like **except**:
 
-### Option 1 (users who are familiar with Git):
+* Do **NOT** install to $HOME/houdiniXX.X or $HOME/houdiniX.Y. These are your preferences directories! Only the JSON goes here!
+	
+* Do **NOT** install to your Houdini program directory! 
+	
+
+**Option 1 (users who are familiar with Git)**:
 Navigate to the folder you want to contain MOPs, and from BASH / Git BASH type:
 `git clone https://github.com/toadstorm/MOPS.git`
 
-### Option 2 (what's Git?):
+**Option 2 (what's Git?)**:
 Download the desired release directly from the [releases page](https://github.com/toadstorm/MOPS/releases) and extract it to your hard drive or network share.
 
 ## Step 2: Configuring your Environment
 
 
-### Option 1: Package
+**Option 1: Plugin (17.5+ only)**
+First, locate your Houdini configuration directory. This is where houdini.env typically is:
 
-This is by far the easiest method. First, locate your Houdini preferences directory:
-* **Windows**: %HOME%/houdiniXX.X/
-* **Mac OS**: ~/Preferences/Houdini/XX.X/
-* **Linux**: /home/<username>/houdini
+* **Windows**: `My Documents\houdiniXX.Y`
+* **Mac OS**: `~/Library/Preferences/Houdini/XX.Y`
+* **Linux**: `~/houdiniXX.Y`
 
-Next, look for a directory in your preferences directory called "packages". If it doesn't exist, create it. Then place the MOPS.json file from the MOPs download into that package folder. 
+Next, look for a directory in there called `packages`. If it doesn't exist, create it. Copy `MOPs.json` to the `packages` directory.
 
-Next, open the MOPS.json file in your package folder in a text editor. Change the "MOPS" variable's value to match the MOPs install path you chose in step 1 (the directory that contains "otls", "scripts", and so on). 
+Then edit MOPS.json and change the `MOPS` variable to match the MOPs install path you chose in step 1 (the directory that contains "otls", "scripts", and so on). On Windows, make sure to use forward slashes (`/`) instead of backslashes (`\`) when separating paths. For example, if you extracted MOPs to `C:\VFX\MOPs`, you would change the value of the `MOPS` variable at the top of the JSON to `"C:/VFX/MOPs"`. That's it! 
 
-For example, if you downloaded MOPs to /home/henry/MOPs, the line defining the MOPS environment variable should look like this:
+To verify your install, open Houdini and drop down a Geometry container, then dive inside. If you see MOPs nodes in the Tab menu, the installation was successful. You can also check the "+" button next to the Shelf menu and look for a shelf called "MOPs" to verify your installation.
 
-**"MOPS": "/home/henry/MOPS"**
-
-Remember that you must use **forward slashes** to describe paths, not backslashes. This includes Windows!
-
-
-### Option 2: Edit Houdini.env
-
-Only use this method if you cannot use packages for some reason! Packages are much simpler.
-
+**Option 2: Edit Houdini.env**
 You need to add the MOPS installation directory to your Houdini environment file. For more information about the Houdini environment file, see [this help link](https://www.sidefx.com/docs/houdini/basics/config_env.html#setting-environment-variables).
 Edit your houdini.env file and create a variable called MOPS that points to the new folder you just extracted MOPs to. The folder you point to should be the one that contains "otls", "scripts", and "toolbar":
 `MOPS="/path/to/MOPS"`
@@ -77,12 +75,13 @@ HOUDINI_PATH=$HOUDINI_PATH;$QLIB;$MOPS;&
 It's important that your HOUDINI_PATH always ends in ;&. You can append any other paths you like,
 but the last path should be `&`. This will ensure that Houdini's built-in operators work normally.
 
+
 ## Step 3: Test MOPs
 
-To verify your install, open Houdini and drop down a Geometry container, then dive inside. If you see MOPs nodes in the Tab menu, the installation was successful. You can also check the "+" button next to the Shelf menu and look for a shelf called "MOPs" to verify your installation.
+To ensure that the installation worked correctly, create a Geometry container and dive inside, then look for the "MOPs" entry in the Tab menu. Also look for a toolbar called "MOPS" in your shelf list. The MOPs Shelf contains some handy tools complete with their own documentation.
 
 
-# Usage basics:
+### Usage basics:
 
 The main types of nodes in MOPs are the Generators, Modifiers, and Falloff nodes. Generators like the MOPs Instancer create copies of objects. Modifiers transform or otherwise change the objects. Falloffs weight the effects of Modifiers.
 
@@ -93,7 +92,7 @@ Append a MOPs Transform Modifier to the MOPs Instancer. Try playing with the rot
 For more detailed examples, see the "examples" folder for HIP files.
 
 
-# Developers:
+### Developers:
 This section is in progress.
 
 MOPs is essentially a handy front-end for manipulating the transformations of Houdini packed primitives. The main node that handles these transformations is the MOPs Apply Attributes SOP. This SOP takes input packed primitives and a matching set of input points with typical instancing attributes, such as p@orient, v@scale, etc. and uses those attributes to modify the primitive intrinsics of the packed primitives in predictable ways. The MOPs Extract Attributes SOP can operate in the other direction, taking the primitive intrinsics and generating instancing point attributes from them. The Falloff nodes create a point attribute called @mops_falloff on the points, which MOPs Apply Attributes will use to weight the applied effects.
@@ -106,5 +105,5 @@ Reserved point attributes include:
 
 MOPs is developed and maintained by Henry Foster. Additional contributions by Moritz Schwind, Adam Swaab, Jake Rice, Ian Farnsworth, Kevin Weber, Matt Tillman, and Luca Scheller. 
 
-# Notice:
+### Notice:
 This software is provided AS-IS, with absolutely no warranty of any kind, express or otherwise. We disclaim any liability for damages resulting from using this software.
