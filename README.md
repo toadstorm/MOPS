@@ -12,9 +12,10 @@ MOPs is based on an internal framework of nodes that convert point attributes to
 * [**MOPs Wiki**](https://github.com/toadstorm/MOPS/wiki)
 * [MOPs Forum](https://forum.motionoperators.com)
 * [MOPs Discord](https://discord.gg/TSb3unn6uf)
-* [Motionoperators Twitter](https://twitter.com/motionoperators)
-* [Motionoperators Instagram](https://www.instagram.com/motionoperators)
-* [Facebook User's Group](https://www.facebook.com/groups/616993195326231)
+* [MOPs Bluesky](https://bsky.app/profile/motionoperators.bsky.social)
+* [MOPs Mastodon](https://mograph.social/@motionoperators)
+* [MOPs Twitter](https://twitter.com/motionoperators)
+* [MOPs Instagram](https://www.instagram.com/motionoperators)
 
 
 ### Installation:
@@ -23,7 +24,12 @@ MOPs is based on an internal framework of nodes that convert point attributes to
 
 ## Step 1: Downloading MOPs
 
-You need to download MOPs from GitHub and then save them somewhere on a local drive or network share. It's important that you **do not** install MOPs directly into your `$HOME/houdiniXX.X` directory, or else it may not properly be loaded when you start Houdini.
+You need to download MOPs from GitHub and then save them somewhere on a local drive or network share. You can install MOPs pretty much anywhere you like **except**:
+
+* Do **NOT** install to $HOME/houdiniXX.X or $HOME/houdiniX.Y. These are your preferences directories! Only the JSON goes here!
+	
+* Do **NOT** install to your Houdini program directory! 
+	
 
 **Option 1 (users who are familiar with Git)**:
 Navigate to the folder you want to contain MOPs, and from BASH / Git BASH type:
@@ -34,13 +40,17 @@ Download the desired release directly from the [releases page](https://github.co
 
 ## Step 2: Configuring your Environment
 
-**Important**: Houdini 18.5 builds after 18.5.351 have an error that prevents packages from loading properly. If you are using Houdini 18.5, you must either download build 18.5.415 or later, or use the Houdini.env installation method.
 
 **Option 1: Plugin (17.5+ only)**
-For those of you running Houdini 17.5 or later, you have an option for a much easier install. 
-Simply create a folder inside your Houdini preferences directory (where the houdini.env typically is) called "packages", and place the MOPS.json file from the MOPs download into that package folder. Your preferences directory on Windows is typically in `My Documents\houdiniXX.X`. In OS X it's in `~Library/Preferences/Houdini`.
+First, locate your Houdini configuration directory. This is where houdini.env typically is:
 
-Then edit MOPS.json and change the "MOPS" variable to match the MOPs install path you chose in step 1 (the directory that contains "otls", "scripts", and so on). That's it! 
+* **Windows**: `My Documents\houdiniXX.Y`
+* **Mac OS**: `~/Library/Preferences/Houdini/XX.Y`
+* **Linux**: `~/houdiniX.Y`
+
+Next, look for a directory in there called `packages`. If it doesn't exist, create it. Copy `MOPs.json` to the `packages` directory.
+
+Then edit MOPS.json and change the `MOPS` variable to match the MOPs install path you chose in step 1 (the directory that contains "otls", "scripts", and so on). On Windows, make sure to use forward slashes (`/`) instead of backslashes (`\`) when separating paths. For example, if you extracted MOPs to `C:\VFX\MOPs`, you would change the value of the `MOPS` variable at the top of the JSON to `"C:/VFX/MOPs"`. That's it! 
 
 To verify your install, open Houdini and drop down a Geometry container, then dive inside. If you see MOPs nodes in the Tab menu, the installation was successful. You can also check the "+" button next to the Shelf menu and look for a shelf called "MOPs" to verify your installation.
 
