@@ -46,7 +46,7 @@ First, locate your Houdini configuration directory. This is where houdini.env ty
 
 * **Windows**: `My Documents\houdiniXX.Y`
 * **Mac OS**: `~/Library/Preferences/Houdini/XX.Y`
-* **Linux**: `~/houdiniX.Y`
+* **Linux**: `~/houdiniXX.Y`
 
 Next, look for a directory in there called `packages`. If it doesn't exist, create it. Copy `MOPs.json` to the `packages` directory.
 
