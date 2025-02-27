@@ -12,7 +12,7 @@ MOPs is based on an internal framework of nodes that convert point attributes to
 * [**MOPs Wiki**](https://github.com/toadstorm/MOPS/wiki)
 * [MOPs Forum](https://forum.motionoperators.com)
 * [MOPs Discord](https://discord.gg/TSb3unn6uf)
-* [MOPs Bluesky](https://bsky.app/profile/motionoperators.bsky.social)
+* [MOPs Bluesky](https://bsky.app/profile/motionoperators.com)
 * [MOPs Mastodon](https://mograph.social/@motionoperators)
 * [MOPs Twitter](https://twitter.com/motionoperators)
 * [MOPs Instagram](https://www.instagram.com/motionoperators)
