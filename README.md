@@ -28,11 +28,13 @@ You need to download MOPs from GitHub and then save them somewhere on a local dr
 
 * Do **NOT** install to $HOME/houdiniXX.X or $HOME/houdiniX.Y. These are your preferences directories! Only the JSON goes here!
 	
-* Do **NOT** install to your Houdini program directory! 
+* Do **NOT** install to your Houdini program directory!
+
+This directory is your **MOPs installation directory**. For the purposes of this tutorial, we'll use the path `C:\VFX\MOPS` as the example.
 	
 
 **Option 1 (users who are familiar with Git)**:
-Navigate to the folder you want to contain MOPs, and from BASH / Git BASH type:
+Navigate to the folder you want to contain MOPs (C:\VFX), and from BASH / Git BASH type:
 `git clone https://github.com/toadstorm/MOPS.git`
 
 **Option 2 (what's Git?)**:
@@ -40,45 +42,42 @@ Download the desired release directly from the [releases page](https://github.co
 
 ## Step 2: Configuring your Environment
 
-
-**Option 1: Plugin (17.5+ only)**
-First, locate your Houdini configuration directory. This is where houdini.env typically is:
+First, locate your **Houdini configuration directory** ($HSITE). This is where houdini.env typically is:
 
 * **Windows**: `My Documents\houdiniXX.Y`
 * **Mac OS**: `~/Library/Preferences/Houdini/XX.Y`
 * **Linux**: `~/houdiniXX.Y`
 
-Next, look for a directory in there called `packages`. If it doesn't exist, create it. Copy `MOPs.json` to the `packages` directory.
+Next, look for a directory in there called `packages`. If it doesn't exist, create it. Copy `MOPs.json` from the MOPs installation directory to the `packages` directory, e.g. `My Documents\houdini20.5\packages\MOPS.json`.
 
-Then edit MOPS.json and change the `MOPS` variable to match the MOPs install path you chose in step 1 (the directory that contains "otls", "scripts", and so on). On Windows, make sure to use forward slashes (`/`) instead of backslashes (`\`) when separating paths. For example, if you extracted MOPs to `C:\VFX\MOPs`, you would change the value of the `MOPS` variable at the top of the JSON to `"C:/VFX/MOPs"`. That's it! 
-
-To verify your install, open Houdini and drop down a Geometry container, then dive inside. If you see MOPs nodes in the Tab menu, the installation was successful. You can also check the "+" button next to the Shelf menu and look for a shelf called "MOPs" to verify your installation.
-
-**Option 2: Edit Houdini.env**
-You need to add the MOPS installation directory to your Houdini environment file. For more information about the Houdini environment file, see [this help link](https://www.sidefx.com/docs/houdini/basics/config_env.html#setting-environment-variables).
-Edit your houdini.env file and create a variable called MOPS that points to the new folder you just extracted MOPs to. The folder you point to should be the one that contains "otls", "scripts", and "toolbar":
-`MOPS="/path/to/MOPS"`
-
-Finally, add `$MOPS` to your HOUDINI_PATH:
-`HOUDINI_PATH=$HOUDINI_PATH;$MOPS;&`
-
-If you already have a HOUDINI_PATH defined, you can simply append $MOPS to that existing HOUDINI_PATH. For example, if you're using both MOPs and QLib:
+Now open `MOPs.json` in a text editor. On line 4, you'll see a variable called "MOPS" followed by a file path in quotes. Change the file path to the **MOPs installation directory** (e.g. `C:/VFX/MOPs`). If you're using Windows, make sure that you are using *forward slashes* and not *backslashes* in the path. The path should remain in quotes. For example:
 
 ```
-MOPS="/path/to/MOPS"
-QLIB="/path/to/qlib"
-HOUDINI_PATH=$HOUDINI_PATH;$QLIB;$MOPS;&
+{
+   "env": [
+      {
+         "MOPS": "C:/VFX/MOPS"
+      }
+   ],
+   "hpath": [
+      "$MOPS"
+   ]
+}
 ```
 
-*Note:* On Linux and OSX, use `:` instead of `;` to separate your paths. 
-
-It's important that your HOUDINI_PATH always ends in ;&. You can append any other paths you like,
-but the last path should be `&`. This will ensure that Houdini's built-in operators work normally.
-
+Save the file.
 
 ## Step 3: Test MOPs
 
 To ensure that the installation worked correctly, create a Geometry container and dive inside, then look for the "MOPs" entry in the Tab menu. Also look for a toolbar called "MOPS" in your shelf list. The MOPs Shelf contains some handy tools complete with their own documentation.
+
+## Step 4: Troubleshooting
+
+If you don't see MOPs nodes, there are a few things to check right away.
+
+1. **Are you in a Geometry container?** All MOPs nodes are SOPs, which means you won't see MOPs nodes unless you are inside a Geometry container.
+2. **Did you check your MOPs install path**? Make sure that line 4 of MOPs.json is pointing to the **MOPs installation directory** (e.g. `C:/VFX/MOPS`). This directory should contain this `README.md` file.
+3. **Do you have a Houdini.env?** If you already have a Houdini.env file in your Houdini configuration directory (specified in Step 2 above), it could be misconfigured. Try renaming it and restarting Houdini. If MOPs works, your environment is misconfigured. Open Houdini.env in a text editor and look for any lines that are defining HOUDINI_PATH. If you see any, ensure that every line defining HOUDINI_PATH includes $HOUDINI_PATH as one of the paths in the variable. Ensure that the last path defined is always the `&` character. For example, `HOUDINI_PATH=$HOUDINI_PATH;$QLIB;/path/to/my_tools/;&`. Use the semicolon to separate paths on Windows. Use the colon to separate paths on Mac OS or Linux.
 
 
 ### Usage basics:
