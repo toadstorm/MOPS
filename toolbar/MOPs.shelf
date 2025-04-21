@@ -15,6 +15,7 @@
     <memberTool name="mops_donate"/>
     <memberTool name="mops_feedback"/>
     <memberTool name="mops_bake_camera"/>
+    <memberTool name="get_hardware_id"/>
   </toolshelf>
 
   <tool name="MOPS_convert_point_instances" label="MOPs to Point Instances" icon="opdef:MOPS::Sop/Instancer::1.1?mops_instancing.svg">
@@ -360,5 +361,45 @@ selection = scene_viewer.selectObjects(prompt)
 if selection:
     cam = selection[0]
     mops_tools.bake_camera(cam)]]></script>
+  </tool>
+
+  <tool name="get_hardware_id" label="Get Hardware ID" icon="PLASMA_App">
+    <script scriptType="python"><![CDATA[import platform
+import subprocess
+import os
+import hou
+
+def get_machine_id():
+    if platform.system() == "Windows":
+        try:
+            import _winreg
+        except ImportError:
+            import winreg as _winreg
+        registry = _winreg.HKEY_LOCAL_MACHINE
+        address = 'SOFTWARE\\Microsoft\\Cryptography'
+        keyargs = _winreg.KEY_READ | _winreg.KEY_WOW64_64KEY
+        key = _winreg.OpenKey(registry, address, 0, keyargs)
+        value = _winreg.QueryValueEx(key, 'MachineGuid')
+        _winreg.CloseKey(key)
+        unique = value[0]
+        return unique
+    elif platform.system() == "Linux":
+        p = subprocess.Popen(['cat', '/var/lib/dbus/machine-id'], stdout=subprocess.PIPE)
+        out, err = p.communicate()
+        machine_id = out
+        return machine_id
+    elif platform.system() == "Darwin":
+        import re
+        p = subprocess.Popen(['ifconfig', '-m', 'en0'], stdout=subprocess.PIPE)
+        out, err = p.communicate()
+        if sys.version_info[0] > 2:
+            out = out.decode("utf-8", "ignore")
+        eth = re.search(r"\w\w:\w\w:\w\w:\w\w:\w\w:\w\w", out)
+        eth_str = eth.group(0)
+        return eth_str
+        
+id = get_machine_id()
+# hou.ui.displayMessage("Your hardware ID is: \n{}".format(id))
+hou.ui.readInput("Your hardware ID is:", initial_contents=id)]]></script>
   </tool>
 </shelfDocument>
