@@ -7,7 +7,7 @@ import traceback
 import subprocess
 import shutil
 import platform
-from PySide2 import QtCore, QtWebEngineWidgets, QtWidgets
+# from PySide2 import QtCore, QtWebEngineWidgets, QtWidgets
 
 import toolutils
 
