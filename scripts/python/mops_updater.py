@@ -15,7 +15,7 @@ import distutils.dir_util
 import hou
 import shutil
 import traceback
-from PySide2 import QtWidgets
+from hutil.Qt import QtWidgets
 
 import mops_tools
 
