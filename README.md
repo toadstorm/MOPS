@@ -11,7 +11,7 @@ MOPs is based on an internal framework of nodes that convert point attributes to
 
 [MOPs Plus](https://motionoperators.com/info/mopsplus/) is a paid add-on to MOPs that adds new tools for typography, guided simulations, cameras, and more. 
 
-### LINKS
+## LINKS
 * [**MOPs Wiki**](https://github.com/toadstorm/MOPS/wiki)
 * [**MOPs Discord**](https://discord.gg/TSb3unn6uf)
 * [**MOPs Bluesky**](https://bsky.app/profile/motionoperators.com)
@@ -19,11 +19,11 @@ MOPs is based on an internal framework of nodes that convert point attributes to
 * [**MOPs YouTube**](https://www.youtube.com/@motionoperators)
 
 
-### INSTALLATION
+## INSTALLATION
 
 **INSTALLATION PROCEDURE HAS BEEN SIMPLIFIED FROM PREVIOUS RELEASES. PLEASE READ CAREFULLY.**
 
-## Step 1: Downloading MOPs
+### Step 1: Downloading MOPs
 
 You need to download MOPs from GitHub and then save them somewhere on a local drive or network share. You can install MOPs pretty much anywhere you like **except**:
 
@@ -41,7 +41,7 @@ Navigate to the folder you want to contain MOPs (C:\VFX), and from BASH / Git BA
 **Option 2 (what's Git?)**:
 Download the desired release directly from the [releases page](https://github.com/toadstorm/MOPS/releases) and extract it to your hard drive or network share.
 
-## Step 2: Configuring your Environment
+### Step 2: Configuring your Environment
 
 First, locate your **Houdini configuration directory** ($HSITE). This is where houdini.env typically is:
 
@@ -68,11 +68,11 @@ Now open `MOPs.json` in a text editor. On line 4, you'll see a variable called "
 
 Save the file.
 
-## Step 3: Test MOPs
+### Step 3: Test MOPs
 
 To ensure that the installation worked correctly, create a Geometry container and dive inside, then look for the "MOPs" entry in the Tab menu. Also look for a toolbar called "MOPS" in your shelf list. The MOPs Shelf contains some handy tools complete with their own documentation.
 
-## Step 4: Troubleshooting
+### Step 4: Troubleshooting
 
 If you don't see MOPs nodes, there are a few things to check right away.
 
@@ -80,7 +80,7 @@ If you don't see MOPs nodes, there are a few things to check right away.
 2. **Did you check your MOPs install path**? Make sure that line 4 of MOPs.json is pointing to the **MOPs installation directory** (e.g. `C:/VFX/MOPS`). This directory should contain this `README.md` file.
 3. **Do you have a Houdini.env?** If you already have a Houdini.env file in your Houdini configuration directory (specified in Step 2 above), it could be misconfigured. Try renaming it and restarting Houdini. If MOPs works, your environment is misconfigured. Open Houdini.env in a text editor and look for any lines that are defining HOUDINI_PATH. If you see any, ensure that every line defining HOUDINI_PATH includes $HOUDINI_PATH as one of the paths in the variable. Ensure that the last path defined is always the `&` character. For example, `HOUDINI_PATH=$HOUDINI_PATH;$QLIB;/path/to/my_tools/;&`. Use the semicolon to separate paths on Windows. Use the colon to separate paths on Mac OS or Linux.
 
-### LEARNING MOPS
+## LEARNING MOPS
 
 The [MOPs Wiki](https://github.com/toadstorm/MOPS/wiki) here on GitHub has a quick reference list of every MOPs and MOPs Plus node as well as some basic information on how to get started with MOPs. If you prefer written tutorials over videos this is the best place to start.
 
@@ -96,7 +96,7 @@ There is also a [MOPs YouTube channel](https://www.youtube.com/@motionoperators)
 There is an active [MOPs Discord server](https://discord.gg/TSb3unn6uf) with both novice and expert users of MOPs participating. This is often the best place to get quick help when trying to learn or troubleshoot MOPs.
 
 
-### DEVELOPERS:
+## DEVELOPERS:
 
 MOPs is essentially a handy front-end for manipulating the transformations of Houdini points and packed primitives. The main node that handles these transformations is the MOPs Apply Attributes SOP. This SOP takes input packed primitives and a matching set of input points with typical instancing attributes, such as p@orient, v@scale, etc. and uses those attributes to modify the primitive intrinsics of the packed primitives in predictable ways. The MOPs Extract Attributes SOP can operate in the other direction, taking the primitive intrinsics and generating instancing point attributes from them. The Falloff nodes create a point attribute called @mops_falloff on the points, which MOPs Apply Attributes will use to weight the applied effects.
 
