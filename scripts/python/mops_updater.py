@@ -11,7 +11,7 @@ import ssl
 import os
 import platform
 import zipfile
-import distutils.dir_util
+# import distutils.dir_util
 import hou
 import shutil
 import traceback
@@ -170,7 +170,8 @@ def extract_update(zip_file):
                         print("unable to remove old HDA file: {}".format(otl))
                         print(traceback.format_exc())
 
-    distutils.dir_util.copy_tree(actual_path, install_path)
+    # distutils.dir_util.copy_tree(actual_path, install_path)
+    shutil.copytree(actual_path, install_path, dirs_exist_ok=True)
     return install_path
     
 
