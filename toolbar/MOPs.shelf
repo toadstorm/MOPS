@@ -12,7 +12,6 @@
     <memberTool name="collapse_hdas"/>
     <memberTool name="expand_hdas"/>
     <memberTool name="wiki"/>
-    <memberTool name="mops_donate"/>
     <memberTool name="mops_feedback"/>
     <memberTool name="mops_bake_camera"/>
     <memberTool name="get_hardware_id"/>
@@ -315,20 +314,6 @@ each HDA's Help section. Use it as a reference when looking for a specific effec
 This button opens the default web browser and points it to the wiki homepage.]]></helpText>
     <script scriptType="python"><![CDATA[import webbrowser
 url = 'https://github.com/toadstorm/MOPS/wiki'
-webbrowser.open(url)]]></script>
-  </tool>
-
-  <tool name="mops_donate" label="Donate" icon="opdef:MOPS::Sop/Instancer::1.1?mops_donate.svg">
-    <helpText><![CDATA[= Donate to MOPs = 
-
-""" Open the default browser to the MOPs donation page. """
-
-The core MOPs tools are and will always be free and open source. While we may eventually release paid add-ons
-to MOPs, they will only exist as a complement to the core tools, not a replacement.
-
-Please consider donating to our cause, because we don't get paid to do this and we need to pay for our hosting!]]></helpText>
-    <script scriptType="python"><![CDATA[import webbrowser
-url = 'https://www.paypal.com/donate/?hosted_button_id=N8GYTQF7FXSJW'
 webbrowser.open(url)]]></script>
   </tool>
 
